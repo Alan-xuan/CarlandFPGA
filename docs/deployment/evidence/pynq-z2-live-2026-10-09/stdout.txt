@@ -1,0 +1,1 @@
+CARLANDFPGA_BOARD_PROBE={"base_bit_present": true, "base_hwh_present": true, "hostname": "pynq", "kernel": "5.15.19-xilinx-v2022.1", "machine": "armv7l", "pynq_package": "/usr/local/share/pynq-venv/lib/python3.10/site-packages/pynq/__init__.py", "pynq_version": "3.0.1", "python": "3.10.4"}

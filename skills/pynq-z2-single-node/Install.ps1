@@ -13,7 +13,9 @@ if ($source -eq $target) {
     exit 0
 }
 New-Item -ItemType Directory -Path $skillsRoot -Force | Out-Null
-$files = @(Get-ChildItem -LiteralPath $source -File -Recurse)
+$files = @(Get-ChildItem -LiteralPath $source -File -Recurse | Where-Object {
+    $_.Extension -ne '.pyc' -and $_.FullName -notmatch '[\\/]__pycache__[\\/]'
+})
 if (-not ($files | Where-Object { $_.FullName -eq (Join-Path $source 'SKILL.md') })) {
     throw 'Source skill is incomplete: SKILL.md is missing.'
 }
@@ -40,10 +42,12 @@ if ($same) {
 $suffix = [guid]::NewGuid().ToString('N').Substring(0, 8)
 $staging = Join-Path $skillsRoot (".pynq-z2-single-node.new-$suffix")
 $backup = Join-Path $skillsRoot ("pynq-z2-single-node.backup-$suffix")
-Copy-Item -LiteralPath $source -Destination $staging -Recurse -Force
+New-Item -ItemType Directory -Path $staging -Force | Out-Null
 foreach ($file in $files) {
     $relative = $file.FullName.Substring($source.Length + 1)
     $copy = Join-Path $staging $relative
+    New-Item -ItemType Directory -Path (Split-Path -Parent $copy) -Force | Out-Null
+    Copy-Item -LiteralPath $file.FullName -Destination $copy -Force
     if (-not (Test-Path -LiteralPath $copy -PathType Leaf) -or
         (Get-FileHash -LiteralPath $copy -Algorithm SHA256).Hash -ne
         (Get-FileHash -LiteralPath $file.FullName -Algorithm SHA256).Hash) {

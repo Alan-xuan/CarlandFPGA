@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "serial_port": "COM8",
+  "board_ipv6": "fe80::200:5ff:fe6b:1f5",
+  "host_ifindex": 8,
+  "script": "C:\\Users\\CarlJade\\Documents\\ChatGPT\\FPGA多机协作开发\\skills\\pynq-z2-single-node\\scripts\\board_probe.py",
+  "remote_script": "/tmp/carlandfpga-board-run/board_probe.py",
+  "script_sha256": "06aa181e2753ebb2d9f4e5fdb30d80c09abc0e73c8fa126f13772b51486afaad",
+  "interpreter": "/usr/local/share/pynq-venv/bin/python3",
+  "timestamp_utc": "2026-10-09T12:02:31.647937+00:00",
+  "exit_code": 0,
+  "timed_out": false,
+  "elapsed_seconds": 10.921,
+  "stdout_log": "stdout.log",
+  "stderr_log": "stderr.log"
+}

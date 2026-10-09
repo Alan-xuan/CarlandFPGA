@@ -12,7 +12,12 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 
-_KEY_PATTERN = re.compile(rb"sk-[A-Za-z0-9_-]{24,}")
+_KEY_PATTERN = re.compile(
+    rb"sk-[A-Za-z0-9_-]{24,}|-----BEGIN (?:OPENSSH |RSA |EC |DSA |ENCRYPTED )?PRIVATE KEY-----|"
+    rb"-----BEGIN PGP PRIVATE KEY BLOCK-----"
+)
+_PRIVATE_FILENAMES = {"auth.json", "deepcodex.txt", "id_ed25519", "id_rsa", "id_ecdsa", "id_dsa"}
+_PRIVATE_SUFFIXES = ("-secret.txt", ".p12", ".pfx", ".pem", ".key", ".lic")
 
 
 def select_package_paths(paths: list[str], profile: str) -> list[str]:
@@ -24,7 +29,8 @@ def select_package_paths(paths: list[str], profile: str) -> list[str]:
             path.startswith("skills/pynq-z2-single-node/")
             or path.startswith("docs/deployment/SINGLE_NODE_")
             or path.startswith("docs/deployment/HOST_TOOLCHAIN_")
-            or path == "tests/test_pynq_z2_single_node.py"
+            or path.startswith("docs/deployment/evidence/pynq-z2-")
+            or path.startswith("tests/test_pynq_z2_")
         )]
     raise ValueError(f"unknown package profile: {profile}")
 
@@ -46,8 +52,8 @@ def build_archive(
         normalized = relative.as_posix()
         lowered = [part.casefold() for part in relative.parts]
         if ({".git", ".local", "__pycache__"} & set(lowered)
-                or relative.name.casefold() in {"auth.json", "deepcodex.txt"}
-                or relative.name.casefold().endswith("-secret.txt")):
+                or relative.name.casefold() in _PRIVATE_FILENAMES
+                or relative.name.casefold().endswith(_PRIVATE_SUFFIXES)):
             raise ValueError(f"private path cannot enter package: {raw}")
         if not resolved.is_file():
             raise FileNotFoundError(resolved)

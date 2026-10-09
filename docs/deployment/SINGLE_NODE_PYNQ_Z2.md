@@ -40,4 +40,12 @@ B/C 可以独立开发和仿真，通过现有 fpga_peer_send 通道把提交号
 
 本机可验证技能结构、脚本行为、ModelSim 可用性及与三机 HardwareRequest 的数据兼容。若 Vivado 不在本机、开发板未接入，综合实现与板测须在具备工具/硬件的机器上用真实记录补验。本技能不假定最终随钻测井实现方案。
 
+2026-10-09 已接入板卡并完成真实串口、SSH、上传及板上 Python 回传烟测。运行入口为 `skills/pynq-z2-single-node/scripts/board_run.py`；无参数时自动选择唯一的 FTDI 串口和可达网卡，上传 `board_probe.py`，比对 SHA-256 并保存原始 stdout/stderr 与退出码。主机运行示例：
+
+```powershell
+& D:\PynqZ2\host-venv\Scripts\python.exe skills\pynq-z2-single-node\scripts\board_run.py --output-dir artifacts\pynq-z2-single-node\live
+```
+
+首次使用要求串口已登录到板卡 shell；脚本在用户 `.ssh` 下建立并固定 SSH 密钥，不将私钥放进项目 ZIP。板卡本次实际镜像为 PYNQ 3.0.1，包在 `/usr/local/share/pynq-venv`；系统 `python3` 找不到 `pynq`，脚本会选择正确的虚拟环境。原始板测证据与本次问题详见 [SINGLE_NODE_BOARD_LIVE_2026-10-09.md](SINGLE_NODE_BOARD_LIVE_2026-10-09.md)。这一步验证连接与板端运行，不代表自定义 RTL、Overlay 或随钻测井链路已经上板通过。
+
 参考：[AMD PYNQ-Z2](https://www.amd.com/en/corporate/university-program/aup-boards/pynq-z2.html)、[XilinxBoardStore](https://github.com/Xilinx/XilinxBoardStore/tree/master/boards/TUL/pynq-z2/A.0)、[PYNQ 3.1.1 XDC](https://github.com/Xilinx/PYNQ/blob/3.1.1/boards/Pynq-Z2/base/vivado/constraints/base.xdc)、[PYNQ Overlay](https://pynq.readthedocs.io/en/latest/pynq_libraries/overlay.html)、[AMD Vivado MCP](https://www.amd.com/en/support/downloads/ross-agentic-ai.html)、[公众号参考文章](https://mp.weixin.qq.com/s/0UOMTskrAL640sUBV0A01Q)。

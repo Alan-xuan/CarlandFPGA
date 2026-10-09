@@ -15,8 +15,10 @@ class DistributionTests(unittest.TestCase):
             "docs/deployment/OPERATIONS.md",
             "docs/deployment/SINGLE_NODE_PYNQ_Z2.md",
             "docs/deployment/HOST_TOOLCHAIN_2026-10-08.md",
+            "docs/deployment/evidence/pynq-z2-live-2026-10-09/result.json",
             "skills/pynq-z2-single-node/SKILL.md",
             "skills/pynq-z2-single-node/scripts/preflight.py",
+            "tests/test_pynq_z2_board_run.py",
         ]
         self.assertEqual(select_package_paths(tracked, "mesh"), [
             "README.md", "deploy/Join-FPGAMesh.ps1",
@@ -60,3 +62,12 @@ class DistributionTests(unittest.TestCase):
             (root / "key.txt").write_text("sk-" + "a" * 40, encoding="utf-8")
             with self.assertRaises(ValueError):
                 build_archive(root, ["key.txt"], root / "bad.zip")
+            (root / "ssh-private.txt").write_text(
+                "-----BEGIN " + "OPENSSH PRIVATE KEY-----\nprivate material\n"
+                "-----END " + "OPENSSH PRIVATE KEY-----\n", encoding="ascii"
+            )
+            with self.assertRaisesRegex(ValueError, "key|private"):
+                build_archive(root, ["ssh-private.txt"], root / "bad.zip")
+            (root / "id_ed25519").write_text("opaque private bytes", encoding="ascii")
+            with self.assertRaisesRegex(ValueError, "private"):
+                build_archive(root, ["id_ed25519"], root / "bad.zip")

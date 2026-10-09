@@ -15,6 +15,12 @@ description: Use when developing or verifying an FPGA design for the AMD PYNQ-Z2
 4. 用现有 Vivado Tcl/命令行或 GUI 复现综合、实现和 bitstream；记录实际约束、工具版本、LUT/FF/BRAM/DSP、未约束路径、DRC 与实现后时序报告，含适用的复位 recovery/removal 检查。指标由本轮批准的设计目标给出，不能只用综合估计声称时序收敛。若系统使用 PYNQ Overlay，保留同一次构建的 `.bit` 与 `.hwh`。
 5. 有实板和必需外围条件时，在板上加载、执行并保存版本、串口/程序日志、测量数据及异常恢复结果。没有工具、镜像、外围器件或板卡时，分别记 `blocked` 或 `not_run`，不写成板测通过。
 
+## 实板自动上传与回传
+
+板卡已通过 USB 串口登录且直连以太网可用时，运行 `python <skill-dir>/scripts/board_run.py`。首次运行需要主机 Python 安装 `pyserial`、Windows OpenSSH，并保持板卡串口处于已登录的 shell；脚本自动找 PYNQ FTDI 串口、通过串口读取并固定 SSH 主机公钥、给当前板卡用户安装本机专用 SSH 公钥，通过 IPv6 本地链路上传 `board_probe.py`，对比两端 SHA-256，使用板上 PYNQ 虚拟环境执行，并保存 stdout、stderr、退出码和连接元数据。私钥留在当前用户的 `.ssh`，不可打入 Git 或分发包。执行自己的 Python 文件时传 `--script <文件>`；日志目录可用 `--output-dir <目录>` 指定。串口不在已登录 shell、没有直连网络或主机密钥不匹配时，按脚本错误定位，不能把传输失败写成板测通过。已引导的板卡可用 `--host <IPv6本地地址> --ifindex <网卡编号>` 跳过串口。
+
+上传/解释器烟测只证明传输与板上 Python 运行。自定义 FPGA 设计仍须按上面的阶段单独构建、加载同次生成的 `.bit/.hwh`，再验证目标接口与实测指标。
+
 ## 工具与协作
 
 本地已可用的仿真器与 Vivado Tcl 是默认执行通道；发现并验证 AMD 官方 Vivado MCP 后可选用，仍以真实工具输出为证据。公众号的 Codex + DeepSeek + Vivado MCP 组合是可参考的协作形式，不要求特定模型、全局权限设置或 MCP 才能运行本技能。
