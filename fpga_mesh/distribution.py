@@ -7,6 +7,7 @@ import hashlib
 import json
 import re
 import subprocess
+import tempfile
 import zipfile
 from datetime import datetime, timezone
 from pathlib import Path
@@ -18,6 +19,17 @@ _KEY_PATTERN = re.compile(
 )
 _PRIVATE_FILENAMES = {"auth.json", "deepcodex.txt", "id_ed25519", "id_rsa", "id_ecdsa", "id_dsa"}
 _PRIVATE_SUFFIXES = ("-secret.txt", ".p12", ".pfx", ".pem", ".key", ".lic")
+_CLIENT_DEST = "skills/pynq-z2-single-node/"
+_CLIENT_SOURCES = {
+    "INSTALL.md": "packaging/pynq-client/INSTALL.md",
+    "Install.ps1": "skills/pynq-z2-single-node/Install.ps1",
+    "SKILL.md": "packaging/pynq-client/SKILL.md",
+    "references/handoff.md": "packaging/pynq-client/references/handoff.md",
+    "references/pynq-z2.md": "skills/pynq-z2-single-node/references/pynq-z2.md",
+    "references/telemetry-option.md": "skills/pynq-z2-single-node/references/telemetry-option.md",
+    "scripts/handoff.py": "skills/pynq-z2-single-node/scripts/handoff.py",
+    "scripts/preflight.py": "skills/pynq-z2-single-node/scripts/preflight.py",
+}
 
 
 def select_package_paths(paths: list[str], profile: str) -> list[str]:
@@ -30,6 +42,8 @@ def select_package_paths(paths: list[str], profile: str) -> list[str]:
             or path.startswith("docs/deployment/SINGLE_NODE_")
             or path.startswith("docs/deployment/HOST_TOOLCHAIN_")
             or path.startswith("docs/deployment/evidence/pynq-z2-")
+            or path.startswith("packaging/pynq-client/")
+            or path == "tests/test_pynq_client_distribution.py"
             or path.startswith("tests/test_pynq_z2_")
         )]
     raise ValueError(f"unknown package profile: {profile}")
@@ -88,10 +102,42 @@ def build_archive(
     return output
 
 
+def build_client_archive(
+    root: Path, node: str, output: Path, *, revision: str = "uncommitted",
+) -> Path:
+    """Derive a board-free B/C skill from repository files without editing A's skill."""
+    if node not in {"B", "C"}:
+        raise ValueError("client node must be B or C")
+    root = Path(root).resolve()
+    output = Path(output).resolve()
+    with tempfile.TemporaryDirectory(prefix="pynq-client-") as temporary:
+        staging = Path(temporary)
+        for destination, source in _CLIENT_SOURCES.items():
+            payload = (root / source).read_bytes()
+            if source.startswith("packaging/pynq-client/"):
+                if destination == "SKILL.md" and b"@NODE@" not in payload:
+                    raise ValueError("client skill template has no node marker")
+                payload = (payload.replace(b"@NODE@", node.encode("ascii"))
+                          .replace(b"@NODE_LOWER@", node.lower().encode("ascii")))
+            target = staging / _CLIENT_DEST / destination
+            target.parent.mkdir(parents=True, exist_ok=True)
+            target.write_bytes(payload)
+        role = {"node": node, "board_access": False,
+                "handoff": "github_pull_request"}
+        role_path = staging / _CLIENT_DEST / "client-role.json"
+        role_path.write_text(json.dumps(role, indent=2) + "\n", encoding="utf-8")
+        paths = [(_CLIENT_DEST + relative) for relative in _CLIENT_SOURCES]
+        paths.append(_CLIENT_DEST + "client-role.json")
+        return build_archive(
+            staging, paths, output, revision=revision,
+            profile=f"pynq-client-{node.lower()}",
+        )
+
+
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--output", type=Path, required=True)
-    parser.add_argument("--profile", choices=("mesh", "pynq-skill"), default="mesh")
+    parser.add_argument("--profile", choices=("mesh", "pynq-skill", "pynq-client-b", "pynq-client-c"), default="mesh")
     args = parser.parse_args()
     root = Path(__file__).resolve().parent.parent
     dirty = subprocess.run(
@@ -108,14 +154,21 @@ def main() -> None:
         ["git", "rev-parse", "HEAD"], cwd=root,
         capture_output=True, text=True, check=True,
     ).stdout.strip()
-    paths = select_package_paths(
-        [name for name in listed.split("\0") if name], args.profile,
-    )
-    path = build_archive(root, paths, args.output, revision=revision,
-                         profile=args.profile)
+    if args.profile.startswith("pynq-client-"):
+        path = build_client_archive(root, args.profile[-1].upper(),
+                                    args.output, revision=revision)
+        with zipfile.ZipFile(path) as archive:
+            file_count = len(archive.namelist()) - 1
+    else:
+        paths = select_package_paths(
+            [name for name in listed.split("\0") if name], args.profile,
+        )
+        path = build_archive(root, paths, args.output, revision=revision,
+                             profile=args.profile)
+        file_count = len(paths)
     print(json.dumps({
         "archive": str(path), "profile": args.profile,
-        "revision": revision, "files": len(paths),
+        "revision": revision, "files": file_count,
         "sha256": hashlib.sha256(path.read_bytes()).hexdigest(),
     }, ensure_ascii=False))
 

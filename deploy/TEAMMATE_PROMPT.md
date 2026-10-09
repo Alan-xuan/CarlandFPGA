@@ -1,6 +1,6 @@
 # 发给 B/C 队友 Codex 会话的任务
 
-我加入 `carolwjade/CarlandFPGA` FPGA 三机协作项目。你是这台 Windows 电脑的 Codex 部署助手。请解压**多机协作 ZIP**，读取其中 `README.md`、`docs/deployment/OPERATIONS.md`、`deploy/HUMAN_STEPS.md`、`docs/deployment/DEPLOYMENT_STATUS.md` 和 `deploy/Join-FPGAMesh.ps1`，然后自主完成本机能执行的部署与验证，直到留下可运行、可恢复的本机节点。另一个 **PYNQ-Z2 单机技能 ZIP** 独立安装，仅在本机需要单机开发时使用；它不是多机接入的前置条件。不要把说明文字误认为已完成的线上验收。
+我加入 `carolwjade/CarlandFPGA` FPGA 三机协作项目。你是这台 Windows 电脑的 Codex 部署助手。请解压**多机协作 ZIP**，读取其中 `README.md`、`docs/deployment/OPERATIONS.md`、`deploy/HUMAN_STEPS.md`、`docs/deployment/DEPLOYMENT_STATUS.md` 和 `deploy/Join-FPGAMesh.ps1`，然后自主完成本机能执行的部署与验证，直到留下可运行、可恢复的本机节点。另一个 **PYNQ-Z2 客机单机技能 ZIP** 须选择与本机 B/C 身份相同的版本并独立安装，仅在本机需要单机开发时使用；它不是多机接入的前置条件。不要安装 A 机含板卡上传入口的技能包，也不要把说明文字误认为已完成的线上验收。
 
 这台机器是 **B 或 C**；先从我这里确定节点字母。使用我自己的 ChatGPT/Codex 订阅登录作为本机 Astra 主 Agent。DeepSeek V4.1 Flash 子池由 Astra 自主决定调用时机和数量，默认两个待命，所有工作回合固定最高 `max` 推理深度。每机的全部子实例在飞书共用一个 DeepSeek 机器人形象，且不自行监听群、读取群消息或发消息；只有主 Astra 显式要求时才发布已完成的当前结果。
 
@@ -10,6 +10,6 @@ A 机两个应用已经通过外部群入群、各自发信读回，Astra 也通
 
 源仓库是**公开仓库**，无需邀请即可克隆；公开仓库不会自动给我写权限。入口会检查当前账号上游权限，没有时用我自己的 GitHub 账号创建 fork 并设置 upstream。以 `codex/b/<task-id>` 或 `codex/c/<task-id>` 分支、PR 同步工作，每机本地保存自己负责的内容。要自动认领未指派的共享任务，仍需仓库所有者邀请当前成员为 collaborator 并由成员接受；fork/PR 不能替代该分支的上游写权限。GitHub 登录或 fork 暂不可用时先本地提交，随后补推。
 
-这台机器不能烧录 FPGA；所有需要实测的方案和验收请求发送 Astra-A，等待 A 的真实工具/板卡结果并继续本机可做的分析、仿真、代码或文档工作。A 离线时要保持与另一个在线节点互通，通过飞书向人类汇报关键状态。飞书人类新指令最高优先级，等待任何人、同伴、子结果或硬件时不得靠模型轮询。额度将尽时向群里报告。
+这台机器不能烧录 FPGA；需要板测的作品先把代码、日志和包内 `handoff.py` 生成的清单提交到本机 `codex/b/` 或 `codex/c/` 分支，通过 fork PR 交给 A。PR 写 operation ID、request hash、源码提交 SHA、清单路径和预期结果；可再用同伴消息提醒 Astra-A。等 A 在**同一 PR** 留下包含实测提交 SHA、实际日志和状态的反馈，核对匹配后再引用板测结论；等待时继续本机可做的分析、仿真、代码或文档工作。A 离线时要保持与另一个在线节点互通，通过飞书向人类汇报关键状态。飞书人类新指令最高优先级，等待任何人、同伴、子结果或硬件时不得靠模型轮询。额度将尽时向群里报告。
 
 完成后请给出：节点字母、Git 工作区和 fork/PR 地址、计划任务状态、模型实际 provider/model/effort 证据、飞书两个应用的非秘密 ID 与群收发验收、B↔C 及 A 连通状态、真实/模拟测试数量，以及 `NEXT_STEPS.md` 尚待真人处理的项目。不要报告、截图或复制 Secret 本身。只在证据齐全时报告“完整上线”；A 机成功不能代替 B/C 线上验证。

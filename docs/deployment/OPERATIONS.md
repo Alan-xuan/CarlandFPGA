@@ -4,7 +4,7 @@
 
 ## 队友入网
 
-把**多机协作 ZIP**和 `deploy/TEAMMATE_PROMPT.md` 交给 B/C 的 Codex 会话；**PYNQ-Z2 单机技能 ZIP**另外打包，按需运行其中 `skills/pynq-z2-single-node/Install.ps1`。在各自 Windows 电脑上运行 `pwsh -NoProfile -File deploy/Join-FPGAMesh.ps1 -Node B` 或 `-Node C`。入口先尝试用 winget 安装缺失的 Git、Python、GitHub CLI 和 Tailscale，再从公开 GitHub 仓库克隆源码，创建被 Git 忽略的 `.local/venv`，安装飞书 SDK，生成该机配置，运行自检、真实主从调用，并在登录与密钥就绪时注册常驻任务。工具安装、网页授权或账号权限失败时，保留已完成步骤；入口每次生成 `.local/deployment/node-<字母>/setup-status.json` 和 `NEXT_STEPS.md`，详细本人操作见 [人工步骤](../../deploy/HUMAN_STEPS.md)。重跑会沿用已有本机密钥文件路径、同伴地址，不覆盖队友改动；现有工作区只在干净时快进。
+把**多机协作 ZIP**和 `deploy/TEAMMATE_PROMPT.md` 交给 B/C 的 Codex 会话；单机技能分别发 `pynq-client-b`、`pynq-client-c` ZIP，不能把 A 机可上传的 `pynq-skill` ZIP 给客机。B/C 各自从对应 ZIP 运行 `skills/pynq-z2-single-node/Install.ps1`。在各自 Windows 电脑上运行 `pwsh -NoProfile -File deploy/Join-FPGAMesh.ps1 -Node B` 或 `-Node C`。入口先尝试用 winget 安装缺失的 Git、Python、GitHub CLI 和 Tailscale，再从公开 GitHub 仓库克隆源码，创建被 Git 忽略的 `.local/venv`，安装飞书 SDK，生成该机配置，运行自检、真实主从调用，并在登录与密钥就绪时注册常驻任务。工具安装、网页授权或账号权限失败时，保留已完成步骤；入口每次生成 `.local/deployment/node-<字母>/setup-status.json` 和 `NEXT_STEPS.md`，详细本人操作见 [人工步骤](../../deploy/HUMAN_STEPS.md)。重跑会沿用已有本机密钥文件路径、同伴地址，不覆盖队友改动；现有工作区只在干净时快进。
 
 脚本依次尝试 `py`、系统 Python 和 Codex 捆绑的 Python 3.12+；若路径特殊，可用 `-PythonExe 'C:\path\to\python.exe'` 指定解释器。本机 B 无凭据烟测已验证 Codex 捆绑解释器可完成虚拟环境与安装。
 
@@ -26,6 +26,12 @@ pwsh -NoProfile -File deploy\Join-FPGAMesh.ps1 -Node B `
 三台电脑在不同网络，使用同一 Tailscale tailnet，三个节点都要有可互访的 100.x 地址。每机配置另两台的 URL，B/C 不经过 A 中转。HMAC 共享密钥文件必须由三位成员通过可信渠道放在本机；公开分发包没有这个文件。健康探针和持久发件箱在无模型调用的后台运行，某节点离线时其他节点仍可相互收发。Windows 防火墙和 tailnet 权限须允许节点的 8787 端口。
 
 仓库为**公开**。队友可直接克隆；没有上游写权限时，用 `gh auth login --web` 登录自己的 GitHub，入口默认建立 fork，用 `codex/b/<task-id>` 或 `codex/c/<task-id>` 分支向 `carolwjade/CarlandFPGA` 提交 PR。fork/PR 只解决代码贡献；自动认领无指定节点的共享任务需要 B/C 在上游 `codex/coordination` 分支快进推送，因此仓库所有者须[邀请其为 collaborator](https://github.com/carolwjade/CarlandFPGA/settings/access)，各成员接受邀请。代码、约束、日志和可公开的实验结果进入远端；密钥、令牌、SQLite、私有硬件标识不进入公开仓库。
+
+## 客机单机成果交接
+
+B/C 在各自客机技能中先完成本机可做的开发与验证，提交源码和可公开日志，再用包内 `handoff.py` 对仓库内文件生成不可覆盖的 `manifest.json`；硬件阶段记 `blocked` 或 `not_run`。仓库忽略 `logs/`、`*.log` 和 `artifacts/`，供交接的原始日志须按字节保存为任务目录内被 Git 跟踪的 `.txt`。随后把清单提交到 `codex/b/<task-id>` 或 `codex/c/<task-id>` 分支，推送 fork 并向本仓库 `main` 发 PR。PR 正文给出 operation ID、request hash、源码提交 SHA、清单路径、测试步骤和预期结果；同伴消息可提醒 A，但 PR 是正式交接。没有 GitHub 认证/网络时保留本地提交，不能报告 A 已收到。
+
+A 取到指定 PR head SHA 后，先核对仓库清单、全部文件哈希和测试要求，再按本机已安装的单机技能与实际板卡条件执行上传/验证。`board_run.py` 的 Python 探针结果只证明传输，不能代替自定义 `.bit/.hwh`、接口或性能实测。A 将 operation ID、request hash、实际测试的完整 PR head SHA、板卡/镜像/工具版本、运行命令、退出码、阶段状态和可公开证据路径/哈希反馈在**同一 PR**。失败时给出复现条件；无法测试时标 `blocked` 并说明缺项。B/C 读取反馈时核对以上身份与提交，后续新提交须重新请求板测。A 机本地技能和硬件队列设置不因客机打包而改变。
 
 ## 运行与诊断
 

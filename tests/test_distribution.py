@@ -18,7 +18,9 @@ class DistributionTests(unittest.TestCase):
             "docs/deployment/evidence/pynq-z2-live-2026-10-09/result.json",
             "skills/pynq-z2-single-node/SKILL.md",
             "skills/pynq-z2-single-node/scripts/preflight.py",
+            "packaging/pynq-client/SKILL.md",
             "tests/test_pynq_z2_board_run.py",
+            "tests/test_pynq_client_distribution.py",
         ]
         self.assertEqual(select_package_paths(tracked, "mesh"), [
             "README.md", "deploy/Join-FPGAMesh.ps1",
