@@ -14,8 +14,8 @@ from pathlib import Path
 
 
 _KEY_PATTERN = re.compile(
-    rb"sk-[A-Za-z0-9_-]{24,}|-----BEGIN (?:OPENSSH |RSA |EC |DSA |ENCRYPTED )?PRIVATE KEY-----|"
-    rb"-----BEGIN PGP PRIVATE KEY BLOCK-----"
+    rb"sk-[A-Za-z0-9_-]{24,}|-----BEGIN (?:OPENSSH |RSA |EC |DSA |ENCRYPTED )?PRIVATE "
+    rb"KEY-----|-----BEGIN PGP PRIVATE " rb"KEY BLOCK-----"
 )
 _PRIVATE_FILENAMES = {"auth.json", "deepcodex.txt", "id_ed25519", "id_rsa", "id_ecdsa", "id_dsa"}
 _PRIVATE_SUFFIXES = ("-secret.txt", ".p12", ".pfx", ".pem", ".key", ".lic")

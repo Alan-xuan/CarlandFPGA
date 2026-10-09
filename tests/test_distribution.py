@@ -9,6 +9,15 @@ from fpga_mesh.distribution import build_archive, select_package_paths
 
 
 class DistributionTests(unittest.TestCase):
+    def test_mesh_archive_can_include_its_own_distribution_module(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(__file__).resolve().parents[1]
+            output = Path(temp) / "mesh-module.zip"
+            build_archive(root, ["fpga_mesh/distribution.py"], output)
+            with zipfile.ZipFile(output) as archive:
+                self.assertIsNone(archive.testzip())
+                self.assertIn("fpga_mesh/distribution.py", archive.namelist())
+
     def test_mesh_and_single_node_skill_are_separate_packages(self):
         tracked = [
             "README.md", "deploy/Join-FPGAMesh.ps1",
@@ -73,3 +82,9 @@ class DistributionTests(unittest.TestCase):
             (root / "id_ed25519").write_text("opaque private bytes", encoding="ascii")
             with self.assertRaisesRegex(ValueError, "private"):
                 build_archive(root, ["id_ed25519"], root / "bad.zip")
+            (root / "pgp-private.txt").write_text(
+                "-----BEGIN PGP PRIVATE " + "KEY BLOCK-----\nprivate material\n",
+                encoding="ascii",
+            )
+            with self.assertRaisesRegex(ValueError, "key-like"):
+                build_archive(root, ["pgp-private.txt"], root / "bad.zip")
