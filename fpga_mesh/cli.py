@@ -164,7 +164,6 @@ def _config_template(node: str) -> str:
         f'node_id = "{node}"\n'
         'project_id = "fpga-main"\n'
         f'state_dir = ".local/node-{node.lower()}"\n'
-        'default_children = 2\n'
         'mode = "app_server"\n'
         'deepseek_key_file = ""\n'
         "hardware_enabled = false\n"
@@ -256,15 +255,18 @@ async def live_check_deepseek(
 
 async def serve_node(config_path: Path, ready_file: Path | None = None) -> None:
     from .runtime import NodeConfig, NodeRuntime
+    from .service import ServiceLease
 
-    runtime = NodeRuntime(NodeConfig.load(config_path))
-    await runtime.start()
-    if ready_file is not None:
-        _write_json(ready_file, runtime.snapshot())
-    try:
-        await asyncio.Event().wait()
-    finally:
-        await runtime.stop()
+    config = NodeConfig.load(config_path)
+    with ServiceLease(config.state_dir / 'resident.lock'):
+        runtime = NodeRuntime(config)
+        try:
+            await runtime.start()
+            if ready_file is not None:
+                _write_json(ready_file, runtime.snapshot())
+            await asyncio.Event().wait()
+        finally:
+            await runtime.stop()
 
 
 def build_parser() -> argparse.ArgumentParser:
@@ -287,6 +289,7 @@ def build_parser() -> argparse.ArgumentParser:
     serve_parser = sub.add_parser("serve")
     serve_parser.add_argument("--config", type=Path, required=True)
     serve_parser.add_argument("--ready-file", type=Path)
+    serve_parser.add_argument("--log-file", type=Path)
 
     balance_parser = sub.add_parser("balance-check-deepseek")
     balance_parser.add_argument("--output", type=Path, required=True)
@@ -316,14 +319,20 @@ def main(argv: list[str] | None = None) -> int:
         return 0
     if args.command == "serve":
         from .runtime import NodeConfig
-
-        if NodeConfig.load(args.config).feishu_enabled:
-            # lark_channel.ws.client captures an asyncio loop at import time and
-            # runs it in its own worker thread.  Import it before asyncio.run()
-            # creates the controller loop, or its WS client tries to run the
-            # already-running controller loop and stops the whole service.
-            import lark_channel.ws.client  # noqa: F401
-        asyncio.run(serve_node(args.config, args.ready_file))
+        from .service import service_output
+        from contextlib import nullcontext
+        import traceback
+        with service_output(args.log_file) if args.log_file else nullcontext():
+            try:
+                if NodeConfig.load(args.config).feishu_enabled:
+                    # The SDK captures its own event loop before asyncio.run.
+                    import lark_channel.ws.client  # noqa: F401
+                asyncio.run(serve_node(args.config, args.ready_file))
+            except Exception:
+                if not args.log_file:
+                    raise
+                traceback.print_exc()
+                return 1
         return 0
     if args.command == "balance-check-deepseek":
         api_key = os.environ.get("DEEPSEEK_API_KEY")

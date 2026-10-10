@@ -19,7 +19,6 @@ from .child_control import ChildCoordinator, LocalControlFileClient, LocalContro
 from .codex import CodexHomeFactory, CodexHomeSpec
 from .controller import Controller
 from .dynamic_children import ChildDynamicTools
-from .effort import AstraEffortSelector
 from .feishu_channel import FeishuNodeService
 from .gateway import AppServerGateway, GatewayConfig
 from .hardware import HardwareService
@@ -27,6 +26,8 @@ from .http_transport import HttpPeer, HttpPeerServer
 from .mesh_tools import MeshDynamicTools
 from .ownership import GitOwnershipLedger
 from .pool import InstancePool, ManagedInstance
+from .sessions import MainSessionRouter
+from .project_control import ProjectActions, ProjectControlServer
 from .quota import QuotaMonitor
 from .store import SQLiteStore
 from .testing import RecordingGateway
@@ -37,7 +38,6 @@ class NodeConfig:
     node_id: str
     project_id: str
     state_dir: Path
-    default_children: int
     mode: str
     hardware_enabled: bool
     peer_urls: dict[str, str]
@@ -107,7 +107,6 @@ class NodeConfig:
             node_id=node_id,
             project_id=str(data.get("project_id", "fpga-main")),
             state_dir=state_dir,
-            default_children=int(data.get("default_children", 2)),
             mode=str(data.get("mode", "test_double")),
             hardware_enabled=bool(data.get("hardware_enabled", False)),
             peer_urls={
@@ -149,6 +148,7 @@ class NodeRuntime:
     def __init__(self, config: NodeConfig):
         self.config = config
         self.store = SQLiteStore(config.state_dir / "state.sqlite")
+        self.main_sessions = MainSessionRouter(config.state_dir / 'main_sessions.sqlite')
         self._recording_gateways: list[RecordingGateway] = []
         self.dynamic_children = ChildDynamicTools(LocalControlFileClient(
             config.state_dir / "child-control.json",
@@ -211,6 +211,8 @@ class NodeRuntime:
             self.children, token=secrets.token_urlsafe(32),
             discovery_path=config.state_dir / "child-control.json",
         )
+        self.project_actions = ProjectActions(self)
+        self.main_control = ProjectControlServer(self.project_actions, discovery_path=config.state_dir / 'main-control.json')
         self.hardware = (
             HardwareService(config.state_dir / "hardware.sqlite")
             if config.hardware_enabled
@@ -249,14 +251,16 @@ class NodeRuntime:
             store=self.store, peer=self.peer, feishu=self.feishu,
         )
         if isinstance(self.astra_gateway, AppServerGateway):
-            self.astra_gateway.dynamic_tools = self.mesh_tools.specs()
-            self.astra_gateway.dynamic_tool_handler = self.mesh_tools.call
+            self.astra_gateway.dynamic_tools = self.mesh_tools.specs() + self.project_actions.specs()
+            self.astra_gateway.dynamic_tool_handler = self._call_main_tool
         self.started = False
 
     async def start(self) -> None:
         try:
-            await self.pool.ensure_standby(self.config.default_children)
+            # Retire old idle defaults; allocations now occur only for assignments.
+            await self.pool.scale_to(0)
             await self.child_control.start()
+            await self.main_control.start()
             if self.peer_server is not None:
                 await self.peer_server.start()
                 self._peer_stop.clear()
@@ -310,6 +314,7 @@ class NodeRuntime:
             await self.feishu.stop()
         await self.controller.stop()
         await self.child_control.close()
+        await self.main_control.close()
         await self.children.close()
         await self.pool.close()
         if isinstance(self.astra_gateway, AppServerGateway):
@@ -319,6 +324,7 @@ class NodeRuntime:
         if self.hardware is not None:
             self.hardware.close()
         self.store.close()
+        self.main_sessions.close()
 
     def snapshot(self) -> dict[str, Any]:
         return {
@@ -388,7 +394,7 @@ class NodeRuntime:
             dynamic_tools=self.dynamic_children.specs(),
             dynamic_tool_handler=self.dynamic_children.call,
             developer_instructions=astra_instructions(self.config.node_id),
-            effort_selector=AstraEffortSelector(),
+            session_router=self.main_sessions,
             timeout_seconds=self.config.turn_timeout_seconds,
         )
 
@@ -410,6 +416,10 @@ class NodeRuntime:
                 extra_env=self._child_secret_env(),
             ),
             developer_instructions=child_instructions(self.config.node_id),
+            # This Windows host's managed executor rejects shell creation in
+            # workspace-write. Match the authorized local execution profile;
+            # assignment ownership and main/child role boundaries still apply.
+            thread_config_factory=lambda: {'approval_policy': 'never', 'sandbox_mode': 'danger-full-access'},
             timeout_seconds=self.config.turn_timeout_seconds,
         )
         return gateway
@@ -453,6 +463,8 @@ class NodeRuntime:
         return True
 
     def _on_result(self, message, result) -> None:
+        self.main_sessions.record(message.message_id, message.task_id, 'completed' if result.accepted else 'failed', result=result.output)
+        self.project_actions.changed.set()
         from .protocol import MessageKind, SourceKind
         if (self.feishu is None or message.source != SourceKind.HUMAN
                 or message.kind != MessageKind.HUMAN_INSTRUCTION):
@@ -465,6 +477,11 @@ class NodeRuntime:
             f"result:{message.message_id}:{message.task_version}", report,
         )
         self.feishu.notify_report()
+
+    async def _call_main_tool(self, name, arguments):
+        if name in {spec['name'] for spec in self.project_actions.specs()}:
+            return await self.project_actions.call(name, arguments)
+        return await self.mesh_tools.call(name, arguments)
 
     async def _run_feishu(self) -> None:
         assert self.feishu is not None

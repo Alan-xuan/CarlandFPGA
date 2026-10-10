@@ -309,15 +309,15 @@ class FeishuNodeService:
             first_error: Exception | None = None
             for operation_id, text, role in self.store.pending_group_messages():
                 try:
+                    job_id = self.store.group_report_job(operation_id)
+                    if job_id:
+                        if self.job_lookup is None:
+                            raise RuntimeError("child job lookup is not configured")
+                        job = self.job_lookup(job_id)
+                        if job["stale"] or job["status"] != "completed":
+                            self.store.cancel_group_report(operation_id)
+                            continue
                     if role == "deepseek":
-                        job_id = self.store.group_report_job(operation_id)
-                        if job_id:
-                            if self.job_lookup is None:
-                                raise RuntimeError("DeepSeek job lookup is not configured")
-                            job = self.job_lookup(job_id)
-                            if job["stale"] or job["status"] != "completed":
-                                self.store.cancel_group_report(operation_id)
-                                continue
                         if self.deepseek_sender is None:
                             raise RuntimeError("DeepSeek Feishu sender is not configured")
                         sent_id = await self.deepseek_sender.send(

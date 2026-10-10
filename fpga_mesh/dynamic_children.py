@@ -5,7 +5,7 @@ from __future__ import annotations
 from copy import deepcopy
 from typing import Protocol
 
-from .mcp_children import TOOLS
+from .mcp_children import ACTIONS, TOOLS
 
 
 class ControlClient(Protocol):
@@ -13,13 +13,7 @@ class ControlClient(Protocol):
 
 
 class ChildDynamicTools:
-    ACTIONS = {
-        "fpga_child_status": "status",
-        "fpga_child_scale": "scale",
-        "fpga_child_delegate": "delegate",
-        "fpga_child_wait": "wait",
-        "fpga_child_cancel": "cancel",
-    }
+    ACTIONS = {f"fpga_{name}": action for name, action in ACTIONS.items()}
 
     def __init__(self, client: ControlClient):
         self.client = client

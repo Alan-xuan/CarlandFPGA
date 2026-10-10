@@ -37,7 +37,7 @@ async def run(key_file: Path, node: str = "A") -> None:
     runtime = NodeRuntime(NodeConfig(
         node_id=node, project_id="fpga-main",
         state_dir=root / ".local" / f"live-parent-child-{node.lower()}",
-        default_children=2, mode="app_server",
+        mode="app_server",
         hardware_enabled=False, peer_urls={},
         shared_secret_env="FPGA_MESH_SHARED_SECRET",
         deepseek_key_file=key_file,

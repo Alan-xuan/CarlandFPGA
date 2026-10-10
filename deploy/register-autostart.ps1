@@ -26,8 +26,9 @@ if ($existing -and $existing.Description -notlike "FPGA Mesh $Node controller*")
 }
 $nodeDir = Split-Path -Parent $configPath
 $readyFile = Join-Path $nodeDir "ready.json"
-$arguments = '-m fpga_mesh.cli serve --config "{0}" --ready-file "{1}"' -f `
-    $configPath, $readyFile
+$logFile = Join-Path $nodeDir "service.log"
+$arguments = '-m fpga_mesh.supervisor --config "{0}" --ready-file "{1}" --log-file "{2}"' -f `
+    $configPath, $readyFile, $logFile
 $action = New-ScheduledTaskAction -Execute $pythonPath -Argument $arguments `
     -WorkingDirectory $repo
 $trigger = New-ScheduledTaskTrigger -AtLogOn -User "$env:USERDOMAIN\$env:USERNAME"

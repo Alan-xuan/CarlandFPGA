@@ -80,7 +80,9 @@ class AppServerGatewayTests(unittest.IsolatedAsyncioTestCase):
             JsonRpcNotification(
                 method="turn/completed",
                 params={
+                    "threadId": "thread-1",
                     "turn": {
+                        "id": "turn-1",
                         "status": "completed",
                         "items": [{"type": "agentMessage", "text": "done"}],
                     }
@@ -94,7 +96,9 @@ class AppServerGatewayTests(unittest.IsolatedAsyncioTestCase):
     async def test_astra_receives_authoritative_task_identity_for_delegation(self):
         self.session.notifications.append(JsonRpcNotification(
             method="turn/completed",
-            params={"turn": {"id": "turn-1", "status": "completed", "items": []}},
+            params={"threadId": "thread-1", "turn": {
+                "id": "turn-1", "status": "completed", "items": [],
+            }},
         ))
         await self.gateway.handle(message())
         turn = next(params for method, params in self.session.requests
@@ -110,11 +114,15 @@ class AppServerGatewayTests(unittest.IsolatedAsyncioTestCase):
             [
                 JsonRpcNotification(
                     method="turn/completed",
-                    params={"turn": {"status": "completed", "items": []}},
+                    params={"threadId": "thread-1", "turn": {
+                        "id": "turn-1", "status": "completed", "items": [],
+                    }},
                 ),
                 JsonRpcNotification(
                     method="turn/completed",
-                    params={"turn": {"status": "completed", "items": []}},
+                    params={"threadId": "thread-1", "turn": {
+                        "id": "turn-1", "status": "completed", "items": [],
+                    }},
                 ),
             ]
         )
@@ -139,7 +147,9 @@ class AppServerGatewayTests(unittest.IsolatedAsyncioTestCase):
         self.session.notifications.append(
             JsonRpcNotification(
                 method="turn/completed",
-                params={"turn": {"status": "completed", "items": []}},
+                params={"threadId": "thread-1", "turn": {
+                    "id": "turn-1", "status": "completed", "items": [],
+                }},
             )
         )
         await gateway.handle(message())
@@ -162,7 +172,9 @@ class AppServerGatewayTests(unittest.IsolatedAsyncioTestCase):
         )
         self.session.notifications.append(
             JsonRpcNotification(method="turn/completed",
-                                params={"turn": {"status": "completed", "items": []}})
+                                params={"threadId": "thread-1", "turn": {
+                                    "id": "turn-1", "status": "completed", "items": [],
+                                }})
         )
         await gateway.handle(message())
         start = [params for method, params in self.session.requests
@@ -177,7 +189,9 @@ class AppServerGatewayTests(unittest.IsolatedAsyncioTestCase):
         )
         self.session.notifications.append(JsonRpcNotification(
             method="turn/completed",
-            params={"turn": {"status": "completed", "items": []}},
+            params={"threadId": "thread-1", "turn": {
+                "id": "turn-1", "status": "completed", "items": [],
+            }},
         ))
         await gateway.handle(message())
         start = next(params for method, params in self.session.requests
@@ -188,19 +202,154 @@ class AppServerGatewayTests(unittest.IsolatedAsyncioTestCase):
     async def test_failed_turn_is_not_reported_as_accepted(self):
         self.session.notifications.append(JsonRpcNotification(
             method="turn/completed",
-            params={"turn": {"id": "turn-1", "status": "failed",
+            params={"threadId": "thread-1", "turn": {"id": "turn-1", "status": "failed",
                              "error": {"message": "provider rejected request"},
                              "items": []}},
         ))
         with self.assertRaisesRegex(RuntimeError, "provider rejected request"):
             await self.gateway.handle(message())
 
+    async def test_retryable_errors_wait_for_successful_turn_completion(self):
+        self.session.notifications.extend([
+            JsonRpcNotification(method="error", params={
+                "threadId": "thread-1", "turnId": "turn-1",
+                "error": {"message": "temporary provider interruption"},
+                "willRetry": True,
+            }),
+            JsonRpcNotification(method="error", params={
+                "threadId": "thread-1", "turnId": "turn-1",
+                "error": {"message": "retrying stream"}, "willRetry": True,
+            }),
+            JsonRpcNotification(method="turn/completed", params={
+                "threadId": "thread-1",
+                "turn": {"id": "turn-1", "status": "completed", "items": [
+                    {"type": "agentMessage", "phase": "final_answer",
+                     "text": "recovered"},
+                ]},
+            }),
+        ])
+        result = await self.gateway.handle(message())
+        self.assertTrue(result.accepted)
+        self.assertEqual(result.output["text"], "recovered")
+        self.assertEqual(self.session.notifications, [])
+
+    async def test_terminal_error_surfaces_structured_provider_message(self):
+        self.session.notifications.append(JsonRpcNotification(method="error", params={
+            "threadId": "thread-1", "turnId": "turn-1",
+            "error": {"message": "provider quota exhausted"}, "willRetry": False,
+        }))
+        with self.assertRaisesRegex(RuntimeError, "provider quota exhausted"):
+            await self.gateway.handle(message())
+
+    async def test_errors_from_other_threads_and_turns_do_not_fail_current_work(self):
+        self.session.notifications.extend([
+            JsonRpcNotification(method="error", params={
+                "threadId": "another-thread", "turnId": "turn-1",
+                "error": {"message": "another thread failed"}, "willRetry": False,
+            }),
+            JsonRpcNotification(method="error", params={
+                "threadId": "thread-1", "turnId": "an-earlier-turn",
+                "error": {"message": "earlier turn failed"}, "willRetry": False,
+            }),
+            JsonRpcNotification(method="turn/completed", params={
+                "threadId": "thread-1",
+                "turn": {"id": "turn-1", "status": "completed", "items": [
+                    {"type": "agentMessage", "text": "current result"},
+                ]},
+            }),
+        ])
+        result = await self.gateway.handle(message())
+        self.assertEqual(result.output["text"], "current result")
+
+    async def test_completion_requires_matching_thread_and_explicit_turn_id(self):
+        self.session.notifications.extend([
+            JsonRpcNotification(method="turn/completed", params={
+                "threadId": "another-thread",
+                "turn": {"id": "turn-1", "status": "completed", "items": [
+                    {"type": "agentMessage", "text": "foreign result"},
+                ]},
+            }),
+            JsonRpcNotification(method="turn/completed", params={
+                "threadId": "thread-1",
+                "turn": {"status": "completed", "items": [
+                    {"type": "agentMessage", "text": "unidentified result"},
+                ]},
+            }),
+            JsonRpcNotification(method="turn/completed", params={
+                "threadId": "thread-1",
+                "turn": {"id": "turn-1", "status": "completed", "items": [
+                    {"type": "agentMessage", "text": "current result"},
+                ]},
+            }),
+        ])
+        result = await self.gateway.handle(message())
+        self.assertEqual(result.output["text"], "current result")
+
+    async def test_transport_error_without_turn_ids_remains_fatal(self):
+        self.session.notifications.append(JsonRpcNotification(
+            method="error", params={"message": "app-server connection closed"},
+        ))
+        with self.assertRaisesRegex(RuntimeError, "app-server connection closed"):
+            await self.gateway.handle(message())
+
+    async def test_retry_wait_timeout_interrupts_turn_and_closes_client(self):
+        events = [JsonRpcNotification(method="error", params={
+            "threadId": "thread-1", "turnId": "turn-1",
+            "error": {"message": "temporary stream failure"}, "willRetry": True,
+        })]
+
+        async def stalled_retry():
+            if events:
+                return events.pop(0)
+            await asyncio.Event().wait()
+
+        self.session.next_notification = stalled_retry
+        gateway = AppServerGateway(
+            self.config, client_factory=lambda: self.client, timeout_seconds=0.01,
+        )
+        with self.assertRaises(asyncio.TimeoutError):
+            await asyncio.wait_for(gateway.handle(message()), 1)
+        self.assertIn(("turn/interrupt", {
+            "threadId": "thread-1", "turnId": "turn-1",
+        }), self.session.requests)
+        self.assertIn(("close", {}), self.session.requests)
+
+    async def test_cancel_during_retry_interrupts_turn_and_closes_client(self):
+        waiting = asyncio.Event()
+        events = [JsonRpcNotification(method="error", params={
+            "threadId": "thread-1", "turnId": "turn-1",
+            "error": {"message": "temporary stream failure"}, "willRetry": True,
+        })]
+
+        async def stalled_retry():
+            if events:
+                return events.pop(0)
+            waiting.set()
+            await asyncio.Event().wait()
+
+        self.session.next_notification = stalled_retry
+        pending = asyncio.create_task(self.gateway.handle(message()))
+        try:
+            await asyncio.wait_for(waiting.wait(), 0.2)
+        finally:
+            pending.cancel()
+            try:
+                await pending
+            except asyncio.CancelledError:
+                pass
+        self.assertIn(("turn/interrupt", {
+            "threadId": "thread-1", "turnId": "turn-1",
+        }), self.session.requests)
+        self.assertIn(("close", {}), self.session.requests)
+
     async def test_gateway_uses_final_message_and_skips_old_turn(self):
         self.session.notifications.extend([
             JsonRpcNotification(method="turn/completed", params={
+                "threadId": "thread-1",
                 "turn": {"id": "earlier", "status": "completed", "items": []},
             }),
             JsonRpcNotification(method="turn/completed", params={
+                "threadId": "thread-1",
                 "turn": {"id": "turn-1", "status": "completed", "items": [
                     {"type": "agentMessage", "phase": "commentary", "text": "working"},
                     {"type": "agentMessage", "phase": "final_answer", "text": "done"},
@@ -228,6 +377,7 @@ class AppServerGatewayTests(unittest.IsolatedAsyncioTestCase):
                                 params={"threadId": "thread-1", "turnId": "turn-1",
                                         "tool": "fpga_child_status", "arguments": {}}),
             JsonRpcNotification(method="turn/completed", params={
+                "threadId": "thread-1",
                 "turn": {"id": "turn-1", "status": "completed", "items": []},
             }),
         ])
@@ -253,6 +403,7 @@ class AppServerGatewayTests(unittest.IsolatedAsyncioTestCase):
                                 params={"threadId": "thread-1", "turnId": "turn-1",
                                         "tool": "fpga_child_status", "arguments": {}}),
             JsonRpcNotification(method="turn/completed", params={
+                "threadId": "thread-1",
                 "turn": {"id": "turn-1", "status": "completed", "items": []},
             }),
         ])
@@ -274,7 +425,9 @@ class AppServerGatewayTests(unittest.IsolatedAsyncioTestCase):
         )
         self.session.notifications.append(JsonRpcNotification(
             method="turn/completed",
-            params={"turn": {"id": "turn-1", "status": "completed", "items": []}},
+            params={"threadId": "thread-1", "turn": {
+                "id": "turn-1", "status": "completed", "items": [],
+            }},
         ))
         result = await gateway.handle(message())
         turn = [params for method, params in self.session.requests

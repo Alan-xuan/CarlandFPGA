@@ -178,6 +178,9 @@ class StdioTransport:
             stdout=asyncio.subprocess.PIPE,
             stderr=asyncio.subprocess.PIPE,
             env=self.env,
+            # Codex tool/thread frames include loaded instructions and may
+            # exceed asyncio's 64 KiB default even for a small assignment.
+            limit=16 * 1024 * 1024,
         )
         if self.process.stderr is not None:
             self._stderr_task = asyncio.create_task(

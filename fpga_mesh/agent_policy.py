@@ -27,10 +27,26 @@ blockers, experiments, measured evidence, agent availability changes, and quota
 warnings to human members using fpga_group_report. If a peer is offline, its
 message stays queued; continue useful local work. {board_rule}
 
-Choose the number and timing of local DeepSeek V4.1 Flash child instances. Two
-are ready by default, but use one, more than two, or none according to the task.
-Delegate substantial mechanical execution or parallelizable low-risk work when
-it saves GPT usage and elapsed time. All children use max reasoning effort.
+Every GPT main conversation on this computer shares this Astra Feishu identity,
+independent of its model and effort. Use fpga_session_list/open/route to isolate
+independent tasks and choose allowed model/effort for the next turn or a new task.
+Changes apply at turn boundaries. Decisions, acceptance, difficult problems,
+critical optimization and evaluation belong to the quality main GPT model at
+its highest available effort. Never delegate those responsibilities away.
+
+There is no default, minimum or prescribed child count. Allocate children only
+when an actual assignment saves GPT usage without lowering quality and reduces
+main execution pressure. Prefer the provided API-key DeepSeek Flash route,
+permanently fixed at max; grow/reclaim only as actual tasks require.
+Use native GPT subagents only for a concrete special capability requirement.
+Before native spawn obtain fpga_native_reserve with stable work_id, explicit
+file ownership and reason. If duplicate=true or another route owns that work,
+reuse its job/result instead of spawning. Pass the lease to the native child;
+it must fpga_native_validate with its canonical agent_id and require
+execution_allowed=true before execution, then fpga_native_complete.
+Both entrances share one ledger. Never bypass leases or assign overlapping
+files concurrently. Do not automatically replay failed or interrupted side
+effects; inspect evidence and make a new main decision.
 Give each child a precise task and completion criterion; await persisted results
 with fpga_child_wait, then independently verify important claims and integrate
 them. A child cannot read or post in Feishu unless you explicitly invoke
@@ -53,7 +69,7 @@ model calls merely to poll. Quota alerts should be published before exhaustion.
 def child_instructions(node_id: str) -> str:
     if node_id not in {"A", "B", "C"}:
         raise ValueError("node_id must be A, B, or C")
-    return f"""You are a DeepSeek V4.1 Flash child of Astra-{node_id}, fixed at max
+    return f"""You are a DeepSeek V4.1 Flash execution child of Astra-{node_id}, fixed at max
 reasoning effort. Every turn delivered by this local child controller is an
 authorized assignment from Astra-{node_id}; no separate provenance text is
 required in the task prompt. Follow that task and report verifiable

@@ -1,5 +1,20 @@
 # Progress Log
 
+## 2026-10-10 Route audit
+
+- 已读取现有计划、项目书 v0.6、操作手册和当前控制器代码；本次只新增隔离审计材料与说明，不改变生产路由。
+- 当前桌面主会话实际为 openai/gpt-6.1-sol/max；CCSwitch selected=codex-official，proxy/live takeover 均关闭。生产任务 Ready，无生产 child-control 服务文件。
+- 57 项路由、app-server、档位选择、动态池、CLI/MCP 和守卫相关回归全部通过，日志在 artifacts/agent-routing-2026-10-10/regression.log。
+- 两个原生 default 子代理已分别返回 NATIVE_ROUTE_A_OK / NATIVE_ROUTE_B_OK，随后从各自持久 session_meta/turn_context 核对实际模型。
+- 底层真实 app-server 已完成三个回合：新线程 gpt-6.1-sol/low，同线程改为 gpt-6-luna/high，再新线程 gpt-6-astra/max；三个线程读回字段与请求一致，认证 type=chatgpt。
+- 隔离项目 runtime 已证实默认 2 个待命，程序侧 0/1/3/2 扩缩无需模型请求。正在实测实际 Astra 动态工具派工与 DeepSeek HTTP 请求参数；生产飞书、同伴与板卡通道保持隔离。
+- 完成实际 Astra 工具侧 0/1/3/2 伸缩；首轮一项子任务串流失败已保存，加入诊断采集后的三路复测全部完成，HTTP 请求执行区间有交集，服务端 echo model/effort 与请求一致。
+- 自主数量样本未指定工作数量，Astra 实际决定 3 个并行，取回 11011111、13、6 三个正确结果后恢复 2 个待命；自身档位由 low 提升到 high，全部子回合仍 max。
+- 重启恢复保留三个完成结果与两个待命；恢复实例新会话、同子线程复用、动态新实例各一项真实 DeepSeek 回合通过，均有持久元数据、请求和服务端 max 字段。
+- 原生 spawn_agent 对 deepseek-flash/max 的明确覆盖在创建前被 Unknown model 拒绝。已把原生工具限制与项目独立子池能力分别报告。
+- 使用 systematic-debugging 记录首轮异常，并独立稳定复现当前 gateway 对 willRetry=true 通知的处理缺陷；未修改生产代码或全局配置。
+- 完成报告、哈希清单与 14 项证据核验，全部隔离 runtime 已停止，生产计划任务仍 Ready。任务完成内容为查明、对照和实测，不把尚未接入的主模型/主会话调度宣称已完成。
+
 ## 2026-09-30
 
 - Read the v0.6 design document in full.
@@ -60,3 +75,15 @@
 - 全量回归增至 167/167，通过本地 Git 快进认领、失联节点恢复、永久暂停及过期消息等测试。GitHub Desktop 发布 `main`，远端 `git ls-remote` 读回 `88930ff6a33eaad1636514292c888f11ed49abd4`。
 - 首次分发 ZIP 的 405 文件 CRC/逐文件 SHA-256 与解包副本 167/167 测试通过。按队友路径从公开 GitHub 克隆 B 节点时发现 Windows Store Python 别名和 PowerShell 参数数组拼接问题；已修复为自动寻找 Codex 捆绑 Python、分别传递参数和值。随后实跑接入脚本生成 B 本地配置并通过 167/167 测试，未提供密钥时保持飞书和直连关闭。可编辑安装生成的 `*.egg-info/` 已加入忽略规则，防止阻碍下一次快进更新。
 - 再查飞书开发者后台：企业自建应用创建表单提示默认仅当前组织内部可用且发布需管理员审核；外部群应用机器人还须实际获准外部共享。未把表单可打开误记为六机器人已创建或已入群。
+
+## 2026-10-10 v0.7 implementation and acceptance
+
+- 本轮用户明确授权实施，替换历史 v0.6 的固定主模型与预建子数量规则；历史关机步骤不执行，常驻服务保持运行。
+- 持久主会话目录及允许目录路由已接入实际 app-server：Astra 真正调用 session_open/route，旧线程 Luna/low→Astra/ultra，新任务与当前下一回合自主选择 Luna/low，重启复用线程。
+- DeepSeek Flash/max 使用原指定本机 key，按任务从 0 扩为 3，实际计算、写文件和读回，主 Astra/ultra 独立验证后回收为 0，重启仍为 0；11 请求均 Flash/max，10 终结流与 1 未终结流如实保留，三个任务完成。
+- 原生 GPT 真正执行返回平方和 385，与 DeepSeek 共用工作账本。两个方向的重复请求均复用原 job；活动写路径冲突拒绝，原生必须先绑定父租约并取得 execution_allowed=true。
+- 原 Astra/DeepSeek 飞书身份只读核对成功，权限和 human > main > child 不变；14 项 Desktop MCP 工具及共享 Astra 主入口实测通过，未为验收发送群消息。
+- 修复结构化重试通知、线程/回合过滤及大 JSON-RPC 帧；补齐持久错误记录、Windows 文件大小写互斥与取消后停止确认。
+- Task Scheduler 在直接杀死旧服务进程后未自动恢复，故增加程序监督器及双独占锁。真实强杀工作进程后自动恢复；Windows Job Object 为每个工作进程回收子进程树。停止服务清理 16 个进程、残留 0，重启原线程和完成任务保留，飞书重新连接。
+- 最终完整回归 271/271 通过。公开脱敏摘要与证据哈希保存到 docs/deployment/evidence/autonomous-routing-2026-10-10.json，当前验收报告为 docs/deployment/AUTONOMOUS_ROUTING_ACCEPTANCE_2026-10-10.md。
+- 受控会话在回合边界切换模型，不改写未接入控制器的普通 Desktop 聊天正在生成的模型或下拉框；本轮未在 B/C 物理电脑、跨机网络或板卡验收，也未量化 GPT usage 节约百分比。

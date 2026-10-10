@@ -1,7 +1,6 @@
 node_id = "A"
 project_id = "fpga-main"
 state_dir = ".local/node-a"
-default_children = 2
 mode = "app_server"
 turn_timeout_seconds = 3600
 deepseek_key_file = ""

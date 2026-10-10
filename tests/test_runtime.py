@@ -42,13 +42,13 @@ class NodeRuntimeTests(unittest.IsolatedAsyncioTestCase):
     async def asyncTearDown(self):
         self.tmp.cleanup()
 
-    async def test_runtime_starts_idle_with_two_standby_children(self):
+    async def test_runtime_ignores_legacy_default_children_and_starts_on_demand(self):
         config = NodeConfig.load(self.config_path)
         runtime = NodeRuntime(config)
         await runtime.start()
         snapshot = runtime.snapshot()
         self.assertEqual(snapshot["node_id"], "A")
-        self.assertEqual(snapshot["pool"]["standby"], 2)
+        self.assertEqual(len(snapshot["pool"]["instances"]), 0)
         self.assertEqual(snapshot["pending_inbound"], 0)
         self.assertEqual(snapshot["idle_model_calls"], 0)
         await runtime.stop()
@@ -68,7 +68,7 @@ class NodeRuntimeTests(unittest.IsolatedAsyncioTestCase):
             results = await client.call("wait", {"job_ids": [assigned["job_id"]]})
             self.assertEqual(results[0]["status"], "completed")
             self.assertEqual(results[0]["instance_id"], assigned["instance_id"])
-            self.assertEqual(runtime.snapshot()["pool"]["standby"], 2)
+            self.assertEqual(runtime.snapshot()["pool"]["standby"], 1)
         finally:
             await runtime.stop()
 
@@ -86,7 +86,8 @@ class NodeRuntimeTests(unittest.IsolatedAsyncioTestCase):
             self.assertEqual(
                 {tool["name"] for tool in runtime.dynamic_children.specs()},
                 {"fpga_child_status", "fpga_child_scale", "fpga_child_delegate",
-                 "fpga_child_wait", "fpga_child_cancel"},
+                 "fpga_child_wait", "fpga_child_cancel", "fpga_native_reserve",
+                 "fpga_native_validate", "fpga_native_complete"},
             )
             self.assertIn(
                 "fpga_peer_send",
@@ -131,6 +132,8 @@ class NodeRuntimeTests(unittest.IsolatedAsyncioTestCase):
                 runtime.pool._active[child["instance_id"]]
             )
             self.assertEqual(gateway.timeout_seconds, 1800)
+            self.assertEqual(gateway.thread_config_factory()['approval_policy'], 'never')
+            self.assertEqual(gateway.thread_config_factory()['sandbox_mode'], 'danger-full-access')
         finally:
             await runtime.stop()
 

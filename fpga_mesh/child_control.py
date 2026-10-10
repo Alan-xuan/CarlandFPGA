@@ -3,16 +3,33 @@
 from __future__ import annotations
 
 import asyncio
+import hashlib
 import json
 import os
+import posixpath
+import re
 import secrets
 import sqlite3
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from uuid import uuid4
 
 from .pool import InstancePool
 from .protocol import Envelope, MessageKind, SourceKind
+
+DEEPSEEK_ROUTE = "deepseek"
+NATIVE_ROUTE = "gpt_native"
+NATIVE_LEASE_SECONDS = 24 * 60 * 60
+OWNERSHIP_ALL = "*"
+
+_ADDED_COLUMNS = (
+    ("work_id", "TEXT"),
+    ("route", "TEXT NOT NULL DEFAULT 'deepseek'"),
+    ("request_hash", "TEXT"),
+    ("ownership_json", "TEXT"),
+    ("lease_token", "TEXT"),
+    ("native_agent_id", "TEXT"),
+)
 
 
 def _now() -> str:
@@ -20,7 +37,13 @@ def _now() -> str:
 
 
 class ChildCoordinator:
-    """The parent chooses assignments; the program waits and records results."""
+    """The parent chooses assignments; the program waits and records results.
+
+    A job is unique per (task_id, task_version, work_id) across both routes:
+    an identical request is collapsed onto the existing job, while a different
+    request that reuses the same work id is rejected. Interrupted, failed or
+    cancelled jobs are never replayed automatically.
+    """
 
     TERMINAL = frozenset({"completed", "failed", "cancelled", "interrupted"})
 
@@ -47,7 +70,13 @@ class ChildCoordinator:
                 result_json TEXT,
                 error TEXT,
                 created_at TEXT NOT NULL,
-                updated_at TEXT NOT NULL
+                updated_at TEXT NOT NULL,
+                work_id TEXT,
+                route TEXT NOT NULL DEFAULT 'deepseek',
+                request_hash TEXT,
+                ownership_json TEXT,
+                lease_token TEXT,
+                native_agent_id TEXT
             );
             CREATE TABLE IF NOT EXISTS task_versions (
                 task_id TEXT PRIMARY KEY,
@@ -55,38 +84,61 @@ class ChildCoordinator:
             );
             """
         )
-        # An earlier process may have died while a tool or board operation ran.
-        # Never replay such work without a fresh decision from Astra.
+        self._migrate()
+        # An earlier process may have died while work was reserved, queued or
+        # running. Never replay such work without a fresh parent decision.
         self._db.execute(
             "UPDATE child_jobs SET status='interrupted', updated_at=? "
-            "WHERE status IN ('queued', 'running')", (_now(),),
+            "WHERE status IN ('reserved', 'queued', 'running')", (_now(),),
+        )
+        self._db.execute(
+            "CREATE UNIQUE INDEX IF NOT EXISTS child_jobs_work_unique "
+            "ON child_jobs(task_id, task_version, work_id)"
         )
         self._db.commit()
         self._running: dict[str, asyncio.Task[None]] = {}
         self._changed = asyncio.Event()
         self._allocation_lock = asyncio.Lock()
 
+    def _migrate(self) -> None:
+        present = {row["name"] for row in
+                   self._db.execute("PRAGMA table_info(child_jobs)")}
+        for name, definition in _ADDED_COLUMNS:
+            if name not in present:
+                self._db.execute(
+                    f"ALTER TABLE child_jobs ADD COLUMN {name} {definition}"
+                )
+
     async def delegate(
         self, *, task_id: str, task_version: int, text: str,
-        instance_id: str | None = None, auto_expand: bool = False,
+        instance_id: str | None = None, auto_expand: bool = True,
+        work_id: str | None = None, ownership: list[str] | None = None,
     ) -> dict:
         async with self._allocation_lock:
             return await self._delegate_locked(
                 task_id=task_id, task_version=task_version, text=text,
                 instance_id=instance_id, auto_expand=auto_expand,
+                work_id=work_id, ownership=ownership,
             )
 
     async def _delegate_locked(
         self, *, task_id: str, task_version: int, text: str,
-        instance_id: str | None, auto_expand: bool,
+        instance_id: str | None, auto_expand: bool, work_id: str | None,
+        ownership: list[str] | None,
     ) -> dict:
-        if not task_id.strip() or not text.strip() or task_version < 1:
-            raise ValueError("task_id, positive task_version, and text are required")
-        latest = self._db.execute(
-            "SELECT version FROM task_versions WHERE task_id=?", (task_id,),
-        ).fetchone()
-        if latest is not None and task_version < latest["version"]:
-            raise ValueError("stale child assignment task_version")
+        self._validate_assignment(task_id, task_version, text)
+        self._reject_stale(task_id, task_version)
+        resolved_work_id = self._resolve_work_id(work_id, text)
+        normalized_ownership = self._normalize_ownership(ownership)
+        request_hash = self._request_hash(
+            task_id, task_version, resolved_work_id, text, normalized_ownership,
+        )
+        existing = self._existing_assignment(
+            task_id, task_version, resolved_work_id,
+        )
+        if existing is not None:
+            return self._duplicate_result(existing, request_hash)
+        self._ensure_ownership_free(normalized_ownership)
         if instance_id is None:
             standby = [item for item in self.pool.snapshot()["instances"]
                        if item["state"] == "standby"]
@@ -112,18 +164,29 @@ class ChildCoordinator:
         # cannot both select the same standby worker.
         await self.pool.reserve(instance_id)
         try:
-            latest_after_claim = self._db.execute(
-                "SELECT version FROM task_versions WHERE task_id=?", (task_id,),
-            ).fetchone()
-            if (latest_after_claim is not None and
-                    latest_after_claim["version"] > task_version):
+            if self._is_stale(task_id, task_version):
                 raise ValueError("stale child assignment task_version")
+            # A native reservation can arrive while pool allocation yields.
+            self._ensure_ownership_free(normalized_ownership)
             with self._db:
                 self._db.execute(
-                    "INSERT INTO child_jobs VALUES (?, ?, ?, ?, ?, 'queued', NULL, NULL, ?, ?)",
+                    "INSERT INTO child_jobs ("
+                    "job_id, instance_id, task_id, task_version, instructions, "
+                    "status, route, work_id, request_hash, ownership_json, "
+                    "created_at, updated_at) "
+                    "VALUES (?, ?, ?, ?, ?, 'queued', ?, ?, ?, ?, ?, ?)",
                     (job_id, instance_id, task_id, task_version, text,
-                     created_at, created_at),
+                     DEEPSEEK_ROUTE, resolved_work_id, request_hash,
+                     json.dumps(normalized_ownership), created_at, created_at),
                 )
+        except sqlite3.IntegrityError:
+            await self.pool.return_to_standby(instance_id)
+            raced = self._existing_assignment(
+                task_id, task_version, resolved_work_id,
+            )
+            if raced is not None:
+                return self._duplicate_result(raced, request_hash)
+            raise
         except Exception:
             await self.pool.return_to_standby(instance_id)
             raise
@@ -131,7 +194,137 @@ class ChildCoordinator:
             self._run(job_id, instance_id, task_id, task_version, text),
             name=job_id,
         )
-        return self.job(job_id)
+        return {**self.job(job_id), "duplicate": False}
+    @staticmethod
+    def _validate_assignment(task_id: str, task_version: int, text: str) -> None:
+        if (not isinstance(task_id, str) or not task_id.strip()
+                or not isinstance(text, str) or not text.strip()
+                or task_version < 1):
+            raise ValueError(
+                "task_id, positive task_version, and text are required"
+            )
+
+    def _latest_version(self, task_id: str) -> int | None:
+        row = self._db.execute(
+            "SELECT version FROM task_versions WHERE task_id=?", (task_id,),
+        ).fetchone()
+        return int(row["version"]) if row is not None else None
+
+    def _is_stale(self, task_id: str, task_version: int) -> bool:
+        latest = self._latest_version(task_id)
+        return latest is not None and task_version < latest
+
+    def _reject_stale(self, task_id: str, task_version: int) -> None:
+        if self._is_stale(task_id, task_version):
+            raise ValueError("stale child assignment task_version")
+
+    @staticmethod
+    def _normalize_text(text: str) -> str:
+        return text.replace("\r\n", "\n").strip()
+
+    @classmethod
+    def _resolve_work_id(cls, work_id: str | None, text: str) -> str:
+        if work_id is not None:
+            if not isinstance(work_id, str) or not work_id.strip():
+                raise ValueError("work_id must be a nonempty string")
+            return work_id.strip()
+        normalized = cls._normalize_text(text)
+        return hashlib.sha256(normalized.encode("utf-8")).hexdigest()
+
+    @staticmethod
+    def _request_hash(
+        task_id: str, task_version: int, work_id: str, text: str,
+        ownership: list[str],
+    ) -> str:
+        canonical = json.dumps(
+            {
+                "task_id": task_id,
+                "task_version": task_version,
+                "work_id": work_id,
+                "text": ChildCoordinator._normalize_text(text),
+                "ownership": sorted(ownership),
+            },
+            ensure_ascii=False, sort_keys=True, separators=(",", ":"),
+        )
+        return hashlib.sha256(canonical.encode("utf-8")).hexdigest()
+
+    @staticmethod
+    def _normalize_ownership(ownership: list[str] | None) -> list[str]:
+        if ownership is None:
+            return []
+        if isinstance(ownership, (str, bytes)) or not isinstance(
+            ownership, (list, tuple, set, frozenset),
+        ):
+            raise ValueError(
+                "ownership must be a list of project-relative paths"
+            )
+        normalized = []
+        for raw in ownership:
+            if not isinstance(raw, str) or not raw.strip():
+                raise ValueError("ownership entries must be nonempty strings")
+            item = raw.strip().replace("\\", "/")
+            if item == OWNERSHIP_ALL:
+                normalized.append(OWNERSHIP_ALL)
+                continue
+            if item.startswith("/") or re.match(r"^[A-Za-z]:", item):
+                raise ValueError(
+                    f"ownership path must be project-relative: {raw!r}"
+                )
+            item = posixpath.normpath(item)
+            if item in {"", ".", ".."} or item.startswith("../"):
+                raise ValueError(
+                    f"ownership path must stay inside the project: {raw!r}"
+                )
+            normalized.append(item.casefold() if os.name == 'nt' else item)
+        return sorted(set(normalized))
+
+    @staticmethod
+    def _ownership_overlaps(first: str, second: str) -> bool:
+        if os.name == 'nt':
+            first, second = first.casefold(), second.casefold()
+        if first == OWNERSHIP_ALL or second == OWNERSHIP_ALL:
+            return True
+        return (first == second
+                or first.startswith(second + "/")
+                or second.startswith(first + "/"))
+
+    def _ensure_ownership_free(self, ownership: list[str]) -> None:
+        if not ownership:
+            return
+        rows = self._db.execute(
+            "SELECT job_id, status, route, error, ownership_json FROM child_jobs "
+            "WHERE ownership_json IS NOT NULL AND ownership_json != '[]'"
+        ).fetchall()
+        for row in rows:
+            native_stop_unknown = (row['route'] == NATIVE_ROUTE and
+                (row['status'] == 'interrupted' or row['error'] == 'native stop unconfirmed'))
+            if row["status"] in self.TERMINAL and not native_stop_unknown:
+                continue
+            held = json.loads(row["ownership_json"])
+            for path in ownership:
+                for owner in held:
+                    if self._ownership_overlaps(path, owner):
+                        raise ValueError(
+                            f"ownership conflict: {path!r} overlaps job "
+                            f"{row['job_id']} holding {owner!r}"
+                        )
+
+    def _existing_assignment(
+        self, task_id: str, task_version: int, work_id: str,
+    ) -> sqlite3.Row | None:
+        return self._db.execute(
+            "SELECT * FROM child_jobs WHERE task_id=? AND task_version=? "
+            "AND work_id=?",
+            (task_id, task_version, work_id),
+        ).fetchone()
+
+    def _duplicate_result(self, row: sqlite3.Row, request_hash: str) -> dict:
+        if row["request_hash"] != request_hash:
+            raise ValueError(
+                f"work_id {row['work_id']!r} already belongs to a different "
+                f"request ({row['job_id']}); choose another work_id or text"
+            )
+        return {**self.job(row["job_id"]), "duplicate": True}
 
     async def scale(self, count: int) -> dict:
         async with self._allocation_lock:
@@ -162,6 +355,11 @@ class ChildCoordinator:
             "instance_id": row["instance_id"],
             "task_id": row["task_id"],
             "task_version": row["task_version"],
+            "route": row["route"] or DEEPSEEK_ROUTE,
+            "work_id": row["work_id"],
+            "ownership": (json.loads(row["ownership_json"])
+                          if row["ownership_json"] else []),
+            "native_agent_id": row["native_agent_id"],
             "status": row["status"],
             "terminal": row["status"] in self.TERMINAL,
             "stale": bool(row["latest_version"] and
@@ -202,6 +400,12 @@ class ChildCoordinator:
                 await task
             except asyncio.CancelledError:
                 pass
+        elif (job["route"] == NATIVE_ROUTE
+              and job["status"] in {"reserved", "running"}):
+            # The parent can only record the lease as cancelled; it cannot
+            # confirm that a remote native child actually stopped.
+            self._record(job_id, "cancelled", error=(
+                'native stop unconfirmed' if job['status'] == 'running' else None))
         return self.job(job_id)
 
     async def cancel_all(self) -> list[dict]:
@@ -256,6 +460,199 @@ class ChildCoordinator:
             )
         self._changed.set()
 
+    # -- GPT native leases --------------------------------------------------
+
+    def native_reserve(
+        self, *, task_id: str, task_version: int, text: str,
+        work_id: str | None = None, ownership: list[str] | None = None,
+        reason: str,
+    ) -> dict:
+        """Reserve one shared execution lease for a special GPT-native task.
+
+        DeepSeek Flash at max reasoning stays the priority route; native work
+        needs a nonempty reason that justifies the special capability. The
+        returned lease token is the only copy the parent gets, and it must be
+        handed to the native child that validates and completes the job.
+        """
+        if not isinstance(reason, str) or not reason.strip():
+            raise ValueError(
+                "native_reserve requires a nonempty reason for the special "
+                "GPT native capability"
+            )
+        self._validate_assignment(task_id, task_version, text)
+        self._reject_stale(task_id, task_version)
+        resolved_work_id = self._resolve_work_id(work_id, text)
+        normalized_ownership = self._normalize_ownership(ownership)
+        request_hash = self._request_hash(
+            task_id, task_version, resolved_work_id, text, normalized_ownership,
+        )
+        existing = self._existing_assignment(
+            task_id, task_version, resolved_work_id,
+        )
+        if existing is not None:
+            duplicate = self._duplicate_result(existing, request_hash)
+            duplicate["lease_token"] = None
+            return duplicate
+        self._ensure_ownership_free(normalized_ownership)
+        self.update_task_version(task_id, task_version)
+        job_id = f"child-{uuid4().hex}"
+        created_at = _now()
+        lease_token = secrets.token_urlsafe(32)
+        try:
+            with self._db:
+                self._db.execute(
+                    "INSERT INTO child_jobs ("
+                    "job_id, instance_id, task_id, task_version, instructions, "
+                    "status, route, work_id, request_hash, ownership_json, "
+                    "lease_token, created_at, updated_at) "
+                    "VALUES (?, '', ?, ?, ?, 'reserved', ?, ?, ?, ?, ?, ?, ?)",
+                    (job_id, task_id, task_version, text, NATIVE_ROUTE,
+                     resolved_work_id, request_hash,
+                     json.dumps(normalized_ownership), lease_token,
+                     created_at, created_at),
+                )
+        except sqlite3.IntegrityError:
+            raced = self._existing_assignment(
+                task_id, task_version, resolved_work_id,
+            )
+            if raced is not None:
+                duplicate = self._duplicate_result(raced, request_hash)
+                duplicate["lease_token"] = None
+                return duplicate
+            raise
+        self._changed.set()
+        return {**self.job(job_id), "duplicate": False,
+                "lease_token": lease_token}
+
+    def native_validate(
+        self, *, job_id: str, lease_token: str, agent_id: str | None = None,
+    ) -> dict:
+        """Check a lease before native work and bind the child agent once."""
+        row = self._native_row(job_id)
+        self._check_lease(row, lease_token)
+        if agent_id is not None and (not isinstance(agent_id, str)
+                                     or not agent_id.strip()):
+            raise ValueError("agent_id must be a nonempty string")
+        bound = row["native_agent_id"]
+        if agent_id is not None and bound is not None and bound != agent_id:
+            raise ValueError(
+                f"native job {job_id} is already bound to another agent id"
+            )
+        new_agent = agent_id if agent_id is not None else bound
+        if new_agent is not None and (row["status"] == "reserved" or new_agent != bound):
+            with self._db:
+                self._db.execute(
+                    "UPDATE child_jobs SET status='running', native_agent_id=?, "
+                    "updated_at=? WHERE job_id=?",
+                    (new_agent, _now(), job_id),
+                )
+            self._changed.set()
+            row = self._db.execute(
+                "SELECT * FROM child_jobs WHERE job_id=?", (job_id,),
+            ).fetchone()
+        return {
+            "job_id": row["job_id"],
+            "task_id": row["task_id"],
+            "task_version": row["task_version"],
+            "work_id": row["work_id"],
+            "route": NATIVE_ROUTE,
+            "status": row["status"],
+            "native_agent_id": row["native_agent_id"],
+            "execution_allowed": row['status'] == 'running' and row['native_agent_id'] is not None,
+        }
+
+    def native_complete(
+        self, *, job_id: str, lease_token: str, text: str,
+        error: str | None = None,
+    ) -> dict:
+        """Bind the immutable terminal result of a native lease."""
+        row = self._native_row(job_id)
+        self._check_token(row, lease_token)
+        if row['status'] in {'cancelled', 'interrupted'} and error == 'cancelled':
+            if not text.strip():
+                raise ValueError('actual stop confirmation evidence is required')
+            self._record(job_id, 'cancelled', error='native stop confirmed', result={'text': text})
+            return self.job(job_id)
+        self._reject_stale(row['task_id'], row['task_version'])
+        if row["status"] == "completed":
+            stored = (json.loads(row["result_json"])
+                      if row["result_json"] else {})
+            if error is None and stored.get("text") == text:
+                return {**self.job(job_id), "duplicate": True}
+            raise ValueError(
+                f"native job {job_id} is already completed with a different "
+                f"result"
+            )
+        if self._lease_expired(row):
+            raise ValueError("native lease expired")
+        if row['status'] == 'reserved' and error is None:
+            raise ValueError('native_validate with agent_id is required before completion')
+        if row["status"] not in {"reserved", "running"}:
+            raise ValueError(
+                f"native lease is no longer active ({row['status']})"
+            )
+        if not isinstance(text, str):
+            raise ValueError("text must be a string")
+        if error is None and not text.strip():
+            raise ValueError(
+                "text is required for a successful native completion"
+            )
+        if error is not None and not isinstance(error, str):
+            raise ValueError("error must be a string")
+        if error is not None:
+            self._record(job_id, "failed", error=error)
+        else:
+            self._record(job_id, "completed", result={
+                "text": text,
+                "native_agent_id": row["native_agent_id"],
+            })
+        return {**self.job(job_id), "duplicate": False}
+
+    def _native_row(self, job_id: str) -> sqlite3.Row:
+        row = self._db.execute(
+            "SELECT * FROM child_jobs WHERE job_id=?", (job_id,),
+        ).fetchone()
+        if row is None:
+            raise KeyError(f"unknown child job: {job_id}")
+        route = row["route"] or DEEPSEEK_ROUTE
+        if route != NATIVE_ROUTE:
+            raise ValueError(
+                f"native lease route mismatch: job {job_id} belongs to "
+                f"route {route!r}"
+            )
+        return row
+
+    @staticmethod
+    def _check_token(row: sqlite3.Row, lease_token: str) -> None:
+        stored = row["lease_token"]
+        provided = lease_token if isinstance(lease_token, str) else ""
+        if not stored or not secrets.compare_digest(
+            stored.encode("utf-8"), provided.encode("utf-8"),
+        ):
+            raise PermissionError("invalid native lease token")
+
+    def _check_lease(self, row: sqlite3.Row, lease_token: str) -> None:
+        self._check_token(row, lease_token)
+        self._reject_stale(row['task_id'], row['task_version'])
+        if row["status"] not in {"reserved", "running"}:
+            raise ValueError(
+                f"native lease is no longer active ({row['status']})"
+            )
+        if self._lease_expired(row):
+            raise ValueError("native lease expired")
+
+    @staticmethod
+    def _lease_expired(row: sqlite3.Row) -> bool:
+        try:
+            updated = datetime.fromisoformat(
+                str(row["updated_at"]).replace("Z", "+00:00")
+            )
+        except ValueError:
+            return False
+        if updated.tzinfo is None:
+            updated = updated.replace(tzinfo=timezone.utc)
+        return (datetime.now(timezone.utc) - updated
+                > timedelta(seconds=NATIVE_LEASE_SECONDS))
 
 class LocalControlServer:
     """Authenticated loopback socket owned by the node process."""
@@ -320,12 +717,38 @@ class LocalControlServer:
                     task_version=int(args["task_version"]),
                     text=str(args["text"]),
                     instance_id=args.get("instance_id"),
-                    auto_expand=bool(args.get("auto_expand", False)),
+                    auto_expand=bool(args.get("auto_expand", True)),
+                    work_id=args.get("work_id"),
+                    ownership=args.get("ownership"),
                 )
+            elif action == "job":
+                result = self.coordinator.job(str(args["job_id"]))
             elif action == "wait":
                 result = await self.coordinator.wait(list(args["job_ids"]))
             elif action == "cancel":
                 result = await self.coordinator.cancel(str(args["job_id"]))
+            elif action == "native_reserve":
+                result = self.coordinator.native_reserve(
+                    task_id=str(args["task_id"]),
+                    task_version=int(args["task_version"]),
+                    text=str(args["text"]),
+                    work_id=args.get("work_id"),
+                    ownership=args.get("ownership"),
+                    reason=str(args["reason"]),
+                )
+            elif action == "native_validate":
+                result = self.coordinator.native_validate(
+                    job_id=str(args["job_id"]),
+                    lease_token=str(args["lease_token"]),
+                    agent_id=args.get("agent_id"),
+                )
+            elif action == "native_complete":
+                result = self.coordinator.native_complete(
+                    job_id=str(args["job_id"]),
+                    lease_token=str(args["lease_token"]),
+                    text=str(args["text"]),
+                    error=args.get("error"),
+                )
             elif action == "task_version":
                 self.coordinator.update_task_version(
                     str(args["task_id"]), int(args["version"]),

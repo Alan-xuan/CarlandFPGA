@@ -25,6 +25,7 @@ class Session:
 
     async def next_notification(self):
         return JsonRpcNotification(method="turn/completed", params={
+            "threadId": "selector-thread",
             "turn": {"id": "selector-turn", "status": "completed", "items": [
                 {"type": "agentMessage", "phase": "final_answer",
                  "text": self.answer},
@@ -68,6 +69,76 @@ class AstraEffortSelectorTests(unittest.IsolatedAsyncioTestCase):
         chosen = await selector.choose(client, cwd="C:/project",
                                        model="gpt-6-astra", text="unclear task")
         self.assertEqual(chosen, "max")
+
+    async def test_retryable_selector_error_preserves_the_model_decision(self):
+        client = Client('{"effort":"high"}')
+        notifications = [JsonRpcNotification(method="error", params={
+            "threadId": "selector-thread", "turnId": "selector-turn",
+            "error": {"message": "temporary stream interruption"},
+            "willRetry": True,
+        })]
+        original_next = client.session.next_notification
+
+        async def next_event():
+            return notifications.pop(0) if notifications else await original_next()
+
+        client.session.next_notification = next_event
+        chosen = await AstraEffortSelector().choose(
+            client, cwd="C:/project", model="gpt-6-astra", text="task",
+        )
+        self.assertEqual(chosen, "high")
+        self.assertFalse(any(method == "turn/interrupt"
+                             for method, _ in client.session.calls))
+
+    async def test_foreign_selector_errors_do_not_trigger_max_fallback(self):
+        client = Client('{"effort":"medium"}')
+        notifications = [
+            JsonRpcNotification(method="error", params={
+                "threadId": "work-thread", "turnId": "selector-turn",
+                "error": {"message": "work thread failed"}, "willRetry": False,
+            }),
+            JsonRpcNotification(method="error", params={
+                "threadId": "selector-thread", "turnId": "old-selector-turn",
+                "error": {"message": "previous selector failed"}, "willRetry": False,
+            }),
+        ]
+        original_next = client.session.next_notification
+
+        async def next_event():
+            return notifications.pop(0) if notifications else await original_next()
+
+        client.session.next_notification = next_event
+        chosen = await AstraEffortSelector().choose(
+            client, cwd="C:/project", model="gpt-6-astra", text="task",
+        )
+        self.assertEqual(chosen, "medium")
+
+    async def test_foreign_or_unidentified_completion_is_not_selector_decision(self):
+        client = Client('{"effort":"high"}')
+        notifications = [
+            JsonRpcNotification(method="turn/completed", params={
+                "threadId": "work-thread",
+                "turn": {"id": "selector-turn", "status": "completed", "items": [
+                    {"type": "agentMessage", "text": '{"effort":"low"}'},
+                ]},
+            }),
+            JsonRpcNotification(method="turn/completed", params={
+                "threadId": "selector-thread",
+                "turn": {"status": "completed", "items": [
+                    {"type": "agentMessage", "text": '{"effort":"low"}'},
+                ]},
+            }),
+        ]
+        original_next = client.session.next_notification
+
+        async def next_event():
+            return notifications.pop(0) if notifications else await original_next()
+
+        client.session.next_notification = next_event
+        chosen = await AstraEffortSelector().choose(
+            client, cwd="C:/project", model="gpt-6-astra", text="task",
+        )
+        self.assertEqual(chosen, "high")
 
     async def test_timeout_interrupts_selector_turn_before_fallback(self):
         client = Client('{"effort":"low"}')

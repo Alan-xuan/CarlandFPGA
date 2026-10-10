@@ -2,7 +2,7 @@
 
 我加入 `carolwjade/CarlandFPGA` FPGA 三机协作项目。你是这台 Windows 电脑的 Codex 部署助手。请解压**多机协作 ZIP**，读取其中 `README.md`、`docs/deployment/OPERATIONS.md`、`deploy/HUMAN_STEPS.md`、`docs/deployment/DEPLOYMENT_STATUS.md` 和 `deploy/Join-FPGAMesh.ps1`，然后自主完成本机能执行的部署与验证，直到留下可运行、可恢复的本机节点。另一个 **PYNQ-Z2 客机单机技能 ZIP** 须选择与本机 B/C 身份相同的版本并独立安装，仅在本机需要单机开发时使用；它不是多机接入的前置条件。不要安装 A 机含板卡上传入口的技能包，也不要把说明文字误认为已完成的线上验收。
 
-这台机器是 **B 或 C**；先从我这里确定节点字母。使用我自己的 ChatGPT/Codex 订阅登录作为本机 Astra 主 Agent。DeepSeek V4.1 Flash 子池由 Astra 自主决定调用时机和数量，默认两个待命，所有工作回合固定最高 `max` 推理深度。每机的全部子实例在飞书共用一个 DeepSeek 机器人形象，且不自行监听群、读取群消息或发消息；只有主 Astra 显式要求时才发布已完成的当前结果。
+这台机器是 **B 或 C**；先从我这里确定节点字母。使用我自己的 ChatGPT/Codex 订阅登录。独立任务自动开 GPT 主会话，各主会话自主选择当前会话下一回合及新会话的允许模型和推理深度，全部共用本机 Astra 飞书身份。DeepSeek Flash 执行子代理优先使用指定 API key，始终固定最高 `max`，按实际派工启用和回收，没有默认、最低或固定数量。特殊能力需要时保留 GPT 原生子代理；两入口通过相同 task_id/task_version/work_id 和文件 ownership 去重与互斥，GPT 原生执行前必须领取并验证父级租约。子代理用于在不降低质量的前提下节省 GPT usage、分担执行工作；决策、验收、重难点、关键优化与评估由质量主模型最高可用推理深度完成。全部 DeepSeek 实例共用本机 DeepSeek 飞书身份，不自行监听群、读取群消息或发消息；只有主 Astra 显式要求时才发布已完成的当前结果。人类、主模型、子代理优先关系及权限不变。
 
 从解压目录运行 `pwsh -NoProfile -File deploy/Join-FPGAMesh.ps1 -Node B`，C 机改为 C；按本机条件传入 DeepSeek API 密钥**文件路径**、三方共享 HMAC 密钥**文件路径**和同伴 Tailscale URL。群 ID 已内置为 `oc_e0de73230fd64dd2da3e52fc781dffb1`。入口默认尝试安装工具、建 GitHub fork、注册两个飞书应用、分别发信读回、验证真实主从调用、注册常驻任务；授权超时或某一外部条件未完成时继续其他独立步骤。密钥内容不得出现在聊天、命令行参数、Git、ZIP 或飞书群。涉及本人扫码/登录/实名认证、飞书发布与群管理员加机器人，以及仓库所有者邀请协作者的步骤，按 `deploy/HUMAN_STEPS.md` 展示准确页面并等待相应真人完成；不得代替本人确认。每轮结束读 `.local/deployment/node-<b|c>/setup-status.json` 和 `NEXT_STEPS.md`，补齐后原命令重跑，保留原本机路径及同伴地址。**每个新入群的应用身份分别真实发信并同身份读回后才标记上线。** DeepSeek 一次性读回不启用其群事件订阅；子实例不主动读群。群里明确 `/fpga B ...` 或 `/fpga C ...` 的指令可直接执行；未指定节点的新共享任务须先在 GitHub 协调分支成功认领。
 

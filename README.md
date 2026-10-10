@@ -1,6 +1,6 @@
 # CarlandFPGA 三机协作控制器
 
-本项目把三位成员各自的 Codex/ChatGPT 订阅用作 Astra 主 Agent。每台电脑有由该 Astra 自主调度的 DeepSeek V4.1 Flash 子实例池，默认两个待命，实际数量可伸缩；子实例工作回合固定最高 `max` 推理档位。六个飞书角色分别是三位 Astra 与每机一个共用的 DeepSeek 形象。只有 A 机接板卡，B/C 通过同伴消息提交方案并获取实测结果。
+本项目把三位成员各自的 Codex/ChatGPT 订阅用于 GPT 主会话。独立任务自动建立会话，模型与推理深度按任务选择；本机所有主会话共享原 Astra 飞书身份。执行工作优先交给指定 API key 的 DeepSeek Flash，始终为最高 `max`；没有默认数量，按需启用与回收。特殊需要保留 GPT 原生 subagent 入口，两入口共享任务去重和文件所有权账本。决策、验收、重难点、关键优化、评估由质量主模型完成。全部 DeepSeek 实例共用本机 DeepSeek 群身份，六个群角色及权限不变。只有 A 机接板卡。
 
 分发包按用途拆开：多机协作 ZIP 用于 B/C 接入 GitHub、Tailscale、飞书和本机主从 Agent；B、C 各有一个独立的 PYNQ-Z2 客机技能 ZIP。客机技能保留预检、RTL/仿真、Vivado 构建与证据清单，要求将作品通过仓库 PR 交给 A，由 A 实板验证并在同一 PR 反馈。客机包不含板卡上传脚本。A 机现有的 [pynq-z2-single-node 技能](skills/pynq-z2-single-node/SKILL.md)及其分发 profile 保持独立，含真实板测入口；边界见[单机运行说明](docs/deployment/SINGLE_NODE_PYNQ_Z2.md)。
 

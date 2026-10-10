@@ -35,7 +35,11 @@ class MeshDynamicTools:
         self.feishu = feishu
 
     def specs(self) -> list[dict]:
-        return self.child_tools.specs() + [
+        return self.child_tools.specs() + self.main_specs()
+
+    @staticmethod
+    def main_specs() -> list[dict]:
+        return [
             _tool(
                 "fpga_group_report",
                 "Report a key fact to the human team as this node's Astra bot. "
@@ -58,7 +62,8 @@ class MeshDynamicTools:
             _tool(
                 "fpga_child_group_report",
                 "On explicit parent request, publish a completed, current child result "
-                "through this node's shared DeepSeek bot. Children never listen to the group.",
+                "through the shared DeepSeek bot for DeepSeek jobs, or Astra for native GPT jobs. "
+                "Children never listen to the group.",
                 {"job_id": {"type": "string"},
                  "operation_id": {"type": "string"}},
                 ["job_id", "operation_id"],
@@ -104,8 +109,6 @@ class MeshDynamicTools:
                     "operation_id": operation_id}
         if name == "fpga_child_group_report":
             self._require_feishu()
-            if self.feishu.deepseek_sender is None:
-                raise RuntimeError("DeepSeek Feishu sender is not configured")
             job_id = self._required(arguments, "job_id")
             operation_id = self._required(arguments, "operation_id")
             job = self.children.job(job_id)
@@ -116,13 +119,17 @@ class MeshDynamicTools:
             content = str((job.get("result") or {}).get("text", "")).strip()
             if not content:
                 raise ValueError("child result has no text")
-            text = f"DeepSeek-{self.node_id} · {job['task_id']} · {job_id}\n{content[:4000]}"
+            role = "astra" if job.get("route") == "gpt_native" else "deepseek"
+            if role == "deepseek" and self.feishu.deepseek_sender is None:
+                raise RuntimeError("DeepSeek Feishu sender is not configured")
+            identity = "Astra" if role == "astra" else "DeepSeek"
+            text = f"{identity}-{self.node_id} · {job['task_id']} · {job_id}\n{content[:4000]}"
             queued = self.store.enqueue_group_report(
-                operation_id, text, role="deepseek", job_id=job_id,
+                operation_id, text, role=role, job_id=job_id,
             )
             self.feishu.notify_report()
             return {"queued": queued or bool(self.store.pending_group_messages()),
-                    "operation_id": operation_id, "role": "deepseek"}
+                    "operation_id": operation_id, "role": role}
         raise ValueError(f"unknown mesh tool: {name}")
 
     def _require_feishu(self) -> None:

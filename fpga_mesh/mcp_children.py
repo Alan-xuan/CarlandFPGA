@@ -36,20 +36,25 @@ TOOLS = [
     _tool(
         "child_scale",
         "Choose how many DeepSeek V4.1 Flash children to keep ready. "
-        "You decide whether to use none, one, two, or more. Busy children cannot be removed.",
+        "Use zero or the actual task-required count. Busy children cannot be removed.",
         {"count": {"type": "integer", "minimum": 0}}, ["count"],
     ),
     _tool(
         "child_delegate",
         "Assign a concrete task to one of your local DeepSeek V4.1 Flash children "
-        "at fixed max reasoning. Returns a job id immediately; call child_wait once "
-        "when you need results. You decide the task, context, and whether to expand.",
+        "at fixed max reasoning. DeepSeek Flash is the priority route for ordinary "
+        "work. Returns a job id immediately; call child_wait once when you need "
+        "results. You decide the task, context, and whether to expand. Identical "
+        "work_id/ownership requests are reused instead of rerun, and overlapping "
+        "file ownership is rejected.",
         {
             "task_id": {"type": "string"},
             "task_version": {"type": "integer", "minimum": 1},
             "text": {"type": "string"},
             "instance_id": {"type": "string"},
             "auto_expand": {"type": "boolean"},
+            "work_id": {"type": "string"},
+            "ownership": {"type": "array", "items": {"type": "string"}},
         },
         ["task_id", "task_version", "text"],
     ),
@@ -66,7 +71,63 @@ TOOLS = [
         "assuming an external or hardware operation stopped.",
         {"job_id": {"type": "string"}}, ["job_id"],
     ),
+    _tool(
+        "native_reserve",
+        "Reserve the shared execution lease for bounded execution needing a "
+        "specific native GPT tool or context capability. Decisions, acceptance, "
+        "hard problems, critical optimization and evaluation stay with the main. "
+        "DeepSeek Flash at max reasoning "
+        "stays the priority route, so the reason must justify this capability. "
+        "Returns the persisted job plus a one-time lease token for the native "
+        "child. Identical work is reused and conflicting file ownership is rejected.",
+        {
+            "task_id": {"type": "string"},
+            "task_version": {"type": "integer", "minimum": 1},
+            "text": {"type": "string"},
+            "work_id": {"type": "string"},
+            "ownership": {"type": "array", "items": {"type": "string"}},
+            "reason": {"type": "string"},
+        },
+        ["task_id", "task_version", "text", "reason"],
+    ),
+    _tool(
+        "native_validate",
+        "Validate a GPT-native lease with its token before the child starts work "
+        "(DeepSeek children never need this). Supply the canonical agent_id to "
+        "bind the job and require execution_allowed=true. Without an agent_id "
+        "this is only a preflight and does not authorize execution.",
+        {
+            "job_id": {"type": "string"},
+            "lease_token": {"type": "string"},
+            "agent_id": {"type": "string"},
+        },
+        ["job_id", "lease_token"],
+    ),
+    _tool(
+        "native_complete",
+        "Record the immutable terminal result of a GPT-native lease. The same "
+        "identical text may be completed twice; a changed result is rejected. "
+        "Interrupted, failed or cancelled leases are never replayed.",
+        {
+            "job_id": {"type": "string"},
+            "lease_token": {"type": "string"},
+            "text": {"type": "string"},
+            "error": {"type": "string"},
+        },
+        ["job_id", "lease_token", "text"],
+    ),
 ]
+
+ACTIONS = {
+    "child_status": "status",
+    "child_scale": "scale",
+    "child_delegate": "delegate",
+    "child_wait": "wait",
+    "child_cancel": "cancel",
+    "native_reserve": "native_reserve",
+    "native_validate": "native_validate",
+    "native_complete": "native_complete",
+}
 
 
 class McpChildServer:
@@ -92,19 +153,12 @@ class McpChildServer:
             return self._result(request_id, {"tools": TOOLS})
         if method == "tools/call":
             name = params.get("name")
-            actions = {
-                "child_status": "status",
-                "child_scale": "scale",
-                "child_delegate": "delegate",
-                "child_wait": "wait",
-                "child_cancel": "cancel",
-            }
-            if name not in actions:
+            if name not in ACTIONS:
                 return self._tool_result(request_id, {"error": "unknown child tool"},
                                          error=True)
             try:
                 result = await self.client.call(
-                    actions[name], params.get("arguments") or {},
+                    ACTIONS[name], params.get("arguments") or {},
                 )
                 return self._tool_result(request_id, result)
             except Exception as exc:  # noqa: BLE001 - tool error, no process crash

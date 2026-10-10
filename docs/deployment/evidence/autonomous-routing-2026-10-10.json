@@ -1,0 +1,280 @@
+{
+  "schema_version": 1,
+  "implementation": "autonomous-routing-v0.7",
+  "verified_at_utc": "2026-10-10T14:01:39.737921+00:00",
+  "node": "A",
+  "passed": true,
+  "regression": {
+    "passed": 271,
+    "failed": 0
+  },
+  "main_routing": {
+    "task_sessions": [
+      {
+        "name": "autonomy-current",
+        "thread_id": "01a125fa-d47b-79a2-8078-82457e88c48c",
+        "model": "gpt-6-luna",
+        "reasoning_effort": "low"
+      },
+      {
+        "name": "autonomy-current",
+        "thread_id": "01a125fa-d47b-79a2-8078-82457e88c48c",
+        "model": "gpt-6-astra",
+        "reasoning_effort": "ultra"
+      },
+      {
+        "name": "autonomy-orchestrator",
+        "thread_id": "01a125fb-016e-7a51-8be9-47638e5b4edd",
+        "model": "gpt-6-astra",
+        "reasoning_effort": "ultra"
+      }
+    ],
+    "main_called_session_tools": [
+      {
+        "name": "fpga_session_list",
+        "arguments": {}
+      },
+      {
+        "name": "fpga_session_open",
+        "arguments": {
+          "task_id": "autonomy-opened",
+          "model": "gpt-6-luna",
+          "effort": "low",
+          "category": "execution"
+        }
+      },
+      {
+        "name": "fpga_session_route",
+        "arguments": {
+          "task_id": "autonomy-orchestrator",
+          "model": "gpt-6-luna",
+          "effort": "low",
+          "category": "execution"
+        }
+      }
+    ],
+    "new_task_thread_id": "01a125fb-3137-7d52-aada-b375653fa357",
+    "current_next_turn_model": "gpt-6-luna",
+    "current_next_turn_effort": "low",
+    "best_available_main": "gpt-6-astra/ultra",
+    "turn_boundary_only": true,
+    "unmanaged_desktop_decoder_or_picker_controlled": false
+  },
+  "deepseek": {
+    "specified_local_key_used": true,
+    "model": "deepseek-flash",
+    "provider": "deepseek",
+    "effort": "max",
+    "business_default_or_minimum_count": null,
+    "business_maximum_count": null,
+    "actual_parallel_workers": 3,
+    "http_requests_verified": 11,
+    "completed_http_streams": 10,
+    "nonterminal_http_streams": 1,
+    "http_and_upstream_max_verified": true,
+    "pool_counts": [
+      0,
+      3,
+      0,
+      0
+    ],
+    "file_values": [
+      5050,
+      20100,
+      45150
+    ],
+    "quality_main_independently_verified": true
+  },
+  "native_gpt": {
+    "job_id": "child-60489c96b6494e34bafb45eea9305bf6",
+    "route": "gpt_native",
+    "native_agent_id": "/root/native_lease_acceptance",
+    "status": "completed",
+    "result": {
+      "text": "NATIVE_LEASE_EXECUTION_OK sum_squares_1_to_10=385",
+      "native_agent_id": "/root/native_lease_acceptance"
+    },
+    "runtime": {
+      "thread_id": "01a12603-7149-73c3-ba2a-8e40245ec8ff",
+      "source": {
+        "subagent": {
+          "thread_spawn": {
+            "parent_thread_id": "01a12548-f7fb-7df2-bc8c-9d992dff8b99",
+            "depth": 1,
+            "agent_path": "/root/native_lease_acceptance",
+            "agent_nickname": "Pasteur",
+            "agent_role": "worker"
+          }
+        }
+      },
+      "model_provider": "openai",
+      "contexts": [
+        {
+          "model": "gpt-6.1-sol",
+          "model_provider": null,
+          "reasoning_effort": null,
+          "effort": "max",
+          "cwd": "C:\\Users\\CarlJade\\Documents\\ChatGPT\\FPGA多机协作开发"
+        }
+      ]
+    },
+    "pre_execution_bound_lease_required": true
+  },
+  "shared_ledger": {
+    "deepseek_to_native_duplicate": true,
+    "native_to_deepseek_duplicate": true,
+    "ownership_conflict_rejected": true,
+    "automatic_side_effect_replay_after_restart": false
+  },
+  "feishu": {
+    "identities": [
+      {
+        "role": "astra",
+        "app_id": "cli_aa4c9f58dd385cc9",
+        "bot_name": "FPGA Astra A",
+        "bot_open_id": "ou_7a2ba63476de6806f49df0045c608ef6",
+        "recent_group_message_ids": [
+          "om_x100b63a42604eca0b176bdd36f5f401",
+          "om_x100b63a42906bca8c44ab84ef1c02da"
+        ],
+        "read_only_acceptance": true,
+        "new_messages_sent": 0
+      },
+      {
+        "role": "deepseek",
+        "app_id": "cli_aa4c9f8c59785cd1",
+        "bot_name": "FPGA DeepSeek A",
+        "bot_open_id": "ou_6c468292e3b17d94b9e51cafa0149776",
+        "recent_group_message_ids": [
+          "om_x100b63a42604eca0b176bdd36f5f401",
+          "om_x100b63a42906bca8c44ab84ef1c02da"
+        ],
+        "read_only_acceptance": true,
+        "new_messages_sent": 0
+      }
+    ],
+    "all_local_gpt_mains_role": "astra",
+    "all_local_deepseek_children_role": "deepseek",
+    "priority": "human > GPT main > execution child",
+    "permissions_modified": false,
+    "new_messages_sent_by_acceptance": 0,
+    "identity_read_only_live_verified": true,
+    "publication_role_mapping_verified_by_tests": true
+  },
+  "resident": {
+    "scheduled_task": "FPGA-Mesh-Node-A",
+    "task_state": "Running",
+    "supervisor": {
+      "supervisor_pid": 2444,
+      "worker_pid": 13792,
+      "restarts": 0,
+      "updated_at": "2026-10-10T13:48:22.534099+00:00",
+      "status": "running"
+    },
+    "runtime_pid": 13888,
+    "feishu_connected": true,
+    "feishu_error": null,
+    "quota_error": null,
+    "pending_inbound": 0,
+    "pending_outbox": 0,
+    "live_worker_crash_recovery": true,
+    "crashed_worker_pid": 20744,
+    "recovered_worker_pid": 26472,
+    "stop_cleaned_owned_processes": 16,
+    "orphan_count": 0,
+    "resumed_main_thread_id": "01a12602-c75c-7330-9a9c-470cf7193d80",
+    "completed_jobs_preserved": true,
+    "single_instance_rejection_verified": true,
+    "per_worker_process_tree_cleanup_verified": true,
+    "zero_inference_idle_wait_or_supervision": true
+  },
+  "mcp": {
+    "passed": true,
+    "server": {
+      "name": "fpga-mesh",
+      "version": "0.7.0"
+    },
+    "tool_count": 14,
+    "tool_names": [
+      "fpga_child_status",
+      "fpga_child_scale",
+      "fpga_child_delegate",
+      "fpga_child_wait",
+      "fpga_child_cancel",
+      "fpga_native_reserve",
+      "fpga_native_validate",
+      "fpga_native_complete",
+      "fpga_session_list",
+      "fpga_session_open",
+      "fpga_session_route",
+      "fpga_group_report",
+      "fpga_peer_send",
+      "fpga_child_group_report"
+    ],
+    "session_list_live": true,
+    "child_status_live": true,
+    "astra_main_frontdoor_registered": true,
+    "new_messages_sent": 0
+  },
+  "retries": {
+    "structured_error_willRetry_handling": "fault-injection regression passed",
+    "foreign_thread_and_turn_filtering": "passed",
+    "terminal_errors_persisted": "passed",
+    "large_rpc_frame": "180000 bytes passed"
+  },
+  "limits": {
+    "B_C_physical_deployment_verified": false,
+    "board_measurements": false,
+    "GPT_usage_savings_percentage_measured": false,
+    "native_provider_and_concurrency_limits_still_apply": true
+  },
+  "fixed_failures": [
+    "retry notification terminated too early",
+    "64 KiB stdio frame limit",
+    "Windows execution profile blocked child tools",
+    "Task Scheduler failed to restart forced worker exit; added resident supervisor",
+    "Desktop main front door lacked shared Astra publication tools"
+  ],
+  "local_evidence": [
+    {
+      "path": "artifacts/agent-autonomy-2026-10-10/live-acceptance.json",
+      "sha256": "e5e480becc75c4c14fe7ab311db804ab77b146a6d3ab4b2f242f0a6446d934b9"
+    },
+    {
+      "path": "artifacts/agent-autonomy-2026-10-10/resident-acceptance.json",
+      "sha256": "179349096cccc68598adcfa0bd7b843497b7d2d7ed3c2bdf7894ec4546b4afe3"
+    },
+    {
+      "path": "artifacts/agent-autonomy-2026-10-10/native-runtime-metadata.json",
+      "sha256": "2a52ee2272fd117bd24b9abfffa0d7bdf2182a0df112fcc63aca67b0b7257f42"
+    },
+    {
+      "path": "artifacts/agent-autonomy-2026-10-10/http-fixed/deepseek_http_metadata.json",
+      "sha256": "b7e0aac24ea3f6404623e98895e3d2265c60809395946885d784e27f3dcf631b"
+    },
+    {
+      "path": "artifacts/agent-autonomy-2026-10-10/mcp-acceptance.json",
+      "sha256": "0066fcc29b4a0f1adfb8035a0d28c341a06164e85d725da57cac0f00faa2dd87"
+    },
+    {
+      "path": "artifacts/agent-autonomy-2026-10-10/service-stop-tree.json",
+      "sha256": "055a1652cdfed4996e831b4e8f5bdea95d069f7e83b729b0de8a240ab7203056"
+    },
+    {
+      "path": "artifacts/agent-autonomy-2026-10-10/supervisor-crash-recovery.log",
+      "sha256": "68afdbd4983a676df4a2cf502da240823e04611e32417c22580aad03f86d1a56"
+    },
+    {
+      "path": "artifacts/agent-autonomy-2026-10-10/final-service-recovery.log",
+      "sha256": "38fbbb8176a42212afa1aa00a39f01173860bec54c70d9f8d944c821e1df9110"
+    },
+    {
+      "path": "artifacts/agent-autonomy-2026-10-10/single-instance-rejection.log",
+      "sha256": "88e125ac3c3cbe34f21d9302bb5ac7e75baa6655c79987f40358fb3bec5785e9"
+    },
+    {
+      "path": "artifacts/agent-autonomy-2026-10-10/final-regression.log",
+      "sha256": "aca021ce80be149f012ead126e0bcc26751f4af36cc07877b351328fb2246c43"
+    }
+  ]
+}

@@ -12,6 +12,7 @@ from .app_server import AppServerClient
 from .codex import RouteGuard
 from .controller import ActionResult
 from .effort import EFFORTS, AstraEffortSelector
+from .notifications import notification_matches_turn, terminal_error_message
 from .protocol import Envelope
 
 
@@ -41,6 +42,7 @@ class AppServerGateway:
             [str, dict], dict | Awaitable[dict]
         ] | None = None,
         effort_selector: AstraEffortSelector | None = None,
+        session_router=None,
         timeout_seconds: float | None = 300.0,
     ):
         self.config = config
@@ -50,10 +52,12 @@ class AppServerGateway:
         self.developer_instructions = developer_instructions
         self.dynamic_tool_handler = dynamic_tool_handler
         self.effort_selector = effort_selector
+        self.session_router = session_router
         self.timeout_seconds = timeout_seconds
         self._client: AppServerClient | None = None
         self._thread_id: str | None = None
         self._lock = asyncio.Lock()
+        self._client_lock = asyncio.Lock()
         self._guard = RouteGuard()
         if config.role == "deepseek_child":
             self._guard.assert_child_request(
@@ -63,7 +67,23 @@ class AppServerGateway:
             )
 
     async def handle(self, message: Envelope) -> ActionResult:
+        try:
+            return await self._handle(message)
+        except asyncio.CancelledError:
+            if self.session_router is not None:
+                self.session_router.record(message.message_id, message.task_id, 'interrupted', error='turn cancelled')
+            raise
+        except Exception as exc:
+            if self.session_router is not None:
+                self.session_router.record(message.message_id, message.task_id, 'failed', error=str(exc))
+            raise
+
+    async def _handle(self, message: Envelope) -> ActionResult:
         async with self._lock:
+            if self.session_router is not None:
+                prior = self.session_router.result(message.message_id)
+                if prior and prior['status'] == 'completed':
+                    return ActionResult(accepted=True, output=prior['result'])
             client = await self._ensure_client()
             event_text = str(message.payload.get("text", message.message_id))
             prompt = event_text
@@ -81,8 +101,19 @@ class AppServerGateway:
                     "Event text:\n"
                     f"{event_text}"
                 )
+            model = self.config.model
             effort = self.config.reasoning_effort
-            if self.config.role == "astra" and self.effort_selector is not None:
+            if self.config.role == "astra" and self.session_router is not None:
+                route = await self._start_request(self.session_router.prepare(
+                    client, message, cwd=self.config.cwd,
+                    config=(self.thread_config_factory() if self.thread_config_factory else None),
+                    dynamic_tools=self.dynamic_tools,
+                    developer_instructions=self.developer_instructions,
+                ))
+                self._thread_id = route['thread_id']
+                model, effort = route['model'], route['effort']
+                self.session_router.record(message.message_id, message.task_id, 'running')
+            elif self.config.role == "astra" and self.effort_selector is not None:
                 try:
                     chosen = await self.effort_selector.choose(
                         client, cwd=self.config.cwd, model=self.config.model,
@@ -109,7 +140,7 @@ class AppServerGateway:
             started = await self._start_request(client.turn_start(
                 thread_id=self._thread_id,
                 text=prompt,
-                model=self.config.model,
+                model=model,
                 effort=effort,
             ))
             turn_id = started["turn"]["id"]
@@ -119,6 +150,8 @@ class AppServerGateway:
                     timeout=self.timeout_seconds,
                 )
             except (asyncio.CancelledError, asyncio.TimeoutError):
+                if self.session_router is not None:
+                    self.session_router.record(message.message_id, message.task_id, 'interrupted', error='turn cancelled or timed out')
                 try:
                     await asyncio.wait_for(client.turn_interrupt(
                         thread_id=self._thread_id, turn_id=turn_id,
@@ -130,26 +163,37 @@ class AppServerGateway:
                 except Exception:  # noqa: BLE001 - keep the original failure
                     pass
                 raise
+            except Exception as exc:
+                if self.session_router is not None:
+                    self.session_router.record(message.message_id, message.task_id, 'failed', error=str(exc))
+                raise
             turn = completed.params.get("turn", {})
             if turn.get("status") != "completed":
                 error = turn.get("error") or {}
                 detail = (error.get("message") if isinstance(error, dict)
                           else str(error)) or turn.get("status", "unknown")
                 raise RuntimeError(f"Codex turn did not complete: {detail}")
-            return ActionResult(
+            result = ActionResult(
                 accepted=True,
                 output={
                     "thread_id": self._thread_id,
                     "turn": completed.params.get("turn", {}),
                     "text": self._extract_text(completed.params),
                     "reasoning_effort": effort,
+                    "model": model,
+                    "provider": self.config.provider,
                 },
             )
+            if self.session_router is not None:
+                self.session_router.record(message.message_id, message.task_id, 'completed', result=result.output)
+            return result
 
     async def close(self) -> None:
         client = self._client
         self._client = None
         self._thread_id = None
+        if self.session_router is not None:
+            self.session_router.reset_connection()
         if client is not None:
             await client.close()
 
@@ -170,6 +214,10 @@ class AppServerGateway:
             raise
 
     async def _ensure_client(self) -> AppServerClient:
+        async with self._client_lock:
+            return await self._initialize_client()
+
+    async def _initialize_client(self) -> AppServerClient:
         if self._client is not None:
             return self._client
         if self.client_factory is not None:
@@ -193,10 +241,17 @@ class AppServerGateway:
                 await self._handle_dynamic_tool(notification, turn_id)
                 continue
             if notification.method == "error":
-                raise RuntimeError(str(notification.params.get("message", "Codex error")))
-            if notification.method == "turn/completed" and notification.params.get(
-                "turn", {},
-            ).get("id", turn_id) == turn_id:
+                error = terminal_error_message(
+                    notification.params, thread_id=self._thread_id, turn_id=turn_id,
+                )
+                if error is not None:
+                    raise RuntimeError(error)
+                continue
+            if (notification.method == "turn/completed" and
+                    notification_matches_turn(
+                        notification.params, thread_id=self._thread_id,
+                        turn_id=turn_id,
+                    )):
                 return notification
 
     async def _handle_dynamic_tool(self, request, turn_id: str) -> None:

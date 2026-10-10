@@ -63,7 +63,8 @@ class McpChildServerTests(unittest.IsolatedAsyncioTestCase):
         })
         names = {tool["name"] for tool in listed["result"]["tools"]}
         self.assertEqual(names, {"child_status", "child_scale", "child_delegate",
-                                 "child_wait", "child_cancel"})
+                                 "child_wait", "child_cancel", "native_reserve",
+                                 "native_validate", "native_complete"})
         self.assertEqual(self.gateway.calls, 0)
 
     async def test_mcp_delegation_and_wait_use_real_pool_without_polling(self):

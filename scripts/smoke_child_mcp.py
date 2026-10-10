@@ -21,7 +21,7 @@ async def main() -> None:
     runtime = NodeRuntime(NodeConfig(
         node_id="A", project_id="fpga-main",
         state_dir=root / ".local" / "MCP-中文路径",
-        default_children=2, mode="test_double",
+        mode="test_double",
         hardware_enabled=False, peer_urls={},
         shared_secret_env="FPGA_MESH_SHARED_SECRET",
     ))

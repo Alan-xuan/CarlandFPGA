@@ -67,7 +67,6 @@ def write_node_config(path: Path, values: OnboardingInputs) -> Path:
         f"node_id = {_q(values.node)}",
         'project_id = "fpga-main"',
         f"state_dir = {_q(f'.local/node-{values.node.lower()}')}",
-        "default_children = 2",
         'mode = "app_server"',
         "turn_timeout_seconds = 3600",
         f"deepseek_key_file = {_q(values.deepseek_key_file.resolve() if values.deepseek_key_file else '')}",

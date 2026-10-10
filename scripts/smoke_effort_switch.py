@@ -27,7 +27,7 @@ async def main() -> None:
     runtime = NodeRuntime(NodeConfig(
         node_id="A", project_id="fpga-main",
         state_dir=root / ".local" / "effort-switch",
-        default_children=2, mode="app_server",
+        mode="app_server",
         hardware_enabled=False, peer_urls={},
         shared_secret_env="FPGA_MESH_SHARED_SECRET",
     ))

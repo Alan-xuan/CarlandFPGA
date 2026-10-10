@@ -93,6 +93,19 @@ class MeshToolsTests(unittest.IsolatedAsyncioTestCase):
             })
         self.assertEqual(self.store.pending_group_messages(), [])
 
+    async def test_native_gpt_result_uses_astra_identity(self):
+        class NativeChildren(FakeChildren):
+            def job(self, job_id):
+                return {**super().job(job_id), "route": "gpt_native"}
+        self.tools.children = NativeChildren()
+        self.feishu.deepseek_sender = None
+        result = await self.tools.call("fpga_child_group_report", {
+            "job_id": "native-1", "operation_id": "native-post-1",
+        })
+        self.assertEqual(result["role"], "astra")
+        self.assertEqual(self.store.pending_group_messages()[0][2], "astra")
+        self.assertIn("Astra-A", self.store.pending_group_messages()[0][1])
+
     async def test_child_group_report_requires_deepseek_sender(self):
         self.feishu.deepseek_sender = None
         with self.assertRaisesRegex(RuntimeError, "DeepSeek Feishu sender"):

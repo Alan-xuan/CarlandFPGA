@@ -1,6 +1,16 @@
 # FPGA Mesh 部署与运行
 
-每台电脑运行一个本地控制器和一个用该成员 ChatGPT 订阅登录的 Astra 主实例。Astra 根据任务调用本机 DeepSeek V4.1 Flash 子池，默认两个待命，但没有数量上限规则；子实例只用 `deepseek-flash` / `deepseek` / `max`。等待飞书、同伴、子结果和硬件时由网络与本地事件唤醒，不进行模型轮询。
+每台电脑运行一个本地控制器，用该成员 ChatGPT 订阅登录。独立任务按 task_id 自动建立 GPT 主会话，跟进和重启恢复复用对应会话。模型与 effort 从实际目录选择；关键工作使用质量主模型最高可用 effort。所有主会话共享原本机 Astra 群身份。DeepSeek 只用 `deepseek-flash` / `deepseek` / `max`，按实际派工启用，无默认数量。特殊需求保留原生 GPT 派工，两入口共用任务及文件所有权账本。等待时无模型调用。
+
+## 项目聊天的统一入口
+
+新项目聊天加载本机 `.codex/config.toml` 的 `fpga_mesh` MCP。旧聊天未刷新工具目录时，可用 `.local/venv/Scripts/python.exe -m fpga_mesh.project_cli <action> --args-file <UTF-8 JSON>`。`health` 读实时状态；`session_list` 读允许模型/档位与会话；`main_submit` 提交 task_id/task_version/text，可选 model/effort/category；`main_wait` 读取 message_id 对应的持久结果；`session_route` 为会话安排下一回合。无需改全局模型或 provider。
+
+主会话用 `fpga_session_open` 创建新任务会话并持久排队，用 `fpga_session_route` 选择下回合路由。正在生成的模型不能中途更换。简单明确回复使用轻量模型；困难、不明确和决策/验收/评估/关键优化使用质量模型最高档位。后台受控会话的路由变化不等于更改一个未接入控制器的 Desktop 聊天当前生成回合。
+
+DeepSeek 派工提供稳定 work_id 和写入文件 ownership，按需扩展。相同 work_id 重用一个 job，不同内容拒绝；两个入口中的相同工作也不执行两次，活动中的重叠文件所有权拒绝，Windows 文件名大小写归一。GPT 原生必须先 `fpga_native_reserve` 说明特殊能力理由；父级将租约交给子代理，后者执行前带 canonical agent_id 调用 `fpga_native_validate` 并确认 execution_allowed=true，结束后 `fpga_native_complete`。无有效租约的原生子代理不执行。崩溃任务记录 interrupted，不自动重放副作用；取消原生任务后须确认实际停止才能释放占用。
+
+子代理用于保持质量地减少 GPT usage、分担执行压力和提高效率。质量主模型保留关键判断与验收，不以子代理结论代替验收，不报告未测量的节约比例。项目不规定数量；供应商、物理资源和原生 Codex 的限制仍有效。
 
 ## 队友入网
 
@@ -35,10 +45,11 @@ A 取到指定 PR head SHA 后，先核对仓库清单、全部文件哈希和�
 
 ## 运行与诊断
 
-本机配置位于 `.local/deployment/node-<a|b|c>/node-<a|b|c>.toml`。计划任务 `FPGA-Mesh-Node-<A|B|C>` 在成员登录 Windows 后运行。检查：
+本机配置位于 `.local/deployment/node-<a|b|c>/node-<a|b|c>.toml`。计划任务 `FPGA-Mesh-Node-<A|B|C>` 在成员登录 Windows 后运行程序监督器，再启动控制器。工作进程异常退出后由程序退避拉起；监督器和控制器分别有独占锁。Windows Job Object 在每次工作进程退出或服务停止时清理其子进程树。实时工作 PID 以 `project_cli health` 为准；监督器状态在 node 目录的 `supervisor.json`，UTF-8 诊断在 `service.log`，连接 URL 中的凭据自动脱敏。检查：
 
 ```powershell
 Get-ScheduledTask -TaskName 'FPGA-Mesh-Node-A' | Select-Object State
+& .local\venv\Scripts\python.exe -m fpga_mesh.project_cli health
 & .local\venv\Scripts\python.exe -m unittest discover -s tests -q
 ```
 
@@ -49,9 +60,9 @@ $config = (Resolve-Path '.local\deployment\node-a\node-a.toml').Path
 pwsh -NoProfile -File deploy\run-node.ps1 -Node A -Config $config -Python '.local\venv\Scripts\python.exe'
 ```
 
-主 Astra 回合有五个 `fpga_child_*` 动态工具，以及 `fpga_group_report`、`fpga_peer_send`、`fpga_child_group_report`。子实例不能主动读取飞书群或发消息；父 Astra 显式发布一个当前、已完成的子任务结果时，使用本机共用的 DeepSeek 飞书形象。父实例对重要子结果独立验证。人类新指令会排在同伴报告之前，并中断当前较早回合；暂停/恢复命令立即改变分派状态。每个回合有故障看门狗，不会因等待无限占用模型。
+主 Astra 回合有五个 `fpga_child_*`、三个 `fpga_native_*` 和三个 `fpga_session_*` 动态工具，以及 `fpga_group_report`、`fpga_peer_send`、`fpga_child_group_report`。子实例不能主动读取飞书群或发消息；父级显式发布当前已完成结果时，DeepSeek 工作使用本机共用 DeepSeek 身份，GPT 原生工作使用 Astra 身份。质量主模型对重要子结果独立验证。人类新指令会排在同伴报告之前，并中断当前较早回合；暂停/恢复命令立即改变分派状态。每个回合有故障看门狗，不会因等待无限占用模型。
 
-A 机是唯一烧录者。当前 `hardware_enabled = false`，直到板卡型号、驱动、烧录命令、日志采集与操作授权完成实机联调；B/C 只能请求 A 实测。后台配额读取不发起模型回合，剩余 20% 和 10% 时在飞书队列生成预警。Astra 的工作回合推理档位由选择器按任务选择，子回合始终是 `max`。当前仅验证 app-server 线程实际档位变化；Codex Desktop 当前聊天窗口右下角下拉框的视觉联动仍未确认。
+A 机是唯一烧录者。当前 `hardware_enabled = false`，直到板卡型号、驱动、烧录命令、日志采集与操作授权完成实机联调；B/C 只能请求 A 实测。后台配额读取不发起模型回合，剩余 20% 和 10% 时在飞书队列生成预警。主会话由持久路由器按任务选择模型及深度，不额外启动一个选择器模型回合；DeepSeek 工作始终是 `max`。已验证实际请求与 thread/read 元数据，未接入控制器的 Desktop 普通聊天当前生成回合及其下拉框不在此接口的控制范围。
 
 当前群在飞书客户端被标为**外部群**。Add Bot 页面限定只能添加自定义机器人或已开启 external sharing 的应用机器人。自定义 Webhook 机器人只能主动推送，不能替代需接收群内新指令的 Astra 应用机器人。参见[飞书群机器人说明](https://www.feishu.cn/hc/zh-CN/articles/360024984973-%E5%9C%A8%E7%BE%A4%E7%BB%84%E4%B8%AD%E4%BD%BF%E7%94%A8%E6%9C%BA%E5%99%A8%E4%BA%BA)。
 2026-10-09 A 机账号本人完成个人实名认证；Astra、DeepSeek 两应用发布允许加入外部群的 `1.0.2` 版本后，已在目标群逐一入群，并分别发信、同身份读回。Astra 常驻长连接还接收了真人群指令并回复；修复 SDK 事件回调跨线程投递后，第二次真人指令零重试、无错误。B/C 各应用仍须在队友机器上重复授权、外部群发布、入群、自测与真人指令验收，不可把 A 机的实测推断为三机联通。

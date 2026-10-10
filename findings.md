@@ -61,3 +61,32 @@ These values are intentionally left blank in generated configuration.
 - A 已安装并登录 Tailscale 1.102.4，地址 `100.121.238.56`。本机跨机密钥只在 `.local/deployment/node-a`，未进入 Git；防火墙规则限制到 Tailscale 接口、地址和 100.64.0.0/10 的 TCP 8787。
 - 旧计划任务包装器停止时曾留下 Python 子进程，使本地控制发现文件指向已退出 PID。改为 Task Scheduler 直接执行 Python；运行时端口绑定失败会清理控制文件。签名健康探针和实机后台子派工已重新通过。
 - 真实 A 机 Astra→DeepSeek 调用返回 `CHILD_OK`，父选 `low`，子固定 `max`。本轮 150/150 回归通过。飞书六应用尚未授权创建，群 ID 未提供；B/C、板卡与界面下拉框仍不可宣称实测。
+
+## 2026-10-10 Route audit (initial live observations)
+
+- 当前桌面线程 01a12548-f7fb-7df2-bc8c-9d992dff8b99 的 session_meta 为 provider=openai，turn_context 为 gpt-6.1-sol / max；全局 config.toml 同样为该模型/档位，未配置 model_providers。不能沿用旧记录中的 Astra/CCSwitch 路由描述。
+- 当前 Desktop 附带 Codex 为 0.162.0-alpha.17.2，项目兼容标记仍写 0.159.0；需以当前真实请求验收协议。
+- 项目 runtime.py 的 Astra gateway 固定 gpt-6-astra/openai，effort selector 每任务选择档位；Gateway 复用单个 _thread_id，没有主模型选择器或主会话新建动态工具。
+- 原生 collaboration 工具本轮列出的角色均为 GPT 系列，未列 DeepSeek；本会话并发槽位为总计 4。FPGA 自建池是另外一套接口。
+- 生产计划任务 FPGA-Mesh-Node-A 当前为 Ready，未发现生产 child-control.json 和 Python 服务进程。隔离实测不会自动启动生产飞书服务。
+- 官方文档说明 turn/start 可按回合覆盖 model/effort，并成为同线程后续默认值；底层 API 能力须与项目控制器已有功能区分。
+
+## 2026-10-10 Route audit (verified conclusions)
+
+- 原生 default 子代理两个持久会话均为 openai/gpt-6.1-sol/max；显式请求 deepseek-flash/max 被 spawn_agent 以 Unknown model 拒绝。原生 subagent 和 FPGA 子池不能混为同一通道。
+- 三个真实底层回合全部通过：本仓库新线程 sol/low，同线程换 luna/high，另建 astra/max；项目控制器尚无主模型选择器或按任务创建/切换主工作会话工具。
+- 真实 Astra 动态工具完成 0/1/3/2 规模控制，另外一个不指定工作数量的独立样本自行选择 3 并行；持久结果与独立算术核对一致，最后恢复 2 待命。
+- 三路并发复测、恢复、新增、同线程复用均通过；采集的实际 DeepSeek 请求、HTTP 200 response.completed 及服务端回包的模型和 effort 均为 deepseek-flash/max。
+- 首轮一项串流失败及其 max 重试请求保留。合成协议稳定复现 gateway 把 willRetry=true 的通知提前判失败、读取错误字段位置不正确；生产实现未修改。
+- 57/57 相关回归及 14/14 证据核对通过；最终报告为 docs/deployment/AGENT_ROUTING_AUDIT_2026-10-10.md，原始脱敏证据和哈希在 artifacts/agent-routing-2026-10-10。
+
+## 2026-10-10 v0.7 current verified implementation
+
+- 上述审计是实施前快照。用户随后授权完整实施；当前主会话路由、双入口、常驻服务与数量规则以 AUTONOMOUS_ROUTING_ACCEPTANCE_2026-10-10.md 为准。
+- 新主任务按 task_id 建立持久线程，主模型实际调用开会话及下一回合路由工具。真实目录支持质量主 Astra/ultra；关键任务降档拒绝，旧线程换模型与重启恢复已验。
+- NodeConfig 已删除 default_children；启动不预建实例，三项实际执行按需分配三名 Flash/max，回收及重启均为 0。模型/provider/effort 与实际 API 回包固定，程序不规定业务数量上限。
+- 两派工入口共用幂等任务和写路径互斥。原生必须验证绑定 canonical agent_id 的父租约；双向重复任务复用持久结果，取消后未确认实际停止不会释放原生文件占用。
+- 真实 HTTP 采样 11 次皆 Flash/max、HTTP 200；10 个终结流、1 个未终结流，最终三执行任务完成并由 Astra 独立核对。不把未终结流计为完整响应。
+- 原 Astra 和 DeepSeek 飞书身份只读在线验过；主前门的共享身份工具与发布角色用测试核对，不为验收发送消息。权限、优先顺序、板卡职责不变。
+- 直接 Task Scheduler 重启策略不足以覆盖强杀工作进程，已改程序监督器。真实进程故障自动恢复、同线程继续、16 进程树停止无残留均已验；后台等待与监督不发起模型回合。
+- 271/271 回归通过。普通 Desktop 生成中模型/下拉框不在后台控制器接口内，模型调节在受控回合边界生效；原生供应商和并发限制仍有效。B/C 物理部署与 GPT usage 节约比例未在本次验收。

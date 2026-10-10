@@ -245,6 +245,9 @@ try {
             Write-Warning 'GitHub CLI login is needed to create your fork and submit pull requests.'
         }
     }
+    $mainControlFile = Join-Path $nodeRoot (".local/node-{0}/main-control.json" -f $Node.ToLowerInvariant())
+    & $venvPython -m fpga_mesh.install_routing --project-root $repoRoot --python $venvPython --control-file $mainControlFile
+    if ($LASTEXITCODE -ne 0) { throw 'Project routing bridge installation failed.' }
     $codex = Get-Command codex -ErrorAction SilentlyContinue
     $codexReady = $false
     if ($codex) {

@@ -173,7 +173,7 @@ class SQLiteStore:
         rows = self._connection.execute(
             "SELECT operation_id, text FROM group_outbox "
             "WHERE sent_at IS NULL AND cancelled_at IS NULL "
-            "ORDER BY created_at, operation_id"
+            "ORDER BY created_at, rowid"
         ).fetchall()
         return [(str(row["operation_id"]), str(row["text"])) for row in rows]
 
@@ -181,7 +181,7 @@ class SQLiteStore:
         rows = self._connection.execute(
             "SELECT operation_id, text, role FROM group_outbox "
             "WHERE sent_at IS NULL AND cancelled_at IS NULL "
-            "ORDER BY created_at, operation_id"
+            "ORDER BY created_at, rowid"
         ).fetchall()
         return [
             (str(row["operation_id"]), str(row["text"]), str(row["role"]))

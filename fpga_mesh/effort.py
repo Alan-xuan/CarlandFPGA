@@ -6,6 +6,8 @@ import asyncio
 import json
 from typing import Protocol
 
+from .notifications import notification_matches_turn, terminal_error_message
+
 
 EFFORTS = ("low", "medium", "high", "xhigh", "max")
 SCHEMA = {
@@ -61,7 +63,7 @@ class AstraEffortSelector:
             turn_id = turn["turn"]["id"]
             turn_active = True
             completed = await asyncio.wait_for(
-                self._wait(client, turn_id), timeout=self.timeout_seconds,
+                self._wait(client, thread_id, turn_id), timeout=self.timeout_seconds,
             )
             turn_active = False
             if completed.get("status") != "completed":
@@ -100,13 +102,20 @@ class AstraEffortSelector:
             ) from exc
 
     @staticmethod
-    async def _wait(client: SelectorClient, turn_id: str) -> dict:
+    async def _wait(client: SelectorClient, thread_id: str, turn_id: str) -> dict:
         while True:
             event = await client.session.next_notification()
             if event.method == "error":
-                raise RuntimeError(str(event.params.get("message", "Codex error")))
+                error = terminal_error_message(
+                    event.params, thread_id=thread_id, turn_id=turn_id,
+                )
+                if error is not None:
+                    raise RuntimeError(error)
+                continue
             if event.method != "turn/completed":
                 continue
             turn = event.params.get("turn", {})
-            if turn.get("id", turn_id) == turn_id:
+            if notification_matches_turn(
+                event.params, thread_id=thread_id, turn_id=turn_id,
+            ):
                 return turn
