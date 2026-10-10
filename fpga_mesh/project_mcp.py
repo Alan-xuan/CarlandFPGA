@@ -15,6 +15,7 @@ async def serve():
     client = LocalControlFileClient(Path(control) if control else discovery(Path.cwd()))
     specs = ChildDynamicTools.specs() + SESSION_TOOLS + MeshDynamicTools.main_specs()
     mapping = {**ChildDynamicTools.ACTIONS, 'fpga_session_list': 'session_list',
+               'fpga_models_refresh': 'models_refresh',
                'fpga_session_open': 'main_submit', 'fpga_session_route': 'session_route',
                **{spec['name']:spec['name'] for spec in MeshDynamicTools.main_specs()}}
     while True:
@@ -27,7 +28,7 @@ async def serve():
         method, params = request.get('method'), request.get('params') or {}
         if method == 'initialize':
             result = {'protocolVersion': params.get('protocolVersion', '2025-03-26'),
-                      'capabilities': {'tools': {}}, 'serverInfo': {'name': 'fpga-mesh', 'version': '0.7.0'}}
+                      'capabilities': {'tools': {}}, 'serverInfo': {'name': 'fpga-mesh', 'version': '0.8.0'}}
         elif method == 'tools/list':
             result = {'tools': [{k: v for k, v in t.items() if k != 'type'} for t in specs]}
         elif method == 'ping':

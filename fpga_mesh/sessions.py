@@ -44,12 +44,16 @@ class MainSessionRouter:
         self._models: dict[str, tuple[str, ...]] = {}
         self._loaded: set[str] = set()
         self._allocation = asyncio.Lock()
+        self._catalog_lock = asyncio.Lock()
         self.changed = asyncio.Event()
 
-    async def catalog(self, client) -> dict[str, tuple[str, ...]]:
-        if not self._models:
+    async def catalog(self, client, *, refresh: bool = False) -> dict[str, tuple[str, ...]]:
+        async with self._catalog_lock:
+            if self._models and not refresh:
+                return self._models
             models = {}
             cursor = None
+            seen = set()
             while True:
                 args = {'includeHidden': False}
                 if cursor:
@@ -57,7 +61,7 @@ class MainSessionRouter:
                 result = await client.session.request('model/list', args)
                 for item in result.get('data', []):
                     model = item.get('model') or item.get('id')
-                    if not isinstance(model, str) or not model.startswith('gpt-') or item.get('hidden'):
+                    if not isinstance(model, str) or not re.fullmatch(r'[a-zA-Z0-9_.-]+', model) or item.get('hidden'):
                         continue
                     efforts = tuple(e.get('reasoningEffort') if isinstance(e, dict) else e
                                     for e in item.get('supportedReasoningEfforts', []))
@@ -67,10 +71,13 @@ class MainSessionRouter:
                 cursor = result.get('nextCursor')
                 if not cursor:
                     break
+                if cursor in seen:
+                    raise RuntimeError('Official model pagination repeated a cursor')
+                seen.add(cursor)
             if not models:
                 raise RuntimeError('No verified GPT models/efforts are available')
             self._models = models
-        return self._models
+            return self._models
 
     def best(self) -> tuple[str, str]:
         choices = (self.quality_model, 'gpt-6-astra', 'gpt-6.1-sol', 'gpt-6-sol')

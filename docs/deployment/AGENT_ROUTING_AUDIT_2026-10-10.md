@@ -15,7 +15,7 @@
 | 项目控制器 Astra | `gpt-6-astra / openai`；每个任务选择 effort | 隔离运行中认证为 `chatgpt`，同一主工作线程实际从 `low` 变为 `high` |
 | 项目自建子池 | `deepseek-flash / deepseek / max` | 独立 Codex home、DeepSeek API key 环境变量，实际向 `https://api.deepseek.com/responses` 发请求 |
 
-当前 CCSwitch 数据库选中 `codex-official`，代理和 live takeover 均关闭，未观察到 CCSwitch 进程。旧记录中的 MultiRouter 路径已不适用于当前聊天。生产计划任务 `FPGA-Mesh-Node-A` 为 `Ready`，没有运行中的生产 Python 服务或生产 `child-control.json`；本轮启动的是隔离控制器。
+当前聊天使用官方 provider 和官方登录，旧本地路由描述不适用。审计开始时生产计划任务 `FPGA-Mesh-Node-A` 为 `Ready`，没有运行中的生产 Python 服务或生产 `child-control.json`；本轮启动的是隔离控制器。
 
 原生 subagent 与项目子池是两个不同入口。原生 `spawn_agent` 不指定模型时，本轮实测继承父模型和档位；请求 `deepseek-flash / max` 被工具明确拒绝，错误为 `Unknown model deepseek-flash`。本聊天工具声明的并发槽位总数为 4，包含主代理；本轮没有测试把这个平台限制改大。项目子池使用 `fpga_child_*` 或 `fpga_mesh.child_cli`，不依赖原生 subagent 的模型列表与槽位。
 
@@ -68,7 +68,7 @@
 
 ## 证据与验证
 
-相关回归 57/57 通过，覆盖配置、app-server、gateway、effort、pool、child control、动态工具、MCP 与 CLI。合成错误复现单独作为已确认缺陷记录，不计入“功能全部通过”。此次没有改全局模型配置、CCSwitch 路由或生产服务配置；没有发送飞书消息、调用同伴节点或操作板卡。
+相关回归 57/57 通过，覆盖配置、app-server、gateway、effort、pool、child control、动态工具、MCP 与 CLI。合成错误复现单独作为已确认缺陷记录，不计入“功能全部通过”。此次没有改全局模型配置或生产服务配置；没有发送飞书消息、调用同伴节点或操作板卡。
 
 - [当前配置、进程、原生子代理持久路由](../../artifacts/agent-routing-2026-10-10/state_snapshot.json)
 - [原生 DeepSeek 模型覆盖被拒绝](../../artifacts/agent-routing-2026-10-10/native_deepseek_override.json)

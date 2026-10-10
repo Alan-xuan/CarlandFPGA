@@ -24,6 +24,7 @@ from .gateway import AppServerGateway, GatewayConfig
 from .hardware import HardwareService
 from .http_transport import HttpPeer, HttpPeerServer
 from .mesh_tools import MeshDynamicTools
+from .models_ui import ModelsHttpServer
 from .ownership import GitOwnershipLedger
 from .pool import InstancePool, ManagedInstance
 from .sessions import MainSessionRouter
@@ -213,6 +214,7 @@ class NodeRuntime:
         )
         self.project_actions = ProjectActions(self)
         self.main_control = ProjectControlServer(self.project_actions, discovery_path=config.state_dir / 'main-control.json')
+        self.models_ui = ModelsHttpServer(self.project_actions, discovery_path=config.state_dir / 'model-manager.json')
         self.hardware = (
             HardwareService(config.state_dir / "hardware.sqlite")
             if config.hardware_enabled
@@ -261,6 +263,7 @@ class NodeRuntime:
             await self.pool.scale_to(0)
             await self.child_control.start()
             await self.main_control.start()
+            await self.models_ui.start()
             if self.peer_server is not None:
                 await self.peer_server.start()
                 self._peer_stop.clear()
@@ -313,6 +316,7 @@ class NodeRuntime:
         if self.feishu is not None:
             await self.feishu.stop()
         await self.controller.stop()
+        await self.models_ui.close()
         await self.child_control.close()
         await self.main_control.close()
         await self.children.close()

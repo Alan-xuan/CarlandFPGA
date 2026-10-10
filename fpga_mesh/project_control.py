@@ -5,10 +5,12 @@ import hashlib
 import json
 import os
 import secrets
+from pathlib import Path
 from datetime import datetime, timezone
 from .child_control import LocalControlServer, LocalControlFileClient
 from .protocol import Envelope, MessageKind, SourceKind
 from .mesh_tools import MeshDynamicTools
+from .official_models import OfficialModelManager
 
 
 def tool(name, description, properties, required):
@@ -20,6 +22,7 @@ TASK_FIELDS = {'task_id': {'type': 'string'}, 'task_version': {'type': 'integer'
                'text': {'type': 'string'}, 'model': {'type': 'string'}, 'effort': {'type': 'string'},
                'category': {'type': 'string', 'enum': ['routine', 'execution', 'decision', 'acceptance', 'difficult', 'optimization', 'evaluation']}}
 SESSION_TOOLS = [
+    tool('fpga_models_refresh', 'Refresh the official Codex model/effort catalog and native roles. Preserves current tasks, credentials and both execution entrances; makes no inference call. New role definitions apply to newly loaded conversations.', {}, []),
     tool('fpga_session_list', 'Read your project main sessions, allowed models/efforts and quality route without a model call.', {}, []),
     tool('fpga_session_open', 'Create a separate task conversation and queue its work. Choose optional allowed model/effort; critical work requires the quality main route. Repeated same work does not enqueue twice.', TASK_FIELDS, ['task_id', 'task_version', 'text']),
     tool('fpga_session_route', 'Select this task conversation model and reasoning depth for its next turn. Current generation completes with its original model. Critical work cannot be downgraded.', {k: TASK_FIELDS[k] for k in ['task_id', 'model', 'effort', 'category']}, ['task_id', 'model', 'effort', 'category']),
@@ -30,6 +33,13 @@ class ProjectActions:
     def __init__(self, runtime):
         self.runtime = runtime
         self.changed = runtime.main_sessions.changed
+        self.models = OfficialModelManager(
+            getattr(getattr(runtime.astra_gateway, 'config', None), 'codex_home', Path.home() / '.codex'),
+            runtime.config.state_dir,
+        )
+        saved = self.models.snapshot()
+        if saved.get('quality_model'):
+            runtime.main_sessions.quality_model = saved['quality_model']
 
     @staticmethod
     def specs():
@@ -37,8 +47,14 @@ class ProjectActions:
 
     async def call(self, name, args):
         action = {'fpga_session_list': 'session_list', 'fpga_session_open': 'main_submit',
-                  'fpga_session_route': 'session_route'}.get(name, name)
+                  'fpga_session_route': 'session_route', 'fpga_models_refresh': 'models_refresh'}.get(name, name)
         r = self.runtime
+        if action == 'models_list':
+            return self.models.snapshot()
+        if action == 'models_refresh':
+            if r.config.mode == 'test_double':
+                raise RuntimeError('official model updates require app-server mode')
+            return await self.models.refresh(r.main_sessions)
         if action in {spec['name'] for spec in MeshDynamicTools.main_specs()}:
             return await r.mesh_tools.call(action, args)
         if action == 'health':

@@ -39,6 +39,11 @@ $settings = New-ScheduledTaskSettingsSet `
     -MultipleInstances IgnoreNew
 if ($existing) {
     Stop-ScheduledTask -TaskName $taskName -ErrorAction SilentlyContinue
+    Push-Location $repo
+    try {
+        & $pythonPath -m fpga_mesh.service --wait-stopped --config $configPath --timeout 20
+        if ($LASTEXITCODE -ne 0) { throw 'Previous FPGA service has not finished stopping; preserving single-instance protection.' }
+    } finally { Pop-Location }
     Set-ScheduledTask -TaskName $taskName -Action $action -Trigger $trigger `
         -Settings $settings | Out-Null
 } else {

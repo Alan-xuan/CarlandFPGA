@@ -3,7 +3,7 @@
 ## 2026-10-10 Route audit
 
 - 已读取现有计划、项目书 v0.6、操作手册和当前控制器代码；本次只新增隔离审计材料与说明，不改变生产路由。
-- 当前桌面主会话实际为 openai/gpt-6.1-sol/max；CCSwitch selected=codex-official，proxy/live takeover 均关闭。生产任务 Ready，无生产 child-control 服务文件。
+- 当前桌面主会话实际为 openai/gpt-6.1-sol/max，使用官方登录及官方 provider。审计开始时生产任务 Ready，无生产 child-control 服务文件。
 - 57 项路由、app-server、档位选择、动态池、CLI/MCP 和守卫相关回归全部通过，日志在 artifacts/agent-routing-2026-10-10/regression.log。
 - 两个原生 default 子代理已分别返回 NATIVE_ROUTE_A_OK / NATIVE_ROUTE_B_OK，随后从各自持久 session_meta/turn_context 核对实际模型。
 - 底层真实 app-server 已完成三个回合：新线程 gpt-6.1-sol/low，同线程改为 gpt-6-luna/high，再新线程 gpt-6-astra/max；三个线程读回字段与请求一致，认证 type=chatgpt。
@@ -87,3 +87,12 @@
 - Task Scheduler 在直接杀死旧服务进程后未自动恢复，故增加程序监督器及双独占锁。真实强杀工作进程后自动恢复；Windows Job Object 为每个工作进程回收子进程树。停止服务清理 16 个进程、残留 0，重启原线程和完成任务保留，飞书重新连接。
 - 最终完整回归 271/271 通过。公开脱敏摘要与证据哈希保存到 docs/deployment/evidence/autonomous-routing-2026-10-10.json，当前验收报告为 docs/deployment/AUTONOMOUS_ROUTING_ACCEPTANCE_2026-10-10.md。
 - 受控会话在回合边界切换模型，不改写未接入控制器的普通 Desktop 聊天正在生成的模型或下拉框；本轮未在 B/C 物理电脑、跨机网络或板卡验收，也未量化 GPT usage 节约百分比。
+
+## 2026-10-11 v0.8 official model migration
+
+- 完成十个既有角色官方迁移及十次真实执行；原生 provider=openai，effort=medium；两个缺席的旧名称保持透明别名 gpt-6.1-sol。新增官方默认及对应模型入口，总计十二个。
+- 添加实际官方目录刷新器、页面按钮、快捷打开入口和 MCP 工具；按钮与十五工具的真实接口验收通过。分页、未来命名、官方升级、并发旧目录响应、空目录与文件失败回滚、自定义角色和账号凭据保护均已测。
+- 保留 DeepSeek Flash/max 指定 key、双入口租约/去重/互斥、原飞书身份与优先权限。实际结果 5050 与十次 385，父级独立核对；质量任务主路由 Astra/ultra。
+- 生效全局指导与项目文档/源码的旧指导残留为 0；历史记忆已提交清理请求。旧角色非秘密恢复副本只在忽略的本机状态目录，不参与路由或分发。
+- 修复常驻 stop/start 租约竞争及从其他目录运行注册脚本的模块路径；实际注册/重启后飞书连接正常，十一项完成结果和原线程保留，子实例 0。最终全量回归 284/284 通过。
+- 公开脱敏功能证据保存到 docs/deployment/evidence/official-model-routing-2026-10-11.json；下一步本地提交、已提交源码打包、解包回归和远端读回。

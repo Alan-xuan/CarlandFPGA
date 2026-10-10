@@ -115,6 +115,17 @@ class AppServerClientTests(unittest.IsolatedAsyncioTestCase):
         self.assertNotIn("OPENAI_API_KEY", child)
         self.assertNotIn("CODEX_API_KEY", child)
 
+    async def test_old_endpoint_environment_cannot_redirect_official_or_child_routes(self):
+        source = {'OPENAI_BASE_URL': 'http://127.0.0.1:12345/v1',
+                  'CODEX_BACKEND_BASE_URL': 'http://127.0.0.1:12345', 'SAFE': 'kept'}
+        for role in ('astra', 'deepseek_child'):
+            env = build_codex_env('home', source=source, role=role,
+                                  extra={'CHATGPT_BASE_URL': 'http://127.0.0.1:12345'})
+            self.assertNotIn('OPENAI_BASE_URL', env)
+            self.assertNotIn('CODEX_BACKEND_BASE_URL', env)
+            self.assertNotIn('CHATGPT_BASE_URL', env)
+            self.assertEqual(env['SAFE'], 'kept')
+
     async def test_codex_binary_prefers_bundled_host_over_broken_npm_shim(self):
         with tempfile.TemporaryDirectory() as tmp:
             bundle = Path(tmp) / "OpenAI" / "Codex" / "bin" / "release"

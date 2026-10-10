@@ -1,0 +1,610 @@
+{
+  "schema_version": 1,
+  "implementation": "official-model-routing-v0.8",
+  "node": "A",
+  "verified_at_utc": "2026-10-10T16:44:14.181303+00:00",
+  "passed": true,
+  "regression": {
+    "passed": 284,
+    "failed": 0,
+    "command": "python -m unittest discover -s tests -q"
+  },
+  "native_roles": [
+    {
+      "role": "gpt-6-luna",
+      "requested_model": "gpt-6-luna",
+      "model": "gpt-6-luna",
+      "provider": "openai",
+      "effort": "medium",
+      "compatibility_alias": false,
+      "thread_id": "01a12644-493a-7a73-a8d3-918937bc258f",
+      "job_id": "child-f2c8e05089cb4aa1939071d1b8ecd8ab",
+      "status": "completed",
+      "text": "OFFICIAL_NATIVE_OK gpt-6-luna sum=385",
+      "independently_read_sum": 385
+    },
+    {
+      "role": "gpt-5-5",
+      "requested_model": "gpt-5.5",
+      "model": "gpt-5.5",
+      "provider": "openai",
+      "effort": "medium",
+      "compatibility_alias": false,
+      "thread_id": "01a12644-711d-75b1-bd5f-10bc89277326",
+      "job_id": "child-d9b529c19cf64129a7e63955ea80a3c6",
+      "status": "completed",
+      "text": "OFFICIAL_NATIVE_OK gpt-5-5 sum=385",
+      "independently_read_sum": 385
+    },
+    {
+      "role": "codex-auto-review",
+      "requested_model": "codex-auto-review",
+      "model": "codex-auto-review",
+      "provider": "openai",
+      "effort": "medium",
+      "compatibility_alias": false,
+      "thread_id": "01a12644-91a0-76d2-8b73-1fc68da199af",
+      "job_id": "child-b8f7c3e587aa4f02b5d1018ef35d38a1",
+      "status": "completed",
+      "text": "OFFICIAL_NATIVE_OK codex-auto-review sum=385",
+      "independently_read_sum": 385
+    },
+    {
+      "role": "gpt-daybreak-blue-latest",
+      "requested_model": "gpt-daybreak-blue-latest",
+      "model": "gpt-6.1-sol",
+      "provider": "openai",
+      "effort": "medium",
+      "compatibility_alias": true,
+      "thread_id": "01a12645-aac1-7ab2-a70f-31a37c6f3a45",
+      "job_id": "child-0b3247d5b5ac4c5a9e73a5766e9fe17c",
+      "status": "completed",
+      "text": "OFFICIAL_NATIVE_OK gpt-daybreak-blue-latest sum=385",
+      "independently_read_sum": 385
+    },
+    {
+      "role": "gpt-daybreak-red-latest",
+      "requested_model": "gpt-daybreak-red-latest",
+      "model": "gpt-6.1-sol",
+      "provider": "openai",
+      "effort": "medium",
+      "compatibility_alias": true,
+      "thread_id": "01a12645-c868-7a81-9855-922893225ec5",
+      "job_id": "child-48ed83025d9a446a9758da221e2bbb3c",
+      "status": "completed",
+      "text": "OFFICIAL_NATIVE_OK gpt-daybreak-red-latest sum=385",
+      "independently_read_sum": 385
+    },
+    {
+      "role": "gpt-6-astra",
+      "requested_model": "gpt-6-astra",
+      "model": "gpt-6-astra",
+      "provider": "openai",
+      "effort": "medium",
+      "compatibility_alias": false,
+      "thread_id": "01a12645-e3cb-7a62-af5c-fa7bcd4ae0de",
+      "job_id": "child-dd0cbf1457cf436886c00f213f346163",
+      "status": "completed",
+      "text": "OFFICIAL_NATIVE_OK gpt-6-astra sum=385",
+      "independently_read_sum": 385
+    },
+    {
+      "role": "gpt-6-sol",
+      "requested_model": "gpt-6-sol",
+      "model": "gpt-6-sol",
+      "provider": "openai",
+      "effort": "medium",
+      "compatibility_alias": false,
+      "thread_id": "01a12647-1730-7071-b665-c37475b9edda",
+      "job_id": "child-3404098d72754eb5ae59847eed8ceb7f",
+      "status": "completed",
+      "text": "OFFICIAL_NATIVE_OK gpt-6-sol sum=385",
+      "independently_read_sum": 385
+    },
+    {
+      "role": "gpt-5-6-sol",
+      "requested_model": "gpt-5.6-sol",
+      "model": "gpt-5.6-sol",
+      "provider": "openai",
+      "effort": "medium",
+      "compatibility_alias": false,
+      "thread_id": "01a12647-43e3-7433-aa38-3a52c7b87ac6",
+      "job_id": "child-1c6d2cdf839f4acdb57fbe2c4776a08b",
+      "status": "completed",
+      "text": "OFFICIAL_NATIVE_OK gpt-5-6-sol sum=385",
+      "independently_read_sum": 385
+    },
+    {
+      "role": "gpt-5-6-terra",
+      "requested_model": "gpt-5.6-terra",
+      "model": "gpt-5.6-terra",
+      "provider": "openai",
+      "effort": "medium",
+      "compatibility_alias": false,
+      "thread_id": "01a12647-72da-72f3-911d-8a49119fa58b",
+      "job_id": "child-90772eac8919439bad33795020e5a1cb",
+      "status": "completed",
+      "text": "OFFICIAL_NATIVE_OK gpt-5-6-terra sum=385",
+      "independently_read_sum": 385
+    },
+    {
+      "role": "gpt-5-6-luna",
+      "requested_model": "gpt-5.6-luna",
+      "model": "gpt-5.6-luna",
+      "provider": "openai",
+      "effort": "medium",
+      "compatibility_alias": false,
+      "thread_id": "01a12647-aa7e-75b2-8599-fdd2ed633898",
+      "job_id": "child-9ea31caf9cb2432fbf610742a66eaba2",
+      "status": "completed",
+      "text": "OFFICIAL_NATIVE_OK gpt-5-6-luna sum=385",
+      "independently_read_sum": 385
+    }
+  ],
+  "catalog": {
+    "provider": "openai",
+    "updated_at": "2026-10-10T16:37:41.121604+00:00",
+    "default_model": "gpt-6.1-sol",
+    "models": {
+      "gpt-6.1-sol": {
+        "efforts": [
+          "low",
+          "medium",
+          "high",
+          "xhigh",
+          "max",
+          "ultra"
+        ],
+        "hidden": false,
+        "default_effort": "low",
+        "is_default": true,
+        "upgrade": null
+      },
+      "gpt-6-astra": {
+        "efforts": [
+          "low",
+          "medium",
+          "high",
+          "xhigh",
+          "max",
+          "ultra"
+        ],
+        "hidden": false,
+        "default_effort": "medium",
+        "is_default": false,
+        "upgrade": null
+      },
+      "gpt-6-sol": {
+        "efforts": [
+          "low",
+          "medium",
+          "high",
+          "xhigh",
+          "max",
+          "ultra"
+        ],
+        "hidden": false,
+        "default_effort": "medium",
+        "is_default": false,
+        "upgrade": null
+      },
+      "gpt-6-luna": {
+        "efforts": [
+          "low",
+          "medium",
+          "high",
+          "xhigh",
+          "max"
+        ],
+        "hidden": false,
+        "default_effort": "medium",
+        "is_default": false,
+        "upgrade": null
+      },
+      "gpt-reserve": {
+        "efforts": [
+          "low",
+          "medium",
+          "high",
+          "xhigh",
+          "max"
+        ],
+        "hidden": true,
+        "default_effort": "medium",
+        "is_default": false,
+        "upgrade": null
+      },
+      "gpt-5.6-sol": {
+        "efforts": [
+          "low",
+          "medium",
+          "high",
+          "xhigh",
+          "max",
+          "ultra"
+        ],
+        "hidden": false,
+        "default_effort": "low",
+        "is_default": false,
+        "upgrade": null
+      },
+      "gpt-5.6-terra": {
+        "efforts": [
+          "low",
+          "medium",
+          "high",
+          "xhigh",
+          "max",
+          "ultra"
+        ],
+        "hidden": false,
+        "default_effort": "medium",
+        "is_default": false,
+        "upgrade": null
+      },
+      "gpt-5.6-luna": {
+        "efforts": [
+          "low",
+          "medium",
+          "high",
+          "xhigh",
+          "max"
+        ],
+        "hidden": false,
+        "default_effort": "medium",
+        "is_default": false,
+        "upgrade": null
+      },
+      "gpt-5.5": {
+        "efforts": [
+          "low",
+          "medium",
+          "high",
+          "xhigh"
+        ],
+        "hidden": true,
+        "default_effort": "medium",
+        "is_default": false,
+        "upgrade": "gpt-6.1-sol"
+      },
+      "codex-auto-review": {
+        "efforts": [
+          "low",
+          "medium",
+          "high",
+          "xhigh",
+          "max"
+        ],
+        "hidden": true,
+        "default_effort": "medium",
+        "is_default": false,
+        "upgrade": null
+      }
+    },
+    "roles": {
+      "codex-auto-review": {
+        "requested_model": "codex-auto-review",
+        "model": "codex-auto-review",
+        "effort": "medium",
+        "provider": "openai",
+        "alias": false
+      },
+      "gpt-5-5": {
+        "requested_model": "gpt-5.5",
+        "model": "gpt-5.5",
+        "effort": "medium",
+        "provider": "openai",
+        "alias": false
+      },
+      "gpt-5-6-luna": {
+        "requested_model": "gpt-5.6-luna",
+        "model": "gpt-5.6-luna",
+        "effort": "medium",
+        "provider": "openai",
+        "alias": false
+      },
+      "gpt-5-6-sol": {
+        "requested_model": "gpt-5.6-sol",
+        "model": "gpt-5.6-sol",
+        "effort": "medium",
+        "provider": "openai",
+        "alias": false
+      },
+      "gpt-5-6-terra": {
+        "requested_model": "gpt-5.6-terra",
+        "model": "gpt-5.6-terra",
+        "effort": "medium",
+        "provider": "openai",
+        "alias": false
+      },
+      "gpt-6-astra": {
+        "requested_model": "gpt-6-astra",
+        "model": "gpt-6-astra",
+        "effort": "medium",
+        "provider": "openai",
+        "alias": false
+      },
+      "gpt-6-luna": {
+        "requested_model": "gpt-6-luna",
+        "model": "gpt-6-luna",
+        "effort": "medium",
+        "provider": "openai",
+        "alias": false
+      },
+      "gpt-6-sol": {
+        "requested_model": "gpt-6-sol",
+        "model": "gpt-6-sol",
+        "effort": "medium",
+        "provider": "openai",
+        "alias": false
+      },
+      "gpt-daybreak-blue-latest": {
+        "requested_model": "gpt-daybreak-blue-latest",
+        "model": "gpt-6.1-sol",
+        "effort": "medium",
+        "provider": "openai",
+        "alias": true
+      },
+      "gpt-daybreak-red-latest": {
+        "requested_model": "gpt-daybreak-red-latest",
+        "model": "gpt-6.1-sol",
+        "effort": "medium",
+        "provider": "openai",
+        "alias": true
+      },
+      "official-latest": {
+        "requested_model": "gpt-6.1-sol",
+        "model": "gpt-6.1-sol",
+        "effort": "medium",
+        "provider": "openai",
+        "alias": false
+      },
+      "gpt-6-1-sol": {
+        "requested_model": "gpt-6.1-sol",
+        "model": "gpt-6.1-sol",
+        "effort": "medium",
+        "provider": "openai",
+        "alias": false
+      }
+    },
+    "quality_model": "gpt-6-astra",
+    "catalog_source": "official Codex app-server model/list",
+    "native_role_scope": "newly loaded conversations",
+    "inference_calls": 0
+  },
+  "deepseek": {
+    "model": "deepseek-flash",
+    "provider": "deepseek",
+    "reasoning_effort": "max",
+    "text": "DEEPSEEK_OFFICIAL_PATH_OK sum=5050",
+    "thread_id": "01a1264b-29be-7c81-848a-2db046f1a9c5"
+  },
+  "dual_entrypoints": {
+    "native_to_deepseek_deduplicated": true,
+    "deepseek_to_native_deduplicated": true,
+    "overlapping_files_rejected": true
+  },
+  "main_turns": [
+    {
+      "thread_id": "01a1264b-5f61-7472-a41b-814998ac7d14",
+      "model": "gpt-6-luna",
+      "provider": "openai",
+      "reasoning_effort": "low",
+      "text": "OFFICIAL_MAIN_ROUTINE_OK"
+    },
+    {
+      "thread_id": "01a1264b-5f61-7472-a41b-814998ac7d14",
+      "model": "gpt-6-astra",
+      "provider": "openai",
+      "reasoning_effort": "ultra",
+      "text": "OFFICIAL_MAIN_QUALITY_OK"
+    }
+  ],
+  "mcp": {
+    "official_models_refresh_live": true,
+    "passed": true,
+    "server": {
+      "name": "fpga-mesh",
+      "version": "0.8.0"
+    },
+    "tool_count": 15,
+    "tool_names": [
+      "fpga_child_status",
+      "fpga_child_scale",
+      "fpga_child_delegate",
+      "fpga_child_wait",
+      "fpga_child_cancel",
+      "fpga_native_reserve",
+      "fpga_native_validate",
+      "fpga_native_complete",
+      "fpga_models_refresh",
+      "fpga_session_list",
+      "fpga_session_open",
+      "fpga_session_route",
+      "fpga_group_report",
+      "fpga_peer_send",
+      "fpga_child_group_report"
+    ],
+    "session_list_live": true,
+    "child_status_live": true,
+    "astra_main_frontdoor_registered": true,
+    "new_messages_sent": 0
+  },
+  "service_recovery": {
+    "verified_at": "2026-10-10T16:37:41.337682+00:00",
+    "passed": true,
+    "health": {
+      "pid": 20900,
+      "started": true,
+      "feishu_connected": true,
+      "identities": {
+        "main": "Astra-A",
+        "deepseek": "DeepSeek-A"
+      },
+      "quota_error": null,
+      "feishu_error": null
+    },
+    "worker_count": 0,
+    "completed_jobs_retained": 11,
+    "same_main_thread": true,
+    "thread_id": "01a1264b-5f61-7472-a41b-814998ac7d14",
+    "quality_route": [
+      "gpt-6-astra",
+      "ultra"
+    ],
+    "model_update_saved_at": "2026-10-10T16:37:41.121604+00:00",
+    "native_role_count": 12,
+    "model_page": "http://127.0.0.1:59116",
+    "restart_from_external_working_directory": true
+  },
+  "identities": {
+    "identities": [
+      {
+        "role": "astra",
+        "app_id": "cli_aa4c9f58dd385cc9",
+        "bot_open_id": "ou_7a2ba63476de6806f49df0045c608ef6",
+        "read_only": true
+      },
+      {
+        "role": "deepseek",
+        "app_id": "cli_aa4c9f8c59785cd1",
+        "bot_open_id": "ou_6c468292e3b17d94b9e51cafa0149776",
+        "read_only": true
+      }
+    ],
+    "new_messages_sent": 0,
+    "specified_deepseek_key_path_retained": true
+  },
+  "routing_independence": {
+    "legacy_process_count": 0,
+    "legacy_listener_count": 0,
+    "scheduled_task": "FPGA-Mesh-Node-A",
+    "scheduled_task_state": "Running"
+  },
+  "guidance_cleanup": {
+    "verified_at": "2026-10-10T16:43:21.936658+00:00",
+    "project": {
+      "checked_text_files": 471,
+      "hits": [],
+      "hit_count": 0
+    },
+    "global_active_guidance": {
+      "checked_text_files": 4268,
+      "hits": [],
+      "hit_count": 0
+    },
+    "native_roles": {
+      "codex-auto-review": {
+        "model": "codex-auto-review",
+        "model_provider": "openai",
+        "model_reasoning_effort": "medium"
+      },
+      "gpt-5-5": {
+        "model": "gpt-5.5",
+        "model_provider": "openai",
+        "model_reasoning_effort": "medium"
+      },
+      "gpt-5-6-luna": {
+        "model": "gpt-5.6-luna",
+        "model_provider": "openai",
+        "model_reasoning_effort": "medium"
+      },
+      "gpt-5-6-sol": {
+        "model": "gpt-5.6-sol",
+        "model_provider": "openai",
+        "model_reasoning_effort": "medium"
+      },
+      "gpt-5-6-terra": {
+        "model": "gpt-5.6-terra",
+        "model_provider": "openai",
+        "model_reasoning_effort": "medium"
+      },
+      "gpt-6-1-sol": {
+        "model": "gpt-6.1-sol",
+        "model_provider": "openai",
+        "model_reasoning_effort": "medium"
+      },
+      "gpt-6-astra": {
+        "model": "gpt-6-astra",
+        "model_provider": "openai",
+        "model_reasoning_effort": "medium"
+      },
+      "gpt-6-luna": {
+        "model": "gpt-6-luna",
+        "model_provider": "openai",
+        "model_reasoning_effort": "medium"
+      },
+      "gpt-6-sol": {
+        "model": "gpt-6-sol",
+        "model_provider": "openai",
+        "model_reasoning_effort": "medium"
+      },
+      "gpt-daybreak-blue-latest": {
+        "model": "gpt-6.1-sol",
+        "model_provider": "openai",
+        "model_reasoning_effort": "medium"
+      },
+      "gpt-daybreak-red-latest": {
+        "model": "gpt-6.1-sol",
+        "model_provider": "openai",
+        "model_reasoning_effort": "medium"
+      },
+      "official-latest": {
+        "model": "gpt-6.1-sol",
+        "model_provider": "openai",
+        "model_reasoning_effort": "medium"
+      }
+    },
+    "global_provider": "openai",
+    "custom_model_catalog": false,
+    "custom_provider_table": false,
+    "memory_cleanup_request_saved": true,
+    "historical_sessions_rewritten": false,
+    "inactive_role_backups_in_release": false
+  },
+  "source_credential_scan": {
+    "checked_files": 473,
+    "private_paths": [],
+    "key_material_paths": [],
+    "passed": true
+  },
+  "main_responsibilities": [
+    "decision",
+    "acceptance",
+    "difficult",
+    "optimization",
+    "evaluation"
+  ],
+  "default_child_count": null,
+  "current_child_count": 0,
+  "artifact_hashes": {
+    "migration.json": "9bb3d262254048ee1829d725bf568b54c54ef68d60db96c50dbfaced254a90c2",
+    "live-acceptance.json": "548f4c459be25a0466e3ab9ada0e875cda08a26d760ccee46c54aec93ee3f8ca",
+    "mcp-acceptance.json": "1af42529385e1174f7ae07d9a3fc7617ab754cfdefef83a7a622d503b7b3dba2",
+    "restart-acceptance.json": "68a31384ddac5e5b7e79355d15755a7ae25203f2254cf3752361688647b7e988",
+    "recovery-acceptance.json": "591ea8c5bbd18524896affaa1b7a6133e3023724969dfb400b239cdce16b168c",
+    "guidance-audit.json": "a0ceb1c56dafa683a4d8d9c766c13bed23bce7ce3ef904aa092e0f8ee8021744",
+    "identities.json": "bf0836d3b283d894ea711199e62185a1150b056f55cd3a72a80353458ca94688",
+    "live-independence.json": "bfdfd3e5b060d3c2b5ef4244739183c87deda5e7c141134983713f9fbbb9f210",
+    "regression-final.log": "ac3cb634b8370a7389fc9e96362175364ee152f5d46f876cf22ab32256e85336",
+    "model-update-final.png": "0e170309d09fbf4f9f8f017d976c4663590e63f56423aed6af508e4df6484e9c",
+    "deepseek-execution.json": "cc071a44b52bcee7175603d657e99729f0c200e64ed64447161bd251fa4420ed",
+    "source-check.json": "e0a004ff8e9f782897c3df4e0633d16c8f71438b90dcb2a2a6a6844f1c11a05f",
+    "native-execution/codex-auto-review.json": "dd62941510586a6a98b996cc59f855186c27b22b774ccd9d8a80357f5c27f0cb",
+    "native-execution/gpt-5-5.json": "aebbb725986467f071c19c945db64278032b6866d9401d1e66285f1e43d14d09",
+    "native-execution/gpt-5-6-luna.json": "1fdabae11d63c9403a19d37d68d6b90accacf483c18e971c91f93179c322a79a",
+    "native-execution/gpt-5-6-sol.json": "b9b830f2c471e9246996fe0d19a50f7560d4bf8170c66083edf40414b8313353",
+    "native-execution/gpt-5-6-terra.json": "53ad961410e964833d7f1b624c55a67be0376bc51de2e2242b28ee898ffb34ba",
+    "native-execution/gpt-6-astra.json": "650f2305a0e6d175a652a1bdbaf298a4ee55378f6a07e5cb24ec9d281e7a0990",
+    "native-execution/gpt-6-luna.json": "0679a9e780777f2353984245c8c8db7d9aad1f7ad14e594e2921c874ef7c181a",
+    "native-execution/gpt-6-sol.json": "91ed4fceb3dee879cff79e65704e0fdf4d0393c260dff970607ca72a7f91b38e",
+    "native-execution/gpt-daybreak-blue-latest.json": "63256b4734524776fc8b7f41baeac456fa1e40046479957e2537eeb460666a9e",
+    "native-execution/gpt-daybreak-red-latest.json": "adacc105d2c5e4e9837e1d4c127edfc42bcf137d0c26216a9d719d16f16cbf95"
+  },
+  "scope": {
+    "ordinary_desktop_turn_changed_in_flight": false,
+    "physical_B_C_tested": false,
+    "physical_board_tested": false,
+    "usage_savings_quantified": false
+  }
+}

@@ -16,7 +16,7 @@
 - `tailscale`: not found.
 - `git-lfs`: not found.
 - `docker`: not found.
-- Global `~/.codex/config.toml` currently selects `gpt-6-astra` through the local `codex_model_router_v2` provider and must not be modified by this deployment.
+- The initial deployment preserved the then-existing global preferences. The current verified configuration uses the builtin official provider; see the official role migration acceptance for the updated settings.
 - Global `~/.codex/models.json` contains `deepseek-flash` and `deepseek-v4-pro`.
 - `codex login status` reports an API-key login, not a verified member ChatGPT subscription login.
 
@@ -64,7 +64,7 @@ These values are intentionally left blank in generated configuration.
 
 ## 2026-10-10 Route audit (initial live observations)
 
-- 当前桌面线程 01a12548-f7fb-7df2-bc8c-9d992dff8b99 的 session_meta 为 provider=openai，turn_context 为 gpt-6.1-sol / max；全局 config.toml 同样为该模型/档位，未配置 model_providers。不能沿用旧记录中的 Astra/CCSwitch 路由描述。
+- 当前桌面线程 01a12548-f7fb-7df2-bc8c-9d992dff8b99 的 session_meta 为 provider=openai，turn_context 为 gpt-6.1-sol / max；全局 config.toml 同样为该模型/档位，未配置 model_providers。旧本地路由描述已失效。
 - 当前 Desktop 附带 Codex 为 0.162.0-alpha.17.2，项目兼容标记仍写 0.159.0；需以当前真实请求验收协议。
 - 项目 runtime.py 的 Astra gateway 固定 gpt-6-astra/openai，effort selector 每任务选择档位；Gateway 复用单个 _thread_id，没有主模型选择器或主会话新建动态工具。
 - 原生 collaboration 工具本轮列出的角色均为 GPT 系列，未列 DeepSeek；本会话并发槽位为总计 4。FPGA 自建池是另外一套接口。
@@ -90,3 +90,12 @@ These values are intentionally left blank in generated configuration.
 - 原 Astra 和 DeepSeek 飞书身份只读在线验过；主前门的共享身份工具与发布角色用测试核对，不为验收发送消息。权限、优先顺序、板卡职责不变。
 - 直接 Task Scheduler 重启策略不足以覆盖强杀工作进程，已改程序监督器。真实进程故障自动恢复、同线程继续、16 进程树停止无残留均已验；后台等待与监督不发起模型回合。
 - 271/271 回归通过。普通 Desktop 生成中模型/下拉框不在后台控制器接口内，模型调节在受控回合边界生效；原生供应商和并发限制仍有效。B/C 物理部署与 GPT usage 节约比例未在本次验收。
+
+## 2026-10-11 v0.8 official route verification
+
+- 十个原生角色真实执行完成，session_meta.provider 均为 openai，turn_context.model/effort 与安装角色一致。八个名称对应实际官方模型；两个 Daybreak 旧名称缺席官方目录，透明映射到官方默认 gpt-6.1-sol，不能声称是两个新模型。
+- 官方完整 model/list 当前十个条目、七个可见；已有 gpt-5.5 和 codex-auto-review 隐藏模型的实际账号调用通过。新增 official-latest 与 gpt-6-1-sol，总计十二入口。未来官方命名不依赖 gpt- 前缀，支持分页和实际档位；新角色加载范围与账号/客户端条件已说明。
+- 点击模型更新页面和 Desktop MCP 的 fpga_models_refresh 均真实通过，更新不发起推理、不改认证，失败回滚与同名自定义角色保护有测试。用共同目录锁修复旧异步目录响应覆盖新更新的竞争，两项失败复现后通过。
+- 保留指定 DeepSeek key 路径，真实 Flash/max 计算及写入 5050；十个原生结果为 385。双向重复派工不新建执行者，活动路径冲突拒绝；主同线程 Luna/low→Astra/ultra 和关键工作质量保护有效。
+- 全局生效角色/提示/规则/技能与项目源码/项目书/文档已移除旧本地路由指导，扫描残留为 0。当前原代理进程及端口为 0。历史记忆仅提交规定的清理请求，历史聊天和恢复副本不作为活动路由或分发内容。
+- 常驻注册已加入等待 supervisor/resident 两把锁释放，项目外工作目录调用已实跑。中断停止后恢复、最终代码重启后保持飞书连接、原线程及十一项完成任务，子数量 0。最终回归 284/284；SDK 与测试事件循环提示保留在原日志。

@@ -53,6 +53,11 @@ def build_codex_env(
 ) -> dict[str, str]:
     env = dict(os.environ if source is None else source)
     env.update(extra or {})
+    # Model endpoints come from the role's verified provider configuration.
+    # Do not let a previously exported routing override redirect either role.
+    for name in ('OPENAI_BASE_URL', 'CODEX_BACKEND_BASE_URL',
+                 'CHATGPT_BASE_URL', 'CODEX_CHATGPT_BASE_URL'):
+        env.pop(name, None)
     if role == "astra":
         env.pop("DEEPSEEK_API_KEY", None)
     elif role == "deepseek_child":

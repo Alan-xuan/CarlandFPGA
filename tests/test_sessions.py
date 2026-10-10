@@ -162,7 +162,7 @@ class SessionsTests(unittest.IsolatedAsyncioTestCase):
             async def offer(self, message):
                 return False
         runtime.controller=Inbox()
-        runtime.config=SimpleNamespace(node_id='A',project_id='fpga-main')
+        runtime.config=SimpleNamespace(node_id='A',project_id='fpga-main',state_dir=Path(self.tmp.name))
         actions=ProjectActions(runtime)
         submitted=await actions.call('main_submit',args)
         self.router.record(submitted['message_id'],'duplicate','completed',result={'text':'DONE'})
