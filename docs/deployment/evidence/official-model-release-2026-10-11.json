@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "verified_at_utc": "2026-10-10T16:58:52.509103+00:00",
+  "passed": true,
+  "tested_source_revision": "037321a24642759b7c5eafa8ac222fa5c4a68d3d",
+  "tested_archive": {
+    "archive": "CarlandFPGA-mesh-v0.8-source-037321a.zip",
+    "profile": "mesh",
+    "sha256": "f2c4f238d957a9a24b35cb5384ec126dce895178dfaeb1da027758affa59bc5c",
+    "files": 448,
+    "crc_verified": true,
+    "all_file_sha256_verified": true,
+    "extracted_regression": 256,
+    "tests_exit_code": 0
+  },
+  "source_regression": 284,
+  "quality_main": {
+    "thread_id": "01a1264b-5f61-7472-a41b-814998ac7d14",
+    "model": "gpt-6-astra",
+    "provider": "openai",
+    "reasoning_effort": "ultra",
+    "text": "OFFICIAL_FINAL_ACCEPTED\n\n已以 `openai / gpt-6-astra / ultra` 完成只读验收。指定代码与真实证据一致，未发现破坏官方路由、模型刷新、DeepSeek Flash/max、双入口去重互斥、身份权限、质量任务保护或常驻恢复的实质缺陷。\n\n22 份原始证据、97 个源码及测试文件哈希匹配；发布包 SHA-256、CRC 通过。既有 284 项及解包后 256 项测试通过记录已核对，未重跑。\n\n两个 Daybreak 名称是明确披露的兼容别名；未来模型访问仍取决于官方目录、账号和客户端。历史记忆仅提交清理请求，不改写历史。GitHub 未登录导致远端发布待办，与本机功能验收通过分别记录。\n\n"
+  },
+  "quality_main_result_sha256": "ec5000030e6ecf131f025a4f23cf76d49ce7a3701138c1abfb20337fdc5e5128",
+  "legacy_role_backup_cleanup": {
+    "legacy_role_backups_removed": 10,
+    "active_roles_untouched": true
+  },
+  "github": {
+    "push_completed": false,
+    "reason": "No saved GitHub login in CLI or credential manager; pending interactive login",
+    "remote_main_read_back": "3a62331484efda831aa5ddcc357769e92498f656"
+  },
+  "final_archive_validation": "Final archive includes release records; code and configuration hashes must match the tested source archive; revision and archive SHA-256 are recorded in its manifest and acceptance sidecar",
+  "physical_B_C_deployed_this_run": false,
+  "physical_board_tested": false
+}
