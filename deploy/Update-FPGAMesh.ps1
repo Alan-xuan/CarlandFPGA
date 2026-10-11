@@ -30,14 +30,8 @@ $existing = Get-ScheduledTask -TaskName $taskName -ErrorAction SilentlyContinue
 if ($existing -and $existing.Description -notlike "FPGA Mesh $Node controller*") {
     throw "Scheduled task is not owned by this node: $taskName"
 }
-if ($existing) {
-    Stop-ScheduledTask -TaskName $taskName
-    Push-Location $packageRoot
-    try {
-        & $pythonPath -m fpga_mesh.service --wait-stopped --config $configPath --timeout 20
-        if ($LASTEXITCODE -ne 0) { throw 'Previous service has not stopped; update not applied.' }
-    } finally { Pop-Location }
-}
+& $pythonPath @updateArgs --stop-idle
+if ($LASTEXITCODE -ne 0) { throw 'Atomic idle/stop guard blocked; do not interrupt work or repeat onboarding.' }
 $control = [string]$plan.control_file
 try {
     & $pythonPath @updateArgs --apply
@@ -62,10 +56,17 @@ try {
         }
         & $pythonPath -m fpga_mesh.project_cli --control-file $control models_refresh
         if ($LASTEXITCODE -ne 0) { throw 'Resident started; official model refresh failed. Preserve credentials and inspect the exact provider/catalog error.' }
+        $scopeLines = @(& $pythonPath -m fpga_mesh.feishu_permissions --config $configPath)
+        if ($LASTEXITCODE -ne 0) { throw 'Resident started; Feishu file-scope audit failed. Inspect the API error; do not recreate apps.' }
+        $fileScope = ($scopeLines -join "`n") | ConvertFrom-Json
+        if ($fileScope.status -eq 'needs_admin_grant') {
+            Write-Warning ('Source update completed. This node Astra app still needs its owner to grant only im:resource: ' + $fileScope.manage_url)
+        }
         [ordered]@{
             revision = $plan.revision; node = $Node; sourceUpdated = $true
             residentStarted = $health.started; feishuConnected = $health.feishu_connected
             mainIdentity = $health.identities.main; childIdentity = $health.identities.deepseek
+            feishuFileScope = $fileScope
             nextStep = 'Open a newly loaded Codex project conversation to use the updated roles and project MCP.'
         } | ConvertTo-Json
     } finally { Pop-Location }

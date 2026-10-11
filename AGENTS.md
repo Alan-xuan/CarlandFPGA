@@ -21,3 +21,8 @@
 - Main and native GPT inference use the builtin `openai` provider and this member's official Codex login. DeepSeek execution uses its separate direct API provider at fixed Flash/max. Do not introduce a local inference router, custom private catalog or cross-role credential copying.
 - Use `fpga_models_refresh` or `project_cli models_refresh` to refresh the actual official model/effort catalog and native role files. The human update page opens with `deploy/更新官方模型.cmd`. Refresh makes no inference call and retains current tasks, leases and credentials. Newly discovered official visible models get native roles automatically; `official-latest` follows the official default. Missing legacy names remain explicitly documented aliases until listed by the official catalog.
 - Role definitions apply to newly loaded conversations. An already generating turn keeps its model. Supported model access must be verified by actual completed turns; catalog membership alone is not an access guarantee.
+
+## In-place distribution and Astra files (2026-10-11)
+
+- Existing nodes use `deploy/Update-FPGAMesh.ps1`: update changed source files only, preserve local configuration/credentials/state, and do not rerun onboarding. The updater fences ledger admission and verifies idle before stopping the existing service.
+- Astra requires tenant scope `im:resource` for file upload/readback. Astra-A received explicit human authorization and its grant was verified. Existing B/C must obtain their own app owner's authorization on the existing Astra app; an update ZIP cannot grant a cloud scope. Run `python -m fpga_mesh.feishu_permissions --config <existing-config>` for a read-only audit. Never add file scope to DeepSeek or change the human > main > child priority.

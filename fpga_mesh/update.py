@@ -11,11 +11,14 @@ import hashlib
 import json
 import os
 import re
+import shutil
 import sqlite3
+import subprocess
+import sys
 import tomllib
 import uuid
 import zipfile
-from contextlib import closing
+from contextlib import ExitStack, closing
 from pathlib import Path, PurePosixPath
 
 _PRIVATE_NAMES = {'auth.json', 'deepcodex.txt', 'id_rsa', 'id_ed25519',
@@ -24,6 +27,11 @@ _PRIVATE_SUFFIXES = ('-secret.txt', '.p12', '.pfx', '.pem', '.key', '.lic')
 _RESERVED = {'con', 'prn', 'aux', 'nul'} | {
     f'{prefix}{number}' for prefix in ('com', 'lpt') for number in range(1, 10)
 }
+_IDLE_CHECKS = (
+    ('main_sessions.sqlite', 'main_runs', "status IN ('queued', 'running')"),
+    ('child_jobs.sqlite', 'child_jobs', "status IN ('reserved', 'queued', 'running')"),
+    ('state.sqlite', 'inbound', 'processed_at IS NULL'),
+)
 
 
 def canonical_hash(payload: bytes) -> str:
@@ -154,12 +162,7 @@ def _state_directory(config: Path, node: str) -> Path:
 def assert_idle(config: Path, *, node: str) -> str:
     """Read persisted activity without opening a controller or replaying work."""
     state = _state_directory(config, node)
-    checks = (
-        ('main_sessions.sqlite', 'main_runs', "status IN ('queued', 'running')"),
-        ('child_jobs.sqlite', 'child_jobs', "status IN ('reserved', 'queued', 'running')"),
-        ('state.sqlite', 'inbound', 'processed_at IS NULL'),
-    )
-    for filename, table, condition in checks:
+    for filename, table, condition in _IDLE_CHECKS:
         path = state / filename
         if not path.exists():
             continue
@@ -169,6 +172,46 @@ def assert_idle(config: Path, *, node: str) -> str:
             if exists and db.execute(f'SELECT COUNT(*) FROM {table} WHERE {condition}').fetchone()[0]:
                 raise ValueError('node has active or pending work; finish or explicitly resolve it before updating')
     return node
+
+
+def stop_idle_node(config: Path, *, node: str, stop=None) -> None:
+    """Fence durable admission and check idle atomically before stopping.
+
+    All execution routes persist queued/reserved/running state before inference.
+    Hold their SQLite writer locks through confirmed service shutdown, including
+    on older nodes that do not have a maintenance API. Busy work or writers
+    abort before stopping; finally closing the connections releases every lock.
+    """
+    state = _state_directory(config, node)
+    with ExitStack() as stack:
+        locked = []
+        for filename, table, condition in _IDLE_CHECKS:
+            path = state / filename
+            if not path.exists():
+                continue
+            db = stack.enter_context(closing(sqlite3.connect(
+                path.resolve().as_uri() + '?mode=rw', uri=True, timeout=0,
+            )))
+            db.execute('BEGIN IMMEDIATE')
+            locked.append((db, table, condition))
+        for db, table, condition in locked:
+            exists = db.execute("SELECT 1 FROM sqlite_master WHERE type='table' AND name=?",
+                                (table,)).fetchone()
+            if exists and db.execute(f'SELECT COUNT(*) FROM {table} WHERE {condition}').fetchone()[0]:
+                raise ValueError('node has active or pending work; service was not stopped')
+        if stop is not None:
+            stop()
+        else:
+            package_root = Path(__file__).resolve().parent.parent
+            command = [shutil.which('pwsh') or 'powershell', '-NoProfile', '-NonInteractive',
+                       '-File', str(package_root / 'deploy/Stop-FPGAMeshForUpdate.ps1'),
+                       '-Node', node, '-Config', str(Path(config).resolve()),
+                       '-Python', sys.executable]
+            result = subprocess.run(command, cwd=package_root, capture_output=True,
+                                    text=True, encoding='utf-8', errors='replace')
+            if result.returncode:
+                raise RuntimeError('Idle service stop failed; no source was changed. '
+                                   + result.stderr.strip()[:300])
 
 
 def _replace(path: Path, payload: bytes) -> None:
@@ -255,18 +298,27 @@ def main() -> None:
     parser.add_argument('--package', type=Path, required=True)
     parser.add_argument('--workspace', type=Path, required=True)
     parser.add_argument('--apply', action='store_true')
+    parser.add_argument('--stop-idle', action='store_true')
     parser.add_argument('--config', type=Path)
     parser.add_argument('--node', choices=('A', 'B', 'C'))
     args = parser.parse_args()
     try:
+        if args.stop_idle and (not args.config or not args.node or args.apply):
+            raise ValueError('--stop-idle needs --config/--node and cannot be combined with --apply')
         if args.config or args.node:
             if not args.config or not args.node:
                 raise ValueError('--config and --node must be supplied together')
             assert_idle(args.config, node=args.node)
         report = (apply_update if args.apply else plan_update)(args.package, args.workspace)
+        if args.stop_idle:
+            if report['conflicts']:
+                raise ValueError('local file conflicts; service was not stopped')
+            stop_idle_node(args.config, node=args.node)
+            report['service_stopped'] = True
+            report['admission_fenced_until_stopped'] = True
         if args.config:
             report['control_file'] = str(_state_directory(args.config, args.node) / 'main-control.json')
-    except (ValueError, OSError, KeyError, sqlite3.Error, zipfile.BadZipFile) as exc:
+    except (ValueError, RuntimeError, OSError, KeyError, sqlite3.Error, zipfile.BadZipFile) as exc:
         print(json.dumps({'error': str(exc)}, ensure_ascii=True))
         raise SystemExit(1) from None
     print(json.dumps(report, ensure_ascii=True))

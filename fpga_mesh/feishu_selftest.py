@@ -55,6 +55,11 @@ class FeishuSelfTestAPI:
             raise RuntimeError("Feishu did not return a tenant access token")
         return token
 
+    def granted_scopes(self, token: str) -> set[str]:
+        data = self._request("GET", "/application/v6/scopes", token=token)
+        return {entry["scope_name"] for entry in (data.get("data") or {}).get("scopes", [])
+                if entry.get("grant_status") == 1 and entry.get("scope_type") == "tenant"}
+
     def send(self, token: str, group_id: str, message: str, request_uuid: str) -> str:
         query = urlencode({"receive_id_type": "chat_id"})
         data = self._request("POST", f"/im/v1/messages?{query}", token=token,

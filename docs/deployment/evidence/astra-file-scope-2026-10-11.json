@@ -1,0 +1,56 @@
+{
+  "only_astra_file_scope_added": true,
+  "identities": [
+    {
+      "role": "astra",
+      "app_id": "cli_aa4c9f58dd385cc9",
+      "scopes": [
+        {
+          "grant_status": 1,
+          "scope_name": "im:resource",
+          "scope_type": "tenant"
+        },
+        {
+          "grant_status": 1,
+          "scope_name": "im:message:send_as_bot",
+          "scope_type": "tenant"
+        },
+        {
+          "grant_status": 1,
+          "scope_name": "im:message",
+          "scope_type": "tenant"
+        },
+        {
+          "grant_status": 1,
+          "scope_name": "im:message.group_msg",
+          "scope_type": "tenant"
+        }
+      ]
+    },
+    {
+      "role": "deepseek",
+      "app_id": "cli_aa4c9f8c59785cd1",
+      "scopes": [
+        {
+          "grant_status": 1,
+          "scope_name": "im:message:send_as_bot",
+          "scope_type": "tenant"
+        },
+        {
+          "grant_status": 1,
+          "scope_name": "im:message:readonly",
+          "scope_type": "tenant"
+        },
+        {
+          "grant_status": 1,
+          "scope_name": "im:message.group_msg",
+          "scope_type": "tenant"
+        }
+      ]
+    }
+  ],
+  "date": "2026-10-11",
+  "authorization": "Only Astra-A file scope explicitly approved by the human",
+  "verified": true,
+  "human_main_child_priority_changed": false
+}

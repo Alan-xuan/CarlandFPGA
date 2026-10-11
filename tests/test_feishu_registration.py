@@ -16,6 +16,14 @@ class FeishuRegistrationTests(unittest.TestCase):
         self.assertNotIn("events", child)
         self.assertIn("im:message:send_as_bot", child["scopes"]["tenant"])
 
+    def test_only_astra_requests_file_scope_without_expanding_child_permissions(self):
+        self.assertEqual(set(registration_addons("astra")["scopes"]["tenant"]), {
+            "im:message:send_as_bot", "im:message", "im:message.group_msg", "im:resource",
+        })
+        self.assertEqual(set(registration_addons("deepseek")["scopes"]["tenant"]), {
+            "im:message:send_as_bot", "im:message:readonly", "im:message.group_msg",
+        })
+
     def test_registration_writes_only_local_secret_and_nonsecret_manifest(self):
         calls = []
         def fake_register(**kwargs):

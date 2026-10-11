@@ -167,6 +167,62 @@ class MeshUpdateTests(unittest.TestCase):
         self.assertEqual(Path(json.loads(result.stdout)['control_file']),
                          self.workspace / 'existing-custom-state/main-control.json')
 
+    def idle_ledgers(self):
+        config = self.workspace / 'node.toml'
+        config.write_text('node_id = "B"\nstate_dir = "state"\n', encoding='utf-8')
+        state = self.workspace / 'state'
+        state.mkdir()
+        for filename, table, column in (
+            ('main_sessions.sqlite', 'main_runs', 'status TEXT'),
+            ('child_jobs.sqlite', 'child_jobs', 'status TEXT'),
+            ('state.sqlite', 'inbound', 'processed_at TEXT'),
+        ):
+            with closing(sqlite3.connect(state / filename)) as db, db:
+                db.execute(f'CREATE TABLE {table} ({column})')
+        return config, state
+
+    def test_stop_fences_all_new_work_until_service_has_stopped(self):
+        config, state = self.idle_ledgers()
+        stopped = []
+        def stop():
+            for filename, sql in (
+                ('main_sessions.sqlite', "INSERT INTO main_runs VALUES ('queued')"),
+                ('child_jobs.sqlite', "INSERT INTO child_jobs VALUES ('reserved')"),
+                ('state.sqlite', 'INSERT INTO inbound VALUES (NULL)'),
+            ):
+                with closing(sqlite3.connect(state / filename, timeout=0)) as competing:
+                    with self.assertRaisesRegex(sqlite3.OperationalError, 'locked'):
+                        competing.execute(sql)
+            stopped.append(True)
+        update.stop_idle_node(config, node='B', stop=stop)
+        self.assertEqual(stopped, [True])
+        with closing(sqlite3.connect(state / 'state.sqlite', timeout=0)) as db, db:
+            db.execute('INSERT INTO inbound VALUES (NULL)')
+
+    def test_work_arriving_after_preflight_prevents_stop_without_interrupting_it(self):
+        config, state = self.idle_ledgers()
+        update.assert_idle(config, node='B')
+        with closing(sqlite3.connect(state / 'child_jobs.sqlite')) as db, db:
+            db.execute("INSERT INTO child_jobs VALUES ('running')")
+        stopped = []
+        with self.assertRaisesRegex(ValueError, 'active|pending'):
+            update.stop_idle_node(config, node='B', stop=lambda: stopped.append(True))
+        self.assertEqual(stopped, [])
+        with closing(sqlite3.connect(state / 'child_jobs.sqlite', timeout=0)) as db, db:
+            self.assertEqual(db.execute('SELECT status FROM child_jobs').fetchone()[0], 'running')
+            db.execute("UPDATE child_jobs SET status='completed'")
+
+    def test_busy_admission_writer_aborts_stop_and_releases_other_ledger_locks(self):
+        config, state = self.idle_ledgers()
+        stopped = []
+        with closing(sqlite3.connect(state / 'child_jobs.sqlite')) as competing:
+            competing.execute('BEGIN IMMEDIATE')
+            with self.assertRaisesRegex(sqlite3.OperationalError, 'locked'):
+                update.stop_idle_node(config, node='B', stop=lambda: stopped.append(True))
+            self.assertEqual(stopped, [])
+            with closing(sqlite3.connect(state / 'main_sessions.sqlite', timeout=0)) as db, db:
+                db.execute("INSERT INTO main_runs VALUES ('completed')")
+
 
 if __name__ == '__main__':
     unittest.main()

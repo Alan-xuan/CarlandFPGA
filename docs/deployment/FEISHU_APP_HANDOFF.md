@@ -1,10 +1,12 @@
 # 飞书应用上线交接
 
+2026-10-11 权限补充：本人已明确允许仅 Astra-A 增加 `im:resource`，飞书实际返回应用身份 `grant_status=1`；原三个消息权限保留，DeepSeek 的三个原权限未变。注册模板及原地更新的只读权限检查已同步。B/C 已有应用必须由各自所有者在原 Astra 的权限页开通，不能通过分发 ZIP 自动授权、不能给 DeepSeek 增权。详见 [原地更新说明](IN_PLACE_UPDATE_2026-10-11.md)。
+
 目标群：`FPGA/AI/DEV`，Chat ID `oc_e0de73230fd64dd2da3e52fc781dffb1`。这是外部群，应用机器人需具备外部共享资格；自定义 Webhook 机器人不能接收人类群指令，不能替代 Astra。
 
 | A 机身份 | 应用 ID | 应用身份权限 | 事件订阅 |
 | --- | --- | --- | --- |
-| FPGA Astra A | `cli_aa4c9f58dd385cc9` | `im:message:send_as_bot`、`im:message`、`im:message.group_msg` | `im.message.receive_v1`，长连接 |
+| FPGA Astra A | `cli_aa4c9f58dd385cc9` | `im:message:send_as_bot`、`im:message`、`im:message.group_msg`、`im:resource` | `im.message.receive_v1`，长连接 |
 | FPGA DeepSeek A | `cli_aa4c9f8c59785cd1` | `im:message:send_as_bot`、`im:message:readonly`、`im:message.group_msg` | 无 |
 
 A 机两应用已建立、启用机器人能力并开通表中权限；账号本人完成个人实名认证后，两个应用的 `1.0.2` 版本已发布，开启外部群使用资格，并以独立机器人身份加入 `FPGA/AI/DEV`。密钥只在 `.local/deployment/node-a/feishu/`，未进入 Git 或分发包。Astra 的 `im.message.receive_v1` 已发布，使用长连接；DeepSeek 不订阅群事件。
