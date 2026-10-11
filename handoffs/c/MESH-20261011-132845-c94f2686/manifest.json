@@ -1,0 +1,157 @@
+{
+  "request": {
+    "round_id": "MESH-20261011-132845-c94f2686",
+    "task_id": "MESH-20261011-132845-c94f2686-C-local",
+    "task_version": 1,
+    "work_id": "C-real-local-evidence",
+    "operation_id": "MESH-20261011-132845-c94f2686-C-evidence-pr-v1",
+    "requester": "node-c",
+    "evidence_commit": "274a28549f6da8eef65d5e414f2ccf62365a476a",
+    "source_revision": "7ad82d2c9ad73a11f8e0e624bc0f5cf642dad492",
+    "ownership": [
+      "handoffs/c/MESH-20261011-132845-c94f2686/"
+    ],
+    "test_steps": [
+      "python handoffs/c/MESH-20261011-132845-c94f2686/verify_evidence.py"
+    ],
+    "expected_result": "Saved real receipts and immutable artifact hashes pass verification; total three-node acceptance remains BLOCKED; no board programming."
+  },
+  "request_hash": "1e2b75eb10d2cb0dbf1b33effe0dcc66cd4afa96197e7fccda1c8ff5dc72cb90",
+  "files": [
+    {
+      "path": ".gitattributes",
+      "size": 9,
+      "sha256": "8b9c3028d6467ff3be7c793141927841d70f47f52d0590677438f488ca154992"
+    },
+    {
+      "path": "A-round-file-received.json",
+      "size": 262,
+      "sha256": "d47991e8b4c76caea7a38b60ebb595496c15430901e6dadeae04afe4b8fba0ce"
+    },
+    {
+      "path": "astra-file-roundtrip.json",
+      "size": 364,
+      "sha256": "c54ef5c47049e2fb7ed89d23dacebfa71bcbd62401f1583d13f2602428669df4"
+    },
+    {
+      "path": "astra-receive.json",
+      "size": 229,
+      "sha256": "0027ab250ecf4a9ce9eed393e08bb0dfb7affc963173f947c7942c329ed9c5c4"
+    },
+    {
+      "path": "C-file-transfer.txt",
+      "size": 182,
+      "sha256": "d4fe35f3833ec63f2ea705cf13d9a87a152d598c949b76eda99c661e29d4f9d4"
+    },
+    {
+      "path": "child-duplicate.json",
+      "size": 1327,
+      "sha256": "0083e407c4c882d288f74ed0c38a9db553fc4f6bcece0a7a700475d542dc586a"
+    },
+    {
+      "path": "child-golden.json",
+      "size": 39,
+      "sha256": "e7045a3b712fcdbdd722c3467fd32a3ccee7a3773dd11a2f8a56fc4f0beed1eb"
+    },
+    {
+      "path": "child-result.json",
+      "size": 1401,
+      "sha256": "1cc4f739a16a001206693e563728d59cafbff74e9171cdfaaa5f1c9986474748"
+    },
+    {
+      "path": "cross-entrance-duplicate.json",
+      "size": 1327,
+      "sha256": "0083e407c4c882d288f74ed0c38a9db553fc4f6bcece0a7a700475d542dc586a"
+    },
+    {
+      "path": "human-group-readback.json",
+      "size": 404,
+      "sha256": "1dddc297f51fe66a652525aab8c39a1af843cf5aade4c54c5a16a90899104645"
+    },
+    {
+      "path": "human-main-result.json",
+      "size": 985,
+      "sha256": "5760aaa1b5a2c127f236331608bbc1830f10824f29ea939a4d478e5bc0d644e2"
+    },
+    {
+      "path": "main-duplicate-1.json",
+      "size": 575,
+      "sha256": "0724cd7c20b2831ba0e7067b87068109dee90b6813f6515857aa548a0672e734"
+    },
+    {
+      "path": "main-recovery-duplicate.json",
+      "size": 575,
+      "sha256": "11c84066016cb66e518134570f0dfe69a66d7f945ba4cc598e6d1194a93cf106"
+    },
+    {
+      "path": "main-result-1.json",
+      "size": 238,
+      "sha256": "e10e5f87aa8388b3f0e792b0031e1dd7f36652c57061091f9a56e68cfcfdf011"
+    },
+    {
+      "path": "main-result-2-terminal.json",
+      "size": 978,
+      "sha256": "41dd0428cb6b8df5e3847f92f62daf51de911cb56d5551cb34d97318fd2785a3"
+    },
+    {
+      "path": "main-result-recovery-v2.json",
+      "size": 977,
+      "sha256": "71a2c7e6ae3cdf99d4524206b34102a7796a98f4fe5b74d091bc6cd746e25b6f"
+    },
+    {
+      "path": "network-probes.json",
+      "size": 464,
+      "sha256": "35b2e812ec4fec701665666b2508e5326c879c5c7e64a4b4c8f6146211a9a859"
+    },
+    {
+      "path": "ownership-conflict.json",
+      "size": 263,
+      "sha256": "a4662ed8c3118000993b72aef42e5f89cd78a7e6617e657734c15e1fae4b3208"
+    },
+    {
+      "path": "preflight.json",
+      "size": 545,
+      "sha256": "375342f5f41130e5d083df80cd1421a3a311e3ea4bdef2875b38aca6c1fdb4c8"
+    },
+    {
+      "path": "quality-result.json",
+      "size": 1716,
+      "sha256": "4dbc2c7541179ebf6d74afc09b6765741b6583fff7a9aeaa9b5d8b22c1f5e0ea"
+    },
+    {
+      "path": "README.txt",
+      "size": 1641,
+      "sha256": "ef5d0de0e427e636d4998fa647642c9662ddbba7b9f44bb493df056063b6891b"
+    },
+    {
+      "path": "report.json",
+      "size": 2016,
+      "sha256": "33446f936a7c70122d69a80333512be21f4c9144983e20456e9f806cc226d9dc"
+    },
+    {
+      "path": "routing-recovery-decision.json",
+      "size": 549,
+      "sha256": "39f84de08bfc128edc4ed5ff13f1419caf7f13f383ce30c65356c1284704f05e"
+    },
+    {
+      "path": "scheduled-task.json",
+      "size": 55,
+      "sha256": "25df85e3021eceda081522d6509ba559be4f8201633ccb6776a2960ed409d6ee"
+    },
+    {
+      "path": "text-readback.json",
+      "size": 497,
+      "sha256": "b4cd5c2cc0aea420fed7c0a2ca4e119483ed3b73084afb6b8fb23946dea26cc2"
+    },
+    {
+      "path": "verification-log.txt",
+      "size": 542,
+      "sha256": "f06ba60690283449cacff90e88743fc81cbc7da2973d6e5cfee478d184293ad9"
+    },
+    {
+      "path": "verify_evidence.py",
+      "size": 2488,
+      "sha256": "022a311d3c704b35fa9c215c301ffcc58f26cb5de46eb2383d1366c28f03ded3"
+    }
+  ]
+}
