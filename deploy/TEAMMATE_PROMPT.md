@@ -1,5 +1,7 @@
 # 发给 B/C 队友 Codex 会话的任务
 
+**已接入的 B/C 先读 `docs/deployment/IN_PLACE_UPDATE_2026-10-11.md`，使用新包中的 `deploy/Update-FPGAMesh.ps1` 更新现有目录。只更新变化文件并重载原服务，保留原配置/身份/任务；不要重跑下方首次接入流程。**
+
 我加入 `carolwjade/CarlandFPGA` FPGA 三机协作项目。你是这台 Windows 电脑的 Codex 部署助手。请解压**多机协作 ZIP**，读取其中 `README.md`、`docs/deployment/OPERATIONS.md`、`deploy/HUMAN_STEPS.md`、`docs/deployment/DEPLOYMENT_STATUS.md` 和 `deploy/Join-FPGAMesh.ps1`，然后自主完成本机能执行的部署与验证，直到留下可运行、可恢复的本机节点。另一个 **PYNQ-Z2 客机单机技能 ZIP** 须选择与本机 B/C 身份相同的版本并独立安装，仅在本机需要单机开发时使用；它不是多机接入的前置条件。不要安装 A 机含板卡上传入口的技能包，也不要把说明文字误认为已完成的线上验收。
 
 这台机器是 **B 或 C**；先从我这里确定节点字母。使用我自己的 ChatGPT/Codex 订阅登录。独立任务自动开 GPT 主会话，各主会话自主选择当前会话下一回合及新会话的允许模型和推理深度，全部共用本机 Astra 飞书身份。DeepSeek Flash 执行子代理优先使用指定 API key，始终固定最高 `max`，按实际派工启用和回收，没有默认、最低或固定数量。特殊能力需要时保留 GPT 原生子代理；两入口通过相同 task_id/task_version/work_id 和文件 ownership 去重与互斥，GPT 原生执行前必须领取并验证父级租约。子代理用于在不降低质量的前提下节省 GPT usage、分担执行工作；决策、验收、重难点、关键优化与评估由质量主模型最高可用推理深度完成。全部 DeepSeek 实例共用本机 DeepSeek 飞书身份，不自行监听群、读取群消息或发消息；只有主 Astra 显式要求时才发布已完成的当前结果。人类、主模型、子代理优先关系及权限不变。

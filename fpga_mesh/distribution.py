@@ -51,7 +51,7 @@ def select_package_paths(paths: list[str], profile: str) -> list[str]:
 
 def build_archive(
     root: Path, paths: list[str], output: Path, *, revision: str = "uncommitted",
-    profile: str = "mesh",
+    profile: str = "mesh", previous_archives: list[Path] | None = None,
 ) -> Path:
     root = Path(root).resolve()
     output = Path(output).resolve()
@@ -86,6 +86,34 @@ def build_archive(
         "created_at": datetime.now(timezone.utc).isoformat(),
         "files": files,
     }
+    if previous_archives:
+        if profile != "mesh":
+            raise ValueError("in-place updates are only supported for mesh packages")
+        # Read actual distributed bytes, including their checkout line endings.
+        # No old source or credential is copied into the new ZIP.
+        from .update import canonical_hash, read_package
+        previous = []
+        bases = []
+        for path in previous_archives:
+            old_manifest, old_payloads = read_package(path, require_update=False)
+            selected = select_package_paths(list(old_payloads), "mesh")
+            previous.append({name: canonical_hash(old_payloads[name]) for name in selected})
+            bases.append({"revision": old_manifest["revision"],
+                          "sha256": hashlib.sha256(Path(path).read_bytes()).hexdigest()})
+        before = {
+            name: sorted({base[name] for base in previous if name in base})
+                  + ([None] if any(name not in base for base in previous) else [])
+            for name in payloads
+        }
+        removed = {}
+        for base in previous:
+            for name, digest in base.items():
+                if name not in payloads:
+                    removed.setdefault(name, set()).add(digest)
+        manifest["update"] = {
+            "schema": 1, "bases": bases, "before": before,
+            "removed": {name: sorted(values) for name, values in removed.items()},
+        }
     output.parent.mkdir(parents=True, exist_ok=True)
     with zipfile.ZipFile(output, "w", compression=zipfile.ZIP_DEFLATED) as archive:
         for name, content in payloads.items():
@@ -138,6 +166,8 @@ def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--profile", choices=("mesh", "pynq-skill", "pynq-client-b", "pynq-client-c"), default="mesh")
+    parser.add_argument("--previous-archive", type=Path, action="append", default=[],
+                        help="Known previously distributed ZIP; repeat for compatibility")
     args = parser.parse_args()
     root = Path(__file__).resolve().parent.parent
     dirty = subprocess.run(
@@ -164,7 +194,7 @@ def main() -> None:
             [name for name in listed.split("\0") if name], args.profile,
         )
         path = build_archive(root, paths, args.output, revision=revision,
-                             profile=args.profile)
+                             profile=args.profile, previous_archives=args.previous_archive)
         file_count = len(paths)
     print(json.dumps({
         "archive": str(path), "profile": args.profile,
