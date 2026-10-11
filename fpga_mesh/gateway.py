@@ -84,6 +84,12 @@ class AppServerGateway:
                 prior = self.session_router.result(message.message_id)
                 if prior and prior['status'] == 'completed':
                     return ActionResult(accepted=True, output=prior['result'])
+                if prior and prior['status'] in {'failed', 'interrupted'}:
+                    return ActionResult(accepted=False, output={
+                        'message_id': message.message_id, 'status': prior['status'],
+                        'error': prior['error'], 'recovery_required': True,
+                        'text': '该任务已失败或中断，已保留原始证据。请由质量主模型检查后创建新的显式任务版本或工作分配；不自动重放。',
+                    })
             client = await self._ensure_client()
             event_text = str(message.payload.get("text", message.message_id))
             prompt = event_text

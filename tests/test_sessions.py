@@ -152,6 +152,54 @@ class SessionsTests(unittest.IsolatedAsyncioTestCase):
             await self.gateway.handle(work)
         self.assertEqual(self.router.result(work.message_id)['status'], 'failed')
 
+    async def test_persisted_failed_or_interrupted_work_never_reopens_a_client(self):
+        for status in ('failed', 'interrupted'):
+            work = event(status)
+            self.router.record(work.message_id, work.task_id, status, error='original failure')
+            result = await self.gateway.handle(work)
+            self.assertFalse(result.accepted)
+            self.assertTrue(result.output['recovery_required'])
+            self.assertEqual(self.router.result(work.message_id)['error'], 'original failure')
+        self.assertEqual(self.wire.requests, [])
+        from dataclasses import replace
+        recovery = replace(event('failed'), task_version=2, message_id='failed-explicit-v2')
+        self.assertTrue((await self.gateway.handle(recovery)).accepted)
+        self.assertEqual(self.router.result(event('failed').message_id)['error'], 'original failure')
+
+    async def test_failed_real_turn_is_retired_from_inbox_with_original_evidence_preserved(self):
+        from fpga_mesh.runtime import NodeConfig, NodeRuntime
+        runtime = NodeRuntime(NodeConfig(
+            node_id='A', project_id='fpga-main', state_dir=Path(self.tmp.name) / 'runtime',
+            mode='test_double', hardware_enabled=False, peer_urls={}, shared_secret_env='TEST_MESH_SECRET',
+        ))
+        runtime.astra_gateway = AppServerGateway(self.gateway.config,
+            client_factory=lambda: self.client, session_router=runtime.main_sessions)
+        runtime.controller.gateway = runtime.astra_gateway
+        original = self.wire.request
+        async def request(method, params=None):
+            result = await original(method, params)
+            if method == 'turn/start':
+                notification = await self.wire.queue.get()
+                notification.params['turn']['status'] = 'failed'
+                notification.params['turn']['error'] = {'message': 'original provider failure'}
+                await self.wire.queue.put(notification)
+            return result
+        self.wire.request = request
+        work = event('provider-failure')
+        try:
+            await runtime.controller.offer(work)
+            await runtime.controller.run_until_idle()
+            before = runtime.main_sessions.result(work.message_id)
+            runtime.store.mark_inbound_failed(work.message_id, 'original provider failure',
+                                              retry_at=datetime.now(timezone.utc))
+            requests = len(self.wire.requests)
+            await runtime.controller.run_until_idle()
+            self.assertEqual(len(self.wire.requests), requests)
+            self.assertEqual(runtime.main_sessions.result(work.message_id), before)
+            self.assertEqual(runtime.store.pending_inbound(), [])
+        finally:
+            await runtime.stop()
+
     async def test_duplicate_submit_cannot_change_the_next_turn_route(self):
         from types import SimpleNamespace
         from fpga_mesh.project_control import ProjectActions

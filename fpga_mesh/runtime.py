@@ -467,7 +467,8 @@ class NodeRuntime:
         return True
 
     def _on_result(self, message, result) -> None:
-        self.main_sessions.record(message.message_id, message.task_id, 'completed' if result.accepted else 'failed', result=result.output)
+        if not result.output.get('recovery_required'):
+            self.main_sessions.record(message.message_id, message.task_id, 'completed' if result.accepted else 'failed', result=result.output)
         self.project_actions.changed.set()
         from .protocol import MessageKind, SourceKind
         if (self.feishu is None or message.source != SourceKind.HUMAN
