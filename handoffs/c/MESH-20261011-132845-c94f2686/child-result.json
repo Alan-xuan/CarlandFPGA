@@ -1,0 +1,47 @@
+[
+  {
+    "job_id": "child-599929d08b334f64965eec2f0e883a56",
+    "instance_id": "deepseek-c-4",
+    "task_id": "MESH-20261011-132845-c94f2686-C-local",
+    "task_version": 1,
+    "route": "deepseek",
+    "work_id": "C-flash-arithmetic-v1",
+    "ownership": [
+      ".local/acceptance/mesh-20261011-132845-c94f2686/c/child-result.txt"
+    ],
+    "native_agent_id": null,
+    "status": "completed",
+    "terminal": true,
+    "stale": false,
+    "result": {
+      "thread_id": "01a12b31-ad87-7530-8b85-e5d3e7cecb8e",
+      "turn": {
+        "id": "01a12b31-b04e-7a32-ad48-f2b5ab4ab72f",
+        "items": [
+          {
+            "type": "agentMessage",
+            "id": "9593d1f6-668f-46cf-abb7-97674f62f458",
+            "text": "C_FLASH_SUM=34849",
+            "phase": "final_answer",
+            "memoryCitation": null,
+            "delivery": null,
+            "questions": null
+          }
+        ],
+        "itemsView": "summary",
+        "status": "completed",
+        "error": null,
+        "startedAt": 1791726039,
+        "completedAt": 1791726043,
+        "durationMs": 4440
+      },
+      "text": "C_FLASH_SUM=34849",
+      "reasoning_effort": "max",
+      "model": "deepseek-flash",
+      "provider": "deepseek"
+    },
+    "error": null,
+    "created_at": "2026-10-11T13:40:37.641196Z",
+    "updated_at": "2026-10-11T13:40:43.616418Z"
+  }
+]

@@ -1,0 +1,10 @@
+{
+  "operation_id": "MESH-20261011-132845-c94f2686-C-route-recovery-v2",
+  "task_id": "MESH-20261011-132845-c94f2686-C-route",
+  "task_version": 2,
+  "work_id": "C-route-new-explicit-probe-v2",
+  "ownership": [],
+  "original_status": "interrupted",
+  "reason": "Human priority preempted v1; v1 remains terminal and duplicate submit returned queued=false.",
+  "decision": "After current v1 second probe completes, authorize a new version 2 text-only route probe. No file/network/tool side effects and no replay of the interrupted message."
+}

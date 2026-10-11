@@ -1,0 +1,8 @@
+{
+  "source": "Astra-A current round attachment",
+  "message_id": "om_x100b638d5b58e4a4b2410f19358b5ab",
+  "receiver": "Astra-C",
+  "bytes": 149,
+  "sha256": "c24a18dea677e48d288b16cfb11ccac9032462e98f0d8fd7e24ec31a7c189e31",
+  "contains_round_id": true
+}

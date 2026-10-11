@@ -1,0 +1,7 @@
+{
+  "message_id": "main:7b91e8a363bfaaa4d16533a57dbf5e8400055a013c284e78f8e4c8244a093bcc",
+  "task_id": "MESH-20261011-132845-c94f2686-C-route",
+  "status": "interrupted",
+  "result": null,
+  "error": "turn cancelled or timed out"
+}

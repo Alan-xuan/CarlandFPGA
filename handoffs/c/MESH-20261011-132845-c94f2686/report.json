@@ -1,0 +1,42 @@
+{
+  "round_id": "MESH-20261011-132845-c94f2686",
+  "node": "C",
+  "task_id": "MESH-20261011-132845-c94f2686-C-local",
+  "task_version": 1,
+  "work_id": "C-real-local-evidence",
+  "operation_id": "MESH-20261011-132845-c94f2686-C-evidence-pr-v1",
+  "ownership": [
+    "handoffs/c/MESH-20261011-132845-c94f2686/"
+  ],
+  "source_revision": "7ad82d2c9ad73a11f8e0e624bc0f5cf642dad492",
+  "overall": "BLOCKED",
+  "checks": {
+    "official_chatgpt_login": "PASS",
+    "manifest_458_files": "PASS",
+    "github_actual_authentication": "PASS",
+    "resident_service_and_feishu_connection": "PASS",
+    "human_feishu_ingress_execution_reply_readback": "PASS",
+    "main_session_reuse_and_completed_model_effort_switch": "PASS",
+    "deepseek_flash_max_real_result_and_group_readback": "PASS",
+    "same_work_id_cross_entrance_dedupe": "PASS",
+    "active_file_ownership_conflict_rejection": "PASS",
+    "interrupted_request_not_replayed_and_explicit_new_v2": "PASS",
+    "astra_file_upload_download_hash": "PASS",
+    "tailscale_peer_visibility": "FAIL",
+    "tcp_8787_to_A_and_B": "FAIL",
+    "hmac_health_probe": "BLOCKED",
+    "point_to_point_receive_execute_durable_receipt": "BLOCKED",
+    "A_assigned_small_task": "BLOCKED",
+    "A_feedback_same_PR_SHA_operation": "BLOCKED",
+    "three_node_disconnect_recovery": "BLOCKED",
+    "native_executor_full_lease_lifecycle": "NOT_RUN",
+    "physical_FPGA": "NOT_RUN"
+  },
+  "limits": [
+    "C has no configured existing shared HMAC file/environment value; no replacement was generated.",
+    "Both peer probes remain queued without a transport receipt. Queued is not delivery or execution success.",
+    "This is a real local evidence contribution, not completion of an A-assigned peer task; that task is blocked by the mesh.",
+    "Native guard and dedupe checks did not spawn a native executor; no complete native execution claim.",
+    "No permission expansion and no board programming. A makes the final round announcement."
+  ]
+}

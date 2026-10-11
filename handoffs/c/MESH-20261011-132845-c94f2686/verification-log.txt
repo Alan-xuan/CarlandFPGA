@@ -1,0 +1,15 @@
+PASS real Flash/max completed metadata
+PASS independent arithmetic oracle
+PASS child-duplicate
+PASS cross-entrance-duplicate
+PASS active ownership overlap rejected
+PASS text-readback
+PASS human-group-readback
+PASS real human C ingress completed
+PASS both final route probes completed
+PASS same task main thread reused
+PASS actual completed model and effort switch
+PASS interrupted request not replayed
+PASS Astra file bytes roundtrip
+PASS A package downloaded by C matches published hash
+PASS no false three-node success claim

@@ -1,0 +1,16 @@
+[
+  {
+    "operation_id": "MESH-20261011-132845-c94f2686-C-child-result-v1",
+    "role": "deepseek",
+    "sent_at": "2026-10-11T13:40:44.627490Z",
+    "platform_message_id": "om_x100b638d530a1c68c1074a4fe12b199",
+    "readback_matches": true
+  },
+  {
+    "operation_id": "MESH-20261011-132845-c94f2686-C-ready-v1",
+    "role": "astra",
+    "sent_at": "2026-10-11T13:40:30.271170Z",
+    "platform_message_id": "om_x100b638d521318a0c44f762059e0057",
+    "readback_matches": true
+  }
+]

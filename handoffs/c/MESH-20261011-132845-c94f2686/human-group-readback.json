@@ -1,0 +1,10 @@
+[
+  {
+    "operation_id": "result:feishu:oc_e0de73230fd64dd2da3e52fc781dffb1:om_x100b638d6e22d4a0c349b1f31747d8a:1791726095106:1791726095106",
+    "role": "astra",
+    "sent_at": "2026-10-11T13:43:39.482354Z",
+    "platform_message_id": "om_x100b638d6678e4a4c450a38f25766cd",
+    "expected_text": "Astra-C \u00b7 task-893d5312d1152b48ff15429e\nACK_c94f2686_C",
+    "readback_matches": true
+  }
+]

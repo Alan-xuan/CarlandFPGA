@@ -1,0 +1,33 @@
+{
+  "message_id": "main:d1e9508ef00c198b5a32227315644912c69e6198dd6fca99a2af2a1d754a2964",
+  "task_id": "MESH-20261011-132845-c94f2686-C-route",
+  "status": "completed",
+  "result": {
+    "thread_id": "01a12b31-c276-7bb3-9760-de1d97643687",
+    "turn": {
+      "id": "01a12b34-7868-7273-b744-aacc2d7249f9",
+      "items": [
+        {
+          "type": "agentMessage",
+          "id": "msg_0be840cda797728c016acb9300dda88197845459cb18254209",
+          "text": "C_ROUTE_2_c94f2686",
+          "phase": "final_answer",
+          "memoryCitation": null,
+          "delivery": null,
+          "questions": null
+        }
+      ],
+      "itemsView": "summary",
+      "status": "completed",
+      "error": null,
+      "startedAt": 1791726221,
+      "completedAt": 1791726337,
+      "durationMs": 115826
+    },
+    "text": "C_ROUTE_2_c94f2686",
+    "reasoning_effort": "ultra",
+    "model": "gpt-6-astra",
+    "provider": "openai"
+  },
+  "error": null
+}

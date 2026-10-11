@@ -1,0 +1,16 @@
+{
+  "message_id": "main:474beeb0504915d7da0bc84752294d61b828cc24ee2578bd804ae06c4f6e3ada",
+  "queued": false,
+  "task_id": "MESH-20261011-132845-c94f2686-C-route",
+  "session": {
+    "task_id": "MESH-20261011-132845-c94f2686-C-route",
+    "thread_id": "01a12b31-c276-7bb3-9760-de1d97643687",
+    "task_version": 2,
+    "model": "gpt-5.6-luna",
+    "effort": "low",
+    "category": "routine",
+    "title": "MESH-20261011-132845-c94f2686-C-route: Reply only C_ROUTE_1_c94f2686",
+    "updated_at": "2026-10-11T13:46:12.705899+00:00"
+  },
+  "identity": "Astra-C"
+}

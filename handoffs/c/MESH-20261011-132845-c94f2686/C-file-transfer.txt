@@ -1,0 +1,6 @@
+CarlandFPGA real Astra-C file transfer
+round_id=MESH-20261011-132845-c94f2686
+node=C
+operation_id=MESH-20261011-132845-c94f2686-C-file-v1
+marker=C_FILE_963bcdae
+No FPGA programming.

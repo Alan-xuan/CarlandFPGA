@@ -1,0 +1,21 @@
+{
+  "time": "2026-10-11T13:40:37.565377+00:00",
+  "tcp": {
+    "A": {
+      "tcp_8787": "FAIL",
+      "error": "TimeoutError",
+      "winerror": null
+    },
+    "B": {
+      "tcp_8787": "FAIL",
+      "error": "TimeoutError",
+      "winerror": null
+    },
+    "C": {
+      "tcp_8787": "FAIL",
+      "error": "ConnectionRefusedError",
+      "winerror": 10061
+    }
+  },
+  "hmac": "BLOCKED: existing secret unavailable; no replacement generated"
+}

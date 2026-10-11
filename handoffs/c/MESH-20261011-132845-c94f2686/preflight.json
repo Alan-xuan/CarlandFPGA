@@ -1,0 +1,17 @@
+{
+  "node": "C",
+  "codex_login": "Logged in using ChatGPT",
+  "github_user": "Alan-xuan",
+  "deepseek_key_file_exists": true,
+  "shared_hmac_configured": false,
+  "source_manifest_revision": "7ad82d2c9ad73a11f8e0e624bc0f5cf642dad492",
+  "manifest_files": 458,
+  "manifest_different": 0,
+  "astra_app_id": "cli_aa418ae9a638dce6",
+  "deepseek_app_id": "cli_aa418bb16d78dcef",
+  "astra_file_scope_granted": true,
+  "permission_mutations": 0,
+  "hardware_enabled": false,
+  "tailscale_running": true,
+  "tailscale_peer_count": 0
+}

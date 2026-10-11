@@ -1,0 +1,33 @@
+{
+  "message_id": "main:0ebfe76187fb3f806862ca844bc6d13e4f222ddcf78ae2af781eb38ecad350d6",
+  "task_id": "MESH-20261011-132845-c94f2686-C-quality",
+  "status": "completed",
+  "result": {
+    "thread_id": "01a12b36-d2e4-7b81-84cd-013cf25e7b9e",
+    "turn": {
+      "id": "01a12b36-da6d-79d0-90b2-5c6a23f30eb0",
+      "items": [
+        {
+          "type": "agentMessage",
+          "id": "msg_01bb4677b37203e7016acb93a709408194b3fcfa969cbbd977",
+          "text": "**BLOCKED（三机总验收）；C 本机已测项 PASS。**\n\n不能宣称三机通过：VPN 同伴为零、HMAC 未配置，点对点探针未通，消息仅 queued；仍缺 A 正式小任务及 PR 同 SHA 回执。\n\nC 的真人 ACK、文件读回、Flash/max 黄金校验及去重/冲突拦截已通过。原生仅测试拒绝与去重 guard，完整原生执行租约未验证。",
+          "phase": "final_answer",
+          "memoryCitation": null,
+          "delivery": null,
+          "questions": null
+        }
+      ],
+      "itemsView": "summary",
+      "status": "completed",
+      "error": null,
+      "startedAt": 1791726377,
+      "completedAt": 1791726507,
+      "durationMs": 130185
+    },
+    "text": "**BLOCKED（三机总验收）；C 本机已测项 PASS。**\n\n不能宣称三机通过：VPN 同伴为零、HMAC 未配置，点对点探针未通，消息仅 queued；仍缺 A 正式小任务及 PR 同 SHA 回执。\n\nC 的真人 ACK、文件读回、Flash/max 黄金校验及去重/冲突拦截已通过。原生仅测试拒绝与去重 guard，完整原生执行租约未验证。",
+    "reasoning_effort": "ultra",
+    "model": "gpt-6-astra",
+    "provider": "openai"
+  },
+  "error": null
+}

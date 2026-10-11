@@ -1,0 +1,4 @@
+{
+  "guard_rejected": true,
+  "error": "ownership conflict: '.local/acceptance/mesh-20261011-132845-c94f2686/c/child-result.txt' overlaps job child-599929d08b334f64965eec2f0e883a56 holding '.local/acceptance/mesh-20261011-132845-c94f2686/c/child-result.txt'"
+}

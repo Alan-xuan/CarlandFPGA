@@ -1,0 +1,33 @@
+{
+  "message_id": "feishu:oc_e0de73230fd64dd2da3e52fc781dffb1:om_x100b638d6e22d4a0c349b1f31747d8a:1791726095106",
+  "task_id": "task-893d5312d1152b48ff15429e",
+  "status": "completed",
+  "result": {
+    "thread_id": "01a12b32-a0e5-7082-a0fb-70a971ba89d6",
+    "turn": {
+      "id": "01a12b32-a40b-7982-be4b-ee9c99f2eddd",
+      "items": [
+        {
+          "type": "agentMessage",
+          "id": "msg_0e5d81b1d4549d2c016acb9289d0a08190819e0043bad79a2e",
+          "text": "ACK_c94f2686_C",
+          "phase": "final_answer",
+          "memoryCitation": null,
+          "delivery": null,
+          "questions": null
+        }
+      ],
+      "itemsView": "summary",
+      "status": "completed",
+      "error": null,
+      "startedAt": 1791726101,
+      "completedAt": 1791726218,
+      "durationMs": 117132
+    },
+    "text": "ACK_c94f2686_C",
+    "reasoning_effort": "ultra",
+    "model": "gpt-6-astra",
+    "provider": "openai"
+  },
+  "error": null
+}
