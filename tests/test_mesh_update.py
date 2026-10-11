@@ -1,6 +1,8 @@
 import hashlib
 import json
 import sqlite3
+import subprocess
+import sys
 import tempfile
 import unittest
 import zipfile
@@ -153,6 +155,17 @@ class MeshUpdateTests(unittest.TestCase):
         self.assertEqual(update.assert_idle(config, node='B'), 'B')
         with self.assertRaisesRegex(ValueError, 'node'):
             update.assert_idle(config, node='C')
+
+    def test_cli_preserves_custom_config_state_directory_for_service_reload(self):
+        self.package_new()
+        config = self.workspace / 'node.toml'
+        config.write_text('node_id = "B"\nstate_dir = "existing-custom-state"\n', encoding='utf-8')
+        result = subprocess.run([
+            sys.executable, str(Path(update.__file__)), '--package', str(self.package),
+            '--workspace', str(self.workspace), '--config', str(config), '--node', 'B',
+        ], capture_output=True, text=True, check=True)
+        self.assertEqual(Path(json.loads(result.stdout)['control_file']),
+                         self.workspace / 'existing-custom-state/main-control.json')
 
 
 if __name__ == '__main__':

@@ -38,8 +38,7 @@ if ($existing) {
         if ($LASTEXITCODE -ne 0) { throw 'Previous service has not stopped; update not applied.' }
     } finally { Pop-Location }
 }
-$nodeDir = Split-Path -Parent $configPath
-$control = Join-Path $nodeDir ('.local/node-{0}/main-control.json' -f $Node.ToLowerInvariant())
+$control = [string]$plan.control_file
 try {
     & $pythonPath @updateArgs --apply
     if ($LASTEXITCODE -ne 0) { throw 'Source update failed; completed source writes were rolled back. Inspect the local backup receipt.' }

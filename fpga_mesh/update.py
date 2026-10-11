@@ -140,8 +140,7 @@ def plan_update(package: Path, workspace: Path) -> dict:
     return _plan(manifest, payloads, root)[0]
 
 
-def assert_idle(config: Path, *, node: str) -> str:
-    """Read persisted activity without opening a controller or replaying work."""
+def _state_directory(config: Path, node: str) -> Path:
     config = Path(config).resolve()
     data = tomllib.loads(config.read_text(encoding='utf-8-sig'))
     if data.get('node_id') != node or node not in {'A', 'B', 'C'}:
@@ -149,6 +148,12 @@ def assert_idle(config: Path, *, node: str) -> str:
     state = Path(data.get('state_dir', f'.local/node-{node.lower()}'))
     if not state.is_absolute():
         state = config.parent / state
+    return state.resolve()
+
+
+def assert_idle(config: Path, *, node: str) -> str:
+    """Read persisted activity without opening a controller or replaying work."""
+    state = _state_directory(config, node)
     checks = (
         ('main_sessions.sqlite', 'main_runs', "status IN ('queued', 'running')"),
         ('child_jobs.sqlite', 'child_jobs', "status IN ('reserved', 'queued', 'running')"),
@@ -259,6 +264,8 @@ def main() -> None:
                 raise ValueError('--config and --node must be supplied together')
             assert_idle(args.config, node=args.node)
         report = (apply_update if args.apply else plan_update)(args.package, args.workspace)
+        if args.config:
+            report['control_file'] = str(_state_directory(args.config, args.node) / 'main-control.json')
     except (ValueError, OSError, KeyError, sqlite3.Error, zipfile.BadZipFile) as exc:
         print(json.dumps({'error': str(exc)}, ensure_ascii=True))
         raise SystemExit(1) from None
