@@ -223,6 +223,23 @@ class MeshUpdateTests(unittest.TestCase):
             with closing(sqlite3.connect(state / 'main_sessions.sqlite', timeout=0)) as db, db:
                 db.execute("INSERT INTO main_runs VALUES ('completed')")
 
+    def test_cancelled_native_execution_blocks_update_until_stop_is_confirmed(self):
+        config, state = self.idle_ledgers()
+        with closing(sqlite3.connect(state / 'child_jobs.sqlite')) as db, db:
+            db.execute('ALTER TABLE child_jobs ADD COLUMN route TEXT')
+            db.execute('ALTER TABLE child_jobs ADD COLUMN error TEXT')
+            db.execute("INSERT INTO child_jobs VALUES ('cancelled', 'gpt_native', 'native stop unconfirmed')")
+        stopped = []
+        with self.assertRaisesRegex(ValueError, 'active|pending'):
+            update.assert_idle(config, node='B')
+        with self.assertRaisesRegex(ValueError, 'active|pending'):
+            update.stop_idle_node(config, node='B', stop=lambda: stopped.append(True))
+        self.assertEqual(stopped, [])
+        with closing(sqlite3.connect(state / 'child_jobs.sqlite')) as db, db:
+            db.execute("UPDATE child_jobs SET error='native stop confirmed'")
+        update.stop_idle_node(config, node='B', stop=lambda: stopped.append(True))
+        self.assertEqual(stopped, [True])
+
 
 if __name__ == '__main__':
     unittest.main()

@@ -24,6 +24,8 @@ pwsh -NoProfile -File C:\Temp\MeshUpdate\deploy\Update-FPGAMesh.ps1 `
 
 主请求若已有持久 `failed` 或 `interrupted` 结果，控制器直接保留原错误并退役待重试收件项，禁止重新打开客户端或重放副作用；质量主模型检查后使用新的显式任务版本/工作分配恢复。已完成请求仍复用原结果。若旧 runtime 留有失败收件项而阻止更新，先由质量主模型逐条核对持久失败证据并明确退役；不要停掉正在执行的任务或清空任务数据库。
 
+原生 GPT 租约标为取消或中断并不证明执行进程已停止。与文件所有权规则一致，原生 `interrupted` 或 `native stop unconfirmed` 记录继续阻止更新；父级取得子进程实际停止证据并通过原 `fpga_native_complete` 确认后再更新，不清空或改写租约来绕过。
+
 本轮还增加 Astra 的 `im:resource`（获取/上传图片与文件），用于由主身份发送更新包、读回并核对下载哈希。Astra-A 已在本人明确授权后开通，原应用和密钥沿用；DeepSeek 权限完全保留，人类 > 主 > 子不变。新建 Astra 的注册配置已包含该权限，DeepSeek 注册配置不变。已有 B/C 的云端权限不能通过源码 ZIP 自动复制：更新后若回执为 `needs_admin_grant`，由该机应用所有者在回执的 `manage_url` **仅为现有 Astra 应用**添加应用身份 `im:resource`，按后台要求发布，再执行以下只读核对；禁止创建新应用或给 DeepSeek 增权。缺少此权限时如实报告文件功能待开通，不能标记已可上传。
 
 ```powershell

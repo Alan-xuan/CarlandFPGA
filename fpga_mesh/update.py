@@ -159,6 +159,19 @@ def _state_directory(config: Path, node: str) -> Path:
     return state.resolve()
 
 
+def _has_pending_work(db, table: str, condition: str) -> bool:
+    exists = db.execute("SELECT 1 FROM sqlite_master WHERE type='table' AND name=?",
+                        (table,)).fetchone()
+    if not exists:
+        return False
+    columns = {row[1] for row in db.execute(f'PRAGMA table_info({table})')}
+    if table == 'child_jobs' and {'route', 'error'} <= columns:
+        # Match native ownership retention: terminal does not prove remote stop.
+        condition = (f"({condition}) OR (route='gpt_native' AND "
+                     "(status='interrupted' OR error='native stop unconfirmed'))")
+    return bool(db.execute(f'SELECT COUNT(*) FROM {table} WHERE {condition}').fetchone()[0])
+
+
 def assert_idle(config: Path, *, node: str) -> str:
     """Read persisted activity without opening a controller or replaying work."""
     state = _state_directory(config, node)
@@ -167,9 +180,7 @@ def assert_idle(config: Path, *, node: str) -> str:
         if not path.exists():
             continue
         with closing(sqlite3.connect(path.resolve().as_uri() + '?mode=ro', uri=True)) as db:
-            exists = db.execute("SELECT 1 FROM sqlite_master WHERE type='table' AND name=?",
-                                (table,)).fetchone()
-            if exists and db.execute(f'SELECT COUNT(*) FROM {table} WHERE {condition}').fetchone()[0]:
+            if _has_pending_work(db, table, condition):
                 raise ValueError('node has active or pending work; finish or explicitly resolve it before updating')
     return node
 
@@ -195,9 +206,7 @@ def stop_idle_node(config: Path, *, node: str, stop=None) -> None:
             db.execute('BEGIN IMMEDIATE')
             locked.append((db, table, condition))
         for db, table, condition in locked:
-            exists = db.execute("SELECT 1 FROM sqlite_master WHERE type='table' AND name=?",
-                                (table,)).fetchone()
-            if exists and db.execute(f'SELECT COUNT(*) FROM {table} WHERE {condition}').fetchone()[0]:
+            if _has_pending_work(db, table, condition):
                 raise ValueError('node has active or pending work; service was not stopped')
         if stop is not None:
             stop()
