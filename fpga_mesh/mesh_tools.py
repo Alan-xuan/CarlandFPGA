@@ -100,13 +100,18 @@ class MeshDynamicTools:
                 kind=MessageKind.AGENT_REPORT, source=SourceKind.ASTRA,
                 payload={"text": text},
             )
+            message, inserted, acked = self.store.prepare_outbound_operation(
+                message, peer_id,
+            )
+            if acked:
+                return {"delivered": True, "queued": False,
+                        "operation_id": operation_id, "duplicate": True}
             if self.peer is None:
-                self.store.enqueue_outbound(message, peer_id=peer_id)
                 return {"delivered": False, "queued": True,
-                        "operation_id": operation_id}
+                        "operation_id": operation_id, "duplicate": not inserted}
             delivered = await self.peer.send(peer_id, message)
             return {"delivered": delivered, "queued": not delivered,
-                    "operation_id": operation_id}
+                    "operation_id": operation_id, "duplicate": not inserted}
         if name == "fpga_child_group_report":
             self._require_feishu()
             job_id = self._required(arguments, "job_id")

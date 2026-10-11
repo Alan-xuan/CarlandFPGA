@@ -318,6 +318,27 @@ class SQLiteStore:
             )
 
     def enqueue_outbound(self, message: Envelope, peer_id: str) -> bool:
+        inserted, _ = self._persist_outbound(message, peer_id)
+        return inserted
+
+    def prepare_outbound_operation(
+        self, message: Envelope, peer_id: str,
+    ) -> tuple[Envelope, bool, bool]:
+        """Reuse the original tool operation, ignoring only generated sent_at.
+
+        Return the canonical envelope, whether it was inserted, and whether
+        transport delivery was already acknowledged. Never reset its status.
+        """
+        inserted, row = self._persist_outbound(
+            message, peer_id, ignore_generated_sent_at=True,
+        )
+        assert row is not None
+        return Envelope.from_json(row["payload"]), inserted, bool(row["acked_at"])
+
+    def _persist_outbound(
+        self, message: Envelope, peer_id: str,
+        *, ignore_generated_sent_at: bool = False,
+    ) -> tuple[bool, sqlite3.Row | None]:
         payload = message.to_json()
         with self._connection:
             cursor = self._connection.execute(
@@ -334,16 +355,25 @@ class SQLiteStore:
                     _format_datetime(_utc_now()),
                 ),
             )
+            existing = self._connection.execute(
+                "SELECT * FROM outbox WHERE message_id = ?",
+                (message.message_id,),
+            ).fetchone()
+            if existing is None:
+                if ignore_generated_sent_at:
+                    raise ValueError("outbound dedupe key belongs to another message")
+                return False, None
             if cursor.rowcount == 0:
-                existing = self._connection.execute(
-                    "SELECT peer_id, payload FROM outbox WHERE message_id = ?",
-                    (message.message_id,),
-                ).fetchone()
-                if existing and existing["peer_id"] != peer_id:
+                if existing["peer_id"] != peer_id:
                     raise ValueError("outbound message ID already belongs to a different peer")
-                if existing and existing["payload"] != payload:
+                before, after = existing["payload"], payload
+                if ignore_generated_sent_at:
+                    before, after = json.loads(before), json.loads(after)
+                    before.pop("sent_at", None)
+                    after.pop("sent_at", None)
+                if before != after:
                     raise ValueError("outbound message ID already has different content")
-        return cursor.rowcount == 1
+        return cursor.rowcount == 1, existing
 
     def next_outbound(
         self, *, now: datetime | None = None,
