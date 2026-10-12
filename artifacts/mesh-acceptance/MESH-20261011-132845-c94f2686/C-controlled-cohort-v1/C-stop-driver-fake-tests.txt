@@ -1,0 +1,10 @@
+test_busy_main_refuses_before_stop_or_phase_change (test_stop_driver.StopDriverTests.test_busy_main_refuses_before_stop_or_phase_change) ... ok
+test_three_real_scratch_writer_locks_held_during_fake_stop (test_stop_driver.StopDriverTests.test_three_real_scratch_writer_locks_held_during_fake_stop) ... ok
+test_unknown_stop_is_latched_and_never_replayed (test_stop_driver.StopDriverTests.test_unknown_stop_is_latched_and_never_replayed) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.687s
+
+OK
+
+exit=0

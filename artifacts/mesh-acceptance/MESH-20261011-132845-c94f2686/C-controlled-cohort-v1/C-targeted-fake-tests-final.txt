@@ -1,0 +1,31 @@
+test_execute_watch_refuses_unarmed_and_writes_no_ready_or_attempt (test_c_outage_guard_v1.CRefusalUnarmedTests.test_execute_watch_refuses_unarmed_and_writes_no_ready_or_attempt) ... ok
+test_foreign_a_identity_refuses (test_c_outage_guard_v1.CRefusalUnarmedTests.test_foreign_a_identity_refuses) ... ok
+test_guard_source_has_no_stop_capability (test_c_outage_guard_v1.CRefusalUnarmedTests.test_guard_source_has_no_stop_capability) ... ok
+test_unarmed_or_nonce_missing_refuses_everywhere (test_c_outage_guard_v1.CRefusalUnarmedTests.test_unarmed_or_nonce_missing_refuses_everywhere) ... ok
+test_execute_watch_full_path_starts_exactly_once (test_c_outage_guard_v1.CSuccessAtMostOnceTests.test_execute_watch_full_path_starts_exactly_once) ... ok
+test_restore_once_single_start_verified_then_no_replay (test_c_outage_guard_v1.CSuccessAtMostOnceTests.test_restore_once_single_start_verified_then_no_replay) ... ok
+test_changed_process_identity_refuses_watch_preparation (test_c_outage_guard_v1.OldPidChangedXmlTests.test_changed_process_identity_refuses_watch_preparation) ... ok
+test_changed_xml_or_task_name_refuses (test_c_outage_guard_v1.OldPidChangedXmlTests.test_changed_xml_or_task_name_refuses) ... ok
+test_old_pid_present_refuses_without_claim (test_c_outage_guard_v1.OldPidChangedXmlTests.test_old_pid_present_refuses_without_claim) ... ok
+test_health_unknown_is_distinguished_and_never_replays (test_c_outage_guard_v1.UnknownNoRetryTests.test_health_unknown_is_distinguished_and_never_replays) ... ok
+test_nonzero_start_return_is_unknown_no_replay (test_c_outage_guard_v1.UnknownNoRetryTests.test_nonzero_start_return_is_unknown_no_replay) ... ok
+test_unhealthy_health_is_negative_and_never_replays (test_c_outage_guard_v1.UnknownNoRetryTests.test_unhealthy_health_is_negative_and_never_replays) ... ok
+test_unknown_start_no_replay (test_c_outage_guard_v1.UnknownNoRetryTests.test_unknown_start_no_replay) ... ok
+test_wait_stopped_unknown_never_starts (test_c_outage_guard_v1.UnknownNoRetryTests.test_wait_stopped_unknown_never_starts) ... ok
+test_before_deadline_waits_then_starts_once_at_deadline (test_c_outage_guard_v1.WindowTests.test_before_deadline_waits_then_starts_once_at_deadline) ... ok
+test_expired_window_and_stop_outside_window_refuse (test_c_outage_guard_v1.WindowTests.test_expired_window_and_stop_outside_window_refuse) ... ok
+test_monotonic_limit_already_reached_refuses_without_start (test_c_outage_guard_v1.WindowTests.test_monotonic_limit_already_reached_refuses_without_start) ... ok
+test_probe_slowness_past_expiry_cannot_start_late (test_c_outage_guard_v1.WindowTests.test_probe_slowness_past_expiry_cannot_start_late) ... ok
+test_wait_stopped_exhaustion_cannot_start_late (test_c_outage_guard_v1.WindowTests.test_wait_stopped_exhaustion_cannot_start_late) ... ok
+test_foreign_config_and_foreign_health_refuse (test_parent_hardening.ParentReviewTests.test_foreign_config_and_foreign_health_refuse) ... ok
+test_health_result_after_expiry_is_not_success (test_parent_hardening.ParentReviewTests.test_health_result_after_expiry_is_not_success) ... ok
+test_late_inside_expiry_starts_only_once (test_parent_hardening.ParentReviewTests.test_late_inside_expiry_starts_only_once) ... ok
+test_plan_changed_during_probes_refuses (test_parent_hardening.ParentReviewTests.test_plan_changed_during_probes_refuses) ... ok
+test_task_launcher_is_required_and_must_be_absent_before_start (test_parent_hardening.ParentReviewTests.test_task_launcher_is_required_and_must_be_absent_before_start) ... ok
+
+----------------------------------------------------------------------
+Ran 24 tests in 0.787s
+
+OK
+
+exit=0

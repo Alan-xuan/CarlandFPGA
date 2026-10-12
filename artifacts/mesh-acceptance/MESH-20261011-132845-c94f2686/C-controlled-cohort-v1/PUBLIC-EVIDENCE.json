@@ -1,0 +1,24 @@
+{
+  "task_id": "MESH-20261011-132845-c94f2686-controlled-cohort-C",
+  "task_version": 1,
+  "quality_model": "gpt-6-astra",
+  "quality_effort": "ultra",
+  "status": "PREPARATION_REVIEWED_UNARMED",
+  "armed": false,
+  "program_sha256": {
+    "prepare_standby.py": "6f58011dd72482ea42f9f9e8881aa304d19deb658c4f171c2b3123bc4beafa8f",
+    "stop_prepared_c.py": "9baa77d413218891a936d376a7ed13169df19e8a2f8b851ac9af2dbee9aa12a4",
+    "reference/service_job_isolation.py": "57a2a1ff9cf808954bee83ce20d1cd5db12732110d2eaaf5004bfd5b5c1c4ade",
+    "derived/c_outage_guard_v1.py": "f734770d257aa2fd85c6ddd189a949214e2706685a69c3f4c1fc796c59c7a7c4",
+    "derived/service_job_isolation.py": "dfd68ca927161727d105454517a63e8e3aac97d51a78570f5e903d29ca378f75"
+  },
+  "targeted_fake_tests": 27,
+  "real_service_stop_start": false,
+  "real_scheduler_one_shot_same_original_principal": true,
+  "real_job_API_isolation_verified": true,
+  "original_task_xml_sha256": "fcc8fc632f2c4efb2240859f7a8ac97bb793f264b71de39ad65d6494bfda8a2a",
+  "attachment_sha256": "78798a721861af8922468db6a9ac70aabeb9ae247dcd56bbb3872edc33775fdd",
+  "pr4_readback_reused": true,
+  "exact_old_receipts_completed": 3,
+  "note": "Private XML/principal, config, credentials and state excluded. READY delivery occurs separately after main terminal; not claimed here."
+}
