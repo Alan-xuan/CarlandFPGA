@@ -1,0 +1,10 @@
+{
+  "at_utc": "2026-10-12T13:55:17.319343+00:00",
+  "reviewer": "C/Astra-C gpt-6-astra/ultra",
+  "script_sha256": "16d5fddf1cefd532a75a70ab6a680abc3413118fb9824c44bc8d2867670306d4",
+  "original_guard_stopdriver_unchanged": true,
+  "NoStop": true,
+  "nonce": "CF_c94f2686_e184b176",
+  "plan_operation": "MESH-20261011-132845-c94f2686-C_OFFLINE-armed-plan-v1",
+  "decisions": "Single exact-purpose external Scheduler setup; await actual parent completed + original three ledger idle; fresh original Task/PID/realJob capture; immutable plan+PREPARED; launch pinned reviewed guard once; bound actual guard READY; single claimed original-outbox ARMED_COFF; keep external scheduler lifetime through guard completion; no Stop capability or GO consumption. No tests or new model probes."
+}

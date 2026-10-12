@@ -1,0 +1,7 @@
+{
+  "model": "gpt-5.6-luna",
+  "effort": "low",
+  "category": "execution",
+  "scope": "Next exact audited GO execution only; any new critical decision must return to quality gpt-6-astra/ultra",
+  "catalog_name_used": true
+}
