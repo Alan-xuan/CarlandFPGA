@@ -1,0 +1,55 @@
+{
+  "artifacts": [
+    "handoffs/c/MESH-20261011-132845-c94f2686/assigned-task/.gitattributes",
+    "handoffs/c/MESH-20261011-132845-c94f2686/assigned-task/README.txt",
+    "handoffs/c/MESH-20261011-132845-c94f2686/assigned-task/assignment.json",
+    "handoffs/c/MESH-20261011-132845-c94f2686/assigned-task/captures/01-unittest.stderr.txt",
+    "handoffs/c/MESH-20261011-132845-c94f2686/assigned-task/captures/01-unittest.stdout.txt",
+    "handoffs/c/MESH-20261011-132845-c94f2686/assigned-task/captures/02-cli-valid.stderr.txt",
+    "handoffs/c/MESH-20261011-132845-c94f2686/assigned-task/captures/02-cli-valid.stdout.txt",
+    "handoffs/c/MESH-20261011-132845-c94f2686/assigned-task/captures/03-cli-missing-version.stderr.txt",
+    "handoffs/c/MESH-20261011-132845-c94f2686/assigned-task/captures/03-cli-missing-version.stdout.txt",
+    "handoffs/c/MESH-20261011-132845-c94f2686/assigned-task/captures/04-cli-negative-version.stderr.txt",
+    "handoffs/c/MESH-20261011-132845-c94f2686/assigned-task/captures/04-cli-negative-version.stdout.txt",
+    "handoffs/c/MESH-20261011-132845-c94f2686/assigned-task/captures/metadata.txt",
+    "handoffs/c/MESH-20261011-132845-c94f2686/assigned-task/fixtures/missing-version.json",
+    "handoffs/c/MESH-20261011-132845-c94f2686/assigned-task/fixtures/negative-version.json",
+    "handoffs/c/MESH-20261011-132845-c94f2686/assigned-task/fixtures/valid.json",
+    "handoffs/c/MESH-20261011-132845-c94f2686/assigned-task/main-review.json",
+    "handoffs/c/MESH-20261011-132845-c94f2686/assigned-task/probe-prerequisite.json",
+    "handoffs/c/MESH-20261011-132845-c94f2686/assigned-task/run_captures.py",
+    "handoffs/c/MESH-20261011-132845-c94f2686/assigned-task/test_validator.py",
+    "handoffs/c/MESH-20261011-132845-c94f2686/assigned-task/validator.py"
+  ],
+  "request": {
+    "code_commit": "3dd9127c15f08d52b6ed6f3be43f55d7eaaa4530",
+    "expected_result": "All local Python tests pass; valid fixture accepted; missing/negative task_version rejected. No production, FPGA, network-delivery or full-mesh acceptance claim.",
+    "operation_id": "MESH-20261011-132845-c94f2686:C:git-handoff-v1",
+    "requester": "node-c",
+    "task_id": "MESH-20261011-132845-c94f2686-C-git-handoff",
+    "task_version": 1,
+    "test_steps": [
+      "Run python -m unittest discover -s handoffs/c/MESH-20261011-132845-c94f2686/assigned-task -p test_validator.py -v from repository root.",
+      "From the assigned-task directory run python validator.py fixtures/valid.json, fixtures/missing-version.json and fixtures/negative-version.json; expected exits are 0, 1 and 1.",
+      "Verify manifest.json assignment identity, source commit, evidence-manifest.json digest, then verify every evidence file with skills/pynq-z2-single-node/scripts/handoff.py verify."
+    ]
+  },
+  "stages": {
+    "hardware": {
+      "status": "not_run"
+    },
+    "implementation": {
+      "status": "not_run"
+    },
+    "simulation": {
+      "status": "not_run"
+    },
+    "software_tests": {
+      "log": "handoffs/c/MESH-20261011-132845-c94f2686/assigned-task/captures/01-unittest.stderr.txt",
+      "status": "passed"
+    },
+    "synthesis": {
+      "status": "not_run"
+    }
+  }
+}

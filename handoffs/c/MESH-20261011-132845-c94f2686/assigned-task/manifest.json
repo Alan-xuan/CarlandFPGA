@@ -1,0 +1,39 @@
+{
+  "assignment_file": "handoffs/c/MESH-20261011-132845-c94f2686/assigned-task/assignment.json",
+  "assignment_file_sha256": "23cf13366768f280d2c3db46f1b3742d0a2d3e7d9fa555d2418cc0928e8abda2",
+  "direction": "A->C",
+  "evidence_manifest": "handoffs/c/MESH-20261011-132845-c94f2686/assigned-task/evidence-manifest.json",
+  "evidence_manifest_sha256": "3752dcbde8686f74afe202468407d38f3f49046769480ce22c20020633271ade",
+  "evidence_request_hash": "c0e77d19206104495dcbc5a82e01088a666e1572d255fdeb136497cd4eda5991",
+  "handoff_input_sha256": "76ecdc6a49111a405b3aca5c8abe4796313f6b3399ae4413e388a55a8dac6160",
+  "helper_sha256": "e8f1ea4ad1832f648a90b27693b352d5346aad73088bd7f13a866e7ba6e99cf7",
+  "kind": "assigned-saved-message-fixture-handoff",
+  "operation_id": "MESH-20261011-132845-c94f2686:C:git-handoff-v1",
+  "owner": "C/Astra-C",
+  "request_hash": "3e8c8c85b00292a11c58cdbd17807734eb96ffae8177d8bf7ff251de4066b124",
+  "request_hash_origin": "Exact opaque assignment hash supplied by Astra-A; not the locally generated HardwareRequest hash.",
+  "schema_version": 1,
+  "scope": "Local software fixture tests and durable probe prerequisite. A actual review must bind this operation, supplied request hash and final PR head. Manifest remains immutable; later receipts are separate.",
+  "source_commit": "3dd9127c15f08d52b6ed6f3be43f55d7eaaa4530",
+  "stages": {
+    "hardware": {
+      "status": "not_run"
+    },
+    "implementation": {
+      "status": "not_run"
+    },
+    "simulation": {
+      "status": "not_run"
+    },
+    "software_tests": {
+      "log": "handoffs/c/MESH-20261011-132845-c94f2686/assigned-task/captures/01-unittest.stderr.txt",
+      "status": "passed"
+    },
+    "synthesis": {
+      "status": "not_run"
+    }
+  },
+  "task_id": "MESH-20261011-132845-c94f2686-C-git-handoff",
+  "task_version": 1,
+  "work_id": "C-envelope-fixtures-v1"
+}

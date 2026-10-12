@@ -1,0 +1,139 @@
+{
+  "artifacts": [
+    "handoffs/c/MESH-20261011-132845-c94f2686/assigned-task/.gitattributes",
+    "handoffs/c/MESH-20261011-132845-c94f2686/assigned-task/README.txt",
+    "handoffs/c/MESH-20261011-132845-c94f2686/assigned-task/assignment.json",
+    "handoffs/c/MESH-20261011-132845-c94f2686/assigned-task/captures/01-unittest.stderr.txt",
+    "handoffs/c/MESH-20261011-132845-c94f2686/assigned-task/captures/01-unittest.stdout.txt",
+    "handoffs/c/MESH-20261011-132845-c94f2686/assigned-task/captures/02-cli-valid.stderr.txt",
+    "handoffs/c/MESH-20261011-132845-c94f2686/assigned-task/captures/02-cli-valid.stdout.txt",
+    "handoffs/c/MESH-20261011-132845-c94f2686/assigned-task/captures/03-cli-missing-version.stderr.txt",
+    "handoffs/c/MESH-20261011-132845-c94f2686/assigned-task/captures/03-cli-missing-version.stdout.txt",
+    "handoffs/c/MESH-20261011-132845-c94f2686/assigned-task/captures/04-cli-negative-version.stderr.txt",
+    "handoffs/c/MESH-20261011-132845-c94f2686/assigned-task/captures/04-cli-negative-version.stdout.txt",
+    "handoffs/c/MESH-20261011-132845-c94f2686/assigned-task/captures/metadata.txt",
+    "handoffs/c/MESH-20261011-132845-c94f2686/assigned-task/fixtures/missing-version.json",
+    "handoffs/c/MESH-20261011-132845-c94f2686/assigned-task/fixtures/negative-version.json",
+    "handoffs/c/MESH-20261011-132845-c94f2686/assigned-task/fixtures/valid.json",
+    "handoffs/c/MESH-20261011-132845-c94f2686/assigned-task/main-review.json",
+    "handoffs/c/MESH-20261011-132845-c94f2686/assigned-task/probe-prerequisite.json",
+    "handoffs/c/MESH-20261011-132845-c94f2686/assigned-task/run_captures.py",
+    "handoffs/c/MESH-20261011-132845-c94f2686/assigned-task/test_validator.py",
+    "handoffs/c/MESH-20261011-132845-c94f2686/assigned-task/validator.py"
+  ],
+  "files": {
+    "handoffs/c/MESH-20261011-132845-c94f2686/assigned-task/.gitattributes": {
+      "sha256": "6bd29b1cce39eac3cda1b17eb809dd3506c2b9f3b1d0d6810dfc37b44400ca7f",
+      "size": 44
+    },
+    "handoffs/c/MESH-20261011-132845-c94f2686/assigned-task/README.txt": {
+      "sha256": "78cc86131e3dbe4935f4ceec5f78c6530d9667316c3b98c8fe9efdedcf8757db",
+      "size": 4947
+    },
+    "handoffs/c/MESH-20261011-132845-c94f2686/assigned-task/assignment.json": {
+      "sha256": "23cf13366768f280d2c3db46f1b3742d0a2d3e7d9fa555d2418cc0928e8abda2",
+      "size": 1280
+    },
+    "handoffs/c/MESH-20261011-132845-c94f2686/assigned-task/captures/01-unittest.stderr.txt": {
+      "sha256": "6a8dd1c88a45fb2242f3815382695959450133617401ee7cd55ec5d28ad657d3",
+      "size": 3205
+    },
+    "handoffs/c/MESH-20261011-132845-c94f2686/assigned-task/captures/01-unittest.stdout.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0
+    },
+    "handoffs/c/MESH-20261011-132845-c94f2686/assigned-task/captures/02-cli-valid.stderr.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0
+    },
+    "handoffs/c/MESH-20261011-132845-c94f2686/assigned-task/captures/02-cli-valid.stdout.txt": {
+      "sha256": "8e64e616c7073728ae8486342a29f981dd94f94e156e1b1d37fe111ae1a67d96",
+      "size": 144
+    },
+    "handoffs/c/MESH-20261011-132845-c94f2686/assigned-task/captures/03-cli-missing-version.stderr.txt": {
+      "sha256": "67635870da62e43d306862a1a0ce6b61d2d0caad72f531a5d96be2f0f6a04a1d",
+      "size": 78
+    },
+    "handoffs/c/MESH-20261011-132845-c94f2686/assigned-task/captures/03-cli-missing-version.stdout.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0
+    },
+    "handoffs/c/MESH-20261011-132845-c94f2686/assigned-task/captures/04-cli-negative-version.stderr.txt": {
+      "sha256": "5b6352bc694fcb188369393159b1d3797a2b0fadeaa6a7bddfdbbae915855ab7",
+      "size": 104
+    },
+    "handoffs/c/MESH-20261011-132845-c94f2686/assigned-task/captures/04-cli-negative-version.stdout.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0
+    },
+    "handoffs/c/MESH-20261011-132845-c94f2686/assigned-task/captures/metadata.txt": {
+      "sha256": "043b2aae487ebe8411a1219c26f489c429d2327e956a6f6c38817737ce6cc034",
+      "size": 2340
+    },
+    "handoffs/c/MESH-20261011-132845-c94f2686/assigned-task/fixtures/missing-version.json": {
+      "sha256": "c1d0282b80e92bddb11c042d6805703e7bdf80098214d5a78d3c583d3b94a2a2",
+      "size": 110
+    },
+    "handoffs/c/MESH-20261011-132845-c94f2686/assigned-task/fixtures/negative-version.json": {
+      "sha256": "da5345a7033fc6247c891ac32996af49fe5c9484b116358885b1c10fb45d825f",
+      "size": 132
+    },
+    "handoffs/c/MESH-20261011-132845-c94f2686/assigned-task/fixtures/valid.json": {
+      "sha256": "f29d6e0f037a21cb92783c04a30d098ec4214128febc9d0b141864ff702b1a62",
+      "size": 205
+    },
+    "handoffs/c/MESH-20261011-132845-c94f2686/assigned-task/main-review.json": {
+      "sha256": "0162ebfd14ed9df6eeeab0516fa406ff287ba7b7743ccbcb70a6ef6c462f1cf0",
+      "size": 901
+    },
+    "handoffs/c/MESH-20261011-132845-c94f2686/assigned-task/probe-prerequisite.json": {
+      "sha256": "aa11b97eec5d3bff41c624eae150db7f867e21023957ed0c78329e7a8e09d6cc",
+      "size": 1012
+    },
+    "handoffs/c/MESH-20261011-132845-c94f2686/assigned-task/run_captures.py": {
+      "sha256": "972c625599b497fffdb6cdee54d7f66071ba6fe4db9092c83e2f2b1ff2bc588a",
+      "size": 3434
+    },
+    "handoffs/c/MESH-20261011-132845-c94f2686/assigned-task/test_validator.py": {
+      "sha256": "e0b12237034f35ca38da43f558ca1e0ece3e16fab97c526c60ea8f04c159ae71",
+      "size": 8483
+    },
+    "handoffs/c/MESH-20261011-132845-c94f2686/assigned-task/validator.py": {
+      "sha256": "5617482bacafde6d79c2766feba183b20247a5f41c3589aecefce8542004d326",
+      "size": 3786
+    }
+  },
+  "request": {
+    "code_commit": "3dd9127c15f08d52b6ed6f3be43f55d7eaaa4530",
+    "expected_result": "All local Python tests pass; valid fixture accepted; missing/negative task_version rejected. No production, FPGA, network-delivery or full-mesh acceptance claim.",
+    "operation_id": "MESH-20261011-132845-c94f2686:C:git-handoff-v1",
+    "requester": "node-c",
+    "task_id": "MESH-20261011-132845-c94f2686-C-git-handoff",
+    "task_version": 1,
+    "test_steps": [
+      "Run python -m unittest discover -s handoffs/c/MESH-20261011-132845-c94f2686/assigned-task -p test_validator.py -v from repository root.",
+      "From the assigned-task directory run python validator.py fixtures/valid.json, fixtures/missing-version.json and fixtures/negative-version.json; expected exits are 0, 1 and 1.",
+      "Verify manifest.json assignment identity, source commit, evidence-manifest.json digest, then verify every evidence file with skills/pynq-z2-single-node/scripts/handoff.py verify."
+    ]
+  },
+  "request_hash": "c0e77d19206104495dcbc5a82e01088a666e1572d255fdeb136497cd4eda5991",
+  "schema_version": 1,
+  "stages": {
+    "hardware": {
+      "status": "not_run"
+    },
+    "implementation": {
+      "status": "not_run"
+    },
+    "simulation": {
+      "status": "not_run"
+    },
+    "software_tests": {
+      "log": "handoffs/c/MESH-20261011-132845-c94f2686/assigned-task/captures/01-unittest.stderr.txt",
+      "status": "passed"
+    },
+    "synthesis": {
+      "status": "not_run"
+    }
+  }
+}
