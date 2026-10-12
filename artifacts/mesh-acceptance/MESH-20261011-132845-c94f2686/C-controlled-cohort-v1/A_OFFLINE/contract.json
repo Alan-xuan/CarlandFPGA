@@ -1,0 +1,31 @@
+{
+  "project_id": "fpga-main",
+  "task_id": "MESH-20261011-132845-c94f2686-controlled-cohort-C",
+  "task_version": 1,
+  "work_id": "C-A_OFFLINE-participation-v1",
+  "phase": "A_OFFLINE",
+  "public_nonce": "AF_c94f2686_e184b176",
+  "mode": "PREPARE_ONLY_NOT_ARMED",
+  "root_ready_message_id": "C:MESH-20261011-132845-c94f2686-A-C-A_OFFLINE-participant-GO-v1",
+  "sends": [
+    {
+      "peer_id": "B",
+      "task_id": "MESH-20261011-132845-c94f2686-controlled-cohort-B",
+      "task_version": 5,
+      "operation_id": "MESH-20261011-132845-c94f2686-C-B-A_OFFLINE-GO-v1",
+      "text": "GO_A_OFFLINE AF_c94f2686_e184b176"
+    },
+    {
+      "peer_id": "B",
+      "task_id": "MESH-20261011-132845-c94f2686-A_OFFLINE-C-to-B-probe",
+      "task_version": 1,
+      "operation_id": "MESH-20261011-132845-c94f2686-A_OFFLINE-C-to-B-probe-v1",
+      "text": "Reply exactly ACK_AF_C_B_c94f2686_e184"
+    }
+  ],
+  "receipt_operation_id": "MESH-20261011-132845-c94f2686-C-A_OFFLINE-collect-receipt-v1",
+  "maximum_seconds": 600,
+  "authority_message_id": "C:MESH-20261011-132845-c94f2686-A-C-A_OFFLINE-contract-v1",
+  "authority_payload_sha256": "6ffd6ed1906b15814a1787305e3b551f874d75e5fca626cfac7e950d0e037b1f",
+  "recorded_at_utc": "2026-10-12T15:46:51.635237+00:00"
+}

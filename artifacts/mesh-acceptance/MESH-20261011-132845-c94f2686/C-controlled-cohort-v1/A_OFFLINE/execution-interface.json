@@ -1,0 +1,42 @@
+{
+  "prepare_command": [
+    ".local/venv/Scripts/python.exe",
+    "-B",
+    "artifacts\\mesh-acceptance\\MESH-20261011-132845-c94f2686\\C-controlled-cohort-v1\\A_OFFLINE\\launch_once.py",
+    "--prepare"
+  ],
+  "execute_only_after_exact_root_go": [
+    ".local/venv/Scripts/python.exe",
+    "-B",
+    "artifacts\\mesh-acceptance\\MESH-20261011-132845-c94f2686\\C-controlled-cohort-v1\\A_OFFLINE\\launch_once.py",
+    "--execute",
+    "--go-payload-sha256",
+    "<SHA256 of original inbound payload UTF8 bytes>"
+  ],
+  "root_go_message_id": "C:MESH-20261011-132845-c94f2686-A-C-A_OFFLINE-participant-GO-v1",
+  "root_go_metadata": {
+    "project_id": "fpga-main",
+    "task_id": "MESH-20261011-132845-c94f2686-controlled-cohort-C",
+    "task_version": 1,
+    "source": "astra",
+    "kind": "agent_report",
+    "sender": "A/Astra-A",
+    "recipient": "C/Astra-C"
+  },
+  "root_go_text": "JSON object, optionally prefixed PARTICIPANT_GO followed by one space",
+  "root_go_json": {
+    "phase": "A_OFFLINE",
+    "nonce": "AF_c94f2686_e184b176",
+    "operation_id": "MESH-20261011-132845-c94f2686-A-C-A_OFFLINE-participant-GO-v1",
+    "guard_plan_sha256": "<Root A immutable guard rawplan SHA256 lowercase hex>",
+    "stop_not_before_utc": "<Root declared STOP window start ISO UTC>",
+    "restore_at_utc": "<Root actual guardian restoration deadline ISO UTC>"
+  },
+  "monotonic_bound_seconds": 600,
+  "no_cross_machine_delay_calculation": true,
+  "NoARM": true,
+  "NoStop": true,
+  "registration_retry": "forbidden after any registration attempt file; unknown inspected only",
+  "prepared_status_operation": "MESH-20261011-132845-c94f2686-C-A_OFFLINE-contract-accepted-v1",
+  "collect_status_operation": "MESH-20261011-132845-c94f2686-C-A_OFFLINE-collect-receipt-v1"
+}

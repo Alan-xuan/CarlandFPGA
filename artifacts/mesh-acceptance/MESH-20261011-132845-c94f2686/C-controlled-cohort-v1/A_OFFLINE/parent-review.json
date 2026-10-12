@@ -1,0 +1,30 @@
+{
+  "status": "PREPARATION_REVIEWED_NOT_ARMED",
+  "armed": false,
+  "NoStop": true,
+  "at_utc": "2026-10-12T16:12:13.037987+00:00",
+  "quality_main": {
+    "model": "gpt-6-astra",
+    "effort": "ultra",
+    "provider": "openai"
+  },
+  "selected_next_route": {
+    "model": "gpt-5.6-luna",
+    "effort": "low",
+    "category": "execution",
+    "scope": "only future exact GO fixed command; new critical judgments retain quality route"
+  },
+  "hashes": {
+    "participate.py": "749b7791372ee86ae44d16dcf49075cd8677bb9930adebca91cd04e4a1754a62",
+    "launch_once.py": "2bee1c28fb213feb1df6f4ba1ca0e23181b6fd892d3c9bbe1563376407a83e5c",
+    "contract.json": "b52dc3c2e7fde421d294ad62d2b6d3f11773f60af8f246b95abf0cf74f629077",
+    "execution-interface.json": "886f39bfa5410a35b8d9420ab205a324281833f0e1b2040d799956cfe41f04de",
+    "../prepare_standby.py": "6f58011dd72482ea42f9f9e8881aa304d19deb658c4f171c2b3123bc4beafa8f",
+    "../reference/service_job_isolation.py": "57a2a1ff9cf808954bee83ce20d1cd5db12732110d2eaaf5004bfd5b5c1c4ade"
+  },
+  "reviewed": "fixed identities and sends; own local secret only at execute; exclusive claims and no unknown replay; specific Windows Job proof via unchanged approved capture; parent completed+processed and ledger admission; bounded read-only sampling; exact persisted turn/thread/route and UTC+monotonic observation; recovery receipt once",
+  "targeted_validation": "Four in-memory changed-branch assertions passed; Python syntax and PowerShell parser passed. Existing suites not rerun. No actual outage execution.",
+  "child_job": "child-fef478a44cdd44d8b0762616a1b26985",
+  "child_result": "completed naturally before cancellation request; current reviewed program includes parent corrections",
+  "execution_limits": "Prepared helper may only report contract acceptance after this original parent is completed and processed. Execute mode remains gated by future authenticated precise participant-GO and hash, immutable Root plan hash and published window. Root quality makes final acceptance."
+}
