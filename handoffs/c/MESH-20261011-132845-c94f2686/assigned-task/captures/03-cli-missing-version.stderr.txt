@@ -1,0 +1,1 @@
+REJECT: fixtures/missing-version.json: missing required field 'task_version'

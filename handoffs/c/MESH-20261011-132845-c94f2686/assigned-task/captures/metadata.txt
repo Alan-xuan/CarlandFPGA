@@ -1,0 +1,33 @@
+capture run (UTC): 2026-10-12T10:26:15Z
+runner          : run_captures.py (in C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\acceptance\MESH-20261011-132845-c94f2686\C\assigned-worktree\handoffs\c\MESH-20261011-132845-c94f2686\assigned-task)
+interpreter     : C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\venv\Scripts\python.exe
+python version  : Python 3.12.14
+note            : raw, unedited subprocess stdout/stderr, one file per stream
+
+01-unittest:
+  command   : C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\venv\Scripts\python.exe -m unittest -v test_validator
+  cwd       : C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\acceptance\MESH-20261011-132845-c94f2686\C\assigned-worktree\handoffs\c\MESH-20261011-132845-c94f2686\assigned-task
+  exit code : 0 (expected 0)
+  stdout    : 01-unittest.stdout.txt
+  stderr    : 01-unittest.stderr.txt
+
+02-cli-valid:
+  command   : C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\venv\Scripts\python.exe validator.py fixtures/valid.json
+  cwd       : C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\acceptance\MESH-20261011-132845-c94f2686\C\assigned-worktree\handoffs\c\MESH-20261011-132845-c94f2686\assigned-task
+  exit code : 0 (expected 0)
+  stdout    : 02-cli-valid.stdout.txt
+  stderr    : 02-cli-valid.stderr.txt
+
+03-cli-missing-version:
+  command   : C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\venv\Scripts\python.exe validator.py fixtures/missing-version.json
+  cwd       : C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\acceptance\MESH-20261011-132845-c94f2686\C\assigned-worktree\handoffs\c\MESH-20261011-132845-c94f2686\assigned-task
+  exit code : 1 (expected 1)
+  stdout    : 03-cli-missing-version.stdout.txt
+  stderr    : 03-cli-missing-version.stderr.txt
+
+04-cli-negative-version:
+  command   : C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\venv\Scripts\python.exe validator.py fixtures/negative-version.json
+  cwd       : C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\acceptance\MESH-20261011-132845-c94f2686\C\assigned-worktree\handoffs\c\MESH-20261011-132845-c94f2686\assigned-task
+  exit code : 1 (expected 1)
+  stdout    : 04-cli-negative-version.stdout.txt
+  stderr    : 04-cli-negative-version.stderr.txt

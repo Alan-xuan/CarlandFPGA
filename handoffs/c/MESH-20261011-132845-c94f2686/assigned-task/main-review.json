@@ -1,0 +1,20 @@
+{
+  "child_job_id": "child-d9173fbae029432fac267bf3100fa640",
+  "child_route": "deepseek-flash/max",
+  "fixture_cli_exits": {
+    "missing_version": 1,
+    "negative_version": 1,
+    "valid": 0
+  },
+  "hardware": "not_run",
+  "main_route": "gpt-6-astra/ultra",
+  "review": "Main reviewed validator and tests, corrected text-mode capture to binary subprocess capture with exclusive writes, then executed the corrected capture runner successfully. Windows CRLF bytes are preserved. Initial normalized captures are excluded from this handoff. Parent-only acceptance; child results did not substitute for review.",
+  "reviewed_at": "2026-10-12T10:27:08.949687+00:00",
+  "software_tests": {
+    "count": 28,
+    "exit_code": 0
+  },
+  "task_id": "MESH-20261011-132845-c94f2686-C-git-handoff",
+  "task_version": 1,
+  "unit_output_sha256": "6a8dd1c88a45fb2242f3815382695959450133617401ee7cd55ec5d28ad657d3"
+}

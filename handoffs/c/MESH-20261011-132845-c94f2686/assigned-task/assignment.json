@@ -1,0 +1,13 @@
+{
+  "branch": "codex/c/mesh-c94f2686-assigned-task",
+  "operation_id": "MESH-20261011-132845-c94f2686:C:git-handoff-v1",
+  "owner": "C/Astra-C",
+  "ownership": [
+    "handoffs/c/MESH-20261011-132845-c94f2686/assigned-task/"
+  ],
+  "request_hash": "3e8c8c85b00292a11c58cdbd17807734eb96ffae8177d8bf7ff251de4066b124",
+  "task_id": "MESH-20261011-132845-c94f2686-C-git-handoff",
+  "task_version": 1,
+  "text": "Create a small standard-library Python saved-message fixture validator with one valid task version/owner/direction fixture and rejected missing/negative version fixtures; actual test execution and tracked raw txt logs; immutable manifest binding exact request hash, operation and source commit. No production edits, credentials or board operations. Existing local evidence PR #1 can remain separate proof; this is A formally assigned disjoint work. Use Flash/max for bounded execution and quality main for decisions. Preserve original workspace changes; isolated directory/branch; real push and PR. Submit exact PR URL/head and manifest hashes via fpga_peer_send A; read A actual feedback on same PR/head and return durable receipt. Wait until A-to-C delivery probe has a completed receipt. No automatic failed side-effect replay.",
+  "work_id": "C-envelope-fixtures-v1"
+}

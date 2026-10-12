@@ -1,0 +1,33 @@
+test_bool_false_version_rejects (test_validator.FixtureValidationTests.test_bool_false_version_rejects) ... ok
+test_bool_true_version_rejects (test_validator.FixtureValidationTests.test_bool_true_version_rejects) ... ok
+test_empty_or_whitespace_task_id_rejects (test_validator.FixtureValidationTests.test_empty_or_whitespace_task_id_rejects) ... ok
+test_extra_fields_allowed (test_validator.FixtureValidationTests.test_extra_fields_allowed) ... ok
+test_fixture_dict_accepts (test_validator.FixtureValidationTests.test_fixture_dict_accepts) ... ok
+test_float_version_rejects (test_validator.FixtureValidationTests.test_float_version_rejects) ... ok
+test_malformed_json_file_rejects (test_validator.FixtureValidationTests.test_malformed_json_file_rejects) ... ok
+test_missing_direction_rejects (test_validator.FixtureValidationTests.test_missing_direction_rejects) ... ok
+test_missing_file_rejects (test_validator.FixtureValidationTests.test_missing_file_rejects) ... ok
+test_missing_owner_rejects (test_validator.FixtureValidationTests.test_missing_owner_rejects) ... ok
+test_missing_task_id_rejects (test_validator.FixtureValidationTests.test_missing_task_id_rejects) ... ok
+test_missing_version_fixture_file_rejects (test_validator.FixtureValidationTests.test_missing_version_fixture_file_rejects) ... ok
+test_missing_version_rejects (test_validator.FixtureValidationTests.test_missing_version_rejects) ... ok
+test_negative_version_fixture_file_rejects (test_validator.FixtureValidationTests.test_negative_version_fixture_file_rejects) ... ok
+test_negative_version_rejects (test_validator.FixtureValidationTests.test_negative_version_rejects) ... ok
+test_non_object_json_file_rejects (test_validator.FixtureValidationTests.test_non_object_json_file_rejects) ... ok
+test_non_object_roots_reject (test_validator.FixtureValidationTests.test_non_object_roots_reject) ... ok
+test_non_string_task_id_rejects (test_validator.FixtureValidationTests.test_non_string_task_id_rejects) ... ok
+test_string_version_rejects (test_validator.FixtureValidationTests.test_string_version_rejects) ... ok
+test_valid_fixture_file_accepts (test_validator.FixtureValidationTests.test_valid_fixture_file_accepts) ... ok
+test_wrong_direction_rejects (test_validator.FixtureValidationTests.test_wrong_direction_rejects) ... ok
+test_wrong_owner_rejects (test_validator.FixtureValidationTests.test_wrong_owner_rejects) ... ok
+test_zero_version_rejects (test_validator.FixtureValidationTests.test_zero_version_rejects) ... ok
+test_cli_accepts_valid_fixture (test_validator.ValidatorCliTests.test_cli_accepts_valid_fixture) ... ok
+test_cli_rejects_malformed_json (test_validator.ValidatorCliTests.test_cli_rejects_malformed_json) ... ok
+test_cli_rejects_missing_version_with_reason (test_validator.ValidatorCliTests.test_cli_rejects_missing_version_with_reason) ... ok
+test_cli_rejects_negative_version_with_reason (test_validator.ValidatorCliTests.test_cli_rejects_negative_version_with_reason) ... ok
+test_cli_usage_error_exits_2 (test_validator.ValidatorCliTests.test_cli_usage_error_exits_2) ... ok
+
+----------------------------------------------------------------------
+Ran 28 tests in 0.674s
+
+OK

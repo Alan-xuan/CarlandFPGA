@@ -1,0 +1,1 @@
+REJECT: fixtures/negative-version.json: field 'task_version' must be a positive integer (>= 1), got -1
