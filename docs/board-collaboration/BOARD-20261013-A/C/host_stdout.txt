@@ -1,0 +1,3 @@
+operation_id=BOARD-20261013-A:C:error-feedback-v3
+public_nonce=BOARD-20261013-A-C-V3-PUBLIC-NONCE-001
+runtime=CPython 3.12.14;sys.platform=win32

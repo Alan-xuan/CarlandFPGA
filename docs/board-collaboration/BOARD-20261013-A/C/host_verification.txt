@@ -1,0 +1,11 @@
+host_verification=passed
+probe_exit_code=1 (expected)
+stdout_operation_id=passed
+stdout_public_nonce=passed
+stdout_runtime=passed
+stderr_traceback=passed
+stderr_expected_runtime_error=passed
+source_has_no_overlay_or_pynq_reference=passed
+source_has_no_network_import=passed
+source_has_no_file_peripheral_or_service_io_call=passed
+hardware=not_run

@@ -1,0 +1,1 @@
+<node-c Python 3.12.14> <installed-pynq-z2-single-node-skill>/scripts/preflight.py

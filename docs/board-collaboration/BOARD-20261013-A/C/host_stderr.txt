@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-board-v3-c\docs\board-collaboration\BOARD-20261013-A\C\board_error_probe.py", line 32, in <module>
+    main()
+  File "C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-board-v3-c\docs\board-collaboration\BOARD-20261013-A\C\board_error_probe.py", line 28, in main
+    raise RuntimeError(EXPECTED_ERROR)
+RuntimeError: EXPECTED_C_BOARD_FEEDBACK_BOARD-20261013-A
