@@ -1,0 +1,34 @@
+{
+  "checked_at_utc": "2026-10-13T17:06:19.995092+00:00",
+  "review_han_count": 1130,
+  "local_links": [
+    {
+      "file": "review_v2.md",
+      "target": "sources.md",
+      "exists": true
+    },
+    {
+      "file": "review_v2.md",
+      "target": "acceptance_delta.md",
+      "exists": true
+    }
+  ],
+  "budget": {
+    "baud": 300,
+    "bits_per_byte": 10,
+    "duplex": "shared_half_duplex",
+    "window_s": 4,
+    "guard_total_s": 0.2,
+    "normal_bytes": 80,
+    "event_bytes_total": 96,
+    "normal_utilization": 0.7166666666666667,
+    "event_utilization": 0.85,
+    "event_window_spare_bytes": 18,
+    "command_retry_bytes": 24,
+    "command_retry_fits_same_window": false,
+    "max_frame_blocking_s": 1.0666666666666667
+  },
+  "result": "passed_document_hash_and_arithmetic_checks_only",
+  "hardware": "not_run",
+  "npu": "not_run"
+}

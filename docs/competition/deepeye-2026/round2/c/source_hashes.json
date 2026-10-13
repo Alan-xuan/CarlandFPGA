@@ -1,0 +1,258 @@
+[
+  {
+    "id": "S01",
+    "url": "https://gitee.com/Vickyiii/fpgachina26-amd/raw/master/TRACK_GUIDE_2026.md",
+    "retrieved_at_utc": "2026-10-13T15:56:55.304625+00:00",
+    "bytes": 48151,
+    "sha256": "aa8c1880538663e106ed88d8a70fc864e6faa68a652f907d9b86a034cdfd0753",
+    "local_path": "raw/amd-guide.md"
+  },
+  {
+    "id": "S03",
+    "url": "https://ryzenai.docs.amd.com/en/latest/relnotes.html",
+    "retrieved_at_utc": "2026-10-13T15:56:55.305721+00:00",
+    "bytes": 88061,
+    "sha256": "a4470fd80cdc29d67e31415f6bb24932f6e00e2ff416396b337361ffe152a19e",
+    "local_path": "raw/rai-relnotes.html"
+  },
+  {
+    "id": "S04",
+    "url": "https://ryzenai.docs.amd.com/en/latest/linux.html",
+    "retrieved_at_utc": "2026-10-13T15:56:55.306242+00:00",
+    "bytes": 38574,
+    "sha256": "f49f305f7772160960fd33b9b81f249cf0df7e648cdef1647a597a5557508d4f",
+    "local_path": "raw/rai-linux.html"
+  },
+  {
+    "id": "S05",
+    "url": "https://ryzenai.docs.amd.com/en/latest/inst.html",
+    "retrieved_at_utc": "2026-10-13T15:56:55.306818+00:00",
+    "bytes": 35298,
+    "sha256": "0e1538f25f69a0b6b1bb9c3c4bd82a2ed202fdc3d6a9d6b5d17c6238f0635359",
+    "local_path": "raw/rai-windows.html"
+  },
+  {
+    "id": "S06",
+    "url": "https://ryzenai.docs.amd.com/en/latest/ops_support.html",
+    "retrieved_at_utc": "2026-10-13T15:56:55.307857+00:00",
+    "bytes": 36110,
+    "sha256": "e68a7a1ce6341afc66076c1854b658656ad69903ee964cf90437317eec8a3f6e",
+    "local_path": "raw/rai-ops.html"
+  },
+  {
+    "id": "S07",
+    "url": "https://rocm.docs.amd.com/en/latest/compatibility/compatibility-matrix.html",
+    "retrieved_at_utc": "2026-10-13T15:56:56.862405+00:00",
+    "bytes": 166418,
+    "sha256": "ce111bb8f3839d37b5e3e7fc3d5e85b4b6caf866ccbead8d06ef1fecd1e4eda3",
+    "local_path": "raw/rocm-compat.html"
+  },
+  {
+    "id": "S09",
+    "url": "https://pynq.readthedocs.io/en/latest/changelog.html",
+    "retrieved_at_utc": "2026-10-13T15:56:57.963031+00:00",
+    "bytes": 34300,
+    "sha256": "ddc7483d22c7584a83895152ff3e4d23d2d132bbb4a072c9c65f0a1d5f703b18",
+    "local_path": "raw/pynq-changelog.html"
+  },
+  {
+    "id": "S10",
+    "url": "https://www.pynq.io/boards.html",
+    "retrieved_at_utc": "2026-10-13T15:56:58.048200+00:00",
+    "bytes": 404,
+    "sha256": "26528dde5ceb376d53c354fb7aa6df6beb4f02cc44f71d0ffc7fc766b04ae733",
+    "local_path": "raw/pynq-boards.html"
+  },
+  {
+    "id": "S11",
+    "url": "https://api.github.com/repos/nbstarhkc/Qian-Sai/contents/sources",
+    "retrieved_at_utc": "2026-10-13T16:01:50.599898+00:00",
+    "bytes": 7083,
+    "sha256": "b2de549a82b5630b5b8a39a72716933005cecbccd93785c91cea3b59344a3680",
+    "local_path": "raw/source-navigation.json"
+  },
+  {
+    "id": "S12",
+    "url": "https://gitee.com/Vickyiii/fpgachina26-amd/raw/master/README.md",
+    "retrieved_at_utc": "2026-10-13T16:01:50.601406+00:00",
+    "bytes": 3135,
+    "sha256": "09eb29973c655a3aba3246c1e63a107fcfb46060c058b020c99c25e88efea7aa",
+    "local_path": "raw/amd-readme.md"
+  },
+  {
+    "id": "S13",
+    "url": "https://rocm.docs.amd.com/en/docs-7.14.0/compatibility/compatibility-matrix.html",
+    "retrieved_at_utc": "2026-10-13T16:01:50.602414+00:00",
+    "bytes": 143912,
+    "sha256": "b493666036c721c145542b658b6168bf5d3e6171fcfab2cf66ef1c84ea2ee94c",
+    "local_path": "raw/rocm714-compat.html"
+  },
+  {
+    "id": "S14",
+    "url": "https://rocm.docs.amd.com/en/docs-7.14.0/install/rocm.html",
+    "retrieved_at_utc": "2026-10-13T16:01:50.603415+00:00",
+    "bytes": 639400,
+    "sha256": "84b04ab467c12b99fd82ed3acabd8edda53c20902094d7637206d2e7a18ee74d",
+    "local_path": "raw/rocm714-install.html"
+  },
+  {
+    "id": "S15",
+    "url": "https://www.minisforum.com/products/minisforum-ai-x1-pro",
+    "retrieved_at_utc": "2026-10-13T16:01:50.604922+00:00",
+    "bytes": 700821,
+    "sha256": "7b45fa97377dbc48dc884083e4eb8e85f61065261c40d67de5f61bf5a4fe6ad3",
+    "local_path": "raw/pc-x1-pro.html"
+  },
+  {
+    "id": "S16",
+    "url": "https://www.asus.com/us/laptops/for-home/vivobook/asus-vivobook-s-14-oled-m5406/techspec/",
+    "retrieved_at_utc": "2026-10-13T16:01:50.604922+00:00",
+    "bytes": 314646,
+    "sha256": "dd3c1eeac09261684fbe073911e3c97e5957873d0ca33676f51f22e70f1839a9",
+    "local_path": "raw/pc-asus.html"
+  },
+  {
+    "id": "S17",
+    "url": "https://raw.githubusercontent.com/eitcom/pyEIT/master/README.md",
+    "retrieved_at_utc": "2026-10-13T16:01:52.492791+00:00",
+    "bytes": 6240,
+    "sha256": "2714b0604c71b975f942192c45d495d47db33c230b1a945aa04e0f67cd159fa0",
+    "local_path": "raw/pyeit-readme.md"
+  },
+  {
+    "id": "S18",
+    "url": "https://raw.githubusercontent.com/eitcom/pyEIT/master/LICENSE.txt",
+    "retrieved_at_utc": "2026-10-13T16:01:52.548362+00:00",
+    "bytes": 1802,
+    "sha256": "c9b666934c8b6ee4eb42176365146162e3072858864680b0cec9d66726490009",
+    "local_path": "raw/pyeit-license.txt"
+  },
+  {
+    "id": "S19",
+    "url": "https://raw.githubusercontent.com/seg/2016-ml-contest/master/README.md",
+    "retrieved_at_utc": "2026-10-13T16:01:53.597520+00:00",
+    "bytes": 12095,
+    "sha256": "e4933c55d1ebbcee6d12478c5340b4a189f68920dd2025824115c459fa522d2a",
+    "local_path": "raw/seg-readme.md"
+  },
+  {
+    "id": "S21",
+    "url": "https://ccsds.org/Pubs/121x0b3.pdf",
+    "retrieved_at_utc": "2026-10-13T16:01:54.254538+00:00",
+    "bytes": 679604,
+    "sha256": "d09d41b718dcb13e9ef915b2b505edcf490de87f47603b9a85959e7f0d03dfa4",
+    "local_path": "raw/ccsds121.pdf"
+  },
+  {
+    "id": "S22",
+    "url": "http://www.fpgachina.cn/",
+    "retrieved_at_utc": "2026-10-13T16:01:54.285628+00:00",
+    "bytes": 17013,
+    "sha256": "2ffa82d754ad6ba78973a7ac16077bf27d4f7ea14e9be2acaa0b846edfbb6b84",
+    "local_path": "raw/competition-http.html"
+  },
+  {
+    "id": "S23",
+    "url": "https://pynq.readthedocs.io/en/v3.1/pynq_libraries/overlay.html",
+    "retrieved_at_utc": "2026-10-13T16:01:54.549925+00:00",
+    "bytes": 11149,
+    "sha256": "d4ea906502382e28c9243441d0fc36cd7c0cd8504e49e7731aa1a1e531d22e66",
+    "local_path": "raw/pynq31-overlay.html"
+  },
+  {
+    "id": "S24",
+    "url": "https://raw.githubusercontent.com/nbstarhkc/Qian-Sai/main/sources/index.json",
+    "retrieved_at_utc": "2026-10-13T16:03:35.611047+00:00",
+    "bytes": 1411,
+    "sha256": "d1f9ecd0eac4454adf1cd32fc5d6d62edeecca64453b4fca286d68a7d0cb6175",
+    "local_path": "raw/source-index.json"
+  },
+  {
+    "id": "S25",
+    "url": "http://www.fpgachina.cn/home-content.html",
+    "retrieved_at_utc": "2026-10-13T16:03:35.612553+00:00",
+    "bytes": 31544,
+    "sha256": "e60bbb2288815b0cb625bf9a9a78e8dc1c1ff4668057afb8a45f1d7dffd543d5",
+    "local_path": "raw/competition-home-content.html"
+  },
+  {
+    "id": "S26",
+    "url": "https://raw.githubusercontent.com/bolgebrygg/Force-2020-Machine-Learning-competition/master/readme.md",
+    "retrieved_at_utc": "2026-10-13T16:03:35.613560+00:00",
+    "bytes": 4534,
+    "sha256": "1c3467efa910b496047b7641fa22088454ac01b319ad6c82e88b9ec8db5a461f",
+    "local_path": "raw/force-readme.md"
+  },
+  {
+    "id": "S27",
+    "url": "https://api.github.com/repos/bolgebrygg/Force-2020-Machine-Learning-competition/contents/lithology_competition/data",
+    "retrieved_at_utc": "2026-10-13T16:03:35.614560+00:00",
+    "bytes": 9523,
+    "sha256": "1cd97d9b6b483485518746c3312300008ffe3b7b78400c1cf91d8f08fbb412ff",
+    "local_path": "raw/force-data-list.json"
+  },
+  {
+    "id": "S28",
+    "url": "https://arxiv.org/abs/1903.03933",
+    "retrieved_at_utc": "2026-10-13T16:03:35.614560+00:00",
+    "bytes": 46004,
+    "sha256": "76869ab9d5ea8385a56020b74cbf81e6f73fbcd278e495fce214ef934af115ad",
+    "local_path": "raw/geosteering2019.html"
+  },
+  {
+    "id": "S29",
+    "url": "https://arxiv.org/abs/2011.00733",
+    "retrieved_at_utc": "2026-10-13T16:03:35.616066+00:00",
+    "bytes": 46518,
+    "sha256": "86fff5d74b6e21fe7f1ae0b2921f4c247c588c84a985708f5e6fb12337c87c1d",
+    "local_path": "raw/geosteering2020.html"
+  },
+  {
+    "id": "S30",
+    "url": "https://www.analog.com/media/en/technical-documentation/data-sheets/ADXL345.pdf",
+    "retrieved_at_utc": "2026-10-13T16:03:36.668217+00:00",
+    "bytes": 1487158,
+    "sha256": "87ae2212498c35a6759d8732adee0ec9b9d8d60fa95688bc5904f1f07ceb8ff6",
+    "local_path": "raw/adxl345.pdf"
+  },
+  {
+    "id": "S31",
+    "url": "https://www.pynq.io/index.html",
+    "retrieved_at_utc": "2026-10-13T16:03:36.672891+00:00",
+    "bytes": 17839,
+    "sha256": "5c6fc9f6b16d0fac4b79b84296a959cde4a4b81dd808b1605396f91c5af7e3c6",
+    "local_path": "raw/pynq-index.html"
+  },
+  {
+    "id": "S34",
+    "url": "https://raw.githubusercontent.com/Xilinx/PYNQ/3.1.1/boards/Pynq-Z2/base/vivado/constraints/base.xdc",
+    "retrieved_at_utc": "2026-10-13T16:03:37.574899+00:00",
+    "bytes": 14586,
+    "sha256": "05d99c9032ceb21b2f6850955dd897a14a30d77ebda21d57867daa65caef2d3b",
+    "local_path": "raw/pynq-base.xdc"
+  },
+  {
+    "id": "amd.pdf",
+    "url": "https://raw.githubusercontent.com/nbstarhkc/Qian-Sai/main/sources/amd.pdf",
+    "bytes": 950952,
+    "sha256": "c6ad82acd4f7bdcd13bd412e232ed85d05f2a87dd5e2cdd04f9d219f88b569fc",
+    "checked_at_utc": "2026-10-13T17:06:19.995092+00:00",
+    "official_origin": "A verified competition download center file25/file18; C matched mirror bytes"
+  },
+  {
+    "id": "notice.pdf",
+    "url": "https://raw.githubusercontent.com/nbstarhkc/Qian-Sai/main/sources/notice.pdf",
+    "bytes": 779290,
+    "sha256": "c17611b45a66121cd93f421e7fdee50f1743b1eb0cb5d9f930c57578d480ef9f",
+    "checked_at_utc": "2026-10-13T17:06:19.995092+00:00",
+    "official_origin": "A verified competition download center file25/file18; C matched mirror bytes"
+  },
+  {
+    "id": "force-license",
+    "url": "https://api.datacite.org/dois/10.5281/zenodo.4351156",
+    "sha256": "3281e02c9512a86c3bc0eabc053a1ae4db78cec4937053df90c59272944bd180",
+    "bytes": 10844,
+    "rights": "CC-BY-4.0",
+    "checked_at_utc": "2026-10-13T17:06:19.995092+00:00"
+  }
+]

@@ -1,0 +1,87 @@
+{
+  "task_id": "COMP-20261013-DEEPEYE",
+  "task_version": 2,
+  "checked_at_utc": "2026-10-13T17:06:19.995092+00:00",
+  "a": {
+    "commit": "1412d6d70985848fff1332479c98a8be54f15e87",
+    "best_sha256": "d9716026589a298e4554d018c9478539cf9a2840458129e246e1134173911416",
+    "bytes": 4640,
+    "actual_main_read": true
+  },
+  "b": {
+    "commit": "ec0675dfb2f1f86c6201b2d1e2ea27d3f5a04ff8",
+    "best_sha256": "6088bb2de9e220f751f0623774f0cba91c0b88ba3fdcfcd0abf179ad483439c8",
+    "bytes": 32186,
+    "actual_main_read": true
+  },
+  "c": {
+    "local_commit": "ab527e20eb7bc8a0cdeab0409943ec17510830fe",
+    "pr14_commit": "850dd499dae69446545e96a3a2b92d6e4b4b7cc9",
+    "sealed_at_utc": "2026-10-13T16:05:55.279944+00:00",
+    "checks": [
+      {
+        "name": "best_proposal.md",
+        "frozen_sha256": "5243500c579b3a24e097b2a1d41e038d09128b635648968f313a00bf0a1889af",
+        "local_sha256": "5243500c579b3a24e097b2a1d41e038d09128b635648968f313a00bf0a1889af",
+        "git_blob_sha256": "5243500c579b3a24e097b2a1d41e038d09128b635648968f313a00bf0a1889af",
+        "local_match": true,
+        "git_blob_match": true,
+        "git_blob_bytes": 6085
+      },
+      {
+        "name": "event_progressive.md",
+        "frozen_sha256": "f63ee55c0a58974c5e1ba0e3d8bbc99d0adc26807399efcf1b345bbc3a834b34",
+        "local_sha256": "f63ee55c0a58974c5e1ba0e3d8bbc99d0adc26807399efcf1b345bbc3a834b34",
+        "git_blob_sha256": "f63ee55c0a58974c5e1ba0e3d8bbc99d0adc26807399efcf1b345bbc3a834b34",
+        "local_match": true,
+        "git_blob_match": true,
+        "git_blob_bytes": 35055
+      },
+      {
+        "name": "npu_model.md",
+        "frozen_sha256": "29511701011d3f23c7facef65a11f6a509c778a802672f6f2de57886615527b0",
+        "local_sha256": "29511701011d3f23c7facef65a11f6a509c778a802672f6f2de57886615527b0",
+        "git_blob_sha256": "29511701011d3f23c7facef65a11f6a509c778a802672f6f2de57886615527b0",
+        "local_match": true,
+        "git_blob_match": true,
+        "git_blob_bytes": 30841
+      },
+      {
+        "name": "traditional_sparse.md",
+        "frozen_sha256": "0b0dcff28a526b1dfc587182536c9918b15d6e0b6009453a0b312a98d834d1a5",
+        "local_sha256": "0b0dcff28a526b1dfc587182536c9918b15d6e0b6009453a0b312a98d834d1a5",
+        "git_blob_sha256": "0b0dcff28a526b1dfc587182536c9918b15d6e0b6009453a0b312a98d834d1a5",
+        "local_match": true,
+        "git_blob_match": true,
+        "git_blob_bytes": 6368
+      },
+      {
+        "name": "independent_review.md",
+        "frozen_sha256": "4bf8ca1574e35c782ad9290069fc232f08ae3c6a0f9c72c5bd99a73c15485b30",
+        "local_sha256": "4bf8ca1574e35c782ad9290069fc232f08ae3c6a0f9c72c5bd99a73c15485b30",
+        "git_blob_sha256": "4bf8ca1574e35c782ad9290069fc232f08ae3c6a0f9c72c5bd99a73c15485b30",
+        "local_match": true,
+        "git_blob_match": true,
+        "git_blob_bytes": 17406
+      },
+      {
+        "name": "budget_result.json",
+        "frozen_sha256": "87fb5e57a7e24cfbbcedc0f28885d38a8ae349beb7e05e08bd90b68a24ea1f11",
+        "local_sha256": "87fb5e57a7e24cfbbcedc0f28885d38a8ae349beb7e05e08bd90b68a24ea1f11",
+        "git_blob_sha256": "7262a4843883dddac32dc0cafbee9f3f81cca2da8011bcac01d028d5a375d5da",
+        "local_match": true,
+        "git_blob_match": false,
+        "git_blob_bytes": 922,
+        "git_lf_to_crlf_sha256": "87fb5e57a7e24cfbbcedc0f28885d38a8ae349beb7e05e08bd90b68a24ea1f11",
+        "json_value_equality": true
+      }
+    ]
+  },
+  "c_cpu": {
+    "name": "Intel(R) Core(TM) i7-14650HX",
+    "source": "local HKLM HARDWARE DESCRIPTION System CentralProcessor 0 ProcessorNameString",
+    "supports_amd_npu_task": false
+  },
+  "a_platform": "A peer reported 8845H/32GB/780M; C did not operate A PC; reuse preferred",
+  "evidence_boundary": "Only read public/project sources and computed research arithmetic; simulation/synthesis/implementation/board/NPU/purchase not_run"
+}

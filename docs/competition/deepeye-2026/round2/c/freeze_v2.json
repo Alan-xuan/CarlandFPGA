@@ -1,0 +1,19 @@
+{
+  "task_id": "COMP-20261013-DEEPEYE",
+  "task_version": 2,
+  "owner": "C/Astra-C quality main",
+  "frozen_at_utc": "2026-10-13T17:06:19.995092+00:00",
+  "phase": "round2",
+  "round1_unchanged": true,
+  "files": {
+    ".gitattributes": "705fd4d6451a31d36b3df7de96f83f30ac976c9b4a6d1e51671d8e2f33e2d0da",
+    "acceptance_delta.md": "b525695f2801728a7e18c1d95ce2092978e0b0de6fadfea38184e3210f65b476",
+    "input_hashes.json": "ed30ade1fd9a5fa09c1a85434f39571cf1774da8e92564830fe99b7bc6da8525",
+    "inputs/a_best_verified.md": "d9716026589a298e4554d018c9478539cf9a2840458129e246e1134173911416",
+    "review_v2.md": "1def955b0f29e041828f693f43d6196b8bdf9a368a9e6d9154dac8edd829b25e",
+    "source_hashes.json": "f2031e799a5a0bcddbb228fdc4be11a9aa5db6ce9f41bac6b962ea8cf7ae0eef",
+    "sources.md": "45179cf0e61085449d017bc3cb429270aed167a827d9beac1cb924070835a821",
+    "validation.json": "e8c7b967b0607659c2a214805a64bbf3ea38aeca35cda9b2d9c5d2a2c48a964d"
+  },
+  "status": "research_complete; implementation_not_run"
+}
