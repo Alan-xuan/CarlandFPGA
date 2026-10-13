@@ -1,0 +1,42 @@
+{
+  "request": {
+    "operation_id": "BOARD-20261013-A:C:error-feedback-v3",
+    "task_id": "BOARD-20261013-A-C",
+    "task_version": 3,
+    "requester": "node-c",
+    "code_commit": "0bbb9645af869d23b6e6863fc4148a57162be4f1",
+    "test_steps": [
+      "Verify the pull-request head contains source commit 0bbb9645af869d23b6e6863fc4148a57162be4f1 and verify this immutable manifest before execution.",
+      "On node A, run python3 docs/board-collaboration/BOARD-20261013-A/C/board_error_probe.py while separately preserving stdout, stderr, and the process exit code.",
+      "Confirm stdout contains the exact operation_id BOARD-20261013-A:C:error-feedback-v3, the exact public nonce BOARD-20261013-A-C-V3-PUBLIC-NONCE-001, and a runtime line for the actual interpreter.",
+      "Confirm the process exits with code 1 and stderr contains a traceback ending in RuntimeError: EXPECTED_C_BOARD_FEEDBACK_BOARD-20261013-A.",
+      "Record the tested pull-request head and public board transcript hashes in the same pull request; this probe must not load an overlay or access a peripheral."
+    ],
+    "expected_result": "Node A records exit code 1, three identity/runtime lines on stdout, and the expected RuntimeError traceback on stderr; no overlay is loaded and no peripheral is accessed."
+  },
+  "artifacts": [
+    "docs/board-collaboration/BOARD-20261013-A/C/.gitattributes",
+    "docs/board-collaboration/BOARD-20261013-A/C/board_error_probe.py",
+    "docs/board-collaboration/BOARD-20261013-A/C/host_command.txt",
+    "docs/board-collaboration/BOARD-20261013-A/C/host_exit_code.txt",
+    "docs/board-collaboration/BOARD-20261013-A/C/host_stderr.txt",
+    "docs/board-collaboration/BOARD-20261013-A/C/host_stdout.txt",
+    "docs/board-collaboration/BOARD-20261013-A/C/host_verification.txt",
+    "docs/board-collaboration/BOARD-20261013-A/C/preflight_command.txt",
+    "docs/board-collaboration/BOARD-20261013-A/C/preflight_exit_code.txt",
+    "docs/board-collaboration/BOARD-20261013-A/C/preflight_stdout.txt"
+  ],
+  "stages": {
+    "client_preflight": {
+      "status": "passed",
+      "log": "docs/board-collaboration/BOARD-20261013-A/C/preflight_stdout.txt"
+    },
+    "host_probe": {
+      "status": "passed",
+      "log": "docs/board-collaboration/BOARD-20261013-A/C/host_verification.txt"
+    },
+    "physical_hardware": {
+      "status": "not_run"
+    }
+  }
+}

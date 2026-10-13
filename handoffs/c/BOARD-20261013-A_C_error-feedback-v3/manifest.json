@@ -1,0 +1,86 @@
+{
+  "artifacts": [
+    "docs/board-collaboration/BOARD-20261013-A/C/.gitattributes",
+    "docs/board-collaboration/BOARD-20261013-A/C/board_error_probe.py",
+    "docs/board-collaboration/BOARD-20261013-A/C/host_command.txt",
+    "docs/board-collaboration/BOARD-20261013-A/C/host_exit_code.txt",
+    "docs/board-collaboration/BOARD-20261013-A/C/host_stderr.txt",
+    "docs/board-collaboration/BOARD-20261013-A/C/host_stdout.txt",
+    "docs/board-collaboration/BOARD-20261013-A/C/host_verification.txt",
+    "docs/board-collaboration/BOARD-20261013-A/C/preflight_command.txt",
+    "docs/board-collaboration/BOARD-20261013-A/C/preflight_exit_code.txt",
+    "docs/board-collaboration/BOARD-20261013-A/C/preflight_stdout.txt"
+  ],
+  "files": {
+    "docs/board-collaboration/BOARD-20261013-A/C/.gitattributes": {
+      "sha256": "fd13dad2ecae9b5cdde18e56b396b87ce73a5e3d9c05455bb00a1afc2c424106",
+      "size": 12
+    },
+    "docs/board-collaboration/BOARD-20261013-A/C/board_error_probe.py": {
+      "sha256": "20693221700ca4f60dfb5ad4acea43de9967d0a84d3f441cba2e67becbd27436",
+      "size": 1043
+    },
+    "docs/board-collaboration/BOARD-20261013-A/C/host_command.txt": {
+      "sha256": "a038d99aaa102d79eb16fefff9d97ea1365bc1207734767da43faabc95d7e3a0",
+      "size": 89
+    },
+    "docs/board-collaboration/BOARD-20261013-A/C/host_exit_code.txt": {
+      "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+      "size": 2
+    },
+    "docs/board-collaboration/BOARD-20261013-A/C/host_stderr.txt": {
+      "sha256": "3bec5376c3d21ac54ac0cb377054d31870ed60ba60ccab8e6e46769ced4491ab",
+      "size": 456
+    },
+    "docs/board-collaboration/BOARD-20261013-A/C/host_stdout.txt": {
+      "sha256": "6e92ee9807d9694cba975ed8f5f6a54ddf74212759c62b940e234405825d8ef9",
+      "size": 148
+    },
+    "docs/board-collaboration/BOARD-20261013-A/C/host_verification.txt": {
+      "sha256": "8558474a34f70adc2fa214bac433845b836f1b35f043aece78f9fe7c497c1a1c",
+      "size": 347
+    },
+    "docs/board-collaboration/BOARD-20261013-A/C/preflight_command.txt": {
+      "sha256": "aa9d77a3d07c87209e1aaf366d79cde8bb53823ead222f146938c22132372e1a",
+      "size": 83
+    },
+    "docs/board-collaboration/BOARD-20261013-A/C/preflight_exit_code.txt": {
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "size": 2
+    },
+    "docs/board-collaboration/BOARD-20261013-A/C/preflight_stdout.txt": {
+      "sha256": "a431b17aa3a337fed830fafd867ccac80c15ad7440f913347e03a5b0918eb501",
+      "size": 192
+    }
+  },
+  "request": {
+    "code_commit": "0bbb9645af869d23b6e6863fc4148a57162be4f1",
+    "expected_result": "Node A records exit code 1, three identity/runtime lines on stdout, and the expected RuntimeError traceback on stderr; no overlay is loaded and no peripheral is accessed.",
+    "operation_id": "BOARD-20261013-A:C:error-feedback-v3",
+    "requester": "node-c",
+    "task_id": "BOARD-20261013-A-C",
+    "task_version": 3,
+    "test_steps": [
+      "Verify the pull-request head contains source commit 0bbb9645af869d23b6e6863fc4148a57162be4f1 and verify this immutable manifest before execution.",
+      "On node A, run python3 docs/board-collaboration/BOARD-20261013-A/C/board_error_probe.py while separately preserving stdout, stderr, and the process exit code.",
+      "Confirm stdout contains the exact operation_id BOARD-20261013-A:C:error-feedback-v3, the exact public nonce BOARD-20261013-A-C-V3-PUBLIC-NONCE-001, and a runtime line for the actual interpreter.",
+      "Confirm the process exits with code 1 and stderr contains a traceback ending in RuntimeError: EXPECTED_C_BOARD_FEEDBACK_BOARD-20261013-A.",
+      "Record the tested pull-request head and public board transcript hashes in the same pull request; this probe must not load an overlay or access a peripheral."
+    ]
+  },
+  "request_hash": "1b06302e466b1de03513bc42f87c1ed111d026c40552e43a4878cbbdbc843070",
+  "schema_version": 1,
+  "stages": {
+    "client_preflight": {
+      "log": "docs/board-collaboration/BOARD-20261013-A/C/preflight_stdout.txt",
+      "status": "passed"
+    },
+    "host_probe": {
+      "log": "docs/board-collaboration/BOARD-20261013-A/C/host_verification.txt",
+      "status": "passed"
+    },
+    "physical_hardware": {
+      "status": "not_run"
+    }
+  }
+}
