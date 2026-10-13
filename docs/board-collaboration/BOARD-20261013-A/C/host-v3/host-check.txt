@@ -1,0 +1,2 @@
+Actual subprocess checked: exit=1; nonce and operation match; exact expected RuntimeError traceback observed.
+Hardware: not_run. No overlay or peripheral calls.

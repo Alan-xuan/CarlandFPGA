@@ -1,0 +1,39 @@
+{
+  "task_id": "BOARD-20261013-A-C",
+  "task_version": 3,
+  "operation_id": "BOARD-20261013-A:C:error-feedback-v3",
+  "location": "C Windows host (not board)",
+  "nonce": "C-host-v3-6a922cea37614200891c9f11c893adb5",
+  "command": [
+    "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\venv\\Scripts\\python.exe",
+    "-u",
+    "docs\\board-collaboration\\BOARD-20261013-A\\C\\board_error_probe.py",
+    "--nonce",
+    "C-host-v3-6a922cea37614200891c9f11c893adb5"
+  ],
+  "observed_at": "2026-10-13T08:08:56.133684+00:00",
+  "exit_code": 1,
+  "expected_controlled_error_observed": true,
+  "script_sha256": "0be55d68c1bd7ecab37143bca3bf1c627439be20eb04facdb6a44ff5a8327408",
+  "files": {
+    "exit.txt": {
+      "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+      "size": 2
+    },
+    "stderr.txt": {
+      "sha256": "136218466f13c6b1f04b2f20952ae67ebf45be5af6a7aa95793b5042a93ea5b4",
+      "size": 498
+    },
+    "stdout.txt": {
+      "sha256": "6a95271697f99b1a57acb125dd229d5e4bd5e7a04454b7fa98812ece6c350ca6",
+      "size": 341
+    }
+  },
+  "hardware": "not_run",
+  "imports": [
+    "argparse",
+    "json",
+    "platform",
+    "sys"
+  ]
+}

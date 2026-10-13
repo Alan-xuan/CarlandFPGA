@@ -1,0 +1,13 @@
+{
+  "checked_at": "2026-10-13T08:08:56.222715+00:00",
+  "check_type": "read_only_existing_rule",
+  "trigger": "suppress_unsolicited_peer_presence_C",
+  "trigger_sql_sha256": "ca48c6a46d6e8164e5c8f39e52e0baf8bc8793c03e33c77dcbe7d4c9cd18f7d2",
+  "pending_uncancelled_legacy_presence": 0,
+  "cancelled_legacy_presence": 35,
+  "installed_client_skill_sha256": "606f5fd8e07c2695232041e6fd76e10b6a7c48379d35f644c0ea4a6e7eb7293d",
+  "existing_checkpoint_commit": "f9bad22d629e9b8c7c7ae6a6a25e3ff2757c8523",
+  "service_restarted": false,
+  "new_probe_sent": false,
+  "database_modified": false
+}

@@ -1,0 +1,1 @@
+{"nonce": "C-host-v3-6a922cea37614200891c9f11c893adb5", "operation_id": "BOARD-20261013-A:C:error-feedback-v3", "peripheral_access": false, "purpose": "controlled_error_feedback", "runtime": {"implementation": "CPython", "machine": "AMD64", "python": "3.12.14", "sys_platform": "win32"}, "task_id": "BOARD-20261013-A-C", "task_version": 3}
