@@ -1,0 +1,20 @@
+{
+  "task_id": "COMP-20261013-DEEPEYE",
+  "task_version": 3,
+  "owner": "C quality main",
+  "frozen_at_utc": "2026-10-13T18:01:03.623677+00:00",
+  "reviewed_commit": "28b37470d58d7b28dbdddd093ec348a8dfa87cd3",
+  "reviewed_taskbook_sha256": "d21c308e24d02aeafef9e98d53e40d33eb9e2135e0f2c830b696c6dfef22b641",
+  "files": {
+    "review_v3_28b3747.md": {
+      "sha256": "49b022f8202579ebbe13cfeef4da3179e3da76057fb0416114678e024039ce5f",
+      "bytes": 6196
+    }
+  },
+  "status": "research_review_complete_with_open_gates",
+  "implementation": "not_run",
+  "board": "not_run",
+  "rocm_project": "not_run",
+  "purchase": "not_run",
+  "frozen_prior_files_modified": false
+}
