@@ -1,0 +1,25 @@
+{
+  "task_id": "MINE-20261013-PLAN",
+  "task_version": 1,
+  "node_task_id": "MINE-20261013-PLAN-C",
+  "owner": "C/Astra-C",
+  "work_id": "c-independent-five-and-fusion-v1",
+  "deadline": "2026-11-04T18:00:00+08:00",
+  "deadline_source": "Human confirmed submission date; 18:00 crosschecked Gowin 2026 contest page",
+  "internal_delivery": "2026-11-03T18:00:00+08:00",
+  "board": "PYNQ-Z2",
+  "theme": "低带宽随钻测井与地质导向的桌面物理验证",
+  "phase": "independent_C",
+  "communication_rule": "在C候选与内评封存前不联系A/B方案；A/B锁定前不向其提供C方案。硬件事实问题由主会话飞书群询问。",
+  "ownership": {
+    "C": "docs/competition/mine_plan_20261013/c/**",
+    "final_integration": "docs/competition/mine_plan_20261013/taskbook.md"
+  },
+  "board_operator": "A",
+  "unconfirmed": [
+    "Ryzen AI PC SKU and NPU generation",
+    "Physical actuators/sensors availability",
+    "A/B independent proposals and frozen hashes",
+    "Official AMD detailed rule provenance"
+  ]
+}

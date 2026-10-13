@@ -1,0 +1,20 @@
+{
+  "task_id": "MINE-20261013-PLAN-C",
+  "task_version": 1,
+  "owner": "C/Astra-C",
+  "candidate_count": 5,
+  "independent": true,
+  "peer_communication_before_lock": false,
+  "locked_at": "2026-10-13T16:05:55.279944+00:00",
+  "files": {
+    "best_proposal.md": "5243500c579b3a24e097b2a1d41e038d09128b635648968f313a00bf0a1889af",
+    "event_progressive.md": "f63ee55c0a58974c5e1ba0e3d8bbc99d0adc26807399efcf1b345bbc3a834b34",
+    "npu_model.md": "29511701011d3f23c7facef65a11f6a509c778a802672f6f2de57886615527b0",
+    "traditional_sparse.md": "0b0dcff28a526b1dfc587182536c9918b15d6e0b6009453a0b312a98d834d1a5",
+    "independent_review.md": "4bf8ca1574e35c782ad9290069fc232f08ae3c6a0f9c72c5bd99a73c15485b30",
+    "budget_result.json": "87fb5e57a7e24cfbbcedc0f28885d38a8ae349beb7e05e08bd90b68a24ea1f11"
+  },
+  "status": "locked",
+  "revision": 2,
+  "correction": "Three score totals corrected by arithmetic before any peer contact"
+}
