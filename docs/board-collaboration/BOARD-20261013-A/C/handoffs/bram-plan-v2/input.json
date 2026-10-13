@@ -1,0 +1,47 @@
+{
+  "request": {
+    "operation_id": "BOARD-20261013-A:C:bram-plan-v2",
+    "task_id": "BOARD-20261013-A-C",
+    "task_version": 2,
+    "requester": "node-c",
+    "code_commit": "5d7e3772df73ec2c6f74f14b98749024e4b05e14",
+    "test_steps": [
+      "Review C TEST_PLAN.md and verify this manifest. This C source commit contains no board runner.",
+      "Reproduce C reference check with python -B docs/board-collaboration/BOARD-20261013-A/C/verify_reference.py.",
+      "Await B PR exact head and manifest for operation BOARD-20261013-A:B:base-bram-v2; C will publish a separately frozen same-head review.",
+      "A alone decides and executes the reviewed B operation; record 384 MMIO comparisons and 16-word restoration before reset restoration. Do not run hardware from this plan handoff alone."
+    ],
+    "expected_result": "C reference verification passes; C hardware remains not_run. B same-head review and A measured evidence remain pending, so this handoff is not final acceptance."
+  },
+  "artifacts": [
+    "docs/board-collaboration/BOARD-20261013-A/C/.gitattributes",
+    "docs/board-collaboration/BOARD-20261013-A/C/TEST_PLAN.md",
+    "docs/board-collaboration/BOARD-20261013-A/C/preflight.txt",
+    "docs/board-collaboration/BOARD-20261013-A/C/reference-vectors.json",
+    "docs/board-collaboration/BOARD-20261013-A/C/reference-verification.txt",
+    "docs/board-collaboration/BOARD-20261013-A/C/reference_vectors.py",
+    "docs/board-collaboration/BOARD-20261013-A/C/vector-generation.txt",
+    "docs/board-collaboration/BOARD-20261013-A/C/verify_reference.py"
+  ],
+  "stages": {
+    "reference_verification": {
+      "status": "passed",
+      "log": "docs/board-collaboration/BOARD-20261013-A/C/reference-verification.txt"
+    },
+    "b_same_head_review": {
+      "status": "not_run"
+    },
+    "rtl_simulation": {
+      "status": "not_run"
+    },
+    "synthesis": {
+      "status": "not_run"
+    },
+    "implementation": {
+      "status": "not_run"
+    },
+    "hardware": {
+      "status": "not_run"
+    }
+  }
+}

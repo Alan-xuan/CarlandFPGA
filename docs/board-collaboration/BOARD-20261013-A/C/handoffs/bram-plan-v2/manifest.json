@@ -1,0 +1,83 @@
+{
+  "artifacts": [
+    "docs/board-collaboration/BOARD-20261013-A/C/.gitattributes",
+    "docs/board-collaboration/BOARD-20261013-A/C/TEST_PLAN.md",
+    "docs/board-collaboration/BOARD-20261013-A/C/preflight.txt",
+    "docs/board-collaboration/BOARD-20261013-A/C/reference-vectors.json",
+    "docs/board-collaboration/BOARD-20261013-A/C/reference-verification.txt",
+    "docs/board-collaboration/BOARD-20261013-A/C/reference_vectors.py",
+    "docs/board-collaboration/BOARD-20261013-A/C/vector-generation.txt",
+    "docs/board-collaboration/BOARD-20261013-A/C/verify_reference.py"
+  ],
+  "files": {
+    "docs/board-collaboration/BOARD-20261013-A/C/.gitattributes": {
+      "sha256": "9300bf914ace0f19497cf11530b7506005c9765baa0e6f4d4723c78940ade5a6",
+      "size": 91
+    },
+    "docs/board-collaboration/BOARD-20261013-A/C/TEST_PLAN.md": {
+      "sha256": "7559f184436fc48bedcfb1718c0f7b8577775c84e84124c69e85a1333b9a44cd",
+      "size": 8579
+    },
+    "docs/board-collaboration/BOARD-20261013-A/C/preflight.txt": {
+      "sha256": "a431b17aa3a337fed830fafd867ccac80c15ad7440f913347e03a5b0918eb501",
+      "size": 192
+    },
+    "docs/board-collaboration/BOARD-20261013-A/C/reference-vectors.json": {
+      "sha256": "91b0d86c60bf9f7a15f9eba745b783056d961775452ef663c392e542965bebca",
+      "size": 29107
+    },
+    "docs/board-collaboration/BOARD-20261013-A/C/reference-verification.txt": {
+      "sha256": "8fe1ad710b49f918a01316f90422dad17eb63d03336bcf896eb821d54c71f4ef",
+      "size": 419
+    },
+    "docs/board-collaboration/BOARD-20261013-A/C/reference_vectors.py": {
+      "sha256": "757958ac7e75f46f5046f6fb6ce749ad972a1d9807ff68a3d42fbf12c42f23bd",
+      "size": 7266
+    },
+    "docs/board-collaboration/BOARD-20261013-A/C/vector-generation.txt": {
+      "sha256": "db0534366a0cac76c1d32c44fd4f59d713eaddb7ddd6b80d8b45c0b375beafaa",
+      "size": 3524
+    },
+    "docs/board-collaboration/BOARD-20261013-A/C/verify_reference.py": {
+      "sha256": "31b08b0543452f62f4381df5fe04e29f2584c46f07c0915ce0dd5940c3f721f9",
+      "size": 1980
+    }
+  },
+  "request": {
+    "code_commit": "5d7e3772df73ec2c6f74f14b98749024e4b05e14",
+    "expected_result": "C reference verification passes; C hardware remains not_run. B same-head review and A measured evidence remain pending, so this handoff is not final acceptance.",
+    "operation_id": "BOARD-20261013-A:C:bram-plan-v2",
+    "requester": "node-c",
+    "task_id": "BOARD-20261013-A-C",
+    "task_version": 2,
+    "test_steps": [
+      "Review C TEST_PLAN.md and verify this manifest. This C source commit contains no board runner.",
+      "Reproduce C reference check with python -B docs/board-collaboration/BOARD-20261013-A/C/verify_reference.py.",
+      "Await B PR exact head and manifest for operation BOARD-20261013-A:B:base-bram-v2; C will publish a separately frozen same-head review.",
+      "A alone decides and executes the reviewed B operation; record 384 MMIO comparisons and 16-word restoration before reset restoration. Do not run hardware from this plan handoff alone."
+    ]
+  },
+  "request_hash": "4678c0e3dc2cc4c51c2781864bb0d491ff50190d53018f8e4751234ab30e5a2b",
+  "schema_version": 1,
+  "stages": {
+    "b_same_head_review": {
+      "status": "not_run"
+    },
+    "hardware": {
+      "status": "not_run"
+    },
+    "implementation": {
+      "status": "not_run"
+    },
+    "reference_verification": {
+      "log": "docs/board-collaboration/BOARD-20261013-A/C/reference-verification.txt",
+      "status": "passed"
+    },
+    "rtl_simulation": {
+      "status": "not_run"
+    },
+    "synthesis": {
+      "status": "not_run"
+    }
+  }
+}
