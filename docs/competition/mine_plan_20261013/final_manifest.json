@@ -1,0 +1,38 @@
+{
+  "task_id": "MINE-20261013-PLAN-C",
+  "task_version": 2,
+  "work_id": "C-final-own-taskbook-v2",
+  "owner": "C",
+  "status": "planning_complete",
+  "scope": "C own final recommendation with A/B sealed references, not joint signed freeze",
+  "time": "2026-10-13T17:38:41.784196+00:00",
+  "acceptance_steps": 26,
+  "pages": 11,
+  "files": {
+    "docs/competition/mine_plan_20261013/.gitattributes": "c69e5cf90fc850b867dd81627f6f26d50d7b4ccc3ddf9a0638b501a5aaa7dad8",
+    "docs/competition/mine_plan_20261013/README_FINAL.md": "d2e7be445d01c53d20615ac475b0af9f41ec3556e1c8712ae00ff833df512e3c",
+    "docs/competition/mine_plan_20261013/taskbook_final.md": "78f22e28944cfbe0028cb9f67f89eb1539a32fd7d7023dc9ca998da77792e880",
+    "docs/competition/mine_plan_20261013/acceptance_final.json": "7d3ea3fea9159c1708a6a1d24aa3c40fac4644fce89b1c4e48961245b1f3ec81",
+    "docs/competition/mine_plan_20261013/validate_final.py": "e95147724b8709004aab942d2f7c37d8f3774b319958511ebf89c91f31c5e3d2",
+    "docs/competition/mine_plan_20261013/build_pdf.py": "9e688010a7be0fc0bdfa5ed61e1d9cdcdb528cf684db720180d072c8cff0b147",
+    "docs/competition/mine_plan_20261013/round2_budget.py": "0a571859a92bdcfae3d2e61563ca530cb77dc2166a14315d8fbed5ff46c5a444",
+    "docs/competition/mine_plan_20261013/round2_budget.json": "c31f184fd074bddb2ee157db8c46d40e83e901f8705353c82ff74c861e1a2b9e",
+    "docs/competition/mine_plan_20261013/external_review.md": "bfa6a3679298d495a35fa9cad43920609e7b2bbe416d3d5197cfe3519a76f9ce",
+    "docs/competition/mine_plan_20261013/c/eol_note.md": "0f65d2a4958153111b7591bb8db0b24fc76403012c15956f51acf22daab4b391",
+    "docs/competition/mine_plan_20261013/c/frozen_portfolio_raw.zip": "bc4c9cc6e6e2dfcb8808c4e995e87c847aa6da8ff7377506555c6c0413b659d2",
+    "docs/competition/mine_plan_20261013/c/hardware_inventory.json": "331ded4c94aa6f06d1d3996e028eb92350d24bd05d8dfda37af1eb92ac446a1d",
+    "docs/competition/mine_plan_20261013/final_qa.json": "abed0e17e175c3437f3a21edb5ba2e65a1fb5047318610c072a930ee656cb1b9",
+    "output/pdf/mine_taskbook.pdf": "510833df2e971acd14ab760d37497d4a7c89442db247aadb5d6286e4e51fc278"
+  },
+  "stages": {
+    "document": "passed",
+    "arithmetic": "passed",
+    "visual_review": "passed",
+    "RTL_simulation": "not_run",
+    "synthesis": "not_run",
+    "implementation": "not_run",
+    "hardware": "not_run",
+    "GPU": "not_run",
+    "NPU": "not_run"
+  }
+}

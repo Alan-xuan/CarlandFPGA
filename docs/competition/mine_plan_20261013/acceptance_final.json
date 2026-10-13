@@ -1,0 +1,268 @@
+{
+  "task_id": "MINE-20261013-PLAN-C",
+  "version": 2,
+  "scope": "C final implementation taskbook; not joint signed freeze",
+  "steps": [
+    {
+      "id": "G0.1",
+      "owner": "A",
+      "reviewer": "C独立质量复核，涉及设备事实由A提供实测",
+      "input": "本机真实库存、PC/板卡/工具发现输出",
+      "procedure": "A清点PC/驱动、PYNQ镜像、Vivado支持、外设和仪器，输入真实库存，输出设备清单与发现日志/照片；C核型号兼容，缺项有替代、负责人和日期。",
+      "pass_criteria": "型号兼容;缺项有替代、负责人和日期",
+      "evidence": "设备清单与发现日志/照片",
+      "status": "planned"
+    },
+    {
+      "id": "G0.2",
+      "owner": "A/C/C",
+      "reviewer": "C独立质量复核，涉及设备事实由A提供实测",
+      "input": "C五案与原raw封存、已核A/B最佳参考、C外评和人类范围变更记录",
+      "procedure": "C核本机五案、评分、融合最佳与原raw封存，归档实际收到的A/B最佳及逐模块外评，冻结C定稿和执行ownership。C候选数≥5、原件/传输字节边界有说明、26步及选型理由齐全才通过；不要求等待B或三机联合签署，不把ACK当完成。",
+      "pass_criteria": "C候选至少5、字节边界明确、26步和逐模块选型理由齐全；无需等待B或三机联合签署",
+      "evidence": "C定稿、外评、原raw ZIP、冻结与来源hash、GitHub及群交付回证",
+      "status": "planned"
+    },
+    {
+      "id": "G0.3",
+      "owner": "A",
+      "reviewer": "C独立质量复核，涉及设备事实由A提供实测",
+      "input": "G0.1库存与G0.2统一方案、物理成功/失败定义草案",
+      "procedure": "A实际空载检查电平、急停/限位、反馈和行程，C复核成功/失败定义及危险余量；输出物理任务、单位、接口和BOM。真实感知及实际动作反馈存在，主站无真值输入，才进入实施。",
+      "pass_criteria": "真实感知及实际动作反馈存在,主站无真值输入,才进入实施",
+      "evidence": "物理任务、单位、接口和BOM",
+      "status": "planned"
+    },
+    {
+      "id": "G1.1",
+      "owner": "C",
+      "reviewer": "C独立质量复核，涉及设备事实由A提供实测",
+      "input": "授权原始数据包、许可、单位和井号/场次元数据",
+      "procedure": "C下载授权数据并建立manifest，另一独立模型/脚本复跑分组划分；通过标准井/布局不跨集、无未来输入、许可/单位/缺测/hash完整，盲测井列表冻结。无风险标签不解锁含水/断层宣称。",
+      "pass_criteria": "标准井/布局不跨集、无未来输入、许可/单位/缺测/hash完整,盲测井列表冻结;无风险标签不解锁含水/断层宣称",
+      "evidence": "manifest",
+      "status": "planned"
+    },
+    {
+      "id": "G1.2",
+      "owner": "C",
+      "reviewer": "C独立质量复核，涉及设备事实由A提供实测",
+      "input": "已冻结接口草案、数据量程、E集合和边界激励",
+      "procedure": "C实现独立编码/解码与协议黄金向量，A/C另一独立实现核对；无损逐点一致，有损max≤E，边界/码长/CRC/回绕/坏长度有预期。输出脚本、固定向量与日志。",
+      "pass_criteria": "无损逐点一致,有损max≤E,边界/码长/CRC/回绕/坏长度有预期",
+      "evidence": "脚本、固定向量与日志",
+      "status": "planned"
+    },
+    {
+      "id": "G1.3",
+      "owner": "C",
+      "reviewer": "C独立质量复核，涉及设备事实由A提供实测",
+      "input": "G1.2黄金模型、板卡原理图与时钟/复位清单",
+      "procedure": "C固定模块/寄存器/握手/复位/约束，C校验包和参数事务；输出接口文档和时序。所有字段端序/定宽、拒绝/恢复条件明确，半块与跨域行为可测试。",
+      "pass_criteria": "所有字段端序/定宽、拒绝/恢复条件明确,半块与跨域行为可测试",
+      "evidence": "接口文档和时序",
+      "status": "planned"
+    },
+    {
+      "id": "G1.4",
+      "owner": "C",
+      "reviewer": "C独立质量复核，涉及设备事实由A提供实测",
+      "input": "G1.1至G1.3产物、证据schema与正负验收样例",
+      "procedure": "C实现统一验收入口和证据schema，另一独立环境复跑；缺输入/日志、阈值不达、SHA不符非零退出。输出模板、验证器与有效/无效样例；只证明验收工具，不证明硬件。",
+      "pass_criteria": "缺输入/日志、阈值不达、SHA不符非零退出;只证明验收工具,不证明硬件",
+      "evidence": "模板、验证器与有效/无效样例",
+      "status": "planned"
+    },
+    {
+      "id": "G2.1",
+      "owner": "C",
+      "reviewer": "A实测/集成复核；C使用独立模型或另一环境核对",
+      "input": "G1契约/黄金模型/激励、最小RTL源码",
+      "procedure": "C提交最小采样/UART/保护/输出RTL，独立解码器比对至少100万样本；覆盖满空、随机背压/复位、计数回绕、重复/过期指令。输出真实仿真log及种子，无不解释丢样/重复才通过。",
+      "pass_criteria": "覆盖满空、随机背压/复位、计数回绕、重复/过期指令;无不解释丢样/重复才通过",
+      "evidence": "真实仿真log及种子",
+      "status": "planned"
+    },
+    {
+      "id": "G2.2",
+      "owner": "有Vivado节点",
+      "reviewer": "A实测/集成复核；C使用独立模型或另一环境核对",
+      "input": "G2.1源码SHA、XDC、器件/板卡版本与构建脚本",
+      "procedure": "A或实际有工具节点综合及布局布线，C独立复核：器件xc7z020clg400-1、实物版次/XDC匹配，WNS≥0、TNS=0、关键路径全约束、无未解释critical DRC/CDC。输出Tcl、工具版本、资源/时序/DRC/CDC和同次bit/hwh。",
+      "pass_criteria": "实际器件/XDC匹配；实现WNS≥0、TNS=0、关键路径全约束；未解释critical DRC/CDC为0；同次bit/hwh有hash",
+      "evidence": "Tcl、工具版本、资源/时序/DRC/CDC和同次bit/hwh",
+      "status": "planned"
+    },
+    {
+      "id": "G2.3",
+      "owner": "A",
+      "reviewer": "A实测/集成复核；C使用独立模型或另一环境核对",
+      "input": "G2.2同次bit/hwh和manifest、A批准的接线与板测步骤",
+      "procedure": "A加载同commit工程，经实际受限链路完成10次采样—命令—实体反馈，C独立复核读取匹配PR。输出线字节/波形、命令与实际位置日志、视频；LED或虚拟位置不算通过。",
+      "pass_criteria": "LED或虚拟位置不算通过",
+      "evidence": "线字节/波形、命令与实际位置日志、视频",
+      "status": "planned"
+    },
+    {
+      "id": "G3.1",
+      "owner": "C",
+      "reviewer": "A实测/集成复核；C使用独立模型或另一环境核对",
+      "input": "已冻结E/码流规则、黄金向量与编码RTL",
+      "procedure": "C实现一个主编码器与raw旁路，C百万样本黄金对照；无损零差异、有损零E违例、扩张可旁路、下一独立块恢复。输出真实RTLlog与实际线流，不只测试Python实现。",
+      "pass_criteria": "无损零差异、有损零E违例、扩张可旁路、下一独立块恢复",
+      "evidence": "真实RTLlog与实际线流,不只测试Python实现",
+      "status": "planned"
+    },
+    {
+      "id": "G3.2",
+      "owner": "C(提交调度/计费工具);A(线测300/1200/9600档)",
+      "reviewer": "A实测/集成复核；C使用独立模型或另一环境核对",
+      "input": "通过的编码器、仲裁协议、UART时钟/波特率配置、仪器",
+      "procedure": "C提交调度/计费工具，A线测300/1200/9600档，C复核；常态4s与8s滚动占用目标≤80%，告警/命令最大等待有界、细节不阻塞；输出实际有效吞吐、P50/P95/P99/max、样本数和guard。300baud不稳定可改压力仿真但须明确标签。",
+      "pass_criteria": "共享300baud8N1常态占用≤80%，计全部guard/ACK/重传；告警/命令最大等待有界，输出分位数与max",
+      "evidence": "实际有效吞吐、P50/P95/P99/max、样本数和guard",
+      "status": "planned"
+    },
+    {
+      "id": "G3.3",
+      "owner": "C(生成);A(实测)",
+      "reviewer": "A实测/集成复核；C使用独立模型或另一环境核对",
+      "input": "G3.2稳定链路、故障注入种子、状态机恢复契约",
+      "procedure": "C生成0/1/5%丢包、1/3/5s断链、10包突发错误、坏CRC/旧配置/重复指令，各≥30轮，A实测；坏数据不执行，溢出计数与HOLD/FAULT符合契约，恢复时间有分布。输出故障种子、原始日志、失败与重现步骤。",
+      "pass_criteria": "坏数据不执行,溢出计数与HOLD/FAULT符合契约,恢复时间有分布",
+      "evidence": "故障种子、原始日志、失败与重现步骤",
+      "status": "planned"
+    },
+    {
+      "id": "G4.1",
+      "owner": "C",
+      "reviewer": "C独立质量复核，涉及设备事实由A提供实测",
+      "input": "冻结训练/验证/盲测分组、因果窗口及基线定义",
+      "procedure": "C训练小模型和简单基线，C核分组/因果/阈值；公开岩性目标raw Macro-F1≥0.60、compressed下降≤0.03，台架目标Macro-F1≥0.85、风险代理Recall≥0.95。输出各类Recall/混淆矩阵及按井/场次的统计；未达保留失败并按截止规则收缩。",
+      "pass_criteria": "公开岩性目标raw Macro-F1≥0.60、compressed下降≤0.03,台架目标Macro-F1≥0.85、风险代理Recall≥0.95;未达保留失败并按截止规则收缩",
+      "evidence": "各类Recall/混淆矩阵及按井/场次的统计",
+      "status": "planned"
+    },
+    {
+      "id": "G4.2",
+      "owner": "A(运行);C(收集)",
+      "reviewer": "C独立质量复核，涉及设备事实由A提供实测",
+      "input": "G4.1模型/ONNX/量化hash、实际PC/驱动/SDK及校准集",
+      "procedure": "A在实际PC运行CPU及ROCm GPU后端，C收模型hash/量化/GPU kernel profile/框架/驱动（NPU增强另收ORT分区），C核；至少1000次热推理、独立冷启动，候选热P99≤100ms、加速量化精度下降≤2个百分点。GPU真实profile为核心；无NPU实证删除增强，不要求虚构加速比。",
+      "pass_criteria": "ROCm≥7.14实际AMD GPU主要推理profile；CPU公平基线；至少1000次热推理及冷启动；P99≤100ms；量化精度下降≤2个百分点；NPU增强仅有独立运行证据才保留",
+      "evidence": "模型hash/量化/分配/ORT/驱动",
+      "status": "planned"
+    },
+    {
+      "id": "G4.3",
+      "owner": "C(有限模式自适应);A(同预算比较固定/自适应)",
+      "reviewer": "C独立质量复核，涉及设备事实由A提供实测",
+      "input": "通过的固定模式、允许模式表、版本事务和相同线预算",
+      "procedure": "C有限模式自适应、C验证原子切换与回滚，A同预算比较固定/自适应；改善时延/任务/误差之一且正确性/安全/事件Recall不退化才保留。输出版本事务日志、增益及失败场景。",
+      "pass_criteria": "改善时延/任务/误差之一且正确性/安全/事件Recall不退化才保留",
+      "evidence": "版本事务日志、增益及失败场景",
+      "status": "planned"
+    },
+    {
+      "id": "G5.1",
+      "owner": "A",
+      "reviewer": "A实测/集成复核；C使用独立模型或另一环境核对",
+      "input": "已验收硬件/应用/模型、训练外布局与封存真值",
+      "procedure": "A执行10个训练外布局完整闭环，C查每动作对应观测/模型/命令/反馈，C核旁路禁用。输出trace和实际反馈，未知布局不靠预录动作表。",
+      "pass_criteria": "未知布局不靠预录动作表;旁路禁用",
+      "evidence": "trace和实际反馈",
+      "status": "planned"
+    },
+    {
+      "id": "G5.2",
+      "owner": "C/A",
+      "reviewer": "A实测/集成复核；C使用独立模型或另一环境核对",
+      "input": "G5.1冻结版本、故障矩阵、数字/采样/制动保护定义",
+      "procedure": "C准备、A分别执行数字急停/限位、PC崩溃、失联、错指令、饱和，每类≥30次；数字保护逻辑≤10ms、采样异常≤20ms候选，机械停距另测，恢复不未知续跑。输出同一时基仪器波形与反馈，异机无同步证明只报RTT。",
+      "pass_criteria": "各类故障≥30次；数字保护逻辑≤10ms，100Hz采样异常≤20ms；机械停距独立测；停止解锁按契约",
+      "evidence": "同一时基仪器波形与反馈",
+      "status": "planned"
+    },
+    {
+      "id": "G5.3",
+      "owner": "C",
+      "reviewer": "A实测/集成复核；C使用独立模型或另一环境核对",
+      "input": "真实trace、后端信息、测量日志与界面显示规范",
+      "procedure": "C仪表盘显示实测位置/转速、命令误差、后端、队列、age、告警与码流，A对照真实日志；可切固定/自适应、AI/规则和注入故障，屏幕值不是人工改图。输出使用步骤与一次完整录制。",
+      "pass_criteria": "屏幕值不是人工改图",
+      "evidence": "使用步骤与一次完整录制",
+      "status": "planned"
+    },
+    {
+      "id": "G6.1",
+      "owner": "C(冻结);A(执行)",
+      "reviewer": "A实测/集成复核；C使用独立模型或另一环境核对",
+      "input": "冻结代码/设备/模型/线预算、30个盲测布局及种子",
+      "procedure": "C冻结30盲布局/工况×每配置3轮，A执行C复算；目标成功≥90%，成功定义含完成任务、无规定侵入/超时/人工干预。停止/保护介入另列且不得藏分母，输出试次CSV、真实成功率与Wilson区间。提升目标相同条件比规则高≥10个百分点，未实现照报。",
+      "pass_criteria": "目标成功≥90%,成功定义含完成任务、无规定侵入/超时/人工干预;停止/保护介入另列且不得藏分母;提升目标相同条件比规则高≥10个百分点,未实现照报",
+      "evidence": "试次CSV、真实成功率与Wilson区间",
+      "status": "planned"
+    },
+    {
+      "id": "G6.2",
+      "owner": "C(设计);A(执行)",
+      "reviewer": "A实测/集成复核；C使用独立模型或另一环境核对",
+      "input": "G6.1冻结条件、各对照配置、相同硬保护和计分定义",
+      "procedure": "C设计原始高带宽参考、同预算无编码、固定编码、事件优先、无AI/有AI及自适应必要消融，A执行C复核。至少一个对照隔离FPGA贡献、一个隔离AI贡献；所有对照同样保留硬保护，记录危险请求和保护干预，不能为baseline关闭急停。",
+      "pass_criteria": "至少一个对照隔离FPGA贡献、一个隔离AI贡献;所有对照同样保留硬保护,不能为baseline关闭急停",
+      "evidence": "危险请求和保护干预记录",
+      "status": "planned"
+    },
+    {
+      "id": "G6.3",
+      "owner": "A(实测);C(统计)",
+      "reviewer": "A实测/集成复核；C使用独立模型或另一环境核对",
+      "input": "冻结系统、稳定性输入/断链工况、计数与功耗仪器",
+      "procedure": "A真实300档连续≥2h，C统计并用独立脚本复核；无静默丢样、未处理异常或计数漂移，重连结果可解释；功耗注明整机/PC/FPGA/执行器范围和仪器、空闲/平均/峰值/单任务能耗。缺功率计标blocked，TDP不当实测。",
+      "pass_criteria": "实际300档连续≥2h，无静默丢样/无未处理异常/计数无漂移；功耗真实范围和仪器，有缺项标blocked",
+      "evidence": "metrics/logs/stability.csv、power.csv；缺仪器时功耗blocked日志及原因",
+      "status": "planned"
+    },
+    {
+      "id": "G7.1",
+      "owner": "C(复建FPGA);C/A(复建应用)",
+      "reviewer": "A实测/集成复核；C使用独立模型或另一环境核对",
+      "input": "冻结工程、依赖lock、数据/模型/bit/hwh manifest与启动步骤",
+      "procedure": "A或实际有Vivado的节点干净目录复建FPGA，C审日志并与A复建应用；源码、依赖、模型、bit/hwh和hash一致，一条明确启动流程完成10次实物任务。输出完整命令/版本/log与复建结果，无隐含私有路径/缓存。",
+      "pass_criteria": "有工具节点干净复建FPGA、A AMDPC与C应用复建；源码/依赖/模型/bit/hwh hash一致；完整流程10次真实任务",
+      "evidence": "完整命令/版本/log与复建结果",
+      "status": "planned"
+    },
+    {
+      "id": "G7.2",
+      "owner": "A(统稿)",
+      "reviewer": "A实测/集成复核；C使用独立模型或另一环境核对",
+      "input": "全部已测指标/原始日志、RTL贡献、失败记录与正式模板",
+      "procedure": "C统稿并独立核RTL贡献和所有数字，A核实际证据：report/metrics/视频一致，接线/BOM/安装与自验收可操作，有失败分析；英文海报、匿名和模板按最新正式资料核。输出最终报告/视频/材料映射表，未测功能不进入结果表。",
+      "pass_criteria": "report/metrics/视频一致,接线/BOM/安装与自验收可操作,有失败分析;未测功能不进入结果表",
+      "evidence": "最终报告/视频/材料映射表",
+      "status": "planned"
+    },
+    {
+      "id": "G7.3",
+      "owner": "C(生成manifest);A(录制)",
+      "reviewer": "A实测/集成复核；C使用独立模型或另一环境核对",
+      "input": "G7.2提交材料、产物清单、秘密扫描规则及演示流程",
+      "procedure": "C生成全包manifest，再由独立质量回合查英文路径、源码遗漏、秘密/Token和大产物，A录一次无剪切核心及故障。输出hash、包审计与演示视频；视频不替代原始测量log。",
+      "pass_criteria": "视频不替代原始测量log",
+      "evidence": "hash、包审计与演示视频",
+      "status": "planned"
+    },
+    {
+      "id": "G8.1",
+      "owner": "A",
+      "reviewer": "C独立质量复核，涉及设备事实由A提供实测",
+      "input": "G7冻结包/SHA-256、提交账号权限及最新报名后台通知",
+      "procedure": "A在11/3内部期限前提交，C独立复核上传包=冻结包；输出后台成功回执、时间与SHA-256。上传排队/本地文件存在不代表成功。必要修复创建新版本并重跑受影响门槛，保留旧失败与旧回执。",
+      "pass_criteria": "上传包=冻结包;上传排队/本地文件存在不代表成功;必要修复创建新版本并重跑受影响门槛,保留旧失败与旧回执",
+      "evidence": "后台成功回执、时间与SHA-256",
+      "status": "planned"
+    }
+  ],
+  "contract": "Each step has concrete input, procedure, pass criteria, evidence and reviewer; no hardware pass is implied."
+}

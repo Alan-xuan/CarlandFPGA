@@ -1,0 +1,21 @@
+{
+  "cpu": [
+    "Intel(R) Core(TM) i7-14650HX"
+  ],
+  "ram_gib": 15.7,
+  "gpu": [
+    {
+      "Name": "AskLink Display Adapter (HDR)",
+      "DriverVersion": "7.7.2.8"
+    },
+    {
+      "Name": "Intel(R) UHD Graphics",
+      "DriverVersion": "32.0.101.6790"
+    },
+    {
+      "Name": "NVIDIA GeForce RTX 4050 Laptop GPU",
+      "DriverVersion": "32.0.15.6624"
+    }
+  ],
+  "npu": []
+}

@@ -1,0 +1,4 @@
+*.md text eol=lf
+*.json -text
+*.py -text
+*.zip -text

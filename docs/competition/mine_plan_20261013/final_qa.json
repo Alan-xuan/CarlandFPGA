@@ -1,0 +1,66 @@
+{
+  "pages": 11,
+  "steps_present": 26,
+  "visual_review": "All 11 pages reviewed by main; latest changed pages 6/7/8 reviewed after rebuild; others pixel-identical to reviewed pages",
+  "bounds": [
+    {
+      "page": 1,
+      "left_pt": 56.69,
+      "right_pt": 58.58
+    },
+    {
+      "page": 2,
+      "left_pt": 56.69,
+      "right_pt": 58.58
+    },
+    {
+      "page": 3,
+      "left_pt": 56.69,
+      "right_pt": 58.58
+    },
+    {
+      "page": 4,
+      "left_pt": 56.69,
+      "right_pt": 58.58
+    },
+    {
+      "page": 5,
+      "left_pt": 56.69,
+      "right_pt": 58.58
+    },
+    {
+      "page": 6,
+      "left_pt": 56.69,
+      "right_pt": 58.58
+    },
+    {
+      "page": 7,
+      "left_pt": 56.69,
+      "right_pt": 58.58
+    },
+    {
+      "page": 8,
+      "left_pt": 56.69,
+      "right_pt": 58.58
+    },
+    {
+      "page": 9,
+      "left_pt": 56.69,
+      "right_pt": 58.58
+    },
+    {
+      "page": 10,
+      "left_pt": 56.69,
+      "right_pt": 58.58
+    },
+    {
+      "page": 11,
+      "left_pt": 56.69,
+      "right_pt": 58.58
+    }
+  ],
+  "source_sha256": "78f22e28944cfbe0028cb9f67f89eb1539a32fd7d7023dc9ca998da77792e880",
+  "pdf_sha256": "510833df2e971acd14ab760d37497d4a7c89442db247aadb5d6286e4e51fc278",
+  "render_command": "pdftoppm -r 120 -png output/pdf/mine_taskbook.pdf docs/competition/mine_plan_20261013/pdf_qa/final/page",
+  "stage": "planning document only"
+}

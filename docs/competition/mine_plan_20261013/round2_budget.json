@@ -1,0 +1,44 @@
+{
+  "scope": "round2 proposal arithmetic only",
+  "baud": 300,
+  "format": "8N1",
+  "duplex": "half",
+  "profiles": [
+    {
+      "type": "summary",
+      "total_frame_bytes": 34,
+      "nominal_period_s": 4,
+      "wire_bps": 85.0
+    },
+    {
+      "type": "event_reserve",
+      "total_frame_bytes": 20,
+      "nominal_period_s": 4,
+      "wire_bps": 50.0
+    },
+    {
+      "type": "command",
+      "total_frame_bytes": 24,
+      "nominal_period_s": 8,
+      "wire_bps": 30.0
+    },
+    {
+      "type": "feedback_ack",
+      "total_frame_bytes": 22,
+      "nominal_period_s": 8,
+      "wire_bps": 27.5
+    }
+  ],
+  "frame_bps": 192.5,
+  "guard_equivalent_bps": 15.0,
+  "total_bps": 207.5,
+  "occupancy": 0.6916666666666667,
+  "margin_to_80pct_bps": 32.5,
+  "unverified": [
+    "guard duration",
+    "event burst envelope",
+    "timely receive slots",
+    "real GPU and task metrics"
+  ],
+  "stage_status": "not_run"
+}
