@@ -1,0 +1,30 @@
+{
+  "task_id": "COMP-20261013-DEEPEYE",
+  "task_version": 1,
+  "node": "A",
+  "candidate_count": 5,
+  "frozen_before_reading_peer_designs": true,
+  "frozen_at": "2026-10-13T16:23:34.937482+00:00",
+  "files": [
+    {
+      "path": "candidates.md",
+      "bytes": 13001,
+      "sha256": "fefe2cd5aaa6205ec89fd500fe5eb4d9599c575a8cc8af3eae9fb2224dc06926"
+    },
+    {
+      "path": "best.md",
+      "bytes": 4640,
+      "sha256": "d9716026589a298e4554d018c9478539cf9a2840458129e246e1134173911416"
+    },
+    {
+      "path": "research_rules.md",
+      "bytes": 9433,
+      "sha256": "79a0525bdd1f9812aba18506be8e4e53c7552cf2829135705cdd0f8a87d59c59"
+    },
+    {
+      "path": "research_cases.md",
+      "bytes": 9925,
+      "sha256": "77573e588d0a02c07331a40bb850424cfcd030dd39554eb03ffdc8e267323277"
+    }
+  ]
+}
