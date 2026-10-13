@@ -2,7 +2,7 @@
 
 基于Ryzen AI与PYNQ Z2的低带宽随钻感知及数字孪生闭环
 
-任务COMP-20261013-DEEPEYE，版本3，统筹A。计划期2026年10月14日至11月4日；11月4日12时冻结交付包，18时为官方提交截止。
+任务COMP-20261013-DEEPEYE，版本3修订1，统筹A。计划期2026年10月14日至11月4日；11月4日12时冻结交付包，18时为官方提交截止。
 
 ## 1 最终目标与作品范围
 
@@ -85,7 +85,7 @@ FPGA使用xc7z020clg400-1；Vivado2026.1为主构建工具，PYNQ沿用实际兼
 |自动输入夹具|MCP4728四路DAC或等价3.3V可编程源1套|给ADC产生可重放阶跃/斜坡/噪声，不是钻头执行器；实传感与DAC模式分别标记|
 |串行链路|3.3V逻辑兼容RS485收发模块2块、PC USB-RS485适配器1|A核电平、方向和终端；实测300/1200/9600baud；无高速业务旁路|
 |逻辑分析仪|现有优先，否则常见8通道USB款1|统一测串口位宽、换向、PL调试标记和反馈时刻|
-|接线和固定|共地、限流保护、线材/底板1套|不直接接超过允许电平，ADC精度和容器位宽分别记录|
+|接线和固定|共地、限流保护、线材/底板1套|不直接接超过允许电平，ADC分辨率、实测ENOB和容器位宽分别记录|
 
 外设最初接线必须由能接触实物的人完成；之后校准、DAC激励、采集、回归、构建、加载、测量和报告均交agent脚本。需要管理员确认的驱动交互集中一次处理，不要求人类逐条执行普通命令。
 
@@ -103,7 +103,7 @@ FORCE数据锁定具体文件、井列表、SHA和许可。按井划分训练/�
 
 ## 6 采样 编码与低带宽守恒
 
-基础采样为4通道100Hz、uint16容器，真实XADC有效12bit；公开日志量化16bit另标。每帧带来源/质量/序号和采样tick。4×100×16=6400bps是容器速率，实际12bit信息另列4800bps。8倍容器压缩仍800bps，超过300baud8N1的30byte/s，不能保证全量实时上传。PL/PS保存完整原值；低速曲线是明确选择后的在线信息。
+基础采样为4通道100Hz、uint16容器，XADC标称转换分辨率12bit；公开日志量化16bit另标。实际ENOB须测量，未测不宣称12位有效精度。每帧带来源/质量/序号和采样tick。4×100×16=6400bps是容器速率，12位打包4800bps另列，不是源熵测量。8倍容器压缩仍800bps，超过300baud8N1的30byte/s，不能保证全量实时上传。PL/PS保存完整原值；低速曲线是明确选择后的在线信息。
 
 核心编码采用独立锚点的差分ZigZag/Rice，k按块选择，unary有长度上限，不如RAW时整块旁路。E=0逐位无损；标准层闭环预测量化步长Δ=2E+1，编码器以自己的重建值更新预测，E取1/2/4/8。差分中间位宽至少17bit有符号，饱和/极端跳变均测。每块从绝对锚点开始，坏块不污染下一块。
 
@@ -128,25 +128,29 @@ E只保证已编码且完整收到的点。未发区间另显示包络、GAP和�
 |GAIN_ACK 0x0b|32B|session4、request_seq2、request_type1、phase1、gain_code1、measured_ratio_q8_8两字节、remaining_ttl_ms2、fault_flags2、capture_seq2、quality1；共18|
 |BOOT 0x0c / BOOT_ACK 0x0d|41B|session4、mode1、slot_profile_sha128共16、guard_total_ms2、primary_slot_ms2、config_slot_ms2；共27，仅停止阶段握手/匹配回读|
 
-所有请求唯一键为(session_id,request_type,header.seq)。CONTROL的cmd_id必须等于header.seq；相同seq不同type不混认。CONFIG_ACK须给实际profile/E/rate/threshold、applied_epoch和首个生效采样序号，不能借控制ACK伪装配置确认；低16位采样序号仅在明确小于半周期关联范围内比较。完全相同请求重发原应答；同键不同负载拒绝。重复不重复应用、不刷新TTL；旧会话拒绝，seq/epoch回绕前停止、换新会话并清理旧关联。影子配置在块边界原子生效，phase=applied仅在实读一致后发送；phase取accepted/applied/captured/rejected/stopped，数值由interface.json冻结。
+所有请求唯一键为(session_id,request_type,header.seq)。CONTROL的cmd_id必须等于header.seq；相同seq不同type不混认。CONFIG_ACK须给实际profile/E/rate/threshold、applied_epoch和首个生效采样序号，不能借控制ACK伪装配置确认；低16位采样序号仅在明确小于半周期关联范围内比较。同键同负载只缓存事务结果与首次应用时刻，不缓存含旧remaining_ttl的整帧重发；每次应答重新采当前phase/capture/fault/剩余TTL，重写发送tick与CRC。同键不同负载拒绝，已被更新命令覆盖的旧请求回rejected及superseded标志；TTL已过回stopped。重复不重复应用、不刷新TTL；旧会话拒绝，seq/epoch回绕前停止、换新会话并清理旧关联。影子配置在块边界原子生效，phase=applied仅在当前实读一致后发送；phase取accepted/applied/captured/rejected/stopped，数值由interface.json冻结。
 
 控制yaw_q按0.1度/秒，±15度/秒；speed_code0–20对应0–2mm/s虚拟推进，TTL≤12000ms。GPIO/PWM由PL输出，经物理短线到独立输入捕获逻辑测周期/计数并映射captured值；ACK的captured阶段不能只回读写寄存器。capture_quality无效不得推进。真实PGA控制另用GAIN，不把其增益和虚拟yaw混为一字段。GAIN_ACK的measured_ratio来自调节前后ADC校准读数，不仅是SPI寄存器；刺激无效或接近零时ratio置无效。GPIO回采只证电气因果，不证明钻头位置；PGA实测才是物理调节证据。
 
-TTL从PL首次应用起计。ACK/STATE头tick表示第一字节发出时刻，remaining_ttl也是此时剩余值。主机到末字节后才收完整帧，保守有效时间为receipt_monotonic＋max(0,remaining_ttl−frame_serial_time−USB/处理延迟上界−时钟误差界)。上界须R02/B04实测并留证，无法建立时仅停止显示，不采用乐观时钟。每个渲染步重新检查截止/会话/capture质量；过期立即暂停，不因新TELEM或重复ACK续期。STATE至少8秒一次，TTL/fault也触发20B EVENT；事件丢失仍由本地保守截止保证停止。同步映射、ACK阶段及捕获时间各自记录，不以PC画面时间替物理发生时间。
+TTL从PL首次应用起计。ACK/STATE头tick表示第一字节发出时刻，remaining_ttl也是此次发送的当前剩余值。主机保存每请求第一次发送前的first_send_monotonic与原TTL，重试不重置；有效截止为min(first_send_monotonic＋original_ttl, receipt_monotonic＋max(0,current_remaining_ttl−frame_serial_time−USB/处理延迟上界−时钟误差界))。每次STATE也受该首次请求上界约束。USB/处理与时钟误差上界须R02/B04实测，无法建立时停止显示。首次ACK丢失而旧命令很晚重试、其后STATE/EVENT也丢失时，主机仍不能重开租期。每个渲染步检查截止/会话/capture，过期暂停；新TELEM、重复或重编码ACK不能突破原截止。STATE至少8秒一次，TTL/fault也触发20B EVENT；同步、发送tick、捕获及物理发生时间分报。
 
 300baud8N1共享半双工固定8秒窗：TELEM32一次、STATE32一次、CONTROL28及ACK32一组、EVENT20一次，共144B；144/30＋0.2guard=5秒，占62.5%。物理量程模式以GAIN24及GAIN_ACK32替换CONTROL/ACK槽，不额外叠加，140B占60.833%；虚拟运动先hold，不假定同时两种控制仍有此时延。每16秒可有CONFIG24＋CONFIG_ACK32一组，最坏有配置窗200B、占85.833%；无配置重试窗加CONTROL28＋ACK32共204B、占87.5%。配置窗与重传窗互斥，TRACE及额外事件在这些窗禁发；普通窗余量按实际字节账分配。事件洪泛合并最新值/计数并停止虚拟推进，先延期低优先事务，不无限排队。不把“每16秒”折算成半包来证明最坏窗口。
 
-FPGA为调度主站。grant编码使用已计费TELEM的quality_flags bit15主请求授权、bit14配置授权，低14位为源有效/饱和/GAP/STOP等固定质量语义；不新增免费业务帧。bit15授权“TELEM末字节＋冻结guard”起的一个≤28B主请求槽，mode决定CONTROL或GAIN；bit14授权同窗“STATE末字节＋guard”起的一个≤24B CONFIG槽。槽长按最坏帧串行时间加实测USB余量冻结；PC无授权、超时或本槽已发送即不发。主请求失败/重试窗bit14必须0。已授槽不被EVENT抢占，其他事件只在完整帧间排入。HELLO后停止阶段用已列BOOT/BOOT_ACK回读mode、槽参数及slot_profile_sha128（规范slot表SHA256前16字节），与本地部署表不一致不得ENABLE；这82B握手字节单独计费，不能塞入普通窗而不重算。R03/B04有无PC响应、迟到、坏CRC和授权丢失向量。累计换向0.2秒为规划值，实际USB/RS485guard较大则重算并降发送率。
+单次EVENT重传只在无CONFIG、无主请求重试的正常窗预留20B，合计164B占70.833%；优先延期未开始的配置/TRACE。6秒告警重传目标仅验这一包络，已开始高负载事务或多种错误进入故障组另报，不套正常承诺。
 
-固定窗及任意滑动8秒账均由B04模拟和上板检查；窗口边界不会免费增加发送机会。HELLO/重连/诊断在停止阶段或显式余量计费。常规最坏不可抢占TRACE46B占1.533秒，EVENT20B再占0.667秒。事件P99≤3秒及一次重传≤6秒只针对冻结正常包络：独立告警之间≥8秒、无事件洪泛、有限grant槽及无错/单次错误。一个窗口再次出现同风险只合并计数；新种类或更严重风险先在PL保守处理并标STOP，进入故障工况单报到达/停止/恢复，不声称第二个事件仍满足3秒。正式试验同时报告真实事件总数、合并/延期数，不将合并降低分母。正常端到端P99≤8秒/max≤12秒用于无丢帧和此有界工况，故障另报，不承诺任意丢包仍满足。
+FPGA为调度主站。grant使用已计费TELEM的quality_flags：bit15主请求槽、bit14配置槽、bit13同窗一次重试预授权，低13位固定质量语义；不新增免费业务帧。bit15授权“TELEM末字节＋guard”起的一个≤28B主请求槽，mode决定CONTROL或GAIN；bit13只能与bit15同时置位且bit14为0，预授权第二个≤28B槽及对应≤32B应答槽。第二槽仅当首应答超时/损坏时发送完全相同请求键和负载，每槽最多一次；首应答有效则第二槽不发。其偏移由BOOT锁定slot表中的primary_slot、response_slot、retry_offset和超时边界给定，不能依赖已经丢失ACK的末字节定位。无bit13则重试延期至下一合法主槽，该故障路径不继承正常8秒响应目标。bit14授权“STATE末字节＋guard”起的≤24B CONFIG槽。迟到、无授权或本槽已发送即不发；已授槽不被EVENT抢占。204B最坏窗明确包含两组CONTROL/ACK，物理GAIN重试窗最多196B；未回应槽的空等也占保留时间，另报实际字节与槽占用。
 
-曲线profile的128点是128个实际选择点，不代表128个100Hz连续点。TRACE仅离线/余量回传，携带选择tick和mask；等待慢曲线积累时不得声称高频岩性实时分类。主闭环用TELEM摘要profile，TELEM周期8秒明确进入观测年龄；曲线与原始对照用于独立慢传/公开回放指标。首版策略删除queue输入，使用实际回传quality、age和主机可测丢包/响应；本地AXI queue仅用于A测量，不走调试网提供给AI。
+各槽按最长帧加实测USB余量冻结。HELLO后停止阶段BOOT/BOOT_ACK回读mode、参数及slot_profile_sha128（完整规范slot表SHA256前16字节），表含响应/重试偏移；与本地表不一致不得ENABLE。这82B握手单独计费，不藏入普通窗。R03/B04验证无PC响应、迟到、坏CRC、授权丢失、bit13超时重试及首ACK成功后禁止第二次发送。0.2秒是累计换向规划值，实测guard/空等超规划则重算并降发送率。
+
+固定窗及任意滑动8秒账均由B04模拟和上板检查；窗口边界不会免费增加发送机会。HELLO/重连/诊断在停止阶段或显式余量计费。常规最坏不可抢占TRACE46B占1.533秒，EVENT20B再占0.667秒。事件P99≤3秒及一次重传≤6秒只针对冻结正常包络：独立告警之间≥8秒、无事件洪泛、有限grant槽及无错/单次错误。一个窗口再次出现同风险只合并计数；新种类或更严重风险先在PL保守处理并标STOP，进入故障工况单报到达/停止/恢复，不声称第二个事件仍满足3秒。正式试验同时报告真实事件总数、合并/延期数，不将合并降低分母。正常端到端P99≤12秒/max≤16秒用于无丢帧和此有界工况，故障另报，不承诺任意丢包仍满足。
+
+曲线profile的128点是128个实际选择点，不代表128个100Hz连续点。TRACE仅离线/余量回传，携带选择tick和mask；等待慢曲线积累时不得声称高频岩性实时分类。主闭环用TELEM摘要profile，TELEM周期8秒明确进入观测年龄；随机采样相位还需加下一授权槽及双向串行耗时，不能据8秒刷新推出8秒闭环，因此系统/物理任务目标为P99≤12秒、max≤16秒，R03离散调度先证可行；曲线与原始对照用于独立慢传/公开回放指标。首版策略删除queue输入，使用实际回传quality、age和主机可测丢包/响应；本地AXI queue仅用于A测量，不走调试网提供给AI。
 
 寄存器以实际HWH为地址依据：0x00 ID、04 ABI、08 CTRL、0C STATUS、10 shadow_cfg、14 apply_req、18 sample_rate、1C E、20 profile、24 queue、28 overflow_merge、30 applied_yaw、34 applied_speed、38 applied_req、3C session、40/44 sample_tick、48/4C捕获周期、50 capture_seq、54 capture_quality、58 gain、5C measured_ratio。R03生成registers.csv/向量。CTRL上电未使能、stop优先，clear_fault和enable分离；不向旧Overlay地址试写。
 
 ## 8 数字孪生与因果验收
 
-标准层采用本地WebGL或等价桌面3D界面，基础可用2D。显示钻头、分层/模拟禁入区、原始来源曲线、实际回传点/包络、AI置信、期望与已应用参数、线速/队列/age/GAP。模拟推进最大2mm/s，默认前视50mm，场景根据最坏延迟及误差重新核算；不能用未来几何真值替模型提前避障。
+标准层采用本地WebGL或等价桌面3D界面，基础可用2D。显示钻头、分层/模拟禁入区、原始来源曲线、实际回传点/包络、AI置信、期望与已应用参数、线速/队列/age/GAP。模拟推进最大2mm/s，默认前视50mm；16秒最大正常延迟对应32mm推进，至少留18mm用于模型/几何/误差余量，不足则降速或停止，场景据实际误差重新核算；不能用未来几何真值替模型提前避障。
 
 孪生积分器只消费从板卡实际返回、合法会话和序号匹配且capture有效的captured状态；板写寄存器、accepted或pending不能作为动作完成证据。目标指令显示为pending，ACK丢失或数据老化时暂停推进。场景真值只供评估器和生成器，控制进程不可访问；只提供当前位置及历史应有观测。高级回放倍速必须显示倍率，正式指标用真实速率。
 
@@ -201,7 +205,7 @@ A执行读取sources原件和人类已确认报名资料，登记AMD Ryzen AI PC
 
 ### R02 设备和采集夹具
 
-A只读预检各机CPU/OS/NPU及现有板环境，复用8845H；核四通道电平、传感、DAC/PGA及GPIO捕获接线，记录实际ADC精度。输出hardware/bom.csv、wiring.pdf、calibration.json与environment.json。python tools/preflight.py不得启动模型/烧板；python integration/input_calibrate.py --levels 8要求每通道至少8点标定、越界与饱和可识别、模式和有效位数明示。ROCm7.14.1先核平台组合并实际跑项目图，训练/推理日志须显示真实HIP/GPU设备与版本；只有包版本或CPU结果不通过。NPU驱动/SDK另留增强证据，缺项不伪造通过。
+A只读预检各机CPU/OS/NPU及现有板环境，复用8845H；核四通道电平、传感、DAC/PGA及GPIO捕获接线，记录实际ADC精度。输出hardware/bom.csv、wiring.pdf、calibration.json与environment.json。python tools/preflight.py不得启动模型/烧板；python integration/input_calibrate.py --levels 8要求每通道至少8点标定、越界与饱和可识别、模式、标称分辨率和ENOB实测状态明示。ROCm7.14.1先核平台组合并实际跑项目图，训练/推理日志须显示真实HIP/GPU设备与版本；只有包版本或CPU结果不通过。NPU驱动/SDK另留增强证据，缺项不伪造通过。
 
 ### R03 协议 寄存器和编排器
 
@@ -209,7 +213,7 @@ A维护ABI和pipeline，B/C独立互操作。输出docs/interface.json、registe
 
 ### R04 最小真实任务和传感前端
 
-A选型与标定，B实现SPI增益控制和独立ADC前后回读，C决定有限gain_code。输入MCP6S21厂家数据手册、传感分压/保护电路、R02实际量程。采用3.3V、G=1/2/4/8，A0调节后、A3同源调节前；目标有效ADC码20%–80%量程。python integration/gain_calibrate.py --gains 1,2,4,8 --levels 8要求各档至少8个不饱和点、测得增益误差≤5%、越界可检测，负载稳定及接线记录完整。AI不控制刺激源，不偷读夹具真值。输出hardware/gain_calibration.json、真实波形/ADC字节。只有GPIO或寄存器变更不通过此卡；真实任务规则依据与工程证据由R01和本卡分别签收。失败保留基础开发，不称完成3.2参赛完整闭环。
+A选型与标定，B实现SPI增益控制和独立ADC前后回读，C决定有限gain_code。输入[MCP6S21数据手册DS21117B](https://ww1.microchip.com/downloads/en/DeviceDoc/21117B.pdf)、传感分压/保护电路、R02实际量程。采用3.3V、G=1/2/4/8，对应器件gain_code=0/1/2/4（码3为5倍，禁止误用）；MCP6S21无SO读回，不假造SPI寄存器实读。A0调节后、A3同源调节前，目标有效ADC码20%–80%量程。python integration/gain_calibrate.py --gains 1,2,4,8 --levels 8要求各档至少8个不饱和点、测得模拟增益误差≤5%、越界可检测，负载稳定及接线记录完整。AI不控制刺激源，不偷读夹具真值。输出hardware/gain_calibration.json、真实波形/ADC字节。只有GPIO或寄存器变更不通过此卡；真实任务规则依据与工程证据由R01和本卡分别签收。失败保留基础开发，不称完成3.2参赛完整闭环。
 
 ### B01 编码和独立回解
 
@@ -237,7 +241,7 @@ B实现Q0事件/控制、Q1当前趋势、Q2历史；C对端独立收发。pytho
 
 ### B05 控制确认与保守状态
 
-B实现session/观察seq/TTL、影子配置、stop优先和上电未使能。python tools/run_rtl.py --suite control_state覆盖重复、旧会话、超范围、TTL、epoch回绕、ACK丢失和重启；重复命令不刷新TTL。A运行python integration/board_control.py --trials 100核实际GPIO/PWM捕获值、CONFIG_ACK实读、GAIN_ACK模拟回读及TTL反例，非法命令应用次数0。已识别数字fault至PL停止标记目标≤2ms；100Hz模拟异常出现至采集识别/保守状态≤20ms，恢复须新握手和enable。此为逻辑保护，非矿用安全认证。
+B实现session/观察seq/TTL、影子配置、stop优先和上电未使能。python tools/run_rtl.py --suite control_state覆盖重复、旧会话、超范围、TTL、epoch回绕、首次ACK丢失后延迟重试且STATE/EVENT丢失、重启；重复不续期，重发应答的剩余TTL按当前值重算。A运行python integration/board_control.py --trials 100核GPIO/PWM捕获、CONFIG_ACK、GAIN_ACK及TTL反例，非法应用0，迟到旧ACK不得重开租期。已识别数字fault至PL停止标记≤2ms；100Hz模拟异常至识别/保守状态≤20ms，恢复新握手和enable。此为逻辑保护，非矿用安全认证。
 
 ### B06 实现和模块板测
 
@@ -257,19 +261,19 @@ C只在有限动作/通信档位内决策；输入为实际接收的信息、age
 
 ### C05 孪生和故障显示
 
-C构建twin及PC界面。python twin/verify_causality.py --scenario disconnect_reject_reset_ttl_capture要求只凭独立捕获且仍在保守有效期内的板反馈积分、pending不冒充执行、断板/错误ACK/重启均暂停推进，GAP和误差阴影不伪造连续曲线。标准3D目标≥30FPS仅为界面流畅指标，不能算弱链路吞吐。输出trace一致截图/录像和因果反例。
+C构建twin及PC界面。python twin/verify_causality.py --scenario disconnect_reject_reset_ttl_capture要求只凭有效捕获积分、pending不冒充执行、断板/错误ACK/重启暂停。增加首次ACK丢失、原TTL12秒、8秒后重试且STATE/EVENT持续丢失反例：即使此时首次收到应答，也必须在first_send＋12秒前暂停，不能重新给12秒。GAP和误差阴影不伪造连续曲线。标准3D≥30FPS仅为界面指标。输出同trace录像和反例。
 
 ### A02 盲场景全链路
 
-A统测，C评估、B核字节。场景生成器真值与控制进程隔离，冻结30个布局/扰动种子、每配置重复3次，共90次；此为虚拟导向评测。目标到达且禁入区不侵入、无人工干预为成功，停在原地不算成功。python integration/system_trials.py --layouts 30 --repeats 3 --seed 20261014要求成功率≥90%、侵入0；正常采样至捕获反馈及首个对应渲染帧P99≤8s/max≤12s，另至少1000自动事件测尾延迟；90场次区间按30布局聚类，不能按重复样本独立假定。原始/帧/AI/下行/板反馈/孪生同trace_id，全部失败保留。
+A统测，C评估、B核字节。场景生成器真值与控制进程隔离，冻结30个布局/扰动种子、每配置重复3次，共90次；此为虚拟导向评测。目标到达且禁入区不侵入、无人工干预为成功，停在原地不算成功。python integration/system_trials.py --layouts 30 --repeats 3 --seed 20261014要求成功率≥90%、侵入0；正常采样至捕获反馈及首个对应渲染帧P99≤12s/max≤16s，另至少1000自动事件测尾延迟；90场次区间按30布局聚类，不能按重复样本独立假定。原始/帧/AI/下行/板反馈/孪生同trace_id，全部失败保留。
 
 ### A05 真实自动量程任务
 
-A以独立DAC/人工传感变化激励，C运行真实AMD项目模型，B核PL及字节；R04通过后运行python integration/physical_trials.py --layouts 30 --repeats 3。冻结0.1–2.0V或实测可实现的输入包络，生成可达/不可达/饱和/噪声/断探头分组。成功定义：无人工干预，在12秒内经真实PGA调节达到ADC20%–80%量程且连续至少3个有效样本；输入反推误差≤5%，调节后饱和比例≤1%，非法档应用0。可达30工况各3次目标≥90%成功，全部失败及不可达组分别保存；不可达须在目标时限内标观测不足并退1倍，不删去。至少1000阶跃记录从实际输入变化至ADC测得物理响应的P50/P95/P99/max，目标正常P99≤8s/max≤12s。同逻辑分析仪触发/ADC标记测量或声明同步误差界；不能以ACK/渲染帧代替物理响应。断SPI或模拟输出线各10次，不能只因命令accepted判成功。成果不宣称井下钻进或真实水害控制。
+A以独立DAC/人工传感变化激励，C运行真实AMD项目模型，B核PL及字节；R04通过后运行python integration/physical_trials.py --layouts 30 --repeats 3。冻结0.1–2.0V或实测可实现的输入包络，生成可达/不可达/饱和/噪声/断探头分组。成功定义：无人工干预，在16秒内经真实PGA调节达到ADC20%–80%量程且连续至少3个有效样本；输入反推误差≤5%，调节后饱和比例≤1%，非法档应用0。可达30工况各3次目标≥90%成功，全部失败及不可达组分别保存；不可达须在目标时限内标观测不足并退1倍，不删去。至少1000阶跃记录从实际输入变化至ADC测得物理响应的P50/P95/P99/max，目标正常P99≤12s/max≤16s。同逻辑分析仪触发/ADC标记测量或声明同步误差界；不能以ACK/渲染帧代替物理响应。断SPI或模拟输出线各10次，不能只因命令accepted判成功。成果不宣称井下钻进或真实水害控制。
 
 ### A03 消融 故障与持续运行
 
-同一数据/场景/线速比较RAW低频保底、固定编码、事件优先、自适应；比较规则/CPU/NPU和原始/回传信息。python integration/ablation.py --trials-per-mode 30分别报任务效果/年龄/线字节/资源，不同时改条件归因。python integration/endurance.py --duration 7200要求2小时无未处理崩溃/无界队列/静默丢失/人工重启。坏CRC、重复、乱序/过期、断链、PC崩溃、FPGA复位各20次，100%符合预定义保守状态，恢复不自动执行旧动作。
+同一数据/场景/线速比较RAW低频保底、固定编码、事件优先、自适应；比较规则/CPU/NPU和原始/回传信息。物理量程另比较固定1倍、阈值量程规则、AI策略，初始状态/激励/信息/链路预算相同，报告成功率、饱和率、输入反推误差和恢复时延；传统AGC完成不能称AI增益，未优于规则就如实说明。python integration/ablation.py --trials-per-mode 30分别报任务效果/年龄/线字节/资源，不同时改条件归因。python integration/endurance.py --duration 7200要求2小时无未处理崩溃/无界队列/静默丢失/人工重启。坏CRC、重复、乱序/过期、断链、PC崩溃、FPGA复位各20次，100%符合预定义保守状态，恢复不自动执行旧动作。
 
 ### A04 复现 Skill与提交包
 
@@ -289,8 +293,8 @@ metrics/summary.csv每项记录名称/值/单位、型号/模型/精度/输入�
 |公开岩性|raw Macro-F1≥0.60，回传降幅≤0.03|分井盲集、类别/缺失统计|
 |模拟危险|≥100事件Recall≥90%，误报≤1/10min|固定生成器/种子，控制无真值访问|
 |AMD本地AI|ROCm≥7.14项目图真实运行；batch1 P95≤100ms；NPU可选|HIP设备/版本/项目算子，1000次分布和CPU对照；NPU另留EP证据|
-|真实物理任务|量程90试次≥90%成功；真实输出误差≤5%；1000响应P99≤8s|max和失败保留、输入/输出ADC与PGA关联，赛事认定另核|
-|孪生闭环|90试次≥90%成功，侵入0；P99≤8s/max≤12s|板确认到孪生积分因果trace、全部失败|
+|真实物理任务|量程90试次≥90%成功；真实输出误差≤5%；1000响应P99≤12s|max和失败保留、输入/输出ADC与PGA关联，赛事认定另核|
+|孪生闭环|90试次≥90%成功，侵入0；P99≤12s/max≤16s|板确认到孪生积分因果trace、全部失败|
 |持续/恢复|2小时无未处理异常，每类故障20次全符合契约|完整日志、窗口账、恢复会话与状态|
 |复现/协作|3次冷启动、独立软件环境、Skill复用及真实交互记录|构建和运行证据、需求映射与清单|
 

@@ -1,8 +1,8 @@
 {
   "task_id": "COMP-20261013-DEEPEYE",
   "task_version": 3,
-  "checked_at_utc": "2026-10-13T17:51:33.616091+00:00",
-  "checked_source_sha256": "a9ea6bd2b61ac5be804f0a0a0f889be3dbad4b4a5d08082497e7070803ce14b8",
+  "checked_at_utc": "2026-10-13T18:17:54.131180+00:00",
+  "checked_source_sha256": "735a3b9a3f2b9c7c3ad6a53b15eb0d70f90a7aa3b0d205d1532c3b8fc210e14e",
   "crc_reference_vector": "29b1",
   "frame_lengths": {
     "TELEM": 32,
@@ -16,7 +16,8 @@
     "GAIN": 24,
     "GAIN_ACK": 32,
     "BOOT": 41,
-    "BOOT_ACK": 41
+    "BOOT_ACK": 41,
+    "TRACE_MAX": 46
   },
   "fixed_window_planning": {
     "normal": {
@@ -50,6 +51,22 @@
       "window_s": 8,
       "guard_s": 0.2,
       "occupancy_percent": 60.833333
+    },
+    "gain_retry": {
+      "bytes": 196,
+      "baud": 300,
+      "line_bits_per_byte": 10,
+      "window_s": 8,
+      "guard_s": 0.2,
+      "occupancy_percent": 84.166667
+    },
+    "event_retry_normal": {
+      "bytes": 164,
+      "baud": 300,
+      "line_bits_per_byte": 10,
+      "window_s": 8,
+      "guard_s": 0.2,
+      "occupancy_percent": 70.833333
     }
   },
   "task_cards": {
@@ -81,26 +98,36 @@
   "board": "not_run",
   "rocm_project": "not_run",
   "physical_task_qualification": "not_verified",
-  "pdf_sha256": "64e3835a14f041062f6188cc07a977d3336155079180c95b4369063b5bf263e6",
-  "pdf_pages": 14,
+  "pdf_sha256": "65170a8de38bce1a5beedcc8eb888a3b5cf893ec2e89b922ecf36df2b73f1167",
+  "pdf_pages": 15,
   "pdf_text_characters_per_page": [
-    909,
+    912,
     1524,
     1513,
     1681,
-    1773,
-    1855,
-    2507,
-    1433,
-    1542,
-    1969,
-    1876,
-    1847,
-    1390,
-    940
+    1812,
+    1866,
+    2531,
+    1860,
+    1294,
+    1495,
+    1747,
+    2049,
+    1702,
+    1113,
+    725
   ],
-  "rendered_pages": 14,
+  "rendered_pages": 15,
   "dag": "20 cards, acyclic, all not_run",
-  "visual_qa": "passed: final 14 rendered pages reviewed; pages1-5 exact PNG hashes retained, pages6-14 re-reviewed",
-  "result": "passed_document_integrity_structure_crc_arithmetic_rendering_only"
+  "visual_qa": "passed: all15 pages checked; final changed pages7,8,9,12,13,14 re-reviewed; remaining final PNG hashes equal reviewed pages",
+  "result": "passed_document_integrity_structure_crc_arithmetic_rendering_only",
+  "late_first_ack_planning_counterexample": {
+    "first_send_s": 0,
+    "ttl_s": 12,
+    "late_receipt_s": 9.267,
+    "unsafe_cached_deadline_s": 19.980333333333334,
+    "reencoded_and_first_send_bounded_deadline_s": 11.980333333333334,
+    "pass": "new deadline cannot exceed first_send+TTL; planning math only"
+  },
+  "task_revision": 1
 }

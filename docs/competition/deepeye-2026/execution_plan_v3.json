@@ -190,5 +190,6 @@
     "R04/A05真实前端调节与独立测量",
     "A04完整复现"
   ],
-  "authorization": "No hardware queue, installer, purchase or official submission is executed by this planning file."
+  "authorization": "No hardware queue, installer, purchase or official submission is executed by this planning file.",
+  "task_revision": 1
 }
