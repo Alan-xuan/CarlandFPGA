@@ -11,7 +11,7 @@ from reportlab.lib import colors
 from reportlab.lib.pagesizes import A4
 from reportlab.lib.styles import ParagraphStyle
 from reportlab.lib.enums import TA_LEFT
-from reportlab.platypus import BaseDocTemplate, PageTemplate, Frame, Paragraph, Spacer, Table, TableStyle
+from reportlab.platypus import BaseDocTemplate, PageTemplate, Frame, Paragraph, Spacer, Table, TableStyle, Image
 
 
 def rich(text):
@@ -64,6 +64,13 @@ def build(source, output):
         line=lines[i].strip()
         if not line:
             flush();i+=1;continue
+        picture = re.fullmatch(r'!\[([^\]]*)\]\(([^)]+)\)',line)
+        if picture:
+            flush()
+            item=Image(str(source.parent/picture.group(2)))
+            item.drawHeight=item.imageHeight*doc.width/item.imageWidth
+            item.drawWidth=doc.width
+            story.append(item);story.append(Spacer(1,8));i+=1;continue
         if line.startswith('|'):
             flush();rows=[]
             while i<len(lines) and lines[i].strip().startswith('|'):

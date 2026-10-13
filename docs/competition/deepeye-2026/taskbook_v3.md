@@ -14,6 +14,8 @@
 
 现有三机协作程序提供开发和交接能力，参赛产品单独放competition/deepeye/。已有协作平台或旧BRAM验收不能替代本产品新Overlay的验证。
 
+![系统架构与真实反馈](architecture_v3.png)
+
 ## 2 官方规则与人类约束
 
 官方AMD指南共28页，原始SHA256为c6ad82acd4f7bdcd13bd412e232ed85d05f2a87dd5e2cdd04f9d219f88b569fc；第一轮通知7页，SHA256为c17611b45a66121cd93f421e7fdee50f1743b1eb0cb5d9f930c57578d480ef9f。A从官方列表取得原件依据，再独立获取同字节文件核对。源文件和provenance.json保存在本研究目录sources/，正式引用入口为[赛事官方下载中心](http://www.fpgachina.cn/?page=download)。
@@ -124,6 +126,7 @@ E只保证已编码且完整收到的点。未发区间另显示包络、GAP和�
 |CONFIG_ACK 0x09|32B|session4、request_seq2、request_type1、phase1、profile1、E1、rate1、threshold2、apply_block1、quality1、applied_epoch1、first_sample_index_low2；共18|
 |GAIN 0x0a|24B|session4、gain_code1、channel1、ttl_ms2、observed_seq2；request_seq使用头seq|
 |GAIN_ACK 0x0b|32B|session4、request_seq2、request_type1、phase1、gain_code1、measured_ratio_q8_8两字节、remaining_ttl_ms2、fault_flags2、capture_seq2、quality1；共18|
+|BOOT 0x0c / BOOT_ACK 0x0d|41B|session4、mode1、slot_profile_sha128共16、guard_total_ms2、primary_slot_ms2、config_slot_ms2；共27，仅停止阶段握手/匹配回读|
 
 所有请求唯一键为(session_id,request_type,header.seq)。CONTROL的cmd_id必须等于header.seq；相同seq不同type不混认。CONFIG_ACK须给实际profile/E/rate/threshold、applied_epoch和首个生效采样序号，不能借控制ACK伪装配置确认；低16位采样序号仅在明确小于半周期关联范围内比较。完全相同请求重发原应答；同键不同负载拒绝。重复不重复应用、不刷新TTL；旧会话拒绝，seq/epoch回绕前停止、换新会话并清理旧关联。影子配置在块边界原子生效，phase=applied仅在实读一致后发送；phase取accepted/applied/captured/rejected/stopped，数值由interface.json冻结。
 
@@ -133,7 +136,9 @@ TTL从PL首次应用起计。ACK/STATE头tick表示第一字节发出时刻，re
 
 300baud8N1共享半双工固定8秒窗：TELEM32一次、STATE32一次、CONTROL28及ACK32一组、EVENT20一次，共144B；144/30＋0.2guard=5秒，占62.5%。物理量程模式以GAIN24及GAIN_ACK32替换CONTROL/ACK槽，不额外叠加，140B占60.833%；虚拟运动先hold，不假定同时两种控制仍有此时延。每16秒可有CONFIG24＋CONFIG_ACK32一组，最坏有配置窗200B、占85.833%；无配置重试窗加CONTROL28＋ACK32共204B、占87.5%。配置窗与重传窗互斥，TRACE及额外事件在这些窗禁发；普通窗余量按实际字节账分配。事件洪泛合并最新值/计数并停止虚拟推进，先延期低优先事务，不无限排队。不把“每16秒”折算成半包来证明最坏窗口。
 
-FPGA为调度主站，PC只在grant窗口发送；0.2秒是累计换向规划值，实际USB/RS485guard较大则重算并降低发送率。固定窗及任意滑动8秒账均由B04模拟和上板检查；窗口边界不会免费增加发送机会。HELLO/重连/诊断只在停止阶段或显式余量计费。常规最坏不可抢占TRACE46B占1.533秒，EVENT20B再占0.667秒；事件目标无错P99≤3秒、一次重传≤6秒，须连续调度实测。正常端到端P99≤8秒/max≤12秒仅用于无丢帧、有界事件的冻结工况；故障另报停止/恢复，不承诺任意丢包仍满足。
+FPGA为调度主站。grant编码使用已计费TELEM的quality_flags bit15主请求授权、bit14配置授权，低14位为源有效/饱和/GAP/STOP等固定质量语义；不新增免费业务帧。bit15授权“TELEM末字节＋冻结guard”起的一个≤28B主请求槽，mode决定CONTROL或GAIN；bit14授权同窗“STATE末字节＋guard”起的一个≤24B CONFIG槽。槽长按最坏帧串行时间加实测USB余量冻结；PC无授权、超时或本槽已发送即不发。主请求失败/重试窗bit14必须0。已授槽不被EVENT抢占，其他事件只在完整帧间排入。HELLO后停止阶段用已列BOOT/BOOT_ACK回读mode、槽参数及slot_profile_sha128（规范slot表SHA256前16字节），与本地部署表不一致不得ENABLE；这82B握手字节单独计费，不能塞入普通窗而不重算。R03/B04有无PC响应、迟到、坏CRC和授权丢失向量。累计换向0.2秒为规划值，实际USB/RS485guard较大则重算并降发送率。
+
+固定窗及任意滑动8秒账均由B04模拟和上板检查；窗口边界不会免费增加发送机会。HELLO/重连/诊断在停止阶段或显式余量计费。常规最坏不可抢占TRACE46B占1.533秒，EVENT20B再占0.667秒。事件P99≤3秒及一次重传≤6秒只针对冻结正常包络：独立告警之间≥8秒、无事件洪泛、有限grant槽及无错/单次错误。一个窗口再次出现同风险只合并计数；新种类或更严重风险先在PL保守处理并标STOP，进入故障工况单报到达/停止/恢复，不声称第二个事件仍满足3秒。正式试验同时报告真实事件总数、合并/延期数，不将合并降低分母。正常端到端P99≤8秒/max≤12秒用于无丢帧和此有界工况，故障另报，不承诺任意丢包仍满足。
 
 曲线profile的128点是128个实际选择点，不代表128个100Hz连续点。TRACE仅离线/余量回传，携带选择tick和mask；等待慢曲线积累时不得声称高频岩性实时分类。主闭环用TELEM摘要profile，TELEM周期8秒明确进入观测年龄；曲线与原始对照用于独立慢传/公开回放指标。首版策略删除queue输入，使用实际回传quality、age和主机可测丢包/响应；本地AXI queue仅用于A测量，不走调试网提供给AI。
 
@@ -161,6 +166,8 @@ FPGA为调度主站，PC只在grant窗口发送；0.2秒是累计换向规划值
 
 其他tools检查脚本由A唯一维护，调用B/C模块；表中仅简写文件名的工具仍位于tools/。根目录README、依赖锁文件和公共任务清单由A维护。每个阶段运行前pipeline将上述ownership展开为精确文件列表后做冲突检查。
 
+execution_plan_v3.json提供20卡owner、stage及依赖DAG，全部初始not_run；它是可机读计划，不会自行执行。R01规则收集与资格认定分开：资格门尚未确定时可继续无依赖开发，标准层交付仍需关闭该门。automation_contract.md只定位本书规范，不另设冲突标准。
+
 ## 10 自动化执行契约
 
 工具入口为python tools/pipeline.py。plan/status只读取阶段和证据；run --stage s1 --task-version 3 --work-id stable-id创建有界执行；verify重算证据；resume首先核对暂停、任务版本、租约和原操作回执。每次合法stage都完成“检查先决条件→预订唯一文件/板资源→执行固定命令→独立黄金比较→收集原始输出→质量主会话签收→更新ledger→启动已具备条件的后继”。等待由原常驻程序和外部进程回调承担，不使用模型轮询。
@@ -184,7 +191,7 @@ pipeline的ledger.json每任务记录task/version/work_id、owner、输入/源�
 |S4|10月26日|传感/回放与实际板反馈闭环|冻结盲场景和因果反例通过|
 |S5|10月30日|消融、可靠性、资源和原始指标|核心目标通过，增强去留明确|
 |S6|11月2日|工程包、报告、视频、海报、Skill|冷启动3次及独立环境复建通过|
-|S7|11月4日12时|最终字节包与提交准备|最终版本重测；人类18时前提交并读回回执|
+|S7|11月4日12时|最终字节包与提交准备|最终版本重测；agent有既有提交授权及账号时18时前提交并读回回执，人类仅必要本人交互|
 
 以下命令是由各任务必须创建并验证的入口契约，当前不是已实现脚本。全部从competition/deepeye/运行；成功输出structured.json和原始日志，失败非零退出，不删失败样本。
 
@@ -266,7 +273,7 @@ A以独立DAC/人工传感变化激励，C运行真实AMD项目模型，B核PL�
 
 ### A04 复现 Skill与提交包
 
-A整合，B/C在独立环境复核。python tools/verify_release.py核需求覆盖100%、证据哈希/源码/bit一致、英文小写路径、许可和无凭据/SQLite/私人板标识。冷启动3次均复现；第二环境软件重建与A实板重建分别留证。skill/至少含通用Overlay校验、黄金/指标采集、DMA/metadata错误定位和已验证复用例；report/含真实大模型提示/回答/纠错及两轮择优。11月4日12时冻结包，人类18时前提交并读回平台回执，上传文件不等于提交成功。
+A整合，B/C在独立环境复核。python tools/verify_release.py核需求覆盖100%、证据哈希/源码/bit一致、英文小写路径、许可和无凭据/SQLite/私人板标识。冷启动3次均复现；第二环境软件重建与A实板重建分别留证。skill/至少含通用Overlay校验、黄金/指标采集、DMA/metadata错误定位和已验证复用例；report/含真实大模型提示/回答/纠错及两轮择优。11月4日12时冻结包；agent在既有明确提交授权、本人账号及工具可用时18时前代办提交并读回回执，人类仅必要本人认证/尚未授权动作。无该授权时仍先备齐可审阅包和提交操作卡，不擅自正式提交；上传文件不等于提交成功。
 
 ## 12 指标 失败与变更规则
 
