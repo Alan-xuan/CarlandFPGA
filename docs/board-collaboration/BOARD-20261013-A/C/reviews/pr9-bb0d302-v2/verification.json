@@ -1,0 +1,122 @@
+{
+  "A_board_status": "failed_metadata_compatibility",
+  "A_comparisons": 0,
+  "A_error": {
+    "message": "'iop_pmoda/mb_bram_ctrl'",
+    "phase": "metadata",
+    "type": "KeyError"
+  },
+  "A_evidence_commit": "0757235a288a1ec7ee657429f0d701a4f8e7102c",
+  "A_evidence_files": {
+    "board-report.json": {
+      "path": "docs/board-collaboration/BOARD-20261013-A/A/B-base-bram-v2-reset-origin-r1/board-report.json",
+      "sha256": "04ec4a09b95c7a68127c399e973ffeb5fdb69241b9eadb5b8f4a82ec98a62103",
+      "size": 1986
+    },
+    "result.json": {
+      "path": "docs/board-collaboration/BOARD-20261013-A/A/B-base-bram-v2-reset-origin-r1/result.json",
+      "sha256": "0adbb9b62d4c82ed91785cc7d3379b31f0a96ed6fb63706a79f2f397000575b4",
+      "size": 1729
+    },
+    "stderr.log": {
+      "path": "docs/board-collaboration/BOARD-20261013-A/A/B-base-bram-v2-reset-origin-r1/stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0
+    },
+    "stdout.log": {
+      "path": "docs/board-collaboration/BOARD-20261013-A/A/B-base-bram-v2-reset-origin-r1/stdout.log",
+      "sha256": "04ec4a09b95c7a68127c399e973ffeb5fdb69241b9eadb5b8f4a82ec98a62103",
+      "size": 1986
+    }
+  },
+  "A_exit_code": 1,
+  "B_host_log_test_count": 22,
+  "B_host_log_verified_not_rerun": true,
+  "artifacts": [
+    {
+      "path": "docs/board-collaboration/BOARD-20261013-A/B/.gitattributes",
+      "sha256": "705fd4d6451a31d36b3df7de96f83f30ac976c9b4a6d1e51671d8e2f33e2d0da",
+      "size": 8,
+      "source_and_head_match": true
+    },
+    {
+      "path": "docs/board-collaboration/BOARD-20261013-A/B/README.md",
+      "sha256": "e2c9a46cac546bd7c6be2a65128f5e9a9d920ec1080890f270d85bdfc4178b19",
+      "size": 8500,
+      "source_and_head_match": true
+    },
+    {
+      "path": "docs/board-collaboration/BOARD-20261013-A/B/api-reference.txt",
+      "sha256": "48e3686bb4f63eaad8e23008a5554915d6fef7696f01a8ab6d049da831328ca9",
+      "size": 580,
+      "source_and_head_match": true
+    },
+    {
+      "path": "docs/board-collaboration/BOARD-20261013-A/B/host-environment.txt",
+      "sha256": "70f3d3ac619b94d7eb7e62fd5eddaa41053283413f553acfaf64f73301c0d63e",
+      "size": 408,
+      "source_and_head_match": true
+    },
+    {
+      "path": "docs/board-collaboration/BOARD-20261013-A/B/host-tests-reset-origin-r1-stdout.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0,
+      "source_and_head_match": true
+    },
+    {
+      "path": "docs/board-collaboration/BOARD-20261013-A/B/host-tests-reset-origin-r1.txt",
+      "sha256": "8f94ff7e21246bdefbac836b33e4bac45d6c5f495a77cecc3724b8b5e58c5429",
+      "size": 3432,
+      "source_and_head_match": true
+    },
+    {
+      "path": "docs/board-collaboration/BOARD-20261013-A/B/host-verification-reset-origin-r1.json",
+      "sha256": "3f31ece85ca746c5224204177fc698be5a238e5dd3e107a4f38178fef5fe9ab6",
+      "size": 1197,
+      "source_and_head_match": true
+    },
+    {
+      "path": "docs/board-collaboration/BOARD-20261013-A/B/v1-gpio-design.md",
+      "sha256": "5a4bd83a431080b4cd333407e9de0fce261f86ff9a8aeb8665c11c5e09eafa17",
+      "size": 5870,
+      "source_and_head_match": true
+    },
+    {
+      "path": "docs/board-collaboration/BOARD-20261013-A/B/v1-superseded.json",
+      "sha256": "1053bd6dc1032c4f2dbe6de081f7a3160c70b351a2a73f700c38347f2038e4eb",
+      "size": 1000,
+      "source_and_head_match": true
+    },
+    {
+      "path": "docs/board-collaboration/BOARD-20261013-A/B/v2-api-reference.txt",
+      "sha256": "2f95ba980cd24e474145e6caf246b9d8a25c5daa3432a325c9bb4d94cd15bad7",
+      "size": 855,
+      "source_and_head_match": true
+    },
+    {
+      "path": "examples/board_collaboration/base_bram_board_test.py",
+      "sha256": "fde7bc99aca19ef32ff0137c5045e4262fa5a3eac1b080465f964105a7c6384f",
+      "size": 15100,
+      "source_and_head_match": true
+    },
+    {
+      "path": "tests/test_base_bram_board_test.py",
+      "sha256": "c5c6bfcfa98fb152e4dec022de632a04a61f16f08e11db48f2624346c0d90872",
+      "size": 19430,
+      "source_and_head_match": true
+    }
+  ],
+  "hardware_execution_by_C": "not_run",
+  "host_python": "3.12.14",
+  "manifest_sha256": "79941d9fd257795b0bf4c98e908fc2f9b24d3732bd892395b215301c3189a997",
+  "method": "Read-only git show COMMIT:PATH, SHA256 over raw Git blobs; compact sorted JSON request hash; source/head/artifact identity checks. No PYNQ import or test/board execution.",
+  "new_mock_tests_by_C": "not_run",
+  "recorded_utc": "2026-10-13T09:18:12.646364+00:00",
+  "request_hash": "ee52a9f5330b8a5a8a04367a5bd1f18b233d739b1b865941850846fef53dc28d",
+  "review_sha256": "013ac03ef290896719bc19b4e43ebd00bb38d5448cd09ed8bfef58fd68f51d4c",
+  "reviewed_head": "bb0d302331785defb59fc8d47eeea5d27fb33e81",
+  "schema_version": 1,
+  "source_commit": "3f9e9a52c950c0bbac24675e7fb49c8fe46a50c7",
+  "status": "passed_evidence_consistency_only",
+  "verifier": "Astra-C main"
+}

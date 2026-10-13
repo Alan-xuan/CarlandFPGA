@@ -1,0 +1,94 @@
+{
+  "schema_version": 1,
+  "reviewer": "Astra-C",
+  "task_id": "BOARD-20261013-A-B",
+  "task_version": 2,
+  "reviewed_pr": "https://github.com/carolwjade/CarlandFPGA/pull/9",
+  "reviewed_head": "bb0d302331785defb59fc8d47eeea5d27fb33e81",
+  "code_commit": "3f9e9a52c950c0bbac24675e7fb49c8fe46a50c7",
+  "operation_id": "BOARD-20261013-A:B:base-bram-v2-reset-origin-r1",
+  "request_hash": "ee52a9f5330b8a5a8a04367a5bd1f18b233d739b1b865941850846fef53dc28d",
+  "manifest_path": "docs/board-collaboration/BOARD-20261013-A/B/base-bram-v2-reset-origin-r1/manifest.json",
+  "script_path": "examples/board_collaboration/base_bram_board_test.py",
+  "script_sha256": "fde7bc99aca19ef32ff0137c5045e4262fa5a3eac1b080465f964105a7c6384f",
+  "scope": [
+    "Reset observation origin",
+    "BRAM restoration and reset/export order",
+    "384 test comparisons plus 16 restoration comparisons",
+    "Immutable handoff identity and artifact bytes",
+    "Readback of A's already recorded execution"
+  ],
+  "method": "Source inspection and Git-blob/hash verification; no new worker, mock/performance test, source fix or board execution for this evidence capture.",
+  "scoped_conclusion": "No additional blocking issue in the reset-origin, restoration-order or counting scope. Existing metadata compatibility P1 remains; this is not functional acceptance.",
+  "findings": [
+    {
+      "id": "P1-metadata-memory-only",
+      "severity": "P1",
+      "status": "unresolved",
+      "source_line": 58,
+      "summary": "metadata() unconditionally reads overlay.ip_dict[IP_NAME]. The PYNQ 3.0.1 runtime memory-only shape has the BRAM entry in mem_dict; its generic DDR4 label is not the AXI core VLNV.",
+      "observed_effect": "A's already recorded run loaded the Overlay, then failed with metadata KeyError before reset/BRAM test access and with zero comparisons.",
+      "future_correction_scope": "If separately authorized, bind hashed HWH module identity and PS range to the runtime memory entry, check every present address/size pair, and retain fail-closed behavior. This review requests no code change or rerun.",
+      "sources": [
+        "https://github.com/Xilinx/PYNQ/blob/v3.0.1/pynq/metadata/runtime_metadata_parser.py",
+        "https://github.com/Xilinx/PYNQ/blob/v3.0.1/pynq/metadata/mem_dict_view.py"
+      ]
+    }
+  ],
+  "reset_review": {
+    "source_lines": [
+      95,
+      110
+    ],
+    "initially_unexported_observation": "post_load_post_export_sysfs_observation",
+    "pre_export_output_latch_known": false,
+    "linux_pin_resolution": "GPIO.get_gpio_pin(observed metadata index); 960 is not hardcoded",
+    "initial_direction_value": "Read after exporting a previously unexported line; not inferred as 0/out from absent sysfs files",
+    "hold": "Write direction=high and verify value=1/direction=out",
+    "restoration_order": [
+      "Hold reset high",
+      "Attempt all 16 original-word writes",
+      "Attempt all 16 independent MMIO readbacks",
+      "Require every write completed, every readback equal, and reset still high",
+      "Restore and read-check observed reset direction/value",
+      "Unexport only a line exported by this run"
+    ],
+    "unverified_bram_restoration": "Withhold reset restoration and unexport; attempt to keep reset high; report failed, including an explicit failure if reset cannot be held",
+    "hardware_coverage": "A's recorded execution did not reach this code; no hardware restoration claim"
+  },
+  "successful_path_counts": {
+    "rounds": 3,
+    "batches_per_round": 8,
+    "words_per_batch": 16,
+    "test_comparisons": 384,
+    "restoration_comparisons": 16,
+    "initial_snapshot_reads": 16,
+    "total_bram_reads": 416,
+    "total_bram_writes": 400,
+    "sample_counter_excludes_restoration": true
+  },
+  "host_evidence": {
+    "producer": "B",
+    "reported_tests": 22,
+    "reported_status": "passed",
+    "reported_python": "3.12.9",
+    "raw_log_path": "docs/board-collaboration/BOARD-20261013-A/B/host-tests-reset-origin-r1.txt",
+    "independently_rerun_by_C_for_this_revision": false,
+    "verification": "Committed log, receipt, source-file hashes and manifest bytes were checked; B's test result is not relabeled as a C test or board result."
+  },
+  "handoff_note": "Use canonical Git-blob/LF bytes. A Windows CRLF checkout can differ from manifest raw-byte hashes; A's recorded script matches the canonical blob.",
+  "hardware_states": {
+    "manifest_at_submission": "not_run",
+    "subsequent_A_measurement": "failed_metadata_compatibility",
+    "C_hardware_execution": "not_run",
+    "functional_bram_pass": false,
+    "feedback_chain": "A evidence supports physical Overlay loading and true error return"
+  },
+  "A_evidence_commit": "0757235a288a1ec7ee657429f0d701a4f8e7102c",
+  "A_evidence_path": "docs/board-collaboration/BOARD-20261013-A/A/B-base-bram-v2-reset-origin-r1",
+  "clock_note": "A host execution time and the board's 2022 timestamp remain distinct; original bytes were not adjusted.",
+  "review_comments": [
+    "https://github.com/carolwjade/CarlandFPGA/pull/9#issuecomment-6142154924",
+    "https://github.com/carolwjade/CarlandFPGA/pull/9#issuecomment-6142211820"
+  ]
+}
