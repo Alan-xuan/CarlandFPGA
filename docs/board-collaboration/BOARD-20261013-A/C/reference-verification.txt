@@ -1,0 +1,6 @@
+C independent reference verification: passed
+python=3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]
+values_checked=128; rounds=3; comparisons=384
+window=[0x4000fc00,0x4000fc40); aperture=[0x40000000,0x40010000)
+generated_bytes_match=true; sha256=91b0d86c60bf9f7a15f9eba745b783056d961775452ef663c392e542965bebca
+hardware=not_run; RTL_simulation=not_run; synthesis=not_run; implementation=not_run

@@ -1,0 +1,56 @@
+BOARD-20261013-A/C reference vector generation record
+=====================================================
+
+ownership scope: docs/board-collaboration/BOARD-20261013-A/C/ (three files only; not committed)
+worktree       : C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\board-20261013-a-c
+run cwd (root): C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\board-20261013-a-c
+script        : docs\board-collaboration\BOARD-20261013-A\C\reference_vectors.py
+output        : docs\board-collaboration\BOARD-20261013-A\C\reference-vectors.json
+
+command (identical run 1 and run 2, from the worktree root; raw stdout redirect):
+  C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\venv\Scripts\python.exe docs\board-collaboration\BOARD-20261013-A\C\reference_vectors.py > docs\board-collaboration\BOARD-20261013-A\C\reference-vectors.json
+
+python executable: C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\venv\Scripts\python.exe
+python version   : Python 3.12.14
+sys.version      : 3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]
+
+run 1 exit code  : 0
+run 2 exit code  : 0
+output size      : 29107 bytes
+output sha256 (lowercase hex; byte-identical for run 1 and run 2):
+  91b0d86c60bf9f7a15f9eba745b783056d961775452ef663c392e542965bebca
+deterministic re-run: true
+output encoding  : utf-8 / ASCII subset, LF line endings only (no CRLF bytes present)
+
+counts and layout as emitted in the JSON:
+  patterns            : 8 (all0, allFFFFFFFF, all55555555, allAAAAAAAA, A5A50000_or_i, invert_A5A50000_or_i, one_shl_i, random_seed_20261013)
+  words per pattern   : 16 (index 0..15, offset 0xFC00 + 4*i within the declared region)
+  words per round     : 128
+  rounds              : 3 (identical pattern table replayed; the table is not regenerated)
+  expected comparisons: 384 (8 patterns x 16 words x 3 rounds)
+  first word address  : 0x4000fc00
+  last word address   : 0x4000fc3c
+  last occupied byte  : 0x4000fc3f
+  reference base/size : 0x40000000 / 65536 (declared expected metadata values only)
+
+RNG convention (stated explicitly in the JSON; no implicit assumption):
+  random.Random(0x20261013) is constructed exactly once per script run; getrandbits(32) is
+  called exactly 16 times in index order 0..15; the pattern table is built once per run and
+  replayed identically for rounds 0, 1 and 2; the RNG is never reset, re-seeded, re-constructed
+  or called again between rounds or between patterns.
+  rng word[0] = 0x91bd12aa, rng word[15] = 0xbf1da9e8 (full 128-word table is in the JSON)
+
+imports audit (Python AST, same interpreter):
+  imports=['json', 'random', 'sys']; pynq_imported=False
+
+independent verification (checker via stdin, stdlib only, wrote no files):
+  reloads the JSON and recomputes all 8 x 16 expected values, all 16 addresses, counts and RNG convention
+  CHECK_OK patterns=8 words_per_pattern=16 total_words=128 rounds=3 comparisons=384
+  slots first=0x4000fc00 last=0x4000fc3c last_occupied_byte=0x4000fc3f
+  file_sha256=91b0d86c60bf9f7a15f9eba745b783056d961775452ef663c392e542965bebca, file_bytes=29107
+
+scope statements:
+  - generated reference values only; no hardware or board access was performed, attempted or claimed
+  - base/size are expected metadata values for comparison only, never authorization to access any address
+  - no board results and no acceptance decision are made here; evaluation and acceptance are retained by main C
+  - files created: reference_vectors.py, reference-vectors.json, vector-generation.txt
