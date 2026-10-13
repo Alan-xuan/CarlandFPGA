@@ -1,0 +1,26 @@
+{
+  "status": "design_arithmetic_verified",
+  "assumptions": {
+    "baud": 300,
+    "format": "8N1",
+    "half_duplex": true,
+    "window_seconds": 8,
+    "turnaround_total_seconds": 0.2
+  },
+  "wire_bytes_per_window_without_guard": 240.0,
+  "acquisition_bps": 6400,
+  "all_raw_minimum_ratio_before_headers": 26.666666666666668,
+  "summary_raw_bytes_per_window": 128,
+  "telemetry_payload_budget_bytes": 90,
+  "required_payload_ratio_for_2hz_summary": 1.4222222222222223,
+  "nominal_airtime_seconds_with_guard": 6.4,
+  "nominal_occupancy": 0.8,
+  "max_frame_airtime_seconds": 2.1333333333333333,
+  "nominal_alarm_worst_serialization_seconds": 3.0,
+  "buffer_seconds_if_1mib_raw_4ch_100hz": 1310.72,
+  "assertions": [
+    "all transmission, retransmission and turnaround must enter measurement",
+    "adaptive 1Hz fallback is mandatory for incompressible summaries",
+    "no microsecond end-to-end claims at 300baud"
+  ]
+}
