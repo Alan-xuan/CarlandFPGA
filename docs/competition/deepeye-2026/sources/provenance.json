@@ -1,0 +1,25 @@
+{
+  "task_id": "COMP-20261013-DEEPEYE",
+  "task_version": 1,
+  "official_catalog_url": "http://www.fpgachina.cn/?page=download",
+  "retrieved_on": "2026-10-14",
+  "retrieval_note": "A native researcher read original signed objects through the official public catalog. Root independently fetched mirror PDFs using HTTP Range and verified byte length and SHA256 against those original objects; mismatched or truncated bytes were not accepted.",
+  "documents": [
+    {
+      "filename": "amd_guide_20260831.pdf",
+      "catalog_id": 25,
+      "official_object_url": "https://fpgaceshi.oss-cn-shanghai.aliyuncs.com/profoss/upload/2026/08/31/8c7a809f-f0b8-42e4-996a-3a5f2f132288.pdf",
+      "mirror_url": "https://raw.githubusercontent.com/nbstarhkc/Qian-Sai/main/sources/amd.pdf",
+      "bytes": 950952,
+      "sha256": "c6ad82acd4f7bdcd13bd412e232ed85d05f2a87dd5e2cdd04f9d219f88b569fc"
+    },
+    {
+      "filename": "notice_20260827.pdf",
+      "catalog_id": 18,
+      "official_object_url": "https://fpgaceshi.oss-cn-shanghai.aliyuncs.com/profoss/upload/2026/08/27/ff581b85-e214-4b8f-a044-3287f8825750.pdf",
+      "mirror_url": "https://raw.githubusercontent.com/nbstarhkc/Qian-Sai/main/sources/notice.pdf",
+      "bytes": 779290,
+      "sha256": "c17611b45a66121cd93f421e7fdee50f1743b1eb0cb5d9f930c57578d480ef9f"
+    }
+  ]
+}

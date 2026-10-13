@@ -1,0 +1,10 @@
+{
+  "commit": "ab527e20eb7bc8a0cdeab0409943ec17510830fe",
+  "five_candidate_documents_verified": true,
+  "best_sha256": "5243500c579b3a24e097b2a1d41e038d09128b635648968f313a00bf0a1889af",
+  "budget_raw_hash_matches": false,
+  "budget_crlf_original_hash_matches": true,
+  "budget_recomputed_semantics_equal": true,
+  "planning_occupancy": 0.8,
+  "hardware_tested": false
+}
