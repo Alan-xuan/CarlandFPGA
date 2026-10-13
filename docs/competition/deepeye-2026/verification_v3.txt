@@ -1,0 +1,6 @@
+A主会话执行并复核：20任务卡；依赖图无环；13类帧字段加总；CRC123456789=29B1；144/200/204/140B固定窗口规划算术；14页PDF全文提取及Poppler全部页渲染，最后1–5页PNG字节与已审页相等、6–14页重审，未见缺字/裁切。
+仅文档及规划检查passed；RTL、综合、布局布线、板测、模型训练、ROCm项目、NPU和物理任务认定均未完成。
+源提交 f9c664668038f8e54305be4e92ebcc3e74dbfa1b
+Python 3.12.14；ReportLab 4.4.9；pypdf 6.10.0；Poppler bundled Windows
+复现排版命令：python docs/competition/deepeye-2026/build_taskbook.py docs/competition/deepeye-2026/taskbook_v3.md docs/competition/deepeye-2026/deepeye_taskbook_v3.pdf
+研究QA PNG本地保留于.planning/competition-20261013/pdf_qa_v3/，不作为产品板测波形。
