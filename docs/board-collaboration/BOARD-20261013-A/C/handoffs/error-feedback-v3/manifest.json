@@ -1,0 +1,85 @@
+{
+  "artifacts": [
+    "docs/board-collaboration/BOARD-20261013-A/C/.gitattributes",
+    "docs/board-collaboration/BOARD-20261013-A/C/board_error_probe.py",
+    "docs/board-collaboration/BOARD-20261013-A/C/ERROR_FEEDBACK_V3.md",
+    "docs/board-collaboration/BOARD-20261013-A/C/quiet-rule-check-v3.json",
+    "docs/board-collaboration/BOARD-20261013-A/C/host-v3/exit.txt",
+    "docs/board-collaboration/BOARD-20261013-A/C/host-v3/host-check.txt",
+    "docs/board-collaboration/BOARD-20261013-A/C/host-v3/receipt.json",
+    "docs/board-collaboration/BOARD-20261013-A/C/host-v3/stderr.txt",
+    "docs/board-collaboration/BOARD-20261013-A/C/host-v3/stdout.txt"
+  ],
+  "files": {
+    "docs/board-collaboration/BOARD-20261013-A/C/.gitattributes": {
+      "sha256": "9300bf914ace0f19497cf11530b7506005c9765baa0e6f4d4723c78940ade5a6",
+      "size": 91
+    },
+    "docs/board-collaboration/BOARD-20261013-A/C/ERROR_FEEDBACK_V3.md": {
+      "sha256": "adeb0714fa0515ae55d09ac99844e1544855c620fc07bba18e519a2d96f69110",
+      "size": 3863
+    },
+    "docs/board-collaboration/BOARD-20261013-A/C/board_error_probe.py": {
+      "sha256": "0be55d68c1bd7ecab37143bca3bf1c627439be20eb04facdb6a44ff5a8327408",
+      "size": 1186
+    },
+    "docs/board-collaboration/BOARD-20261013-A/C/host-v3/exit.txt": {
+      "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+      "size": 2
+    },
+    "docs/board-collaboration/BOARD-20261013-A/C/host-v3/host-check.txt": {
+      "sha256": "53eb0d85203366fbd6520cb1ccad1b270a59a58540bb8390613d226bb55367f9",
+      "size": 161
+    },
+    "docs/board-collaboration/BOARD-20261013-A/C/host-v3/receipt.json": {
+      "sha256": "7cc14f57a3441f4c5ea5ee6f6fa46405e651a2a84752c1c85626d0d7f26da8ee",
+      "size": 1195
+    },
+    "docs/board-collaboration/BOARD-20261013-A/C/host-v3/stderr.txt": {
+      "sha256": "136218466f13c6b1f04b2f20952ae67ebf45be5af6a7aa95793b5042a93ea5b4",
+      "size": 498
+    },
+    "docs/board-collaboration/BOARD-20261013-A/C/host-v3/stdout.txt": {
+      "sha256": "6a95271697f99b1a57acb125dd229d5e4bd5e7a04454b7fa98812ece6c350ca6",
+      "size": 341
+    },
+    "docs/board-collaboration/BOARD-20261013-A/C/quiet-rule-check-v3.json": {
+      "sha256": "90b8db588753f0ba3f0bd68926fbb3b8659da659281f5daef2d7b1cdc430fc1b",
+      "size": 588
+    }
+  },
+  "request": {
+    "code_commit": "aac678c2b31095d602cda3b39a6405de769191e6",
+    "expected_result": "Controlled error feedback is observed with exit 1 and the exact RuntimeError traceback. This is expected software-error injection, not a faulty board or performance result. C hardware is not_run until A returns bound board evidence; final acceptance belongs to A.",
+    "operation_id": "BOARD-20261013-A:C:error-feedback-v3",
+    "requester": "C",
+    "task_id": "BOARD-20261013-A-C",
+    "task_version": 3,
+    "test_steps": [
+      "A verifies the C PR exact head, this manifest request hash, and script SHA256; record uploaded script hash and actual tested commit.",
+      "A runs python3 -u docs/board-collaboration/BOARD-20261013-A/C/board_error_probe.py --nonce <fresh-A-run-nonce> on the physically connected board; capture stdout, stderr and immediate process exit separately.",
+      "Expect exit 1, stdout JSON matching operation BOARD-20261013-A:C:error-feedback-v3 and supplied nonce, and an uncaught RuntimeError with exact marker EXPECTED_C_BOARD_FEEDBACK_BOARD-20261013-A.",
+      "A publishes raw logs and SHA256 hashes, real command/environment/nonce, operation ID, request hash and tested commit on this same C PR. C verifies readback after notification. No overlay load or peripheral access is requested."
+    ]
+  },
+  "request_hash": "726c913e1cd1d582f4945a1f8a3384128061f34faac4f62d026c0238c8160a79",
+  "schema_version": 1,
+  "stages": {
+    "hardware": {
+      "status": "not_run"
+    },
+    "host_feedback_check": {
+      "log": "docs/board-collaboration/BOARD-20261013-A/C/host-v3/host-check.txt",
+      "status": "passed"
+    },
+    "implementation": {
+      "status": "not_run"
+    },
+    "rtl_simulation": {
+      "status": "not_run"
+    },
+    "synthesis": {
+      "status": "not_run"
+    }
+  }
+}

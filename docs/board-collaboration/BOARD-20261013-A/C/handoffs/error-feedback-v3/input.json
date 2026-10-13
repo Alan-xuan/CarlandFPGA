@@ -1,0 +1,45 @@
+{
+  "request": {
+    "operation_id": "BOARD-20261013-A:C:error-feedback-v3",
+    "task_id": "BOARD-20261013-A-C",
+    "task_version": 3,
+    "requester": "C",
+    "code_commit": "aac678c2b31095d602cda3b39a6405de769191e6",
+    "test_steps": [
+      "A verifies the C PR exact head, this manifest request hash, and script SHA256; record uploaded script hash and actual tested commit.",
+      "A runs python3 -u docs/board-collaboration/BOARD-20261013-A/C/board_error_probe.py --nonce <fresh-A-run-nonce> on the physically connected board; capture stdout, stderr and immediate process exit separately.",
+      "Expect exit 1, stdout JSON matching operation BOARD-20261013-A:C:error-feedback-v3 and supplied nonce, and an uncaught RuntimeError with exact marker EXPECTED_C_BOARD_FEEDBACK_BOARD-20261013-A.",
+      "A publishes raw logs and SHA256 hashes, real command/environment/nonce, operation ID, request hash and tested commit on this same C PR. C verifies readback after notification. No overlay load or peripheral access is requested."
+    ],
+    "expected_result": "Controlled error feedback is observed with exit 1 and the exact RuntimeError traceback. This is expected software-error injection, not a faulty board or performance result. C hardware is not_run until A returns bound board evidence; final acceptance belongs to A."
+  },
+  "artifacts": [
+    "docs/board-collaboration/BOARD-20261013-A/C/.gitattributes",
+    "docs/board-collaboration/BOARD-20261013-A/C/board_error_probe.py",
+    "docs/board-collaboration/BOARD-20261013-A/C/ERROR_FEEDBACK_V3.md",
+    "docs/board-collaboration/BOARD-20261013-A/C/quiet-rule-check-v3.json",
+    "docs/board-collaboration/BOARD-20261013-A/C/host-v3/exit.txt",
+    "docs/board-collaboration/BOARD-20261013-A/C/host-v3/host-check.txt",
+    "docs/board-collaboration/BOARD-20261013-A/C/host-v3/receipt.json",
+    "docs/board-collaboration/BOARD-20261013-A/C/host-v3/stderr.txt",
+    "docs/board-collaboration/BOARD-20261013-A/C/host-v3/stdout.txt"
+  ],
+  "stages": {
+    "host_feedback_check": {
+      "status": "passed",
+      "log": "docs/board-collaboration/BOARD-20261013-A/C/host-v3/host-check.txt"
+    },
+    "rtl_simulation": {
+      "status": "not_run"
+    },
+    "synthesis": {
+      "status": "not_run"
+    },
+    "implementation": {
+      "status": "not_run"
+    },
+    "hardware": {
+      "status": "not_run"
+    }
+  }
+}
