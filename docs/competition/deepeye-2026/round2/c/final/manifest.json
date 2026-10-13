@@ -1,0 +1,18 @@
+{
+  "schema": 1,
+  "owner": "C/Astra-C",
+  "task_id": "task-1a2875a7abef3ef5bcc824eb",
+  "task_version": 1791910536639,
+  "work_id": "C-independent-final-v1",
+  "prior_freeze_sha256": "34f3cd58b03d5362aaab80ebda66131df3b56050362074302102938508e3ea79",
+  "scope": "planning_only",
+  "files": {
+    "EVIDENCE.md": "b05219984d175a67aaf61ba8ffeb14b932b14c981072a5c84d7baceae18e187c",
+    "PROTOCOL.md": "fa0ccc626dbfb9e6f26b60de881fa2bc5c1067f40626d72e3ce15e0a7f085ca0",
+    "README.md": "7d1e5fd7e1432b07ce2df7c1696543dd96991cf4240ce0052cb3315cefaf69cf",
+    "TASKBOOK.md": "fec711bec2fb7cfed5b33a34df79bddd36af5a11282c8f7eecfe2f7af9f24f00",
+    "tasks.json": "9392abde9acd61df183f8b27b7e30a145b7c74d23fef242181c183f189d70d61",
+    "validate.py": "fd39500dd3d2604f8291a5f36df760ec64fe673cc8d6d79b3aac0ca1c5a04141",
+    "validation.json": "e35ef48a4ce603c813924d68b26a8b2bce7ad9ea5b542e01c38f66077c8c6e1b"
+  }
+}

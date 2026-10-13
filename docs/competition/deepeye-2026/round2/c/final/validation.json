@@ -1,0 +1,26 @@
+{
+  "result": "passed_planning_checks_only",
+  "prior_frozen_hashes_verified": 8,
+  "task_cards": 10,
+  "dag_valid": true,
+  "budget": {
+    "baud": 300,
+    "bits_per_byte": 10,
+    "window_s": 4,
+    "guard_s": 0.2,
+    "header_and_crc_bytes": 16,
+    "normal_bytes": 80,
+    "event_window_bytes": 96,
+    "normal_utilization": 0.7166666666666667,
+    "event_utilization": 0.8500000000000001,
+    "spare_bytes": 18.0,
+    "command_retry_fits": false,
+    "max_nonpreemptive_frame_s": 1.0666666666666667
+  },
+  "crc_reference_check": "CRC16_CCITT_FALSE_123456789_29B1",
+  "rtl_simulation": "not_run",
+  "synthesis": "not_run",
+  "implementation": "not_run",
+  "board": "not_run",
+  "npu": "not_run"
+}

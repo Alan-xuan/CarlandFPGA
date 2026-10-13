@@ -1,0 +1,148 @@
+{
+  "schema": 1,
+  "owner": "C/Astra-C",
+  "scope": "C_independent_planning_final",
+  "implementation_authorized_by_this_package": false,
+  "board_operator": "A",
+  "requires_B_response": false,
+  "requires_A_acceptance_for_planning_closeout": false,
+  "quality_decisions": "main_only",
+  "future_execution": "assign explicit file ownership before implementing; use existing controller and automation contract",
+  "required_evidence": [
+    "operation_id",
+    "task_version",
+    "code_commit",
+    "input_hashes",
+    "commands",
+    "tool_versions",
+    "exit_codes",
+    "logs",
+    "artifact_hashes"
+  ],
+  "software_repair_attempt_limit": 2,
+  "unknown_hardware_side_effect_retry": "inspect_before_new_main_decision",
+  "cards": [
+    {
+      "id": "S0",
+      "depends_on": [],
+      "due": "2026-10-15",
+      "deliverable": "resource_and_abi",
+      "status": "not_run",
+      "acceptance_ref": "TASKBOOK.md",
+      "executor": "assigned_C_execution_agent; A_only_for_physical_board",
+      "acceptor": "quality_main"
+    },
+    {
+      "id": "S1",
+      "depends_on": [
+        "S0"
+      ],
+      "due": "2026-10-17",
+      "deliverable": "independent_golden_vectors",
+      "status": "not_run",
+      "acceptance_ref": "TASKBOOK.md",
+      "executor": "assigned_C_execution_agent; A_only_for_physical_board",
+      "acceptor": "quality_main"
+    },
+    {
+      "id": "S2",
+      "depends_on": [
+        "S0"
+      ],
+      "due": "2026-10-17",
+      "deliverable": "physical_io_capture",
+      "status": "not_run",
+      "acceptance_ref": "TASKBOOK.md",
+      "executor": "assigned_C_execution_agent; A_only_for_physical_board",
+      "acceptor": "quality_main"
+    },
+    {
+      "id": "S3",
+      "depends_on": [
+        "S1"
+      ],
+      "due": "2026-10-21",
+      "deliverable": "rtl_and_implementation",
+      "status": "not_run",
+      "acceptance_ref": "TASKBOOK.md",
+      "executor": "assigned_C_execution_agent; A_only_for_physical_board",
+      "acceptor": "quality_main"
+    },
+    {
+      "id": "S4",
+      "depends_on": [
+        "S1"
+      ],
+      "due": "2026-10-21",
+      "deliverable": "scheduler_and_real_link",
+      "status": "not_run",
+      "acceptance_ref": "TASKBOOK.md",
+      "executor": "assigned_C_execution_agent; A_only_for_physical_board",
+      "acceptor": "quality_main"
+    },
+    {
+      "id": "S5",
+      "depends_on": [
+        "S0",
+        "S2"
+      ],
+      "due": "2026-10-23",
+      "deliverable": "dataset_and_model",
+      "status": "not_run",
+      "acceptance_ref": "TASKBOOK.md",
+      "executor": "assigned_C_execution_agent; A_only_for_physical_board",
+      "acceptor": "quality_main"
+    },
+    {
+      "id": "S6",
+      "depends_on": [
+        "S2",
+        "S3",
+        "S4",
+        "S5"
+      ],
+      "due": "2026-10-26",
+      "deliverable": "integrated_trace",
+      "status": "not_run",
+      "acceptance_ref": "TASKBOOK.md",
+      "executor": "assigned_C_execution_agent; A_only_for_physical_board",
+      "acceptor": "quality_main"
+    },
+    {
+      "id": "S7",
+      "depends_on": [
+        "S6"
+      ],
+      "due": "2026-10-30",
+      "deliverable": "blind_ablations",
+      "status": "not_run",
+      "acceptance_ref": "TASKBOOK.md",
+      "executor": "assigned_C_execution_agent; A_only_for_physical_board",
+      "acceptor": "quality_main"
+    },
+    {
+      "id": "S8",
+      "depends_on": [
+        "S7"
+      ],
+      "due": "2026-11-02",
+      "deliverable": "cold_reproduction",
+      "status": "not_run",
+      "acceptance_ref": "TASKBOOK.md",
+      "executor": "assigned_C_execution_agent; A_only_for_physical_board",
+      "acceptor": "quality_main"
+    },
+    {
+      "id": "S9",
+      "depends_on": [
+        "S8"
+      ],
+      "due": "2026-11-04",
+      "deliverable": "final_evidence_and_submission",
+      "status": "not_run",
+      "acceptance_ref": "TASKBOOK.md",
+      "executor": "assigned_C_execution_agent; A_only_for_physical_board",
+      "acceptor": "quality_main"
+    }
+  ]
+}
