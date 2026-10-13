@@ -1,42 +1,42 @@
 {
-  "operation_id": "COMP-20261013-DEEPEYE:A:taskbook-v3",
+  "operation_id": "COMP-20261013-DEEPEYE:A:taskbook-v3:r1",
   "task_id": "COMP-20261013-DEEPEYE",
   "task_version": 3,
   "owner": "A quality main",
-  "source_commit": "f9c664668038f8e54305be4e92ebcc3e74dbfa1b",
-  "created_at_utc": "2026-10-13T17:52:34.770539+00:00",
+  "source_commit": "85e6aeafdb5d2c0dea1c15ce8f8f1ede9f9a4c68",
+  "created_at_utc": "2026-10-13T18:20:49.395223+00:00",
   "files": {
     ".gitattributes": {
       "bytes": 107,
       "sha256": "929abee77e0dec6a2f4151d316175bea6bddba5113a305f25881d06e2dfea8f1"
     },
     "taskbook_v3.md": {
-      "bytes": 48500,
-      "sha256": "a9ea6bd2b61ac5be804f0a0a0f889be3dbad4b4a5d08082497e7070803ce14b8"
+      "bytes": 50751,
+      "sha256": "735a3b9a3f2b9c7c3ad6a53b15eb0d70f90a7aa3b0d205d1532c3b8fc210e14e"
     },
     "deepeye_taskbook_v3.pdf": {
-      "bytes": 787374,
-      "sha256": "64e3835a14f041062f6188cc07a977d3336155079180c95b4369063b5bf263e6"
+      "bytes": 795076,
+      "sha256": "65170a8de38bce1a5beedcc8eb888a3b5cf893ec2e89b922ecf36df2b73f1167"
     },
     "architecture_v3.png": {
       "bytes": 180557,
       "sha256": "9c854140ad17a946c882e62c29d00c10015032811fc054312973edafa6644df4"
     },
     "execution_plan_v3.json": {
-      "bytes": 3622,
-      "sha256": "d765491f0f2bc806630050173fdf129a7f2be5e492421975116308cfd8f5661f"
+      "bytes": 3644,
+      "sha256": "de1df0a14d00362e00b6691d26b6ac884730fc600f9aee19a40ac3cd442b73ee"
     },
     "taskbook_v3_checks.json": {
-      "bytes": 2809,
-      "sha256": "f0a5eac0bc6b69b8353d77ed8f3dafcd9c90443e35c885b6ab45ffadaa6792ce"
+      "bytes": 3569,
+      "sha256": "6547f1197fd966dece6c2ee032e46d08e941a7f7d29018ed371e14d8517eb25d"
     },
     "automation_contract.md": {
       "bytes": 1604,
       "sha256": "b8e9ba53460283bdac7b15a396d3e8f4aa59a0646bb021c92d8883d21d797133"
     },
     "selection_audit.md": {
-      "bytes": 3482,
-      "sha256": "ea6409ae4df767ef3f259383634e9ab03d4aa28cb3cacd606a49b097537c1f17"
+      "bytes": 4122,
+      "sha256": "97695d342fd425d7fd8c3b625b0af176d7a511dab6c00d8d9389e83531b18bbb"
     },
     "readme.md": {
       "bytes": 1259,
@@ -47,8 +47,8 @@
       "sha256": "311173b06ff6f38b3e898a8fc07ccee32f800687d51d4d02a9bcb5439a04923f"
     },
     "verification_v3.txt": {
-      "bytes": 821,
-      "sha256": "df664c8ca81f780ad669ca8dfc157f2471674dfe43244983998ba2ed686cf8fa"
+      "bytes": 928,
+      "sha256": "950a38def2b0ea93e541df8209d4e8efc624248ebb8feba4147a670a9687e1ca"
     }
   },
   "stages": {
@@ -68,5 +68,8 @@
   "external_feedback": {
     "B": "https://github.com/carolwjade/CarlandFPGA/pull/16#issuecomment-6151725754",
     "C": "https://github.com/carolwjade/CarlandFPGA/pull/15#issuecomment-6151726635"
-  }
+  },
+  "task_revision": 1,
+  "previous_publication_commit": "1d4374fcc0f5ba1bf07b80d5e7f3487816af0143",
+  "revision_reason": "B/C real review: late first ACK must not revive TTL; retry needs explicit second grant; physical gain codes/analogue feedback; realistic latency budget"
 }

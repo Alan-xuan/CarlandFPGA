@@ -1,6 +1,7 @@
-A主会话执行并复核：20任务卡；依赖图无环；13类帧字段加总；CRC123456789=29B1；144/200/204/140B固定窗口规划算术；14页PDF全文提取及Poppler全部页渲染，最后1–5页PNG字节与已审页相等、6–14页重审，未见缺字/裁切。
-仅文档及规划检查passed；RTL、综合、布局布线、板测、模型训练、ROCm项目、NPU和物理任务认定均未完成。
-源提交 f9c664668038f8e54305be4e92ebcc3e74dbfa1b
-Python 3.12.14；ReportLab 4.4.9；pypdf 6.10.0；Poppler bundled Windows
-复现排版命令：python docs/competition/deepeye-2026/build_taskbook.py docs/competition/deepeye-2026/taskbook_v3.md docs/competition/deepeye-2026/deepeye_taskbook_v3.pdf
-研究QA PNG本地保留于.planning/competition-20261013/pdf_qa_v3/，不作为产品板测波形。
+A主会话v3修订1：20任务卡及DAG无环；13类帧字段/CRC向量；144/200/204/140/196/164B规划账；首次ACK丢失的旧缓存截止19.98秒与修订截止11.98秒算术反例；同窗第二重试槽明确bit13授权。
+终稿15页，全部Poppler渲染，最后变化7/8/9/12/13/14页重审，其余最终PNG字节相等已审页；未见缺字/裁切。完整指标都是后续目标，产品阶段均not_run。
+源提交 85e6aeafdb5d2c0dea1c15ce8f8f1ede9f9a4c68
+正文SHA 735a3b9a3f2b9c7c3ad6a53b15eb0d70f90a7aa3b0d205d1532c3b8fc210e14e
+PDF SHA 65170a8de38bce1a5beedcc8eb888a3b5cf893ec2e89b922ecf36df2b73f1167
+任务书为A统筹定稿，引用B/C实际外评，不声称两机已联合签署修订1或赛事资格通过。
+Python 3.12.14；依赖ReportLab、pypdf、MSYaHei；bundled Poppler。渲染命令见build_taskbook.py；最终QA本地路径.planning/competition-20261013/pdf_qa_v3/publish-rev1-*.png。
