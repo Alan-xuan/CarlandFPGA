@@ -1,0 +1,43 @@
+{
+  "request": {
+    "operation_id": "C-DEEPEYE-KINEMATICS-20261015-01",
+    "task_id": "DEEPEYE-IMPLEMENTATION-20261014",
+    "task_version": 1,
+    "requester": "node-c",
+    "code_commit": "15f7a28248285a6b368d7fc9456c1ce23de736f7",
+    "test_steps": [
+      "python -X utf8 -B competition/deepeye/tests/ai/planning/test_kinematics.py",
+      "Independently compare both profile ROM tables and STRESS (57,0)/(58,0)/(40,40)/(41,41), zero-speed and acceleration vectors against A/B motion authority. No board operation requested."
+    ],
+    "expected_result": "16 software tests pass; bit-exact ROM agreement for 42 entries. This is a scalar kinematics foundation only; collision/planning and all product cards remain not_run. Contract DEEPEYE-HUMAN-LOCK-20261014/r1 source f5989cd5defce561f9ba98e6b18fc2682945f0a2 requirements SHA256 c229834bfc2292f5fe4411fc9f12c68487008f9d1adaf31f0144ee7a98173804 preserved; design1011259415a0916054eb580687612580bc1e5f09."
+  },
+  "artifacts": [
+    "competition/deepeye/ai_pc/planning/kinematics.py",
+    "competition/deepeye/tests/ai/planning/test_kinematics.py",
+    "competition/deepeye/tests/ai/planning/kinematics_vectors.json",
+    "competition/deepeye/data/source_inventory.json",
+    "competition/deepeye/evidence/ai/startup/planner.json",
+    "competition/deepeye/evidence/ai/startup/planner.txt"
+  ],
+  "stages": {
+    "software_unit": {
+      "status": "passed",
+      "log": "competition/deepeye/evidence/ai/startup/planner.txt"
+    },
+    "simulation": {
+      "status": "not_run"
+    },
+    "synthesis": {
+      "status": "not_run"
+    },
+    "implementation": {
+      "status": "not_run"
+    },
+    "board": {
+      "status": "not_run"
+    },
+    "system": {
+      "status": "not_run"
+    }
+  }
+}
