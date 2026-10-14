@@ -1,0 +1,80 @@
+{
+  "request": {
+    "operation_id": "C-DEEPEYE-BROKER-20261015-04",
+    "task_id": "DEEPEYE-IMPLEMENTATION-20261014",
+    "task_version": 1,
+    "requester": "node-c",
+    "code_commit": "5e1c371e1e3b77c957cd00f43084f43753f5e478",
+    "test_steps": [
+      "python -X utf8 -B competition/deepeye/tests/ai/control_broker/test_deadlines.py",
+      "python -X utf8 -B competition/deepeye/tests/ai/control_broker/test_mailbox.py",
+      "Verify manifest and source hashes, inspect broker_main_review independent1000HIL/PC_DIRECT deadlinepairs,24completion permutations,1000clockcalls,128termmode subsets and2000bounded registrations.",
+      "Review A-schema compatibility as a proposal only: sent_ordinal is an internal host identity, not a new wire field; HIL/PC_DIRECT helpers require actual external clock/USB/runtime authority before integration.",
+      "Return same-PR operation_id/request_hash/tested_commit feedback. No physical board operation requested."
+    ],
+    "expected_result": "34deadline+44mailbox=78softwaretests; main independent reference checks pass. BR21/22/23 and B01-B04 closed for purehelpers only. Preprocessing/causal/kinematics foundations remain as prior accepted commits. Curve input remains unaccepted/untracked. All29productcards and simulation/synthesis/implementation/board/system not_run. DEEPEYE-HUMAN-LOCK-20261014/revision1 source f5989cd5defce561f9ba98e6b18fc2682945f0a2 requirements SHA256 c229834bfc2292f5fe4411fc9f12c68487008f9d1adaf31f0144ee7a98173804;design1011259415a0916054eb580687612580bc1e5f09 unchanged."
+  },
+  "artifacts": [
+    "competition/deepeye/ai_pc/control_broker/deadlines.py",
+    "competition/deepeye/ai_pc/control_broker/mailbox.py",
+    "competition/deepeye/ai_pc/model/causal_input.py",
+    "competition/deepeye/ai_pc/planning/kinematics.py",
+    "competition/deepeye/data/dataset_card.md",
+    "competition/deepeye/data/force_inventory.py",
+    "competition/deepeye/data/force_preprocess.py",
+    "competition/deepeye/data/force_wells.json",
+    "competition/deepeye/data/grouping.py",
+    "competition/deepeye/data/label_schema.json",
+    "competition/deepeye/data/preprocessing.json",
+    "competition/deepeye/data/source_inventory.json",
+    "competition/deepeye/data/split_policy.json",
+    "competition/deepeye/data/splits.json",
+    "competition/deepeye/evidence/ai/startup/broker.json",
+    "competition/deepeye/evidence/ai/startup/broker.log",
+    "competition/deepeye/evidence/ai/startup/broker_main_review.json",
+    "competition/deepeye/evidence/ai/startup/broker_main_review.py",
+    "competition/deepeye/evidence/ai/startup/broker_main_review.txt",
+    "competition/deepeye/evidence/ai/startup/data_model.json",
+    "competition/deepeye/evidence/ai/startup/data_model.txt",
+    "competition/deepeye/evidence/ai/startup/force_inventory.json",
+    "competition/deepeye/evidence/ai/startup/force_inventory.txt",
+    "competition/deepeye/evidence/ai/startup/force_preprocess.json",
+    "competition/deepeye/evidence/ai/startup/force_preprocess.log",
+    "competition/deepeye/evidence/ai/startup/planner.json",
+    "competition/deepeye/evidence/ai/startup/planner.txt",
+    "competition/deepeye/evidence/ai/startup/preprocess_main_review.json",
+    "competition/deepeye/evidence/ai/startup/preprocess_main_review.py",
+    "competition/deepeye/evidence/ai/startup/preprocess_main_review.txt",
+    "competition/deepeye/evidence/ai/startup/split_assignment.json",
+    "competition/deepeye/evidence/ai/startup/split_assignment.txt",
+    "competition/deepeye/tests/ai/control_broker/test_deadlines.py",
+    "competition/deepeye/tests/ai/control_broker/test_mailbox.py",
+    "competition/deepeye/tests/ai/data_model/test_causal_input.py",
+    "competition/deepeye/tests/ai/data_model/test_force_inventory.py",
+    "competition/deepeye/tests/ai/data_model/test_force_preprocess.py",
+    "competition/deepeye/tests/ai/data_model/test_grouping.py",
+    "competition/deepeye/tests/ai/planning/kinematics_vectors.json",
+    "competition/deepeye/tests/ai/planning/test_kinematics.py"
+  ],
+  "stages": {
+    "simulation": {
+      "status": "not_run"
+    },
+    "synthesis": {
+      "status": "not_run"
+    },
+    "implementation": {
+      "status": "not_run"
+    },
+    "board": {
+      "status": "not_run"
+    },
+    "system": {
+      "status": "not_run"
+    },
+    "software_unit": {
+      "status": "passed",
+      "log": "competition/deepeye/evidence/ai/startup/broker_main_review.txt"
+    }
+  }
+}
