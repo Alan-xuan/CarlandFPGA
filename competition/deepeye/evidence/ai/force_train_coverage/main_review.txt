@@ -1,0 +1,198 @@
+COMMAND
+{"command": ["C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\venv\\Scripts\\python.exe", "-X", "utf8", "-B", "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\plan-20261014-final-c\\director-startup\\train-curve-coverage\\test_scan_train_curves.py"], "exit_code": 0, "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855", "stderr_sha256": "7733983b5d07c5315f371b84cd52283a52829d0d208d75883c28d4c75a5bca09", "raw_prefix": "train-coverage-main-unit"}
+STDOUT
+
+STDERR
+test_guarded_zip_allows_train_and_blocks_heldout (__main__.GuardUnitTests.test_guarded_zip_allows_train_and_blocks_heldout) ... ok
+test_guarded_zip_is_read_only_and_rejects_write_modes (__main__.GuardUnitTests.test_guarded_zip_is_read_only_and_rejects_write_modes) ... ok
+test_duplicate_curve_mnemonic_fails (__main__.MalformedLasTests.test_duplicate_curve_mnemonic_fails) ... ok
+test_malformed_numeric_in_selected_column_fails (__main__.MalformedLasTests.test_malformed_numeric_in_selected_column_fails) ... ok
+test_missing_null_sentinel_fails (__main__.MalformedLasTests.test_missing_null_sentinel_fails) ... ok
+test_wrap_yes_fails (__main__.MalformedLasTests.test_wrap_yes_fails) ... ok
+test_wrong_las_version_fails (__main__.MalformedLasTests.test_wrong_las_version_fails) ... ok
+test_wrong_row_token_count_fails (__main__.MalformedLasTests.test_wrong_row_token_count_fails) ... ok
+test_archive_bytes_and_sha_mismatch_rejected (__main__.RejectionTests.test_archive_bytes_and_sha_mismatch_rejected) ... ok
+test_cross_split_parent_grouping_rejected (__main__.RejectionTests.test_cross_split_parent_grouping_rejected) ... ok
+test_decompressed_member_sha_mismatch_rejected (__main__.RejectionTests.test_decompressed_member_sha_mismatch_rejected) ... ok
+test_fitting_wells_set_mismatch_rejected (__main__.RejectionTests.test_fitting_wells_set_mismatch_rejected) ... ok
+test_fitting_wells_sha_mismatch_rejected (__main__.RejectionTests.test_fitting_wells_sha_mismatch_rejected) ... ok
+test_inventory_splits_sha_mismatch_rejected (__main__.RejectionTests.test_inventory_splits_sha_mismatch_rejected) ... ok
+test_member_size_mismatch_rejected (__main__.RejectionTests.test_member_size_mismatch_rejected) ... ok
+test_production_labelled_tampered_expectations_refused (__main__.RejectionTests.test_production_labelled_tampered_expectations_refused) ... ok
+test_rowcount_mismatch_rejected (__main__.RejectionTests.test_rowcount_mismatch_rejected) ... ok
+test_splits_and_preprocessing_pin_mismatch_rejected (__main__.RejectionTests.test_splits_and_preprocessing_pin_mismatch_rejected) ... ok
+test_first_run_reaching_edges (__main__.RunLogicTests.test_first_run_reaching_edges) ... ok
+test_absent_channel_is_all_masked_with_explicit_counts (__main__.StandardTests.test_absent_channel_is_all_masked_with_explicit_counts) ... ok
+test_crlf_crcrlf_and_blank_lines_do_not_change_counts (__main__.StandardTests.test_crlf_crcrlf_and_blank_lines_do_not_change_counts) ... ok
+test_no_run_reports_limitation_without_replay (__main__.StandardTests.test_no_run_reports_limitation_without_replay) ... ok
+test_nonfinite_tokens_are_counted_missing (__main__.StandardTests.test_nonfinite_tokens_are_counted_missing) ... ok
+test_null_sentinel_and_negative_values (__main__.StandardTests.test_null_sentinel_and_negative_values) ... ok
+test_opaque_nonselected_columns_are_never_parsed (__main__.StandardTests.test_opaque_nonselected_columns_are_never_parsed) ... ok
+test_rdep_nonpositive_is_missing_for_log10_policy (__main__.StandardTests.test_rdep_nonpositive_is_missing_for_log10_policy) ... ok
+test_standard_fixture_selection_replay_and_guard (__main__.StandardTests.test_standard_fixture_selection_replay_and_guard) ... ok
+
+----------------------------------------------------------------------
+Ran 27 tests in 12.999s
+
+OK
+
+COMMAND
+{"command": ["C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\venv\\Scripts\\python.exe", "-X", "utf8", "-B", "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\plan-20261014-final-c\\director-startup\\train-coverage-portable\\test_scan_train_curves.py"], "exit_code": 0, "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855", "stderr_sha256": "edcad7c47e40f34d41c478d98c4e93dc618f967b2d66b8a9634871152cbbc065", "raw_prefix": "train-coverage-main-portable"}
+STDOUT
+
+STDERR
+test_guarded_zip_allows_train_and_blocks_heldout (__main__.GuardUnitTests.test_guarded_zip_allows_train_and_blocks_heldout) ... ok
+test_guarded_zip_is_read_only_and_rejects_write_modes (__main__.GuardUnitTests.test_guarded_zip_is_read_only_and_rejects_write_modes) ... ok
+test_duplicate_curve_mnemonic_fails (__main__.MalformedLasTests.test_duplicate_curve_mnemonic_fails) ... ok
+test_malformed_numeric_in_selected_column_fails (__main__.MalformedLasTests.test_malformed_numeric_in_selected_column_fails) ... ok
+test_missing_null_sentinel_fails (__main__.MalformedLasTests.test_missing_null_sentinel_fails) ... ok
+test_wrap_yes_fails (__main__.MalformedLasTests.test_wrap_yes_fails) ... ok
+test_wrong_las_version_fails (__main__.MalformedLasTests.test_wrong_las_version_fails) ... ok
+test_wrong_row_token_count_fails (__main__.MalformedLasTests.test_wrong_row_token_count_fails) ... ok
+test_archive_bytes_and_sha_mismatch_rejected (__main__.RejectionTests.test_archive_bytes_and_sha_mismatch_rejected) ... ok
+test_cross_split_parent_grouping_rejected (__main__.RejectionTests.test_cross_split_parent_grouping_rejected) ... ok
+test_decompressed_member_sha_mismatch_rejected (__main__.RejectionTests.test_decompressed_member_sha_mismatch_rejected) ... ok
+test_fitting_wells_set_mismatch_rejected (__main__.RejectionTests.test_fitting_wells_set_mismatch_rejected) ... ok
+test_fitting_wells_sha_mismatch_rejected (__main__.RejectionTests.test_fitting_wells_sha_mismatch_rejected) ... ok
+test_inventory_splits_sha_mismatch_rejected (__main__.RejectionTests.test_inventory_splits_sha_mismatch_rejected) ... ok
+test_member_size_mismatch_rejected (__main__.RejectionTests.test_member_size_mismatch_rejected) ... ok
+test_production_labelled_tampered_expectations_refused (__main__.RejectionTests.test_production_labelled_tampered_expectations_refused) ... ok
+test_rowcount_mismatch_rejected (__main__.RejectionTests.test_rowcount_mismatch_rejected) ... ok
+test_splits_and_preprocessing_pin_mismatch_rejected (__main__.RejectionTests.test_splits_and_preprocessing_pin_mismatch_rejected) ... ok
+test_first_run_reaching_edges (__main__.RunLogicTests.test_first_run_reaching_edges) ... ok
+test_absent_channel_is_all_masked_with_explicit_counts (__main__.StandardTests.test_absent_channel_is_all_masked_with_explicit_counts) ... ok
+test_crlf_crcrlf_and_blank_lines_do_not_change_counts (__main__.StandardTests.test_crlf_crcrlf_and_blank_lines_do_not_change_counts) ... ok
+test_no_run_reports_limitation_without_replay (__main__.StandardTests.test_no_run_reports_limitation_without_replay) ... ok
+test_nonfinite_tokens_are_counted_missing (__main__.StandardTests.test_nonfinite_tokens_are_counted_missing) ... ok
+test_null_sentinel_and_negative_values (__main__.StandardTests.test_null_sentinel_and_negative_values) ... ok
+test_opaque_nonselected_columns_are_never_parsed (__main__.StandardTests.test_opaque_nonselected_columns_are_never_parsed) ... ok
+test_rdep_nonpositive_is_missing_for_log10_policy (__main__.StandardTests.test_rdep_nonpositive_is_missing_for_log10_policy) ... ok
+test_standard_fixture_selection_replay_and_guard (__main__.StandardTests.test_standard_fixture_selection_replay_and_guard) ... ok
+
+----------------------------------------------------------------------
+Ran 27 tests in 13.125s
+
+OK
+
+MAIN STRUCTURED MEASUREMENTS (not a reconstruction of console stdout)
+{
+  "task_id": "DEEPEYE-IMPLEMENTATION-20261014",
+  "task_version": 1,
+  "contract_id": "DEEPEYE-HUMAN-LOCK-20261014/revision1",
+  "requirements_sha256": "c229834bfc2292f5fe4411fc9f12c68487008f9d1adaf31f0144ee7a98173804",
+  "design_commit": "1011259415a0916054eb580687612580bc1e5f09",
+  "job_id": "child-c7dcf18e89bf4132918255a66d6f15b2",
+  "at_utc": "2026-10-14T23:54:08.388789+00:00",
+  "source_sha256": {
+    "scan_train_curves.py": "97b2c468885de1e3bf365fb25e590b7029c682da1cfbf098c3792383ee8f71bd",
+    "test_scan_train_curves.py": "1fb64dbfa3d3d3b095021a4dda73a858c599fcfa76a07a966ec4b1308ea5711d",
+    "audit.json": "82166ab600d6078033a7c25d2a6d40caa571f4638068497a056b10c67d9867ff",
+    "audit.log": "8c27de38bd8ad7b5331bd7391970ea14921dcea5232f06010340c4ab1089aced"
+  },
+  "unit_tests": 27,
+  "portable_tests": 27,
+  "independent_opaque_run_cases": 160,
+  "child_rerun_zip_opens": 83,
+  "independent_zip_opens": 82,
+  "heldout_opens": 0,
+  "train_wells": 82,
+  "train_parents": 81,
+  "train_rows": 1634292,
+  "all4_valid_rows": 674491,
+  "all4_128run_wells": 82,
+  "aggregate": {
+    "GR": {
+      "present_wells": 82,
+      "rawvalid": 1611273,
+      "effectivevalid": 1611273,
+      "null": 23019,
+      "nonfinite": 0,
+      "nonpositive": 0,
+      "absent_rows": 0
+    },
+    "RHOB": {
+      "present_wells": 82,
+      "rawvalid": 985642,
+      "effectivevalid": 985642,
+      "null": 648650,
+      "nonfinite": 0,
+      "nonpositive": 0,
+      "absent_rows": 0
+    },
+    "NPHI": {
+      "present_wells": 82,
+      "rawvalid": 706338,
+      "effectivevalid": 706338,
+      "null": 927954,
+      "nonfinite": 0,
+      "nonpositive": 0,
+      "absent_rows": 0
+    },
+    "RDEP": {
+      "present_wells": 82,
+      "rawvalid": 1558462,
+      "effectivevalid": 1558462,
+      "null": 75830,
+      "nonfinite": 0,
+      "nonpositive": 0,
+      "absent_rows": 0
+    }
+  },
+  "selection": {
+    "member": "Force_2020_all_wells_train_test_blind_hidden_final/15_9-13.las",
+    "start_row": 7327,
+    "end_row": 7454,
+    "policy": "lex-first fixed TRAIN member, earliest128all4effective-valid run; precommitted diagnostic only"
+  },
+  "independent_replay": {
+    "windows": 128,
+    "values_compared": 131072,
+    "input_sha256": "e4323646aa2998b09810c7acbea0271d44f2d5fadcc834565f71dae3cd98fe7f",
+    "final_window_sha256": "5cf8fd82e440518bb4df0430048b5baf5bbeb045acf7e8a6e48cbbe1cab9733b",
+    "max_error": 0.0,
+    "snapshot_immutability": true
+  },
+  "numeric_parse_note": "6,537,168 is the first82-member scan only; replay second-open re-parses selected member. Nonselected data columns are never numerically parsed in reviewed scan/reference logic;160 opaque-column cases support this statement. This is not runtime future-label access evidence.",
+  "commands": [
+    {
+      "command": [
+        "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\venv\\Scripts\\python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\plan-20261014-final-c\\director-startup\\train-curve-coverage\\test_scan_train_curves.py"
+      ],
+      "exit_code": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "7733983b5d07c5315f371b84cd52283a52829d0d208d75883c28d4c75a5bca09",
+      "raw_prefix": "train-coverage-main-unit"
+    },
+    {
+      "command": [
+        "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\venv\\Scripts\\python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\plan-20261014-final-c\\director-startup\\train-coverage-portable\\test_scan_train_curves.py"
+      ],
+      "exit_code": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "edcad7c47e40f34d41c478d98c4e93dc618f967b2d66b8a9634871152cbbc065",
+      "raw_prefix": "train-coverage-main-portable"
+    }
+  ],
+  "product_bytes_unchanged": true,
+  "python_version": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+  "provider": "deepseek",
+  "model": "deepseek-flash",
+  "reasoning_effort": "max",
+  "acceptance": "passed_train_only_offline_coverage_and_replay_evidence",
+  "C01": "not_run",
+  "C02": "not_run",
+  "limits": [
+    "Not model training, heldout evaluation, waterhazard/lithology performance or real sensor evidence",
+    "No resplit/refit or public runtime/3D/hardware acceptance",
+    "Private audit helper controlled CLI and specified input paths only; not accepted as production data verifier",
+    "All29productcards remain not_run"
+  ]
+}
