@@ -26,3 +26,21 @@
 
 - Existing nodes use `deploy/Update-FPGAMesh.ps1`: update changed source files only, preserve local configuration/credentials/state, and do not rerun onboarding. The updater fences ledger admission and verifies idle before stopping the existing service.
 - Astra requires tenant scope `im:resource` for file upload/readback. Astra-A received explicit human authorization and its grant was verified. Existing B/C must obtain their own app owner's authorization on the existing Astra app; an update ZIP cannot grant a cloud scope. Run `python -m fpga_mesh.feishu_permissions --config <existing-config>` for a read-only audit. Never add file scope to DeepSeek or change the human > main > child priority.
+
+<!-- deepeye-human-lock:begin -->
+## DeepEye human-locked final acceptance scope
+
+For every DeepEye proposal, fusion, implementation, review, new main/work chat,
+and subagent, read `docs/competition/deepeye-2026/immutable_scope.md` and `.json`
+before work. Contract `DEEPEYE-HUMAN-LOCK-20261014/revision1`, requirements SHA256
+`c229834bfc2292f5fe4411fc9f12c68487008f9d1adaf31f0144ee7a98173804`.
+Preserve every H01-H15 requirement. This direct human scope overrides AI plans,
+scores, deadlines, budgets and fallback suggestions. Only a new explicit human
+instruction can amend it. Preserve game-level 3D/UI, framed hollow cube, solid
+drill/obstacles with volume collision, live free camera/editing/random placement,
+free blue/red equal-size entry/exit circles and full correct crossing, hidden
+truth and causal sourced sensor observations, meaningful PC AI and both PC-direct
+and PC-AI-to-FPGA-to-simulator control. No 2D/video/precomputed-route replacement,
+truth leak, or FPGA-only control restriction. Every handoff carries this contract
+and verifies the pinned hash before task execution. Children cannot edit it.
+<!-- deepeye-human-lock:end -->
