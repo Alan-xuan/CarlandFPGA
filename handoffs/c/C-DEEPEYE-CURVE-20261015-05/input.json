@@ -1,0 +1,86 @@
+{
+  "request": {
+    "operation_id": "C-DEEPEYE-CURVE-20261015-05",
+    "task_id": "DEEPEYE-IMPLEMENTATION-20261014",
+    "task_version": 1,
+    "requester": "node-c",
+    "code_commit": "ab8ce6fd7c5a7e3d0bee00d6831f06fde5b7403c",
+    "test_steps": [
+      "python -X utf8 -B competition/deepeye/tests/ai/data_model/test_curve_input.py",
+      "Verify manifest/source hashes; inspect curve_main_review for1000referencewindows/1024000features,202provenance negative cases,100schema mutation cases and256row training-member replay.",
+      "Confirm force_curve_v1 [1,8,128,1] remains separate from sim_em_v2 [1,13,32,1]; all scale values derive from supplied verified preprocessing bytes; no wire schema is added.",
+      "Return same-PR operation_id/request_hash/tested_commit review. No board action requested."
+    ],
+    "expected_result": "28softwaretests and main independent checks pass; CP01/CP02 closed for pure builder only. Real256row slice has236validGR and zero valid samples in other3channels, no four-channel real-data performance claim. C01 and all29productcards remain not_run. All synthesis/implementation/board/system gates not_run. Runtime secrecy/wire integration, trained model and A R03 gates excluded. Contract DEEPEYE-HUMAN-LOCK-20261014/revision1 source f5989cd5defce561f9ba98e6b18fc2682945f0a2 SHA256 c229834bfc2292f5fe4411fc9f12c68487008f9d1adaf31f0144ee7a98173804;design1011259415a0916054eb580687612580bc1e5f09 unchanged."
+  },
+  "artifacts": [
+    "competition/deepeye/ai_pc/control_broker/deadlines.py",
+    "competition/deepeye/ai_pc/control_broker/mailbox.py",
+    "competition/deepeye/ai_pc/model/causal_input.py",
+    "competition/deepeye/ai_pc/model/curve_input.py",
+    "competition/deepeye/ai_pc/planning/kinematics.py",
+    "competition/deepeye/data/dataset_card.md",
+    "competition/deepeye/data/force_inventory.py",
+    "competition/deepeye/data/force_preprocess.py",
+    "competition/deepeye/data/force_wells.json",
+    "competition/deepeye/data/grouping.py",
+    "competition/deepeye/data/label_schema.json",
+    "competition/deepeye/data/preprocessing.json",
+    "competition/deepeye/data/source_inventory.json",
+    "competition/deepeye/data/split_policy.json",
+    "competition/deepeye/data/splits.json",
+    "competition/deepeye/evidence/ai/startup/broker.json",
+    "competition/deepeye/evidence/ai/startup/broker.log",
+    "competition/deepeye/evidence/ai/startup/broker_main_review.json",
+    "competition/deepeye/evidence/ai/startup/broker_main_review.py",
+    "competition/deepeye/evidence/ai/startup/broker_main_review.txt",
+    "competition/deepeye/evidence/ai/startup/curve_input.json",
+    "competition/deepeye/evidence/ai/startup/curve_input.log",
+    "competition/deepeye/evidence/ai/startup/curve_main_review.json",
+    "competition/deepeye/evidence/ai/startup/curve_main_review.py",
+    "competition/deepeye/evidence/ai/startup/curve_main_review.txt",
+    "competition/deepeye/evidence/ai/startup/data_model.json",
+    "competition/deepeye/evidence/ai/startup/data_model.txt",
+    "competition/deepeye/evidence/ai/startup/force_inventory.json",
+    "competition/deepeye/evidence/ai/startup/force_inventory.txt",
+    "competition/deepeye/evidence/ai/startup/force_preprocess.json",
+    "competition/deepeye/evidence/ai/startup/force_preprocess.log",
+    "competition/deepeye/evidence/ai/startup/planner.json",
+    "competition/deepeye/evidence/ai/startup/planner.txt",
+    "competition/deepeye/evidence/ai/startup/preprocess_main_review.json",
+    "competition/deepeye/evidence/ai/startup/preprocess_main_review.py",
+    "competition/deepeye/evidence/ai/startup/preprocess_main_review.txt",
+    "competition/deepeye/evidence/ai/startup/split_assignment.json",
+    "competition/deepeye/evidence/ai/startup/split_assignment.txt",
+    "competition/deepeye/tests/ai/control_broker/test_deadlines.py",
+    "competition/deepeye/tests/ai/control_broker/test_mailbox.py",
+    "competition/deepeye/tests/ai/data_model/test_causal_input.py",
+    "competition/deepeye/tests/ai/data_model/test_curve_input.py",
+    "competition/deepeye/tests/ai/data_model/test_force_inventory.py",
+    "competition/deepeye/tests/ai/data_model/test_force_preprocess.py",
+    "competition/deepeye/tests/ai/data_model/test_grouping.py",
+    "competition/deepeye/tests/ai/planning/kinematics_vectors.json",
+    "competition/deepeye/tests/ai/planning/test_kinematics.py"
+  ],
+  "stages": {
+    "simulation": {
+      "status": "not_run"
+    },
+    "synthesis": {
+      "status": "not_run"
+    },
+    "implementation": {
+      "status": "not_run"
+    },
+    "board": {
+      "status": "not_run"
+    },
+    "system": {
+      "status": "not_run"
+    },
+    "software_unit": {
+      "status": "passed",
+      "log": "competition/deepeye/evidence/ai/startup/curve_main_review.txt"
+    }
+  }
+}
