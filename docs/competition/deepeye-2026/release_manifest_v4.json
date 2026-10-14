@@ -1,0 +1,93 @@
+{
+  "operation_id": "COMP-20261013-DEEPEYE:A:taskbook-v4",
+  "task_id": "COMP-20261013-DEEPEYE",
+  "task_version": 4,
+  "owner": "A quality main",
+  "source_commit": "89f0af8724d386046e36b70d0c33d17a865b9352",
+  "local_branch": "codex/a/deepeye-3d-taskbook-v4-20261014",
+  "created_at_utc": "2026-10-14T14:23:27.070077+00:00",
+  "previous_delivery_baseline": "2c424a9780d69b01fc0e5ea9db963ed86cfb9dde",
+  "files": {
+    ".gitattributes": {
+      "bytes": 133,
+      "sha256": "8f65c8612d1cc4ab000079bd85c2e3638bf155505c80d93b24e29243be59525d"
+    },
+    "taskbook_v4.md": {
+      "bytes": 86841,
+      "sha256": "1b71bb268c140c6cab526c239f5bba28f702668e4c9d8c4e561ef03c39aceb30"
+    },
+    "deepeye_taskbook_v4.pdf": {
+      "bytes": 991229,
+      "sha256": "41d539e37c1dc7d10b27bf8eca99bd15d7258d54a039a9b063fe30e7585676e6"
+    },
+    "architecture_v4.png": {
+      "bytes": 193005,
+      "sha256": "94796aa141232563d2abdfef8239b79c4c330b1a0d9705c31189047000bc5afd"
+    },
+    "build_architecture_v4.py": {
+      "bytes": 2708,
+      "sha256": "1320676dd7426d981cfbc4a02f9da2f9bef6837576039b6293f545b1b08eb0c5"
+    },
+    "simulation_contract_v4.json": {
+      "bytes": 5209,
+      "sha256": "75645fc47c0aed477bf7abdf132721071ad221f876133a1b4a41ab7236ed7ca9"
+    },
+    "execution_plan_v4.json": {
+      "bytes": 6110,
+      "sha256": "6500d90dc0c5fff826a2f5565847a0264ebb23bb9311af0b2f6dd37dc45949ad"
+    },
+    "research_v4.md": {
+      "bytes": 5341,
+      "sha256": "8719d8c4617f1fd38391f7e1ecb01452b1850baf10da704c92d83c04d8910cc8"
+    },
+    "revision_v4.md": {
+      "bytes": 2086,
+      "sha256": "2784260b1c9925ac9c584f9b75fac9f2c2b5f568fc443424f4ba60afc3d33e5d"
+    },
+    "verify_taskbook_v4.py": {
+      "bytes": 6077,
+      "sha256": "6df2f7685b82f581af746bd7a2ec031cc0fb2236b2e63cd5c078521fbcc25a97"
+    },
+    "checks_v4.json": {
+      "bytes": 9195,
+      "sha256": "b96d35ef6a64039646a918392519f9967a59ff62cb617ae84758ea15475fdcaa"
+    },
+    "verification_v4.txt": {
+      "bytes": 740,
+      "sha256": "0fece16af76d6385bd9d2e00a2e7ab1d3778e9a319b296cbc4d51e8fbe109f56"
+    },
+    "readme.md": {
+      "bytes": 1250,
+      "sha256": "89ffa33d371b1afddab47cb139d77ef5ac8683cb849f6e1efa43deef0444a814"
+    },
+    "automation_contract.md": {
+      "bytes": 1312,
+      "sha256": "c2994c64ee3c8ca1962b9286295119805bab20f9491060c2fe821fb90838c744"
+    }
+  },
+  "document": {
+    "pages": 23,
+    "acceptance_cards": 29,
+    "static_checks": 101,
+    "render_visual_qa": "all23_pages_passed"
+  },
+  "stages": {
+    "v4_design_document": "completed_A_local_revision",
+    "new_BC_review": "not_claimed",
+    "game_implementation": "not_run",
+    "rtl_simulation": "not_run",
+    "synthesis": "not_run",
+    "implementation": "not_run",
+    "board": "not_run",
+    "model_training": "not_run",
+    "rocm_project": "not_run",
+    "game_performance": "not_run",
+    "physical_task_qualification": "not_verified"
+  },
+  "delivery": {
+    "local_saved": true,
+    "open_in_codex": "queued",
+    "new_remote_publication": "not_performed",
+    "existing_PR17": "not_updated"
+  }
+}
