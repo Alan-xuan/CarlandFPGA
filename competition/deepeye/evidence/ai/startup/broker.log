@@ -1,0 +1,171 @@
+# C05 broker third bounded correction (BR21/BR22/BR23) - evidence log (2026-10-15, Asia/Shanghai)
+# executor: ordinary DeepSeek Flash child (route=deepseek, job child-ba4e1bbc022b421aad0e0af23b5720ff, instance deepseek-c-17); C board_access=false
+# task: DEEPEYE-C-BROKER-REPAIR3-20261015/v1 work_id C-broker-clock-cap-term-correction-3-v1
+# supersedes terminal recovery2 job child-40640d2f06ba4cfe9a02273b4a8ec86a (ownership transferred; no side-effect replay)
+# ownership executed: control_broker/deadlines.py, control_broker/mailbox.py,
+#   tests/ai/control_broker/test_deadlines.py, tests/ai/control_broker/test_mailbox.py,
+#   evidence/ai/startup/broker.json, evidence/ai/startup/broker.log (this file)
+
+1) frozen contract verification
+   cmd: .local\venv\Scripts\python.exe -X utf8 .local\plan-20261014-final-c\final-final-1011259\verify_immutable_scope.py --expected-sha c229834bfc2292f5fe4411fc9f12c68487008f9d1adaf31f0144ee7a98173804 --book .local\plan-20261014-final-c\final-final-1011259\taskbook_final.md --plan .local\plan-20261014-final-c\final-final-1011259\execution_plan_final.json
+   out: {"status": "passed", "scope": "human requirement identity and trace coverage only", "contract": "DEEPEYE-HUMAN-LOCK-20261014", "requirements": 15, "requirements_sha256": "c229834bfc2292f5fe4411fc9f12c68487008f9d1adaf31f0144ee7a98173804", "runtime_acceptance": "not_run"}
+   exit: 0  stdout_bytes: 272  stdout_sha256: e6a0a5722482707d449e03400819ffe28ddb53cb53e43f355e9645f5c9303f1c
+
+2) python version
+   cmd: .local\venv\Scripts\python.exe -X utf8 -B -c "import sys; print(sys.version)"
+   exit: 0  stdout_bytes: 67
+   stdout: 3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]
+
+3) assigned test run 1 of 2 (test_deadlines.py)
+   cmd: .local\venv\Scripts\python.exe -X utf8 -B .local\deepeye-implementation-c\competition\deepeye\tests\ai\control_broker\test_deadlines.py
+   exit: 0  stdout_bytes: 0  stderr_bytes: 138
+   stdout_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+   stderr_sha256: aeabcd29366d4e727ce8de4008c35ca0204509e4b504791faa0f66dbd4c8be9e
+   stderr:
+   ..................................
+   ----------------------------------------------------------------------
+   Ran 34 tests in 0.005s
+   
+   OK
+
+3b) focused independent counterexamples (BR21/BR22/BR23), bounded noninteractive run
+   cmd: .local\venv\Scripts\python.exe -X utf8 -B - (script fed via stdin) importing
+        ai_pc.control_broker.deadlines + ai_pc.control_broker.mailbox
+   exit: 0  stdout_bytes: 701  stderr_bytes: 0
+   stdout_sha256: 63b42ecb942d28b6ef42bd0cd73c2cb0024d059b41624cea437903c242b53586
+   stderr_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+   stdout:
+   BR21a offer accepted
+   BR21a missed completed_after_slot_deadline pending_retained True
+   BR21a regressed BrokerError_raised
+   BR21a after raise pending True high_water (1, 1) last_now 500
+   BR21a equal-now retry ok
+   BR21b empty500 empty
+   BR21b regressed BrokerError_raised
+   BR21c expiry observation_age_exceeded
+   BR21c gen2 offer accepted
+   BR21c regressed BrokerError_raised
+   BR22 fast oversized BrokerError_raised
+   BR22 fast equal cap empty
+   BR22 stress same numbers ok
+   BR23 generic both modes BrokerError_raised
+   BR23 missing sample-age BrokerError_raised
+   BR23 cross-mode optional BrokerError_raised
+   BR23 valid ok expired_at5 True
+   BR23 stop preserved expired_at0 True deadline None terms ()
+   DONE
+
+4) assigned test run 2 of 2 (test_mailbox.py)
+   cmd: .local\venv\Scripts\python.exe -X utf8 -B .local\deepeye-implementation-c\competition\deepeye\tests\ai\control_broker\test_mailbox.py
+   exit: 0  stdout_bytes: 0  stderr_bytes: 148
+   stdout_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+   stderr_sha256: 0812c0f572e4025f889ac8bfe2f9eb0f1d3bd765a233bf799c602aff37ccc08c
+   stderr:
+   ............................................
+   ----------------------------------------------------------------------
+   Ran 44 tests in 0.005s
+   
+   OK
+
+5) main decisions implemented (BR21/BR22/BR23 on top of the preserved B01-B04 lineage)
+   BR21: ONE constant-size last-consumed-now high-water scalar on ControlMailbox (property
+        last_consumed_now_ns); every consume with structurally valid nonnegative now/slot and a valid
+        caller age cap rejects now < last accepted clock (equality allowed) and records the new now
+        BEFORE the pending candidate is inspected, so empty, evicted, aged-out, missed-slot and
+        future-completion paths all establish the observed clock; malformed arguments change no state;
+        a regressed clock raises BrokerError and preserves pending candidate, high-water key/digest and
+        history; no internal clock reads, no per-call history list, no implicit reset (new binding =
+        new mailbox); a future completion is retried at equal/later clock only.
+   BR22: the frozen profile age cap is a hard bound for consumption; age_limit_ns must satisfy
+        0 < age_limit_ns <= PROFILE_LIMITS[binding.profile].observation_age_limit_ns (fast_9600 1.5 s,
+        stress_300 12 s); an excessive value raises BrokerError even on an empty mailbox and before any
+        clock state is recorded; effective expiry is now >= sample_lower + age_limit; no silent widening.
+   BR23: non-stop LeaseDeadline audit terms are mode-scoped: HIL mandatory first_send_plus_original_ttl
+        and sample_lower_plus_age_limit (optional receipt_plus_remaining_budget, previous_deadline);
+        PC_DIRECT mandatory first_host_issue_plus_requested_duration and sample_lower_plus_age_limit
+        (optional previous_deadline only); unknown, missing, cross-mode and duplicate names and invalid
+        ints raise BrokerError; deadline = min(terms) unchanged and revalidated on every expired_at;
+        stop state stays deadline None / empty terms / nonempty reason; the docstrings state that a
+        matching audit structure is not cryptographic provenance and never movement authorization.
+   preserved lineage (semantically unchanged from recovery2): persisted high-water key/digest/
+        completion metadata independent of the pending candidate; fail-closed clock consistency at
+        offer and consume (sample lower, future completion retained for retry); mandatory immutable
+        uint64 sent_ordinal with <=4 retained observations, idempotent exact duplicates, no
+        re-registration of evicted ordinals, no wrap/restart in a binding; PROFILE_LIMITS read-only;
+        BrokerBinding frozen profile names; sample_lower <= first_send/first_host_issue guards;
+        unknown receipt bounds still stop.
+   fail-closed convention (documented in the module and consume docstrings): clock-inconsistent
+        inputs raise BrokerError; scheduling outcomes without a usable result return no candidate.
+
+6) regressions (actual counts from the runs above; all 64 recovery2 tests survive semantically, with
+   fixtures corrected where the stricter contracts required it, plus 14 new focused regressions = 78)
+   test_deadlines.py 34 tests: the 31 recovery2 tests (future sample lower HIL/PC_DIRECT, read-only
+     PROFILE_LIMITS, LeaseDeadline constructions, 19 malformed cases now using legitimate mandatory
+     term names as the valid base so each case isolates its intended failure, mutated-instance
+     revalidation) plus 3 new: BR23 unknown/cross-mode/missing term names (7 subcases), builder term
+     names match the mode contract, and the audit-structure-is-not-provenance statement is pinned in
+     the docstrings. The previous generic-label fixtures ("a", "b", "term") were corrected to
+     first_send_plus_original_ttl / sample_lower_plus_age_limit / first_host_issue_plus_requested_duration.
+   test_mailbox.py 44 tests: the 33 recovery2 tests plus 11 new. BR21 (6): main repro - missed slot at
+     now 500 then regressed now 300 raises with pending/high-water preserved and equal-now retry OK;
+     empty(500) then offer then regressed(300) raises; expiry then higher generation with regressed
+     clock raises; future completion retry at equal/later only (199 then 300); malformed arguments
+     (bad slot/cap/bool/float/negative/oversized) never advance the clock; one constant-size scalar per
+     binding (new mailbox = None). BR22 (5): main repro oversized 10 s cap on fast_9600 raises even
+     empty; exact cap accepted and cap+1 rejected in both profiles; the same 10 s cap is legal under
+     stress_300; stricter caller budget with exact-expiry drop at now == sample_lower + cap; malformed
+     caps (0/True/1.5/-1/"9000") raise without state change.
+
+7) failures and history (honest record)
+   - recovery round 1 (child-f1b4c0c0a5bb44588149f679bf4873c7) was cancelled after ~43 minutes stuck
+     in a temporary interactive stdin helper plus a mistyped directory attempt (competition/depeye);
+     cancellation was confirmed, no helper processes remained, the wrong directory does not exist
+     (rechecked: False) and the six owned file bytes were unchanged. No side-effect replay; this round
+     is a new explicit work_id.
+   - recovery round 2 was rejected by the quality main after reproducing BR21/BR22/BR23 (64 tests,
+     1000 independent deadline pairs, 24 completion permutations reviewed); those three defects existed
+     in the inherited sources and are the ones corrected here.
+   - recovery round 2 runner record: the first full run of test_mailbox.py after that rewrite had 2
+     fixture errors (default sent ordinal 1 reused); fixtures corrected to explicit increasing ordinals;
+     product unchanged.
+   - the apply_patch.bat wrapper cannot carry multi-line patches through cmd.exe argument passing
+     (observed again this round with a harmless invalid-path probe: 'The last line of the patch must be
+     *** End Patch'); patches were applied by invoking codex.exe --codex-run-as-apply-patch directly
+     through bounded python subprocess calls. No product impact; no interactive helper, stdin writer,
+     PTY or persistent process was created; commands stayed bounded, no timeout occurred, no
+     write_stdin/REPL loop was used.
+   - no test run failed in this round: both assigned files were green on the first full run after the
+     product and fixture edits (34 + 44 tests); the focused counterexample run also exited 0.
+   - one local tooling incident: a PowerShell quoting parse error while building the counterexample
+     driver (nested double quotes); the cause was inspected and fixed once by feeding the script to
+     python via stdin. No retry loop, no timeout, no product impact.
+
+8) hashes (SHA256, lowercase) - full manifest with inputs and the read-only snapshot in broker.json
+   9439b4bc2bc2fef5bea2fb829694c8c8e41c5102067775dde5e8d42721aa7bfc  ai_pc/control_broker/deadlines.py
+   705b565d6047ae34a676566c2df42ef7596707656fc52e298380f1d3ffbb9f61  ai_pc/control_broker/mailbox.py
+   d6739eb0475ccf0ce450b0ebed13f5896e227783c2d41ab87851b1aad3170c8c  tests/ai/control_broker/test_deadlines.py
+   5f22312714ffda533bc9b3a7feaefde97a577aefa5f7a1248408f8ec1d75a125  tests/ai/control_broker/test_mailbox.py
+   before this round (verified unchanged at start, equals the preserved snapshot):
+   b29bdfc0763885336f53350bc41ba81311131a02f2698f3268975077cde4d26e  deadlines.py (recovery2)
+   5d8e5ce9c8928b894caba50efcfd315410208ee2d97c9bf8a1a8bfdd7d76384d  mailbox.py (recovery2)
+   354c39525a7fb1707c1ab96efa2d4bbc75664815165879e3e9ed8c40dfa3a8d1  test_deadlines.py (recovery2, 31 tests)
+   1a03b41ba3aebea4efb248b17e33681c612983d31d709fa988280dd47a0b00a4  test_mailbox.py (recovery2, 33 tests)
+
+9) limits
+   - software fixtures only; source modules perform no clock/board/network/file I/O (source-scan test);
+     no live authorizer or wire schema; A public schema untouched.
+   - provider/model: dispatch record shows route=deepseek (instance deepseek-c-17, job
+     child-ba4e1bbc022b421aad0e0af23b5720ff); actual provider/model/effort not observable from inside
+     this ordinary child executor: unknown (the preceding same-route terminal record reports
+     provider=deepseek, model=deepseek-flash, effort=max).
+   - measured host clock and USB processing bounds do not exist yet; unknown receipt bounds still stop.
+   - sequence wrap unsupported by design; a new binding/session is required.
+   - formal C05, C05-01..C05-10 and all product/hardware gates remain not_run; main review pending.
+
+10) scope compliance
+   no git add/commit, no __init__ creation, no extra evidence dirs, no board/service/provider/
+   credential changes, no group or peer messages, no child/native sessions, no PTY/REPL/stdin writer
+   or persistent process; only the six owned files were created or edited (this file and broker.json
+   included); the preserved broker-recovery2-before-review snapshot is untouched (6 files rehashed,
+   mtimes 2026-10-15T05:19:57); the typo path competition/depeye does not exist; the A public wire
+   schema is untouched; formal C05 and all product/hardware gates remain not_run.

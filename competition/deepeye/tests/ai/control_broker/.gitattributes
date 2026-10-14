@@ -1,0 +1,2 @@
+test_deadlines.py -text whitespace=cr-at-eol
+test_mailbox.py -text whitespace=cr-at-eol

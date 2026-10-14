@@ -1,0 +1,183 @@
+{
+  "schema": 1,
+  "task_id": "DEEPEYE-C-BROKER-REPAIR3-20261015",
+  "task_version": 1,
+  "work_id": "C-broker-clock-cap-term-correction-3-v1",
+  "job_id": "child-ba4e1bbc022b421aad0e0af23b5720ff",
+  "instance_id": "deepseek-c-17",
+  "card": "C05",
+  "scope": "pure deadline arithmetic and bounded latest-completed mailbox; no live authorizer or wire adapter",
+  "director_thread_id": "01a13b42-9716-79e2-9afc-271dc489c01e",
+  "board_access": false,
+  "contract": {
+    "id": "DEEPEYE-HUMAN-LOCK-20261014",
+    "revision": 1,
+    "source_commit": "f5989cd5defce561f9ba98e6b18fc2682945f0a2",
+    "design_commit": "1011259415a0916054eb580687612580bc1e5f09",
+    "requirements_sha256": "c229834bfc2292f5fe4411fc9f12c68487008f9d1adaf31f0144ee7a98173804",
+    "verifier": ".local\\venv\\Scripts\\python.exe -X utf8 .local\\plan-20261014-final-c\\final-final-1011259\\verify_immutable_scope.py --expected-sha c229834bfc2292f5fe4411fc9f12c68487008f9d1adaf31f0144ee7a98173804 --book .local\\plan-20261014-final-c\\final-final-1011259\\taskbook_final.md --plan .local\\plan-20261014-final-c\\final-final-1011259\\execution_plan_final.json",
+    "verify_exit": 0,
+    "verify_stdout_sha256": "e6a0a5722482707d449e03400819ffe28ddb53cb53e43f355e9645f5c9303f1c",
+    "verify_stdout_bytes": 272,
+    "verify_result": {
+      "status": "passed",
+      "scope": "human requirement identity and trace coverage only",
+      "contract": "DEEPEYE-HUMAN-LOCK-20261014",
+      "requirements": 15,
+      "requirements_sha256": "c229834bfc2292f5fe4411fc9f12c68487008f9d1adaf31f0144ee7a98173804",
+      "runtime_acceptance": "not_run"
+    }
+  },
+  "repair_context": {
+    "round": 3,
+    "supersedes": "child-40640d2f06ba4cfe9a02273b4a8ec86a (recovery2, terminal completed; exclusive ownership transferred, no side-effect replay)",
+    "main_reproduced_findings": [
+      "BR21",
+      "BR22",
+      "BR23"
+    ],
+    "main_review_record": ".local/plan-20261014-final-c/director-startup/broker-recovery2-main-review.json",
+    "main_rerun_numbers": {
+      "unit_tests": 64,
+      "independent_deadline_pairs": 1000,
+      "completion_order_permutations": 24
+    },
+    "terminal_record": ".local/plan-20261014-final-c/director-startup/broker-recovery2-terminal.json",
+    "assignment_record": ".local/plan-20261014-final-c/director-startup/broker-repair3-args.json",
+    "decisions_record": ".local/plan-20261014-final-c/director-startup/broker-repair3-main-decisions.json",
+    "foundation_plan": ".local/plan-20261014-final-c/director-startup/broker-foundation-plan.json",
+    "preserved_snapshot_read_only": ".local/plan-20261014-final-c/director-startup/broker-recovery2-before-review",
+    "preserved_snapshot_check": "6 snapshot files rehashed in snapshot_sha256; mtimes 2026-10-15T05:19:57 unchanged",
+    "source_before_sha256": {
+      "competition/deepeye/ai_pc/control_broker/deadlines.py": "b29bdfc0763885336f53350bc41ba81311131a02f2698f3268975077cde4d26e",
+      "competition/deepeye/ai_pc/control_broker/mailbox.py": "5d8e5ce9c8928b894caba50efcfd315410208ee2d97c9bf8a1a8bfdd7d76384d",
+      "competition/deepeye/tests/ai/control_broker/test_deadlines.py": "354c39525a7fb1707c1ab96efa2d4bbc75664815165879e3e9ed8c40dfa3a8d1",
+      "competition/deepeye/tests/ai/control_broker/test_mailbox.py": "1a03b41ba3aebea4efb248b17e33681c612983d31d709fa988280dd47a0b00a4"
+    }
+  },
+  "python_version": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+  "files": [
+    {
+      "path": "competition/deepeye/ai_pc/control_broker/deadlines.py",
+      "sha256": "9439b4bc2bc2fef5bea2fb829694c8c8e41c5102067775dde5e8d42721aa7bfc",
+      "role": "product module: HIL/PC_DIRECT deadline arithmetic; future-sample-lower guard, read-only profile limits, mode-scoped LeaseDeadline audit terms (BR23)"
+    },
+    {
+      "path": "competition/deepeye/ai_pc/control_broker/mailbox.py",
+      "sha256": "705b565d6047ae34a676566c2df42ef7596707656fc52e298380f1d3ffbb9f61",
+      "role": "product module: bounded latest-completed mailbox; persisted high-water, monotonically increasing caller-clock fail-closed consumption (BR21), frozen-profile caller age cap (BR22), explicit uint64 sent ordinals"
+    },
+    {
+      "path": "competition/deepeye/tests/ai/control_broker/test_deadlines.py",
+      "sha256": "d6739eb0475ccf0ce450b0ebed13f5896e227783c2d41ab87851b1aad3170c8c",
+      "role": "regression tests: 34 tests"
+    },
+    {
+      "path": "competition/deepeye/tests/ai/control_broker/test_mailbox.py",
+      "sha256": "5f22312714ffda533bc9b3a7feaefde97a577aefa5f7a1248408f8ec1d75a125",
+      "role": "regression tests: 44 tests"
+    }
+  ],
+  "input_sha256": {
+    ".local/plan-20261014-final-c/director-startup/broker-recovery2-main-review.json": "f53983cd9595161bd7fb1e40e615f30dbb5a5f110e15acfe2f31966c41d06d93",
+    ".local/plan-20261014-final-c/director-startup/broker-recovery2-terminal.json": "7cbf0e937d6e21968c39e5f2d9448683c45683f9e32d1c2987e69f3ef446a81f",
+    ".local/plan-20261014-final-c/director-startup/broker-repair3-args.json": "28ec51e0937815f5791cc9cbffa9ce19020ea445447ff9020e166172f48a3859",
+    ".local/plan-20261014-final-c/director-startup/broker-repair3-main-decisions.json": "937325030399268b061038efd519eefd1a13f88ce5f9186a72a057db1f318ac2",
+    ".local/plan-20261014-final-c/director-startup/broker-repair3-result.json": "b3cc5d53c950dca03b4259d790af8fec3005240005d174affc2dd54849540330",
+    ".local/plan-20261014-final-c/director-startup/broker-foundation-plan.json": "84dd1f70fb8b09bdacbdd603f6b015ca5f6128b0dcdea89736732d0585d47fe3",
+    ".local/plan-20261014-final-c/final-final-1011259/immutable_scope.json": "6a86000e97d1571c0b7b89b9d3cf7facb11d2b6a06455eb1d53e0637676b6bc4",
+    ".local/plan-20261014-final-c/final-final-1011259/immutable_scope.md": "27c5bf0b194036cf4300dbec371b6abba42bc5fda604da0e6e06284e4c5a2ddd",
+    ".local/plan-20261014-final-c/final-final-1011259/taskbook_final.md": "7f5c94f7fc73698236be954ae7818266d6dfe8b4949d1752dd045d76f4b71f18",
+    ".local/plan-20261014-final-c/final-final-1011259/execution_plan_final.json": "e93f10d247109e8cb7070ded7fdfac5b3543a44afb3387261531556eebde41be",
+    ".local/plan-20261014-final-c/final-final-1011259/execution_orchestration_v5.md": "c4668714bc25959f0cb5cc8ef326ca04f90dc33eb03905a40ec6c4114804a2e1"
+  },
+  "snapshot_sha256": {
+    ".local/plan-20261014-final-c/director-startup/broker-recovery2-before-review/ai_pc/control_broker/deadlines.py": "b29bdfc0763885336f53350bc41ba81311131a02f2698f3268975077cde4d26e",
+    ".local/plan-20261014-final-c/director-startup/broker-recovery2-before-review/ai_pc/control_broker/mailbox.py": "5d8e5ce9c8928b894caba50efcfd315410208ee2d97c9bf8a1a8bfdd7d76384d",
+    ".local/plan-20261014-final-c/director-startup/broker-recovery2-before-review/tests/ai/control_broker/test_deadlines.py": "354c39525a7fb1707c1ab96efa2d4bbc75664815165879e3e9ed8c40dfa3a8d1",
+    ".local/plan-20261014-final-c/director-startup/broker-recovery2-before-review/tests/ai/control_broker/test_mailbox.py": "1a03b41ba3aebea4efb248b17e33681c612983d31d709fa988280dd47a0b00a4",
+    ".local/plan-20261014-final-c/director-startup/broker-recovery2-before-review/evidence/ai/startup/broker.json": "2d1055efbf2370a8d3a2b7c8d72bdb27b4d9d31b09c6da97bb11fe1c87ce63dd",
+    ".local/plan-20261014-final-c/director-startup/broker-recovery2-before-review/evidence/ai/startup/broker.log": "68b6558316dd5a62b0325c277f2722c6c74bef7cac36ec7e35faa68d64b72e4a"
+  },
+  "commands": [
+    {
+      "cmd": ".local\\venv\\Scripts\\python.exe -X utf8 .local\\plan-20261014-final-c\\final-final-1011259\\verify_immutable_scope.py --expected-sha c229834bfc2292f5fe4411fc9f12c68487008f9d1adaf31f0144ee7a98173804 --book .local\\plan-20261014-final-c\\final-final-1011259\\taskbook_final.md --plan .local\\plan-20261014-final-c\\final-final-1011259\\execution_plan_final.json",
+      "exit": 0,
+      "stdout_bytes": 272,
+      "stderr_bytes": 0,
+      "stdout_sha256": "e6a0a5722482707d449e03400819ffe28ddb53cb53e43f355e9645f5c9303f1c",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_text": "{\"status\": \"passed\", \"scope\": \"human requirement identity and trace coverage only\", \"contract\": \"DEEPEYE-HUMAN-LOCK-20261014\", \"requirements\": 15, \"requirements_sha256\": \"c229834bfc2292f5fe4411fc9f12c68487008f9d1adaf31f0144ee7a98173804\", \"runtime_acceptance\": \"not_run\"}\r\n",
+      "stderr_text": ""
+    },
+    {
+      "cmd": ".local\\venv\\Scripts\\python.exe -X utf8 -B -c \"import sys; print(sys.version)\"",
+      "exit": 0,
+      "stdout_bytes": 67,
+      "stderr_bytes": 0,
+      "stdout_sha256": "0b4cebda4edcad8a05a470afc8cca36811641929e49d9e02bf14759d1d2909d1",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_text": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]\r\n",
+      "stderr_text": ""
+    },
+    {
+      "cmd": ".local\\venv\\Scripts\\python.exe -X utf8 -B .local\\deepeye-implementation-c\\competition\\deepeye\\tests\\ai\\control_broker\\test_deadlines.py",
+      "exit": 0,
+      "stdout_bytes": 0,
+      "stderr_bytes": 138,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "aeabcd29366d4e727ce8de4008c35ca0204509e4b504791faa0f66dbd4c8be9e",
+      "stdout_text": "",
+      "stderr_text": "..................................\r\n----------------------------------------------------------------------\r\nRan 34 tests in 0.005s\r\n\r\nOK\r\n"
+    },
+    {
+      "cmd": ".local\\venv\\Scripts\\python.exe -X utf8 -B .local\\deepeye-implementation-c\\competition\\deepeye\\tests\\ai\\control_broker\\test_mailbox.py",
+      "exit": 0,
+      "stdout_bytes": 0,
+      "stderr_bytes": 148,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "0812c0f572e4025f889ac8bfe2f9eb0f1d3bd765a233bf799c602aff37ccc08c",
+      "stdout_text": "",
+      "stderr_text": "............................................\r\n----------------------------------------------------------------------\r\nRan 44 tests in 0.005s\r\n\r\nOK\r\n"
+    },
+    {
+      "cmd": "bounded noninteractive python -X utf8 -B - (script fed via stdin) importing ai_pc.control_broker.deadlines + mailbox; focused BR21/BR22/BR23 counterexamples; script text in broker.log section 3b",
+      "exit": 0,
+      "stdout_bytes": 701,
+      "stderr_bytes": 0,
+      "stdout_sha256": "63b42ecb942d28b6ef42bd0cd73c2cb0024d059b41624cea437903c242b53586",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_text": "BR21a offer accepted\r\nBR21a missed completed_after_slot_deadline pending_retained True\r\nBR21a regressed BrokerError_raised\r\nBR21a after raise pending True high_water (1, 1) last_now 500\r\nBR21a equal-now retry ok\r\nBR21b empty500 empty\r\nBR21b regressed BrokerError_raised\r\nBR21c expiry observation_age_exceeded\r\nBR21c gen2 offer accepted\r\nBR21c regressed BrokerError_raised\r\nBR22 fast oversized BrokerError_raised\r\nBR22 fast equal cap empty\r\nBR22 stress same numbers ok\r\nBR23 generic both modes BrokerError_raised\r\nBR23 missing sample-age BrokerError_raised\r\nBR23 cross-mode optional BrokerError_raised\r\nBR23 valid ok expired_at5 True\r\nBR23 stop preserved expired_at0 True deadline None terms ()\r\nDONE\r\n",
+      "stderr_text": ""
+    }
+  ],
+  "raw_text_note": "stdout/stderr texts are the exact decoded raw captures (Windows CRLF preserved); byte counts and SHA256 are over the raw bytes; stderr carries the unittest dots/progress summary, stdout is empty for the test runs; the counterexample entry captures the script stdout verbatim",
+  "changes": [
+    "BR21 (new): ControlMailbox keeps ONE constant-size last-consumed-now high-water scalar (int|None, read-only property last_consumed_now_ns). Every consume call with structurally valid nonnegative now/slot and a valid caller age cap rejects now < last accepted clock (equality allowed) and records the new now before the pending candidate is inspected, so empty, evicted, aged-out, missed-slot and future-completion outcomes all establish the observed clock. Malformed arguments change no state; a regressed clock raises BrokerError and preserves the pending candidate, the ordering high-water key/digest and the retained history. No internal clock reads, no per-call history list, no implicit reset; a new binding requires a new mailbox. Main repro fixed: candidate completion 200 ns / sample lower 0; consume(500,100,1000) misses the slot and stays pending; consume(300,300,1000) now raises instead of returning it; a future completion is still retried at an equal or later valid clock, never earlier.",
+    "BR22 (new): the frozen profile observation age cap is a hard upper bound for consumption. consume retains age_limit_ns for stricter caller budgets but requires 0 < age_limit_ns <= PROFILE_LIMITS[binding.profile].observation_age_limit_ns (fast_9600 1.5 s / stress_300 12 s); an excessive value raises BrokerError even on an empty mailbox, before any clock state is recorded. Effective expiry is now >= sample_lower + age_limit. Main repro fixed: a fast_9600 candidate at sample lower 0 consumed at now 2 s with caller cap 10 s now raises; the same figures under a stress_300 binding remain legal.",
+    "BR23 (new): non-stop LeaseDeadline validates mode-scoped audit term names. HIL requires first_send_plus_original_ttl and sample_lower_plus_age_limit (optional receipt_plus_remaining_budget, previous_deadline); PC_DIRECT requires first_host_issue_plus_requested_duration and sample_lower_plus_age_limit (optional previous_deadline only). Unknown, missing, cross-mode and duplicate names and invalid ints raise BrokerError; deadline = min(terms) is unchanged and revalidated on every expired_at; stop state stays deadline None / empty terms / nonempty reason. The module and class docstrings document that a matching audit structure is not cryptographic provenance and never movement authorization. No extra data fields; the A public wire schema is untouched.",
+    "Preserved from recovery2 (semantically unchanged): persisted ordering high-water key/digest/completion metadata independent of the pending candidate lifetime; fail-closed clock consistency (sample lower at offer and consume, future completion rejected with the candidate retained); mandatory immutable uint64 sent_ordinal with at most 4 retained observations, idempotent exact duplicates, no re-registration of evicted ordinals and no wrap/restart in a binding; PROFILE_LIMITS read-only; BrokerBinding frozen profile names; sample_lower <= first_send/first_host_issue guards; unknown receipt bounds still stop.",
+    "Fail-closed convention (documented): clock-inconsistent inputs raise BrokerError; scheduling outcomes without a usable result return a Consumption with no candidate (reason != ok)."
+  ],
+  "failures_observed": [
+    "recovery round 1 (child-f1b4c0c0a5bb44588149f679bf4873c7) was cancelled after ~43 minutes stuck in a temporary interactive stdin helper plus a mistyped directory attempt (competition/depeye); cancellation was confirmed, no helper processes remained, the wrong directory does not exist (rechecked: False) and the six owned file bytes were unchanged. No side-effect replay; this round is a new explicit work_id.",
+    "recovery round 2 was rejected by the quality main after reproducing BR21/BR22/BR23 (64 tests, 1000 independent deadline pairs, 24 completion permutations reviewed); these three defects existed in the inherited sources and are the ones corrected here.",
+    "recovery round 2 runner record: the first full run of test_mailbox.py after that product rewrite had 2 fixture errors (default sent ordinal 1 reused); fixtures were corrected to explicit increasing ordinals with no product change.",
+    "apply_patch.bat cannot carry multi-line patches through cmd.exe argument passing (observed again this round with a harmless invalid-path probe: 'The last line of the patch must be *** End Patch'); this round used the direct codex.exe --codex-run-as-apply-patch runner through bounded noninteractive python subprocesses, as in round 2. No product impact; no interactive helper, stdin writer, PTY or persistent process was created.",
+    "no test run failed in this round: both assigned files were green on the first full run after the product and fixture edits (34 + 44 tests); the focused counterexample script also exited 0."
+  ],
+  "limits": [
+    "software fixtures only; the source modules perform no clock/board/network/file I/O (enforced by a source-scan test); no live authorizer or wire schema; the A public schema is untouched.",
+    "provider/model: dispatch record shows route=deepseek (broker-repair3-result.json: instance deepseek-c-17, job child-ba4e1bbc022b421aad0e0af23b5720ff); actual provider/model/effort are not observable from inside this ordinary child executor: unknown (the preceding same-route terminal record reports provider=deepseek, model=deepseek-flash, effort=max).",
+    "measured host clock and USB processing bounds do not exist yet; unknown receipt bounds still return must_stop.",
+    "sequence wrap is unsupported by design; a new binding/session is required.",
+    "formal C05, C05-01..C05-10 and all product/hardware cards remain not_run; main review pending.",
+    "the consume caller-clock high-water scalar lives per mailbox; a different binding or session needs a new mailbox (documented, no implicit reset)."
+  ],
+  "status": {
+    "software_fixture_tests": "passed locally (test_deadlines 34 + test_mailbox 44 = 78; the 64 of recovery2 survived plus 14 new focused regressions)",
+    "formal_C05": "not_run",
+    "runtime_acceptance": "not_run",
+    "main_acceptance": "pending"
+  }
+}

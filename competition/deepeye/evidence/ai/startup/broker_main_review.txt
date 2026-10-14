@@ -1,0 +1,172 @@
+COMMAND
+{"command": ["C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\venv\\Scripts\\python.exe", "-X", "utf8", "-B", "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\deepeye-implementation-c\\competition\\deepeye\\tests\\ai\\control_broker\\test_deadlines.py"], "exit_code": 0, "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855", "stderr_sha256": "7d7c879d349481befc3ab6d232840beaf329071a2f3cc0fbcf1e8f556a332ec0"}
+STDOUT
+
+STDERR
+..................................
+----------------------------------------------------------------------
+Ran 34 tests in 0.003s
+
+OK
+
+COMMAND
+{"command": ["C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\venv\\Scripts\\python.exe", "-X", "utf8", "-B", "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\deepeye-implementation-c\\competition\\deepeye\\tests\\ai\\control_broker\\test_mailbox.py"], "exit_code": 0, "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855", "stderr_sha256": "2e425e6e5cab1ab69e61dba5a5c87245499a57ff4227c7d79bd6533d3cada013"}
+STDOUT
+
+STDERR
+............................................
+----------------------------------------------------------------------
+Ran 44 tests in 0.006s
+
+OK
+
+MAIN INDEPENDENT RESULTS
+{
+  "task_id": "DEEPEYE-IMPLEMENTATION-20261014",
+  "task_version": 1,
+  "contract_id": "DEEPEYE-HUMAN-LOCK-20261014/revision1",
+  "requirements_sha256": "c229834bfc2292f5fe4411fc9f12c68487008f9d1adaf31f0144ee7a98173804",
+  "design_commit": "1011259415a0916054eb580687612580bc1e5f09",
+  "job_id": "child-ba4e1bbc022b421aad0e0af23b5720ff",
+  "actual_executor": {
+    "provider": "deepseek",
+    "model": "deepseek-flash",
+    "reasoning_effort": "max"
+  },
+  "at_utc": "2026-10-14T21:34:08.789236+00:00",
+  "tool_versions": {
+    "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+    "platform": "Windows-11-10.0.26200-SP0"
+  },
+  "commands": [
+    {
+      "command": [
+        "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\venv\\Scripts\\python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\deepeye-implementation-c\\competition\\deepeye\\tests\\ai\\control_broker\\test_deadlines.py"
+      ],
+      "exit_code": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "7d7c879d349481befc3ab6d232840beaf329071a2f3cc0fbcf1e8f556a332ec0"
+    },
+    {
+      "command": [
+        "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\venv\\Scripts\\python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\deepeye-implementation-c\\competition\\deepeye\\tests\\ai\\control_broker\\test_mailbox.py"
+      ],
+      "exit_code": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "2e425e6e5cab1ab69e61dba5a5c87245499a57ff4227c7d79bd6533d3cada013"
+    }
+  ],
+  "unit_tests": 78,
+  "independent_deadline_pairs": 1000,
+  "completion_order_permutations": 24,
+  "independent_clock_calls": 1000,
+  "term_subset_cases": 128,
+  "bounded_registrations": 2000,
+  "focused_rejections": [
+    {
+      "case": "empty regressing clock",
+      "outcome": "rejected",
+      "message": "consumed_at_ns 300 regresses below the last accepted consume clock 500; a valid consume clock never decreases"
+    },
+    {
+      "case": "empty bad age does not advance clock",
+      "outcome": "rejected",
+      "message": "age_limit_ns 100000000000000000000 exceeds the frozen 'fast_9600' observation age cap 1500000000"
+    },
+    {
+      "case": "missed_slot regressing clock",
+      "outcome": "rejected",
+      "message": "consumed_at_ns 300 regresses below the last accepted consume clock 500; a valid consume clock never decreases"
+    },
+    {
+      "case": "missed_slot bad age does not advance clock",
+      "outcome": "rejected",
+      "message": "age_limit_ns 100000000000000000000 exceeds the frozen 'fast_9600' observation age cap 1500000000"
+    },
+    {
+      "case": "aged_out regressing clock",
+      "outcome": "rejected",
+      "message": "consumed_at_ns 300 regresses below the last accepted consume clock 500; a valid consume clock never decreases"
+    },
+    {
+      "case": "aged_out bad age does not advance clock",
+      "outcome": "rejected",
+      "message": "age_limit_ns 100000000000000000000 exceeds the frozen 'fast_9600' observation age cap 1500000000"
+    },
+    {
+      "case": "evicted regressing clock",
+      "outcome": "rejected",
+      "message": "consumed_at_ns 300 regresses below the last accepted consume clock 500; a valid consume clock never decreases"
+    },
+    {
+      "case": "evicted bad age does not advance clock",
+      "outcome": "rejected",
+      "message": "age_limit_ns 100000000000000000000 exceeds the frozen 'fast_9600' observation age cap 1500000000"
+    },
+    {
+      "case": "future_completion first",
+      "outcome": "rejected",
+      "message": "candidate completion is in the future relative to consumed_at_ns"
+    },
+    {
+      "case": "future_completion regressing clock",
+      "outcome": "rejected",
+      "message": "consumed_at_ns 300 regresses below the last accepted consume clock 500; a valid consume clock never decreases"
+    },
+    {
+      "case": "future_completion bad age does not advance clock",
+      "outcome": "rejected",
+      "message": "age_limit_ns 100000000000000000000 exceeds the frozen 'fast_9600' observation age cap 1500000000"
+    },
+    {
+      "case": "fast_9600 oversized age",
+      "outcome": "rejected",
+      "message": "age_limit_ns 1500000001 exceeds the frozen 'fast_9600' observation age cap 1500000000"
+    },
+    {
+      "case": "stress_300 oversized age",
+      "outcome": "rejected",
+      "message": "age_limit_ns 12000000001 exceeds the frozen 'stress_300' observation age cap 12000000000"
+    }
+  ],
+  "source_sha256": {
+    "ai_pc/control_broker/deadlines.py": "9439b4bc2bc2fef5bea2fb829694c8c8e41c5102067775dde5e8d42721aa7bfc",
+    "ai_pc/control_broker/mailbox.py": "705b565d6047ae34a676566c2df42ef7596707656fc52e298380f1d3ffbb9f61",
+    "evidence/ai/startup/broker.json": "7d8f9ee74cd7232a918166f93f46a43feb16d2b122169130d360bc8a4576ed3d",
+    "evidence/ai/startup/broker.log": "21a4e93a908e41a5f083d7eb47a01ad76ae4c17f74448e1ef7d0e0d7d546dc8f",
+    "tests/ai/control_broker/test_deadlines.py": "d6739eb0475ccf0ce450b0ebed13f5896e227783c2d41ab87851b1aad3170c8c",
+    "tests/ai/control_broker/test_mailbox.py": "5f22312714ffda533bc9b3a7feaefde97a577aefa5f7a1248408f8ec1d75a125"
+  },
+  "review_script_sha256": "45cb034e55d60b76f7ecaa9e05325efcaee847ddf13ea8537a25b290c2530aed",
+  "acceptance": "passed_software_foundation_only",
+  "closed_findings": [
+    "B01",
+    "B02",
+    "B03",
+    "B04",
+    "BR21",
+    "BR22",
+    "BR23"
+  ],
+  "C05": "not_run",
+  "stages": {
+    "simulation": "not_run",
+    "synthesis": "not_run",
+    "implementation": "not_run",
+    "board": "not_run",
+    "system": "not_run"
+  },
+  "limits": [
+    "Pure deadline/mailbox helpers only, no I/O, no wire adapter or motion authorization.",
+    "A-owned schema, scheduler timing, measured clock/USB bounds and runtime authority not accepted; no C05 or actual3D/board/system success.",
+    "Historic source snapshots and failures remain retained; terminal completion alone was never acceptance."
+  ]
+}

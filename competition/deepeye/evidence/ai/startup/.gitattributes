@@ -11,3 +11,8 @@ force_preprocess.log -text whitespace=cr-at-eol,-blank-at-eof
 preprocess_main_review.json -text
 preprocess_main_review.py -text whitespace=cr-at-eol
 preprocess_main_review.txt -text whitespace=cr-at-eol,-blank-at-eof
+broker.json -text whitespace=cr-at-eol
+broker.log -text whitespace=cr-at-eol,-blank-at-eof,-blank-at-eol
+broker_main_review.json -text
+broker_main_review.py -text whitespace=cr-at-eol
+broker_main_review.txt -text whitespace=cr-at-eol,-blank-at-eof
