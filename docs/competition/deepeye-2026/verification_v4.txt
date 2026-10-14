@@ -1,0 +1,9 @@
+Scope: taskbook design document only.
+Static document/math/DAG/PDF text checks: 101 passed.
+PDF: 23 pages,29 acceptance cards; all rendered at110dpi and visually inspected.
+ABI3 payload sums: CONTROL3D16+14=30B,ACK3D20+14=34B,STATE3D20+14=34B.
+HIL normal150B,config206B,control retry214B,event retry170B; both line directions counted.
+FAST candidate normal/retry/config slot chains nonoverlapping and end before500ms; wire+guard arithmetic only, real USB/AI/schedule measurements pending.
+DAG:29 unique cards,acyclic,all product tasks not_run.
+Actual game/RTL/AI/ROCm/board/performance: not_run. No new B/C joint approval claimed.
+v3 revision1 and the existing PR17 delivery baseline preserved; v4 is a new local revision for human review.

@@ -1,0 +1,194 @@
+{
+  "schema": 1,
+  "task_id": "COMP-20261013-DEEPEYE",
+  "task_version": 4,
+  "status": "design_only_all_runtime_not_run",
+  "engine": {
+    "family": "Godot",
+    "branch": "4.6 maintained patch",
+    "platform": "Windows x64",
+    "renderer": "Forward+ DX12 or Vulkan, one measured choice locked by G01"
+  },
+  "world": {
+    "units": "metre",
+    "cube_edge_m": 30,
+    "cube_render": "12 edges only",
+    "obstacles_max": 30,
+    "physics_hz": 100
+  },
+  "drill": {
+    "max_diameter_m": 0.24,
+    "rigid_length_m": 0.8,
+    "ring_diameter_m": 0.3,
+    "minimum_turn_radius_m": 2,
+    "max_axis_rate_deg_s": 15,
+    "max_acceleration_m_s2": 0.25,
+    "rotation_sweep_substep_max_deg": 0.25,
+    "axis": "local +Z"
+  },
+  "sensor": {
+    "source_mode": "twin_fixture",
+    "native_em_hz": 20,
+    "adc_hz_per_channel": 100,
+    "support_m": 8,
+    "em_support_basis": "EarthStar3DX published maximum 50ft=15.24m; 8m is project assumption, not guaranteed detection",
+    "cone_halfangle_deg": 30,
+    "differential_lobe_offset_deg": 20,
+    "response_tau_ms": 100,
+    "log10_white_noise_sigma": 0.03,
+    "log10_random_walk_sigma_per_sqrt_s": 0.002,
+    "near_field_softening_m": 0.25,
+    "channels": [
+      "log10_rho_apparent",
+      "azimuth_log10_rho_difference",
+      "elevation_log10_rho_difference",
+      "near_bit_vibration_rms_g"
+    ],
+    "vibration_reference": "ADXL355 RevD, +/-2g,22.5ug/sqrt(Hz)",
+    "vibration_enbw_hz": 25,
+    "vibration_noise_sigma_ug": 112.5,
+    "exact_distance_output": false,
+    "simulation_claim": "simplified empirical field kernel, not full-wave commercial instrument"
+  },
+  "abi": {
+    "version": 3,
+    "fixed_overhead_bytes": 14,
+    "max_payload_bytes": 32,
+    "types": {
+      "telem": {
+        "type": 1,
+        "total_bytes": 32
+      },
+      "event": {
+        "type": 2,
+        "total_bytes": 20
+      },
+      "control3d": {
+        "type": 14,
+        "payload_bytes": 16,
+        "total_bytes": 30
+      },
+      "ack3d": {
+        "type": 15,
+        "payload_bytes": 20,
+        "total_bytes": 34
+      },
+      "state3d": {
+        "type": 16,
+        "payload_bytes": 20,
+        "total_bytes": 34
+      },
+      "config": {
+        "type": 5,
+        "total_bytes": 24
+      },
+      "config_ack": {
+        "type": 9,
+        "total_bytes": 32
+      },
+      "boot": {
+        "type": 12,
+        "total_bytes": 41
+      },
+      "boot_ack": {
+        "type": 13,
+        "total_bytes": 41
+      }
+    }
+  },
+  "profiles": {
+    "fast_9600": {
+      "baud": 9600,
+      "line_bits_per_byte": 10,
+      "window_s": 0.5,
+      "guard_total_s": 0.04,
+      "speed_max_m_s": 0.25,
+      "ttl_max_ms": 3000,
+      "e2e_p99_target_s": 1.5,
+      "e2e_max_target_s": 2,
+      "slots_ms": {
+        "event": 0,
+        "telem": 35,
+        "control": 210,
+        "ack": 255,
+        "state": 305,
+        "retry_control": 365,
+        "retry_ack": 410,
+        "config": 365,
+        "config_ack": 405
+      }
+    },
+    "stress_300": {
+      "baud": 300,
+      "line_bits_per_byte": 10,
+      "window_s": 8,
+      "guard_total_s": 0.2,
+      "speed_max_m_s": 0.002,
+      "ttl_max_ms": 12000,
+      "e2e_p99_target_s": 12,
+      "e2e_max_target_s": 16,
+      "scope": "bounded normal package, local response test, not 30m route completed in a few minutes"
+    }
+  },
+  "wire_bytes": {
+    "normal_hil": 150,
+    "config_hil": 206,
+    "control_retry_hil": 214,
+    "event_retry_hil": 170,
+    "gain_normal": 140,
+    "pc_direct_normal": 84
+  },
+  "control_topologies": {
+    "hil_pc_fpga": "main; PC AI plan -> FPGA validate/output -> capture -> world",
+    "pc_direct": "required complete-route comparison; PC AI uses actual FPGA observations -> broker -> world",
+    "fpga_local": "protective local rule only; no unsupported full-route claim"
+  },
+  "runtime_gates": {
+    "pc_direct_observation_age_limit_ms": {
+      "fast_9600": 1500,
+      "stress_300": 12000
+    },
+    "sensor_source_heartbeat_timeout_ms": 100,
+    "telem_tick_semantics": "last included sample acquisition tick, not frame transmission time",
+    "only_past_sensor_samples_may_be_injected": true
+  },
+  "forbidden_controller_inputs": [
+    "truth_scene",
+    "object_id",
+    "obstacle_transform",
+    "obstacle_type",
+    "mesh",
+    "collider",
+    "future_samples",
+    "map_seed",
+    "editor_events",
+    "screen_capture",
+    "oracle_route",
+    "truth_collision_query"
+  ],
+  "game_quality": {
+    "width": 1920,
+    "height": 1080,
+    "duration_s": 600,
+    "obstacles": 30,
+    "rocm_inference_active": true,
+    "frame_p50_max_ms": 16.7,
+    "frame_p95_max_ms": 25,
+    "frame_p99_max_ms": 33.3,
+    "interaction_p95_max_ms": 100,
+    "unexplained_main_thread_stall_max_ms": 250,
+    "fallback_2d_allowed": false
+  },
+  "trial_design": {
+    "blind_reachable_layouts": 30,
+    "repeats_per_layout": 3,
+    "hil_success_target": 0.9,
+    "prohibited_intrusions_allowed": 0,
+    "extra_unreachable_or_low_observability_layouts": 10,
+    "normal_latency_events_min": 1000,
+    "pc_direct_comparison_layouts": 30,
+    "future_truth_can_change_results_without_sensor_change": false
+  },
+  "product_runtime_status": "not_run",
+  "physical_board_owner": "A"
+}

@@ -4,3 +4,4 @@
 *.pdf -text -diff
 *.png -text -diff
 *.jpg -text -diff
+verification_v4.txt -text
