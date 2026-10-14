@@ -98,6 +98,13 @@ check('no_old_ack_as_new_capture','旧捕获不得重新贴新命令标签' in s
 check('collision_attempt_is_failure',c['trial_design']['prohibited_contacts_or_sweep_attempts_allowed']==0)
 check('frame_AI_gap_not_150ms_guarantee',(210-(35+32*10/9600*1000))<150 and '感知加规划超过可用槽' in s)
 check('handoff_is_new_task',p['implementation_task_id']=='DEEPEYE-IMPLEMENTATION-20261014' and p['implementation_task_version']==1)
+check('no_permanent_150ms_slot_starvation',c['runtime_gates']['fpga_observation_history']==4 and 'latest-completed' in s and 68.3334+250<710<1500)
+check('HIL_observation_age_deadline',c['runtime_gates']['hil_observation_age_limit_ms']['fast_9600']==1500 and 'referenced_sample_tick' in c['runtime_gates']['hil_deadline'])
+check('raw_capture_counts_not_free_wire_bytes',c['runtime_gates']['capture_raw_counts'].startswith('local PL') and '不能免费附加三路原始period/count' in s)
+check('body_coordinate_signs','ω=(−pitch,yaw,0)' in s and 'q按xyzw保存' in s)
+check('no_distance_oracle_or_double_count','仅评估器可计算真距离' in s and '不重复加入已耗' in s)
+check('PC_DIRECT_90_independent',c['trial_design']['pc_direct_repeats_per_layout']==3 and '不能共享HIL的成功记录' in s)
+check('actual_pivot_bound',c['drill']['actual_pivot_bound_required'] and '真实pivot测得Rb' in s)
 
 reader=PdfReader(base/'deepeye_taskbook_final.pdf')
 text='\n'.join(page.extract_text() or '' for page in reader.pages)

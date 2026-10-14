@@ -3,10 +3,12 @@
 规范合同 c229834bfc2292f5fe4411fc9f12c68487008f9d1adaf31f0144ee7a98173804；逐模块取长补短，不用总分抵消硬要求。原始五案与两轮选择详见taskbook_final.md第3节、selection_audit.md及round1/round2原件。
 
 - A实际原件：[74c854d74baf](https://github.com/carolwjade/CarlandFPGA/tree/74c854d74baf817beafcbd1d4d52a8dd4450bbca)，taskbook_v4.md，86841B，SHA256 1b71bb268c140c6cab526c239f5bba28f702668e4c9d8c4e561ef03c39aceb30。
-- B实际原件：[1f85095b1f54](https://github.com/carolwjade/CarlandFPGA/pull/20)，reviews/v5/b/review.md，6783B，SHA256 d973d3371e851ac7a9b1955d2978ea19bd216b1c59c52edaf2475082eb41063d。
-- C实际原件：[68423d6c40cf](https://github.com/carolwjade/CarlandFPGA/pull/19)，v5/c/review.md，15421B，SHA256 780d94bf19a1921f19c9d317b409762d23d13a9f4a5b4ecca4715cb65e6aa56b。
+- B-initial实际原件：[1f85095b1f54](https://github.com/carolwjade/CarlandFPGA/pull/20)，reviews/v5/b/review.md，6783B，SHA256 d973d3371e851ac7a9b1955d2978ea19bd216b1c59c52edaf2475082eb41063d。
+- C-initial实际原件：[68423d6c40cf](https://github.com/carolwjade/CarlandFPGA/pull/19)，v5/c/review.md，15421B，SHA256 780d94bf19a1921f19c9d317b409762d23d13a9f4a5b4ecca4715cb65e6aa56b。
+- B-final实际原件：[a5fd908656f5](https://github.com/carolwjade/CarlandFPGA/pull/23)，round3/b/fusion_review.md，5323B，SHA256 1d17710e3f16b34183a93523ef48b034fc52f64d827003d045da8c5f6241a401。
+- C-addendum实际原件：[5a9682f3c1d4](https://github.com/carolwjade/CarlandFPGA/pull/21)，round3/c/scope_and_peer_addendum.md，5573B，SHA256 99935688559baa31bc36ad74285f49b91cb1c260caa9c82e95ad7bcaf0ae579f。
 
-B PR20首版明确尚未读A候选，原件保留该事实；其后真实B桌面已实际审阅A/C并回具体量化、依赖、归属、36面反例，不能把首版pending伪称当时已读。C PR19已核A候选并给10个子门，原文件完整保留。B/C相互实际读到最优后形成的增量修正也由A逐项吸收，消息ID见JSON，最终同件读回另存交接记录。
+B PR20首版明确尚未读A候选，原件保留该事实；其后B桌面和B正式PR23均实际核对A精确候选，PR23的P0+五项P1全文已读。吸收latest-completed邮箱/四项历史观察、共同sample-age截止、线上短帧与本地原始捕获计数边界、+Z符号/四元数、源到判定与剩余延迟分账、双模式各90试次。C PR19已核A候选并给10子门，PR21复用同字节核心，新增合同/两机取舍和实际pivot包络警示；原文件均保留，新增补充已实际读核。B/C相互评析后的修正由A逐项吸收，最终同件读回另存交接记录。
 
 采用：完整游戏品质、独立凸体与旋转扫掠、编辑glTF/许可；体坐标双轴/四元数；单源模式和真实捕获；0.001°/s及加减速曲率耦合；源/在线检测与真实时标；独立3D正演和多解地图；短前缀+制动尾段；解析双圈/36面对照；实际权限拒绝和真实AMD并发。
 

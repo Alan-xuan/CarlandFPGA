@@ -27,7 +27,8 @@
     "axis": "local +Z",
     "rotation_shape_inflation_min_m": 0.0005,
     "rotation_bound_radius_m": 0.52,
-    "gate_geometry_tolerance_m": 0.0001
+    "gate_geometry_tolerance_m": 0.0001,
+    "actual_pivot_bound_required": true
   },
   "sensor": {
     "source_mode": "twin_fixture",
@@ -196,7 +197,15 @@
         15
       ]
     },
-    "event_tick_semantics": "trigger sample acquisition tick"
+    "event_tick_semantics": "trigger sample acquisition tick",
+    "candidate_mailbox": "latest completed bounded mailbox; defer to next legal slot while fresh, no old-result overwrite",
+    "fpga_observation_history": 4,
+    "hil_observation_age_limit_ms": {
+      "fast_9600": 1500,
+      "stress_300": 12000
+    },
+    "hil_deadline": "min(first_send+originalTTL, current_remainingTTL conservative limit, referenced_sample_tick+observation_age_limit)",
+    "capture_raw_counts": "local PL registers/evidence only, not additional online frame bytes"
   },
   "forbidden_controller_inputs": [
     "truth_scene",
@@ -234,12 +243,15 @@
     "normal_latency_events_min": 1000,
     "pc_direct_comparison_layouts": 30,
     "future_truth_can_change_results_without_sensor_change": false,
+    "pc_direct_repeats_per_layout": 3,
+    "pc_direct_success_target": 0.9,
     "prohibited_contacts_or_sweep_attempts_allowed": 0
   },
   "product_runtime_status": "not_run",
   "physical_board_owner": "A",
   "immutable_scope_id": "DEEPEYE-HUMAN-LOCK-20261014/revision1",
   "immutable_scope_sha256": "c229834bfc2292f5fe4411fc9f12c68487008f9d1adaf31f0144ee7a98173804",
+  "technical_revision": 1,
   "motion_wire": {
     "angular_rate_quantum_deg_s": 0.001,
     "q_min": -15000,

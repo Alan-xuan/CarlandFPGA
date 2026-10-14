@@ -1,0 +1,183 @@
+{
+  "task_id": "COMP-20261013-DEEPEYE",
+  "task_version": 5,
+  "purpose": "C proposed additions to A root DAG; not a second coordinator or authorization to implement now",
+  "all_product_checks_status": "not_run",
+  "threshold_basis": "proposed engineering gates, not manufacturer guarantees or measured results",
+  "commands_status": "proposed interfaces for future implementation; these executables are not claimed to exist",
+  "cards": [
+    {
+      "id": "C5-01",
+      "title": "Sensor physics and model applicability",
+      "owner": "A sensors; C independent model evaluation",
+      "root_cards": ["G03", "C01"],
+      "dependencies": ["sensor_profile_schema", "published_device_boundaries"],
+      "command_contract": "python tools/verify_game.py --suite sensor_reference --profile em_surrogate_v2",
+      "pass": [
+        "Freeze Tx/Rx geometry, frequency, units, transfer function, material domain, noise assumptions, ADC quantization and sensing reference point; classify every value as source fact, engineering assumption or measurement.",
+        "Validate homogeneous, planar, tilted, multi-target, low contrast, thin, shielded and saturated cases against independent 3D forward references; perform mesh convergence before treating the reference as accurate.",
+        "At least 30 held-out configurations per case family, excluded from fitting; in the declared supported domain, reference discretization uncertainty <=0.25 and surrogate residual RMS <=0.5 in units of the frozen observation noise standard deviation; absolute residual P95 <=1.0. These are proposed targets, not measured instrument accuracy.",
+        "No invisible antenna aperture outside the declared tool geometry; no commercial tool performance attributed to the short virtual tool.",
+        "A finite support cutoff is permitted only after bounding omitted far-field response within the frozen noise/error budget in the declared domain; otherwise revise the profile instead of forcing physically observable response to zero.",
+        "Unsupported material/geometry domain produces explicit unknown/OOD; no fixed 8m guarantee and no perfect class, distance or object-ID output. Failure blocks the formal sensor gate, without deleting full 3D requirements."
+      ],
+      "evidence": ["sensor_card", "source_parameter_map", "forward_solver_version_hash", "reference_mesh_convergence", "held_out_residuals", "supported_domain"],
+      "failure_action": "A and C revise physical profile/forward surrogate and retrain affected models; preserve failed cases; do not tune on blind scenes."
+    },
+    {
+      "id": "C5-02",
+      "title": "Temporal observation and motion-compensated likelihood",
+      "owner": "C; B reviews ABI; A supplies clock and physical bridge evidence",
+      "root_cards": ["R03", "C01", "G04", "G09"],
+      "dependencies": ["C5-01", "R03", "G09"],
+      "command_contract": "python ai_pc/evaluate_observation.py --suite causal_summary --profiles fast_9600 stress_300",
+      "pass": [
+        "For every summary, reconstruct a bounded acquisition interval and associated pose history using declared sample ticks, fixed profile span and clock uncertainty; ambiguous epoch or missing pose history invalidates the update.",
+        "Prediction uses the same temporal mean/range operation as telemetry over the moving sensor path; no assignment of an entire moving window to the last pose.",
+        "Constant, turning, accelerating, held, missing, saturated, out-of-order and delayed observations have independent expected outputs; no future sample or phantom native update.",
+        "d_detect_source and d_detect_online are separately logged. Online detection distance is measured after the real DAC/ADC/PL/summary/serial/model path, for each baud/topology and material condition, with misses retained.",
+        "Speed uses a frozen conservative online distance bound and a non-overlapping age/latency accounting table; source-only 3x20Hz detections cannot authorize movement."
+      ],
+      "evidence": ["observation_contract", "pose_quality_clock_bounds", "source_vs_online_distance_curves", "all_miss_records", "trace_id_join"],
+      "failure_action": "Invalidate stale map evidence, stop motion and correct the observation contract; any extra wire field needs B budget review and a new profile hash."
+    },
+    {
+      "id": "C5-03",
+      "title": "AI measurement likelihood and ambiguous-map calibration",
+      "owner": "C",
+      "root_cards": ["C02", "C03", "G04"],
+      "dependencies": ["C5-01", "C5-02"],
+      "command_contract": "python ai_pc/evaluate_mapping.py --suite ambiguous_materials --frozen-model model_manifest.json",
+      "pass": [
+        "Model inputs contain actual transmitted values/masks/age and legal self-motion history only; no labels, true obstacle geometry or online training against blind truth.",
+        "Equal-response water/clay and hard/soft-rock pairs retain ambiguity; no-response regions remain unknown unless the declared sensor/forward model provides calibrated exclusion evidence.",
+        "Spatially different hypotheses consistent with identical observations remain distinct or uncertain; the renderer must label the map as estimated.",
+        "Complete-layout families, rotations and all compressed/noisy variants remain in one split; preprocessing fits train only; blind layouts generated after model/threshold freeze.",
+        "Report NLL/Brier/reliability, false-free rate, boundary/risk recall and run-level uncertainty intervals; predefined OOD cases are rejected or stopped. Existing >=90% risk recall and <=1 false alarm per 10min are retained as engineering targets, with no hidden removal of misses.",
+        "CPU rules, lightweight tree and ROCm model use the same observation replay for perception attribution; lack of AI advantage is reported rather than relabeled as success."
+      ],
+      "evidence": ["split_manifest", "model_hash", "operator_placement", "calibration_tables", "counterexample_pairs", "ablation_results"],
+      "failure_action": "Correct leakage/likelihood, recalibrate on validation only, refreeze and generate a new blind set; do not manufacture water labels from FORCE lithology."
+    },
+    {
+      "id": "C5-04",
+      "title": "Unknown-map planning with stopping tail",
+      "owner": "C planning; A independent motion executor",
+      "root_cards": ["G04", "C04", "G06"],
+      "dependencies": ["C5-02", "C5-03", "R03"],
+      "command_contract": "python ai_pc/evaluate_planner.py --suite safe_prefix --cases 1000",
+      "pass": [
+        "Search only the inferred map, with explicit unknown state, body envelope, yaw/pitch combined curvature, speed and acceleration limits.",
+        "Each committed prefix has a validated braking continuation under the frozen uncertainty/risk bound; watchdog/TTL delay is included. Safety is conditional on calibrated sensing, not a universal theorem for unknown ground.",
+        "No automatic reverse, sideways displacement or in-place steering in the forward-only profile; no hidden route or truth collision query.",
+        "Independent tiny-map exhaustive tests verify candidate cost choice; time-bounded or truncated search reports its status without claiming unknown-world global optimum.",
+        "1000 deterministic adversarial cases cover cul-de-sac, disappearing evidence, turn while slowing, map uncertainty growth, stop near a ring and stale candidate; kinematic violation and invalid authorized prefix count both zero."
+      ],
+      "evidence": ["candidate_trace", "braking_tail_certificate", "independent_small_graph_oracle", "timeout_and_stop_reasons"],
+      "failure_action": "Stop and retain the failure; repair motion primitives or uncertainty accounting, not the hidden scene."
+    },
+    {
+      "id": "C5-05",
+      "title": "Continuous drill volume and exact portal passage",
+      "owner": "A geometry judge; B assets; C planner interface review",
+      "root_cards": ["G01", "G06"],
+      "dependencies": ["G01", "frozen_tool_and_portal_geometry"],
+      "command_contract": "python tools/verify_game.py --suite continuous_geometry --cases 1000",
+      "pass": [
+        "Collision envelope encloses every visible rigid drill part. Record Rb from the actual rotation origin; do not assume the tip and center have the same bound.",
+        "Initial overlap is checked independently. For every motion interval, prove a swept envelope from arc length, Rb times rotation angle and numerical tolerance, or use an independently validated continuous checker.",
+        "The 0.5m/0.25m belief grid is not the portal judge. Entry/exit use the known analytic plane/aperture, ordered crossing direction and full-body completion; tolerances shrink safe aperture rather than enlarge it.",
+        "1000 cases include substep-thin barriers, tail-only rotation collisions, initial overlap, grazing tangency, tilted passage, nose-only exit, wrong face and same-face U-route. False success and missed prohibited contact count zero; report conservative false contacts separately.",
+        "No truth-derived safe fraction/normal/path is returned to the controller; prohibited contact is a failed run, never auto-slide or oracle steering."
+      ],
+      "evidence": ["collision_mesh_bounds", "sweep_bound_derivation", "analytic_case_vectors", "independent_judge_results", "rendered_failure_replays"],
+      "failure_action": "Refine or conservatively bound geometry; preserve full model and same-size rings; do not replace volume tests with point triggers."
+    },
+    {
+      "id": "C5-06",
+      "title": "Enforced hidden-world boundary",
+      "owner": "A process isolation; C controller audit",
+      "root_cards": ["G03", "G07"],
+      "dependencies": ["G03", "C5-02"],
+      "command_contract": "python tools/verify_game.py --suite secrecy --paired-worlds 100",
+      "pass": [
+        "Whitelisted task geometry (cube, entry/exit, self pose) is distinct from forbidden obstacle positions, seed, mesh, labels, editor events, screenshots and arbitrary-coordinate sensing.",
+        "Actual controller and inference process tokens deny truth-file/canary access, viewer shared-memory/texture, desktop capture and debug IPC; record denied-access results rather than merely asserting separate processes.",
+        "100 paired worlds have byte-identical allowed observation prefixes, clock inputs and fixed inference seeds; commands remain byte-identical until the first permitted difference.",
+        "Changing spectator camera or truth rendering does not affect sensing/actions; free runtime camera remains functional.",
+        "Layout lock/new-run transition clears old commands, model state, map and leases; no seed or unsalted predictable scene hash used as an online map key."
+      ],
+      "evidence": ["allowlist_schema", "token_acl_readback", "denied_access_log", "paired_input_output_hashes", "camera_ui_recording"],
+      "failure_action": "Block formal blind tests, fix the boundary, rerun affected pairs; no new cloud scope or credential workaround."
+    },
+    {
+      "id": "C5-07",
+      "title": "AI deadline and dual-authority causality",
+      "owner": "C broker; B slots/ABI; A measured board evidence",
+      "root_cards": ["R03", "B04", "G05", "C05", "G06"],
+      "dependencies": ["C5-02", "C5-04", "R03", "G05"],
+      "command_contract": "python tools/verify_game.py --suite motion_authority_timing --events 1000",
+      "pass": [
+        "Resolve v4 angular quantization: at 0.002m/s and R>=2m, nonzero 0.1deg/s violates curvature. C proposes existing int16 fields use 0.001deg/s and +/-15000; B owns the final alternative. Prove legal nonzero turns at each positive speed_code, including minimum speed, with actual capture resolution and combined-axis quantization tests.",
+        "FAST v4 leaves only 141.6667ms between TELEM end and primary request start, before USB/dispatch/packaging margins. A 150/250ms algorithm target is not an in-slot guarantee.",
+        "Freeze an absolute candidate-ready deadline from the final B schedule; late results are discarded and stopped/deferred explicitly, never sent into a reserved slot or applied after expiry.",
+        "HIL requires three actual capture channels; PC_DIRECT requires legal broker command and fresh actual FPGA observation, without inventing a board motion ACK.",
+        "Exactly one configured motion authority per run; topology changes stop, clear leases and re-handshake. Duplicate/first-ACK-loss/current-TTL semantics remain intact.",
+        "Test 1000 events with UI/render/ROCm active; all late/missed/error cases count. Retain FAST P99<=1.5s/max<=2s and STRESS P99<=12s/max<=16s as separate normal-envelope targets; failures prompt timing repair, not faster playback."
+      ],
+      "evidence": ["final_slot_profile_hash", "candidate_ready_deadline_trace", "three_channel_capture", "host_authority_trace", "full_latency_distribution"],
+      "failure_action": "B and C revise compute budget or slot schedule and affected protocol tests; no unbudgeted bytes or debug-network controls."
+    },
+    {
+      "id": "C5-08",
+      "title": "Full game and AMD concurrency",
+      "owner": "A final PC/performance; B assets; C AMD model",
+      "root_cards": ["R02", "C03", "G01", "G02", "G07", "G08"],
+      "dependencies": ["G01", "G02", "C03", "C5-07"],
+      "command_contract": "python integration/game_performance.py --duration 600 --objects 30 --resolution 1920x1080 --ai-active",
+      "pass": [
+        "Exact Godot engine/template/export backend, GPU adapters, AMD project operators, driver and OS versions are recorded; 8845H compatibility remains a test gate, not inferred from gfx1103.",
+        "All immutable 3D/UI/editing/free-camera/solid-volume/ring/hidden-map/AI gates remain mandatory. Assets have actual exported screenshots and licences, not concept images.",
+        "On the final AMD machine with real serial and ROCm project inference: frame P50<=16.7ms, P95<=25ms, P99<=33.3ms; interaction P95<=100ms; unexplained main-thread stall<=250ms.",
+        "1000 batch1 project inferences while rendering; report CPU reference, actual AMD placement, cold/warm distributions and planner deadline misses. NVIDIA rendering, if used, is separately identified and never reported as AMD inference.",
+        "Offline Windows x64 release starts three times from a clean directory; no editor dependency; loss of board does not silently switch to autonomous fake-HIL."
+      ],
+      "evidence": ["software_hardware_manifest", "render_and_inference_trace", "screenshots", "ui_200_action_replay", "cold_start_logs", "licenses"],
+      "failure_action": "Optimize without deleting 3D gates; if 8845H project path fails use an actually supported/validated borrowed Ryzen AI machine. NPU remains optional; ROCm is not waived."
+    },
+    {
+      "id": "C5-09",
+      "title": "Blind online route and causal ablation",
+      "owner": "A blind execution; C metrics without pre-reading scenes; B wire audit",
+      "root_cards": ["A02", "A03", "G07"],
+      "dependencies": ["C5-01", "C5-02", "C5-03", "C5-04", "C5-05", "C5-06", "C5-07", "C5-08"],
+      "command_contract": "python integration/game_trials.py --layouts 30 --repeats 3 --profile fast_9600 --topology hil",
+      "pass": [
+        "Freeze complete model/profile/thresholds first, then generate 30 reachable blind layouts, 3 runs each. Preserve all attempts; arrival>=90%, prohibited intrusion=0; report confidence intervals clustered by layout.",
+        "Add 10 predeclared unreachable/low-observability layouts and retain their stops/failures separately; do not retroactively relabel primary failures as excluded.",
+        "Include all face pairs, vertical/lateral/mixed avoidance, U-route, narrow ring, thin layer, blind human placement, low contrast, disconnection and stale ACK examples.",
+        "PC_DIRECT uses the same world/sensor constraints and disturbance distribution. Paths may produce different measurements; use identical recorded observations only for perception-module ablation.",
+        "Truth oracle runs after completion for reachability and reference cost; it does not steer, filter scene difficulty online or train against the held-out scenes."
+      ],
+      "evidence": ["sealed_scene_commitments", "all_run_logs", "postrun_truth_unlock", "success_failure_table", "fair_ablation_manifest", "actual_program_video"],
+      "failure_action": "Record failed acceptance and repair using train/validation reproductions; keep immutable scope and never replace with preset animation."
+    },
+    {
+      "id": "C5-10",
+      "title": "New-session automated implementation handoff",
+      "owner": "A root coordinator; B and C new quality main sessions",
+      "root_cards": ["A04", "automation_contract"],
+      "dependencies": ["A_final_v5_fusion", "ownership_assignment"],
+      "command_contract": "python tools/verify_release.py --requirements immutable_v5 --evidence-manifest release_manifest.json",
+      "pass": [
+        "A publishes the final root taskbook to GitHub and the authorized Feishu group with exact commit and hashes; C review is an input, not a claim of joint approval or a replacement root taskbook.",
+        "New sessions receive immutable requirement IDs, source commits, per-path ownership, DAG, versioned interfaces, all open gates and exact evidence expectations.",
+        "Agents execute digital research/BOM/build/test/PR/evidence/report/video/package work, automatically diagnose failures and rerun affected checks. Only physical wiring/install, personal authentication or unauthorized payment goes to minimal human cards.",
+        "No product implementation or board operation is started by this old research conversation; A remains the sole physical board operator.",
+        "No docs-only check is reported as model/renderer/RTL/ROCm/physical performance; stop waiting model polling and use persisted events for actual dependencies."
+      ],
+      "evidence": ["final_root_commit", "immutable_requirements", "ownership_dag", "new_session_handoff", "open_gate_register", "publication_readback"],
+      "failure_action": "A resolves ownership/interface gaps; independent owned work continues when dependencies permit, without modifying the immutable scope."
+    }
+  ]
+}

@@ -1,13 +1,13 @@
-Final taskbook version5 static verification (not product acceptance)
-159 document/math/DAG/PDF assertions passed;29 root cards all not_run;28 pages visually verified.
+Final taskbook version5 revision1 static verification (not product acceptance)
+166 document/math/DAG/PDF assertions passed;29 root cards all not_run;29 pages visually verified.
 Immutable requirements exact canonical SHA256 c229834bfc2292f5fe4411fc9f12c68487008f9d1adaf31f0144ee7a98173804;15 exact must-texts and trace maps verified.
 Contract mutation tests: baseline+6 expected refusal cases,7/7; no original contract bytes changed.
 Separate Flash numerical work child-ee616583c6a14f6f82bf545a9d4c2d5a completed/stale=false; actual provider deepseek/model deepseek-flash/effort max;119 assertions,0 failures; static vectors only.
 Numeric script SHA256 154acf346c8056244dc5a7494996e64b857191ee60d6e78576ec237cca57edb9; vector JSON 14f8ccb21d5c2f572862d46bead0a9d71341a9aad8a82a4b74354ba14f40c031.
-B PR20 all frozen files bytes/hashes independently verified;read protocol/assets/review;its candidate bandwidth arithmetic passed;unselected values are not final requirements.
-C PR19 all frozen files bytes/hashes independently verified;read full10 subgate cards;its research arithmetic/structure checks passed.
+B PR20 and PR23 frozen files bytes/hashes independently verified;read protocol/assets/review and all6corrections;candidate and final research arithmetic passed;unselected values are not final requirements.
+C PR19 and PR21 frozen files bytes/hashes independently verified;read full10subgate cards and scope/peer addendum;research arithmetic/structure checks passed.
 No engine installation, game/RTL simulation, synthesis, implementation, model training,ROCm project inference,board/system trials or official competition upload was run by this document work.
-taskbook_final.md 106788B SHA256 0b17981bc5bdd2b1d81dbbb0db2aa419d4952c79c4c32e1398a3f5ad284d10ce
-deepeye_taskbook_final.pdf 1043461B SHA256 9f6dd73d5aec40aa80a281ea0c266ff96388232d950e3c486910ddd128a22335
-execution_plan_final.json 11924B SHA256 6c3bf4f474ee5f0a8be10172b60fff7f019b385cd221de1a6214b09cdaadd578
-simulation_contract_final.json 7623B SHA256 f89db784d612887e6bb80c1d569f9dedf40f3afb468fd9a65a38193a65a0d04f
+taskbook_final.md 109430B SHA256 7f5c94f7fc73698236be954ae7818266d6dfe8b4949d1752dd045d76f4b71f18
+deepeye_taskbook_final.pdf 1048626B SHA256 172393d5407c4fc313e202dacdfb0c7d402de5363190f5da1c1ff2af43b6f356
+execution_plan_final.json 11924B SHA256 e93f10d247109e8cb7070ded7fdfac5b3543a44afb3387261531556eebde41be
+simulation_contract_final.json 8257B SHA256 f77589954051b36eeb42f1a6cb4ceb13f97df631bd305b8c2ae8b0d2678bd3b9

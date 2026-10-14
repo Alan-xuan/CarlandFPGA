@@ -323,7 +323,7 @@
     "G08独立3D导出，禁止2D替代"
   ],
   "authorization": "No hardware queue, installer, purchase or official submission is executed by this planning file.",
-  "task_revision": 0,
+  "task_revision": 1,
   "historical_baseline": "v4 candidate / 74c854d74baf817beafcbd1d4d52a8dd4450bbca",
   "revision_reason": "Human immutable scope + real A/B/C module fusion and quantization/observability/geometry/dependency corrections",
   "immutable_scope_id": "DEEPEYE-HUMAN-LOCK-20261014/revision1",

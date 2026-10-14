@@ -1,0 +1,85 @@
+{
+  "task_id": "COMP-20261013-DEEPEYE",
+  "task_version": 5,
+  "status": "scope_identity_and_peer_fusion_addendum_not_product_acceptance",
+  "created_at_utc": "2026-10-14T15:53:23.447836+00:00",
+  "contract": {
+    "id": "DEEPEYE-HUMAN-LOCK-20261014",
+    "revision": 1,
+    "source_commit": "f5989cd5defce561f9ba98e6b18fc2682945f0a2",
+    "requirements_sha256": "c229834bfc2292f5fe4411fc9f12c68487008f9d1adaf31f0144ee7a98173804",
+    "all_requirements_read_and_accepted": [
+      "H01",
+      "H02",
+      "H03",
+      "H04",
+      "H05",
+      "H06",
+      "H07",
+      "H08",
+      "H09",
+      "H10",
+      "H11",
+      "H12",
+      "H13",
+      "H14",
+      "H15"
+    ],
+    "source_files": {
+      "immutable_scope.json": {
+        "bytes": 6684,
+        "sha256": "6a86000e97d1571c0b7b89b9d3cf7facb11d2b6a06455eb1d53e0637676b6bc4"
+      },
+      "immutable_scope.md": {
+        "bytes": 6139,
+        "sha256": "27c5bf0b194036cf4300dbec371b6abba42bc5fda604da0e6e06284e4c5a2ddd"
+      },
+      "verify_immutable_scope.py": {
+        "bytes": 2287,
+        "sha256": "cb91a864a5b5f5a6bf014bbbd32b9656ee588075d9b115586df544c96cebc2eb"
+      }
+    },
+    "verification_command": "python verify_immutable_scope.py --expected-sha c229834bfc2292f5fe4411fc9f12c68487008f9d1adaf31f0144ee7a98173804",
+    "exit_code": 0,
+    "scope": "requirement identity only",
+    "runtime_acceptance": "not_run"
+  },
+  "prior_delivery": {
+    "pr": 21,
+    "commit": "e511d1befb767da0baca204f22fb2ad4143dcec1",
+    "original_files_unchanged": true,
+    "original_freeze_sha256": "0f8cdc9dde6e857ab4d4e6e91dc20783b882575aae379d915ed6c1fdd555f839"
+  },
+  "B_review": {
+    "pr": 20,
+    "commit": "1f85095b1f54598956ff3c2c24eb7876d879fe1a",
+    "files_read_and_public_bytes_verified": {
+      "review.md": {
+        "bytes": 6783,
+        "sha256": "d973d3371e851ac7a9b1955d2978ea19bd216b1c59c52edaf2475082eb41063d"
+      },
+      "comparison_v4.md": {
+        "bytes": 1949,
+        "sha256": "999fe21c648a11643e3d602313e023d9b7c6a94b5b1dd6ef9ae2e5f648731c84"
+      },
+      "assets_and_acceptance.md": {
+        "bytes": 9914,
+        "sha256": "cf3e1c1e018336130c9f0d502c77180aa09366884bda50ba04098527384b8c84"
+      }
+    }
+  },
+  "files": {
+    "scope_and_peer_addendum.md": {
+      "bytes": 5573,
+      "sha256": "99935688559baa31bc36ad74285f49b91cb1c260caa9c82e95ad7bcaf0ae579f"
+    }
+  },
+  "all_product_execution": "not_run",
+  "geometry_derivation": {
+    "rotation_step_deg": 0.05,
+    "rotational_allowance_m": 0.0005,
+    "maximum_Rb_m_if_all_allowance_used_by_rotation": 0.5729578133113367,
+    "note": "Actual numerical error needs additional allowance; origin and full rigid geometry determine Rb."
+  },
+  "new_C_main_creation": "Not performed here; exclusively assigned to human desktop main after A final publication and START."
+}

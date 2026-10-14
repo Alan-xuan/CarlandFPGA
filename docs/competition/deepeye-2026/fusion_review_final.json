@@ -14,7 +14,7 @@
       "status": "actual_source_read_and_hash_verified"
     },
     {
-      "node": "B",
+      "node": "B-initial",
       "commit": "1f85095b1f54598956ff3c2c24eb7876d879fe1a",
       "path": "reviews/v5/b/review.md",
       "url": "https://github.com/carolwjade/CarlandFPGA/pull/20",
@@ -23,12 +23,30 @@
       "status": "actual_source_read_and_hash_verified"
     },
     {
-      "node": "C",
+      "node": "C-initial",
       "commit": "68423d6c40cfa34474a5e73bf4eda9b227387d02",
       "path": "v5/c/review.md",
       "url": "https://github.com/carolwjade/CarlandFPGA/pull/19",
       "bytes": 15421,
       "sha256": "780d94bf19a1921f19c9d317b409762d23d13a9f4a5b4ecca4715cb65e6aa56b",
+      "status": "actual_source_read_and_hash_verified"
+    },
+    {
+      "node": "B-final",
+      "commit": "a5fd908656f57c5db8226dede8647a4dce56195f",
+      "path": "round3/b/fusion_review.md",
+      "url": "https://github.com/carolwjade/CarlandFPGA/pull/23",
+      "bytes": 5323,
+      "sha256": "1d17710e3f16b34183a93523ef48b034fc52f64d827003d045da8c5f6241a401",
+      "status": "actual_source_read_and_hash_verified"
+    },
+    {
+      "node": "C-addendum",
+      "commit": "5a9682f3c1d496dd2bc6d38189e4de20feac0023",
+      "path": "round3/c/scope_and_peer_addendum.md",
+      "url": "https://github.com/carolwjade/CarlandFPGA/pull/21",
+      "bytes": 5573,
+      "sha256": "99935688559baa31bc36ad74285f49b91cb1c260caa9c82e95ad7bcaf0ae579f",
       "status": "actual_source_read_and_hash_verified"
     }
   ],
