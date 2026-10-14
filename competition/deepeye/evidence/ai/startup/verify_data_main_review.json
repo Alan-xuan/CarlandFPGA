@@ -226,5 +226,6 @@
     "No trained model/wire/board/AMD/system acceptance",
     "Clean portable suite skips exactly3 real-archive cases; real C suite skips0"
   ],
-  "reproduction_note": "Captured quality-main harness references private job metadata for executor identity and review snapshots; portable unit command directly reruns from product source. Independent counterexample/reference/replay logic is preserved in verify_data_main_review.py; production code has no file I/O."
+  "reproduction_note": "Captured quality-main harness references private job metadata for executor identity and review snapshots. Portable unit commands rerun directly from product source. Independent checks are preserved in verify_data_main_review.py. The production verifier reads pinned files and hashes archive bytes, and writes a report only to a permitted output; it does not parse LAS rows or perform network/board operations.",
+  "annotation_correction": "Supersedes the erroneous no-file-I/O sentence in local-only operation VERIFYDATA06. Executable source, tests and measured results are unchanged; that historical manifest is retained rather than overwritten."
 }
