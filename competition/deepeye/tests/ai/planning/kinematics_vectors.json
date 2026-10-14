@@ -1,0 +1,1011 @@
+{
+ "schema": 1,
+ "kind": "deepeye-c-kinematics-fixtures",
+ "task_id": "DEEPEYE-C-PLANNER-EXEC-20261015",
+ "work_id": "C-finite-curvature-quantized-foundation-v1",
+ "module": "ai_pc/planning/kinematics.py",
+ "method": {
+  "threshold_rule": "floor((speed_code * step_m_s * 180000 / (2 * pi))^2)",
+  "module_pi_truncated_decimal_digits": 60,
+  "independent_pi": "Machin arctan series, Decimal context precision 190",
+  "independent_recursion_context_precision": 160,
+  "min_squared_bound_distance_to_integer_nonzero_codes": "0.0489208785524979214626189185405889016203505626884252358141215947907585508695591150420937450196304511116176406482376200528210182646198599585708082202994285111",
+  "conservatism_note": "module literal is truncated pi (<= true pi); entries re-derived with independent high-precision pi give identical floors; margin > 0.01"
+ },
+ "profiles": {
+  "fast_9600": {
+   "step_m_s": "0.0125",
+   "codes": [
+    {
+     "code": 0,
+     "target_m_s": 0.0,
+     "threshold": 0,
+     "axis_legal": [
+      0,
+      0
+     ],
+     "axis_reject": [
+      1,
+      0
+     ],
+     "diag_legal": [
+      0,
+      0
+     ],
+     "diag_reject": [
+      1,
+      1
+     ]
+    },
+    {
+     "code": 1,
+     "target_m_s": 0.0125,
+     "threshold": 128234,
+     "axis_legal": [
+      358,
+      0
+     ],
+     "axis_reject": [
+      359,
+      0
+     ],
+     "diag_legal": [
+      253,
+      253
+     ],
+     "diag_reject": [
+      254,
+      254
+     ]
+    },
+    {
+     "code": 2,
+     "target_m_s": 0.025,
+     "threshold": 512938,
+     "axis_legal": [
+      716,
+      0
+     ],
+     "axis_reject": [
+      717,
+      0
+     ],
+     "diag_legal": [
+      506,
+      506
+     ],
+     "diag_reject": [
+      507,
+      507
+     ]
+    },
+    {
+     "code": 3,
+     "target_m_s": 0.0375,
+     "threshold": 1154111,
+     "axis_legal": [
+      1074,
+      0
+     ],
+     "axis_reject": [
+      1075,
+      0
+     ],
+     "diag_legal": [
+      759,
+      759
+     ],
+     "diag_reject": [
+      760,
+      760
+     ]
+    },
+    {
+     "code": 4,
+     "target_m_s": 0.05,
+     "threshold": 2051753,
+     "axis_legal": [
+      1432,
+      0
+     ],
+     "axis_reject": [
+      1433,
+      0
+     ],
+     "diag_legal": [
+      1012,
+      1012
+     ],
+     "diag_reject": [
+      1013,
+      1013
+     ]
+    },
+    {
+     "code": 5,
+     "target_m_s": 0.0625,
+     "threshold": 3205865,
+     "axis_legal": [
+      1790,
+      0
+     ],
+     "axis_reject": [
+      1791,
+      0
+     ],
+     "diag_legal": [
+      1266,
+      1266
+     ],
+     "diag_reject": [
+      1267,
+      1267
+     ]
+    },
+    {
+     "code": 6,
+     "target_m_s": 0.075,
+     "threshold": 4616446,
+     "axis_legal": [
+      2148,
+      0
+     ],
+     "axis_reject": [
+      2149,
+      0
+     ],
+     "diag_legal": [
+      1519,
+      1519
+     ],
+     "diag_reject": [
+      1520,
+      1520
+     ]
+    },
+    {
+     "code": 7,
+     "target_m_s": 0.0875,
+     "threshold": 6283496,
+     "axis_legal": [
+      2506,
+      0
+     ],
+     "axis_reject": [
+      2507,
+      0
+     ],
+     "diag_legal": [
+      1772,
+      1772
+     ],
+     "diag_reject": [
+      1773,
+      1773
+     ]
+    },
+    {
+     "code": 8,
+     "target_m_s": 0.1,
+     "threshold": 8207015,
+     "axis_legal": [
+      2864,
+      0
+     ],
+     "axis_reject": [
+      2865,
+      0
+     ],
+     "diag_legal": [
+      2025,
+      2025
+     ],
+     "diag_reject": [
+      2026,
+      2026
+     ]
+    },
+    {
+     "code": 9,
+     "target_m_s": 0.1125,
+     "threshold": 10387004,
+     "axis_legal": [
+      3222,
+      0
+     ],
+     "axis_reject": [
+      3223,
+      0
+     ],
+     "diag_legal": [
+      2278,
+      2278
+     ],
+     "diag_reject": [
+      2279,
+      2279
+     ]
+    },
+    {
+     "code": 10,
+     "target_m_s": 0.125,
+     "threshold": 12823462,
+     "axis_legal": [
+      3580,
+      0
+     ],
+     "axis_reject": [
+      3581,
+      0
+     ],
+     "diag_legal": [
+      2532,
+      2532
+     ],
+     "diag_reject": [
+      2533,
+      2533
+     ]
+    },
+    {
+     "code": 11,
+     "target_m_s": 0.1375,
+     "threshold": 15516389,
+     "axis_legal": [
+      3939,
+      0
+     ],
+     "axis_reject": [
+      3940,
+      0
+     ],
+     "diag_legal": [
+      2785,
+      2785
+     ],
+     "diag_reject": [
+      2786,
+      2786
+     ]
+    },
+    {
+     "code": 12,
+     "target_m_s": 0.15,
+     "threshold": 18465785,
+     "axis_legal": [
+      4297,
+      0
+     ],
+     "axis_reject": [
+      4298,
+      0
+     ],
+     "diag_legal": [
+      3038,
+      3038
+     ],
+     "diag_reject": [
+      3039,
+      3039
+     ]
+    },
+    {
+     "code": 13,
+     "target_m_s": 0.1625,
+     "threshold": 21671651,
+     "axis_legal": [
+      4655,
+      0
+     ],
+     "axis_reject": [
+      4656,
+      0
+     ],
+     "diag_legal": [
+      3291,
+      3291
+     ],
+     "diag_reject": [
+      3292,
+      3292
+     ]
+    },
+    {
+     "code": 14,
+     "target_m_s": 0.175,
+     "threshold": 25133986,
+     "axis_legal": [
+      5013,
+      0
+     ],
+     "axis_reject": [
+      5014,
+      0
+     ],
+     "diag_legal": [
+      3544,
+      3544
+     ],
+     "diag_reject": [
+      3545,
+      3545
+     ]
+    },
+    {
+     "code": 15,
+     "target_m_s": 0.1875,
+     "threshold": 28852790,
+     "axis_legal": [
+      5371,
+      0
+     ],
+     "axis_reject": [
+      5372,
+      0
+     ],
+     "diag_legal": [
+      3798,
+      3798
+     ],
+     "diag_reject": [
+      3799,
+      3799
+     ]
+    },
+    {
+     "code": 16,
+     "target_m_s": 0.2,
+     "threshold": 32828063,
+     "axis_legal": [
+      5729,
+      0
+     ],
+     "axis_reject": [
+      5730,
+      0
+     ],
+     "diag_legal": [
+      4051,
+      4051
+     ],
+     "diag_reject": [
+      4052,
+      4052
+     ]
+    },
+    {
+     "code": 17,
+     "target_m_s": 0.2125,
+     "threshold": 37059806,
+     "axis_legal": [
+      6087,
+      0
+     ],
+     "axis_reject": [
+      6088,
+      0
+     ],
+     "diag_legal": [
+      4304,
+      4304
+     ],
+     "diag_reject": [
+      4305,
+      4305
+     ]
+    },
+    {
+     "code": 18,
+     "target_m_s": 0.225,
+     "threshold": 41548017,
+     "axis_legal": [
+      6445,
+      0
+     ],
+     "axis_reject": [
+      6446,
+      0
+     ],
+     "diag_legal": [
+      4557,
+      4557
+     ],
+     "diag_reject": [
+      4558,
+      4558
+     ]
+    },
+    {
+     "code": 19,
+     "target_m_s": 0.2375,
+     "threshold": 46292698,
+     "axis_legal": [
+      6803,
+      0
+     ],
+     "axis_reject": [
+      6804,
+      0
+     ],
+     "diag_legal": [
+      4811,
+      4811
+     ],
+     "diag_reject": [
+      4812,
+      4812
+     ]
+    },
+    {
+     "code": 20,
+     "target_m_s": 0.25,
+     "threshold": 51293849,
+     "axis_legal": [
+      7161,
+      0
+     ],
+     "axis_reject": [
+      7162,
+      0
+     ],
+     "diag_legal": [
+      5064,
+      5064
+     ],
+     "diag_reject": [
+      5065,
+      5065
+     ]
+    }
+   ]
+  },
+  "stress_300": {
+   "step_m_s": "0.0001",
+   "codes": [
+    {
+     "code": 0,
+     "target_m_s": 0.0,
+     "threshold": 0,
+     "axis_legal": [
+      0,
+      0
+     ],
+     "axis_reject": [
+      1,
+      0
+     ],
+     "diag_legal": [
+      0,
+      0
+     ],
+     "diag_reject": [
+      1,
+      1
+     ]
+    },
+    {
+     "code": 1,
+     "target_m_s": 0.0001,
+     "threshold": 8,
+     "axis_legal": [
+      2,
+      0
+     ],
+     "axis_reject": [
+      3,
+      0
+     ],
+     "diag_legal": [
+      2,
+      2
+     ],
+     "diag_reject": [
+      3,
+      3
+     ]
+    },
+    {
+     "code": 2,
+     "target_m_s": 0.0002,
+     "threshold": 32,
+     "axis_legal": [
+      5,
+      0
+     ],
+     "axis_reject": [
+      6,
+      0
+     ],
+     "diag_legal": [
+      4,
+      4
+     ],
+     "diag_reject": [
+      5,
+      5
+     ]
+    },
+    {
+     "code": 3,
+     "target_m_s": 0.0003,
+     "threshold": 73,
+     "axis_legal": [
+      8,
+      0
+     ],
+     "axis_reject": [
+      9,
+      0
+     ],
+     "diag_legal": [
+      6,
+      6
+     ],
+     "diag_reject": [
+      7,
+      7
+     ]
+    },
+    {
+     "code": 4,
+     "target_m_s": 0.0004,
+     "threshold": 131,
+     "axis_legal": [
+      11,
+      0
+     ],
+     "axis_reject": [
+      12,
+      0
+     ],
+     "diag_legal": [
+      8,
+      8
+     ],
+     "diag_reject": [
+      9,
+      9
+     ]
+    },
+    {
+     "code": 5,
+     "target_m_s": 0.0005,
+     "threshold": 205,
+     "axis_legal": [
+      14,
+      0
+     ],
+     "axis_reject": [
+      15,
+      0
+     ],
+     "diag_legal": [
+      10,
+      10
+     ],
+     "diag_reject": [
+      11,
+      11
+     ]
+    },
+    {
+     "code": 6,
+     "target_m_s": 0.0006,
+     "threshold": 295,
+     "axis_legal": [
+      17,
+      0
+     ],
+     "axis_reject": [
+      18,
+      0
+     ],
+     "diag_legal": [
+      12,
+      12
+     ],
+     "diag_reject": [
+      13,
+      13
+     ]
+    },
+    {
+     "code": 7,
+     "target_m_s": 0.0007,
+     "threshold": 402,
+     "axis_legal": [
+      20,
+      0
+     ],
+     "axis_reject": [
+      21,
+      0
+     ],
+     "diag_legal": [
+      14,
+      14
+     ],
+     "diag_reject": [
+      15,
+      15
+     ]
+    },
+    {
+     "code": 8,
+     "target_m_s": 0.0008,
+     "threshold": 525,
+     "axis_legal": [
+      22,
+      0
+     ],
+     "axis_reject": [
+      23,
+      0
+     ],
+     "diag_legal": [
+      16,
+      16
+     ],
+     "diag_reject": [
+      17,
+      17
+     ]
+    },
+    {
+     "code": 9,
+     "target_m_s": 0.0009,
+     "threshold": 664,
+     "axis_legal": [
+      25,
+      0
+     ],
+     "axis_reject": [
+      26,
+      0
+     ],
+     "diag_legal": [
+      18,
+      18
+     ],
+     "diag_reject": [
+      19,
+      19
+     ]
+    },
+    {
+     "code": 10,
+     "target_m_s": 0.001,
+     "threshold": 820,
+     "axis_legal": [
+      28,
+      0
+     ],
+     "axis_reject": [
+      29,
+      0
+     ],
+     "diag_legal": [
+      20,
+      20
+     ],
+     "diag_reject": [
+      21,
+      21
+     ]
+    },
+    {
+     "code": 11,
+     "target_m_s": 0.0011,
+     "threshold": 993,
+     "axis_legal": [
+      31,
+      0
+     ],
+     "axis_reject": [
+      32,
+      0
+     ],
+     "diag_legal": [
+      22,
+      22
+     ],
+     "diag_reject": [
+      23,
+      23
+     ]
+    },
+    {
+     "code": 12,
+     "target_m_s": 0.0012,
+     "threshold": 1181,
+     "axis_legal": [
+      34,
+      0
+     ],
+     "axis_reject": [
+      35,
+      0
+     ],
+     "diag_legal": [
+      24,
+      24
+     ],
+     "diag_reject": [
+      25,
+      25
+     ]
+    },
+    {
+     "code": 13,
+     "target_m_s": 0.0013,
+     "threshold": 1386,
+     "axis_legal": [
+      37,
+      0
+     ],
+     "axis_reject": [
+      38,
+      0
+     ],
+     "diag_legal": [
+      26,
+      26
+     ],
+     "diag_reject": [
+      27,
+      27
+     ]
+    },
+    {
+     "code": 14,
+     "target_m_s": 0.0014,
+     "threshold": 1608,
+     "axis_legal": [
+      40,
+      0
+     ],
+     "axis_reject": [
+      41,
+      0
+     ],
+     "diag_legal": [
+      28,
+      28
+     ],
+     "diag_reject": [
+      29,
+      29
+     ]
+    },
+    {
+     "code": 15,
+     "target_m_s": 0.0015,
+     "threshold": 1846,
+     "axis_legal": [
+      42,
+      0
+     ],
+     "axis_reject": [
+      43,
+      0
+     ],
+     "diag_legal": [
+      30,
+      30
+     ],
+     "diag_reject": [
+      31,
+      31
+     ]
+    },
+    {
+     "code": 16,
+     "target_m_s": 0.0016,
+     "threshold": 2100,
+     "axis_legal": [
+      45,
+      0
+     ],
+     "axis_reject": [
+      46,
+      0
+     ],
+     "diag_legal": [
+      32,
+      32
+     ],
+     "diag_reject": [
+      33,
+      33
+     ]
+    },
+    {
+     "code": 17,
+     "target_m_s": 0.0017,
+     "threshold": 2371,
+     "axis_legal": [
+      48,
+      0
+     ],
+     "axis_reject": [
+      49,
+      0
+     ],
+     "diag_legal": [
+      34,
+      34
+     ],
+     "diag_reject": [
+      35,
+      35
+     ]
+    },
+    {
+     "code": 18,
+     "target_m_s": 0.0018,
+     "threshold": 2659,
+     "axis_legal": [
+      51,
+      0
+     ],
+     "axis_reject": [
+      52,
+      0
+     ],
+     "diag_legal": [
+      36,
+      36
+     ],
+     "diag_reject": [
+      37,
+      37
+     ]
+    },
+    {
+     "code": 19,
+     "target_m_s": 0.0019,
+     "threshold": 2962,
+     "axis_legal": [
+      54,
+      0
+     ],
+     "axis_reject": [
+      55,
+      0
+     ],
+     "diag_legal": [
+      38,
+      38
+     ],
+     "diag_reject": [
+      39,
+      39
+     ]
+    },
+    {
+     "code": 20,
+     "target_m_s": 0.002,
+     "threshold": 3282,
+     "axis_legal": [
+      57,
+      0
+     ],
+     "axis_reject": [
+      58,
+      0
+     ],
+     "diag_legal": [
+      40,
+      40
+     ],
+     "diag_reject": [
+      41,
+      41
+     ]
+    }
+   ]
+  }
+ },
+ "stress_300_code_20_required_vectors": {
+  "threshold": 3282,
+  "legal": [
+   [
+    57,
+    0
+   ],
+   [
+    -57,
+    0
+   ],
+   [
+    40,
+    40
+   ],
+   [
+    40,
+    -40
+   ]
+  ],
+  "reject": [
+   [
+    58,
+    0
+   ],
+   [
+    0,
+    -58
+   ],
+   [
+    41,
+    41
+   ],
+   [
+    -41,
+    41
+   ]
+  ]
+ },
+ "curvature_samples": [
+  {
+   "profile": "fast_9600",
+   "speed_code": 20,
+   "yaw_q": 1000,
+   "pitch_q": -2000,
+   "curvature_yaw_per_m": "0.0698131700797731830769476307395445085377148755416690182438876",
+   "curvature_pitch_per_m": "-0.139626340159546366153895261479089017075429751083338036487775",
+   "reference_rate_yaw_deg_s": 1.0,
+   "reference_rate_pitch_deg_s": -2.0
+  },
+  {
+   "profile": "stress_300",
+   "speed_code": 20,
+   "yaw_q": 57,
+   "pitch_q": 0,
+   "curvature_yaw_per_m": "0.4974188368183839294232518690192546233312184882343917549877",
+   "curvature_pitch_per_m": "0E-185",
+   "reference_rate_yaw_deg_s": 0.057,
+   "reference_rate_pitch_deg_s": 0.0
+  },
+  {
+   "profile": "stress_300",
+   "speed_code": 20,
+   "yaw_q": 40,
+   "pitch_q": 40,
+   "curvature_yaw_per_m": "0.349065850398865915384738153697722542688574377708345091219439",
+   "curvature_pitch_per_m": "0.349065850398865915384738153697722542688574377708345091219439",
+   "reference_rate_yaw_deg_s": 0.04,
+   "reference_rate_pitch_deg_s": 0.04
+  }
+ ],
+ "speed_step_chains": {
+  "acceleration": {
+   "actual_m_s": 0.0,
+   "target_m_s": 0.25,
+   "dt_s": 0.01,
+   "step_bound_m_s": 0.0025,
+   "max_steps": 120,
+   "expected_final_m_s": 0.25
+  },
+  "deceleration": {
+   "actual_m_s": 0.25,
+   "target_m_s": 0.0,
+   "dt_s": 0.01,
+   "step_bound_m_s": 0.0025,
+   "max_steps": 120,
+   "expected_final_m_s": 0.0
+  }
+ },
+ "invalid_input_tokens": [
+  "true",
+  "false",
+  "float 1.0",
+  "float nan",
+  "float inf",
+  "float -inf",
+  "string token",
+  "none",
+  "complex 1+0j",
+  "int beyond +-15000",
+  "speed_code -1 or 21"
+ ]
+}

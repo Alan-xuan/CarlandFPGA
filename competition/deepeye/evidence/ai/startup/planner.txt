@@ -1,0 +1,24 @@
+{"command": ["C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\venv\\Scripts\\python.exe", "-X", "utf8", "-B", "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\deepeye-implementation-c\\competition\\deepeye\\tests\\ai\\planning\\test_kinematics.py"], "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]", "working_directory": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c", "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855", "stderr_sha256": "49852fa2866d09b365c5c32ef5285e1519e6e0103338b7f3dc66ec593a62fcaf", "capture": "raw stdout bytes followed by raw stderr bytes, no text conversion"}
+test_acceleration_and_deceleration_bounds (__main__.KinematicsTests.test_acceleration_and_deceleration_bounds) ... ok
+test_angular_rates_follow_actual_speed_and_stop_at_zero (__main__.KinematicsTests.test_angular_rates_follow_actual_speed_and_stop_at_zero) ... ok
+test_axis_vs_diagonal_bounds (__main__.KinematicsTests.test_axis_vs_diagonal_bounds) ... ok
+test_caller_decimal_context_cannot_change_profile_speed (__main__.KinematicsTests.test_caller_decimal_context_cannot_change_profile_speed) ... ok
+test_constructed_or_replaced_primitives_cannot_bypass_wire_validation (__main__.KinematicsTests.test_constructed_or_replaced_primitives_cannot_bypass_wire_validation) ... ok
+test_curvature_samples_match_high_precision (__main__.KinematicsTests.test_curvature_samples_match_high_precision) ... ok
+test_dependency_free_source_imports (__main__.KinematicsTests.test_dependency_free_source_imports) ... ok
+test_every_profile_and_speed_code_boundaries (__main__.KinematicsTests.test_every_profile_and_speed_code_boundaries) ... ok
+test_fixture_document_matches_recomputation (__main__.KinematicsTests.test_fixture_document_matches_recomputation) ... ok
+test_frozen_output_and_64bit_envelope (__main__.KinematicsTests.test_frozen_output_and_64bit_envelope) ... ok
+test_invalid_numeric_types_rejected (__main__.KinematicsTests.test_invalid_numeric_types_rejected) ... ok
+test_reject_not_clip_out_of_range_candidates (__main__.KinematicsTests.test_reject_not_clip_out_of_range_candidates) ... ok
+test_required_stress_code_20_vectors (__main__.KinematicsTests.test_required_stress_code_20_vectors) ... ok
+test_rom_matches_independent_machin_pi (__main__.KinematicsTests.test_rom_matches_independent_machin_pi) ... ok
+test_step_speed_rejects_bad_dt_and_bad_scalars (__main__.KinematicsTests.test_step_speed_rejects_bad_dt_and_bad_scalars) ... ok
+test_zero_target_speed_requires_zero_angular_codes (__main__.KinematicsTests.test_zero_target_speed_requires_zero_angular_codes) ... ok
+
+----------------------------------------------------------------------
+Ran 16 tests in 0.031s
+
+OK
+
+EXIT=0

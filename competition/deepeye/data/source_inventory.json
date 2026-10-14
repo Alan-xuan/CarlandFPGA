@@ -10,7 +10,7 @@
     "source_commit": "f5989cd5defce561f9ba98e6b18fc2682945f0a2",
     "requirements_sha256": "c229834bfc2292f5fe4411fc9f12c68487008f9d1adaf31f0144ee7a98173804"
   },
-  "read_at_utc": "2026-10-14T18:56:22.323824+00:00",
+  "read_at_utc": "2026-10-14T19:47:46.748723+00:00",
   "source_record": {
     "url": "https://zenodo.org/records/4351156",
     "doi": "10.5281/zenodo.4351156",
@@ -29,9 +29,9 @@
     "name": "LAS_files_Force_2020_all_wells_train_test_blind_hidden_final.zip",
     "expected_bytes": 169785172,
     "record_checksum": "md5:da0d72d5783a780ac71779453d9fbfbf",
-    "download_status": "running",
-    "local_sha256": null,
-    "actual_bytes": null
+    "download_status": "verified",
+    "local_sha256": "042ef1d473100dc12768cae7107a8cead071a394f137af3bc1ddaf8a5d1b8dda",
+    "actual_bytes": 169785172
   },
   "data_domain": "public_well_lithology",
   "source_mode": "geo_replay",

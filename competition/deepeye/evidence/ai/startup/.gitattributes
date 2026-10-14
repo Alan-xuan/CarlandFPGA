@@ -1,0 +1,2 @@
+planner.json -text
+planner.txt -text whitespace=cr-at-eol
