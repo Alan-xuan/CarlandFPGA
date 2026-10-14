@@ -1,0 +1,46 @@
+{
+  "schema": 1,
+  "task_id": "DEEPEYE-IMPLEMENTATION-20261014",
+  "task_version": 1,
+  "contract": {
+    "id": "DEEPEYE-HUMAN-LOCK-20261014",
+    "revision": 1,
+    "source_commit": "f5989cd5defce561f9ba98e6b18fc2682945f0a2",
+    "requirements_sha256": "c229834bfc2292f5fe4411fc9f12c68487008f9d1adaf31f0144ee7a98173804"
+  },
+  "status": "policy_frozen_assignments_not_yet_materialized",
+  "source_archive_sha256": "042ef1d473100dc12768cae7107a8cead071a394f137af3bc1ddaf8a5d1b8dda",
+  "grouping": {
+    "primary_identity": "LAS UWI, checked against unique member/well identity",
+    "parent_well_rule": "match full UWI with ^([0-9]+/[0-9]+-[0-9]+)(?:[ ]+[A-Z0-9 -]+)?$ and use capture1; sidetracks/suffix variants stay together",
+    "unknown_identity": "fail and seek main review; no guessed fallback or row-based split",
+    "source_domains": "FORCE wells, sensor acquisition runs and sim_em_v2 complete scenarios have independent manifests; derivatives inherit the complete parent split"
+  },
+  "assignment": {
+    "salt": "DEEPEYE-FORCE-WELL-SPLIT-20261014-v1",
+    "algorithm": "sort parent-well groups by SHA256(UTF8(salt + newline + parent_well_id)), tie-break by parent_well_id; first floor(0.70*N) train, next floor(0.15*N) validation, remainder test",
+    "fraction_targets": {
+      "train": 0.7,
+      "validation": 0.15,
+      "test": 0.15
+    },
+    "outcome_independence": "Only verified well identities and fixed salt determine assignment; no class count, model output, missingness or metric influences allocation",
+    "resplit_policy": "No reroll to improve scores or class coverage; report absent classes and all failed/missing observations",
+    "official_challenge_split": "This project split is separately identified; no claim of reproducing the original FORCE leaderboard split"
+  },
+  "preprocessing": {
+    "fit_domain": "training wells only, after immutable split manifest exists",
+    "curve_order": [
+      "GR",
+      "RHOB",
+      "NPHI",
+      "RDEP"
+    ],
+    "RDEP": "log10 for positive observed values only; nonpositive resistivity is invalid/masked and counted; fixed transform not fitted on validation/test",
+    "missing_sensors": "train-derived centering for imputation with explicit zero mask; no whole-dataset interpolation or backwards filling from future points",
+    "scaling": "train-only finite statistics; record fitting wells and parameters/hash; all-missing training channel is a blocker rather than a guessed scale",
+    "windows": "complete-well causal trailing windows of actual selected points; left padding masked; never cross a well, split or complete replay run",
+    "evaluation": "all frozen test wells remain in denominator; no dropping bad wells after observing performance"
+  },
+  "acceptance": "C01/C02 not_run; assignments and preprocessing must be implemented and independently tested"
+}
