@@ -1,0 +1,1226 @@
+{
+  "schema": 1,
+  "task_id": "DEEPEYE-IMPLEMENTATION-20261014",
+  "task_version": 1,
+  "contract": {
+    "id": "DEEPEYE-HUMAN-LOCK-20261014",
+    "revision": 1,
+    "source_commit": "f5989cd5defce561f9ba98e6b18fc2682945f0a2",
+    "requirements_sha256": "c229834bfc2292f5fe4411fc9f12c68487008f9d1adaf31f0144ee7a98173804"
+  },
+  "design_commit": "1011259415a0916054eb580687612580bc1e5f09",
+  "created_at_utc": "2026-10-14T20:11:30.734514+00:00",
+  "source_archive_sha256": "042ef1d473100dc12768cae7107a8cead071a394f137af3bc1ddaf8a5d1b8dda",
+  "inventory_sha256": "ace9a0eb9930f19c6b8125e151d07346fb23029b1455eac04964d15b97461e59",
+  "policy_sha256": "66c5138ad45138104bca20d39c4680daa82534a16e381f8d2879eea6f37b81c9",
+  "label_schema_sha256": "0913ff5a59085b47802a9902f23a836f4fa1129700de8e6593840416f4d7beed",
+  "selection_inputs": [
+    "verified UWI parent group",
+    "fixed salt"
+  ],
+  "selection_excludes": [
+    "label histogram",
+    "missingness",
+    "model output",
+    "validation or test score"
+  ],
+  "group_counts": {
+    "train": 81,
+    "validation": 17,
+    "test": 19
+  },
+  "well_counts": {
+    "train": 82,
+    "validation": 17,
+    "test": 19
+  },
+  "rows": [
+    {
+      "row_id": "16/8-1",
+      "source_domain": "force_2020_public_lithology",
+      "root_id": "16/8-1",
+      "well_id": "16/8-1",
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/16_8-1.las",
+      "member_sha256": "623a93a17418a55cdd128c97a5eb2d499ec1037b4440413a69a1f8924fe2039d",
+      "split": "train",
+      "derived_from": null
+    },
+    {
+      "row_id": "34/7-13",
+      "source_domain": "force_2020_public_lithology",
+      "root_id": "34/7-13",
+      "well_id": "34/7-13",
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/34_7-13.las",
+      "member_sha256": "6ce398588ed65e5354af2ba0b852ec0575e3ead87964d86079124274fbb72a26",
+      "split": "train",
+      "derived_from": null
+    },
+    {
+      "row_id": "31/3-1",
+      "source_domain": "force_2020_public_lithology",
+      "root_id": "31/3-1",
+      "well_id": "31/3-1",
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/31_3-1.las",
+      "member_sha256": "696341bb178de293c2e8e854467ab6b2e554444a44d45231665a6ba9e374e3cf",
+      "split": "train",
+      "derived_from": null
+    },
+    {
+      "row_id": "35/9-7",
+      "source_domain": "force_2020_public_lithology",
+      "root_id": "35/9-7",
+      "well_id": "35/9-7",
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/35_9-7.las",
+      "member_sha256": "bce7bacf29314cab3f8bb037f0ea794f075b02c4df036bd0c5960fe95c00319a",
+      "split": "train",
+      "derived_from": null
+    },
+    {
+      "row_id": "34/3-2 S",
+      "source_domain": "force_2020_public_lithology",
+      "root_id": "34/3-2",
+      "well_id": "34/3-2 S",
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/34_3-2 S.las",
+      "member_sha256": "e72ab910b55b30b740776cad6364516cdbf8d663485ac8c98f4fcf05ac2a3b04",
+      "split": "train",
+      "derived_from": null
+    },
+    {
+      "row_id": "25/5-3",
+      "source_domain": "force_2020_public_lithology",
+      "root_id": "25/5-3",
+      "well_id": "25/5-3",
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/25_5-3.las",
+      "member_sha256": "75908efffb46f4cccaf88413c5c026c154f3fbbf1c733bde4eb0dfb274025278",
+      "split": "train",
+      "derived_from": null
+    },
+    {
+      "row_id": "25/4-5",
+      "source_domain": "force_2020_public_lithology",
+      "root_id": "25/4-5",
+      "well_id": "25/4-5",
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/25_4-5.las",
+      "member_sha256": "68b6b44d79cadd61a7e700016bf0e180848f5957c2e57d40cb97af88818ac5b3",
+      "split": "train",
+      "derived_from": null
+    },
+    {
+      "row_id": "35/3-7 S",
+      "source_domain": "force_2020_public_lithology",
+      "root_id": "35/3-7",
+      "well_id": "35/3-7 S",
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/35_3-7 S.las",
+      "member_sha256": "67a64b64f579913e7958890181948ee3f93be8da17fdd11e5fdecc7df7ad4cd4",
+      "split": "train",
+      "derived_from": null
+    },
+    {
+      "row_id": "34/5-1 A",
+      "source_domain": "force_2020_public_lithology",
+      "root_id": "34/5-1",
+      "well_id": "34/5-1 A",
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/34_5-1 A.las",
+      "member_sha256": "b4e9332ab5a3449006a725da926170a2331ab98ca3353a236cc74c1c55ba6d05",
+      "split": "train",
+      "derived_from": null
+    },
+    {
+      "row_id": "34/5-1 S",
+      "source_domain": "force_2020_public_lithology",
+      "root_id": "34/5-1",
+      "well_id": "34/5-1 S",
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/34_5-1 S.las",
+      "member_sha256": "22043aa3ad4b8d468ed08f7d854345c3918cfcd02068e99e05dceeb7b721cfda",
+      "split": "train",
+      "derived_from": null
+    },
+    {
+      "row_id": "25/5-4",
+      "source_domain": "force_2020_public_lithology",
+      "root_id": "25/5-4",
+      "well_id": "25/5-4",
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/25_5-4.las",
+      "member_sha256": "feef0b7e0ca4247c5f3933182c068c145269c239e659b89a8475b704d3eab7c1",
+      "split": "train",
+      "derived_from": null
+    },
+    {
+      "row_id": "25/3-1",
+      "source_domain": "force_2020_public_lithology",
+      "root_id": "25/3-1",
+      "well_id": "25/3-1",
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/25_3-1.las",
+      "member_sha256": "d49307484d94b68bb35e0b8e1ae78233d1cc6684d86a7cbe905cdce45cea37aa",
+      "split": "train",
+      "derived_from": null
+    },
+    {
+      "row_id": "33/6-3 S",
+      "source_domain": "force_2020_public_lithology",
+      "root_id": "33/6-3",
+      "well_id": "33/6-3 S",
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/33_6-3 S.las",
+      "member_sha256": "c21850771f76592b5f631f4491a9cd8383493b5b88b7ed4c357e949ec6b668c9",
+      "split": "train",
+      "derived_from": null
+    },
+    {
+      "row_id": "34/12-1",
+      "source_domain": "force_2020_public_lithology",
+      "root_id": "34/12-1",
+      "well_id": "34/12-1",
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/34_12-1.las",
+      "member_sha256": "89b20fc0c699ac7e5fe607960115c4d83901ce060678ecb9fa36dd979476ee63",
+      "split": "train",
+      "derived_from": null
+    },
+    {
+      "row_id": "16/10-2",
+      "source_domain": "force_2020_public_lithology",
+      "root_id": "16/10-2",
+      "well_id": "16/10-2",
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/16_10-2.las",
+      "member_sha256": "ed21febe02f26fbd8e2331b54b97037283688e4b9ef533b5bad05c511159f12c",
+      "split": "train",
+      "derived_from": null
+    },
+    {
+      "row_id": "31/5-4 S",
+      "source_domain": "force_2020_public_lithology",
+      "root_id": "31/5-4",
+      "well_id": "31/5-4 S",
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/31_5-4 S.las",
+      "member_sha256": "2c7048cc65130f0f71e25a3b3a858068fd1b6cc4b2527b035cf0719d30b2fdbe",
+      "split": "train",
+      "derived_from": null
+    },
+    {
+      "row_id": "29/3-1",
+      "source_domain": "force_2020_public_lithology",
+      "root_id": "29/3-1",
+      "well_id": "29/3-1",
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/29_3-1.las",
+      "member_sha256": "0c00be09cf11710d59cba4ce2293d0120826b17b6359d2dc5dae240a32db901c",
+      "split": "train",
+      "derived_from": null
+    },
+    {
+      "row_id": "34/8-7 R",
+      "source_domain": "force_2020_public_lithology",
+      "root_id": "34/8-7",
+      "well_id": "34/8-7 R",
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/34_8-7 R.las",
+      "member_sha256": "24eba31be35ba3c1bc36cd5fcb8db098cfae5b178f42efe8d8d00b82a2f5ff61",
+      "split": "train",
+      "derived_from": null
+    },
+    {
+      "row_id": "31/2-8",
+      "source_domain": "force_2020_public_lithology",
+      "root_id": "31/2-8",
+      "well_id": "31/2-8",
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/31_2-8.las",
+      "member_sha256": "ac9cf4e81bc358d5aea8543fa4dd9057c7e7a7850440689cc67d0b5c14f171b9",
+      "split": "train",
+      "derived_from": null
+    },
+    {
+      "row_id": "25/2-14",
+      "source_domain": "force_2020_public_lithology",
+      "root_id": "25/2-14",
+      "well_id": "25/2-14",
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/25_2-14.las",
+      "member_sha256": "a09e018e365976b4ed58c68d66ebaa7d1c2554b98fec4838a27d65413bc8936d",
+      "split": "train",
+      "derived_from": null
+    },
+    {
+      "row_id": "25/11-19 S",
+      "source_domain": "force_2020_public_lithology",
+      "root_id": "25/11-19",
+      "well_id": "25/11-19 S",
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/25_11-19 S.las",
+      "member_sha256": "5997b5f04cdeef32d15af8c44a7e25bd400ea3fa6d2f312b7135b3b19f67db68",
+      "split": "train",
+      "derived_from": null
+    },
+    {
+      "row_id": "31/3-4",
+      "source_domain": "force_2020_public_lithology",
+      "root_id": "31/3-4",
+      "well_id": "31/3-4",
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/31_3-4.las",
+      "member_sha256": "cf130a5725a2fc533af420c0347d26bdc131440ed7aa30faceb787a8fd939c9a",
+      "split": "train",
+      "derived_from": null
+    },
+    {
+      "row_id": "35/8-4",
+      "source_domain": "force_2020_public_lithology",
+      "root_id": "35/8-4",
+      "well_id": "35/8-4",
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/35_8-4.las",
+      "member_sha256": "7e6996453ec41cb429965f92279a35afb49ca086f2a3085e42b8939acf07f59d",
+      "split": "train",
+      "derived_from": null
+    },
+    {
+      "row_id": "15/9-13",
+      "source_domain": "force_2020_public_lithology",
+      "root_id": "15/9-13",
+      "well_id": "15/9-13",
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/15_9-13.las",
+      "member_sha256": "933752fd96b8c286b17d125b28d8a53dcd1d4c69e179a482cfaedfc2ace5fb00",
+      "split": "train",
+      "derived_from": null
+    },
+    {
+      "row_id": "31/4-5",
+      "source_domain": "force_2020_public_lithology",
+      "root_id": "31/4-5",
+      "well_id": "31/4-5",
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/31_4-5.las",
+      "member_sha256": "593df0bd2c667e77be7ad4b3aa1d24dc2c8f5be02d9dfeaa261d4dcab135a30e",
+      "split": "train",
+      "derived_from": null
+    },
+    {
+      "row_id": "35/11-15 S",
+      "source_domain": "force_2020_public_lithology",
+      "root_id": "35/11-15",
+      "well_id": "35/11-15 S",
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/35_11-15 S.las",
+      "member_sha256": "71d10a0a75edf3484d24c641535887054b122dac1ebc4fb6dab4f3f6cf61e781",
+      "split": "train",
+      "derived_from": null
+    },
+    {
+      "row_id": "34/10-33",
+      "source_domain": "force_2020_public_lithology",
+      "root_id": "34/10-33",
+      "well_id": "34/10-33",
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/34_10-33.las",
+      "member_sha256": "2dc27cb03040e01c5c7dc18348abfee863823f996db1b5f29766399d95de153e",
+      "split": "train",
+      "derived_from": null
+    },
+    {
+      "row_id": "33/9-1",
+      "source_domain": "force_2020_public_lithology",
+      "root_id": "33/9-1",
+      "well_id": "33/9-1",
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/33_9-1.las",
+      "member_sha256": "8d0343330277c142d8095f76db1b2635464640274d36a3a179f3e3f6a61d6b2b",
+      "split": "train",
+      "derived_from": null
+    },
+    {
+      "row_id": "34/6-1 S",
+      "source_domain": "force_2020_public_lithology",
+      "root_id": "34/6-1",
+      "well_id": "34/6-1 S",
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/34_6-1 S.las",
+      "member_sha256": "eb08ad497dfb753cffd1dbdc3d2c111a4323cfe83bf3f1f673c8b1edd6d834aa",
+      "split": "train",
+      "derived_from": null
+    },
+    {
+      "row_id": "16/10-5",
+      "source_domain": "force_2020_public_lithology",
+      "root_id": "16/10-5",
+      "well_id": "16/10-5",
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/16_10-5.las",
+      "member_sha256": "470c4668d1eeb1deefcd9b1bb7c1a61844fd3722b9656b6121b9c99225203808",
+      "split": "train",
+      "derived_from": null
+    },
+    {
+      "row_id": "16/4-1",
+      "source_domain": "force_2020_public_lithology",
+      "root_id": "16/4-1",
+      "well_id": "16/4-1",
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/16_4-1.las",
+      "member_sha256": "e9ab1d450af9de32c43f17b99c2811b022dd9a83764172c08e1c4536218c61a0",
+      "split": "train",
+      "derived_from": null
+    },
+    {
+      "row_id": "35/8-6 S",
+      "source_domain": "force_2020_public_lithology",
+      "root_id": "35/8-6",
+      "well_id": "35/8-6 S",
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/35_8-6 S.las",
+      "member_sha256": "4b26a23cc2b1decf80a33ba8c11f0e842216d892c75d3e61ecc5f890f0d8524a",
+      "split": "train",
+      "derived_from": null
+    },
+    {
+      "row_id": "25/10-9",
+      "source_domain": "force_2020_public_lithology",
+      "root_id": "25/10-9",
+      "well_id": "25/10-9",
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/25_10-9.las",
+      "member_sha256": "e0497a46cf39d3647083c6fbd1e61e588a81f451438ee2d874f5b7daa0a43a6a",
+      "split": "train",
+      "derived_from": null
+    },
+    {
+      "row_id": "16/5-3",
+      "source_domain": "force_2020_public_lithology",
+      "root_id": "16/5-3",
+      "well_id": "16/5-3",
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/16_5-3.las",
+      "member_sha256": "3b0038ed00b49e025b67721c525ec7c171de73bfdea3c03533d293c1e0c24c7b",
+      "split": "train",
+      "derived_from": null
+    },
+    {
+      "row_id": "31/2-19 S",
+      "source_domain": "force_2020_public_lithology",
+      "root_id": "31/2-19",
+      "well_id": "31/2-19 S",
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/31_2-19 S.las",
+      "member_sha256": "11a30170daf3a8e23da11c32a62237bc843714bdd07cd3b9489674233446b8c5",
+      "split": "train",
+      "derived_from": null
+    },
+    {
+      "row_id": "16/10-3",
+      "source_domain": "force_2020_public_lithology",
+      "root_id": "16/10-3",
+      "well_id": "16/10-3",
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/16_10-3.las",
+      "member_sha256": "e2a4229d2c60b09d1de0a956ccc365065122830a08b96bb72bd97107d73744f6",
+      "split": "train",
+      "derived_from": null
+    },
+    {
+      "row_id": "35/9-5",
+      "source_domain": "force_2020_public_lithology",
+      "root_id": "35/9-5",
+      "well_id": "35/9-5",
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/35_9-5.las",
+      "member_sha256": "df8a69609c0f1a328f252c01fb053d83c5f83d3e167cccddaa1f7646a55c995c",
+      "split": "train",
+      "derived_from": null
+    },
+    {
+      "row_id": "35/11-6",
+      "source_domain": "force_2020_public_lithology",
+      "root_id": "35/11-6",
+      "well_id": "35/11-6",
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/35_11-6.las",
+      "member_sha256": "b01a8bf0f4a88aeb7c6ee6908de6d329f2b4665608c04895f32fa47a9615118f",
+      "split": "train",
+      "derived_from": null
+    },
+    {
+      "row_id": "16/2-6",
+      "source_domain": "force_2020_public_lithology",
+      "root_id": "16/2-6",
+      "well_id": "16/2-6",
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/16_2-6.las",
+      "member_sha256": "93f1ea762b588332dbab233e1f00ad338c76c295944c5eac8914f7dcdb414eb9",
+      "split": "train",
+      "derived_from": null
+    },
+    {
+      "row_id": "17/11-1",
+      "source_domain": "force_2020_public_lithology",
+      "root_id": "17/11-1",
+      "well_id": "17/11-1",
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/17_11-1.las",
+      "member_sha256": "af86dd25b2b7d5f0c9e195dbab562b48ba2ced641778d465fe9301472e69e2a9",
+      "split": "train",
+      "derived_from": null
+    },
+    {
+      "row_id": "34/2-4",
+      "source_domain": "force_2020_public_lithology",
+      "root_id": "34/2-4",
+      "well_id": "34/2-4",
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/34_2-4.las",
+      "member_sha256": "93156939eb1123b61811eab822c4bc1bdf731ff9b7e19903f59463d917af0a68",
+      "split": "train",
+      "derived_from": null
+    },
+    {
+      "row_id": "35/6-2 S",
+      "source_domain": "force_2020_public_lithology",
+      "root_id": "35/6-2",
+      "well_id": "35/6-2 S",
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/35_6-2 S.las",
+      "member_sha256": "56ba50a71b85752d3e2d9d80671fb26fc989c3fb71ca7ebdf9ce8455e633ff91",
+      "split": "train",
+      "derived_from": null
+    },
+    {
+      "row_id": "25/6-1",
+      "source_domain": "force_2020_public_lithology",
+      "root_id": "25/6-1",
+      "well_id": "25/6-1",
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/25_6-1.las",
+      "member_sha256": "408e508ca1a6369a6bc355467dbd0ab9457453e31d8b0dd98903b4bb765d2555",
+      "split": "train",
+      "derived_from": null
+    },
+    {
+      "row_id": "31/2-7",
+      "source_domain": "force_2020_public_lithology",
+      "root_id": "31/2-7",
+      "well_id": "31/2-7",
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/31_2-7.las",
+      "member_sha256": "73f5c523f98bcbd270e61a0abe7d2e4169d21a4f3500a25956f5464bfcf23939",
+      "split": "train",
+      "derived_from": null
+    },
+    {
+      "row_id": "35/11-10",
+      "source_domain": "force_2020_public_lithology",
+      "root_id": "35/11-10",
+      "well_id": "35/11-10",
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/35_11-10.las",
+      "member_sha256": "b291db5c16a1fba296e4efa87d6ccc0e7efd5ca569c840fc459e101951f40f07",
+      "split": "train",
+      "derived_from": null
+    },
+    {
+      "row_id": "25/2-13 T4",
+      "source_domain": "force_2020_public_lithology",
+      "root_id": "25/2-13",
+      "well_id": "25/2-13 T4",
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/25_2-13 T4.las",
+      "member_sha256": "00857923950cd52364e11850b25023a2a944eb8fecaf52dc4f8157df8b2b967f",
+      "split": "train",
+      "derived_from": null
+    },
+    {
+      "row_id": "31/6-8",
+      "source_domain": "force_2020_public_lithology",
+      "root_id": "31/6-8",
+      "well_id": "31/6-8",
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/31_6-8.las",
+      "member_sha256": "ce940c80b1e11bc6c10f0199ce5f0f2e88a4a4ddf711acdb7871c0a2a2a56c20",
+      "split": "train",
+      "derived_from": null
+    },
+    {
+      "row_id": "35/11-1",
+      "source_domain": "force_2020_public_lithology",
+      "root_id": "35/11-1",
+      "well_id": "35/11-1",
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/35_11-1.las",
+      "member_sha256": "e9facd8f7b2fd7763c29ec69e9ff056c481b5080762a8200689bf1a217ab0dc1",
+      "split": "train",
+      "derived_from": null
+    },
+    {
+      "row_id": "31/2-21 S",
+      "source_domain": "force_2020_public_lithology",
+      "root_id": "31/2-21",
+      "well_id": "31/2-21 S",
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/31_2-21 S.las",
+      "member_sha256": "aab4fd4450ee939a35b58a01deb618dc69516805410414d74be75a6f849b1b2a",
+      "split": "train",
+      "derived_from": null
+    },
+    {
+      "row_id": "34/10-16 R",
+      "source_domain": "force_2020_public_lithology",
+      "root_id": "34/10-16",
+      "well_id": "34/10-16 R",
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/34_10-16 R.las",
+      "member_sha256": "860ff15d2136ccdbd8e80a6810759dac5c443307468eb37fc6e9b52aa455a8ad",
+      "split": "train",
+      "derived_from": null
+    },
+    {
+      "row_id": "25/6-3",
+      "source_domain": "force_2020_public_lithology",
+      "root_id": "25/6-3",
+      "well_id": "25/6-3",
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/25_6-3.las",
+      "member_sha256": "84e1c7b8c46316d8f2df3f88aa22394af239b9981e682a40c198a49882b05200",
+      "split": "train",
+      "derived_from": null
+    },
+    {
+      "row_id": "35/11-7",
+      "source_domain": "force_2020_public_lithology",
+      "root_id": "35/11-7",
+      "well_id": "35/11-7",
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/35_11-7.las",
+      "member_sha256": "f35e65dc3f20689b2273af5a4d1f2597608f0853713a8146dc756de8e8a91174",
+      "split": "train",
+      "derived_from": null
+    },
+    {
+      "row_id": "34/3-1 A",
+      "source_domain": "force_2020_public_lithology",
+      "root_id": "34/3-1",
+      "well_id": "34/3-1 A",
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/34_3-1 A.las",
+      "member_sha256": "b9a1e65948699291c5b881e21e9db14110a8e6370d90955292b6dfd8fd86afa4",
+      "split": "train",
+      "derived_from": null
+    },
+    {
+      "row_id": "35/4-1",
+      "source_domain": "force_2020_public_lithology",
+      "root_id": "35/4-1",
+      "well_id": "35/4-1",
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/35_4-1.las",
+      "member_sha256": "87efe8f76e44636c41e756b2e7485bed4e3fb640926df5d8900547db9049f750",
+      "split": "train",
+      "derived_from": null
+    },
+    {
+      "row_id": "17/4-1",
+      "source_domain": "force_2020_public_lithology",
+      "root_id": "17/4-1",
+      "well_id": "17/4-1",
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/17_4-1.las",
+      "member_sha256": "41ff2c065690f160212158fcc74d200e86aa33f9c0260bbf42f6f7c9f71b525d",
+      "split": "train",
+      "derived_from": null
+    },
+    {
+      "row_id": "35/12-1",
+      "source_domain": "force_2020_public_lithology",
+      "root_id": "35/12-1",
+      "well_id": "35/12-1",
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/35_12-1.las",
+      "member_sha256": "cb76385d6a4206c3b32c9ec5fbd37ec72e98c8423515f820840edf88f27ed4e0",
+      "split": "train",
+      "derived_from": null
+    },
+    {
+      "row_id": "7/1-2 S",
+      "source_domain": "force_2020_public_lithology",
+      "root_id": "7/1-2",
+      "well_id": "7/1-2 S",
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/7_1-2 S.las",
+      "member_sha256": "6134a9a56e2b71f31416ddace51ddf5990496c4860934df8f75ec4cf58e692b9",
+      "split": "train",
+      "derived_from": null
+    },
+    {
+      "row_id": "16/11-1 ST3",
+      "source_domain": "force_2020_public_lithology",
+      "root_id": "16/11-1",
+      "well_id": "16/11-1 ST3",
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/16_11-1 ST3.las",
+      "member_sha256": "6a81bebda819751cd08dc1b00f6ca918475d07b27f13d330e254abf0067a9b78",
+      "split": "train",
+      "derived_from": null
+    },
+    {
+      "row_id": "15/9-14",
+      "source_domain": "force_2020_public_lithology",
+      "root_id": "15/9-14",
+      "well_id": "15/9-14",
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/15_9-14.las",
+      "member_sha256": "45128f4070ffa50c707f98383ce498922a1c26a77cf224f1384cdf973f397b3a",
+      "split": "train",
+      "derived_from": null
+    },
+    {
+      "row_id": "25/5-1",
+      "source_domain": "force_2020_public_lithology",
+      "root_id": "25/5-1",
+      "well_id": "25/5-1",
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/25_5-1.las",
+      "member_sha256": "e1f70db89a277603deac96a90d9769828f554e376e4e2e80b0da38c4bcf5b07a",
+      "split": "train",
+      "derived_from": null
+    },
+    {
+      "row_id": "16/2-16",
+      "source_domain": "force_2020_public_lithology",
+      "root_id": "16/2-16",
+      "well_id": "16/2-16",
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/16_2-16.las",
+      "member_sha256": "7b778e020e51267c4e75c1dad4f75c20c814e2672892adf987e5784761f13d04",
+      "split": "train",
+      "derived_from": null
+    },
+    {
+      "row_id": "35/11-5",
+      "source_domain": "force_2020_public_lithology",
+      "root_id": "35/11-5",
+      "well_id": "35/11-5",
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/35_11-5.las",
+      "member_sha256": "254538a2889d05ecb34026cda0205408b9a71f86686cc68206020c8300fe303a",
+      "split": "train",
+      "derived_from": null
+    },
+    {
+      "row_id": "16/7-4",
+      "source_domain": "force_2020_public_lithology",
+      "root_id": "16/7-4",
+      "well_id": "16/7-4",
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/16_7-4.las",
+      "member_sha256": "fa0e531c294bf594ee6bf7096e287d7d28b277edb342877382c79518498a0913",
+      "split": "train",
+      "derived_from": null
+    },
+    {
+      "row_id": "35/11-12",
+      "source_domain": "force_2020_public_lithology",
+      "root_id": "35/11-12",
+      "well_id": "35/11-12",
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/35_11-12.las",
+      "member_sha256": "7355c22337b0a8a93ed46b82cdfbf9986c189b7b43870c74b1b90fa576cb921c",
+      "split": "train",
+      "derived_from": null
+    },
+    {
+      "row_id": "31/2-10",
+      "source_domain": "force_2020_public_lithology",
+      "root_id": "31/2-10",
+      "well_id": "31/2-10",
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/31_2-10.las",
+      "member_sha256": "d43a6bf45ab1606abbf83cb9f24e9065735a6c79ae5e8f2d2cff9155eea8182c",
+      "split": "train",
+      "derived_from": null
+    },
+    {
+      "row_id": "36/7-3",
+      "source_domain": "force_2020_public_lithology",
+      "root_id": "36/7-3",
+      "well_id": "36/7-3",
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/36_7-3.las",
+      "member_sha256": "5535d202ff6bfdb9d20b8d23062130d98ee015e4aa5df94d0aea5238986aa2ce",
+      "split": "train",
+      "derived_from": null
+    },
+    {
+      "row_id": "34/7-20",
+      "source_domain": "force_2020_public_lithology",
+      "root_id": "34/7-20",
+      "well_id": "34/7-20",
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/34_7-20.las",
+      "member_sha256": "5f0ba62c9edad90854fc55bf83badbb9c0f12eec9b3209f094a793df32d983c5",
+      "split": "train",
+      "derived_from": null
+    },
+    {
+      "row_id": "31/2-9",
+      "source_domain": "force_2020_public_lithology",
+      "root_id": "31/2-9",
+      "well_id": "31/2-9",
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/31_2-9.las",
+      "member_sha256": "f77f527b09178e6e3847da02269f2ef6c1435ac4e94c28276e28eb3109f3a401",
+      "split": "train",
+      "derived_from": null
+    },
+    {
+      "row_id": "15/9-17",
+      "source_domain": "force_2020_public_lithology",
+      "root_id": "15/9-17",
+      "well_id": "15/9-17",
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/15_9-17.las",
+      "member_sha256": "320636af8a1d482a3f39b35104f8a088e4a58c911f6f5974b56473d9518ccf0d",
+      "split": "train",
+      "derived_from": null
+    },
+    {
+      "row_id": "25/11-24",
+      "source_domain": "force_2020_public_lithology",
+      "root_id": "25/11-24",
+      "well_id": "25/11-24",
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/25_11-24.las",
+      "member_sha256": "0bfe2c9cb5dad120ee60492f496f93f7a57df26db6e11d3a5a18629f3743356a",
+      "split": "train",
+      "derived_from": null
+    },
+    {
+      "row_id": "35/9-8",
+      "source_domain": "force_2020_public_lithology",
+      "root_id": "35/9-8",
+      "well_id": "35/9-8",
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/35_9-8.las",
+      "member_sha256": "4a88212716c869f7b32752ad0095b4089f3959ac6d6591a39ffd98b68bc73be6",
+      "split": "train",
+      "derived_from": null
+    },
+    {
+      "row_id": "35/9-6 S",
+      "source_domain": "force_2020_public_lithology",
+      "root_id": "35/9-6",
+      "well_id": "35/9-6 S",
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/35_9-6 S.las",
+      "member_sha256": "728879a70071837d04c039706a727f3071b1cf89c52fee65af40a336a5db2b9d",
+      "split": "train",
+      "derived_from": null
+    },
+    {
+      "row_id": "30/6-5",
+      "source_domain": "force_2020_public_lithology",
+      "root_id": "30/6-5",
+      "well_id": "30/6-5",
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/30_6-5.las",
+      "member_sha256": "71bc70f09782839a58ebc55b4aa005fd8022bcf4df7f445fa8d2781f22ff3327",
+      "split": "train",
+      "derived_from": null
+    },
+    {
+      "row_id": "25/11-5",
+      "source_domain": "force_2020_public_lithology",
+      "root_id": "25/11-5",
+      "well_id": "25/11-5",
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/25_11-5.las",
+      "member_sha256": "5924f8ffa7c646a29d0bb7e39261644dd6c46c12b765b46019ec5edebe03c702",
+      "split": "train",
+      "derived_from": null
+    },
+    {
+      "row_id": "7/1-1",
+      "source_domain": "force_2020_public_lithology",
+      "root_id": "7/1-1",
+      "well_id": "7/1-1",
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/7_1-1.las",
+      "member_sha256": "b7de7ac3d5d71497b601e1ac2e4bc698e36e521e50bd9f713bc4fa0832aea042",
+      "split": "train",
+      "derived_from": null
+    },
+    {
+      "row_id": "35/9-2",
+      "source_domain": "force_2020_public_lithology",
+      "root_id": "35/9-2",
+      "well_id": "35/9-2",
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/35_9-2.las",
+      "member_sha256": "5f26a92e8c3387f811c18318fb77b355c73b0debc457c8c37a7b749bc74d3b89",
+      "split": "train",
+      "derived_from": null
+    },
+    {
+      "row_id": "34/10-35",
+      "source_domain": "force_2020_public_lithology",
+      "root_id": "34/10-35",
+      "well_id": "34/10-35",
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/34_10-35.las",
+      "member_sha256": "73badffe204bc763126dcfb7c9359369e1fc1c7061730dc6061f8cc7032c9234",
+      "split": "train",
+      "derived_from": null
+    },
+    {
+      "row_id": "25/11-15",
+      "source_domain": "force_2020_public_lithology",
+      "root_id": "25/11-15",
+      "well_id": "25/11-15",
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/25_11-15.las",
+      "member_sha256": "cb1c55ed6b9cfbe1cbb9e131ba429808b01004dbea1d568d98d9f84e3695c83a",
+      "split": "train",
+      "derived_from": null
+    },
+    {
+      "row_id": "33/5-2",
+      "source_domain": "force_2020_public_lithology",
+      "root_id": "33/5-2",
+      "well_id": "33/5-2",
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/33_5-2.las",
+      "member_sha256": "9a4bb9a53bbc7ff0865ecc0b1cc81ebcf893fe6e6889d7b5cdaffa74460c1c79",
+      "split": "train",
+      "derived_from": null
+    },
+    {
+      "row_id": "30/3-3",
+      "source_domain": "force_2020_public_lithology",
+      "root_id": "30/3-3",
+      "well_id": "30/3-3",
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/30_3-3.las",
+      "member_sha256": "ac8e84548668934a1d97349ccb03caa5696d979d19c32751ff2507d4ac937b6c",
+      "split": "train",
+      "derived_from": null
+    },
+    {
+      "row_id": "25/10-10",
+      "source_domain": "force_2020_public_lithology",
+      "root_id": "25/10-10",
+      "well_id": "25/10-10",
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/25_10-10.las",
+      "member_sha256": "7cb838467a90bd56895e36c1d906bf69e736cf4ce94fa52006cb33ab4e9d4903",
+      "split": "train",
+      "derived_from": null
+    },
+    {
+      "row_id": "35/9-10 S",
+      "source_domain": "force_2020_public_lithology",
+      "root_id": "35/9-10",
+      "well_id": "35/9-10 S",
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/35_9-10 S.las",
+      "member_sha256": "2e6ff9caae08796ad56c623d2d433d9123dd0e895f674ccb13cf91a58d5825e5",
+      "split": "train",
+      "derived_from": null
+    },
+    {
+      "row_id": "31/2-1",
+      "source_domain": "force_2020_public_lithology",
+      "root_id": "31/2-1",
+      "well_id": "31/2-1",
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/31_2-1.las",
+      "member_sha256": "d40f7bfa93cd4b474c0ebf60a53f97bc1e2d892624293039b50e8a589a1feefb",
+      "split": "validation",
+      "derived_from": null
+    },
+    {
+      "row_id": "31/3-2",
+      "source_domain": "force_2020_public_lithology",
+      "root_id": "31/3-2",
+      "well_id": "31/3-2",
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/31_3-2.las",
+      "member_sha256": "5855ff4fa01a508c8d7f6f5054c042897c43dbf6a767ee4f2be6a24ed89a58c0",
+      "split": "validation",
+      "derived_from": null
+    },
+    {
+      "row_id": "16/7-6",
+      "source_domain": "force_2020_public_lithology",
+      "root_id": "16/7-6",
+      "well_id": "16/7-6",
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/16_7-6.las",
+      "member_sha256": "3818694708dd05355b6ae6636f3fa680e032f3fd3d94b19f152c9409f1267024",
+      "split": "validation",
+      "derived_from": null
+    },
+    {
+      "row_id": "16/1-2",
+      "source_domain": "force_2020_public_lithology",
+      "root_id": "16/1-2",
+      "well_id": "16/1-2",
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/16_1-2.las",
+      "member_sha256": "bfd8d3452e72958272c05db241f39a666f24699f772c298d9f874a513f5c01a3",
+      "split": "validation",
+      "derived_from": null
+    },
+    {
+      "row_id": "16/10-1",
+      "source_domain": "force_2020_public_lithology",
+      "root_id": "16/10-1",
+      "well_id": "16/10-1",
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/16_10-1.las",
+      "member_sha256": "2377fe3792b88ae48feadef3ec22772697310b5d7287a6ad5288676298db5287",
+      "split": "validation",
+      "derived_from": null
+    },
+    {
+      "row_id": "34/8-3",
+      "source_domain": "force_2020_public_lithology",
+      "root_id": "34/8-3",
+      "well_id": "34/8-3",
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/34_8-3.las",
+      "member_sha256": "c9eb65cb2aa961b92125fe5006610ab91aa6ff675151366e572efe4c76932751",
+      "split": "validation",
+      "derived_from": null
+    },
+    {
+      "row_id": "34/11-2 S",
+      "source_domain": "force_2020_public_lithology",
+      "root_id": "34/11-2",
+      "well_id": "34/11-2 S",
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/34_11-2 S.las",
+      "member_sha256": "8e6870487217c79caae8712636566d6867588fc6d6390545afed17cfcae78a06",
+      "split": "validation",
+      "derived_from": null
+    },
+    {
+      "row_id": "34/8-1",
+      "source_domain": "force_2020_public_lithology",
+      "root_id": "34/8-1",
+      "well_id": "34/8-1",
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/34_8-1.las",
+      "member_sha256": "8320bc65ee5592e110d83f6604b0f1f6277dea0c4706adfccfdfccaa8e0d65e7",
+      "split": "validation",
+      "derived_from": null
+    },
+    {
+      "row_id": "15/9-23",
+      "source_domain": "force_2020_public_lithology",
+      "root_id": "15/9-23",
+      "well_id": "15/9-23",
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/15_9-23.las",
+      "member_sha256": "c1153a85c9852f2a6c021131010abe3c47963a4b673457bed7126daf94066ffe",
+      "split": "validation",
+      "derived_from": null
+    },
+    {
+      "row_id": "15/9-15",
+      "source_domain": "force_2020_public_lithology",
+      "root_id": "15/9-15",
+      "well_id": "15/9-15",
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/15_9-15.las",
+      "member_sha256": "25605db46b6765a01c88dc3e144cadc4b5a45b3818ce251dbbc9358274006b56",
+      "split": "validation",
+      "derived_from": null
+    },
+    {
+      "row_id": "25/2-7",
+      "source_domain": "force_2020_public_lithology",
+      "root_id": "25/2-7",
+      "well_id": "25/2-7",
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/25_2-7.las",
+      "member_sha256": "4c134e46f9fa0859142437bc5687d4001d217b809bc6d9a825ce466f93b62e93",
+      "split": "validation",
+      "derived_from": null
+    },
+    {
+      "row_id": "25/7-2",
+      "source_domain": "force_2020_public_lithology",
+      "root_id": "25/7-2",
+      "well_id": "25/7-2",
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/25_7-2.las",
+      "member_sha256": "3d0b5a75f697c7f4809e99fa5a30aa3f392ac68d58b2f54b33f1a72e32db9f40",
+      "split": "validation",
+      "derived_from": null
+    },
+    {
+      "row_id": "30/3-5 S",
+      "source_domain": "force_2020_public_lithology",
+      "root_id": "30/3-5",
+      "well_id": "30/3-5 S",
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/30_3-5 S.las",
+      "member_sha256": "04cc06b999c7eea297e4ab0504f8274e32bca050b73dfb29599976607174b8f5",
+      "split": "validation",
+      "derived_from": null
+    },
+    {
+      "row_id": "25/8-7",
+      "source_domain": "force_2020_public_lithology",
+      "root_id": "25/8-7",
+      "well_id": "25/8-7",
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/25_8-7.las",
+      "member_sha256": "6daaf5988f48a07c28164a6ada184c36cf8801c455754dd19a576a0d5eade9e6",
+      "split": "validation",
+      "derived_from": null
+    },
+    {
+      "row_id": "32/2-1",
+      "source_domain": "force_2020_public_lithology",
+      "root_id": "32/2-1",
+      "well_id": "32/2-1",
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/32_2-1.las",
+      "member_sha256": "5402f697455523965f75ffd0c9b38bf7ddc8cd53eee31adeab6ece4546b3afe4",
+      "split": "validation",
+      "derived_from": null
+    },
+    {
+      "row_id": "31/6-5",
+      "source_domain": "force_2020_public_lithology",
+      "root_id": "31/6-5",
+      "well_id": "31/6-5",
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/31_6-5.las",
+      "member_sha256": "6322fe3a806764ab20d7668b1408d1c65e4a56b5972fa945ada958a8e83c9230",
+      "split": "validation",
+      "derived_from": null
+    },
+    {
+      "row_id": "35/11-13",
+      "source_domain": "force_2020_public_lithology",
+      "root_id": "35/11-13",
+      "well_id": "35/11-13",
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/35_11-13.las",
+      "member_sha256": "9fa602fe6453fe220e1fd50f8d1232b9e2f614566d785ef302695aa4ef0132ca",
+      "split": "validation",
+      "derived_from": null
+    },
+    {
+      "row_id": "16/2-11 A",
+      "source_domain": "force_2020_public_lithology",
+      "root_id": "16/2-11",
+      "well_id": "16/2-11 A",
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/16_2-11 A.las",
+      "member_sha256": "40d96b02782670cbcc2cde494f628b31aae7f75bc574d008e57ea6206971b35f",
+      "split": "test",
+      "derived_from": null
+    },
+    {
+      "row_id": "34/10-21",
+      "source_domain": "force_2020_public_lithology",
+      "root_id": "34/10-21",
+      "well_id": "34/10-21",
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/34_10-21.las",
+      "member_sha256": "dd473f61ac7da396430777850b5fed08ee9484b2a8f392a3cddac639a8468354",
+      "split": "test",
+      "derived_from": null
+    },
+    {
+      "row_id": "16/1-6 A",
+      "source_domain": "force_2020_public_lithology",
+      "root_id": "16/1-6",
+      "well_id": "16/1-6 A",
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/16_1-6 A.las",
+      "member_sha256": "f275fa5a2a775edd3db8b38ceda19933d4b80b7889c7cc5cf7e2ee4d8514ab06",
+      "split": "test",
+      "derived_from": null
+    },
+    {
+      "row_id": "26/4-1",
+      "source_domain": "force_2020_public_lithology",
+      "root_id": "26/4-1",
+      "well_id": "26/4-1",
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/26_4-1.las",
+      "member_sha256": "dfe8aca1d51f80780232bd5f616176110936618621e003bebac41cbb12e57f03",
+      "split": "test",
+      "derived_from": null
+    },
+    {
+      "row_id": "34/11-1",
+      "source_domain": "force_2020_public_lithology",
+      "root_id": "34/11-1",
+      "well_id": "34/11-1",
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/34_11-1.las",
+      "member_sha256": "9837b065cbdc5e44d0b8cce3d3058914b7c54ee9f42fe8d660695d5023a79300",
+      "split": "test",
+      "derived_from": null
+    },
+    {
+      "row_id": "34/3-3 A",
+      "source_domain": "force_2020_public_lithology",
+      "root_id": "34/3-3",
+      "well_id": "34/3-3 A",
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/34_3-3 A.las",
+      "member_sha256": "8cf99d5e9d0e8dac857d5a8965210ce456b5206df9d625fe39e020a9633ba844",
+      "split": "test",
+      "derived_from": null
+    },
+    {
+      "row_id": "34/10-19",
+      "source_domain": "force_2020_public_lithology",
+      "root_id": "34/10-19",
+      "well_id": "34/10-19",
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/34_10-19.las",
+      "member_sha256": "bb9575f477d3999e73370d9981a3971fcdc37005c736625b4ba94261399805c8",
+      "split": "test",
+      "derived_from": null
+    },
+    {
+      "row_id": "16/7-5",
+      "source_domain": "force_2020_public_lithology",
+      "root_id": "16/7-5",
+      "well_id": "16/7-5",
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/16_7-5.las",
+      "member_sha256": "ee6693f3233af34ab5ef90545e68796f3519f6c6bb81142f1336b05483121f04",
+      "split": "test",
+      "derived_from": null
+    },
+    {
+      "row_id": "29/6-1",
+      "source_domain": "force_2020_public_lithology",
+      "root_id": "29/6-1",
+      "well_id": "29/6-1",
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/29_6-1.las",
+      "member_sha256": "2b667d123ac0701aaf0ba1599247787a0846abce227b5bd66047c02d67730f70",
+      "split": "test",
+      "derived_from": null
+    },
+    {
+      "row_id": "34/4-10 R",
+      "source_domain": "force_2020_public_lithology",
+      "root_id": "34/4-10",
+      "well_id": "34/4-10 R",
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/34_4-10 R.las",
+      "member_sha256": "15d924137d67c66b8d53f96132308d320e2dd459e8d551a61f4e6956d75c2774",
+      "split": "test",
+      "derived_from": null
+    },
+    {
+      "row_id": "16/2-7",
+      "source_domain": "force_2020_public_lithology",
+      "root_id": "16/2-7",
+      "well_id": "16/2-7",
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/16_2-7.las",
+      "member_sha256": "858a3e4ef4c0fb10aa7ba6f5a9b0def911c6027c07c17b0e2c038aef6a34aa43",
+      "split": "test",
+      "derived_from": null
+    },
+    {
+      "row_id": "25/9-1",
+      "source_domain": "force_2020_public_lithology",
+      "root_id": "25/9-1",
+      "well_id": "25/9-1",
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/25_9-1.las",
+      "member_sha256": "343a0dca4cee82799464e188f2b7dafbba28e8cbf0115471f2820d6e417789e1",
+      "split": "test",
+      "derived_from": null
+    },
+    {
+      "row_id": "31/4-10",
+      "source_domain": "force_2020_public_lithology",
+      "root_id": "31/4-10",
+      "well_id": "31/4-10",
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/31_4-10.las",
+      "member_sha256": "fa687327dc66114c6a592459c131efb76f3d85742720bd75e1919b74818b5309",
+      "split": "test",
+      "derived_from": null
+    },
+    {
+      "row_id": "34/7-21",
+      "source_domain": "force_2020_public_lithology",
+      "root_id": "34/7-21",
+      "well_id": "34/7-21",
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/34_7-21.las",
+      "member_sha256": "cea6088928d8ac944b4c59e08d9cab559f6c8668b3380c641e80e186116c00b3",
+      "split": "test",
+      "derived_from": null
+    },
+    {
+      "row_id": "33/9-17",
+      "source_domain": "force_2020_public_lithology",
+      "root_id": "33/9-17",
+      "well_id": "33/9-17",
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/33_9-17.las",
+      "member_sha256": "ce5266e09fed355bf431cd6e9b68f9e61df21ae35d6c9aa75a86a81c8006ad64",
+      "split": "test",
+      "derived_from": null
+    },
+    {
+      "row_id": "25/6-2",
+      "source_domain": "force_2020_public_lithology",
+      "root_id": "25/6-2",
+      "well_id": "25/6-2",
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/25_6-2.las",
+      "member_sha256": "eb558b555e9338cb98d54dfd5d46252f37aa8813199374f724af10b0ad7c74d7",
+      "split": "test",
+      "derived_from": null
+    },
+    {
+      "row_id": "25/8-5 S",
+      "source_domain": "force_2020_public_lithology",
+      "root_id": "25/8-5",
+      "well_id": "25/8-5 S",
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/25_8-5 S.las",
+      "member_sha256": "b0cd2deb1b8899451197587a60af562428414189639e8a269122f97bee53f343",
+      "split": "test",
+      "derived_from": null
+    },
+    {
+      "row_id": "31/3-3",
+      "source_domain": "force_2020_public_lithology",
+      "root_id": "31/3-3",
+      "well_id": "31/3-3",
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/31_3-3.las",
+      "member_sha256": "03e0330373e63660d802744b45189b9588b2e3d038235a4c332fefd644ff3540",
+      "split": "test",
+      "derived_from": null
+    },
+    {
+      "row_id": "35/11-11",
+      "source_domain": "force_2020_public_lithology",
+      "root_id": "35/11-11",
+      "well_id": "35/11-11",
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/35_11-11.las",
+      "member_sha256": "bf6c965b8969cdc05cbf436ae256dd54a89eab1a09361d5fd5df8683b3da2145",
+      "split": "test",
+      "derived_from": null
+    }
+  ],
+  "requirements": [
+    "all derived/augmented windows inherit root split",
+    "training-only preprocessing fit; no future fill",
+    "no reroll after labels or metrics",
+    "project split; not original FORCE leaderboard split"
+  ],
+  "status": "assignment_pinned_preprocessing_and_C01_not_run"
+}

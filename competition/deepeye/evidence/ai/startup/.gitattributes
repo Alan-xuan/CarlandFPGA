@@ -1,2 +1,6 @@
 planner.json -text
 planner.txt -text whitespace=cr-at-eol
+force_inventory.json -text
+force_inventory.txt -text whitespace=cr-at-eol
+split_assignment.json -text
+split_assignment.txt -text whitespace=cr-at-eol

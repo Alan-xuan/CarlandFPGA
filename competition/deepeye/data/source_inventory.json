@@ -36,7 +36,7 @@
   "data_domain": "public_well_lithology",
   "source_mode": "geo_replay",
   "grouping_unit": "complete_well",
-  "split_assignments_status": "not_run",
+  "split_assignments_status": "pinned_complete_well_groups_not_preprocessed",
   "preprocessing_status": "not_run",
   "training_status": "not_run",
   "C01_status": "not_run",
@@ -47,5 +47,27 @@
     "physical board acquisition",
     "ROCm/NPU execution",
     "online access to truth or future data"
-  ]
+  ],
+  "complete_well_inventory": {
+    "status": "verified_offline_inventory_only",
+    "file": "force_wells.json",
+    "sha256": "ace9a0eb9930f19c6b8125e151d07346fb23029b1455eac04964d15b97461e59",
+    "members": 118,
+    "rows": 2337639,
+    "independent_main_readback": "all member hashes/identities/rows/class-code and4channel-null counts matched"
+  },
+  "split_manifest": {
+    "file": "splits.json",
+    "sha256": "f10ddb8f37e6bdf7c9663eed45d0f6554ef8992899724013a7e487ad3e3cef91",
+    "group_counts": {
+      "train": 81,
+      "validation": 17,
+      "test": 19
+    },
+    "well_counts": {
+      "train": 82,
+      "validation": 17,
+      "test": 19
+    }
+  }
 }

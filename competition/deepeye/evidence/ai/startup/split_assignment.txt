@@ -1,0 +1,23 @@
+{"command": ["C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\venv\\Scripts\\python.exe", "-X", "utf8", "-B", "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\deepeye-implementation-c\\competition\\deepeye\\tests\\ai\\data_model\\test_grouping.py"], "exit_code": 0}
+STDOUT
+
+STDERR
+test_all_violations_reported_together (__main__.SplitAssignmentValidationTests.test_all_violations_reported_together) ... ok
+test_derivative_crossing_sets_rejected (__main__.SplitAssignmentValidationTests.test_derivative_crossing_sets_rejected) ... ok
+test_derivative_cycles_rejected (__main__.SplitAssignmentValidationTests.test_derivative_cycles_rejected) ... ok
+test_derivative_domain_mismatch_rejected (__main__.SplitAssignmentValidationTests.test_derivative_domain_mismatch_rejected) ... ok
+test_derivative_root_mismatch_rejected (__main__.SplitAssignmentValidationTests.test_derivative_root_mismatch_rejected) ... ok
+test_duplicate_row_id_rejected (__main__.SplitAssignmentValidationTests.test_duplicate_row_id_rejected) ... ok
+test_empty_table_is_accepted (__main__.SplitAssignmentValidationTests.test_empty_table_is_accepted) ... ok
+test_missing_identity_and_split_rejected (__main__.SplitAssignmentValidationTests.test_missing_identity_and_split_rejected) ... ok
+test_same_root_id_in_two_domains_is_independent (__main__.SplitAssignmentValidationTests.test_same_root_id_in_two_domains_is_independent) ... ok
+test_splits_argument_is_validated (__main__.SplitAssignmentValidationTests.test_splits_argument_is_validated) ... ok
+test_unknown_parent_rejected (__main__.SplitAssignmentValidationTests.test_unknown_parent_rejected) ... ok
+test_valid_assignment_report (__main__.SplitAssignmentValidationTests.test_valid_assignment_report) ... ok
+
+----------------------------------------------------------------------
+Ran 12 tests in 0.001s
+
+OK
+
+Independent pinned-manifest/identity/hash/rank checks: passed; cross-split real sidetrack rejected.

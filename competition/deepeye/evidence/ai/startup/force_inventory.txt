@@ -1,0 +1,40 @@
+{"command": ["C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\venv\\Scripts\\python.exe", "-X", "utf8", "-B", "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\deepeye-implementation-c\\competition\\deepeye\\tests\\ai\\data_model\\test_force_inventory.py"], "exit_code": 0, "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855", "stderr_sha256": "c1b52dce83a591970e0931a2da23a40ccec64b01f580c389ea2bae5b6da6bc9d"}
+STDOUT
+
+STDERR
+test_ambiguous_curve_names_are_rejected (__main__.ForceInventoryTests.test_ambiguous_curve_names_are_rejected) ... ok
+test_archive_hash_precheck (__main__.ForceInventoryTests.test_archive_hash_precheck) ... ok
+test_cli_end_to_end (__main__.ForceInventoryTests.test_cli_end_to_end) ... ok
+test_crcrlf_and_cr_only_terminators (__main__.ForceInventoryTests.test_crcrlf_and_cr_only_terminators) ... ok
+test_curve_section_after_data_refused (__main__.ForceInventoryTests.test_curve_section_after_data_refused) ... ok
+test_dependency_free_imports (__main__.ForceInventoryTests.test_dependency_free_imports) ... ok
+test_duplicate_uwi_refused_and_distinct_pass (__main__.ForceInventoryTests.test_duplicate_uwi_refused_and_distinct_pass) ... ok
+test_empty_archive_is_rejected (__main__.ForceInventoryTests.test_empty_archive_is_rejected) ... ok
+test_good_well_inventory_fields (__main__.ForceInventoryTests.test_good_well_inventory_fields) ... ok
+test_invalid_chunk_sizes_are_rejected (__main__.ForceInventoryTests.test_invalid_chunk_sizes_are_rejected) ... ok
+test_iter_las_lines_terminator_and_boundary_handling (__main__.ForceInventoryTests.test_iter_las_lines_terminator_and_boundary_handling) ... ok
+test_malformed_numeric_fails_with_member_and_line (__main__.ForceInventoryTests.test_malformed_numeric_fails_with_member_and_line) ... ok
+test_member_sha_and_size_match_raw_member (__main__.ForceInventoryTests.test_member_sha_and_size_match_raw_member) ... ok
+test_missing_null_or_uwi_refused (__main__.ForceInventoryTests.test_missing_null_or_uwi_refused) ... ok
+test_non_ascii_byte_fails (__main__.ForceInventoryTests.test_non_ascii_byte_fails) ... ok
+test_nonfinite_null_sentinel_is_rejected (__main__.ForceInventoryTests.test_nonfinite_null_sentinel_is_rejected) ... ok
+test_null_sentinel_versus_valid_negative (__main__.ForceInventoryTests.test_null_sentinel_versus_valid_negative) ... ok
+test_parse_section_line_real_formats (__main__.ForceInventoryTests.test_parse_section_line_real_formats) ... ok
+test_plain_stream_cannot_claim_zip_crc (__main__.ForceInventoryTests.test_plain_stream_cannot_claim_zip_crc) ... ok
+test_row_column_count_mismatch_fails (__main__.ForceInventoryTests.test_row_column_count_mismatch_fails) ... ok
+test_unsafe_member_paths_refused (__main__.ForceInventoryTests.test_unsafe_member_paths_refused) ... ok
+test_wrap_yes_and_version_refusals (__main__.ForceInventoryTests.test_wrap_yes_and_version_refusals) ... ok
+test_zero_data_rows_refused (__main__.ForceInventoryTests.test_zero_data_rows_refused) ... ok
+
+----------------------------------------------------------------------
+Ran 23 tests in 1.029s
+
+OK
+
+{"command": ["C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\venv\\Scripts\\python.exe", "-X", "utf8", "-B", "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\deepeye-implementation-c\\competition\\deepeye\\data\\force_inventory.py", "--zip", "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\datasets\\force-2020\\LAS_files_Force_2020_all_wells_train_test_blind_hidden_final.zip", "--bytes", "169785172", "--sha256", "042ef1d473100dc12768cae7107a8cead071a394f137af3bc1ddaf8a5d1b8dda", "--md5", "da0d72d5783a780ac71779453d9fbfbf", "--out", "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\plan-20261014-final-c\\director-startup\\force-main-verified-inventory.json"], "exit_code": 0, "stdout_sha256": "10f3d1cc95dfa3f5eb0c8a56d6bc892675badd58ef2e71b9a13d9cfe44fd25f8", "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"}
+STDOUT
+ok members=118 rows=2337639 curves=2393 all_wrap_no=True out=C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\plan-20261014-final-c\director-startup\force-main-verified-inventory.json
+
+STDERR
+
+{"independent_readback": {"status": "passed", "scope": "independent full118 member SHA/byte/CRC, UWI, row count, curve identity,12class code histograms and4model-channel null counts; no fitting/training", "members": 118, "rows": 2337639}}

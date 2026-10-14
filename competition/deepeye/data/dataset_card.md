@@ -44,7 +44,17 @@ derivation; they are not filled from authority logs.
 
 ## Current gate state
 
-C01 is `not_run`: extraction, complete well inventory, disjoint train/validation/
-test assignments, train-only preprocessing and R03 integration are not accepted.
+The complete archive inventory has been independently read back: 118 wells,
+2,337,639 rows, with member hashes, well identities, curve names, label counts and
+four-input null counts matching. The parser's 23 software tests pass. Raw files
+stay in the private local archive; `force_wells.json` contains aggregate metadata.
+
+`label_schema.json` pins the official 12-class mapping. `split_policy.json` fixes
+the outcome-independent parent-well hash split, and `splits.json` records its
+concrete assignments. Sidetrack variants of one parent remain together. These
+are this project's splits, not a reproduction of the original FORCE leaderboard.
+
+C01 remains `not_run`: train-only preprocessing, causal replay windows, the
+complete verify_data entrypoint and R03 integration are not accepted.
 No trained model, ROCm/NPU result, runtime secrecy proof, physical observation or
 product card is claimed by this document or by the initial software unit tests.

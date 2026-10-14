@@ -1,0 +1,54 @@
+{
+  "schema": 1,
+  "task_id": "DEEPEYE-IMPLEMENTATION-20261014",
+  "task_version": 1,
+  "contract": {
+    "id": "DEEPEYE-HUMAN-LOCK-20261014",
+    "revision": 1,
+    "source_commit": "f5989cd5defce561f9ba98e6b18fc2682945f0a2",
+    "requirements_sha256": "c229834bfc2292f5fe4411fc9f12c68487008f9d1adaf31f0144ee7a98173804"
+  },
+  "design_commit": "1011259415a0916054eb580687612580bc1e5f09",
+  "at_utc": "2026-10-14T20:15:32.585780+00:00",
+  "scope": "FORCE fixed well split and grouping validator only",
+  "status": "passed",
+  "software_tests": 12,
+  "command": [
+    "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\venv\\Scripts\\python.exe",
+    "-X",
+    "utf8",
+    "-B",
+    "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\deepeye-implementation-c\\competition\\deepeye\\tests\\ai\\data_model\\test_grouping.py"
+  ],
+  "exit_code": 0,
+  "source_sha256": {
+    "data/grouping.py": "f1a35a5b060cafb640d8f65b2914af9616258b7fa21f99d1a589d232f7b2be4d",
+    "tests/ai/data_model/test_grouping.py": "1c0ae33ca9a478cfe322a5f5e2a243afb5e95cf7b91300e561501cabf9b66ba6",
+    "data/splits.json": "f10ddb8f37e6bdf7c9663eed45d0f6554ef8992899724013a7e487ad3e3cef91",
+    "data/split_policy.json": "66c5138ad45138104bca20d39c4680daa82534a16e381f8d2879eea6f37b81c9",
+    "data/label_schema.json": "0913ff5a59085b47802a9902f23a836f4fa1129700de8e6593840416f4d7beed",
+    "data/force_wells.json": "ace9a0eb9930f19c6b8125e151d07346fb23029b1455eac04964d15b97461e59",
+    "evidence/ai/startup/split_assignment.txt": "a237e1f252696811ee7616e0897b1ee41d13af9581c4879c629dc1483f4cdd60"
+  },
+  "independent_checks": [
+    "all118 verified well/member/hash identities preserved",
+    "117 parent groups assigned by fixed salt and exact rank",
+    "all policy and source byte hashes matched",
+    "real sidetrack cross-split corruption rejected"
+  ],
+  "group_counts": {
+    "train": 81,
+    "validation": 17,
+    "test": 19
+  },
+  "well_counts": {
+    "train": 82,
+    "validation": 17,
+    "test": 19
+  },
+  "limitations": [
+    "No preprocessing or training",
+    "No sensor_live or sim_em_v2 dataset accepted",
+    "C01 and other product cards remain not_run"
+  ]
+}
