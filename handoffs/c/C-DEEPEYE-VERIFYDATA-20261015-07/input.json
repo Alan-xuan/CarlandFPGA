@@ -1,0 +1,95 @@
+{
+  "request": {
+    "operation_id": "C-DEEPEYE-VERIFYDATA-20261015-07",
+    "task_id": "DEEPEYE-IMPLEMENTATION-20261014",
+    "task_version": 1,
+    "requester": "node-c",
+    "code_commit": "c2bfb94b1c1f903310e0587befa4a38e10b8a888",
+    "test_steps": [
+      "python -X utf8 -B competition/deepeye/tests/ai/data_model/test_verify_data.py (48tests, exactly3realarchivecases skip if DEEPEYE_FORCE_ARCHIVE unset)",
+      "For the full48test software run, set DEEPEYE_FORCE_ARCHIVE only in the subprocess environment to the exact archive recorded in data/source_inventory.json; require0skips.",
+      "python competition/deepeye/tools/verify_data.py --scope force-offline --archive <exact-local-ZIP> (exit0 offline identity/consistency only); default without args must exit2 blocked.",
+      "Inspect verify_data_main_review independent6JSONraces,72mixedpin errors,29specfield mutations,5mapimmutability cases,21pathprobes and4CLIalias cases.",
+      "Verify manifest/source hashes; retain unknown runtime future-label and real/simdomain gates. Return same-PR operation_id/request_hash/tested_commit review. No board operation requested."
+    ],
+    "expected_result": "VD01-VD05 closed for offline verifier foundation. 48tests/0skips with realarchive; clean copiedcheckout48tests/3explicit archive skips. Actualoffline metadata118wells/2337639rows/117parents/82trainwells1634292rows, fixed82/17/19split. Archive streamhash only; no LAS row parse/refit. All29productcards and simulation/synthesis/implementation/board/system not_run. R03/realrun/simscenario/runtime gates stillblock fullC01. DEEPEYE-HUMAN-LOCK-20261014/revision1 sourcef5989cd5defce561f9ba98e6b18fc2682945f0a2 SHA256c229834bfc2292f5fe4411fc9f12c68487008f9d1adaf31f0144ee7a98173804;design1011259415a0916054eb580687612580bc1e5f09 unchanged. VERIFYDATA06 was local-only and superseded solely to correct a copied evidence note: this verifier does read pinned files/archive bytes and may write a guarded report; it does not parse LAS rows. Historical06 manifest remains unchanged."
+  },
+  "artifacts": [
+    "competition/deepeye/ai_pc/control_broker/deadlines.py",
+    "competition/deepeye/ai_pc/control_broker/mailbox.py",
+    "competition/deepeye/ai_pc/model/causal_input.py",
+    "competition/deepeye/ai_pc/model/curve_input.py",
+    "competition/deepeye/ai_pc/planning/kinematics.py",
+    "competition/deepeye/data/dataset_card.md",
+    "competition/deepeye/data/force_inventory.py",
+    "competition/deepeye/data/force_preprocess.py",
+    "competition/deepeye/data/force_wells.json",
+    "competition/deepeye/data/grouping.py",
+    "competition/deepeye/data/label_schema.json",
+    "competition/deepeye/data/manifest.json",
+    "competition/deepeye/data/preprocessing.json",
+    "competition/deepeye/data/source_inventory.json",
+    "competition/deepeye/data/split_policy.json",
+    "competition/deepeye/data/splits.json",
+    "competition/deepeye/evidence/ai/startup/broker.json",
+    "competition/deepeye/evidence/ai/startup/broker.log",
+    "competition/deepeye/evidence/ai/startup/broker_main_review.json",
+    "competition/deepeye/evidence/ai/startup/broker_main_review.py",
+    "competition/deepeye/evidence/ai/startup/broker_main_review.txt",
+    "competition/deepeye/evidence/ai/startup/curve_input.json",
+    "competition/deepeye/evidence/ai/startup/curve_input.log",
+    "competition/deepeye/evidence/ai/startup/curve_main_review.json",
+    "competition/deepeye/evidence/ai/startup/curve_main_review.py",
+    "competition/deepeye/evidence/ai/startup/curve_main_review.txt",
+    "competition/deepeye/evidence/ai/startup/data_model.json",
+    "competition/deepeye/evidence/ai/startup/data_model.txt",
+    "competition/deepeye/evidence/ai/startup/force_inventory.json",
+    "competition/deepeye/evidence/ai/startup/force_inventory.txt",
+    "competition/deepeye/evidence/ai/startup/force_preprocess.json",
+    "competition/deepeye/evidence/ai/startup/force_preprocess.log",
+    "competition/deepeye/evidence/ai/startup/planner.json",
+    "competition/deepeye/evidence/ai/startup/planner.txt",
+    "competition/deepeye/evidence/ai/startup/preprocess_main_review.json",
+    "competition/deepeye/evidence/ai/startup/preprocess_main_review.py",
+    "competition/deepeye/evidence/ai/startup/preprocess_main_review.txt",
+    "competition/deepeye/evidence/ai/startup/split_assignment.json",
+    "competition/deepeye/evidence/ai/startup/split_assignment.txt",
+    "competition/deepeye/evidence/ai/startup/verify_data.json",
+    "competition/deepeye/evidence/ai/startup/verify_data.log",
+    "competition/deepeye/evidence/ai/startup/verify_data_main_review.json",
+    "competition/deepeye/evidence/ai/startup/verify_data_main_review.py",
+    "competition/deepeye/evidence/ai/startup/verify_data_main_review.txt",
+    "competition/deepeye/tests/ai/control_broker/test_deadlines.py",
+    "competition/deepeye/tests/ai/control_broker/test_mailbox.py",
+    "competition/deepeye/tests/ai/data_model/test_causal_input.py",
+    "competition/deepeye/tests/ai/data_model/test_curve_input.py",
+    "competition/deepeye/tests/ai/data_model/test_force_inventory.py",
+    "competition/deepeye/tests/ai/data_model/test_force_preprocess.py",
+    "competition/deepeye/tests/ai/data_model/test_grouping.py",
+    "competition/deepeye/tests/ai/data_model/test_verify_data.py",
+    "competition/deepeye/tests/ai/planning/kinematics_vectors.json",
+    "competition/deepeye/tests/ai/planning/test_kinematics.py",
+    "competition/deepeye/tools/verify_data.py"
+  ],
+  "stages": {
+    "simulation": {
+      "status": "not_run"
+    },
+    "synthesis": {
+      "status": "not_run"
+    },
+    "implementation": {
+      "status": "not_run"
+    },
+    "board": {
+      "status": "not_run"
+    },
+    "system": {
+      "status": "not_run"
+    },
+    "software_unit": {
+      "status": "passed",
+      "log": "competition/deepeye/evidence/ai/startup/verify_data_main_review.txt"
+    }
+  }
+}
