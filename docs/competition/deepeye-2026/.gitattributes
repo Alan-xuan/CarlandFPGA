@@ -5,3 +5,4 @@
 *.png -text -diff
 *.jpg -text -diff
 verification_v4.txt -text
+verification_final.txt text eol=lf

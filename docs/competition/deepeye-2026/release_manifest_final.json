@@ -1,0 +1,174 @@
+{
+  "task_id": "COMP-20261013-DEEPEYE",
+  "task_version": 5,
+  "release_name": "three-node final taskbook",
+  "source_commit": "2c21765b4ad921a4f3a6317d09d6ced30316651f",
+  "immutable_scope_id": "DEEPEYE-HUMAN-LOCK-20261014/revision1",
+  "immutable_scope_sha256": "c229834bfc2292f5fe4411fc9f12c68487008f9d1adaf31f0144ee7a98173804",
+  "files": {
+    ".gitattributes": {
+      "bytes": 169,
+      "sha256": "0738407bfcd89e48042c87447759816128a98a42ef6f768ddcee2fcba60a2eab"
+    },
+    "architecture_v4.png": {
+      "bytes": 193005,
+      "sha256": "94796aa141232563d2abdfef8239b79c4c330b1a0d9705c31189047000bc5afd"
+    },
+    "automation_contract.md": {
+      "bytes": 478,
+      "sha256": "f0c1d203f94e3ca17d386fa1e03a70a5465e7da2690db86f403fc246c375deaa"
+    },
+    "build_taskbook_final.py": {
+      "bytes": 6576,
+      "sha256": "e3b12a32ce21cd087ab14c627d0974708ece8ac3952fcf0757cf78ef301ec518"
+    },
+    "checks_final.json": {
+      "bytes": 11983,
+      "sha256": "6de171def30db4fe4eec2d565a695a9a8a175e294d9e12e7c7d03b91cc9bea0f"
+    },
+    "deepeye_taskbook_final.pdf": {
+      "bytes": 1043461,
+      "sha256": "9f6dd73d5aec40aa80a281ea0c266ff96388232d950e3c486910ddd128a22335"
+    },
+    "execution_orchestration_v5.md": {
+      "bytes": 9029,
+      "sha256": "c4668714bc25959f0cb5cc8ef326ca04f90dc33eb03905a40ec6c4114804a2e1"
+    },
+    "execution_plan_final.json": {
+      "bytes": 11924,
+      "sha256": "6c3bf4f474ee5f0a8be10172b60fff7f019b385cd221de1a6214b09cdaadd578"
+    },
+    "fusion_review_final.json": {
+      "bytes": 3969,
+      "sha256": "47f00d5226e1bb916a21dad5423f04e5da54fe1f62fd8a33f7bbdfb1a599820e"
+    },
+    "fusion_review_final.md": {
+      "bytes": 2586,
+      "sha256": "44c0ee00b41a5deffe9e17099ca76578aa14a854321a60dbfab425f1a6a527ff"
+    },
+    "immutable_scope.json": {
+      "bytes": 6684,
+      "sha256": "6a86000e97d1571c0b7b89b9d3cf7facb11d2b6a06455eb1d53e0637676b6bc4"
+    },
+    "immutable_scope.md": {
+      "bytes": 6139,
+      "sha256": "27c5bf0b194036cf4300dbec371b6abba42bc5fda604da0e6e06284e4c5a2ddd"
+    },
+    "readme.md": {
+      "bytes": 1117,
+      "sha256": "fc4548d2ee4aad7c5e325196ba059fbf1dce43a38930ece695cb3fbb0bcaffe0"
+    },
+    "research_final.md": {
+      "bytes": 7171,
+      "sha256": "7aaea696e016aafe05e24fa6a048dd0651aa361c6c38abf9bfa0492e2f389ce6"
+    },
+    "reviews/v5/b/.gitattributes": {
+      "bytes": 14,
+      "sha256": "a79691a93b46e49ce460c26ef22afcc03d6eca1e63bf2edbc20e96159510f6c9"
+    },
+    "reviews/v5/b/README.md": {
+      "bytes": 2606,
+      "sha256": "ec5b1516e0a542d3a34818f9e8336e6270321401fb07e975756104d969e23dee"
+    },
+    "reviews/v5/b/assets_and_acceptance.md": {
+      "bytes": 9914,
+      "sha256": "cf3e1c1e018336130c9f0d502c77180aa09366884bda50ba04098527384b8c84"
+    },
+    "reviews/v5/b/check_planning.py": {
+      "bytes": 3597,
+      "sha256": "31824128bd90cbcf83c79a904b11a3d777a53ace7df36fb97c496383a1047f3b"
+    },
+    "reviews/v5/b/comparison_v4.md": {
+      "bytes": 1949,
+      "sha256": "999fe21c648a11643e3d602313e023d9b7c6a94b5b1dd6ef9ae2e5f648731c84"
+    },
+    "reviews/v5/b/evidence.md": {
+      "bytes": 2068,
+      "sha256": "41cb8858a1b620e96d7f481f3c631c4692508ed076285852665139d31cdfdbd1"
+    },
+    "reviews/v5/b/freeze.json": {
+      "bytes": 2030,
+      "sha256": "a33c7feb4f63fba926c5d6fb6858d7bbf891c29b5592a21380a647d9e8dddb75"
+    },
+    "reviews/v5/b/handoff.md": {
+      "bytes": 3440,
+      "sha256": "d1c0a554b68e3291e900ec34d03b8d9d1ccdfc060465f7be09222f62f99438ed"
+    },
+    "reviews/v5/b/planning_checks.json": {
+      "bytes": 3378,
+      "sha256": "0c6059a0b66b7fd5cfcf0097f54c12112f63e082c88f0dbfb54facddb5bbbae3"
+    },
+    "reviews/v5/b/protocol.md": {
+      "bytes": 8473,
+      "sha256": "233523012e2302682bcfdcbe2e6d103306163a7c353350a6265988e98b5df6b9"
+    },
+    "reviews/v5/b/review.md": {
+      "bytes": 6783,
+      "sha256": "d973d3371e851ac7a9b1955d2978ea19bd216b1c59c52edaf2475082eb41063d"
+    },
+    "reviews/v5/b/sources.json": {
+      "bytes": 5806,
+      "sha256": "123ccf22aa3ad8dea41cd0bbd59e4d2d9d3b637091cef9d1aeaac65c1ea389be"
+    },
+    "reviews/v5/b/validation.json": {
+      "bytes": 919,
+      "sha256": "fb4927ce0eb7e2bdce7e04683bbaff985b1b95815f27475c01ba45c50b3f61a2"
+    },
+    "simulation_contract_final.json": {
+      "bytes": 7623,
+      "sha256": "f89db784d612887e6bb80c1d569f9dedf40f3afb468fd9a65a38193a65a0d04f"
+    },
+    "taskbook_final.md": {
+      "bytes": 106788,
+      "sha256": "0b17981bc5bdd2b1d81dbbb0db2aa419d4952c79c4c32e1398a3f5ad284d10ce"
+    },
+    "v5/c/.gitattributes": {
+      "bytes": 80,
+      "sha256": "6cac7e3ba10653a00b01d4028829ee18e893cf7da69218d5f41d6caea105dfaa"
+    },
+    "v5/c/acceptance.json": {
+      "bytes": 18246,
+      "sha256": "199d3085042315391f8a1fc493e2efd2dd4b744e318481f9b7fa43756a7373c7"
+    },
+    "v5/c/freeze_manifest.json": {
+      "bytes": 4002,
+      "sha256": "09714f9fbce492ff03c90bcb7d9d93488297aaffb434b68f713a5ae8743a736e"
+    },
+    "v5/c/research_checks.json": {
+      "bytes": 1017,
+      "sha256": "26efd90f380095d9e693a88f20c7a45c318c67abbd6aefe85d92fe8972aa2b73"
+    },
+    "v5/c/review.md": {
+      "bytes": 15421,
+      "sha256": "780d94bf19a1921f19c9d317b409762d23d13a9f4a5b4ecca4715cb65e6aa56b"
+    },
+    "v5/c/sources.json": {
+      "bytes": 9928,
+      "sha256": "bfa6a915f170354359e45924627544ac3344707f338b01225700e1fba8da05fd"
+    },
+    "v5/c/verify_review.py": {
+      "bytes": 3042,
+      "sha256": "6b144ef4c71abc1bc4089361f6fe294f922fa0cc86fc4f5c6ab17e7f86d9c49a"
+    },
+    "verification_final.txt": {
+      "bytes": 1709,
+      "sha256": "c9039d1a8b6801ac76df0188508f009d5fe2d468a913e49e705ce7d086bd7112"
+    },
+    "verify_immutable_scope.py": {
+      "bytes": 2287,
+      "sha256": "cb91a864a5b5f5a6bf014bbbd32b9656ee588075d9b115586df544c96cebc2eb"
+    },
+    "verify_taskbook_final.py": {
+      "bytes": 9297,
+      "sha256": "694363b2e21e8adac37a04634c2476f5cda681f6026b0063f6a044620a7ee99e"
+    },
+    "visual_qa_final.json": {
+      "bytes": 2970,
+      "sha256": "d753da2d796b9ceffee031d44bfa04bd5174d8657e2cb103717973146e884eb4"
+    }
+  },
+  "manifest_self_hash": "excluded to avoid recursive hash; use actual publication commit",
+  "verification_scope": "159 static checks;28page visual QA;product all29 root tasks not_run",
+  "next_task": "DEEPEYE-IMPLEMENTATION-20261014/version1",
+  "handoff_record": "implementation_handoff.json appended only after actual publish/readback/new-main start; does not change frozen artifact bytes"
+}
