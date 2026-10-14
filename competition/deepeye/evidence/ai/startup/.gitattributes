@@ -26,3 +26,8 @@ verify_data.log -text whitespace=cr-at-eol,-blank-at-eof,-blank-at-eol
 verify_data_main_review.json -text
 verify_data_main_review.py -text whitespace=cr-at-eol
 verify_data_main_review.txt -text whitespace=cr-at-eol,-blank-at-eof
+planner_cost.json -text whitespace=cr-at-eol
+planner_cost.log -text whitespace=cr-at-eol,-blank-at-eof,-blank-at-eol
+planner_cost_main_review.json -text
+planner_cost_main_review.py -text whitespace=cr-at-eol
+planner_cost_main_review.txt -text whitespace=cr-at-eol,-blank-at-eof

@@ -1,0 +1,455 @@
+{
+ "schema": 1,
+ "kind": "deepeye-g04-candidate-cost-evidence",
+ "generated_utc": "2026-10-14T23:24:01Z",
+ "task_id": "DEEPEYE-C-PLANNER-COST-20261015",
+ "task_version": 1,
+ "work_id": "C-planner-candidate-cost-search-foundation-v1",
+ "implementation_job": "child-08030d9f6a3545c7975ff3201f5eeb70",
+ "instance_id": "deepseek-c-15",
+ "route": "deepseek",
+ "provider_model_effort_observable": false,
+ "contract": {
+  "id": "DEEPEYE-HUMAN-LOCK-20261014/revision1",
+  "source": "f5989cd5defce561f9ba98e6b18fc2682945f0a2",
+  "requirements_sha256": "c229834bfc2292f5fe4411fc9f12c68487008f9d1adaf31f0144ee7a98173804",
+  "design_commit": "1011259415a0916054eb580687612580bc1e5f09"
+ },
+ "scope": "First small-graph exhaustive cost check of the final book only: exact normalized candidate cost with fixed weights (1, 1/2, 4, 1/2, 1) and a deterministic bounded small-graph search. NOT full G04: production normalization scales, risk calibration, legal observation adapters, orientation-aware motion primitives, full-volume collision and braking-tail evidence, and runtime inputs remain unfrozen; no physical feasibility claim.",
+ "status": "software_fixture_math_completed_pending_director_review_no_product_acceptance",
+ "product_cards": {
+  "G04": "not_run",
+  "C04": "not_run",
+  "all_hardware_and_system_cards": "not_run"
+ },
+ "files": [
+  {
+   "path": "ai_pc/planning/candidate_graph.py",
+   "role": "pure exact normalized-cost + deterministic bounded small-graph search module (frozen objects); imports only dataclasses/fractions/heapq/math",
+   "sha256": "7c88e6e5a64badfedbf1dbd72327aa2ee9985d5b760bae8351d45d5f5aa437af",
+   "bytes": 18479
+  },
+  {
+   "path": "tests/ai/planning/test_candidate_graph.py",
+   "role": "30-test suite: independent 100-graph all-simple-paths exhaustive reference comparison (seeded fixtures), tie/budget/mutation/malformed regressions, checkout-portable",
+   "sha256": "f460a398a916e42383b6ef91cf033a540dc4ac6fb4835fded67128dc1b0bad8b",
+   "bytes": 32969
+  },
+  {
+   "path": "evidence/ai/startup/planner_cost.log",
+   "role": "raw transcripts + embedded temp helper sources + readback; written before this json",
+   "sha256": "e66d9c6547909b74cfed0a87f64a2a8237ad9e6f9fbe6258358c5cb69c8873f4",
+   "bytes": 58788
+  },
+  {
+   "path": "evidence/ai/startup/planner_cost.json",
+   "role": "this evidence file; its own sha256 cannot be embedded stably and is omitted by design - the director recomputes it from the delivered bytes",
+   "sha256": null,
+   "bytes": null
+  }
+ ],
+ "tool_versions": {
+  "python": "3.12.14",
+  "platform": "Windows-11-10.0.26200-SP0"
+ },
+ "design_points_implemented": [
+  "NormalizedCost: exactly five nonnegative components in fixed order length/time/cumulative_risk/curvature/uncertainty; int, finite float and Fraction accepted; bool/negative/NaN/Inf/unsupported rejected; floats stored as exact binary rationals; weights fixed (1, 1/2, 4, 1/2, 1); no caller weight override; exact rational weighted total",
+  "Edge/CandidateGraph: immutable ids and costs, nonempty-string ids, tuple copies so caller-list mutation cannot alter the graph; max 64 nodes / 512 edges; duplicate node ids, duplicate edge ids and unknown endpoints rejected up front even if unreachable; parallel distinct edges, self loops and cycles allowed; source_domain must be exactly software_fixture",
+  "search(start, goal, max_expansions): deterministic bounded Dijkstra over labels (exact cost, hop count, lexicographic edge-id sequence) independent of insertion order; zero-cost cycles cannot improve a label; expansion_count <= node count; budget is an exact non-bool integer in 0..64",
+  "Result semantics: start==goal -> found with empty edge path and cost 0 without expansion; a pending candidate blocked by budget -> budget_exhausted (never a partial path reported as found); exhausted heap without path -> unreachable; cost reported only when found; no motion/execution authorization field anywhere",
+  "Tests: independent hand-coded weight formula plus all-simple-paths enumeration over 100 fixed-seed graphs (2..7 nodes, integer/rational/zero costs, parallel variants, cycles, unreachable pairs); every ordered pair compared; permutations, tie cases, caller-list mutation, malformed inputs, budget truncation and a minimal-checkout portability run included"
+ ],
+ "commands": [
+  {
+   "label": "full unit suite from the product root (30 tests; 100-graph exhaustive reference incl. every ordered pair)",
+   "command": [
+    "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\venv\\Scripts\\python.exe",
+    "-X",
+    "utf8",
+    "-B",
+    "tests/ai/planning/test_candidate_graph.py"
+   ],
+   "cwd": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\deepeye-implementation-c\\competition\\deepeye",
+   "exit_code": 0,
+   "stdout_bytes": 0,
+   "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "stderr_bytes": 134,
+   "stderr_sha256": "35ff9ef79ab12c05c8bde51922efe7af2945a60b41e542358ee7f77348ebd588"
+  },
+  {
+   "label": "independent 100-graph reference probe (fresh process; prints fixture digest and mismatch count)",
+   "command": [
+    "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\venv\\Scripts\\python.exe",
+    "-X",
+    "utf8",
+    "-B",
+    "C:\\Users\\Alan\\AppData\\Local\\Temp\\g04pc_20261015\\g04_probe.py"
+   ],
+   "cwd": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\deepeye-implementation-c\\competition\\deepeye",
+   "exit_code": 0,
+   "stdout_bytes": 541,
+   "stdout_sha256": "47c989b090456405506ac711c01a55f72516813573095356a56fadbb3b779302",
+   "stderr_bytes": 0,
+   "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+   "label": "unit suite from a minimal two-file checkout with no private files, no archive and no env overrides",
+   "command": [
+    "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\venv\\Scripts\\python.exe",
+    "-X",
+    "utf8",
+    "-B",
+    "tests/ai/planning/test_candidate_graph.py"
+   ],
+   "cwd": "C:\\Users\\Alan\\AppData\\Local\\Temp\\g04pc_20261015\\clean_min",
+   "exit_code": 0,
+   "stdout_bytes": 0,
+   "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "stderr_bytes": 134,
+   "stderr_sha256": "8f643c3a448045158dbb828ac43f47dbcb218324fb24ddf5af8bf565f62e202f"
+  },
+  {
+   "label": "evidence assembly run (this document's builder)",
+   "command": [
+    "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\venv\\Scripts\\python.exe",
+    "-X",
+    "utf8",
+    "-B",
+    "C:\\Users\\Alan\\AppData\\Local\\Temp\\g04pc_20261015\\build_evidence_pc.py"
+   ],
+   "cwd": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c",
+   "exit_code": null,
+   "exit_note": "captured by run_builder.py to build_evidence.exit.txt in the temp workspace; asserted == 0 by the post-run readback (fresh process)",
+   "capture_note": "raw builder stdout/stderr captured to build_evidence.stdout.bin / build_evidence.stderr.bin"
+  }
+ ],
+ "tests": {
+  "suite": "tests/ai/planning/test_candidate_graph.py",
+  "count": 30,
+  "result": "OK",
+  "exit_code": 0,
+  "raw_transcript": "section [5] tests_run1 of the public log",
+  "reference_comparison": "independent all-simple-paths enumeration with hand-coded weights; the solver cost method is never used to derive expected values",
+  "portable_minimal_checkout": {
+   "command": [
+    "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\venv\\Scripts\\python.exe",
+    "-X",
+    "utf8",
+    "-B",
+    "tests/ai/planning/test_candidate_graph.py"
+   ],
+   "cwd": "C:\\Users\\Alan\\AppData\\Local\\Temp\\g04pc_20261015\\clean_min",
+   "exit_code": 0,
+   "result": "OK",
+   "restriction": "no private controller files, no dataset archive, no environment overrides"
+  }
+ },
+ "probe": {
+  "python": "3.12.14",
+  "module_sha256": "7c88e6e5a64badfedbf1dbd72327aa2ee9985d5b760bae8351d45d5f5aa437af",
+  "test_sha256": "f460a398a916e42383b6ef91cf033a540dc4ac6fb4835fded67128dc1b0bad8b",
+  "graph_count": 100,
+  "seed_base": 20261015,
+  "fixture_digest_sha256": "fece3d1532b1617a322a81cf62cffd16bb267e9bb6763036d021b48f2c6b634a",
+  "ordered_pairs_checked": 2271,
+  "found": 953,
+  "unreachable": 1318,
+  "budget_exhausted": 0,
+  "reference_mismatches": 0,
+  "total_expansions": 2959,
+  "weights_match_reference": true
+ },
+ "weights": {
+  "order": [
+   "length",
+   "time",
+   "cumulative_risk",
+   "curvature",
+   "uncertainty"
+  ],
+  "exact": [
+   "1",
+   "1/2",
+   "4",
+   "1/2",
+   "1"
+  ]
+ },
+ "input_sha256": {
+  "taskbook_final": {
+   "path": ".local/plan-20261014-final-c/final-final-1011259/taskbook_final.md",
+   "sha256": "7f5c94f7fc73698236be954ae7818266d6dfe8b4949d1752dd045d76f4b71f18",
+   "bytes": 109430
+  },
+  "execution_plan_final": {
+   "path": ".local/plan-20261014-final-c/final-final-1011259/execution_plan_final.json",
+   "sha256": "e93f10d247109e8cb7070ded7fdfac5b3543a44afb3387261531556eebde41be",
+   "bytes": 11924
+  },
+  "execution_orchestration_v5": {
+   "path": ".local/plan-20261014-final-c/final-final-1011259/execution_orchestration_v5.md",
+   "sha256": "c4668714bc25959f0cb5cc8ef326ca04f90dc33eb03905a40ec6c4114804a2e1",
+   "bytes": 9029
+  },
+  "planner_cost_main_decisions": {
+   "path": ".local/plan-20261014-final-c/director-startup/planner-cost-main-decisions.json",
+   "sha256": "5575d6c08a02be50821eb512bec1130dafe7623ec4f5f9ce72f69eb2dd0d87ad",
+   "bytes": 5670
+  },
+  "planner_cost_args": {
+   "path": ".local/plan-20261014-final-c/director-startup/planner-cost-args.json",
+   "sha256": "7bfda0c572c91a63a6730b57ac75236c0b295b1586ab40d74551e8d4f2eb5166",
+   "bytes": 6935
+  },
+  "pre_change_product_snapshot": {
+   "path": "C:\\Users\\Alan\\AppData\\Local\\Temp\\g04pc_20261015\\pre_snapshot.json",
+   "sha256": "b86498e0b44fef7593146dcf0cb7b879157c9cbf2de159f4f2ab4149e2089b41",
+   "bytes": 9618
+  }
+ },
+ "readback": {
+  "owned_files": {
+   "ai_pc/planning/candidate_graph.py": {
+    "sha256": "7c88e6e5a64badfedbf1dbd72327aa2ee9985d5b760bae8351d45d5f5aa437af",
+    "bytes": 18479
+   },
+   "tests/ai/planning/test_candidate_graph.py": {
+    "sha256": "f460a398a916e42383b6ef91cf033a540dc4ac6fb4835fded67128dc1b0bad8b",
+    "bytes": 32969
+   },
+   "evidence/ai/startup/planner_cost.log": {
+    "sha256": "e66d9c6547909b74cfed0a87f64a2a8237ad9e6f9fbe6258358c5cb69c8873f4",
+    "bytes": 58788
+   },
+   "evidence/ai/startup/planner_cost.json": {
+    "sha256": null,
+    "bytes": null
+   }
+  },
+  "pre_change_snapshot_file_count": 65,
+  "assembly_walk_file_count": 67,
+  "after_log_write_file_count": 68,
+  "expected_final_file_count": 69,
+  "non_owned_files_compared_to_prechange_snapshot": {
+   "count": 65,
+   "mismatches": [],
+   "missing_vs_snapshot": [],
+   "unexpected_new_non_owned": []
+  },
+  "python_bytecode_under_product": {
+   "pycache_dirs": [],
+   "pyc_files": []
+  },
+  "git_head": "ab527e20eb7bc8a0cdeab0409943ec17510830fe",
+  "git_status_porcelain": [
+   " M .gitattributes",
+   " M .gitignore",
+   " M AGENTS.md",
+   " M README.md",
+   " M deploy/HUMAN_STEPS.md",
+   " M deploy/Join-FPGAMesh.ps1",
+   " M deploy/TEAMMATE_PROMPT.md",
+   " M deploy/configs/node-a.toml",
+   " M deploy/configs/node-b.toml",
+   " M deploy/configs/node-c.toml",
+   " M deploy/register-autostart.ps1",
+   " M docs/deployment/DEPLOYMENT_STATUS.md",
+   " M docs/deployment/FEISHU_APP_HANDOFF.md",
+   " M docs/deployment/OPERATIONS.md",
+   " M docs/superpowers/specs/2026-09-29-fpga-multi-agent-design.md",
+   " M findings.md",
+   " M fpga_mesh/agent_policy.py",
+   " M fpga_mesh/app_server.py",
+   " M fpga_mesh/child_cli.py",
+   " M fpga_mesh/child_control.py",
+   " M fpga_mesh/cli.py",
+   " M fpga_mesh/distribution.py",
+   " M fpga_mesh/dynamic_children.py",
+   " M fpga_mesh/effort.py",
+   " M fpga_mesh/feishu_channel.py",
+   " M fpga_mesh/feishu_registration.py",
+   " M fpga_mesh/feishu_selftest.py",
+   " M fpga_mesh/gateway.py",
+   " M fpga_mesh/mcp_children.py",
+   " M fpga_mesh/mesh_tools.py",
+   " M fpga_mesh/onboarding.py",
+   " M fpga_mesh/rpc.py",
+   " M fpga_mesh/runtime.py",
+   " M fpga_mesh/store.py",
+   " M progress.md",
+   " M scripts/smoke_child_mcp.py",
+   " M scripts/smoke_effort_switch.py",
+   " M scripts/smoke_parent_child.py",
+   " D skills/pynq-z2-single-node/INSTALL.md",
+   " D skills/pynq-z2-single-node/Install.ps1",
+   " D skills/pynq-z2-single-node/SKILL.md",
+   " D skills/pynq-z2-single-node/references/handoff.md",
+   " D skills/pynq-z2-single-node/references/pynq-z2.md",
+   " D skills/pynq-z2-single-node/references/telemetry-option.md",
+   " D skills/pynq-z2-single-node/references/windows-toolchain.md",
+   " D skills/pynq-z2-single-node/scripts/handoff.py",
+   " D skills/pynq-z2-single-node/scripts/preflight.py",
+   " M task_plan.md",
+   " M tests/test_app_gateway.py",
+   " M tests/test_app_server.py",
+   " M tests/test_distribution.py",
+   " M tests/test_dynamic_children.py",
+   " M tests/test_effort.py",
+   " M tests/test_feishu_registration.py",
+   " M tests/test_mcp_children.py",
+   " M tests/test_mesh_tools.py",
+   " M tests/test_runtime.py",
+   "?? .agents/",
+   "?? .planning/",
+   "?? build_pdf.py",
+   "?? deploy/Stop-FPGAMeshForUpdate.ps1",
+   "?? deploy/Update-FPGAMesh.ps1",
+   "?? deploy/Update-OfficialModels.ps1",
+   "?? \"deploy/\\346\\233\\264\\346\\226\\260\\345\\256\\230\\346\\226\\271\\346\\250\\241\\345\\236\\213.cmd\"",
+   "?? docs/competition/deepeye-2026/",
+   "?? docs/competition/mine_plan_20261013/.gitattributes",
+   "?? docs/competition/mine_plan_20261013/README_FINAL.md",
+   "?? docs/competition/mine_plan_20261013/acceptance_final.json",
+   "?? docs/competition/mine_plan_20261013/build_pdf.py",
+   "?? docs/competition/mine_plan_20261013/c/eol_note.md",
+   "?? docs/competition/mine_plan_20261013/c/feishu_final_delivery.txt",
+   "?? docs/competition/mine_plan_20261013/c/feishu_final_readback.json",
+   "?? docs/competition/mine_plan_20261013/c/feishu_resource_question.txt",
+   "?? docs/competition/mine_plan_20261013/c/feishu_resource_readback.json",
+   "?? docs/competition/mine_plan_20261013/c/feishu_track_question.txt",
+   "?? docs/competition/mine_plan_20261013/c/frozen_portfolio_raw.zip",
+   "?? docs/competition/mine_plan_20261013/c/hardware_inventory.json",
+   "?? docs/competition/mine_plan_20261013/c/pdf_child_ownership_deviation.json",
+   "?? docs/competition/mine_plan_20261013/c/pr_body.txt",
+   "?? docs/competition/mine_plan_20261013/c/pr_final_body.txt",
+   "?? docs/competition/mine_plan_20261013/c/publish_final_api.py",
+   "?? docs/competition/mine_plan_20261013/c/publish_planning_api_v2.py",
+   "?? docs/competition/mine_plan_20261013/c/received/",
+   "?? docs/competition/mine_plan_20261013/c/requests/",
+   "?? docs/competition/mine_plan_20261013/c/scope_and_eol_addendum.json",
+   "?? docs/competition/mine_plan_20261013/create_final_taskbook.py",
+   "?? docs/competition/mine_plan_20261013/external/",
+   "?? docs/competition/mine_plan_20261013/external_review.md",
+   "?? docs/competition/mine_plan_20261013/final_manifest.json",
+   "?? docs/competition/mine_plan_20261013/final_qa.json",
+   "?? docs/competition/mine_plan_20261013/pdf_qa/",
+   "?? docs/competition/mine_plan_20261013/round2_budget.json",
+   "?? docs/competition/mine_plan_20261013/round2_budget.py",
+   "?? docs/competition/mine_plan_20261013/taskbook_final.md",
+   "?? docs/competition/mine_plan_20261013/validate_final.py",
+   "?? docs/deployment/AGENT_ROUTING_AUDIT_2026-10-10.md",
+   "?? docs/deployment/AUTONOMOUS_ROUTING_ACCEPTANCE_2026-10-10.md",
+   "?? docs/deployment/IN_PLACE_UPDATE_2026-10-11.md",
+   "?? docs/deployment/OFFICIAL_MODEL_ROUTING_ACCEPTANCE_2026-10-10.md",
+   "?? docs/deployment/evidence/",
+   "?? docs/superpowers/plans/2026-10-10-autonomous-routing.md",
+   "?? docs/superpowers/plans/2026-10-11-in-place-mesh-update.md",
+   "?? docs/superpowers/specs/2026-10-10-autonomous-routing-design.md",
+   "?? fpga_mesh/feishu_permissions.py",
+   "?? fpga_mesh/install_routing.py",
+   "?? fpga_mesh/models_ui.py",
+   "?? fpga_mesh/notifications.py",
+   "?? fpga_mesh/official_models.py",
+   "?? fpga_mesh/project_cli.py",
+   "?? fpga_mesh/project_control.py",
+   "?? fpga_mesh/project_mcp.py",
+   "?? fpga_mesh/service.py",
+   "?? fpga_mesh/sessions.py",
+   "?? fpga_mesh/supervisor.py",
+   "?? fpga_mesh/update.py",
+   "?? fpga_mesh/windows_job.py",
+   "?? output/",
+   "?? pdf_qa/",
+   "?? tests/test_feishu_permissions.py",
+   "?? tests/test_install_routing.py",
+   "?? tests/test_mesh_update.py",
+   "?? tests/test_models_ui.py",
+   "?? tests/test_official_models.py",
+   "?? tests/test_peer_operation_idempotency.py",
+   "?? tests/test_project_control.py",
+   "?? tests/test_routing_hardening.py",
+   "?? tests/test_rpc_frames.py",
+   "?? tests/test_service_lease.py",
+   "?? tests/test_service_logging.py",
+   "?? tests/test_service_restart.py",
+   "?? tests/test_sessions.py",
+   "?? tests/test_supervisor.py",
+   "?? tests/test_work_leases.py"
+  ]
+ },
+ "failures_and_fixes": [
+  "First module draft contained doubled-apostrophe artifacts in docstrings (for example caller''s / goal''s) introduced by the initial write path; repaired once by temp helper fix_apostrophe.py, which also re-parsed the AST and smoke-imported the module. The final module contains zero doubled apostrophes (re-scanned at assembly time).",
+  "One unit-test case originally asserted CandidateGraphError for CandidateGraph([]) (edges argument omitted); Python raises TypeError for a missing positional argument, so the case was made explicit as CandidateGraph([], None) by temp helper fix_missing_arg_case.py, which then rejects the None edges container with CandidateGraphError. No assertion was weakened.",
+  "Evidence-builder chunk 1 initially inferred command exit codes from side files, defaulting some cases; temp helper patch_builder1.py replaced that with assertions against captures_index.json (authoritative raw capture records), so no exit code or command line in this evidence is guessed.",
+  "No product-file failure was observed: the 30-test suite passed on first run from the product root and again from the minimal two-file checkout."
+ ],
+ "limits": [
+  "Scope limit: this evidence covers only the final book's first small-graph exhaustive cost check (fixed J weights, exact rational arithmetic, deterministic bounded abstract-graph search). It is NOT full G04 and not a planner, geometry, sensor, map or AI acceptance.",
+  "Missing inputs, explicitly NOT frozen or invented here: production normalization scales for length/time/curvature/uncertainty, risk calibration of cumulative_risk, legal observation adapters (scene/EM/sensor), orientation-aware motion primitives, full-volume collision checking and braking-tail evidence, and runtime/latency inputs. The five components must already be normalized by an explicit policy; this job supplies a software_fixture policy only.",
+  "All inputs are labelled software_fixture. No scene file, truth query, oracle, ML model, real or simulated stream was read; the module imports only dataclasses/fractions/heapq/math and performs no I/O, clock, thread or network access.",
+  "The API cannot authorize motion and cannot declare that a drill reached a gate; returned paths exist only inside the abstract input graph. No geometry, collision-safe or execution field exists anywhere in the module.",
+  "3D coordinates appear only as synthetic fixture metadata used to generate distance-like costs inside the unit tests; they are not real geometry and certify nothing about curvature, orientation or swept volumes.",
+  "No timing measurement was performed in this job. If a future job measures time, it must be labelled a pure-graph software microbenchmark with fixture counts and must not be reported as end-to-end perception+planning latency or as a G04 pass.",
+  "product_card_G04 and product_card_C04 remain not_run. Every hardware/system card remains not_run. Only the software tests in this evidence are eligible for a pass statement, pending the director's independent rerun (100 graphs) and search/tie semantics review.",
+  "provider/model/effort were not observable from inside this child session (dispatcher record states route=deepseek); they are not inferred from any catalog.",
+  "Temp helpers are not product files; they are embedded verbatim below, and the minimal checkout under the temp workspace is a disposable sandbox."
+ ],
+ "temporary_helpers_embedded_in_log": [
+  {
+   "name": "snapshot_pre.py",
+   "bytes": 1037,
+   "sha256": "002b7f0abd90be82dd068599b9ddbb535464986a80112ef49d7e8155a4e77c4e"
+  },
+  {
+   "name": "list_new.py",
+   "bytes": 2853,
+   "sha256": "37deb9b87bbd56fe47c2527cdc708797733b2e5a55e8daf5d4ff83aefd1bf912"
+  },
+  {
+   "name": "fix_apostrophe.py",
+   "bytes": 1026,
+   "sha256": "bcff44216624c657a71ffd35e66792b6a90cbe2ddccbe34dcae01b25e262a9a5"
+  },
+  {
+   "name": "run_capture.py",
+   "bytes": 846,
+   "sha256": "a708f7c5c83ed7715f1424e0e3f58157655b3f3c9244d4b13d8e42003dd9b7bf"
+  },
+  {
+   "name": "fix_missing_arg_case.py",
+   "bytes": 638,
+   "sha256": "5542018cdbe44092b727f88d041145c6e5f57483e053fd45d103732c04e2340c"
+  },
+  {
+   "name": "g04_probe.py",
+   "bytes": 3668,
+   "sha256": "b3c6832df1d7fd614dd7c4b283113077ddd6be029bf702a53d4887aca53c562c"
+  },
+  {
+   "name": "clean_min.py",
+   "bytes": 1287,
+   "sha256": "0065b9cbb32b988854fd5da7e8088283a1ebafd16ebff6da124dfae8329b907a"
+  },
+  {
+   "name": "rerun_all.py",
+   "bytes": 1759,
+   "sha256": "37e4ce2990783c67519ac9acdd95cf1231b0b9abe3cdabc10a1c57f3e7aa068a"
+  },
+  {
+   "name": "patch_builder1.py",
+   "bytes": 2973,
+   "sha256": "714d6f3f37f511db8e783bdeb058d7e7eacbac7ee70cb0015dc8a16c663ef4d7"
+  },
+  {
+   "name": "run_builder.py",
+   "bytes": 774,
+   "sha256": "66d90db6e40e5681c949baad174a450585495d3c3d919452b7214c62e7c6a5ef"
+  },
+  {
+   "name": "build_evidence_pc.py",
+   "bytes": 26566,
+   "sha256": "3e8a623f17dd67fadb5da02a16ae12e427e185d03a9bca7908053db1d834ab97"
+  }
+ ],
+ "public_raw_transcript": "evidence/ai/startup/planner_cost.log"
+}

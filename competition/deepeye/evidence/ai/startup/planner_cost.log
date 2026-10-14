@@ -1,0 +1,1064 @@
+=====================================================================
+G04 candidate cost + exact small-graph search - evidence log
+=====================================================================
+
+task_id: DEEPEYE-C-PLANNER-COST-20261015
+task_version: 1
+work_id: C-planner-candidate-cost-search-foundation-v1
+implementation_job: child-08030d9f6a3545c7975ff3201f5eeb70
+instance_id: deepseek-c-15   route: deepseek
+provider/model/effort: not observable from inside this child session; not inferred from any catalog
+contract: DEEPEYE-HUMAN-LOCK-20261014/revision1
+contract_source: f5989cd5defce561f9ba98e6b18fc2682945f0a2
+requirements_sha256: c229834bfc2292f5fe4411fc9f12c68487008f9d1adaf31f0144ee7a98173804
+design_commit: 1011259415a0916054eb580687612580bc1e5f09
+role: ordinary DeepSeek Flash/max executor (not App/native worker, not director); board_access=false
+generated_utc: 2026-10-14T23:24:01Z
+python: 3.12.14  (C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\venv\Scripts\python.exe)
+platform: Windows-11-10.0.26200-SP0
+
+scope: the final book's FIRST small-graph exhaustive cost check only. This is NOT full
+  G04: no 3D geometry, sensor, map, AI or planner acceptance and no physical feasibility
+  claim. product_card_G04 and product_card_C04 remain not_run. Every hardware/system
+  card remains not_run; only the software tests below are eligible for a pass statement.
+
+J = 1*normalized_length + 0.5*time + 4*cumulative_risk + 0.5*curvature + 1*uncertainty
+  exact weights (1, 1/2, 4, 1/2, 1); exact rational arithmetic only (fractions.Fraction)
+
+[1] Owned files (exactly four; written only by this job)
+    ai_pc/planning/candidate_graph.py  18479B  sha256=7c88e6e5a64badfedbf1dbd72327aa2ee9985d5b760bae8351d45d5f5aa437af
+    tests/ai/planning/test_candidate_graph.py  32969B  sha256=f460a398a916e42383b6ef91cf033a540dc4ac6fb4835fded67128dc1b0bad8b
+    evidence/ai/startup/planner_cost.log  (this file)
+    evidence/ai/startup/planner_cost.json  (written after this log; its readback section carries this log's sha256)
+
+[2] Read-only inputs pinned at assembly (sha256, bytes)
+    execution_orchestration_v5: .local/plan-20261014-final-c/final-final-1011259/execution_orchestration_v5.md  9029B  sha256=c4668714bc25959f0cb5cc8ef326ca04f90dc33eb03905a40ec6c4114804a2e1
+    execution_plan_final: .local/plan-20261014-final-c/final-final-1011259/execution_plan_final.json  11924B  sha256=e93f10d247109e8cb7070ded7fdfac5b3543a44afb3387261531556eebde41be
+    planner_cost_args: .local/plan-20261014-final-c/director-startup/planner-cost-args.json  6935B  sha256=7bfda0c572c91a63a6730b57ac75236c0b295b1586ab40d74551e8d4f2eb5166
+    planner_cost_main_decisions: .local/plan-20261014-final-c/director-startup/planner-cost-main-decisions.json  5670B  sha256=5575d6c08a02be50821eb512bec1130dafe7623ec4f5f9ce72f69eb2dd0d87ad
+    pre_change_product_snapshot: C:\Users\Alan\AppData\Local\Temp\g04pc_20261015\pre_snapshot.json  9618B  sha256=b86498e0b44fef7593146dcf0cb7b879157c9cbf2de159f4f2ab4149e2089b41
+    taskbook_final: .local/plan-20261014-final-c/final-final-1011259/taskbook_final.md  109430B  sha256=7f5c94f7fc73698236be954ae7818266d6dfe8b4949d1752dd045d76f4b71f18
+
+[3] Product tree integrity check at assembly (before the two evidence files were written)
+    product_root: C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\deepeye-implementation-c\competition\deepeye
+    pre-change snapshot file count: 65
+    files at check time: 67  (= snapshot + module + test)
+    non-owned files compared against the pre-change snapshot: 65   mismatches: 0
+    non-owned files missing vs snapshot: 0   unexpected new non-owned files: 0
+    __pycache__ dirs under product: 0   .pyc/.pyo files: 0
+
+[4] Git inspection (read-only; this job performed no add/commit/branch)
+    HEAD: ab527e20eb7bc8a0cdeab0409943ec17510830fe
+    git status --porcelain lines: 133 (full list in the evidence JSON readback section)
+
+[5] Executed commands with raw transcripts (fresh subprocesses, -X utf8 -B, PYTHONDONTWRITEBYTECODE=1)
+
+---- tests_run1 ----
+command: ["C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\venv\\Scripts\\python.exe", "-X", "utf8", "-B", "tests/ai/planning/test_candidate_graph.py"]
+cwd: C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\deepeye-implementation-c\competition\deepeye
+exit: 0 (expected 0)
+stdout bytes: 0  sha256=e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+stderr bytes: 134  sha256=35ff9ef79ab12c05c8bde51922efe7af2945a60b41e542358ee7f77348ebd588
+label: full unit suite from the product root (30 tests; 100-graph exhaustive reference incl. every ordered pair)
+----- begin raw stdout -----
+
+----- end raw stdout -----
+----- begin raw stderr -----
+..............................
+----------------------------------------------------------------------
+Ran 30 tests in 0.213s
+
+OK
+----- end raw stderr -----
+
+---- probe_run ----
+command: ["C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\venv\\Scripts\\python.exe", "-X", "utf8", "-B", "C:\\Users\\Alan\\AppData\\Local\\Temp\\g04pc_20261015\\g04_probe.py"]
+cwd: C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\deepeye-implementation-c\competition\deepeye
+exit: 0 (expected 0)
+stdout bytes: 541  sha256=47c989b090456405506ac711c01a55f72516813573095356a56fadbb3b779302
+stderr bytes: 0  sha256=e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+label: independent 100-graph reference probe (fresh process; prints fixture digest and mismatch count)
+----- begin raw stdout -----
+{
+ "python": "3.12.14",
+ "module_sha256": "7c88e6e5a64badfedbf1dbd72327aa2ee9985d5b760bae8351d45d5f5aa437af",
+ "test_sha256": "f460a398a916e42383b6ef91cf033a540dc4ac6fb4835fded67128dc1b0bad8b",
+ "graph_count": 100,
+ "seed_base": 20261015,
+ "fixture_digest_sha256": "fece3d1532b1617a322a81cf62cffd16bb267e9bb6763036d021b48f2c6b634a",
+ "ordered_pairs_checked": 2271,
+ "found": 953,
+ "unreachable": 1318,
+ "budget_exhausted": 0,
+ "reference_mismatches": 0,
+ "total_expansions": 2959,
+ "weights_match_reference": true
+}
+PROBE-OK
+----- end raw stdout -----
+----- begin raw stderr -----
+
+----- end raw stderr -----
+
+---- clean_min ----
+command: ["C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\venv\\Scripts\\python.exe", "-X", "utf8", "-B", "tests/ai/planning/test_candidate_graph.py"]
+cwd: C:\Users\Alan\AppData\Local\Temp\g04pc_20261015\clean_min
+exit: 0 (expected 0)
+stdout bytes: 0  sha256=e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+stderr bytes: 134  sha256=8f643c3a448045158dbb828ac43f47dbcb218324fb24ddf5af8bf565f62e202f
+label: unit suite from a minimal two-file checkout with no private files, no archive and no env overrides
+----- begin raw stdout -----
+
+----- end raw stdout -----
+----- begin raw stderr -----
+..............................
+----------------------------------------------------------------------
+Ran 30 tests in 0.201s
+
+OK
+----- end raw stderr -----
+
+[6] Independent 100-graph probe summary (parsed from the raw probe stdout above)
+    {
+     "python": "3.12.14",
+     "module_sha256": "7c88e6e5a64badfedbf1dbd72327aa2ee9985d5b760bae8351d45d5f5aa437af",
+     "test_sha256": "f460a398a916e42383b6ef91cf033a540dc4ac6fb4835fded67128dc1b0bad8b",
+     "graph_count": 100,
+     "seed_base": 20261015,
+     "fixture_digest_sha256": "fece3d1532b1617a322a81cf62cffd16bb267e9bb6763036d021b48f2c6b634a",
+     "ordered_pairs_checked": 2271,
+     "found": 953,
+     "unreachable": 1318,
+     "budget_exhausted": 0,
+     "reference_mismatches": 0,
+     "total_expansions": 2959,
+     "weights_match_reference": true
+    }
+    fixture identity: 100 fixed-seed graphs, seed base 20261015, canonical fixture digest sha256=fece3d1532b1617a322a81cf62cffd16bb267e9bb6763036d021b48f2c6b634a
+    every ordered node pair compared against a separate all-simple-paths reference with hand-coded weights; mismatches=0
+
+[7] Failures and fixes
+    - First module draft contained doubled-apostrophe artifacts in docstrings (for example caller''s / goal''s) introduced by the initial write path; repaired once by temp helper fix_apostrophe.py, which also re-parsed the AST and smoke-imported the module. The final module contains zero doubled apostrophes (re-scanned at assembly time).
+    - One unit-test case originally asserted CandidateGraphError for CandidateGraph([]) (edges argument omitted); Python raises TypeError for a missing positional argument, so the case was made explicit as CandidateGraph([], None) by temp helper fix_missing_arg_case.py, which then rejects the None edges container with CandidateGraphError. No assertion was weakened.
+    - Evidence-builder chunk 1 initially inferred command exit codes from side files, defaulting some cases; temp helper patch_builder1.py replaced that with assertions against captures_index.json (authoritative raw capture records), so no exit code or command line in this evidence is guessed.
+    - No product-file failure was observed: the 30-test suite passed on first run from the product root and again from the minimal two-file checkout.
+
+[8] Limits and non-claims
+    - Scope limit: this evidence covers only the final book's first small-graph exhaustive cost check (fixed J weights, exact rational arithmetic, deterministic bounded abstract-graph search). It is NOT full G04 and not a planner, geometry, sensor, map or AI acceptance.
+    - Missing inputs, explicitly NOT frozen or invented here: production normalization scales for length/time/curvature/uncertainty, risk calibration of cumulative_risk, legal observation adapters (scene/EM/sensor), orientation-aware motion primitives, full-volume collision checking and braking-tail evidence, and runtime/latency inputs. The five components must already be normalized by an explicit policy; this job supplies a software_fixture policy only.
+    - All inputs are labelled software_fixture. No scene file, truth query, oracle, ML model, real or simulated stream was read; the module imports only dataclasses/fractions/heapq/math and performs no I/O, clock, thread or network access.
+    - The API cannot authorize motion and cannot declare that a drill reached a gate; returned paths exist only inside the abstract input graph. No geometry, collision-safe or execution field exists anywhere in the module.
+    - 3D coordinates appear only as synthetic fixture metadata used to generate distance-like costs inside the unit tests; they are not real geometry and certify nothing about curvature, orientation or swept volumes.
+    - No timing measurement was performed in this job. If a future job measures time, it must be labelled a pure-graph software microbenchmark with fixture counts and must not be reported as end-to-end perception+planning latency or as a G04 pass.
+    - product_card_G04 and product_card_C04 remain not_run. Every hardware/system card remains not_run. Only the software tests in this evidence are eligible for a pass statement, pending the director's independent rerun (100 graphs) and search/tie semantics review.
+    - provider/model/effort were not observable from inside this child session (dispatcher record states route=deepseek); they are not inferred from any catalog.
+    - Temp helpers are not product files; they are embedded verbatim below, and the minimal checkout under the temp workspace is a disposable sandbox.
+
+[9] Temporary helpers embedded verbatim (not product files; sha256 of exact bytes on disk)
+
+---- helper: snapshot_pre.py ----
+purpose: pre-change product-tree snapshot written before any edit of this job
+bytes: 1037  sha256=002b7f0abd90be82dd068599b9ddbb535464986a80112ef49d7e8155a4e77c4e
+----- begin helper source -----
+import hashlib, json, os
+
+REPO = r"C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c"
+PROD = os.path.join(REPO, ".local", "deepeye-implementation-c", "competition", "deepeye")
+assert os.path.basename(PROD) == "deepeye" and len(os.path.basename(PROD)) == 7
+W = r"C:\Users\Alan\AppData\Local\Temp\g04pc_20261015"
+
+files = {}
+for root_dir, dirs, names in os.walk(PROD):
+    for name in names:
+        full = os.path.join(root_dir, name)
+        rel = os.path.relpath(full, PROD).replace(os.sep, "/")
+        data = open(full, "rb").read()
+        files[rel] = {"sha256": hashlib.sha256(data).hexdigest(), "bytes": len(data)}
+
+report = {"root": PROD, "file_count": len(files), "files": files}
+with open(os.path.join(W, "pre_snapshot.json"), "w", encoding="utf-8", newline="\n") as fh:
+    json.dump(report, fh, indent=1, sort_keys=True)
+print("pre snapshot files:", len(files))
+for rel in ("tools/verify_data.py", "ai_pc/planning/kinematics.py", "tests/ai/planning/test_kinematics.py"):
+    print(rel, files.get(rel, {}).get("sha256"))
+----- end helper source -----
+
+---- helper: list_new.py ----
+purpose: known-file/ownership probe used to confirm only the four owned paths appeared
+bytes: 2853  sha256=37deb9b87bbd56fe47c2527cdc708797733b2e5a55e8daf5d4ff83aefd1bf912
+----- begin helper source -----
+import os
+PROD = r"C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\deepeye-implementation-c\competition\deepeye"
+known = set("""ai_pc/control_broker/.gitattributes
+ai_pc/control_broker/deadlines.py
+ai_pc/control_broker/mailbox.py
+ai_pc/model/.gitattributes
+ai_pc/model/causal_input.py
+ai_pc/model/curve_input.py
+ai_pc/planning/kinematics.py
+data/.gitattributes
+data/dataset_card.md
+data/force_inventory.py
+data/force_preprocess.py
+data/force_wells.json
+data/grouping.py
+data/label_schema.json
+data/manifest.json
+data/preprocessing.json
+data/source_inventory.json
+data/split_policy.json
+data/splits.json
+evidence/ai/startup/.gitattributes
+evidence/ai/startup/broker.json
+evidence/ai/startup/broker.log
+evidence/ai/startup/broker_main_review.json
+evidence/ai/startup/broker_main_review.py
+evidence/ai/startup/broker_main_review.txt
+evidence/ai/startup/curve_input.json
+evidence/ai/startup/curve_input.log
+evidence/ai/startup/curve_main_review.json
+evidence/ai/startup/curve_main_review.py
+evidence/ai/startup/curve_main_review.txt
+evidence/ai/startup/data_model.json
+evidence/ai/startup/data_model.log
+evidence/ai/startup/data_model.txt
+evidence/ai/startup/force_inventory.json
+evidence/ai/startup/force_inventory.log
+evidence/ai/startup/force_inventory.txt
+evidence/ai/startup/force_preprocess.json
+evidence/ai/startup/force_preprocess.log
+evidence/ai/startup/planner.json
+evidence/ai/startup/planner.log
+evidence/ai/startup/planner.txt
+evidence/ai/startup/preprocess_main_review.json
+evidence/ai/startup/preprocess_main_review.py
+evidence/ai/startup/preprocess_main_review.txt
+evidence/ai/startup/split_assignment.json
+evidence/ai/startup/split_assignment.txt
+evidence/ai/startup/verify_data.json
+evidence/ai/startup/verify_data.log
+tests/ai/control_broker/.gitattributes
+tests/ai/control_broker/test_deadlines.py
+tests/ai/control_broker/test_mailbox.py
+tests/ai/data_model/.gitattributes
+tests/ai/data_model/test_causal_input.py
+tests/ai/data_model/test_curve_input.py
+tests/ai/data_model/test_force_inventory.py
+tests/ai/data_model/test_force_preprocess.py
+tests/ai/data_model/test_grouping.py
+tests/ai/data_model/test_verify_data.py
+tests/ai/planning/kinematics_vectors.json
+tests/ai/planning/test_kinematics.py
+tools/verify_data.py""".splitlines())
+cur = set()
+for root_dir, dirs, names in os.walk(PROD):
+    for name in names:
+        rel = os.path.relpath(os.path.join(root_dir, name), PROD).replace(os.sep, "/")
+        cur.add(rel)
+print("new since previous job:", sorted(cur - known))
+print("missing vs previous:", sorted(known - cur))
+print("counts:", len(cur), len(known))
+for rel in ("ai_pc/planning/candidate_graph.py", "tests/ai/planning/test_candidate_graph.py",
+            "evidence/ai/startup/planner_cost.json", "evidence/ai/startup/planner_cost.log"):
+    print(rel, "exists:", os.path.exists(os.path.join(PROD, rel)))
+----- end helper source -----
+
+---- helper: fix_apostrophe.py ----
+purpose: one-off repair of doubled-apostrophe artifacts in the first module draft; re-parses AST and smoke-imports
+bytes: 1026  sha256=bcff44216624c657a71ffd35e66792b6a90cbe2ddccbe34dcae01b25e262a9a5
+----- begin helper source -----
+import ast, pathlib
+p = pathlib.Path(r"C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\deepeye-implementation-c\competition\deepeye\ai_pc\planning\candidate_graph.py")
+t = p.read_text(encoding="utf-8")
+n = t.count("caller''s") + t.count("goal''s")
+t = t.replace("caller''s", "caller's").replace("goal''s", "goal's")
+p.write_text(t, encoding="utf-8", newline="\n")
+ast.parse(t)
+print("apostrophe fixes:", n, "bytes:", len(t.encode("utf-8")))
+import importlib.util, sys
+spec = importlib.util.spec_from_file_location("candidate_graph_smoke", str(p))
+mod = importlib.util.module_from_spec(spec)
+sys.modules[spec.name] = mod
+spec.loader.exec_module(mod)
+print("import OK; names:", mod.COMPONENT_NAMES, "| weights:", mod.COMPONENT_WEIGHTS)
+c = mod.NormalizedCost(1, 1, 1, 1, 1)
+print("weighted_total:", c.weighted_total)
+g = mod.CandidateGraph(["s", "g"], [mod.Edge("e1", "s", "g", mod.NormalizedCost(2, 0, 0, 0, 0))])
+r = g.search("s", "g", 64)
+print("smoke search:", r.status, r.edge_ids, r.cost, r.expansion_count)
+----- end helper source -----
+
+---- helper: run_capture.py ----
+purpose: generic single-command capture helper
+bytes: 846  sha256=a708f7c5c83ed7715f1424e0e3f58157655b3f3c9244d4b13d8e42003dd9b7bf
+----- begin helper source -----
+import os, subprocess, sys
+PY = r"C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\venv\Scripts\python.exe"
+PROD = r"C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\deepeye-implementation-c\competition\deepeye"
+W = r"C:\Users\Alan\AppData\Local\Temp\g04pc_20261015"
+name = sys.argv[1]
+cmd = sys.argv[2:]
+env = dict(os.environ)
+env["PYTHONDONTWRITEBYTECODE"] = "1"
+p = subprocess.run([PY, "-X", "utf8", "-B"] + cmd, cwd=PROD, capture_output=True, env=env, timeout=600)
+open(os.path.join(W, name + ".stdout.bin"), "wb").write(p.stdout)
+open(os.path.join(W, name + ".stderr.bin"), "wb").write(p.stderr)
+print("exit:", p.returncode)
+print("stdout bytes:", len(p.stdout), "stderr bytes:", len(p.stderr))
+print(p.stdout.decode("utf-8", "replace")[-3000:])
+print("STDERR:")
+print(p.stderr.decode("utf-8", "replace")[-6000:])
+----- end helper source -----
+
+---- helper: fix_missing_arg_case.py ----
+purpose: one-off unit-test correction for the missing-edges-argument case
+bytes: 638  sha256=5542018cdbe44092b727f88d041145c6e5f57483e053fd45d103732c04e2340c
+----- begin helper source -----
+import ast, pathlib
+p = pathlib.Path(r"C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\deepeye-implementation-c\competition\deepeye\tests\ai\planning\test_candidate_graph.py")
+t = p.read_text(encoding="utf-8")
+old = """        with self.assertRaises(CandidateGraphError):
+            CandidateGraph([])  # edges argument missing
+"""
+new = """        with self.assertRaises(CandidateGraphError):
+            CandidateGraph([], None)
+"""
+assert t.count(old) == 1, t.count(old)
+t = t.replace(old, new)
+p.write_text(t, encoding="utf-8", newline="\n")
+ast.parse(t)
+print("fixed missing-arg case; bytes:", len(t.encode("utf-8")))
+----- end helper source -----
+
+---- helper: g04_probe.py ----
+purpose: independent fresh-process probe: 100 fixed-seed graphs, all ordered pairs, reference comparison, canonical fixture digest
+bytes: 3668  sha256=b3c6832df1d7fd614dd7c4b283113077ddd6be029bf702a53d4887aca53c562c
+----- begin helper source -----
+"""Independent 100-graph probe for the G04 candidate cost/search foundation.
+
+Re-runs the fixed-seed fixture comparison in a fresh process and prints a
+machine-readable summary plus the canonical fixture digest.  Temporary helper:
+not a product file.
+"""
+
+import hashlib, importlib.util, json, os, platform, sys
+from fractions import Fraction
+
+REPO = r"C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c"
+PROD = os.path.join(REPO, ".local", "deepeye-implementation-c", "competition", "deepeye")
+TEST_PATH = os.path.join(PROD, "tests", "ai", "planning", "test_candidate_graph.py")
+MODULE_PATH = os.path.join(PROD, "ai_pc", "planning", "candidate_graph.py")
+
+
+def sha_file(path):
+    return hashlib.sha256(open(path, "rb").read()).hexdigest()
+
+
+def load(name, path):
+    spec = importlib.util.spec_from_file_location(name, path)
+    module = importlib.util.module_from_spec(spec)
+    sys.modules[name] = module
+    spec.loader.exec_module(module)
+    return module
+
+
+tests = load("g04_probe_test_module", TEST_PATH)
+
+fixtures = [tests.build_graph_fixture(tests.GRAPH_SEED_BASE + index) for index in range(tests.GRAPH_COUNT)]
+
+digest_lines = []
+for fixture in fixtures:
+    parts = ["seed=%d" % fixture["seed"], "nodes=" + ",".join(fixture["node_ids"])]
+    for edge in fixture["edges"]:
+        parts.append(
+            "edge=%s:%s:%s:(%s)"
+            % (
+                edge["edge_id"],
+                edge["source"],
+                edge["target"],
+                ",".join(str(value) for value in edge["components"]),
+            )
+        )
+    digest_lines.append("|".join(parts))
+fixture_digest = hashlib.sha256("\n".join(digest_lines).encode("utf-8")).hexdigest()
+
+found = unreachable = budget_exhausted = mismatches = 0
+expansions = 0
+pairs = 0
+for fixture in fixtures:
+    graph = tests.build_graph(fixture)
+    for start in fixture["node_ids"]:
+        for goal in fixture["node_ids"]:
+            expected = tests.reference_answer(fixture, start, goal)
+            result = graph.search(start, goal, tests.MAX_EXPANSIONS)
+            pairs += 1
+            expansions += result.expansion_count
+            if result.status == "found":
+                found += 1
+            elif result.status == "unreachable":
+                unreachable += 1
+            else:
+                budget_exhausted += 1
+            if expected is None:
+                if result.status != "unreachable" or result.cost is not None:
+                    mismatches += 1
+            else:
+                cost, hops, sequence, chain = expected
+                if not (
+                    result.status == "found"
+                    and result.edge_ids == sequence
+                    and result.node_ids == chain
+                    and result.cost == cost
+                ):
+                    mismatches += 1
+
+weights = tests.candidate_graph.COMPONENT_WEIGHTS
+reference_weights = (Fraction(1), Fraction(1, 2), Fraction(4), Fraction(1, 2), Fraction(1))
+
+summary = {
+    "python": platform.python_version(),
+    "module_sha256": sha_file(MODULE_PATH),
+    "test_sha256": sha_file(TEST_PATH),
+    "graph_count": len(fixtures),
+    "seed_base": tests.GRAPH_SEED_BASE,
+    "fixture_digest_sha256": fixture_digest,
+    "ordered_pairs_checked": pairs,
+    "found": found,
+    "unreachable": unreachable,
+    "budget_exhausted": budget_exhausted,
+    "reference_mismatches": mismatches,
+    "total_expansions": expansions,
+    "weights_match_reference": tuple(weights) == reference_weights,
+}
+print(json.dumps(summary, indent=1))
+assert len(fixtures) == 100
+assert mismatches == 0
+assert budget_exhausted == 0
+assert summary["weights_match_reference"] is True
+print("PROBE-OK")
+----- end helper source -----
+
+---- helper: clean_min.py ----
+purpose: creates the minimal two-file checkout and runs the suite there (no private files, no archive, no env overrides)
+bytes: 1287  sha256=0065b9cbb32b988854fd5da7e8088283a1ebafd16ebff6da124dfae8329b907a
+----- begin helper source -----
+import os, shutil, subprocess
+PY = r"C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\venv\Scripts\python.exe"
+PROD = r"C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\deepeye-implementation-c\competition\deepeye"
+W = r"C:\Users\Alan\AppData\Local\Temp\g04pc_20261015"
+CLEAN = os.path.join(W, "clean_min")
+if os.path.exists(CLEAN):
+    shutil.rmtree(CLEAN)
+os.makedirs(os.path.join(CLEAN, "ai_pc", "planning"))
+os.makedirs(os.path.join(CLEAN, "tests", "ai", "planning"))
+shutil.copyfile(os.path.join(PROD, "ai_pc", "planning", "candidate_graph.py"), os.path.join(CLEAN, "ai_pc", "planning", "candidate_graph.py"))
+shutil.copyfile(os.path.join(PROD, "tests", "ai", "planning", "test_candidate_graph.py"), os.path.join(CLEAN, "tests", "ai", "planning", "test_candidate_graph.py"))
+env = dict(os.environ)
+env["PYTHONDONTWRITEBYTECODE"] = "1"
+env.pop("DEEPEYE_FORCE_ARCHIVE", None)
+p = subprocess.run([PY, "-X", "utf8", "-B", "tests/ai/planning/test_candidate_graph.py"], cwd=CLEAN, capture_output=True, env=env, timeout=300)
+open(os.path.join(W, "clean_min.stdout.bin"), "wb").write(p.stdout)
+open(os.path.join(W, "clean_min.stderr.bin"), "wb").write(p.stderr)
+print("clean_min exit:", p.returncode)
+print("stderr:", p.stderr.decode("utf-8", "replace").strip())
+----- end helper source -----
+
+---- helper: rerun_all.py ----
+purpose: re-ran the three product commands and produced captures_index.json
+bytes: 1759  sha256=37e4ce2990783c67519ac9acdd95cf1231b0b9abe3cdabc10a1c57f3e7aa068a
+----- begin helper source -----
+import hashlib, json, os, platform, subprocess
+
+PY = r"C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\venv\Scripts\python.exe"
+PROD = r"C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\deepeye-implementation-c\competition\deepeye"
+W = r"C:\Users\Alan\AppData\Local\Temp\g04pc_20261015"
+
+
+def sha(data):
+    return hashlib.sha256(data).hexdigest()
+
+
+RUNS = [
+    ("tests_run1", [PY, "-X", "utf8", "-B", "tests/ai/planning/test_candidate_graph.py"], PROD, 0),
+    ("probe_run", [PY, "-X", "utf8", "-B", os.path.join(W, "g04_probe.py")], PROD, 0),
+    ("clean_min", [PY, "-X", "utf8", "-B", "tests/ai/planning/test_candidate_graph.py"], os.path.join(W, "clean_min"), 0),
+]
+index = {"python": platform.python_version(), "runs": []}
+for name, command, cwd, expected in RUNS:
+    env = dict(os.environ)
+    env["PYTHONDONTWRITEBYTECODE"] = "1"
+    env.pop("DEEPEYE_FORCE_ARCHIVE", None)
+    proc = subprocess.run(command, cwd=cwd, capture_output=True, env=env, timeout=600)
+    open(os.path.join(W, name + ".stdout.bin"), "wb").write(proc.stdout)
+    open(os.path.join(W, name + ".stderr.bin"), "wb").write(proc.stderr)
+    index["runs"].append({
+        "name": name,
+        "command": command,
+        "cwd": cwd,
+        "expected_exit_code": expected,
+        "exit_code": proc.returncode,
+        "stdout_bytes": len(proc.stdout),
+        "stdout_sha256": sha(proc.stdout),
+        "stderr_bytes": len(proc.stderr),
+        "stderr_sha256": sha(proc.stderr),
+    })
+    print(name, "exit", proc.returncode, "out", len(proc.stdout), "err", len(proc.stderr))
+
+with open(os.path.join(W, "captures_index.json"), "w", encoding="utf-8", newline="\n") as handle:
+    json.dump(index, handle, indent=1)
+print(json.dumps(index, indent=1))
+----- end helper source -----
+
+---- helper: patch_builder1.py ----
+purpose: one-off correction of this builder: validate captures against captures_index.json instead of inferring exit codes
+bytes: 2973  sha256=714d6f3f37f511db8e783bdeb058d7e7eacbac7ee70cb0015dc8a16c663ef4d7
+----- begin helper source -----
+import ast, pathlib
+p = pathlib.Path(r"C:\Users\Alan\AppData\Local\Temp\g04pc_20261015\build_evidence_pc.py")
+t = p.read_text(encoding="utf-8")
+
+old_block = '''captures = {}
+for name, meta in CAPTURES.items():
+    stdout = file_bytes(os.path.join(W, name + ".stdout.bin"))
+    stderr = file_bytes(os.path.join(W, name + ".stderr.bin"))
+    captures[name] = {
+        "label": meta["label"],
+        "command": meta["command"],
+        "cwd": meta["cwd"],
+        "expected_exit_code": meta["expected_exit"],
+        "exit_code": None,
+        "stdout_bytes": len(stdout),
+        "stdout_sha256": sha_bytes(stdout),
+        "stderr_bytes": len(stderr),
+        "stderr_sha256": sha_bytes(stderr),
+        "stdout": stdout.decode("utf-8", "replace"),
+        "stderr": stderr.decode("utf-8", "replace"),
+    }'''
+new_block = '''index_doc = json.loads(open(os.path.join(W, "captures_index.json"), encoding="utf-8").read())
+index_by_name = {entry["name"]: entry for entry in index_doc["runs"]}
+assert set(index_by_name) == set(CAPTURES), sorted(index_by_name)
+captures = {}
+for name, meta in CAPTURES.items():
+    entry = index_by_name[name]
+    stdout = file_bytes(os.path.join(W, name + ".stdout.bin"))
+    stderr = file_bytes(os.path.join(W, name + ".stderr.bin"))
+    assert entry["stdout_sha256"] == sha_bytes(stdout) and entry["stderr_sha256"] == sha_bytes(stderr)
+    assert entry["exit_code"] == meta["expected_exit"], (name, entry["exit_code"])
+    assert entry["command"] == meta["command"] and entry["cwd"] == meta["cwd"], name
+    captures[name] = {
+        "label": meta["label"],
+        "command": meta["command"],
+        "cwd": meta["cwd"],
+        "expected_exit_code": meta["expected_exit"],
+        "exit_code": entry["exit_code"],
+        "stdout_bytes": len(stdout),
+        "stdout_sha256": sha_bytes(stdout),
+        "stderr_bytes": len(stderr),
+        "stderr_sha256": sha_bytes(stderr),
+        "stdout": stdout.decode("utf-8", "replace"),
+        "stderr": stderr.decode("utf-8", "replace"),
+    }'''
+assert t.count(old_block) == 1, ("block", t.count(old_block))
+t = t.replace(old_block, new_block)
+
+old_exit = '''# exit codes recorded from the capture runner stdout files (preserved raw)
+exit_codes = {}
+for name in CAPTURES:
+    side = os.path.join(W, name + ".exit.txt")
+    if os.path.exists(side):
+        exit_codes[name] = int(open(side).read().strip())
+    else:
+        exit_codes[name] = None
+for name in ("tests_run1", "probe_run"):
+    exit_codes.setdefault(name, 0)
+# clean_min exit was printed by its runner; recorded here explicitly:
+exit_codes["clean_min"] = 0
+for name in CAPTURES:
+    captures[name]["exit_code"] = exit_codes[name]
+    assert exit_codes[name] == CAPTURES[name]["expected_exit"], (name, exit_codes[name])
+
+'''
+assert t.count(old_exit) == 1, ("exit", t.count(old_exit))
+t = t.replace(old_exit, "")
+p.write_text(t, encoding="utf-8", newline="\n")
+ast.parse(t)
+print("builder patched; bytes:", len(t.encode("utf-8")))
+----- end helper source -----
+
+---- helper: run_builder.py ----
+purpose: external capture runner for this builder (stdout/stderr/exit to temp files)
+bytes: 774  sha256=66d90db6e40e5681c949baad174a450585495d3c3d919452b7214c62e7c6a5ef
+----- begin helper source -----
+import os, subprocess
+PY = r"C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\venv\Scripts\python.exe"
+REPO = r"C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c"
+W = r"C:\Users\Alan\AppData\Local\Temp\g04pc_20261015"
+env = dict(os.environ)
+env["PYTHONDONTWRITEBYTECODE"] = "1"
+out = open(os.path.join(W, "build_evidence.stdout.bin"), "wb")
+err = open(os.path.join(W, "build_evidence.stderr.bin"), "wb")
+p = subprocess.run(
+    [PY, "-X", "utf8", "-B", os.path.join(W, "build_evidence_pc.py")],
+    cwd=REPO, stdout=out, stderr=err, env=env, timeout=300,
+)
+out.close()
+err.close()
+with open(os.path.join(W, "build_evidence.exit.txt"), "w", encoding="utf-8", newline="\n") as fh:
+    fh.write(str(p.returncode) + "\n")
+print("builder exit:", p.returncode)
+----- end helper source -----
+
+---- helper: build_evidence_pc.py ----
+purpose: this evidence builder (read from its own path during this run; writes this log and the evidence JSON)
+bytes: 26566  sha256=3e8a623f17dd67fadb5da02a16ae12e427e185d03a9bca7908053db1d834ab97
+----- begin helper source -----
+import hashlib, json, os, platform, subprocess, time
+
+REPO = r"C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c"
+PROD = os.path.join(REPO, ".local", "deepeye-implementation-c", "competition", "deepeye")
+assert os.path.basename(PROD) == "deepeye" and len(os.path.basename(PROD)) == 7, PROD
+W = r"C:\Users\Alan\AppData\Local\Temp\g04pc_20261015"
+EVID = os.path.join(PROD, "evidence", "ai", "startup")
+PY = os.path.join(REPO, ".local", "venv", "Scripts", "python.exe")
+MODULE_REL = "ai_pc/planning/candidate_graph.py"
+TEST_REL = "tests/ai/planning/test_candidate_graph.py"
+JSON_REL = "evidence/ai/startup/planner_cost.json"
+LOG_REL = "evidence/ai/startup/planner_cost.log"
+
+
+def sha_bytes(data):
+    return hashlib.sha256(data).hexdigest()
+
+
+def file_bytes(path):
+    return open(path, "rb").read()
+
+
+def sha_file(path):
+    return sha_bytes(file_bytes(path))
+
+
+module_bytes = file_bytes(os.path.join(PROD, MODULE_REL))
+test_bytes = file_bytes(os.path.join(PROD, TEST_REL))
+module_sha = sha_bytes(module_bytes)
+test_sha = sha_bytes(test_bytes)
+
+CAPTURES = {
+    "tests_run1": {
+        "label": "full unit suite from the product root (30 tests; 100-graph exhaustive reference incl. every ordered pair)",
+        "command": [PY, "-X", "utf8", "-B", "tests/ai/planning/test_candidate_graph.py"],
+        "cwd": PROD,
+        "expected_exit": 0,
+    },
+    "probe_run": {
+        "label": "independent 100-graph reference probe (fresh process; prints fixture digest and mismatch count)",
+        "command": [PY, "-X", "utf8", "-B", os.path.join(W, "g04_probe.py")],
+        "cwd": PROD,
+        "expected_exit": 0,
+    },
+    "clean_min": {
+        "label": "unit suite from a minimal two-file checkout with no private files, no archive and no env overrides",
+        "command": [PY, "-X", "utf8", "-B", "tests/ai/planning/test_candidate_graph.py"],
+        "cwd": os.path.join(W, "clean_min"),
+        "expected_exit": 0,
+    },
+}
+index_doc = json.loads(open(os.path.join(W, "captures_index.json"), encoding="utf-8").read())
+index_by_name = {entry["name"]: entry for entry in index_doc["runs"]}
+assert set(index_by_name) == set(CAPTURES), sorted(index_by_name)
+captures = {}
+for name, meta in CAPTURES.items():
+    entry = index_by_name[name]
+    stdout = file_bytes(os.path.join(W, name + ".stdout.bin"))
+    stderr = file_bytes(os.path.join(W, name + ".stderr.bin"))
+    assert entry["stdout_sha256"] == sha_bytes(stdout) and entry["stderr_sha256"] == sha_bytes(stderr)
+    assert entry["exit_code"] == meta["expected_exit"], (name, entry["exit_code"])
+    assert entry["command"] == meta["command"] and entry["cwd"] == meta["cwd"], name
+    captures[name] = {
+        "label": meta["label"],
+        "command": meta["command"],
+        "cwd": meta["cwd"],
+        "expected_exit_code": meta["expected_exit"],
+        "exit_code": entry["exit_code"],
+        "stdout_bytes": len(stdout),
+        "stdout_sha256": sha_bytes(stdout),
+        "stderr_bytes": len(stderr),
+        "stderr_sha256": sha_bytes(stderr),
+        "stdout": stdout.decode("utf-8", "replace"),
+        "stderr": stderr.decode("utf-8", "replace"),
+    }
+
+probe_summary = json.loads(captures["probe_run"]["stdout"].split("\nPROBE-OK")[0])
+assert probe_summary["module_sha256"] == module_sha
+assert probe_summary["test_sha256"] == test_sha
+assert probe_summary["reference_mismatches"] == 0
+assert probe_summary["graph_count"] == 100
+
+pre = json.loads(open(os.path.join(W, "pre_snapshot.json"), encoding="utf-8").read())
+owned_set = {MODULE_REL, TEST_REL, JSON_REL, LOG_REL}
+cur_files = {}
+for root_dir, dirs, names in os.walk(PROD):
+    for name in names:
+        full = os.path.join(root_dir, name)
+        rel = os.path.relpath(full, PROD).replace(os.sep, "/")
+        cur_files[rel] = {"sha256": sha_file(full), "bytes": os.path.getsize(full)}
+non_owned = sorted(set(cur_files) - owned_set)
+mismatches = [rel for rel in non_owned if pre["files"].get(rel, {}).get("sha256") != cur_files[rel]["sha256"]]
+missing_before = sorted(set(non_owned) - set(pre["files"]))
+new_unowned = sorted(set(cur_files) - set(pre["files"]) - owned_set)
+assert not mismatches and not missing_before and not new_unowned, (mismatches, missing_before, new_unowned)
+
+pycache, pyc_files = [], []
+for root_dir, dirs, names in os.walk(PROD):
+    for d in dirs:
+        if d == "__pycache__":
+            pycache.append(os.path.join(root_dir, d))
+    for name in names:
+        if name.endswith((".pyc", ".pyo")):
+            pyc_files.append(os.path.join(root_dir, name))
+
+git_proc = subprocess.run(["git", "-C", REPO, "status", "--porcelain"], capture_output=True)
+git_text = git_proc.stdout.decode("utf-8", "replace")
+head = subprocess.run(["git", "-C", REPO, "rev-parse", "HEAD"], capture_output=True).stdout.decode().strip()
+
+INPUTS = {
+    "taskbook_final": os.path.join(REPO, ".local", "plan-20261014-final-c", "final-final-1011259", "taskbook_final.md"),
+    "execution_plan_final": os.path.join(REPO, ".local", "plan-20261014-final-c", "final-final-1011259", "execution_plan_final.json"),
+    "execution_orchestration_v5": os.path.join(REPO, ".local", "plan-20261014-final-c", "final-final-1011259", "execution_orchestration_v5.md"),
+    "planner_cost_main_decisions": os.path.join(REPO, ".local", "plan-20261014-final-c", "director-startup", "planner-cost-main-decisions.json"),
+    "planner_cost_args": os.path.join(REPO, ".local", "plan-20261014-final-c", "director-startup", "planner-cost-args.json"),
+    "pre_change_product_snapshot": os.path.join(W, "pre_snapshot.json"),
+}
+input_hashes = {
+    key: {
+        "path": os.path.relpath(path, REPO).replace(os.sep, "/") if path.startswith(REPO) else path,
+        "sha256": sha_file(path),
+        "bytes": os.path.getsize(path),
+    }
+    for key, path in INPUTS.items()
+}
+
+now_utc = time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
+
+# ---------------------------------------------------------------------------
+# Part 2: assemble the public evidence log and the evidence JSON.
+# ---------------------------------------------------------------------------
+
+TASK_ID = "DEEPEYE-C-PLANNER-COST-20261015"
+TASK_VERSION = 1
+WORK_ID = "C-planner-candidate-cost-search-foundation-v1"
+IMPLEMENTATION_JOB = "child-08030d9f6a3545c7975ff3201f5eeb70"
+INSTANCE_ID = "deepseek-c-15"
+ROUTE = "deepseek"
+CONTRACT_ID = "DEEPEYE-HUMAN-LOCK-20261014/revision1"
+CONTRACT_SOURCE = "f5989cd5defce561f9ba98e6b18fc2682945f0a2"
+DESIGN_COMMIT = "1011259415a0916054eb580687612580bc1e5f09"
+REQUIREMENTS_SHA = "c229834bfc2292f5fe4411fc9f12c68487008f9d1adaf31f0144ee7a98173804"
+
+assert captures["tests_run1"]["stderr"].count("Ran 30 tests") == 1
+assert captures["clean_min"]["stderr"].count("Ran 30 tests") == 1
+assert captures["tests_run1"]["stderr"].rstrip().endswith("OK")
+assert captures["clean_min"]["stderr"].rstrip().endswith("OK")
+assert captures["probe_run"]["stdout"].rstrip().endswith("PROBE-OK")
+assert pre["file_count"] == 65, pre["file_count"]
+assert len(cur_files) == pre["file_count"] + 2, len(cur_files)
+assert len(non_owned) == pre["file_count"], len(non_owned)
+TEST_COUNT = 30
+
+HELPERS = [
+    ("snapshot_pre.py", "pre-change product-tree snapshot written before any edit of this job"),
+    ("list_new.py", "known-file/ownership probe used to confirm only the four owned paths appeared"),
+    ("fix_apostrophe.py", "one-off repair of doubled-apostrophe artifacts in the first module draft; re-parses AST and smoke-imports"),
+    ("run_capture.py", "generic single-command capture helper"),
+    ("fix_missing_arg_case.py", "one-off unit-test correction for the missing-edges-argument case"),
+    ("g04_probe.py", "independent fresh-process probe: 100 fixed-seed graphs, all ordered pairs, reference comparison, canonical fixture digest"),
+    ("clean_min.py", "creates the minimal two-file checkout and runs the suite there (no private files, no archive, no env overrides)"),
+    ("rerun_all.py", "re-ran the three product commands and produced captures_index.json"),
+    ("patch_builder1.py", "one-off correction of this builder: validate captures against captures_index.json instead of inferring exit codes"),
+    ("run_builder.py", "external capture runner for this builder (stdout/stderr/exit to temp files)"),
+    ("build_evidence_pc.py", "this evidence builder (read from its own path during this run; writes this log and the evidence JSON)"),
+]
+helper_blocks = []
+for helper_name, helper_purpose in HELPERS:
+    helper_path = os.path.join(W, helper_name)
+    assert os.path.isfile(helper_path), helper_path
+    helper_data = file_bytes(helper_path)
+    helper_blocks.append((helper_name, helper_purpose, sha_bytes(helper_data), len(helper_data), helper_data.decode("utf-8", "replace")))
+
+failures_and_fixes = [
+    "First module draft contained doubled-apostrophe artifacts in docstrings (for example caller''s / goal''s) introduced by the initial write path; repaired once by temp helper fix_apostrophe.py, which also re-parsed the AST and smoke-imported the module. The final module contains zero doubled apostrophes (re-scanned at assembly time).",
+    "One unit-test case originally asserted CandidateGraphError for CandidateGraph([]) (edges argument omitted); Python raises TypeError for a missing positional argument, so the case was made explicit as CandidateGraph([], None) by temp helper fix_missing_arg_case.py, which then rejects the None edges container with CandidateGraphError. No assertion was weakened.",
+    "Evidence-builder chunk 1 initially inferred command exit codes from side files, defaulting some cases; temp helper patch_builder1.py replaced that with assertions against captures_index.json (authoritative raw capture records), so no exit code or command line in this evidence is guessed.",
+    "No product-file failure was observed: the 30-test suite passed on first run from the product root and again from the minimal two-file checkout.",
+]
+
+limits = [
+    "Scope limit: this evidence covers only the final book's first small-graph exhaustive cost check (fixed J weights, exact rational arithmetic, deterministic bounded abstract-graph search). It is NOT full G04 and not a planner, geometry, sensor, map or AI acceptance.",
+    "Missing inputs, explicitly NOT frozen or invented here: production normalization scales for length/time/curvature/uncertainty, risk calibration of cumulative_risk, legal observation adapters (scene/EM/sensor), orientation-aware motion primitives, full-volume collision checking and braking-tail evidence, and runtime/latency inputs. The five components must already be normalized by an explicit policy; this job supplies a software_fixture policy only.",
+    "All inputs are labelled software_fixture. No scene file, truth query, oracle, ML model, real or simulated stream was read; the module imports only dataclasses/fractions/heapq/math and performs no I/O, clock, thread or network access.",
+    "The API cannot authorize motion and cannot declare that a drill reached a gate; returned paths exist only inside the abstract input graph. No geometry, collision-safe or execution field exists anywhere in the module.",
+    "3D coordinates appear only as synthetic fixture metadata used to generate distance-like costs inside the unit tests; they are not real geometry and certify nothing about curvature, orientation or swept volumes.",
+    "No timing measurement was performed in this job. If a future job measures time, it must be labelled a pure-graph software microbenchmark with fixture counts and must not be reported as end-to-end perception+planning latency or as a G04 pass.",
+    "product_card_G04 and product_card_C04 remain not_run. Every hardware/system card remains not_run. Only the software tests in this evidence are eligible for a pass statement, pending the director's independent rerun (100 graphs) and search/tie semantics review.",
+    "provider/model/effort were not observable from inside this child session (dispatcher record states route=deepseek); they are not inferred from any catalog.",
+    "Temp helpers are not product files; they are embedded verbatim below, and the minimal checkout under the temp workspace is a disposable sandbox.",
+]
+
+log_parts = []
+add = log_parts.append
+add("=====================================================================")
+add("G04 candidate cost + exact small-graph search - evidence log")
+add("=====================================================================")
+add("")
+add("task_id: " + TASK_ID)
+add("task_version: " + str(TASK_VERSION))
+add("work_id: " + WORK_ID)
+add("implementation_job: " + IMPLEMENTATION_JOB)
+add("instance_id: " + INSTANCE_ID + "   route: " + ROUTE)
+add("provider/model/effort: not observable from inside this child session; not inferred from any catalog")
+add("contract: " + CONTRACT_ID)
+add("contract_source: " + CONTRACT_SOURCE)
+add("requirements_sha256: " + REQUIREMENTS_SHA)
+add("design_commit: " + DESIGN_COMMIT)
+add("role: ordinary DeepSeek Flash/max executor (not App/native worker, not director); board_access=false")
+add("generated_utc: " + now_utc)
+add("python: " + index_doc["python"] + "  (" + PY + ")")
+add("platform: " + platform.platform())
+add("")
+add("scope: the final book's FIRST small-graph exhaustive cost check only. This is NOT full")
+add("  G04: no 3D geometry, sensor, map, AI or planner acceptance and no physical feasibility")
+add("  claim. product_card_G04 and product_card_C04 remain not_run. Every hardware/system")
+add("  card remains not_run; only the software tests below are eligible for a pass statement.")
+add("")
+add("J = 1*normalized_length + 0.5*time + 4*cumulative_risk + 0.5*curvature + 1*uncertainty")
+add("  exact weights (1, 1/2, 4, 1/2, 1); exact rational arithmetic only (fractions.Fraction)")
+add("")
+add("[1] Owned files (exactly four; written only by this job)")
+add("    " + MODULE_REL + "  " + str(len(module_bytes)) + "B  sha256=" + module_sha)
+add("    " + TEST_REL + "  " + str(len(test_bytes)) + "B  sha256=" + test_sha)
+add("    " + LOG_REL + "  (this file)")
+add("    " + JSON_REL + "  (written after this log; its readback section carries this log's sha256)")
+add("")
+add("[2] Read-only inputs pinned at assembly (sha256, bytes)")
+for key in sorted(input_hashes):
+    meta = input_hashes[key]
+    add("    " + key + ": " + meta["path"] + "  " + str(meta["bytes"]) + "B  sha256=" + meta["sha256"])
+add("")
+add("[3] Product tree integrity check at assembly (before the two evidence files were written)")
+add("    product_root: " + PROD)
+add("    pre-change snapshot file count: " + str(pre["file_count"]))
+add("    files at check time: " + str(len(cur_files)) + "  (= snapshot + module + test)")
+add("    non-owned files compared against the pre-change snapshot: " + str(len(non_owned)) + "   mismatches: " + str(len(mismatches)))
+add("    non-owned files missing vs snapshot: " + str(len(missing_before)) + "   unexpected new non-owned files: " + str(len(new_unowned)))
+add("    __pycache__ dirs under product: " + str(len(pycache)) + "   .pyc/.pyo files: " + str(len(pyc_files)))
+add("")
+add("[4] Git inspection (read-only; this job performed no add/commit/branch)")
+add("    HEAD: " + head)
+add("    git status --porcelain lines: " + str(len(git_text.splitlines())) + " (full list in the evidence JSON readback section)")
+add("")
+add("[5] Executed commands with raw transcripts (fresh subprocesses, -X utf8 -B, PYTHONDONTWRITEBYTECODE=1)")
+for name in ("tests_run1", "probe_run", "clean_min"):
+    cap = captures[name]
+    add("")
+    add("---- " + name + " ----")
+    add("command: " + json.dumps(cap["command"]))
+    add("cwd: " + cap["cwd"])
+    add("exit: " + str(cap["exit_code"]) + " (expected " + str(cap["expected_exit_code"]) + ")")
+    add("stdout bytes: " + str(cap["stdout_bytes"]) + "  sha256=" + cap["stdout_sha256"])
+    add("stderr bytes: " + str(cap["stderr_bytes"]) + "  sha256=" + cap["stderr_sha256"])
+    add("label: " + cap["label"])
+    add("----- begin raw stdout -----")
+    add(cap["stdout"].rstrip("\n"))
+    add("----- end raw stdout -----")
+    add("----- begin raw stderr -----")
+    add(cap["stderr"].rstrip("\n"))
+    add("----- end raw stderr -----")
+add("")
+add("[6] Independent 100-graph probe summary (parsed from the raw probe stdout above)")
+for line in json.dumps(probe_summary, indent=1).splitlines():
+    add("    " + line)
+add("    fixture identity: 100 fixed-seed graphs, seed base " + str(probe_summary["seed_base"]) + ", canonical fixture digest sha256=" + probe_summary["fixture_digest_sha256"])
+add("    every ordered node pair compared against a separate all-simple-paths reference with hand-coded weights; mismatches=0")
+add("")
+add("[7] Failures and fixes")
+for item in failures_and_fixes:
+    add("    - " + item)
+add("")
+add("[8] Limits and non-claims")
+for item in limits:
+    add("    - " + item)
+add("")
+add("[9] Temporary helpers embedded verbatim (not product files; sha256 of exact bytes on disk)")
+for helper_name, helper_purpose, helper_sha, helper_size, helper_text in helper_blocks:
+    add("")
+    add("---- helper: " + helper_name + " ----")
+    add("purpose: " + helper_purpose)
+    add("bytes: " + str(helper_size) + "  sha256=" + helper_sha)
+    add("----- begin helper source -----")
+    add(helper_text.rstrip("\n"))
+    add("----- end helper source -----")
+add("")
+add("[10] Evidence assembly notes")
+add("    - This log was produced by build_evidence_pc.py executed under run_builder.py; that runner captured this builder's own stdout/stderr/exit to build_evidence.stdout.bin / build_evidence.stderr.bin / build_evidence.exit.txt in the temp workspace.")
+add("    - The evidence JSON " + JSON_REL + " was written after this log, and its readback section carries this log's final sha256 so the two documents cross-check. The JSON's own sha256 is intentionally null in its files list (a document cannot stably embed its own digest); the director recomputes it from the delivered bytes.")
+add("    - All captured command transcripts are raw bytes with their sha256 recorded above; the probe summary in section [6] was parsed from the raw probe stdout after the same digest checks.")
+add("")
+
+log_text = "\n".join(log_parts) + "\n"
+log_path = os.path.join(PROD, LOG_REL)
+with open(log_path, "w", encoding="utf-8", newline="\n") as handle:
+    handle.write(log_text)
+log_bytes = file_bytes(log_path)
+log_sha = sha_bytes(log_bytes)
+
+cur_files_after_log = {}
+for root_dir, dirs, names in os.walk(PROD):
+    for name in names:
+        full = os.path.join(root_dir, name)
+        rel = os.path.relpath(full, PROD).replace(os.sep, "/")
+        cur_files_after_log[rel] = {"sha256": sha_file(full), "bytes": os.path.getsize(full)}
+assert len(cur_files_after_log) == len(cur_files) + 1, len(cur_files_after_log)
+
+evidence = {
+    "schema": 1,
+    "kind": "deepeye-g04-candidate-cost-evidence",
+    "generated_utc": now_utc,
+    "task_id": TASK_ID,
+    "task_version": TASK_VERSION,
+    "work_id": WORK_ID,
+    "implementation_job": IMPLEMENTATION_JOB,
+    "instance_id": INSTANCE_ID,
+    "route": ROUTE,
+    "provider_model_effort_observable": False,
+    "contract": {
+        "id": CONTRACT_ID,
+        "source": CONTRACT_SOURCE,
+        "requirements_sha256": REQUIREMENTS_SHA,
+        "design_commit": DESIGN_COMMIT,
+    },
+    "scope": "First small-graph exhaustive cost check of the final book only: exact normalized candidate cost with fixed weights (1, 1/2, 4, 1/2, 1) and a deterministic bounded small-graph search. NOT full G04: production normalization scales, risk calibration, legal observation adapters, orientation-aware motion primitives, full-volume collision and braking-tail evidence, and runtime inputs remain unfrozen; no physical feasibility claim.",
+    "status": "software_fixture_math_completed_pending_director_review_no_product_acceptance",
+    "product_cards": {"G04": "not_run", "C04": "not_run", "all_hardware_and_system_cards": "not_run"},
+    "files": [
+        {
+            "path": MODULE_REL,
+            "role": "pure exact normalized-cost + deterministic bounded small-graph search module (frozen objects); imports only dataclasses/fractions/heapq/math",
+            "sha256": module_sha,
+            "bytes": len(module_bytes),
+        },
+        {
+            "path": TEST_REL,
+            "role": "30-test suite: independent 100-graph all-simple-paths exhaustive reference comparison (seeded fixtures), tie/budget/mutation/malformed regressions, checkout-portable",
+            "sha256": test_sha,
+            "bytes": len(test_bytes),
+        },
+        {
+            "path": LOG_REL,
+            "role": "raw transcripts + embedded temp helper sources + readback; written before this json",
+            "sha256": log_sha,
+            "bytes": len(log_bytes),
+        },
+        {
+            "path": JSON_REL,
+            "role": "this evidence file; its own sha256 cannot be embedded stably and is omitted by design - the director recomputes it from the delivered bytes",
+            "sha256": None,
+            "bytes": None,
+        },
+    ],
+    "tool_versions": {"python": index_doc["python"], "platform": platform.platform()},
+    "design_points_implemented": [
+        "NormalizedCost: exactly five nonnegative components in fixed order length/time/cumulative_risk/curvature/uncertainty; int, finite float and Fraction accepted; bool/negative/NaN/Inf/unsupported rejected; floats stored as exact binary rationals; weights fixed (1, 1/2, 4, 1/2, 1); no caller weight override; exact rational weighted total",
+        "Edge/CandidateGraph: immutable ids and costs, nonempty-string ids, tuple copies so caller-list mutation cannot alter the graph; max 64 nodes / 512 edges; duplicate node ids, duplicate edge ids and unknown endpoints rejected up front even if unreachable; parallel distinct edges, self loops and cycles allowed; source_domain must be exactly software_fixture",
+        "search(start, goal, max_expansions): deterministic bounded Dijkstra over labels (exact cost, hop count, lexicographic edge-id sequence) independent of insertion order; zero-cost cycles cannot improve a label; expansion_count <= node count; budget is an exact non-bool integer in 0..64",
+        "Result semantics: start==goal -> found with empty edge path and cost 0 without expansion; a pending candidate blocked by budget -> budget_exhausted (never a partial path reported as found); exhausted heap without path -> unreachable; cost reported only when found; no motion/execution authorization field anywhere",
+        "Tests: independent hand-coded weight formula plus all-simple-paths enumeration over 100 fixed-seed graphs (2..7 nodes, integer/rational/zero costs, parallel variants, cycles, unreachable pairs); every ordered pair compared; permutations, tie cases, caller-list mutation, malformed inputs, budget truncation and a minimal-checkout portability run included",
+    ],
+    "commands": [
+        {
+            "label": captures[name]["label"],
+            "command": captures[name]["command"],
+            "cwd": captures[name]["cwd"],
+            "exit_code": captures[name]["exit_code"],
+            "stdout_bytes": captures[name]["stdout_bytes"],
+            "stdout_sha256": captures[name]["stdout_sha256"],
+            "stderr_bytes": captures[name]["stderr_bytes"],
+            "stderr_sha256": captures[name]["stderr_sha256"],
+        }
+        for name in ("tests_run1", "probe_run", "clean_min")
+    ]
+    + [
+        {
+            "label": "evidence assembly run (this document's builder)",
+            "command": [PY, "-X", "utf8", "-B", os.path.join(W, "build_evidence_pc.py")],
+            "cwd": REPO,
+            "exit_code": None,
+            "exit_note": "captured by run_builder.py to build_evidence.exit.txt in the temp workspace; asserted == 0 by the post-run readback (fresh process)",
+            "capture_note": "raw builder stdout/stderr captured to build_evidence.stdout.bin / build_evidence.stderr.bin",
+        },
+    ],
+    "tests": {
+        "suite": TEST_REL,
+        "count": TEST_COUNT,
+        "result": "OK",
+        "exit_code": 0,
+        "raw_transcript": "section [5] tests_run1 of the public log",
+        "reference_comparison": "independent all-simple-paths enumeration with hand-coded weights; the solver cost method is never used to derive expected values",
+        "portable_minimal_checkout": {
+            "command": captures["clean_min"]["command"],
+            "cwd": captures["clean_min"]["cwd"],
+            "exit_code": captures["clean_min"]["exit_code"],
+            "result": "OK",
+            "restriction": "no private controller files, no dataset archive, no environment overrides",
+        },
+    },
+    "probe": probe_summary,
+    "weights": {"order": ["length", "time", "cumulative_risk", "curvature", "uncertainty"], "exact": ["1", "1/2", "4", "1/2", "1"]},
+    "input_sha256": input_hashes,
+    "readback": {
+        "owned_files": {
+            MODULE_REL: {"sha256": module_sha, "bytes": len(module_bytes)},
+            TEST_REL: {"sha256": test_sha, "bytes": len(test_bytes)},
+            LOG_REL: {"sha256": log_sha, "bytes": len(log_bytes)},
+            JSON_REL: {"sha256": None, "bytes": None},
+        },
+        "pre_change_snapshot_file_count": pre["file_count"],
+        "assembly_walk_file_count": len(cur_files),
+        "after_log_write_file_count": len(cur_files_after_log),
+        "expected_final_file_count": len(cur_files_after_log) + 1,
+        "non_owned_files_compared_to_prechange_snapshot": {
+            "count": len(non_owned),
+            "mismatches": mismatches,
+            "missing_vs_snapshot": missing_before,
+            "unexpected_new_non_owned": new_unowned,
+        },
+        "python_bytecode_under_product": {"pycache_dirs": pycache, "pyc_files": pyc_files},
+        "git_head": head,
+        "git_status_porcelain": git_text.splitlines(),
+    },
+    "failures_and_fixes": failures_and_fixes,
+    "limits": limits,
+    "temporary_helpers_embedded_in_log": [
+        {"name": helper_name, "bytes": helper_size, "sha256": helper_sha}
+        for helper_name, helper_purpose, helper_sha, helper_size, helper_text in helper_blocks
+    ],
+    "public_raw_transcript": LOG_REL,
+}
+
+json_path = os.path.join(PROD, JSON_REL)
+json_text = json.dumps(evidence, indent=1) + "\n"
+with open(json_path, "w", encoding="utf-8", newline="\n") as handle:
+    handle.write(json_text)
+
+print("evidence log bytes:", len(log_bytes), "sha256:", log_sha)
+print("evidence json bytes:", os.path.getsize(json_path), "sha256:", sha_file(json_path))
+print("module:", module_sha)
+print("test:", test_sha)
+print("helpers embedded:", len(helper_blocks))
+print("BUILDER-OK")
+----- end helper source -----
+
+[10] Evidence assembly notes
+    - This log was produced by build_evidence_pc.py executed under run_builder.py; that runner captured this builder's own stdout/stderr/exit to build_evidence.stdout.bin / build_evidence.stderr.bin / build_evidence.exit.txt in the temp workspace.
+    - The evidence JSON evidence/ai/startup/planner_cost.json was written after this log, and its readback section carries this log's final sha256 so the two documents cross-check. The JSON's own sha256 is intentionally null in its files list (a document cannot stably embed its own digest); the director recomputes it from the delivered bytes.
+    - All captured command transcripts are raw bytes with their sha256 recorded above; the probe summary in section [6] was parsed from the raw probe stdout after the same digest checks.
+
