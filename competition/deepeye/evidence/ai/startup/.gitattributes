@@ -6,3 +6,8 @@ split_assignment.json -text
 split_assignment.txt -text whitespace=cr-at-eol
 data_model.json -text
 data_model.txt -text whitespace=cr-at-eol,-blank-at-eof
+force_preprocess.json -text whitespace=cr-at-eol
+force_preprocess.log -text whitespace=cr-at-eol,-blank-at-eof
+preprocess_main_review.json -text
+preprocess_main_review.py -text whitespace=cr-at-eol
+preprocess_main_review.txt -text whitespace=cr-at-eol,-blank-at-eof

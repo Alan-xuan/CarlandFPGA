@@ -1,0 +1,1731 @@
+{
+  "status": "passed_software_foundation_only",
+  "reviewer": "C quality main",
+  "job_id": "child-4b207693f8574ae0b82d2f32185550e3",
+  "task_id": "DEEPEYE-IMPLEMENTATION-20261014",
+  "task_version": 1,
+  "contract_id": "DEEPEYE-HUMAN-LOCK-20261014/revision1",
+  "requirements_sha256": "c229834bfc2292f5fe4411fc9f12c68487008f9d1adaf31f0144ee7a98173804",
+  "design_commit": "1011259415a0916054eb580687612580bc1e5f09",
+  "at_utc": "2026-10-14T21:11:11.083386+00:00",
+  "tool_versions": {
+    "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+    "platform": "Windows-11-10.0.26200-SP0"
+  },
+  "commands": [
+    {
+      "command": [
+        "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\venv\\Scripts\\python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\deepeye-implementation-c\\competition\\deepeye\\tests\\ai\\data_model\\test_force_preprocess.py"
+      ],
+      "exit_code": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "0a6e628adf4b5a94f2bc2529b3b524dc15c2f74f4bd7d117dcac4369eafe036f"
+    }
+  ],
+  "unit_tests": 33,
+  "independent_opaque_column_permutation_cases": [
+    {
+      "case": 0,
+      "column_order": [
+        "CONFIDENCE",
+        "NPHI",
+        "GR",
+        "LABEL",
+        "RDEP",
+        "X",
+        "RHOB"
+      ],
+      "chunk_bytes": 1,
+      "sha256": "bef5ffb9992d1f0613a9b0f1645e0811198e844221df0c80a3fbc2efa1a7888b"
+    },
+    {
+      "case": 1,
+      "column_order": [
+        "X",
+        "NPHI",
+        "CONFIDENCE",
+        "RDEP",
+        "RHOB",
+        "LABEL",
+        "GR"
+      ],
+      "chunk_bytes": 2,
+      "sha256": "39bc67f281065a51d483caf918b60f0d78b2c98adaec53791351cfb64b4fd2a1"
+    },
+    {
+      "case": 2,
+      "column_order": [
+        "CONFIDENCE",
+        "NPHI",
+        "LABEL",
+        "GR",
+        "RDEP",
+        "RHOB",
+        "X"
+      ],
+      "chunk_bytes": 3,
+      "sha256": "f6f9522d37161bd554d3cf9388c5354e05b6042670a8f91ba9ebf3b84b443e7e"
+    },
+    {
+      "case": 3,
+      "column_order": [
+        "LABEL",
+        "RDEP",
+        "RHOB",
+        "X",
+        "NPHI",
+        "CONFIDENCE",
+        "GR"
+      ],
+      "chunk_bytes": 4,
+      "sha256": "45a7fd6f63111ee37ea9d2c551dee2105e50c737534d61203f34bb4220a8518f"
+    },
+    {
+      "case": 4,
+      "column_order": [
+        "CONFIDENCE",
+        "X",
+        "GR",
+        "RHOB",
+        "RDEP",
+        "LABEL",
+        "NPHI"
+      ],
+      "chunk_bytes": 5,
+      "sha256": "269b9760984db852286756a3687914f7c2bb7764a970647b9de9e4780d792162"
+    },
+    {
+      "case": 5,
+      "column_order": [
+        "NPHI",
+        "X",
+        "RHOB",
+        "RDEP",
+        "LABEL",
+        "GR",
+        "CONFIDENCE"
+      ],
+      "chunk_bytes": 6,
+      "sha256": "336eefc41a0396a7cec1aaf6307f81eeca006b19498437537c7198b67cd4d314"
+    },
+    {
+      "case": 6,
+      "column_order": [
+        "NPHI",
+        "X",
+        "RHOB",
+        "RDEP",
+        "LABEL",
+        "CONFIDENCE",
+        "GR"
+      ],
+      "chunk_bytes": 7,
+      "sha256": "44f3ff2d4035703bc74d33468b542b90af6b6fc1fa5b3fa0a6469d26c91a89bb"
+    },
+    {
+      "case": 7,
+      "column_order": [
+        "RDEP",
+        "LABEL",
+        "NPHI",
+        "RHOB",
+        "X",
+        "CONFIDENCE",
+        "GR"
+      ],
+      "chunk_bytes": 8,
+      "sha256": "73ad02ebcc38b9ebba753c2b4c097cc9cb6a1fc9a6f776afe1b6b12c494be8ac"
+    },
+    {
+      "case": 8,
+      "column_order": [
+        "NPHI",
+        "CONFIDENCE",
+        "GR",
+        "X",
+        "RHOB",
+        "LABEL",
+        "RDEP"
+      ],
+      "chunk_bytes": 9,
+      "sha256": "ab27a9b31a720d8ce8d6d16ee054dd5c09f64cb78878aee35859a3798f8f6c9c"
+    },
+    {
+      "case": 9,
+      "column_order": [
+        "CONFIDENCE",
+        "GR",
+        "RDEP",
+        "NPHI",
+        "X",
+        "RHOB",
+        "LABEL"
+      ],
+      "chunk_bytes": 10,
+      "sha256": "63d942beb9eccc232d03e25005539d3c51617627c75c9a256ab1689a45346c07"
+    },
+    {
+      "case": 10,
+      "column_order": [
+        "NPHI",
+        "X",
+        "LABEL",
+        "GR",
+        "CONFIDENCE",
+        "RHOB",
+        "RDEP"
+      ],
+      "chunk_bytes": 11,
+      "sha256": "601f2551749c1d3ba967c0984e4e77b24da83b18359dc8c944471daa323760ec"
+    },
+    {
+      "case": 11,
+      "column_order": [
+        "CONFIDENCE",
+        "RHOB",
+        "X",
+        "NPHI",
+        "LABEL",
+        "RDEP",
+        "GR"
+      ],
+      "chunk_bytes": 12,
+      "sha256": "b62c7466d530e2442618b7d9307972cc78f3acdd8d1035bdd11725573aa23a34"
+    },
+    {
+      "case": 12,
+      "column_order": [
+        "RHOB",
+        "GR",
+        "NPHI",
+        "X",
+        "RDEP",
+        "CONFIDENCE",
+        "LABEL"
+      ],
+      "chunk_bytes": 13,
+      "sha256": "8b7a53d27ccd886e8ed160beb4b060d598f055476466f8c8d3cd1eb891631588"
+    },
+    {
+      "case": 13,
+      "column_order": [
+        "CONFIDENCE",
+        "RDEP",
+        "LABEL",
+        "X",
+        "GR",
+        "RHOB",
+        "NPHI"
+      ],
+      "chunk_bytes": 14,
+      "sha256": "47662a360eef006c033c431bff17eb4a192cf147cbff8464a38709217ff43dd4"
+    },
+    {
+      "case": 14,
+      "column_order": [
+        "NPHI",
+        "GR",
+        "RHOB",
+        "LABEL",
+        "X",
+        "CONFIDENCE",
+        "RDEP"
+      ],
+      "chunk_bytes": 15,
+      "sha256": "752372293860efaac3dfab41678b1d9a414be6732bd7569028c66940e5652a17"
+    },
+    {
+      "case": 15,
+      "column_order": [
+        "NPHI",
+        "GR",
+        "RDEP",
+        "RHOB",
+        "LABEL",
+        "X",
+        "CONFIDENCE"
+      ],
+      "chunk_bytes": 16,
+      "sha256": "bbe65533294a77d57453873b1076f49aa5b254cb7dea1cf9b83cdb5f964cd303"
+    },
+    {
+      "case": 16,
+      "column_order": [
+        "X",
+        "NPHI",
+        "RHOB",
+        "GR",
+        "LABEL",
+        "RDEP",
+        "CONFIDENCE"
+      ],
+      "chunk_bytes": 17,
+      "sha256": "e8342eb31c3d8e44bbb78bdf6021de34160c98f3a15c9207e949de1c07317945"
+    },
+    {
+      "case": 17,
+      "column_order": [
+        "RDEP",
+        "NPHI",
+        "X",
+        "CONFIDENCE",
+        "RHOB",
+        "GR",
+        "LABEL"
+      ],
+      "chunk_bytes": 18,
+      "sha256": "52d6bb4bccbd825175766e0d71bd1b349ce6726617ef93df4216c85414096e92"
+    },
+    {
+      "case": 18,
+      "column_order": [
+        "RHOB",
+        "CONFIDENCE",
+        "RDEP",
+        "LABEL",
+        "GR",
+        "NPHI",
+        "X"
+      ],
+      "chunk_bytes": 19,
+      "sha256": "d2bd247449099e4b0d4bda515860d5db6682854907e8b48aa54926907650a97c"
+    },
+    {
+      "case": 19,
+      "column_order": [
+        "X",
+        "NPHI",
+        "RDEP",
+        "LABEL",
+        "RHOB",
+        "GR",
+        "CONFIDENCE"
+      ],
+      "chunk_bytes": 20,
+      "sha256": "5a832f48d0f2338531b006921f40bbb3b3e6e77ccc9c293ef3bbd772c27a910a"
+    },
+    {
+      "case": 20,
+      "column_order": [
+        "LABEL",
+        "RDEP",
+        "X",
+        "RHOB",
+        "CONFIDENCE",
+        "GR",
+        "NPHI"
+      ],
+      "chunk_bytes": 21,
+      "sha256": "b9fb34954b83775be82bb21e4450462adb6159d0e686f15f6c80121fdfaa4a6f"
+    },
+    {
+      "case": 21,
+      "column_order": [
+        "X",
+        "RHOB",
+        "RDEP",
+        "NPHI",
+        "GR",
+        "LABEL",
+        "CONFIDENCE"
+      ],
+      "chunk_bytes": 22,
+      "sha256": "b3d77116b549b21b4d58aa46ada9749ba4e041b04021554a4aa4994dbd4bf20f"
+    },
+    {
+      "case": 22,
+      "column_order": [
+        "RHOB",
+        "CONFIDENCE",
+        "GR",
+        "X",
+        "NPHI",
+        "LABEL",
+        "RDEP"
+      ],
+      "chunk_bytes": 23,
+      "sha256": "d52dedb498f71e991600c03be62611c738ea0c933de98691d3efe9d4f25204b4"
+    },
+    {
+      "case": 23,
+      "column_order": [
+        "RHOB",
+        "RDEP",
+        "GR",
+        "LABEL",
+        "X",
+        "NPHI",
+        "CONFIDENCE"
+      ],
+      "chunk_bytes": 24,
+      "sha256": "ef0444a70e834178d62714d6311925c70d072ddf12ee3ccdbfabe6d641fb70da"
+    },
+    {
+      "case": 24,
+      "column_order": [
+        "NPHI",
+        "GR",
+        "RDEP",
+        "CONFIDENCE",
+        "LABEL",
+        "X",
+        "RHOB"
+      ],
+      "chunk_bytes": 25,
+      "sha256": "5ed4146f695e57253710c1004a4cd19e7191350b3eaba1f8610034b949d8d0c0"
+    },
+    {
+      "case": 25,
+      "column_order": [
+        "NPHI",
+        "CONFIDENCE",
+        "RDEP",
+        "GR",
+        "LABEL",
+        "X",
+        "RHOB"
+      ],
+      "chunk_bytes": 26,
+      "sha256": "221a08009252ed4e25290a93a1228426b9131808daa7b5063ae9ebfe32bdbee9"
+    },
+    {
+      "case": 26,
+      "column_order": [
+        "RHOB",
+        "LABEL",
+        "RDEP",
+        "GR",
+        "X",
+        "NPHI",
+        "CONFIDENCE"
+      ],
+      "chunk_bytes": 27,
+      "sha256": "2e9685516ea30d37a80cf8b59d959aa8c1bafd21fa3b737ca1ac06605ef8c09b"
+    },
+    {
+      "case": 27,
+      "column_order": [
+        "CONFIDENCE",
+        "X",
+        "GR",
+        "NPHI",
+        "RDEP",
+        "LABEL",
+        "RHOB"
+      ],
+      "chunk_bytes": 28,
+      "sha256": "356b58da6b9f1eccd785c2a1443f5c506c29d04635850b2333179dc9ccbc09be"
+    },
+    {
+      "case": 28,
+      "column_order": [
+        "LABEL",
+        "RHOB",
+        "NPHI",
+        "CONFIDENCE",
+        "GR",
+        "RDEP",
+        "X"
+      ],
+      "chunk_bytes": 29,
+      "sha256": "c3931624d304620929daaccf06a54139056c8b801783a7b3a71c0e39a2c36bb0"
+    },
+    {
+      "case": 29,
+      "column_order": [
+        "RHOB",
+        "RDEP",
+        "NPHI",
+        "CONFIDENCE",
+        "LABEL",
+        "X",
+        "GR"
+      ],
+      "chunk_bytes": 30,
+      "sha256": "2830a647e5b9c2e8946758890b0286569bbe47c0a992f01e9d3e26d45e645b97"
+    },
+    {
+      "case": 30,
+      "column_order": [
+        "X",
+        "CONFIDENCE",
+        "LABEL",
+        "RHOB",
+        "NPHI",
+        "GR",
+        "RDEP"
+      ],
+      "chunk_bytes": 31,
+      "sha256": "089b11a0c0c2ed891929daa341956a2d45be0f08fdce0a5c2f000cf37b581394"
+    },
+    {
+      "case": 31,
+      "column_order": [
+        "LABEL",
+        "NPHI",
+        "X",
+        "CONFIDENCE",
+        "RHOB",
+        "GR",
+        "RDEP"
+      ],
+      "chunk_bytes": 32,
+      "sha256": "774b49b6ee10e20d0e7568959723024b054fd1a80acd2e36ff536b81200ea8d7"
+    },
+    {
+      "case": 32,
+      "column_order": [
+        "LABEL",
+        "CONFIDENCE",
+        "GR",
+        "RHOB",
+        "RDEP",
+        "NPHI",
+        "X"
+      ],
+      "chunk_bytes": 33,
+      "sha256": "4b91ecfd6c648aae2e338127306c2f789d3b4dc104717900a2e3f9a4b741cf36"
+    },
+    {
+      "case": 33,
+      "column_order": [
+        "RDEP",
+        "LABEL",
+        "GR",
+        "RHOB",
+        "CONFIDENCE",
+        "NPHI",
+        "X"
+      ],
+      "chunk_bytes": 34,
+      "sha256": "9a1b2a357b27019ef8f08c9674e5a0072333f7ad06829fc744c67409f3180519"
+    },
+    {
+      "case": 34,
+      "column_order": [
+        "CONFIDENCE",
+        "NPHI",
+        "GR",
+        "RHOB",
+        "X",
+        "RDEP",
+        "LABEL"
+      ],
+      "chunk_bytes": 35,
+      "sha256": "d15f24f02f04f97eb646d9c9f955ee716bb84339814c2012f6fca69522ee5796"
+    },
+    {
+      "case": 35,
+      "column_order": [
+        "NPHI",
+        "X",
+        "CONFIDENCE",
+        "RDEP",
+        "RHOB",
+        "LABEL",
+        "GR"
+      ],
+      "chunk_bytes": 36,
+      "sha256": "fc12a4d5d6bc9a951c0a3b4e58e2ce5df96d1caec43aaf1df3267f05b526b0ed"
+    },
+    {
+      "case": 36,
+      "column_order": [
+        "RHOB",
+        "LABEL",
+        "CONFIDENCE",
+        "NPHI",
+        "X",
+        "RDEP",
+        "GR"
+      ],
+      "chunk_bytes": 37,
+      "sha256": "4aac5bd37a9263d022acbf11b96a745f49aee395c34e71503ef742c51c4a62fb"
+    },
+    {
+      "case": 37,
+      "column_order": [
+        "X",
+        "LABEL",
+        "CONFIDENCE",
+        "RHOB",
+        "RDEP",
+        "GR",
+        "NPHI"
+      ],
+      "chunk_bytes": 38,
+      "sha256": "992a0aa7a6ac7db4777241e7a3686133b6519837cd4b6f4774976a5c7ef5272d"
+    },
+    {
+      "case": 38,
+      "column_order": [
+        "LABEL",
+        "X",
+        "RHOB",
+        "CONFIDENCE",
+        "GR",
+        "NPHI",
+        "RDEP"
+      ],
+      "chunk_bytes": 39,
+      "sha256": "b8dffbedd41f9b0b2db541e083fa75191a39f351626c5e861d33ed5276f34e6f"
+    },
+    {
+      "case": 39,
+      "column_order": [
+        "CONFIDENCE",
+        "RHOB",
+        "LABEL",
+        "X",
+        "NPHI",
+        "GR",
+        "RDEP"
+      ],
+      "chunk_bytes": 40,
+      "sha256": "921874b7f4996612b06f2f5731feaeb07aaad6b327e76f4e1ee0ef15f52cc8da"
+    },
+    {
+      "case": 40,
+      "column_order": [
+        "GR",
+        "CONFIDENCE",
+        "NPHI",
+        "RHOB",
+        "LABEL",
+        "RDEP",
+        "X"
+      ],
+      "chunk_bytes": 41,
+      "sha256": "58b1acf4856cbadb21fe8870c5e25a4e4287096ef695494c95c11b07978efb8e"
+    },
+    {
+      "case": 41,
+      "column_order": [
+        "X",
+        "NPHI",
+        "CONFIDENCE",
+        "RDEP",
+        "RHOB",
+        "GR",
+        "LABEL"
+      ],
+      "chunk_bytes": 42,
+      "sha256": "13e0fc8f6613ec083f8a95020bf46fb9dfdc3b2f31df9bd81bf56814bd5c5c97"
+    },
+    {
+      "case": 42,
+      "column_order": [
+        "RDEP",
+        "CONFIDENCE",
+        "LABEL",
+        "RHOB",
+        "NPHI",
+        "GR",
+        "X"
+      ],
+      "chunk_bytes": 43,
+      "sha256": "16a76c15a84b019d546a2eb07f16a4abe845a8dae49c673142b05fd94d060af2"
+    },
+    {
+      "case": 43,
+      "column_order": [
+        "X",
+        "LABEL",
+        "GR",
+        "RDEP",
+        "CONFIDENCE",
+        "RHOB",
+        "NPHI"
+      ],
+      "chunk_bytes": 44,
+      "sha256": "3b836b69572e1493805e843d639e011f5cb0776c1bd96aa57d84cc1730c10bdb"
+    },
+    {
+      "case": 44,
+      "column_order": [
+        "X",
+        "RDEP",
+        "LABEL",
+        "GR",
+        "CONFIDENCE",
+        "NPHI",
+        "RHOB"
+      ],
+      "chunk_bytes": 45,
+      "sha256": "e60ffec63f972af8c83c35491c813b6613989d887bf75a7d21c1fa57af232584"
+    },
+    {
+      "case": 45,
+      "column_order": [
+        "NPHI",
+        "CONFIDENCE",
+        "LABEL",
+        "X",
+        "RDEP",
+        "RHOB",
+        "GR"
+      ],
+      "chunk_bytes": 46,
+      "sha256": "29b8b5d1d5686a538e61fe2a5cd3f636ba9a70f1810b477ddc8a4eca13854982"
+    },
+    {
+      "case": 46,
+      "column_order": [
+        "NPHI",
+        "GR",
+        "RHOB",
+        "RDEP",
+        "CONFIDENCE",
+        "LABEL",
+        "X"
+      ],
+      "chunk_bytes": 47,
+      "sha256": "bf09060944c1db8d6f3dae18bddf6d9067a6a5faec8db76936f11e4cc1ea56d7"
+    },
+    {
+      "case": 47,
+      "column_order": [
+        "CONFIDENCE",
+        "LABEL",
+        "NPHI",
+        "GR",
+        "RHOB",
+        "RDEP",
+        "X"
+      ],
+      "chunk_bytes": 48,
+      "sha256": "0cb79598336d4f44b863f387407e0bdb546083954f82db19cb65f508d7830163"
+    },
+    {
+      "case": 48,
+      "column_order": [
+        "NPHI",
+        "LABEL",
+        "CONFIDENCE",
+        "RHOB",
+        "GR",
+        "X",
+        "RDEP"
+      ],
+      "chunk_bytes": 49,
+      "sha256": "030b475293eacef79f78d5708e83d177f2f6d28daf50e4f46c13b1a1397526b4"
+    },
+    {
+      "case": 49,
+      "column_order": [
+        "CONFIDENCE",
+        "LABEL",
+        "RDEP",
+        "X",
+        "RHOB",
+        "GR",
+        "NPHI"
+      ],
+      "chunk_bytes": 50,
+      "sha256": "680b3a8ec9472b39101249b17e2849aae3c3d4c9bc6b32f41764166cee066c53"
+    },
+    {
+      "case": 50,
+      "column_order": [
+        "NPHI",
+        "RHOB",
+        "RDEP",
+        "X",
+        "LABEL",
+        "GR",
+        "CONFIDENCE"
+      ],
+      "chunk_bytes": 51,
+      "sha256": "addc10724d6d91a8ceca3f3b4cfdcff717ec83583ed95d72d78b69c4a287184f"
+    },
+    {
+      "case": 51,
+      "column_order": [
+        "NPHI",
+        "GR",
+        "X",
+        "RHOB",
+        "LABEL",
+        "RDEP",
+        "CONFIDENCE"
+      ],
+      "chunk_bytes": 52,
+      "sha256": "16d2943de55dfbdce7e352c8fec20d8e8154a7bbf0d7bf174014ae25d2c1c50d"
+    },
+    {
+      "case": 52,
+      "column_order": [
+        "RDEP",
+        "GR",
+        "NPHI",
+        "RHOB",
+        "CONFIDENCE",
+        "LABEL",
+        "X"
+      ],
+      "chunk_bytes": 53,
+      "sha256": "c9605d1813858af2aa9ce1cd0111484e18955bd5b4ff3d32b962d83af6037b5c"
+    },
+    {
+      "case": 53,
+      "column_order": [
+        "RDEP",
+        "LABEL",
+        "NPHI",
+        "RHOB",
+        "CONFIDENCE",
+        "GR",
+        "X"
+      ],
+      "chunk_bytes": 54,
+      "sha256": "d7e9409ec528c741557feb9bfa83dd4c338fcfbd7910a205dd791a35f32ed082"
+    },
+    {
+      "case": 54,
+      "column_order": [
+        "RHOB",
+        "CONFIDENCE",
+        "NPHI",
+        "LABEL",
+        "X",
+        "RDEP",
+        "GR"
+      ],
+      "chunk_bytes": 55,
+      "sha256": "ad79c282c52d6abe4b73a8cc4945412043535f780bc8bd2a4a62d1f5022b5167"
+    },
+    {
+      "case": 55,
+      "column_order": [
+        "NPHI",
+        "X",
+        "CONFIDENCE",
+        "RDEP",
+        "RHOB",
+        "GR",
+        "LABEL"
+      ],
+      "chunk_bytes": 56,
+      "sha256": "cc3ba03bb3b1467ddc935f3c36174614fdf889ff14ef831472fb7d4558bfe340"
+    },
+    {
+      "case": 56,
+      "column_order": [
+        "GR",
+        "X",
+        "RDEP",
+        "CONFIDENCE",
+        "NPHI",
+        "RHOB",
+        "LABEL"
+      ],
+      "chunk_bytes": 57,
+      "sha256": "713398b955a7b7d04a3092346694ff5025008816e6950d8fc5eacd632d08c17e"
+    },
+    {
+      "case": 57,
+      "column_order": [
+        "GR",
+        "X",
+        "CONFIDENCE",
+        "LABEL",
+        "RHOB",
+        "RDEP",
+        "NPHI"
+      ],
+      "chunk_bytes": 58,
+      "sha256": "89f97960f5c36b047efb5d1dfd075b51801eaff8e1e296f577233260a6b26180"
+    },
+    {
+      "case": 58,
+      "column_order": [
+        "LABEL",
+        "CONFIDENCE",
+        "NPHI",
+        "GR",
+        "X",
+        "RHOB",
+        "RDEP"
+      ],
+      "chunk_bytes": 59,
+      "sha256": "874aed9a42609be1d8f43de0c91872934f2464022383c0f3d3b9382eeeb142ff"
+    },
+    {
+      "case": 59,
+      "column_order": [
+        "X",
+        "LABEL",
+        "GR",
+        "NPHI",
+        "RHOB",
+        "RDEP",
+        "CONFIDENCE"
+      ],
+      "chunk_bytes": 60,
+      "sha256": "5d895dc178ce780cf4fa49c30747065474181088cdb1bb5817701eae19510292"
+    },
+    {
+      "case": 60,
+      "column_order": [
+        "NPHI",
+        "X",
+        "RHOB",
+        "GR",
+        "CONFIDENCE",
+        "RDEP",
+        "LABEL"
+      ],
+      "chunk_bytes": 61,
+      "sha256": "878cd2a5ec9f05fe3a4ba951c44931d67de1546c53ad17bdff300449ced5f2f5"
+    },
+    {
+      "case": 61,
+      "column_order": [
+        "CONFIDENCE",
+        "RDEP",
+        "GR",
+        "RHOB",
+        "X",
+        "NPHI",
+        "LABEL"
+      ],
+      "chunk_bytes": 62,
+      "sha256": "21ea4f5ac94ed7f3f70c7a0f799a9734424679ed336cf8e58e2019b0d515b007"
+    },
+    {
+      "case": 62,
+      "column_order": [
+        "GR",
+        "X",
+        "CONFIDENCE",
+        "RDEP",
+        "LABEL",
+        "RHOB",
+        "NPHI"
+      ],
+      "chunk_bytes": 63,
+      "sha256": "27d84737221fa1b22b0f5e6eb26b4f031d86988cc8b436833ee8cb6ce35c2a1a"
+    },
+    {
+      "case": 63,
+      "column_order": [
+        "NPHI",
+        "RDEP",
+        "RHOB",
+        "X",
+        "CONFIDENCE",
+        "GR",
+        "LABEL"
+      ],
+      "chunk_bytes": 64,
+      "sha256": "cb23c1e35fc6e5f5582c9681a6f74d890fa6c5fa717bf486de455e96780b8815"
+    },
+    {
+      "case": 64,
+      "column_order": [
+        "X",
+        "RDEP",
+        "NPHI",
+        "RHOB",
+        "GR",
+        "CONFIDENCE",
+        "LABEL"
+      ],
+      "chunk_bytes": 65,
+      "sha256": "b82934d84a6396ada75a9815ce5caa1ff82b9fe1678c5650d0991002bfd93cd2"
+    },
+    {
+      "case": 65,
+      "column_order": [
+        "CONFIDENCE",
+        "LABEL",
+        "RHOB",
+        "X",
+        "RDEP",
+        "NPHI",
+        "GR"
+      ],
+      "chunk_bytes": 66,
+      "sha256": "b5ab0af6aaa023f948b59917f3dde5f0cd582b6007af7841c870a32bcb287c01"
+    },
+    {
+      "case": 66,
+      "column_order": [
+        "LABEL",
+        "X",
+        "GR",
+        "CONFIDENCE",
+        "NPHI",
+        "RDEP",
+        "RHOB"
+      ],
+      "chunk_bytes": 67,
+      "sha256": "4d5ac17a1b02ce84a2c9dcce482e232c11b566ce99605c21ff6f6bb2ec898b23"
+    },
+    {
+      "case": 67,
+      "column_order": [
+        "X",
+        "RDEP",
+        "CONFIDENCE",
+        "NPHI",
+        "RHOB",
+        "LABEL",
+        "GR"
+      ],
+      "chunk_bytes": 68,
+      "sha256": "eb73d67b3970e7e69a311892539fc798f4b18adcf16afbc2ab8fbf135f8d227f"
+    },
+    {
+      "case": 68,
+      "column_order": [
+        "LABEL",
+        "RDEP",
+        "NPHI",
+        "X",
+        "RHOB",
+        "GR",
+        "CONFIDENCE"
+      ],
+      "chunk_bytes": 69,
+      "sha256": "7fc9c9132dc5d8ac3dd93b41d358810c5cee1622702624adb804597b278a0e73"
+    },
+    {
+      "case": 69,
+      "column_order": [
+        "RDEP",
+        "GR",
+        "NPHI",
+        "LABEL",
+        "CONFIDENCE",
+        "X",
+        "RHOB"
+      ],
+      "chunk_bytes": 70,
+      "sha256": "d9bf53c85164d5508ef1b4bf23718bfcbd48c1b1a6c39bab253fb722a2511675"
+    },
+    {
+      "case": 70,
+      "column_order": [
+        "LABEL",
+        "NPHI",
+        "RHOB",
+        "X",
+        "CONFIDENCE",
+        "GR",
+        "RDEP"
+      ],
+      "chunk_bytes": 71,
+      "sha256": "4ca414266145227edb2bb37bbb109f1570d935407aaf57d2adec8e9b9cb1603b"
+    },
+    {
+      "case": 71,
+      "column_order": [
+        "CONFIDENCE",
+        "X",
+        "LABEL",
+        "NPHI",
+        "RDEP",
+        "RHOB",
+        "GR"
+      ],
+      "chunk_bytes": 72,
+      "sha256": "301cd95da1e285e17d5c9e595da700afab76d6848def5fe48d3610b052c1307b"
+    },
+    {
+      "case": 72,
+      "column_order": [
+        "RDEP",
+        "NPHI",
+        "GR",
+        "X",
+        "RHOB",
+        "LABEL",
+        "CONFIDENCE"
+      ],
+      "chunk_bytes": 73,
+      "sha256": "f005ecafcdaee671b2bd0cc6dbfe70290038158e9f9c0e22b0e384af8504447e"
+    },
+    {
+      "case": 73,
+      "column_order": [
+        "X",
+        "CONFIDENCE",
+        "RDEP",
+        "GR",
+        "NPHI",
+        "RHOB",
+        "LABEL"
+      ],
+      "chunk_bytes": 74,
+      "sha256": "08e87b4ace80995330f909628110961a2e4cb56780a8e46fc5280ee6b9749fba"
+    },
+    {
+      "case": 74,
+      "column_order": [
+        "NPHI",
+        "RHOB",
+        "CONFIDENCE",
+        "RDEP",
+        "X",
+        "LABEL",
+        "GR"
+      ],
+      "chunk_bytes": 75,
+      "sha256": "18d816d45128af62ea9ec490710a36b44b6a7d712ea1ae05f18fa3159de6873a"
+    },
+    {
+      "case": 75,
+      "column_order": [
+        "X",
+        "LABEL",
+        "RHOB",
+        "RDEP",
+        "NPHI",
+        "GR",
+        "CONFIDENCE"
+      ],
+      "chunk_bytes": 76,
+      "sha256": "2f18341e81a6d086c117173c15339c0444e0ce2658a3aa8de5e9d0089909b094"
+    },
+    {
+      "case": 76,
+      "column_order": [
+        "LABEL",
+        "X",
+        "RHOB",
+        "RDEP",
+        "CONFIDENCE",
+        "GR",
+        "NPHI"
+      ],
+      "chunk_bytes": 77,
+      "sha256": "e43e916e1839805c24e695fdb387295b15a58bbf5d8e3afa66cd0e9cf62ddd83"
+    },
+    {
+      "case": 77,
+      "column_order": [
+        "NPHI",
+        "RHOB",
+        "CONFIDENCE",
+        "RDEP",
+        "LABEL",
+        "GR",
+        "X"
+      ],
+      "chunk_bytes": 78,
+      "sha256": "7143a68f15b0f95d7864ae00cc6f5ed1bc73032b1ee3e3f88e88e0c487594863"
+    },
+    {
+      "case": 78,
+      "column_order": [
+        "RHOB",
+        "GR",
+        "CONFIDENCE",
+        "X",
+        "RDEP",
+        "LABEL",
+        "NPHI"
+      ],
+      "chunk_bytes": 79,
+      "sha256": "3b82a5d2d916c6cd2cbcaf51f0b8242a9e1fe4390e4959b94ef04cb88a229151"
+    },
+    {
+      "case": 79,
+      "column_order": [
+        "X",
+        "CONFIDENCE",
+        "RHOB",
+        "LABEL",
+        "GR",
+        "RDEP",
+        "NPHI"
+      ],
+      "chunk_bytes": 80,
+      "sha256": "4625c2215990b30bd1c42ac603bf5c19d3b0cf9cdf041da8bf41b5707adf1619"
+    },
+    {
+      "case": 80,
+      "column_order": [
+        "RHOB",
+        "CONFIDENCE",
+        "X",
+        "RDEP",
+        "LABEL",
+        "NPHI",
+        "GR"
+      ],
+      "chunk_bytes": 81,
+      "sha256": "7e7abdf0ac095e6ace05d0cb0a78a9dbf72ebe711aeeed067b84b56f3e97ae90"
+    },
+    {
+      "case": 81,
+      "column_order": [
+        "LABEL",
+        "GR",
+        "RDEP",
+        "RHOB",
+        "X",
+        "CONFIDENCE",
+        "NPHI"
+      ],
+      "chunk_bytes": 82,
+      "sha256": "08bf27249003d7ffe6f1991bc22eee0d6de53824b9dca76a73caa8e562435db5"
+    },
+    {
+      "case": 82,
+      "column_order": [
+        "CONFIDENCE",
+        "NPHI",
+        "GR",
+        "RDEP",
+        "RHOB",
+        "LABEL",
+        "X"
+      ],
+      "chunk_bytes": 83,
+      "sha256": "f9c4592e4e7bcf8f03caeaeb6a5b88548e0687d0e8a82a80a7c13b58befd034c"
+    },
+    {
+      "case": 83,
+      "column_order": [
+        "CONFIDENCE",
+        "RHOB",
+        "LABEL",
+        "X",
+        "GR",
+        "NPHI",
+        "RDEP"
+      ],
+      "chunk_bytes": 84,
+      "sha256": "7e5f232d8203d0e483df5337a1d226ee1dd7756b32527f925efed71467664ffb"
+    },
+    {
+      "case": 84,
+      "column_order": [
+        "X",
+        "RHOB",
+        "RDEP",
+        "GR",
+        "CONFIDENCE",
+        "LABEL",
+        "NPHI"
+      ],
+      "chunk_bytes": 85,
+      "sha256": "b0e0fa24e6435881f9f397190495a646186aed872c45d8d3d9cd5e3d98dc4dac"
+    },
+    {
+      "case": 85,
+      "column_order": [
+        "CONFIDENCE",
+        "RHOB",
+        "GR",
+        "RDEP",
+        "X",
+        "LABEL",
+        "NPHI"
+      ],
+      "chunk_bytes": 86,
+      "sha256": "b68974fb7b4ca877db87fa58f6a076a368f3b6e39710a5e96e731dd322f3892d"
+    },
+    {
+      "case": 86,
+      "column_order": [
+        "CONFIDENCE",
+        "GR",
+        "RDEP",
+        "NPHI",
+        "X",
+        "RHOB",
+        "LABEL"
+      ],
+      "chunk_bytes": 87,
+      "sha256": "63d942beb9eccc232d03e25005539d3c51617627c75c9a256ab1689a45346c07"
+    },
+    {
+      "case": 87,
+      "column_order": [
+        "GR",
+        "CONFIDENCE",
+        "RDEP",
+        "RHOB",
+        "LABEL",
+        "X",
+        "NPHI"
+      ],
+      "chunk_bytes": 88,
+      "sha256": "b9b09604c48c5287db4ab2f3b8d6cfa4200437c0d1e529a6e540a4a188a3c8b3"
+    },
+    {
+      "case": 88,
+      "column_order": [
+        "NPHI",
+        "RDEP",
+        "RHOB",
+        "X",
+        "CONFIDENCE",
+        "LABEL",
+        "GR"
+      ],
+      "chunk_bytes": 89,
+      "sha256": "12bc5bae0492f11b05fdd97e61516dd51b1a11984c7ae3fa23fe923b97180a6c"
+    },
+    {
+      "case": 89,
+      "column_order": [
+        "X",
+        "LABEL",
+        "NPHI",
+        "RDEP",
+        "CONFIDENCE",
+        "RHOB",
+        "GR"
+      ],
+      "chunk_bytes": 90,
+      "sha256": "2e31d03f8d532bb5482458399766e6f618a86bf8ef332c599ea6ad5c490c4f46"
+    },
+    {
+      "case": 90,
+      "column_order": [
+        "CONFIDENCE",
+        "RDEP",
+        "NPHI",
+        "X",
+        "RHOB",
+        "LABEL",
+        "GR"
+      ],
+      "chunk_bytes": 91,
+      "sha256": "c13d97df5b21df5038520f5e046fa8632c7b2b3037866bb0bab004e5adfe1fb1"
+    },
+    {
+      "case": 91,
+      "column_order": [
+        "GR",
+        "LABEL",
+        "NPHI",
+        "X",
+        "RHOB",
+        "RDEP",
+        "CONFIDENCE"
+      ],
+      "chunk_bytes": 92,
+      "sha256": "abd7ce1987de903f93a116d2fcd522c9a4fcecf5ecd9534e7df1909f93dac3ba"
+    },
+    {
+      "case": 92,
+      "column_order": [
+        "RHOB",
+        "GR",
+        "NPHI",
+        "RDEP",
+        "LABEL",
+        "X",
+        "CONFIDENCE"
+      ],
+      "chunk_bytes": 93,
+      "sha256": "276d50503816097e1dea3d65b5f1d7f33af88759f442cdaf0612616889344f02"
+    },
+    {
+      "case": 93,
+      "column_order": [
+        "CONFIDENCE",
+        "RHOB",
+        "LABEL",
+        "RDEP",
+        "NPHI",
+        "X",
+        "GR"
+      ],
+      "chunk_bytes": 94,
+      "sha256": "80e505d9442b0d0e56efa909f9cd133931a678187f021a930f2bb907370e82c1"
+    },
+    {
+      "case": 94,
+      "column_order": [
+        "RDEP",
+        "CONFIDENCE",
+        "LABEL",
+        "X",
+        "NPHI",
+        "RHOB",
+        "GR"
+      ],
+      "chunk_bytes": 95,
+      "sha256": "2bc832c5272ccfbfad4c8e8b66f7239a9cc358d84a1126cb537ddd8d47be1190"
+    },
+    {
+      "case": 95,
+      "column_order": [
+        "NPHI",
+        "LABEL",
+        "GR",
+        "X",
+        "RDEP",
+        "RHOB",
+        "CONFIDENCE"
+      ],
+      "chunk_bytes": 96,
+      "sha256": "b720afd2a038723acb83e73e83ffccf29c30e266f1baf6d4cf2ea48c377959a5"
+    },
+    {
+      "case": 96,
+      "column_order": [
+        "RDEP",
+        "RHOB",
+        "LABEL",
+        "GR",
+        "CONFIDENCE",
+        "NPHI",
+        "X"
+      ],
+      "chunk_bytes": 97,
+      "sha256": "36466e928501b35f15c44b6ac821b5b11665d85b57a389f8ed86e41c217c8c67"
+    },
+    {
+      "case": 97,
+      "column_order": [
+        "RHOB",
+        "NPHI",
+        "X",
+        "GR",
+        "LABEL",
+        "RDEP",
+        "CONFIDENCE"
+      ],
+      "chunk_bytes": 98,
+      "sha256": "db888e607f35ca32a8ebfa8e3f2cfb7b3bcca2d32601b9bca1a0f183c18e517c"
+    },
+    {
+      "case": 98,
+      "column_order": [
+        "RHOB",
+        "NPHI",
+        "LABEL",
+        "GR",
+        "RDEP",
+        "X",
+        "CONFIDENCE"
+      ],
+      "chunk_bytes": 99,
+      "sha256": "d60d206bd5171f823845f800ae02c81318e8a992920fb83cdee74e535fe0a41a"
+    },
+    {
+      "case": 99,
+      "column_order": [
+        "RHOB",
+        "CONFIDENCE",
+        "GR",
+        "X",
+        "NPHI",
+        "LABEL",
+        "RDEP"
+      ],
+      "chunk_bytes": 100,
+      "sha256": "d52dedb498f71e991600c03be62611c738ea0c933de98691d3efe9d4f25204b4"
+    }
+  ],
+  "independent_invalid_manifest_cases": [
+    {
+      "case": "cross_split",
+      "error": "split grouping rejected: split assignment rejected with 1 violation(s): cross_split_root(1/2-3 A)"
+    },
+    {
+      "case": "wrong_heldout_well",
+      "error": "member=b.las: split well_id '9/9-9' does not match the reviewed inventory UWI '4/5-6'"
+    },
+    {
+      "case": "wrong_heldout_sha",
+      "error": "member=b.las: split member sha256 does not match the reviewed inventory"
+    },
+    {
+      "case": "unknown_parent",
+      "error": "split grouping rejected: split assignment rejected with 1 violation(s): unknown_parent(4/5-6)"
+    },
+    {
+      "case": "self_cycle",
+      "error": "split grouping rejected: split assignment rejected with 1 violation(s): derivative_cycle(4/5-6)"
+    },
+    {
+      "case": "wrong_root",
+      "error": "member=b.las: root_id '9/9-9' is not the derived parent well '4/5-6' of well_id '4/5-6'"
+    },
+    {
+      "case": "duplicate_row",
+      "error": "duplicate split row_id '1/2-3'"
+    }
+  ],
+  "real_fit": {
+    "opened_members": [
+      "Force_2020_all_wells_train_test_blind_hidden_final/16_8-1.las",
+      "Force_2020_all_wells_train_test_blind_hidden_final/34_7-13.las",
+      "Force_2020_all_wells_train_test_blind_hidden_final/31_3-1.las",
+      "Force_2020_all_wells_train_test_blind_hidden_final/35_9-7.las",
+      "Force_2020_all_wells_train_test_blind_hidden_final/34_3-2 S.las",
+      "Force_2020_all_wells_train_test_blind_hidden_final/25_5-3.las",
+      "Force_2020_all_wells_train_test_blind_hidden_final/25_4-5.las",
+      "Force_2020_all_wells_train_test_blind_hidden_final/35_3-7 S.las",
+      "Force_2020_all_wells_train_test_blind_hidden_final/34_5-1 A.las",
+      "Force_2020_all_wells_train_test_blind_hidden_final/34_5-1 S.las",
+      "Force_2020_all_wells_train_test_blind_hidden_final/25_5-4.las",
+      "Force_2020_all_wells_train_test_blind_hidden_final/25_3-1.las",
+      "Force_2020_all_wells_train_test_blind_hidden_final/33_6-3 S.las",
+      "Force_2020_all_wells_train_test_blind_hidden_final/34_12-1.las",
+      "Force_2020_all_wells_train_test_blind_hidden_final/16_10-2.las",
+      "Force_2020_all_wells_train_test_blind_hidden_final/31_5-4 S.las",
+      "Force_2020_all_wells_train_test_blind_hidden_final/29_3-1.las",
+      "Force_2020_all_wells_train_test_blind_hidden_final/34_8-7 R.las",
+      "Force_2020_all_wells_train_test_blind_hidden_final/31_2-8.las",
+      "Force_2020_all_wells_train_test_blind_hidden_final/25_2-14.las",
+      "Force_2020_all_wells_train_test_blind_hidden_final/25_11-19 S.las",
+      "Force_2020_all_wells_train_test_blind_hidden_final/31_3-4.las",
+      "Force_2020_all_wells_train_test_blind_hidden_final/35_8-4.las",
+      "Force_2020_all_wells_train_test_blind_hidden_final/15_9-13.las",
+      "Force_2020_all_wells_train_test_blind_hidden_final/31_4-5.las",
+      "Force_2020_all_wells_train_test_blind_hidden_final/35_11-15 S.las",
+      "Force_2020_all_wells_train_test_blind_hidden_final/34_10-33.las",
+      "Force_2020_all_wells_train_test_blind_hidden_final/33_9-1.las",
+      "Force_2020_all_wells_train_test_blind_hidden_final/34_6-1 S.las",
+      "Force_2020_all_wells_train_test_blind_hidden_final/16_10-5.las",
+      "Force_2020_all_wells_train_test_blind_hidden_final/16_4-1.las",
+      "Force_2020_all_wells_train_test_blind_hidden_final/35_8-6 S.las",
+      "Force_2020_all_wells_train_test_blind_hidden_final/25_10-9.las",
+      "Force_2020_all_wells_train_test_blind_hidden_final/16_5-3.las",
+      "Force_2020_all_wells_train_test_blind_hidden_final/31_2-19 S.las",
+      "Force_2020_all_wells_train_test_blind_hidden_final/16_10-3.las",
+      "Force_2020_all_wells_train_test_blind_hidden_final/35_9-5.las",
+      "Force_2020_all_wells_train_test_blind_hidden_final/35_11-6.las",
+      "Force_2020_all_wells_train_test_blind_hidden_final/16_2-6.las",
+      "Force_2020_all_wells_train_test_blind_hidden_final/17_11-1.las",
+      "Force_2020_all_wells_train_test_blind_hidden_final/34_2-4.las",
+      "Force_2020_all_wells_train_test_blind_hidden_final/35_6-2 S.las",
+      "Force_2020_all_wells_train_test_blind_hidden_final/25_6-1.las",
+      "Force_2020_all_wells_train_test_blind_hidden_final/31_2-7.las",
+      "Force_2020_all_wells_train_test_blind_hidden_final/35_11-10.las",
+      "Force_2020_all_wells_train_test_blind_hidden_final/25_2-13 T4.las",
+      "Force_2020_all_wells_train_test_blind_hidden_final/31_6-8.las",
+      "Force_2020_all_wells_train_test_blind_hidden_final/35_11-1.las",
+      "Force_2020_all_wells_train_test_blind_hidden_final/31_2-21 S.las",
+      "Force_2020_all_wells_train_test_blind_hidden_final/34_10-16 R.las",
+      "Force_2020_all_wells_train_test_blind_hidden_final/25_6-3.las",
+      "Force_2020_all_wells_train_test_blind_hidden_final/35_11-7.las",
+      "Force_2020_all_wells_train_test_blind_hidden_final/34_3-1 A.las",
+      "Force_2020_all_wells_train_test_blind_hidden_final/35_4-1.las",
+      "Force_2020_all_wells_train_test_blind_hidden_final/17_4-1.las",
+      "Force_2020_all_wells_train_test_blind_hidden_final/35_12-1.las",
+      "Force_2020_all_wells_train_test_blind_hidden_final/7_1-2 S.las",
+      "Force_2020_all_wells_train_test_blind_hidden_final/16_11-1 ST3.las",
+      "Force_2020_all_wells_train_test_blind_hidden_final/15_9-14.las",
+      "Force_2020_all_wells_train_test_blind_hidden_final/25_5-1.las",
+      "Force_2020_all_wells_train_test_blind_hidden_final/16_2-16.las",
+      "Force_2020_all_wells_train_test_blind_hidden_final/35_11-5.las",
+      "Force_2020_all_wells_train_test_blind_hidden_final/16_7-4.las",
+      "Force_2020_all_wells_train_test_blind_hidden_final/35_11-12.las",
+      "Force_2020_all_wells_train_test_blind_hidden_final/31_2-10.las",
+      "Force_2020_all_wells_train_test_blind_hidden_final/36_7-3.las",
+      "Force_2020_all_wells_train_test_blind_hidden_final/34_7-20.las",
+      "Force_2020_all_wells_train_test_blind_hidden_final/31_2-9.las",
+      "Force_2020_all_wells_train_test_blind_hidden_final/15_9-17.las",
+      "Force_2020_all_wells_train_test_blind_hidden_final/25_11-24.las",
+      "Force_2020_all_wells_train_test_blind_hidden_final/35_9-8.las",
+      "Force_2020_all_wells_train_test_blind_hidden_final/35_9-6 S.las",
+      "Force_2020_all_wells_train_test_blind_hidden_final/30_6-5.las",
+      "Force_2020_all_wells_train_test_blind_hidden_final/25_11-5.las",
+      "Force_2020_all_wells_train_test_blind_hidden_final/7_1-1.las",
+      "Force_2020_all_wells_train_test_blind_hidden_final/35_9-2.las",
+      "Force_2020_all_wells_train_test_blind_hidden_final/34_10-35.las",
+      "Force_2020_all_wells_train_test_blind_hidden_final/25_11-15.las",
+      "Force_2020_all_wells_train_test_blind_hidden_final/33_5-2.las",
+      "Force_2020_all_wells_train_test_blind_hidden_final/30_3-3.las",
+      "Force_2020_all_wells_train_test_blind_hidden_final/25_10-10.las",
+      "Force_2020_all_wells_train_test_blind_hidden_final/35_9-10 S.las"
+    ],
+    "heldout_opened": 0,
+    "train": {
+      "wells": 82,
+      "parent_groups": 81,
+      "data_rows": 1634292
+    },
+    "exact_current_output_equality": true,
+    "prior_stats_bitwise_unchanged": true,
+    "independent_fsum_readback_sha256": "57083cb9630bf9570ac611cbc6018b10cb9855d97ec1cd92936d183cc336507f"
+  },
+  "source_sha256": {
+    "data/force_preprocess.py": "75b2015c0ec9deab9a94a2032b77117124085631f2bd758a54c7ea7fdfdf2848",
+    "tests/ai/data_model/test_force_preprocess.py": "a96529e9f3954379f23bb1c5d4806b750801a10c037101712effcdcb8d71bef4",
+    "data/preprocessing.json": "cb66fd302165c86344f3b8d1af9d9c4e4e229621cef44cbfa6fb8cd121a63eef",
+    "data/grouping.py": "f1a35a5b060cafb640d8f65b2914af9616258b7fa21f99d1a589d232f7b2be4d",
+    "data/force_inventory.py": "5bba8316ea36484df058dacb2289073ffb09ce19e401dfb297598b3e3cd10f47"
+  },
+  "input_sha256": {
+    "force_wells.json": "ace9a0eb9930f19c6b8125e151d07346fb23029b1455eac04964d15b97461e59",
+    "splits.json": "f10ddb8f37e6bdf7c9663eed45d0f6554ef8992899724013a7e487ad3e3cef91",
+    "split_policy.json": "66c5138ad45138104bca20d39c4680daa82534a16e381f8d2879eea6f37b81c9",
+    "label_schema.json": "0913ff5a59085b47802a9902f23a836f4fa1129700de8e6593840416f4d7beed"
+  },
+  "review_script_sha256": "5ec935f53f8f22a8a73cd1ddb9f6c0d76725fc9ded49661d4c3d5d92df675a8b",
+  "product_C01": "not_run",
+  "stages": {
+    "simulation": "not_run",
+    "synthesis": "not_run",
+    "implementation": "not_run",
+    "board": "not_run",
+    "system": "not_run"
+  },
+  "limits": [
+    "No causal curve replay windows, verify_data CLI, training, model accuracy or runtime isolation acceptance.",
+    "The independent numeric readback is reused because all statistics and fitting members remain bitwise equal.",
+    "PF01/PF02 original failures retained in private review evidence."
+  ],
+  "reproduction_note": "The captured main script used local prior-review snapshots and a public FORCE archive. Tests and preprocessing CLI run directly from published source. Main results include an independent guarded 82-well fit and 100 hand-built LAS permutations.",
+  "independent_statistics": {
+    "status": "passed_independent_numeric_readback_only",
+    "method": "independent line parsing; per-well math.fsum values and squares; no calls to fitter or inventory parser",
+    "archive_sha256": "042ef1d473100dc12768cae7107a8cead071a394f137af3bc1ddaf8a5d1b8dda",
+    "split_sha256": "f10ddb8f37e6bdf7c9663eed45d0f6554ef8992899724013a7e487ad3e3cef91",
+    "reference_preprocessing_sha256": "a7b2f069c9ab45160e58980e58d86e75355f0b31d2f1fceb6ea3fe4391bad454",
+    "train_members": [
+      "Force_2020_all_wells_train_test_blind_hidden_final/16_8-1.las",
+      "Force_2020_all_wells_train_test_blind_hidden_final/34_7-13.las",
+      "Force_2020_all_wells_train_test_blind_hidden_final/31_3-1.las",
+      "Force_2020_all_wells_train_test_blind_hidden_final/35_9-7.las",
+      "Force_2020_all_wells_train_test_blind_hidden_final/34_3-2 S.las",
+      "Force_2020_all_wells_train_test_blind_hidden_final/25_5-3.las",
+      "Force_2020_all_wells_train_test_blind_hidden_final/25_4-5.las",
+      "Force_2020_all_wells_train_test_blind_hidden_final/35_3-7 S.las",
+      "Force_2020_all_wells_train_test_blind_hidden_final/34_5-1 A.las",
+      "Force_2020_all_wells_train_test_blind_hidden_final/34_5-1 S.las",
+      "Force_2020_all_wells_train_test_blind_hidden_final/25_5-4.las",
+      "Force_2020_all_wells_train_test_blind_hidden_final/25_3-1.las",
+      "Force_2020_all_wells_train_test_blind_hidden_final/33_6-3 S.las",
+      "Force_2020_all_wells_train_test_blind_hidden_final/34_12-1.las",
+      "Force_2020_all_wells_train_test_blind_hidden_final/16_10-2.las",
+      "Force_2020_all_wells_train_test_blind_hidden_final/31_5-4 S.las",
+      "Force_2020_all_wells_train_test_blind_hidden_final/29_3-1.las",
+      "Force_2020_all_wells_train_test_blind_hidden_final/34_8-7 R.las",
+      "Force_2020_all_wells_train_test_blind_hidden_final/31_2-8.las",
+      "Force_2020_all_wells_train_test_blind_hidden_final/25_2-14.las",
+      "Force_2020_all_wells_train_test_blind_hidden_final/25_11-19 S.las",
+      "Force_2020_all_wells_train_test_blind_hidden_final/31_3-4.las",
+      "Force_2020_all_wells_train_test_blind_hidden_final/35_8-4.las",
+      "Force_2020_all_wells_train_test_blind_hidden_final/15_9-13.las",
+      "Force_2020_all_wells_train_test_blind_hidden_final/31_4-5.las",
+      "Force_2020_all_wells_train_test_blind_hidden_final/35_11-15 S.las",
+      "Force_2020_all_wells_train_test_blind_hidden_final/34_10-33.las",
+      "Force_2020_all_wells_train_test_blind_hidden_final/33_9-1.las",
+      "Force_2020_all_wells_train_test_blind_hidden_final/34_6-1 S.las",
+      "Force_2020_all_wells_train_test_blind_hidden_final/16_10-5.las",
+      "Force_2020_all_wells_train_test_blind_hidden_final/16_4-1.las",
+      "Force_2020_all_wells_train_test_blind_hidden_final/35_8-6 S.las",
+      "Force_2020_all_wells_train_test_blind_hidden_final/25_10-9.las",
+      "Force_2020_all_wells_train_test_blind_hidden_final/16_5-3.las",
+      "Force_2020_all_wells_train_test_blind_hidden_final/31_2-19 S.las",
+      "Force_2020_all_wells_train_test_blind_hidden_final/16_10-3.las",
+      "Force_2020_all_wells_train_test_blind_hidden_final/35_9-5.las",
+      "Force_2020_all_wells_train_test_blind_hidden_final/35_11-6.las",
+      "Force_2020_all_wells_train_test_blind_hidden_final/16_2-6.las",
+      "Force_2020_all_wells_train_test_blind_hidden_final/17_11-1.las",
+      "Force_2020_all_wells_train_test_blind_hidden_final/34_2-4.las",
+      "Force_2020_all_wells_train_test_blind_hidden_final/35_6-2 S.las",
+      "Force_2020_all_wells_train_test_blind_hidden_final/25_6-1.las",
+      "Force_2020_all_wells_train_test_blind_hidden_final/31_2-7.las",
+      "Force_2020_all_wells_train_test_blind_hidden_final/35_11-10.las",
+      "Force_2020_all_wells_train_test_blind_hidden_final/25_2-13 T4.las",
+      "Force_2020_all_wells_train_test_blind_hidden_final/31_6-8.las",
+      "Force_2020_all_wells_train_test_blind_hidden_final/35_11-1.las",
+      "Force_2020_all_wells_train_test_blind_hidden_final/31_2-21 S.las",
+      "Force_2020_all_wells_train_test_blind_hidden_final/34_10-16 R.las",
+      "Force_2020_all_wells_train_test_blind_hidden_final/25_6-3.las",
+      "Force_2020_all_wells_train_test_blind_hidden_final/35_11-7.las",
+      "Force_2020_all_wells_train_test_blind_hidden_final/34_3-1 A.las",
+      "Force_2020_all_wells_train_test_blind_hidden_final/35_4-1.las",
+      "Force_2020_all_wells_train_test_blind_hidden_final/17_4-1.las",
+      "Force_2020_all_wells_train_test_blind_hidden_final/35_12-1.las",
+      "Force_2020_all_wells_train_test_blind_hidden_final/7_1-2 S.las",
+      "Force_2020_all_wells_train_test_blind_hidden_final/16_11-1 ST3.las",
+      "Force_2020_all_wells_train_test_blind_hidden_final/15_9-14.las",
+      "Force_2020_all_wells_train_test_blind_hidden_final/25_5-1.las",
+      "Force_2020_all_wells_train_test_blind_hidden_final/16_2-16.las",
+      "Force_2020_all_wells_train_test_blind_hidden_final/35_11-5.las",
+      "Force_2020_all_wells_train_test_blind_hidden_final/16_7-4.las",
+      "Force_2020_all_wells_train_test_blind_hidden_final/35_11-12.las",
+      "Force_2020_all_wells_train_test_blind_hidden_final/31_2-10.las",
+      "Force_2020_all_wells_train_test_blind_hidden_final/36_7-3.las",
+      "Force_2020_all_wells_train_test_blind_hidden_final/34_7-20.las",
+      "Force_2020_all_wells_train_test_blind_hidden_final/31_2-9.las",
+      "Force_2020_all_wells_train_test_blind_hidden_final/15_9-17.las",
+      "Force_2020_all_wells_train_test_blind_hidden_final/25_11-24.las",
+      "Force_2020_all_wells_train_test_blind_hidden_final/35_9-8.las",
+      "Force_2020_all_wells_train_test_blind_hidden_final/35_9-6 S.las",
+      "Force_2020_all_wells_train_test_blind_hidden_final/30_6-5.las",
+      "Force_2020_all_wells_train_test_blind_hidden_final/25_11-5.las",
+      "Force_2020_all_wells_train_test_blind_hidden_final/7_1-1.las",
+      "Force_2020_all_wells_train_test_blind_hidden_final/35_9-2.las",
+      "Force_2020_all_wells_train_test_blind_hidden_final/34_10-35.las",
+      "Force_2020_all_wells_train_test_blind_hidden_final/25_11-15.las",
+      "Force_2020_all_wells_train_test_blind_hidden_final/33_5-2.las",
+      "Force_2020_all_wells_train_test_blind_hidden_final/30_3-3.las",
+      "Force_2020_all_wells_train_test_blind_hidden_final/25_10-10.las",
+      "Force_2020_all_wells_train_test_blind_hidden_final/35_9-10 S.las"
+    ],
+    "wells": 82,
+    "rows": 1634292,
+    "channels": {
+      "GR": {
+        "counts": {
+          "valid": 1611273,
+          "null": 23019,
+          "nonpositive": 0,
+          "absent": 0
+        },
+        "mean_fsum": 71.6584557535929,
+        "population_variance_fsum": 1414.8612169010257,
+        "mean_abs_delta": 3.680611371237319e-12,
+        "variance_abs_delta": 1.6370904631912708e-11
+      },
+      "RHOB": {
+        "counts": {
+          "valid": 985642,
+          "null": 648650,
+          "nonpositive": 0,
+          "absent": 0
+        },
+        "mean_fsum": 2.2409996410499486,
+        "population_variance_fsum": 0.17689390891059986,
+        "mean_abs_delta": 7.549516567451064e-15,
+        "variance_abs_delta": 8.659739592076221e-15
+      },
+      "NPHI": {
+        "counts": {
+          "valid": 706338,
+          "null": 927954,
+          "nonpositive": 0,
+          "absent": 0
+        },
+        "mean_fsum": 0.32798293969860354,
+        "population_variance_fsum": 0.016141541984433808,
+        "mean_abs_delta": 6.8833827526759706e-15,
+        "variance_abs_delta": 3.122502256758253e-16
+      },
+      "RDEP": {
+        "counts": {
+          "valid": 1558462,
+          "null": 75830,
+          "nonpositive": 0,
+          "absent": 0
+        },
+        "mean_fsum": 0.22979747640222287,
+        "population_variance_fsum": 0.17873315596432165,
+        "mean_abs_delta": 5.9119376061289586e-15,
+        "variance_abs_delta": 1.942890293094024e-16
+      }
+    },
+    "held_out_members_opened": 0,
+    "C01": "not_run",
+    "fitter_acceptance": "still_rejected_until_PF01_PF02_fixed"
+  }
+}

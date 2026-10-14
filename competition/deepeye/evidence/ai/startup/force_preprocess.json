@@ -1,0 +1,230 @@
+{
+  "schema": 1,
+  "task_id": "DEEPEYE-C-FORCE-PREPROCESS-20261015",
+  "task_version": 1,
+  "work_id": "C-force-train-only-preprocess-v1",
+  "contract_id": "DEEPEYE-HUMAN-LOCK-20261014/revision1",
+  "requirements_sha256": "c229834bfc2292f5fe4411fc9f12c68487008f9d1adaf31f0144ee7a98173804",
+  "design_commit": "1011259415a0916054eb580687612580bc1e5f09",
+  "generated_at_utc": "2026-10-14T21:06:39Z",
+  "scope": "C01 train-only preprocessing fitter over the reviewed FORCE 2020 train split (repair1); software-only; product C01 stays not_run",
+  "status": "passed",
+  "tests": 33,
+  "commands": [
+    {
+      "command": [
+        "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\venv\\Scripts\\python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\deepeye-implementation-c\\competition\\deepeye\\tests\\ai\\data_model\\test_force_preprocess.py"
+      ],
+      "exit_code": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "730c15e38cd5dbf89834d3a02018af415113a638eb82a38d17bb2cd958a97888"
+    },
+    {
+      "command": [
+        "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\venv\\Scripts\\python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\deepeye-implementation-c\\competition\\deepeye\\data\\force_preprocess.py"
+      ],
+      "exit_code": 0,
+      "stdout_sha256": "a4d121530b8d50bf30c027466dbe5e2f9cabb6c0bc2e24eaca382dd07ab0e5b4",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "command": [
+        "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\venv\\Scripts\\python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "C:\\Users\\Alan\\AppData\\Local\\Temp\\fp_evidence_repair1b_20261015\\readback2.py"
+      ],
+      "exit_code": 0,
+      "stdout_sha256": "479afd3ca1dc286bc630c9ace1c83b326f14779909841d5fc492c246fcd09376",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "command": [
+        "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\venv\\Scripts\\python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "C:\\Users\\Alan\\AppData\\Local\\Temp\\fp_evidence_repair1b_20261015\\compare_stats.py"
+      ],
+      "exit_code": 0,
+      "stdout_sha256": "ab316d75a396bdbffc44f1285875f361945330e4f4115da0cc60960b81c84ddf",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "tool_versions": {
+    "python": "3.12.14",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "packages": "stdlib only (argparse, datetime, hashlib, importlib.util, json, math, pathlib, re, sys, zipfile)"
+  },
+  "source_sha256": {
+    "data/force_preprocess.py": "75b2015c0ec9deab9a94a2032b77117124085631f2bd758a54c7ea7fdfdf2848",
+    "data/preprocessing.json": "cb66fd302165c86344f3b8d1af9d9c4e4e229621cef44cbfa6fb8cd121a63eef",
+    "tests/ai/data_model/test_force_preprocess.py": "a96529e9f3954379f23bb1c5d4806b750801a10c037101712effcdcb8d71bef4",
+    "evidence/ai/startup/force_preprocess.log": "98c5914340ff65f561c138b551a79c53e5dfba9aa515e7ac39ebb74dc68b82f0"
+  },
+  "input_sha256": {
+    "archive": "042ef1d473100dc12768cae7107a8cead071a394f137af3bc1ddaf8a5d1b8dda",
+    "archive_bytes": 169785172,
+    "inventory": "ace9a0eb9930f19c6b8125e151d07346fb23029b1455eac04964d15b97461e59",
+    "splits": "f10ddb8f37e6bdf7c9663eed45d0f6554ef8992899724013a7e487ad3e3cef91",
+    "policy": "66c5138ad45138104bca20d39c4680daa82534a16e381f8d2879eea6f37b81c9",
+    "label_schema": "0913ff5a59085b47802a9902f23a836f4fa1129700de8e6593840416f4d7beed",
+    "helpers": {
+      "grouping": "f1a35a5b060cafb640d8f65b2914af9616258b7fa21f99d1a589d232f7b2be4d",
+      "force_inventory": "5bba8316ea36484df058dacb2289073ffb09ce19e401dfb297598b3e3cd10f47"
+    }
+  },
+  "repair": {
+    "review_source": ".local/plan-20261014-final-c/director-startup/preprocess-main-review.json",
+    "PF01": "prior revision parsed all numeric tokens including label/confidence/coordinate columns; fixed to parse depth index 0 and the four selected channel indices only; regression test instruments _strict_number call counts (exactly 15 calls for a 3-row fixture: depth + 4 channels) and proves unselected opaque sentinels are never converted; selected/depth opaque tokens still fail with member+line; module docstring corrected to describe FORCE curve-profile preprocessing (GR, RHOB, NPHI, RDEP), explicitly distinct from the online sim_em_v2 summary contract",
+    "PF02": "prior revision accepted the same parent root in train and validation when explicit fixture expectations mirrored counts; now enforces unique row_id and (source_domain, well_id), member sha256 and UWI identity against the inventory, derived root equality with the FORCE parent pattern, declared split counts, and root purity via read-only data/grouping.py:validate_split_assignments before fitting; regressions cover shared parent across splits, sidetrack grouping within one split, wrong well_id with matching bytes, unknown/cyclic parents, cross-domain derivatives and duplicate identity",
+    "new_tests": [
+      "test_unselected_columns_are_never_parsed_numerically",
+      "test_selected_or_depth_opaque_tokens_still_fail",
+      "test_shared_parent_across_splits_rejected",
+      "test_sidetrack_grouping_preserved_within_one_split",
+      "test_wrong_well_id_with_matching_bytes_rejected",
+      "test_wrong_root_and_non_force_well_identity_rejected",
+      "test_derivative_rules_rejected",
+      "test_duplicate_identity_and_held_out_sha_rejected"
+    ],
+    "stats_regenerated": true
+  },
+  "fit_summary": {
+    "train_wells": 82,
+    "train_parent_groups": 81,
+    "train_rows": 1634292,
+    "channels": {
+      "GR": {
+        "unit": "gAPI",
+        "transform_version": "identity-v1",
+        "counts": {
+          "valid": 1611273,
+          "null": 23019,
+          "nonpositive": 0,
+          "absent": 0
+        },
+        "valid_samples": 1611273,
+        "mean": 71.65845575359658,
+        "variance": 1414.8612169010094,
+        "std": 37.614640991255115,
+        "zero_variance": false,
+        "effective_scale": 37.614640991255115
+      },
+      "RHOB": {
+        "unit": "g/cm3",
+        "transform_version": "identity-v1",
+        "counts": {
+          "valid": 985642,
+          "null": 648650,
+          "nonpositive": 0,
+          "absent": 0
+        },
+        "valid_samples": 985642,
+        "mean": 2.240999641049956,
+        "variance": 0.1768939089105912,
+        "std": 0.42058757579199985,
+        "zero_variance": false,
+        "effective_scale": 0.42058757579199985
+      },
+      "NPHI": {
+        "unit": "m3/m3",
+        "transform_version": "identity-v1",
+        "counts": {
+          "valid": 706338,
+          "null": 927954,
+          "nonpositive": 0,
+          "absent": 0
+        },
+        "valid_samples": 706338,
+        "mean": 0.3279829396986104,
+        "variance": 0.01614154198443412,
+        "std": 0.12704936829608449,
+        "zero_variance": false,
+        "effective_scale": 0.12704936829608449
+      },
+      "RDEP": {
+        "unit": "ohm.m",
+        "transform_version": "log10-positive-v1",
+        "counts": {
+          "valid": 1558462,
+          "null": 75830,
+          "nonpositive": 0,
+          "absent": 0
+        },
+        "valid_samples": 1558462,
+        "mean": 0.22979747640222878,
+        "variance": 0.17873315596432185,
+        "std": 0.4227684424887007,
+        "zero_variance": false,
+        "effective_scale": 0.4227684424887007
+      }
+    },
+    "preprocessing_json_sha256": "cb66fd302165c86344f3b8d1af9d9c4e4e229621cef44cbfa6fb8cd121a63eef",
+    "preprocessing_json_generated_utc": "2026-10-14T21:05:50Z"
+  },
+  "comparison_to_snapshot": {
+    "snapshot": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\plan-20261014-final-c\\director-startup\\preprocess-before-repair1\\data\\preprocessing.json",
+    "snapshot_sha256": "a7b2f069c9ab45160e58980e58d86e75355f0b31d2f1fceb6ea3fe4391bad454",
+    "status": "passed",
+    "checks": 24,
+    "result": "bitwise identical channels, train block, fitting member list and row totals; same algorithm and order"
+  },
+  "readback": {
+    "status": "passed",
+    "checks": 59,
+    "script": "readback2.py (captured copy in the capture directory; embedded in the log)",
+    "script_sha256": "4a28503a9ba78213f3e989c972163e91984efa8b6eee5eb5f41984a01f3030e9",
+    "validated_preprocessing_json_sha256": "cb66fd302165c86344f3b8d1af9d9c4e4e229621cef44cbfa6fb8cd121a63eef",
+    "note": "independent hash/consistency readback including identity, UWI, member-sha, root-purity recomputation and helper-hash checks"
+  },
+  "captures": {
+    "dir": "C:\\Users\\Alan\\AppData\\Local\\Temp\\fp_evidence_repair1b_20261015",
+    "manifest_sha256": "c6f39256479c84b8d2aee7380bcf64cc784f27630234036d01da6be7717a38aa",
+    "driver_sha256": "03cc3cca779b8d9b998e56b3d27a8d79219288ac90848c614ed49b75b8aef672",
+    "compare_script_sha256": "32c8228ac509db58d9b57b429955d1a2a15d542f175970d70043d1ac62a2165c",
+    "earlier_capture_set": {
+      "dir": "C:\\Users\\Alan\\AppData\\Local\\Temp\\fp_evidence_repair1_20261015",
+      "tests_stderr_sha256": "fc4396c71727c113a0d43d0bf51e345a480b45d5f30145f730596ecffcb569a4",
+      "cli_stdout_sha256": "a4d121530b8d50bf30c027466dbe5e2f9cabb6c0bc2e24eaca382dd07ab0e5b4",
+      "readback_stdout_sha256": "f4f97afd5db3a0e72a2122dc14b36ea6d83f16d0318cf7e2f7538ab5dbba2f9d",
+      "compare_stdout_sha256": "ab316d75a396bdbffc44f1285875f361945330e4f4115da0cc60960b81c84ddf",
+      "note": "cli and compare stdout are byte-identical between the two capture runs; the earlier readback validated the then-current preprocessing.json sha256 d431481598d701970ec970e1e9a46ff0aa9f2cdf7a382dee0a576ca972309d5f, superseded by the same-statistics regeneration now validated by readback2"
+    }
+  },
+  "implementation_job": {
+    "job_id": "child-5cd78f4d328f47ae914fd7e229da0286",
+    "instance_id": "deepseek-c-15",
+    "route": "deepseek",
+    "provider": "deepseek",
+    "model": "deepseek-flash",
+    "effort": "max",
+    "observability": "route observable from the controller result file; model/effort stated by the assignment brief only"
+  },
+  "failures_and_fixes": [
+    "First development dry fit failed with NameError (_parse_null referenced but not defined); fixed by adding the local parser before any formal evidence run.",
+    "First unit-test iteration: 9 of 25 failed because archive-rewrite tests needed a refreshed splits source_archive_sha256 and the import allowlist needed '__future__'; fixed, then the formal suite passed 25/25.",
+    "Main review PF01/PF02 rejected the first-wave result; this repair1 revision fixes both and adds guarded regressions (33 tests).",
+    "Loading read-only data/grouping.py via importlib initially failed for frozen dataclasses ('NoneType' has no '__dict__'); fixed by registering the module in sys.modules during exec_module (try/finally pop).",
+    "One test intentionally writes a duplicate ZIP entry, so CPython emits an expected UserWarning into that run's stderr; raw bytes preserved.",
+    "An earlier repair capture used a readback script whose 'grouping root purity enforced' check was vacuous ('or True'); replaced in the final capture by readback2 recomputation of identity and root purity; final capture is the cited evidence."
+  ],
+  "limits": [
+    "Software-only preprocessing fit; no model training, no causal replay windows, no verify_data entrypoint and no online scene.",
+    "Not C01 acceptance, not calibration and not evidence of real sensor capability; all product and hardware cards remain not_run.",
+    "No validation/test statistics were computed; held-out members were never decompressed.",
+    "The preprocessing.json document is regenerated per run and differs between runs only in its generated_utc field; fitted statistics are reproducible and were proven unchanged against the frozen snapshot.",
+    "Provider/model/effort beyond the route string are not runtime-observable in this child run."
+  ],
+  "raw_stream_bytes_preserved": true,
+  "public_raw_transcript": "force_preprocess.log"
+}

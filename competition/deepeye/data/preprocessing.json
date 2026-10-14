@@ -1,0 +1,836 @@
+{
+  "schema": 1,
+  "kind": "deepeye-force-preprocess",
+  "generated_utc": "2026-10-14T21:05:50Z",
+  "task_id": "DEEPEYE-IMPLEMENTATION-20261014",
+  "task_version": 1,
+  "contract": {
+    "id": "DEEPEYE-HUMAN-LOCK-20261014",
+    "revision": 1,
+    "source_commit": "f5989cd5defce561f9ba98e6b18fc2682945f0a2",
+    "requirements_sha256": "c229834bfc2292f5fe4411fc9f12c68487008f9d1adaf31f0144ee7a98173804",
+    "design_commit": "1011259415a0916054eb580687612580bc1e5f09"
+  },
+  "status": "software_only_fit_complete_c01_not_run",
+  "expectations": "pinned constants",
+  "algorithm": {
+    "name": "c01-preprocess-welford-v1",
+    "channel_order": [
+      "GR",
+      "RHOB",
+      "NPHI",
+      "RDEP"
+    ],
+    "column_parsing": "depth column and the four selected channel columns only; every other column is validated for cardinality but never parsed numerically",
+    "fit_order": "deterministic splits.json rows order, train rows only",
+    "statistics": "population mean and population variance from a numerically stable one-pass Welford accumulation over valid transformed train samples only",
+    "missing_policy": "LAS NULL is missing; imputation centers with the train mean and an explicit zero mask",
+    "zero_variance_policy": "variance 0 is recorded; std 0; effective_scale 1.0 explicitly"
+  },
+  "inputs": {
+    "archive": {
+      "path": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\datasets\\force-2020\\LAS_files_Force_2020_all_wells_train_test_blind_hidden_final.zip",
+      "bytes": 169785172,
+      "sha256": "042ef1d473100dc12768cae7107a8cead071a394f137af3bc1ddaf8a5d1b8dda"
+    },
+    "inventory": {
+      "path": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\deepeye-implementation-c\\competition\\deepeye\\data\\force_wells.json",
+      "sha256": "ace9a0eb9930f19c6b8125e151d07346fb23029b1455eac04964d15b97461e59"
+    },
+    "splits": {
+      "path": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\deepeye-implementation-c\\competition\\deepeye\\data\\splits.json",
+      "sha256": "f10ddb8f37e6bdf7c9663eed45d0f6554ef8992899724013a7e487ad3e3cef91",
+      "well_counts": {
+        "train": 82,
+        "validation": 17,
+        "test": 19
+      },
+      "group_counts": {
+        "train": 81,
+        "validation": 17,
+        "test": 19
+      }
+    },
+    "policy": {
+      "path": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\deepeye-implementation-c\\competition\\deepeye\\data\\split_policy.json",
+      "sha256": "66c5138ad45138104bca20d39c4680daa82534a16e381f8d2879eea6f37b81c9"
+    },
+    "label_schema": {
+      "path": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\deepeye-implementation-c\\competition\\deepeye\\data\\label_schema.json",
+      "sha256": "0913ff5a59085b47802a9902f23a836f4fa1129700de8e6593840416f4d7beed",
+      "usage": "curve-order control only; label and confidence values are never parsed or fitted"
+    },
+    "helpers": {
+      "force_inventory": {
+        "path": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\deepeye-implementation-c\\competition\\deepeye\\data\\force_inventory.py",
+        "sha256": "5bba8316ea36484df058dacb2289073ffb09ce19e401dfb297598b3e3cd10f47"
+      },
+      "grouping": {
+        "path": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\deepeye-implementation-c\\competition\\deepeye\\data\\grouping.py",
+        "sha256": "f1a35a5b060cafb640d8f65b2914af9616258b7fa21f99d1a589d232f7b2be4d"
+      }
+    }
+  },
+  "channels": [
+    {
+      "name": "GR",
+      "unit": "gAPI",
+      "transform_version": "identity-v1",
+      "counts": {
+        "valid": 1611273,
+        "null": 23019,
+        "nonpositive": 0,
+        "absent": 0
+      },
+      "valid_samples": 1611273,
+      "mean": 71.65845575359658,
+      "variance": 1414.8612169010094,
+      "std": 37.614640991255115,
+      "zero_variance": false,
+      "effective_scale": 37.614640991255115
+    },
+    {
+      "name": "RHOB",
+      "unit": "g/cm3",
+      "transform_version": "identity-v1",
+      "counts": {
+        "valid": 985642,
+        "null": 648650,
+        "nonpositive": 0,
+        "absent": 0
+      },
+      "valid_samples": 985642,
+      "mean": 2.240999641049956,
+      "variance": 0.1768939089105912,
+      "std": 0.42058757579199985,
+      "zero_variance": false,
+      "effective_scale": 0.42058757579199985
+    },
+    {
+      "name": "NPHI",
+      "unit": "m3/m3",
+      "transform_version": "identity-v1",
+      "counts": {
+        "valid": 706338,
+        "null": 927954,
+        "nonpositive": 0,
+        "absent": 0
+      },
+      "valid_samples": 706338,
+      "mean": 0.3279829396986104,
+      "variance": 0.01614154198443412,
+      "std": 0.12704936829608449,
+      "zero_variance": false,
+      "effective_scale": 0.12704936829608449
+    },
+    {
+      "name": "RDEP",
+      "unit": "ohm.m",
+      "transform_version": "log10-positive-v1",
+      "counts": {
+        "valid": 1558462,
+        "null": 75830,
+        "nonpositive": 0,
+        "absent": 0
+      },
+      "valid_samples": 1558462,
+      "mean": 0.22979747640222878,
+      "variance": 0.17873315596432185,
+      "std": 0.4227684424887007,
+      "zero_variance": false,
+      "effective_scale": 0.4227684424887007
+    }
+  ],
+  "train": {
+    "wells": 82,
+    "parent_groups": 81,
+    "data_rows": 1634292
+  },
+  "grouping_validation": {
+    "validator": "data/grouping.py:validate_split_assignments",
+    "rows": 118,
+    "root_count": 117,
+    "split_rows": {
+      "train": 82,
+      "validation": 17,
+      "test": 19
+    },
+    "domains": {
+      "force_2020_public_lithology": {
+        "rows": 118,
+        "roots": 117,
+        "derivatives": 0,
+        "split_rows": {
+          "train": 82,
+          "validation": 17,
+          "test": 19
+        }
+      }
+    }
+  },
+  "fitting_wells": [
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/16_8-1.las",
+      "member_sha256": "623a93a17418a55cdd128c97a5eb2d499ec1037b4440413a69a1f8924fe2039d",
+      "uwi": "16/8-1",
+      "well": "16/8-1",
+      "rows": 14586,
+      "crc_verified": true
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/34_7-13.las",
+      "member_sha256": "6ce398588ed65e5354af2ba0b852ec0575e3ead87964d86079124274fbb72a26",
+      "uwi": "34/7-13",
+      "well": "34/7-13",
+      "rows": 16891,
+      "crc_verified": true
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/31_3-1.las",
+      "member_sha256": "696341bb178de293c2e8e854467ab6b2e554444a44d45231665a6ba9e374e3cf",
+      "uwi": "31/3-1",
+      "well": "31/3-1",
+      "rows": 13361,
+      "crc_verified": true
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/35_9-7.las",
+      "member_sha256": "bce7bacf29314cab3f8bb037f0ea794f075b02c4df036bd0c5960fe95c00319a",
+      "uwi": "35/9-7",
+      "well": "35/9-7",
+      "rows": 17166,
+      "crc_verified": true
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/34_3-2 S.las",
+      "member_sha256": "e72ab910b55b30b740776cad6364516cdbf8d663485ac8c98f4fcf05ac2a3b04",
+      "uwi": "34/3-2 S",
+      "well": "34/3-2 S",
+      "rows": 25699,
+      "crc_verified": true
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/25_5-3.las",
+      "member_sha256": "75908efffb46f4cccaf88413c5c026c154f3fbbf1c733bde4eb0dfb274025278",
+      "uwi": "25/5-3",
+      "well": "25/5-3  Skirne",
+      "rows": 18058,
+      "crc_verified": true
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/25_4-5.las",
+      "member_sha256": "68b6b44d79cadd61a7e700016bf0e180848f5957c2e57d40cb97af88818ac5b3",
+      "uwi": "25/4-5",
+      "well": "25/4-5",
+      "rows": 27691,
+      "crc_verified": true
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/35_3-7 S.las",
+      "member_sha256": "67a64b64f579913e7958890181948ee3f93be8da17fdd11e5fdecc7df7ad4cd4",
+      "uwi": "35/3-7 S",
+      "well": "35/3-7 S",
+      "rows": 24803,
+      "crc_verified": true
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/34_5-1 A.las",
+      "member_sha256": "b4e9332ab5a3449006a725da926170a2331ab98ca3353a236cc74c1c55ba6d05",
+      "uwi": "34/5-1 A",
+      "well": "34/5-1 A",
+      "rows": 26343,
+      "crc_verified": true
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/34_5-1 S.las",
+      "member_sha256": "22043aa3ad4b8d468ed08f7d854345c3918cfcd02068e99e05dceeb7b721cfda",
+      "uwi": "34/5-1 S",
+      "well": "34/5-1 S",
+      "rows": 22969,
+      "crc_verified": true
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/25_5-4.las",
+      "member_sha256": "feef0b7e0ca4247c5f3933182c068c145269c239e659b89a8475b704d3eab7c1",
+      "uwi": "25/5-4",
+      "well": "25/5-4  Byggve",
+      "rows": 20021,
+      "crc_verified": true
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/25_3-1.las",
+      "member_sha256": "d49307484d94b68bb35e0b8e1ae78233d1cc6684d86a7cbe905cdce45cea37aa",
+      "uwi": "25/3-1",
+      "well": "25/3-1",
+      "rows": 24963,
+      "crc_verified": true
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/33_6-3 S.las",
+      "member_sha256": "c21850771f76592b5f631f4491a9cd8383493b5b88b7ed4c357e949ec6b668c9",
+      "uwi": "33/6-3 S",
+      "well": "33/6-3 S",
+      "rows": 26868,
+      "crc_verified": true
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/34_12-1.las",
+      "member_sha256": "89b20fc0c699ac7e5fe607960115c4d83901ce060678ecb9fa36dd979476ee63",
+      "uwi": "34/12-1",
+      "well": "34/12-1",
+      "rows": 28434,
+      "crc_verified": true
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/16_10-2.las",
+      "member_sha256": "ed21febe02f26fbd8e2331b54b97037283688e4b9ef533b5bad05c511159f12c",
+      "uwi": "16/10-2",
+      "well": "16/10-2 Delta",
+      "rows": 20131,
+      "crc_verified": true
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/31_5-4 S.las",
+      "member_sha256": "2c7048cc65130f0f71e25a3b3a858068fd1b6cc4b2527b035cf0719d30b2fdbe",
+      "uwi": "31/5-4 S",
+      "well": "31/5-4 S",
+      "rows": 11467,
+      "crc_verified": true
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/29_3-1.las",
+      "member_sha256": "0c00be09cf11710d59cba4ce2293d0120826b17b6359d2dc5dae240a32db901c",
+      "uwi": "29/3-1",
+      "well": "29/3-1",
+      "rows": 28514,
+      "crc_verified": true
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/34_8-7 R.las",
+      "member_sha256": "24eba31be35ba3c1bc36cd5fcb8db098cfae5b178f42efe8d8d00b82a2f5ff61",
+      "uwi": "34/8-7 R",
+      "well": "34/8-7R",
+      "rows": 35896,
+      "crc_verified": true
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/31_2-8.las",
+      "member_sha256": "ac9cf4e81bc358d5aea8543fa4dd9057c7e7a7850440689cc67d0b5c14f171b9",
+      "uwi": "31/2-8",
+      "well": "31/2-8",
+      "rows": 19923,
+      "crc_verified": true
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/25_2-14.las",
+      "member_sha256": "a09e018e365976b4ed58c68d66ebaa7d1c2554b98fec4838a27d65413bc8936d",
+      "uwi": "25/2-14",
+      "well": "25/2-14 Froey Appr",
+      "rows": 22963,
+      "crc_verified": true
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/25_11-19 S.las",
+      "member_sha256": "5997b5f04cdeef32d15af8c44a7e25bd400ea3fa6d2f312b7135b3b19f67db68",
+      "uwi": "25/11-19 S",
+      "well": "25/11-19 S  Balder Appr",
+      "rows": 13783,
+      "crc_verified": true
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/31_3-4.las",
+      "member_sha256": "cf130a5725a2fc533af420c0347d26bdc131440ed7aa30faceb787a8fd939c9a",
+      "uwi": "31/3-4",
+      "well": "31/3-4",
+      "rows": 11413,
+      "crc_verified": true
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/35_8-4.las",
+      "member_sha256": "7e6996453ec41cb429965f92279a35afb49ca086f2a3085e42b8939acf07f59d",
+      "uwi": "35/8-4",
+      "well": "35/8-4",
+      "rows": 21927,
+      "crc_verified": true
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/15_9-13.las",
+      "member_sha256": "933752fd96b8c286b17d125b28d8a53dcd1d4c69e179a482cfaedfc2ace5fb00",
+      "uwi": "15/9-13",
+      "well": "15/9-13 Sleipner East Appr",
+      "rows": 21441,
+      "crc_verified": true
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/31_4-5.las",
+      "member_sha256": "593df0bd2c667e77be7ad4b3aa1d24dc2c8f5be02d9dfeaa261d4dcab135a30e",
+      "uwi": "31/4-5",
+      "well": "31/4-5",
+      "rows": 18352,
+      "crc_verified": true
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/35_11-15 S.las",
+      "member_sha256": "71d10a0a75edf3484d24c641535887054b122dac1ebc4fb6dab4f3f6cf61e781",
+      "uwi": "35/11-15 S",
+      "well": "35/11-15 S",
+      "rows": 18832,
+      "crc_verified": true
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/34_10-33.las",
+      "member_sha256": "2dc27cb03040e01c5c7dc18348abfee863823f996db1b5f29766399d95de153e",
+      "uwi": "34/10-33",
+      "well": "34/10-33",
+      "rows": 24490,
+      "crc_verified": true
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/33_9-1.las",
+      "member_sha256": "8d0343330277c142d8095f76db1b2635464640274d36a3a179f3e3f6a61d6b2b",
+      "uwi": "33/9-1",
+      "well": "33/9-1",
+      "rows": 17606,
+      "crc_verified": true
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/34_6-1 S.las",
+      "member_sha256": "eb08ad497dfb753cffd1dbdc3d2c111a4323cfe83bf3f1f673c8b1edd6d834aa",
+      "uwi": "34/6-1 S",
+      "well": "34/6-1",
+      "rows": 26090,
+      "crc_verified": true
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/16_10-5.las",
+      "member_sha256": "470c4668d1eeb1deefcd9b1bb7c1a61844fd3722b9656b6121b9c99225203808",
+      "uwi": "16/10-5",
+      "well": "16/10-5 Isbjoern",
+      "rows": 18808,
+      "crc_verified": true
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/16_4-1.las",
+      "member_sha256": "e9ab1d450af9de32c43f17b99c2811b022dd9a83764172c08e1c4536218c61a0",
+      "uwi": "16/4-1",
+      "well": "16/4-1",
+      "rows": 18424,
+      "crc_verified": true
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/35_8-6 S.las",
+      "member_sha256": "4b26a23cc2b1decf80a33ba8c11f0e842216d892c75d3e61ecc5f890f0d8524a",
+      "uwi": "35/8-6 S",
+      "well": "35/8-6 S",
+      "rows": 23901,
+      "crc_verified": true
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/25_10-9.las",
+      "member_sha256": "e0497a46cf39d3647083c6fbd1e61e588a81f451438ee2d874f5b7daa0a43a6a",
+      "uwi": "25/10-9",
+      "well": "25/10-9 Aegis",
+      "rows": 19639,
+      "crc_verified": true
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/16_5-3.las",
+      "member_sha256": "3b0038ed00b49e025b67721c525ec7c171de73bfdea3c03533d293c1e0c24c7b",
+      "uwi": "16/5-3",
+      "well": "16/5-3 Johan Sverdrup Appr",
+      "rows": 12261,
+      "crc_verified": true
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/31_2-19 S.las",
+      "member_sha256": "11a30170daf3a8e23da11c32a62237bc843714bdd07cd3b9489674233446b8c5",
+      "uwi": "31/2-19 S",
+      "well": "31/2-19 S",
+      "rows": 24730,
+      "crc_verified": true
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/16_10-3.las",
+      "member_sha256": "e2a4229d2c60b09d1de0a956ccc365065122830a08b96bb72bd97107d73744f6",
+      "uwi": "16/10-3",
+      "well": "16/10-3 Tyr Central",
+      "rows": 17995,
+      "crc_verified": true
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/35_9-5.las",
+      "member_sha256": "df8a69609c0f1a328f252c01fb053d83c5f83d3e167cccddaa1f7646a55c995c",
+      "uwi": "35/9-5",
+      "well": "35/9-5",
+      "rows": 21206,
+      "crc_verified": true
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/35_11-6.las",
+      "member_sha256": "b01a8bf0f4a88aeb7c6ee6908de6d329f2b4665608c04895f32fa47a9615118f",
+      "uwi": "35/11-6",
+      "well": "35/11-6",
+      "rows": 23734,
+      "crc_verified": true
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/16_2-6.las",
+      "member_sha256": "93f1ea762b588332dbab233e1f00ad338c76c295944c5eac8914f7dcdb414eb9",
+      "uwi": "16/2-6",
+      "well": "16/2-6 Johan Sverdrup",
+      "rows": 13094,
+      "crc_verified": true
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/17_11-1.las",
+      "member_sha256": "af86dd25b2b7d5f0c9e195dbab562b48ba2ced641778d465fe9301472e69e2a9",
+      "uwi": "17/11-1",
+      "well": "17/11-1",
+      "rows": 20533,
+      "crc_verified": true
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/34_2-4.las",
+      "member_sha256": "93156939eb1123b61811eab822c4bc1bdf731ff9b7e19903f59463d917af0a68",
+      "uwi": "34/2-4",
+      "well": "34/2-4",
+      "rows": 24318,
+      "crc_verified": true
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/35_6-2 S.las",
+      "member_sha256": "56ba50a71b85752d3e2d9d80671fb26fc989c3fb71ca7ebdf9ce8455e633ff91",
+      "uwi": "35/6-2 S",
+      "well": "35/6-2 S",
+      "rows": 21948,
+      "crc_verified": true
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/25_6-1.las",
+      "member_sha256": "408e508ca1a6369a6bc355467dbd0ab9457453e31d8b0dd98903b4bb765d2555",
+      "uwi": "25/6-1",
+      "well": "25/6-1",
+      "rows": 18033,
+      "crc_verified": true
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/31_2-7.las",
+      "member_sha256": "73f5c523f98bcbd270e61a0abe7d2e4169d21a4f3500a25956f5464bfcf23939",
+      "uwi": "31/2-7",
+      "well": "31/2-7",
+      "rows": 8647,
+      "crc_verified": true
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/35_11-10.las",
+      "member_sha256": "b291db5c16a1fba296e4efa87d6ccc0e7efd5ca569c840fc459e101951f40f07",
+      "uwi": "35/11-10",
+      "well": "35/11-10",
+      "rows": 16967,
+      "crc_verified": true
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/25_2-13 T4.las",
+      "member_sha256": "00857923950cd52364e11850b25023a2a944eb8fecaf52dc4f8157df8b2b967f",
+      "uwi": "25/2-13 T4",
+      "well": "25/2-13 T4",
+      "rows": 24492,
+      "crc_verified": true
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/31_6-8.las",
+      "member_sha256": "ce940c80b1e11bc6c10f0199ce5f0f2e88a4a4ddf711acdb7871c0a2a2a56c20",
+      "uwi": "31/6-8",
+      "well": "31/6-8",
+      "rows": 9727,
+      "crc_verified": true
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/35_11-1.las",
+      "member_sha256": "e9facd8f7b2fd7763c29ec69e9ff056c481b5080762a8200689bf1a217ab0dc1",
+      "uwi": "35/11-1",
+      "well": "35/11-1",
+      "rows": 19692,
+      "crc_verified": true
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/31_2-21 S.las",
+      "member_sha256": "aab4fd4450ee939a35b58a01deb618dc69516805410414d74be75a6f849b1b2a",
+      "uwi": "31/2-21 S",
+      "well": "31/2-21 S",
+      "rows": 18731,
+      "crc_verified": true
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/34_10-16 R.las",
+      "member_sha256": "860ff15d2136ccdbd8e80a6810759dac5c443307468eb37fc6e9b52aa455a8ad",
+      "uwi": "34/10-16 R",
+      "well": "34/10-16R",
+      "rows": 25579,
+      "crc_verified": true
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/25_6-3.las",
+      "member_sha256": "84e1c7b8c46316d8f2df3f88aa22394af239b9981e682a40c198a49882b05200",
+      "uwi": "25/6-3",
+      "well": "25/6-3",
+      "rows": 15388,
+      "crc_verified": true
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/35_11-7.las",
+      "member_sha256": "f35e65dc3f20689b2273af5a4d1f2597608f0853713a8146dc756de8e8a91174",
+      "uwi": "35/11-7",
+      "well": "35/11-7",
+      "rows": 16547,
+      "crc_verified": true
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/34_3-1 A.las",
+      "member_sha256": "b9a1e65948699291c5b881e21e9db14110a8e6370d90955292b6dfd8fd86afa4",
+      "uwi": "34/3-1 A",
+      "well": "34/3-1 A",
+      "rows": 24513,
+      "crc_verified": true
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/35_4-1.las",
+      "member_sha256": "87efe8f76e44636c41e756b2e7485bed4e3fb640926df5d8900547db9049f750",
+      "uwi": "35/4-1",
+      "well": "35/4-1",
+      "rows": 29967,
+      "crc_verified": true
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/17_4-1.las",
+      "member_sha256": "41ff2c065690f160212158fcc74d200e86aa33f9c0260bbf42f6f7c9f71b525d",
+      "uwi": "17/4-1",
+      "well": "17/4-1",
+      "rows": 25420,
+      "crc_verified": true
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/35_12-1.las",
+      "member_sha256": "cb76385d6a4206c3b32c9ec5fbd37ec72e98c8423515f820840edf88f27ed4e0",
+      "uwi": "35/12-1",
+      "well": "35/12-1",
+      "rows": 16777,
+      "crc_verified": true
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/7_1-2 S.las",
+      "member_sha256": "6134a9a56e2b71f31416ddace51ddf5990496c4860934df8f75ec4cf58e692b9",
+      "uwi": "7/1-2 S",
+      "well": "7/1-2 S",
+      "rows": 19586,
+      "crc_verified": true
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/16_11-1 ST3.las",
+      "member_sha256": "6a81bebda819751cd08dc1b00f6ca918475d07b27f13d330e254abf0067a9b78",
+      "uwi": "16/11-1 ST3",
+      "well": "16/11-1S T3",
+      "rows": 19470,
+      "crc_verified": true
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/15_9-14.las",
+      "member_sha256": "45128f4070ffa50c707f98383ce498922a1c26a77cf224f1384cdf973f397b3a",
+      "uwi": "15/9-14",
+      "well": "15/9-14",
+      "rows": 22875,
+      "crc_verified": true
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/25_5-1.las",
+      "member_sha256": "e1f70db89a277603deac96a90d9769828f554e376e4e2e80b0da38c4bcf5b07a",
+      "uwi": "25/5-1",
+      "well": "25/5-1 Froey",
+      "rows": 21629,
+      "crc_verified": true
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/16_2-16.las",
+      "member_sha256": "7b778e020e51267c4e75c1dad4f75c20c814e2672892adf987e5784761f13d04",
+      "uwi": "16/2-16",
+      "well": "16/2-16 Johan Sverdrup Appr",
+      "rows": 13637,
+      "crc_verified": true
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/35_11-5.las",
+      "member_sha256": "254538a2889d05ecb34026cda0205408b9a71f86686cc68206020c8300fe303a",
+      "uwi": "35/11-5",
+      "well": "35/11-5",
+      "rows": 21963,
+      "crc_verified": true
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/16_7-4.las",
+      "member_sha256": "fa0e531c294bf594ee6bf7096e287d7d28b277edb342877382c79518498a0913",
+      "uwi": "16/7-4",
+      "well": "16/7-4 Sigyn",
+      "rows": 17412,
+      "crc_verified": true
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/35_11-12.las",
+      "member_sha256": "7355c22337b0a8a93ed46b82cdfbf9986c189b7b43870c74b1b90fa576cb921c",
+      "uwi": "35/11-12",
+      "well": "35/11-12",
+      "rows": 19875,
+      "crc_verified": true
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/31_2-10.las",
+      "member_sha256": "d43a6bf45ab1606abbf83cb9f24e9065735a6c79ae5e8f2d2cff9155eea8182c",
+      "uwi": "31/2-10",
+      "well": "31/2-10",
+      "rows": 11934,
+      "crc_verified": true
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/36_7-3.las",
+      "member_sha256": "5535d202ff6bfdb9d20b8d23062130d98ee015e4aa5df94d0aea5238986aa2ce",
+      "uwi": "36/7-3",
+      "well": "36/7-3",
+      "rows": 16950,
+      "crc_verified": true
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/34_7-20.las",
+      "member_sha256": "5f0ba62c9edad90854fc55bf83badbb9c0f12eec9b3209f094a793df32d983c5",
+      "uwi": "34/7-20",
+      "well": "34/7-20",
+      "rows": 18193,
+      "crc_verified": true
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/31_2-9.las",
+      "member_sha256": "f77f527b09178e6e3847da02269f2ef6c1435ac4e94c28276e28eb3109f3a401",
+      "uwi": "31/2-9",
+      "well": "31/2-9",
+      "rows": 9402,
+      "crc_verified": true
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/15_9-17.las",
+      "member_sha256": "320636af8a1d482a3f39b35104f8a088e4a58c911f6f5974b56473d9518ccf0d",
+      "uwi": "15/9-17",
+      "well": "15/9-17",
+      "rows": 19879,
+      "crc_verified": true
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/25_11-24.las",
+      "member_sha256": "0bfe2c9cb5dad120ee60492f496f93f7a57df26db6e11d3a5a18629f3743356a",
+      "uwi": "25/11-24",
+      "well": "25/11-24 Jakob South",
+      "rows": 13052,
+      "crc_verified": true
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/35_9-8.las",
+      "member_sha256": "4a88212716c869f7b32752ad0095b4089f3959ac6d6591a39ffd98b68bc73be6",
+      "uwi": "35/9-8",
+      "well": "35/9-8",
+      "rows": 18842,
+      "crc_verified": true
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/35_9-6 S.las",
+      "member_sha256": "728879a70071837d04c039706a727f3071b1cf89c52fee65af40a336a5db2b9d",
+      "uwi": "35/9-6 S",
+      "well": "35/9-6 S",
+      "rows": 22105,
+      "crc_verified": true
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/30_6-5.las",
+      "member_sha256": "71bc70f09782839a58ebc55b4aa005fd8022bcf4df7f445fa8d2781f22ff3327",
+      "uwi": "30/6-5",
+      "well": "30/6-5",
+      "rows": 22910,
+      "crc_verified": true
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/25_11-5.las",
+      "member_sha256": "5924f8ffa7c646a29d0bb7e39261644dd6c46c12b765b46019ec5edebe03c702",
+      "uwi": "25/11-5",
+      "well": "25/11-5 Balder Appr",
+      "rows": 13337,
+      "crc_verified": true
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/7_1-1.las",
+      "member_sha256": "b7de7ac3d5d71497b601e1ac2e4bc698e36e521e50bd9f713bc4fa0832aea042",
+      "uwi": "7/1-1",
+      "well": "7/1-1",
+      "rows": 17982,
+      "crc_verified": true
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/35_9-2.las",
+      "member_sha256": "5f26a92e8c3387f811c18318fb77b355c73b0debc457c8c37a7b749bc74d3b89",
+      "uwi": "35/9-2",
+      "well": "35/9-2",
+      "rows": 16599,
+      "crc_verified": true
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/34_10-35.las",
+      "member_sha256": "73badffe204bc763126dcfb7c9359369e1fc1c7061730dc6061f8cc7032c9234",
+      "uwi": "34/10-35",
+      "well": "34/10-35",
+      "rows": 26900,
+      "crc_verified": true
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/25_11-15.las",
+      "member_sha256": "cb1c55ed6b9cfbe1cbb9e131ba429808b01004dbea1d568d98d9f84e3695c83a",
+      "uwi": "25/11-15",
+      "well": "25/11-15  Grane",
+      "rows": 12402,
+      "crc_verified": true
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/33_5-2.las",
+      "member_sha256": "9a4bb9a53bbc7ff0865ecc0b1cc81ebcf893fe6e6889d7b5cdaffa74460c1c79",
+      "uwi": "33/5-2",
+      "well": "33/5-2",
+      "rows": 27702,
+      "crc_verified": true
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/30_3-3.las",
+      "member_sha256": "ac8e84548668934a1d97349ccb03caa5696d979d19c32751ff2507d4ac937b6c",
+      "uwi": "30/3-3",
+      "well": "30/3-3",
+      "rows": 21287,
+      "crc_verified": true
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/25_10-10.las",
+      "member_sha256": "7cb838467a90bd56895e36c1d906bf69e736cf4ce94fa52006cb33ab4e9d4903",
+      "uwi": "25/10-10",
+      "well": "25/10-10  Balder Triassic",
+      "rows": 15346,
+      "crc_verified": true
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/35_9-10 S.las",
+      "member_sha256": "2e6ff9caae08796ad56c623d2d433d9123dd0e895f674ccb13cf91a58d5825e5",
+      "uwi": "35/9-10 S",
+      "well": "35/9-10 S",
+      "rows": 21271,
+      "crc_verified": true
+    }
+  ],
+  "software_only": true,
+  "product_card_c01": "not_run",
+  "limits": [
+    "Software-only preprocessing fit from the offline public FORCE 2020 wells; no model training, no causal replay windows, no verify_data entrypoint and no online scene.",
+    "Not C01 acceptance, not calibration and not evidence of real sensor capability; all product and hardware cards remain not_run.",
+    "No validation/test statistics were computed; held-out members were cross-checked at manifest level only and never decompressed."
+  ]
+}

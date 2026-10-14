@@ -1,0 +1,458 @@
+[repair1 evidence] C01 train-only FORCE preprocessing fitter - software-only
+generated_utc: 2026-10-14T21:06:39Z
+interpreter: C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\venv\Scripts\python.exe (python 3.12.14)
+working directory: C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c
+original pre-repair evidence preserved at: .local/plan-20261014-final-c/director-startup/preprocess-before-repair1/ (evidence + data + tests + module)
+earlier repair capture set (byte-identical cli/compare stdout): C:\Users\Alan\AppData\Local\Temp\fp_evidence_repair1_20261015
+
+{"command": ["C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\venv\\Scripts\\python.exe", "-X", "utf8", "-B", "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\deepeye-implementation-c\\competition\\deepeye\\tests\\ai\\data_model\\test_force_preprocess.py"], "exit_code": 0, "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855", "stderr_sha256": "730c15e38cd5dbf89834d3a02018af415113a638eb82a38d17bb2cd958a97888", "stdout_bytes": 0, "stderr_bytes": 4564}
+STDOUT
+
+STDERR
+test_absent_channel_counts_remain_explicit (__main__.ForcePreprocessTests.test_absent_channel_counts_remain_explicit) ... ok
+test_all_missing_channel_blocks_with_nonzero_exit (__main__.ForcePreprocessTests.test_all_missing_channel_blocks_with_nonzero_exit) ... ok
+test_analytic_two_and_three_point_statistics (__main__.ForcePreprocessTests.test_analytic_two_and_three_point_statistics) ... ok
+test_cli_exit_codes_and_output (__main__.ForcePreprocessTests.test_cli_exit_codes_and_output) ... ok
+test_column_count_malformed_reports_member_and_line (__main__.ForcePreprocessTests.test_column_count_malformed_reports_member_and_line) ... ok
+test_constant_channels_zero_variance_and_effective_scale (__main__.ForcePreprocessTests.test_constant_channels_zero_variance_and_effective_scale) ... ok
+test_curve_order_mismatches_rejected (__main__.ForcePreprocessTests.test_curve_order_mismatches_rejected) ... ok
+test_declared_counts_and_row_loops_mismatches (__main__.ForcePreprocessTests.test_declared_counts_and_row_loops_mismatches) ... ok
+test_dependency_free_imports (__main__.ForcePreprocessTests.test_dependency_free_imports) ... ok
+test_depth_null_and_decreasing_depth_rejected (__main__.ForcePreprocessTests.test_depth_null_and_decreasing_depth_rejected) ... ok
+test_derivative_rules_rejected (__main__.ForcePreprocessTests.test_derivative_rules_rejected) ... ok
+test_duplicate_curve_mnemonic_rejected (__main__.ForcePreprocessTests.test_duplicate_curve_mnemonic_rejected) ... ok
+test_duplicate_identity_and_held_out_sha_rejected (__main__.ForcePreprocessTests.test_duplicate_identity_and_held_out_sha_rejected) ... ok
+test_duplicate_zip_member_paths_rejected (__main__.ForcePreprocessTests.test_duplicate_zip_member_paths_rejected) ... C:\Users\Alan\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\zipfile\__init__.py:1625: UserWarning: Duplicate name: 'mini/train_a.las'
+  return self._open_to_write(zinfo, force_zip64=force_zip64)
+ok
+test_fit_order_is_split_row_order_and_repeatable (__main__.ForcePreprocessTests.test_fit_order_is_split_row_order_and_repeatable) ... ok
+test_hash_mismatches_rejected (__main__.ForcePreprocessTests.test_hash_mismatches_rejected) ... ok
+test_held_out_members_never_opened_and_cannot_change_stats (__main__.ForcePreprocessTests.test_held_out_members_never_opened_and_cannot_change_stats) ... ok
+test_label_and_confidence_values_leave_fitting_identical (__main__.ForcePreprocessTests.test_label_and_confidence_values_leave_fitting_identical) ... ok
+test_malformed_held_out_member_is_never_parsed (__main__.ForcePreprocessTests.test_malformed_held_out_member_is_never_parsed) ... ok
+test_manifest_cross_reference_mismatches (__main__.ForcePreprocessTests.test_manifest_cross_reference_mismatches) ... ok
+test_non_numeric_and_nonfinite_values_rejected (__main__.ForcePreprocessTests.test_non_numeric_and_nonfinite_values_rejected) ... ok
+test_null_versus_valid_negative (__main__.ForcePreprocessTests.test_null_versus_valid_negative) ... ok
+test_output_document_provenance_and_no_labels (__main__.ForcePreprocessTests.test_output_document_provenance_and_no_labels) ... ok
+test_rdep_nonpositive_masked_and_log10 (__main__.ForcePreprocessTests.test_rdep_nonpositive_masked_and_log10) ... ok
+test_selected_or_depth_opaque_tokens_still_fail (__main__.ForcePreprocessTests.test_selected_or_depth_opaque_tokens_still_fail) ... ok
+test_shared_parent_across_splits_rejected (__main__.ForcePreprocessTests.test_shared_parent_across_splits_rejected) ... ok
+test_sidetrack_grouping_preserved_within_one_split (__main__.ForcePreprocessTests.test_sidetrack_grouping_preserved_within_one_split) ... ok
+test_unknown_unit_and_varying_units_rejected (__main__.ForcePreprocessTests.test_unknown_unit_and_varying_units_rejected) ... ok
+test_unsafe_member_path_rejected (__main__.ForcePreprocessTests.test_unsafe_member_path_rejected) ... ok
+test_unselected_columns_are_never_parsed_numerically (__main__.ForcePreprocessTests.test_unselected_columns_are_never_parsed_numerically) ... ok
+test_unsupported_wrap_and_version_rejected (__main__.ForcePreprocessTests.test_unsupported_wrap_and_version_rejected) ... ok
+test_wrong_root_and_non_force_well_identity_rejected (__main__.ForcePreprocessTests.test_wrong_root_and_non_force_well_identity_rejected) ... ok
+test_wrong_well_id_with_matching_bytes_rejected (__main__.ForcePreprocessTests.test_wrong_well_id_with_matching_bytes_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 33 tests in 10.403s
+
+OK
+{"command": ["C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\venv\\Scripts\\python.exe", "-X", "utf8", "-B", "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\deepeye-implementation-c\\competition\\deepeye\\data\\force_preprocess.py"], "exit_code": 0, "stdout_sha256": "a4d121530b8d50bf30c027466dbe5e2f9cabb6c0bc2e24eaca382dd07ab0e5b4", "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855", "stdout_bytes": 228, "stderr_bytes": 0}
+STDOUT
+ok train_wells=82 train_rows=1634292 valid=GR:1611273,RHOB:985642,NPHI:706338,RDEP:1558462 out=C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\deepeye-implementation-c\competition\deepeye\data\preprocessing.json
+STDERR
+
+{"command": ["C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\venv\\Scripts\\python.exe", "-X", "utf8", "-B", "C:\\Users\\Alan\\AppData\\Local\\Temp\\fp_evidence_repair1b_20261015\\readback2.py"], "exit_code": 0, "stdout_sha256": "479afd3ca1dc286bc630c9ace1c83b326f14779909841d5fc492c246fcd09376", "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855", "stdout_bytes": 3915, "stderr_bytes": 0}
+STDOUT
+kind                                                       PASS
+schema                                                     PASS
+status marks c01 not_run                                   PASS
+product_card_c01 not_run                                   PASS
+software_only true                                         PASS
+expectations pinned constants                              PASS
+channels order                                             PASS
+train wells 82                                             PASS
+train parent groups 81                                     PASS
+train rows 1634292                                         PASS
+channel GR counts sum == train rows                        PASS
+channel GR stats finite                                    PASS
+channel GR effective scale consistent                      PASS
+channel RHOB counts sum == train rows                      PASS
+channel RHOB stats finite                                  PASS
+channel RHOB effective scale consistent                    PASS
+channel NPHI counts sum == train rows                      PASS
+channel NPHI stats finite                                  PASS
+channel NPHI effective scale consistent                    PASS
+channel RDEP counts sum == train rows                      PASS
+channel RDEP stats finite                                  PASS
+channel RDEP effective scale consistent                    PASS
+82 unique fitting members                                  PASS
+fitting rows sum == train rows                             PASS
+all fitting wells crc_verified                             PASS
+fitted set equals train manifest set                       PASS
+no held-out member fitted                                  PASS
+grouping validator recorded                                PASS
+grouping rows 118 root_count 117                           PASS
+grouping split rows 82/17/19                               PASS
+grouping domain rows/roots/derivatives                     PASS
+inventory wells 118                                        PASS
+split rows 118                                             PASS
+split row_id unique                                        PASS
+split (domain,well_id) unique                              PASS
+split member unique                                        PASS
+split members known in inventory                           PASS
+split member sha matches inventory                         PASS
+split well_id matches inventory uwi                        PASS
+all well ids match FORCE parent pattern                    PASS
+declared root_id equals derived parent                     PASS
+root purity recomputed: no root spans splits               PASS
+recomputed rows 118 roots 117                              PASS
+recomputed split counts 82/17/19                           PASS
+grouping doc matches recomputation                         PASS
+derived_from references same-split root                    PASS
+derivative rows match declared count                       PASS
+archive sha256 matches file                                PASS
+archive bytes 169785172                                    PASS
+inventory sha256 matches file                              PASS
+splits sha256 matches file                                 PASS
+policy sha256 matches file                                 PASS
+label schema sha256 matches file                           PASS
+grouping helper sha matches file                           PASS
+inventory helper sha matches file                          PASS
+column_parsing provenance present                          PASS
+no label curve names in document                           PASS
+no validation statistics block                             PASS
+preprocessing.json bytes: 29849
+preprocessing.json sha256: cb66fd302165c86344f3b8d1af9d9c4e4e229621cef44cbfa6fb8cd121a63eef
+READBACK ALL PASS
+STDERR
+
+{"command": ["C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\venv\\Scripts\\python.exe", "-X", "utf8", "-B", "C:\\Users\\Alan\\AppData\\Local\\Temp\\fp_evidence_repair1b_20261015\\compare_stats.py"], "exit_code": 0, "stdout_sha256": "ab316d75a396bdbffc44f1285875f361945330e4f4115da0cc60960b81c84ddf", "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855", "stdout_bytes": 1807, "stderr_bytes": 0}
+STDOUT
+channels equal (entire list, bitwise floats)               PASS
+channel GR valid_samples equal (1611273)                   PASS
+channel GR mean equal (71.6584557535966)                   PASS
+channel GR variance equal (1414.86121690101)               PASS
+channel GR std equal                                       PASS
+channel GR counts equal                                    PASS
+channel RHOB valid_samples equal (985642)                  PASS
+channel RHOB mean equal (2.24099964104996)                 PASS
+channel RHOB variance equal (0.176893908910591)            PASS
+channel RHOB std equal                                     PASS
+channel RHOB counts equal                                  PASS
+channel NPHI valid_samples equal (706338)                  PASS
+channel NPHI mean equal (0.32798293969861)                 PASS
+channel NPHI variance equal (0.0161415419844341)           PASS
+channel NPHI std equal                                     PASS
+channel NPHI counts equal                                  PASS
+channel RDEP valid_samples equal (1558462)                 PASS
+channel RDEP mean equal (0.229797476402229)                PASS
+channel RDEP variance equal (0.178733155964322)            PASS
+channel RDEP std equal                                     PASS
+channel RDEP counts equal                                  PASS
+train block equal                                          PASS
+fitting member list equal                                  PASS
+fitting row totals equal                                   PASS
+snapshot: C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\plan-20261014-final-c\director-startup\preprocess-before-repair1\data\preprocessing.json
+STATS UNCHANGED: ALL PASS (bitwise identical statistics, same algorithm and order)
+STDERR
+
+
+[embedded script] readback2.py sha256=4a28503a9ba78213f3e989c972163e91984efa8b6eee5eb5f41984a01f3030e9
+import hashlib, json, pathlib, re, sys
+root = pathlib.Path(r"C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c")
+base = root / ".local/deepeye-implementation-c/competition/deepeye"
+pre = base / "data/preprocessing.json"
+doc = json.loads(pre.read_text(encoding="utf-8"))
+
+def sha(path):
+    return hashlib.sha256(pathlib.Path(path).read_bytes()).hexdigest()
+
+failures = []
+def check(name, condition):
+    if not condition:
+        failures.append(name)
+    print("%-58s %s" % (name, "PASS" if condition else "FAIL"))
+
+check("kind", doc["kind"] == "deepeye-force-preprocess")
+check("schema", doc["schema"] == 1)
+check("status marks c01 not_run", "c01_not_run" in doc["status"])
+check("product_card_c01 not_run", doc["product_card_c01"] == "not_run")
+check("software_only true", doc["software_only"] is True)
+check("expectations pinned constants", doc["expectations"] == "pinned constants")
+check("channels order", [c["name"] for c in doc["channels"]] == ["GR", "RHOB", "NPHI", "RDEP"])
+rows = doc["train"]["data_rows"]
+check("train wells 82", doc["train"]["wells"] == len(doc["fitting_wells"]) == 82)
+check("train parent groups 81", doc["train"]["parent_groups"] == 81)
+check("train rows 1634292", rows == 1634292)
+for channel in doc["channels"]:
+    total = sum(channel["counts"][k] for k in ("valid", "null", "nonpositive", "absent"))
+    check("channel %s counts sum == train rows" % channel["name"], total == rows)
+    check("channel %s stats finite" % channel["name"],
+          all(isinstance(channel[k], float) and channel[k] == channel[k] for k in ("mean", "variance", "std"))
+          and channel["variance"] >= 0.0)
+    expected_scale = 1.0 if channel["zero_variance"] else channel["std"]
+    check("channel %s effective scale consistent" % channel["name"], channel["effective_scale"] == expected_scale)
+members = [well["member"] for well in doc["fitting_wells"]]
+check("82 unique fitting members", len(set(members)) == 82)
+check("fitting rows sum == train rows", sum(well["rows"] for well in doc["fitting_wells"]) == rows)
+check("all fitting wells crc_verified", all(well["crc_verified"] is True for well in doc["fitting_wells"]))
+splits = json.loads((base / "data" / "splits.json").read_text(encoding="utf-8"))
+inventory = json.loads((base / "data" / "force_wells.json").read_text(encoding="utf-8"))
+train_members = {row["member"] for row in splits["rows"] if row["split"] == "train"}
+held_out = {row["member"] for row in splits["rows"] if row["split"] != "train"}
+check("fitted set equals train manifest set", set(members) == train_members)
+check("no held-out member fitted", not (set(members) & held_out))
+grouping = doc["grouping_validation"]
+check("grouping validator recorded", grouping["validator"] == "data/grouping.py:validate_split_assignments")
+check("grouping rows 118 root_count 117", grouping["rows"] == 118 and grouping["root_count"] == 117)
+check("grouping split rows 82/17/19", grouping["split_rows"] == {"train": 82, "validation": 17, "test": 19})
+domain = grouping["domains"]["force_2020_public_lithology"]
+check("grouping domain rows/roots/derivatives", domain["rows"] == 118 and domain["roots"] == 117 and domain["derivatives"] == 0)
+
+inv_by_member = {w["member"]: w for w in inventory["wells"]}
+check("inventory wells 118", len(inventory["wells"]) == 118)
+split_rows = splits["rows"]
+row_ids = [r["row_id"] for r in split_rows]
+well_ids = [(r["source_domain"], r["well_id"]) for r in split_rows]
+members_sr = [r["member"] for r in split_rows]
+check("split rows 118", len(split_rows) == 118)
+check("split row_id unique", len(set(row_ids)) == len(split_rows))
+check("split (domain,well_id) unique", len(set(well_ids)) == len(split_rows))
+check("split member unique", len(set(members_sr)) == len(split_rows))
+check("split members known in inventory", set(members_sr) <= set(inv_by_member))
+check("split member sha matches inventory", all(inv_by_member[r["member"]]["member_sha256"] == r["member_sha256"] for r in split_rows))
+check("split well_id matches inventory uwi", all(inv_by_member[r["member"]]["uwi"] == r["well_id"] for r in split_rows))
+root_re = re.compile(r"^([0-9]+/[0-9]+-[0-9]+)(?:[ ]+[A-Z0-9 -]+)?$")
+derived_roots = {}
+for r in split_rows:
+    m = root_re.match(r["well_id"])
+    derived_roots[r["row_id"]] = m.group(1) if m else None
+check("all well ids match FORCE parent pattern", all(v is not None for v in derived_roots.values()))
+check("declared root_id equals derived parent", all(r["root_id"] == derived_roots[r["row_id"]] for r in split_rows))
+root_splits = {}
+for r in split_rows:
+    root_splits.setdefault(r["root_id"], set()).add(r["split"])
+check("root purity recomputed: no root spans splits", all(len(s) == 1 for s in root_splits.values()))
+recomp_counts = {}
+for r in split_rows:
+    recomp_counts[r["split"]] = recomp_counts.get(r["split"], 0) + 1
+check("recomputed rows 118 roots 117", len(split_rows) == 118 and len(root_splits) == 117)
+check("recomputed split counts 82/17/19", recomp_counts == {"train": 82, "validation": 17, "test": 19})
+check("grouping doc matches recomputation", domain["rows"] == len(split_rows) and domain["roots"] == len(root_splits) and grouping["split_rows"] == recomp_counts)
+check("derived_from references same-split root", all(
+    (r["derived_from"] is None) or (r["derived_from"] in root_splits and root_splits[r["derived_from"]] == {r["split"]})
+    for r in split_rows))
+derivatives = [r for r in split_rows if r["derived_from"] is not None]
+check("derivative rows match declared count", len(derivatives) == domain["derivatives"])
+
+inputs = doc["inputs"]
+check("archive sha256 matches file", inputs["archive"]["sha256"] == sha(root / ".local/datasets/force-2020/LAS_files_Force_2020_all_wells_train_test_blind_hidden_final.zip"))
+check("archive bytes 169785172", inputs["archive"]["bytes"] == 169785172)
+check("inventory sha256 matches file", inputs["inventory"]["sha256"] == sha(base / "data" / "force_wells.json"))
+check("splits sha256 matches file", inputs["splits"]["sha256"] == sha(base / "data" / "splits.json"))
+check("policy sha256 matches file", inputs["policy"]["sha256"] == sha(base / "data" / "split_policy.json"))
+check("label schema sha256 matches file", inputs["label_schema"]["sha256"] == sha(base / "data" / "label_schema.json"))
+check("grouping helper sha matches file", inputs["helpers"]["grouping"]["sha256"] == sha(base / "data" / "grouping.py"))
+check("inventory helper sha matches file", inputs["helpers"]["force_inventory"]["sha256"] == sha(base / "data" / "force_inventory.py"))
+check("column_parsing provenance present", "column_parsing" in doc["algorithm"])
+check("no label curve names in document", "FORCE_2020_LITHOFACIES" not in json.dumps(doc))
+check("no validation statistics block", "validation" not in json.dumps(doc["channels"]))
+print("preprocessing.json bytes:", pre.stat().st_size)
+print("preprocessing.json sha256:", sha(pre))
+if failures:
+    print("READBACK FAILURES:", failures)
+    sys.exit(1)
+print("READBACK ALL PASS")
+[embedded script] compare_stats.py sha256=32c8228ac509db58d9b57b429955d1a2a15d542f175970d70043d1ac62a2165c
+
+import json, pathlib, sys
+root = pathlib.Path(r"C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c")
+new = json.loads((root / ".local/deepeye-implementation-c/competition/deepeye/data/preprocessing.json").read_text(encoding="utf-8"))
+old = json.loads((root / ".local/plan-20261014-final-c/director-startup/preprocess-before-repair1/data/preprocessing.json").read_text(encoding="utf-8"))
+failures = []
+def check(name, condition):
+    if not condition:
+        failures.append(name)
+    print("%-58s %s" % (name, "PASS" if condition else "FAIL"))
+check("channels equal (entire list, bitwise floats)", new["channels"] == old["channels"])
+for fresh, prior in zip(new["channels"], old["channels"]):
+    name = fresh["name"]
+    check("channel %s valid_samples equal (%d)" % (name, prior["valid_samples"]), fresh["valid_samples"] == prior["valid_samples"])
+    check("channel %s mean equal (%.15g)" % (name, prior["mean"]), fresh["mean"] == prior["mean"])
+    check("channel %s variance equal (%.15g)" % (name, prior["variance"]), fresh["variance"] == prior["variance"])
+    check("channel %s std equal" % name, fresh["std"] == prior["std"])
+    check("channel %s counts equal" % name, fresh["counts"] == prior["counts"])
+check("train block equal", new["train"] == old["train"])
+check("fitting member list equal", [w["member"] for w in new["fitting_wells"]] == [w["member"] for w in old["fitting_wells"]])
+check("fitting row totals equal", sum(w["rows"] for w in new["fitting_wells"]) == sum(w["rows"] for w in old["fitting_wells"]))
+print("snapshot:", root / ".local/plan-20261014-final-c/director-startup/preprocess-before-repair1/data/preprocessing.json")
+if failures:
+    print("STATS UNCHANGED FAILURES:", failures)
+    sys.exit(1)
+print("STATS UNCHANGED: ALL PASS (bitwise identical statistics, same algorithm and order)")
+[embedded script] driver.py sha256=03cc3cca779b8d9b998e56b3d27a8d79219288ac90848c614ed49b75b8aef672
+"""Repair1 evidence driver: tests -> CLI -> readback -> compare, raw captures."""
+import hashlib
+import json
+import os
+import pathlib
+import subprocess
+import sys
+import time
+
+ROOT = pathlib.Path(r"C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c")
+BASE = ROOT / ".local/deepeye-implementation-c/competition/deepeye"
+TEMP = pathlib.Path(os.environ["TEMP"]) / "fp_evidence_repair1b_20261015"
+PY = ROOT / ".local/venv/Scripts/python.exe"
+
+def main():
+    env = dict(os.environ)
+    env["PYTHONDONTWRITEBYTECODE"] = "1"
+    runs = [
+        ("tests", [str(PY), "-X", "utf8", "-B", str(BASE / "tests/ai/data_model/test_force_preprocess.py")]),
+        ("cli", [str(PY), "-X", "utf8", "-B", str(BASE / "data/force_preprocess.py")]),
+        ("readback", [str(PY), "-X", "utf8", "-B", str(TEMP / "readback2.py")]),
+        ("compare", [str(PY), "-X", "utf8", "-B", str(TEMP / "compare_stats.py")]),
+    ]
+    manifest = {
+        "generated_utc": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
+        "interpreter": str(PY),
+        "python": "%d.%d.%d" % sys.version_info[:3],
+        "cwd": str(ROOT),
+        "env": {"PYTHONDONTWRITEBYTECODE": "1"},
+        "runs": [],
+    }
+    rc_all = 0
+    for name, argv in runs:
+        started = time.time()
+        proc = subprocess.run(argv, cwd=str(ROOT), env=env, capture_output=True)
+        (TEMP / (name + ".stdout.bin")).write_bytes(proc.stdout)
+        (TEMP / (name + ".stderr.bin")).write_bytes(proc.stderr)
+        entry = {
+            "name": name,
+            "command": argv,
+            "exit_code": proc.returncode,
+            "stdout_sha256": hashlib.sha256(proc.stdout).hexdigest(),
+            "stderr_sha256": hashlib.sha256(proc.stderr).hexdigest(),
+            "stdout_bytes": len(proc.stdout),
+            "stderr_bytes": len(proc.stderr),
+            "seconds": round(time.time() - started, 3),
+        }
+        manifest["runs"].append(entry)
+        if proc.returncode != 0:
+            rc_all = 1
+        print("%s exit=%d stdout=%s stderr=%s" % (name, proc.returncode, entry["stdout_sha256"][:16], entry["stderr_sha256"][:16]))
+        sys.stdout.flush()
+    (TEMP / "manifest.json").write_text(json.dumps(manifest, indent=1) + "\n", encoding="utf-8")
+    print("MANIFEST %s" % (TEMP / "manifest.json"))
+    return rc_all
+
+if __name__ == "__main__":
+    sys.exit(main())
+
+[manifest.json sha256=c6f39256479c84b8d2aee7380bcf64cc784f27630234036d01da6be7717a38aa]
+{
+ "generated_utc": "2026-10-14T21:05:02Z",
+ "interpreter": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\venv\\Scripts\\python.exe",
+ "python": "3.12.14",
+ "cwd": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c",
+ "env": {
+  "PYTHONDONTWRITEBYTECODE": "1"
+ },
+ "runs": [
+  {
+   "name": "tests",
+   "command": [
+    "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\venv\\Scripts\\python.exe",
+    "-X",
+    "utf8",
+    "-B",
+    "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\deepeye-implementation-c\\competition\\deepeye\\tests\\ai\\data_model\\test_force_preprocess.py"
+   ],
+   "exit_code": 0,
+   "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "stderr_sha256": "730c15e38cd5dbf89834d3a02018af415113a638eb82a38d17bb2cd958a97888",
+   "stdout_bytes": 0,
+   "stderr_bytes": 4564,
+   "seconds": 12.052
+  },
+  {
+   "name": "cli",
+   "command": [
+    "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\venv\\Scripts\\python.exe",
+    "-X",
+    "utf8",
+    "-B",
+    "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\deepeye-implementation-c\\competition\\deepeye\\data\\force_preprocess.py"
+   ],
+   "exit_code": 0,
+   "stdout_sha256": "a4d121530b8d50bf30c027466dbe5e2f9cabb6c0bc2e24eaca382dd07ab0e5b4",
+   "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "stdout_bytes": 228,
+   "stderr_bytes": 0,
+   "seconds": 36.078
+  },
+  {
+   "name": "readback",
+   "command": [
+    "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\venv\\Scripts\\python.exe",
+    "-X",
+    "utf8",
+    "-B",
+    "C:\\Users\\Alan\\AppData\\Local\\Temp\\fp_evidence_repair1b_20261015\\readback2.py"
+   ],
+   "exit_code": 0,
+   "stdout_sha256": "479afd3ca1dc286bc630c9ace1c83b326f14779909841d5fc492c246fcd09376",
+   "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "stdout_bytes": 3915,
+   "stderr_bytes": 0,
+   "seconds": 0.635
+  },
+  {
+   "name": "compare",
+   "command": [
+    "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\venv\\Scripts\\python.exe",
+    "-X",
+    "utf8",
+    "-B",
+    "C:\\Users\\Alan\\AppData\\Local\\Temp\\fp_evidence_repair1b_20261015\\compare_stats.py"
+   ],
+   "exit_code": 0,
+   "stdout_sha256": "ab316d75a396bdbffc44f1285875f361945330e4f4115da0cc60960b81c84ddf",
+   "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "stdout_bytes": 1807,
+   "stderr_bytes": 0,
+   "seconds": 0.21
+  }
+ ]
+}
+
+[capture file hashes sha256]
+manifest.json sha256=c6f39256479c84b8d2aee7380bcf64cc784f27630234036d01da6be7717a38aa bytes=2697
+readback2.py sha256=4a28503a9ba78213f3e989c972163e91984efa8b6eee5eb5f41984a01f3030e9 bytes=6969
+compare_stats.py sha256=32c8228ac509db58d9b57b429955d1a2a15d542f175970d70043d1ac62a2165c bytes=1829
+driver.py sha256=03cc3cca779b8d9b998e56b3d27a8d79219288ac90848c614ed49b75b8aef672 bytes=2352
+tests.stdout.bin sha256=e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855 bytes=0
+tests.stderr.bin sha256=730c15e38cd5dbf89834d3a02018af415113a638eb82a38d17bb2cd958a97888 bytes=4564
+cli.stdout.bin sha256=a4d121530b8d50bf30c027466dbe5e2f9cabb6c0bc2e24eaca382dd07ab0e5b4 bytes=228
+cli.stderr.bin sha256=e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855 bytes=0
+readback.stdout.bin sha256=479afd3ca1dc286bc630c9ace1c83b326f14779909841d5fc492c246fcd09376 bytes=3915
+readback.stderr.bin sha256=e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855 bytes=0
+compare.stdout.bin sha256=ab316d75a396bdbffc44f1285875f361945330e4f4115da0cc60960b81c84ddf bytes=1807
+compare.stderr.bin sha256=e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855 bytes=0
+
+[hashes sha256]
+data/force_preprocess.py C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\deepeye-implementation-c\competition\deepeye\data\force_preprocess.py sha256=75b2015c0ec9deab9a94a2032b77117124085631f2bd758a54c7ea7fdfdf2848 bytes=51033
+data/preprocessing.json C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\deepeye-implementation-c\competition\deepeye\data\preprocessing.json sha256=cb66fd302165c86344f3b8d1af9d9c4e4e229621cef44cbfa6fb8cd121a63eef bytes=29849
+tests/ai/data_model/test_force_preprocess.py C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\deepeye-implementation-c\competition\deepeye\tests\ai\data_model\test_force_preprocess.py sha256=a96529e9f3954379f23bb1c5d4806b750801a10c037101712effcdcb8d71bef4 bytes=62724
+data/grouping.py C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\deepeye-implementation-c\competition\deepeye\data\grouping.py sha256=f1a35a5b060cafb640d8f65b2914af9616258b7fa21f99d1a589d232f7b2be4d bytes=11608
+data/force_inventory.py C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\deepeye-implementation-c\competition\deepeye\data\force_inventory.py sha256=5bba8316ea36484df058dacb2289073ffb09ce19e401dfb297598b3e3cd10f47 bytes=22801
+inputs/inventory C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\deepeye-implementation-c\competition\deepeye\data\force_wells.json sha256=ace9a0eb9930f19c6b8125e151d07346fb23029b1455eac04964d15b97461e59 bytes=507665
+inputs/splits C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\deepeye-implementation-c\competition\deepeye\data\splits.json sha256=f10ddb8f37e6bdf7c9663eed45d0f6554ef8992899724013a7e487ad3e3cef91 bytes=45632
+inputs/policy C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\deepeye-implementation-c\competition\deepeye\data\split_policy.json sha256=66c5138ad45138104bca20d39c4680daa82534a16e381f8d2879eea6f37b81c9 bytes=2852
+inputs/label_schema C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\deepeye-implementation-c\competition\deepeye\data\label_schema.json sha256=0913ff5a59085b47802a9902f23a836f4fa1129700de8e6593840416f4d7beed bytes=3594
+baseline/snapshot_preprocessing.json C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\plan-20261014-final-c\director-startup\preprocess-before-repair1\data\preprocessing.json sha256=a7b2f069c9ab45160e58980e58d86e75355f0b31d2f1fceb6ea3fe4391bad454 bytes=28645
+inputs/archive C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\datasets\force-2020\LAS_files_Force_2020_all_wells_train_test_blind_hidden_final.zip sha256=042ef1d473100dc12768cae7107a8cead071a394f137af3bc1ddaf8a5d1b8dda bytes=169785172
+
+[notes]
+- Software-only C01 preprocessing fit; product card C01 remains not_run; no model training, no causal replay windows, no verify_data entrypoint, no online scene.
+- Only train split members were decompressed for fitting; held-out members were cross-checked at manifest level only and never opened.
+- PF01 repair: numeric conversion now happens only for depth (index 0) and the four selected channel columns; every other column is validated for cardinality and structural line shape but never parsed numerically. Labels/confidence/coordinates may contain opaque nonnumeric sentinels without affecting stats; malformed selected/depth values still fail with member+line.
+- PF02 repair: supplied split tables are now validated for unique row_id/well_id, inventory member-sha and UWI identity, derived root equality, declared counts and root purity via read-only data/grouping.py:validate_split_assignments before any fitting; shared-parent-across-splits and wrong-well_id fixtures are rejected.
+- Stats regeneration equals the pre-repair snapshot (bitwise channels, train block, fitting members and row totals) as captured by the compare run against C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\plan-20261014-final-c\director-startup\preprocess-before-repair1\data\preprocessing.json.
+- preprocessing.json is regenerated per run; only generated_utc differs between runs (same byte length), all fitted numbers identical.
+- The earlier repair capture used a readback script whose 'grouping root purity enforced' check was vacuous ('or True'); the final readback2 recomputes identity and root purity independently, and this final capture is the cited evidence.
+- Raw stdout/stderr bytes for every command are preserved verbatim below and hashed in the JSON evidence.
