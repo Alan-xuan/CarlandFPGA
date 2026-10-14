@@ -1,0 +1,640 @@
+{
+ "schema": 1,
+ "kind": "deepeye-verify-data-evidence",
+ "generated_utc": "2026-10-14T23:03:43Z",
+ "task_id": "DEEPEYE-C-VERIFY-DATA-REPAIR1-20261015",
+ "task_version": 1,
+ "work_id": "C-force-verifier-provenance-output-portability-correction-1-v1",
+ "implementation_job": {
+  "job_id": "child-21d7bc6b0d79417487812570710ab15b",
+  "instance_id": "deepseek-c-15",
+  "route": "deepseek (per the assignment dispatch record; not observable from inside the session)",
+  "provider": "deepseek (per the assignment controller dispatch record; actual provider/model/effort are not observable from inside this ordinary executor session and are never inferred from the catalog)",
+  "model": "stated deepseek-v4.1-flash (DeepSeek Flash) by the delivering controller; not independently observable in-session",
+  "effort": "stated max by the delivering controller; not independently observable in-session",
+  "supersedes": "child-5870ac0b8d2748869fe71be7fa846a70 (original verify_data job, terminal completed; main review rejected with VD01-VD05)"
+ },
+ "contract": {
+  "id": "DEEPEYE-HUMAN-LOCK-20261014",
+  "revision": 1,
+  "source_commit": "f5989cd5defce561f9ba98e6b18fc2682945f0a2",
+  "requirements_sha256": "c229834bfc2292f5fe4411fc9f12c68487008f9d1adaf31f0144ee7a98173804"
+ },
+ "design_commit": "1011259415a0916054eb580687612580bc1e5f09",
+ "scope": "Bounded correction1 of the C01 offline provenance/identity/consistency verifier foundation (tools/verify_data.py) addressing main-review findings VD01-VD05; full C01 remains blocked by four unresolved gates; product and hardware cards remain not_run",
+ "status": "software_corrections_completed_pending_director_review_no_product_acceptance",
+ "corrections_addressed": [
+  {
+   "id": "VD01",
+   "main_review_issue": "verify_pins hashed bytes, but public JSON loaders reopened and parsed unchecked bytes; a replacement between pin pass and parse was consumed while the report still claimed the original verified digest.",
+   "fix": "Every public document loader (load_json_document) reads the file once into an immutable byte buffer, verifies sha256 of that exact buffer against the context expected pin, then decodes the same buffer; missing/unreadable/changed inputs produce explicit blocked/failed outcomes and no unverified JSON is consumed. Helper imports hash and compile the same buffer.",
+   "regression_tests": [
+    "SyntheticOfflineTests.test_replacement_between_pin_pass_and_parse_is_detected"
+   ],
+   "note": "Race regression runs against isolated temporary copies; no product input is mutated by tests."
+  },
+  {
+   "id": "VD02",
+   "main_review_issue": "A missing pin masked an observed hash mismatch (corrupt-available + missing reported blocked 2 instead of failed 1); only one of the two lists was reported.",
+   "fix": "Precedence: any observed corrupt/unreadable/invalid available input must be failed (exit 1); only all-missing prerequisites are blocked (exit 2). Mixed situations report both the missing list and the mismatch details. Explicit --scope force-offline without --archive is a missing prerequisite (blocked 2), while malformed CLI arguments remain usage_error.",
+   "regression_tests": [
+    "SyntheticOfflineTests.test_missing_pin_does_not_mask_observed_corruption",
+    "RealPinnedDataTests.test_force_offline_without_archive_is_blocked_not_usage_error",
+    "RealPinnedDataTests.test_real_cli_usage_errors_are_deterministic"
+   ]
+  },
+  {
+   "id": "VD03",
+   "main_review_issue": "VerificationSpec stored caller-owned mutable dicts, and any spec with name production was accepted (dataclasses.replace on a synthetic spec produced a production-labelled PASS over a 1056-byte synthetic archive).",
+   "fix": "All spec containers are immutable copies on ingress (MappingProxyType over dict copies; tuples for sequences), so later caller mutations cannot alter the spec and direct spec-map writes fail. A production-labelled context must exactly match the immutable canonical PRODUCTION_SPEC fields/pins/counts/provenance before any data/helper read, otherwise it is rejected early with deterministic failed exit 1 and no helper execution. Custom contexts are explicitly reported as synthetic_fixture with production_provenance=false; there is no caller-supplied trusted flag.",
+   "regression_tests": [
+    "SyntheticOfflineTests.test_spec_containers_are_immutable_ingress_copies",
+    "SyntheticOfflineTests.test_production_relabelled_spec_is_rejected_without_any_read"
+   ]
+  },
+  {
+   "id": "VD04",
+   "main_review_issue": "--output could overwrite a pinned input (main reproduced with --output clone/data/preprocessing.json inside a cloned tree returning exit 0) while the report presented its prior bytes as verified.",
+   "fix": "Before any output probe or write, the resolved/canonicalized output path is compared with all actually-read inputs (the 9 pinned paths, the selected archive, the verifier entrypoint), including equal-path spellings such as .. components and existing-file samefile aliases (hardlink/symlink/junction); a protected target is rejected with failed exit 1 and originals stay byte-identical. Legitimate report paths such as data/manifest.json remain allowed.",
+   "regression_tests": [
+    "CliOutputProtectionTests.test_output_rejects_pinned_input_and_parent_alias",
+    "CliOutputProtectionTests.test_output_rejects_verifier_entrypoint",
+    "CliOutputProtectionTests.test_output_rejects_hardlink_alias_of_pinned_input",
+    "CliOutputProtectionTests.test_output_allows_legitimate_report_path"
+   ]
+  },
+  {
+   "id": "VD05",
+   "main_review_issue": "The published unit suite required the private controller file verify-data-main-decisions.json and assumed a fixed worktree depth, so an ordinary peer checkout failed FileNotFoundError.",
+   "fix": "The constants test compares pinned identity against literal expected 9 hashes/counts/contract written in the test file itself (from main decisions); no private controller file or .local tree is referenced. Real-archive integration cases are gated by the DEEPEYE_FORCE_ARCHIVE environment path and skip with a counted reason when unset (SkipContractTests enforces exactly 3 gated skips). The CLI default full scope no longer invents a 4-parent archive location: without an explicit --archive it reports archive status no_path (blocked 2) truthfully.",
+   "regression_tests": [
+    "RealPinnedDataTests.test_production_constants_match_main_decisions",
+    "SkipContractTests.test_env_gated_skip_contract"
+   ],
+   "clean_checkout_result": "48 tests, OK (skipped=3) with no env var, no private controller tree and no archive location"
+  },
+  {
+   "id": "CURRENT-GATE",
+   "main_review_issue": "Stale missing-gate listing still included the causal curve input main acceptance even though CURVE05 pure builder acceptance is published.",
+   "fix": "Removed the stale gate from missing_full_gates (CURVE05 pure builder accepted/published; curve-repair1-main-review.json, PR25 head fe9fc080). Four gates remain unresolved and the default full scope stays blocked with every product card not_run.",
+   "regression_tests": []
+  }
+ ],
+ "files": [
+  {
+   "path": "tools/verify_data.py",
+   "role": "verifier CLI + importable module (corrected for VD01-VD05)",
+   "sha256": "d058118f130afd2f0ed5f7b28ec68bc6fcabf597a01b8b893d7fea93b711030d",
+   "bytes": 105039
+  },
+  {
+   "path": "tests/ai/data_model/test_verify_data.py",
+   "role": "unit tests incl. VD01-VD05 regressions, env-gated real-archive integration, checkout-portable constants",
+   "sha256": "4fe3b827a4c5c6ccca65c3fb8e21099f70c96e42e6ebd19c0087b6b8a1974d74",
+   "bytes": 71054
+  },
+  {
+   "path": "data/manifest.json",
+   "role": "partial offline manifest re-emitted by the force-offline run with the corrected source",
+   "sha256": "5a822cf1ccc042d849acca7bd016465f8b452aac19b82be825124755eb37bd30",
+   "bytes": 10852
+  },
+  {
+   "path": "evidence/ai/startup/verify_data.json",
+   "role": "this evidence file; its own sha256 cannot be embedded stably and is omitted by design - the director recomputes it from the delivered bytes",
+   "sha256": null,
+   "bytes": null
+  },
+  {
+   "path": "evidence/ai/startup/verify_data.log",
+   "role": "raw transcripts + readback (written before this json)",
+   "sha256": "2a99f5b06d5a41013119ca19c7e2d86014514f3bfea5326dc96e6e7f0ef2f7dd",
+   "bytes": 97904
+  }
+ ],
+ "tool_versions": {
+  "python": "3.12.14",
+  "implementation": "CPython",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "interpreter": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\venv\\Scripts\\python.exe"
+ },
+ "commands": [
+  {
+   "name": "tests_product_env",
+   "command": [
+    "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\venv\\Scripts\\python.exe",
+    "-X",
+    "utf8",
+    "-B",
+    "tests/ai/data_model/test_verify_data.py"
+   ],
+   "cwd": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\deepeye-implementation-c\\competition\\deepeye",
+   "exit_code": 0,
+   "stdout_bytes": 0,
+   "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "stderr_bytes": 153,
+   "stderr_sha256": "16e05898cdae17913b12da88cc6494d2a255a1cf1258459956249f74bf4f4da6",
+   "expected_exit_code": 0,
+   "exit_as_expected": true
+  },
+  {
+   "name": "offline_manifest",
+   "command": [
+    "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\venv\\Scripts\\python.exe",
+    "-X",
+    "utf8",
+    "-B",
+    "tools/verify_data.py",
+    "--scope",
+    "force-offline",
+    "--archive",
+    "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\datasets\\force-2020\\LAS_files_Force_2020_all_wells_train_test_blind_hidden_final.zip",
+    "--output",
+    "data/manifest.json"
+   ],
+   "cwd": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\deepeye-implementation-c\\competition\\deepeye",
+   "exit_code": 0,
+   "stdout_bytes": 10852,
+   "stdout_sha256": "5a822cf1ccc042d849acca7bd016465f8b452aac19b82be825124755eb37bd30",
+   "stderr_bytes": 0,
+   "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "expected_exit_code": 0,
+   "exit_as_expected": true
+  },
+  {
+   "name": "full_default",
+   "command": [
+    "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\venv\\Scripts\\python.exe",
+    "-X",
+    "utf8",
+    "-B",
+    "tools/verify_data.py"
+   ],
+   "cwd": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\deepeye-implementation-c\\competition\\deepeye",
+   "exit_code": 2,
+   "stdout_bytes": 10551,
+   "stdout_sha256": "7383b7e685f2e5aa59aa829e74aa0b990928cada8003ab2490f8738b98820fc1",
+   "stderr_bytes": 0,
+   "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "expected_exit_code": 2,
+   "exit_as_expected": true
+  },
+  {
+   "name": "scope_verify",
+   "command": [
+    "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\venv\\Scripts\\python.exe",
+    "-X",
+    "utf8",
+    ".local/plan-20261014-final-c/final-final-1011259/verify_immutable_scope.py",
+    "--expected-sha",
+    "c229834bfc2292f5fe4411fc9f12c68487008f9d1adaf31f0144ee7a98173804",
+    "--book",
+    ".local/plan-20261014-final-c/final-final-1011259/taskbook_final.md",
+    "--plan",
+    ".local/plan-20261014-final-c/final-final-1011259/execution_plan_final.json"
+   ],
+   "cwd": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c",
+   "exit_code": 0,
+   "stdout_bytes": 272,
+   "stdout_sha256": "e6a0a5722482707d449e03400819ffe28ddb53cb53e43f355e9645f5c9303f1c",
+   "stderr_bytes": 0,
+   "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "expected_exit_code": 0,
+   "exit_as_expected": true
+  },
+  {
+   "name": "tests_clean_checkout",
+   "command": [
+    "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\venv\\Scripts\\python.exe",
+    "-X",
+    "utf8",
+    "-B",
+    "tests/ai/data_model/test_verify_data.py"
+   ],
+   "cwd": "C:\\Users\\Alan\\AppData\\Local\\Temp\\vp_repair1_20261015\\clean_checkout",
+   "exit_code": 0,
+   "stdout_bytes": 0,
+   "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "stderr_bytes": 165,
+   "stderr_sha256": "5b6af389903ce0bb64abb5299d3963beb48886a49b28c5270c58478dfe9d2327",
+   "expected_exit_code": 0,
+   "exit_as_expected": true
+  }
+ ],
+ "tests": {
+  "path": "tests/ai/data_model/test_verify_data.py",
+  "command": [
+   "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\venv\\Scripts\\python.exe",
+   "-X",
+   "utf8",
+   "-B",
+   "tests/ai/data_model/test_verify_data.py"
+  ],
+  "cwd": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\deepeye-implementation-c\\competition\\deepeye",
+  "exit_code": 0,
+  "tests_run": 48,
+  "classes": {
+   "RealPinnedDataTests": 9,
+   "SyntheticOfflineTests": 31,
+   "OutputAtomicityTests": 3,
+   "CliOutputProtectionTests": 4,
+   "SkipContractTests": 1
+  },
+  "verdict": "OK",
+  "ran_line": [
+   "Ran 48 tests in 14.139s"
+  ],
+  "skipped": false,
+  "environment": "DEEPEYE_FORCE_ARCHIVE set to the real pinned archive (0 skips; all real-archive integration cases ran)",
+  "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stderr_sha256": "16e05898cdae17913b12da88cc6494d2a255a1cf1258459956249f74bf4f4da6",
+  "clean_checkout": {
+   "cwd": "C:\\Users\\Alan\\AppData\\Local\\Temp\\vp_repair1_20261015\\clean_checkout",
+   "command": [
+    "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\venv\\Scripts\\python.exe",
+    "-X",
+    "utf8",
+    "-B",
+    "tests/ai/data_model/test_verify_data.py"
+   ],
+   "exit_code": 0,
+   "tests_run": 48,
+   "skipped": 3,
+   "expected_skipped": 3,
+   "ran_line": [
+    "Ran 48 tests in 12.232s"
+   ],
+   "verdict_line": [
+    "OK (skipped=3)"
+   ],
+   "environment": "no DEEPEYE_FORCE_ARCHIVE and no private controller tree; pure tests ran, only the 3 env-gated real-archive cases skipped"
+  }
+ },
+ "manifest_emission": {
+  "command": [
+   "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\venv\\Scripts\\python.exe",
+   "-X",
+   "utf8",
+   "-B",
+   "tools/verify_data.py",
+   "--scope",
+   "force-offline",
+   "--archive",
+   "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\datasets\\force-2020\\LAS_files_Force_2020_all_wells_train_test_blind_hidden_final.zip",
+   "--output",
+   "data/manifest.json"
+  ],
+  "exit_code": 0,
+  "status": "passed_offline_identity_consistency_only",
+  "product_card_C01": "not_run",
+  "sha256": "5a822cf1ccc042d849acca7bd016465f8b452aac19b82be825124755eb37bd30",
+  "bytes": 10852,
+  "stdout_equals_file": true,
+  "counts": {
+   "inventory_members": 118,
+   "well_rows_total": 2337639,
+   "curves_total": 2393,
+   "parent_roots": 117,
+   "group_counts": {
+    "train": 81,
+    "validation": 17,
+    "test": 19
+   },
+   "well_counts": {
+    "train": 82,
+    "validation": 17,
+    "test": 19
+   },
+   "train_rows": 1634292,
+   "fitting_wells": 82,
+   "fitting_rows": 1634292
+  },
+  "checks": {
+   "passed": 15,
+   "not_run": 3,
+   "total": 18,
+   "not_run_ids": [
+    "full_c01_prerequisite_gates",
+    "real_sim_domain_separation",
+    "runtime_future_label_access"
+   ]
+  },
+  "provenance": {
+   "dataset": "FORCE 2020 machine learning competition well logs (public lithology domain)",
+   "source_domain": "force_2020_public_lithology",
+   "doi": "10.5281/zenodo.4351156",
+   "record_url": "https://zenodo.org/records/4351156",
+   "authors_repository": "https://github.com/bolgebrygg/Force-2020-Machine-Learning-competition",
+   "authors_repository_commit": "c8d01ee92c1c8e1ecba36f96cca6ea7b689338a1",
+   "record_license_id": "cc-by-4.0",
+   "original_description_license_text": "NOLD 2.0",
+   "original_description_license_note": "Verbatim licensing text from the pinned source record, kept separately from the deposited resource license id.",
+   "archive_file": "LAS_files_Force_2020_all_wells_train_test_blind_hidden_final.zip",
+   "archive_bytes": 169785172,
+   "archive_sha256": "042ef1d473100dc12768cae7107a8cead071a394f137af3bc1ddaf8a5d1b8dda",
+   "raw_archive_in_product_repository": false
+  },
+  "missing_full_gates": [
+   "R03 public resource/profile/observation schema acceptance",
+   "sensor_live whole acquisition-run manifest",
+   "sim_em_v2 whole-scenario and derivative splits",
+   "runtime future-label/truth-access instrumentation"
+  ],
+  "local_path_leak_probe": {
+   ".local/": false,
+   "C:\\": false,
+   "C:/": false,
+   "AppData": false,
+   "Users\\": false,
+   "Users/": false
+  }
+ },
+ "default_full_scope": {
+  "command": [
+   "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\venv\\Scripts\\python.exe",
+   "-X",
+   "utf8",
+   "-B",
+   "tools/verify_data.py"
+  ],
+  "exit_code": 2,
+  "stdout_sha256": "7383b7e685f2e5aa59aa829e74aa0b990928cada8003ab2490f8738b98820fc1",
+  "status": "blocked",
+  "product_card_C01": "not_run",
+  "archive_status": "no_path",
+  "archive_check": {
+   "archive_bytes_and_sha256": "blocked"
+  },
+  "command_archive": null,
+  "expected": "blocked exit 2 with every card not_run while the four required gates are missing; the default full scope does not invent an archive location"
+ },
+ "scope_verify": {
+  "command": [
+   "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\venv\\Scripts\\python.exe",
+   "-X",
+   "utf8",
+   ".local/plan-20261014-final-c/final-final-1011259/verify_immutable_scope.py",
+   "--expected-sha",
+   "c229834bfc2292f5fe4411fc9f12c68487008f9d1adaf31f0144ee7a98173804",
+   "--book",
+   ".local/plan-20261014-final-c/final-final-1011259/taskbook_final.md",
+   "--plan",
+   ".local/plan-20261014-final-c/final-final-1011259/execution_plan_final.json"
+  ],
+  "exit_code": 0,
+  "stdout_sha256": "e6a0a5722482707d449e03400819ffe28ddb53cb53e43f355e9645f5c9303f1c",
+  "stdout": "{\"status\": \"passed\", \"scope\": \"human requirement identity and trace coverage only\", \"contract\": \"DEEPEYE-HUMAN-LOCK-20261014\", \"requirements\": 15, \"requirements_sha256\": \"c229834bfc2292f5fe4411fc9f12c68487008f9d1adaf31f0144ee7a98173804\", \"runtime_acceptance\": \"not_run\"}"
+ },
+ "input_sha256": {
+  "pinned_artifacts_expected_equals_actual": {
+   "data/source_inventory.json": "7800fda1b4f712d5e93a05d14b6a0726eb5699f979db065dea61eb9a7f84337c",
+   "data/force_wells.json": "ace9a0eb9930f19c6b8125e151d07346fb23029b1455eac04964d15b97461e59",
+   "data/splits.json": "f10ddb8f37e6bdf7c9663eed45d0f6554ef8992899724013a7e487ad3e3cef91",
+   "data/split_policy.json": "66c5138ad45138104bca20d39c4680daa82534a16e381f8d2879eea6f37b81c9",
+   "data/label_schema.json": "0913ff5a59085b47802a9902f23a836f4fa1129700de8e6593840416f4d7beed",
+   "data/preprocessing.json": "cb66fd302165c86344f3b8d1af9d9c4e4e229621cef44cbfa6fb8cd121a63eef",
+   "data/force_inventory.py": "5bba8316ea36484df058dacb2289073ffb09ce19e401dfb297598b3e3cd10f47",
+   "data/grouping.py": "f1a35a5b060cafb640d8f65b2914af9616258b7fa21f99d1a589d232f7b2be4d",
+   "data/force_preprocess.py": "75b2015c0ec9deab9a94a2032b77117124085631f2bd758a54c7ea7fdfdf2848"
+  },
+  "archive": {
+   "basename": "LAS_files_Force_2020_all_wells_train_test_blind_hidden_final.zip",
+   "bytes": 169785172,
+   "sha256": "042ef1d473100dc12768cae7107a8cead071a394f137af3bc1ddaf8a5d1b8dda",
+   "status": "verified"
+  },
+  "main_decisions": {
+   "path": ".local/plan-20261014-final-c/director-startup/verify-data-main-decisions.json",
+   "sha256": "eba7b05f70354ca5708d4caf4703510978a1f08819fb08ba6890a50a8aeeab16",
+   "bytes": 2307
+  },
+  "main_review": {
+   "path": ".local/plan-20261014-final-c/director-startup/verify-data-main-review.json",
+   "sha256": "1da3761729aede473b1c20aa12746fa113252d1a2bcbd1d730b326430e2405da",
+   "bytes": 6915
+  },
+  "repair1_main_decisions": {
+   "path": ".local/plan-20261014-final-c/director-startup/verify-data-repair1-main-decisions.json",
+   "sha256": "4c8d22bb2561cdf82b82578351ce2fe372bef57371dfb6b8208e5f8bd33a5fea",
+   "bytes": 9505
+  },
+  "taskbook_final": {
+   "path": ".local/plan-20261014-final-c/final-final-1011259/taskbook_final.md",
+   "sha256": "7f5c94f7fc73698236be954ae7818266d6dfe8b4949d1752dd045d76f4b71f18",
+   "bytes": 109430
+  },
+  "execution_plan_final": {
+   "path": ".local/plan-20261014-final-c/final-final-1011259/execution_plan_final.json",
+   "sha256": "e93f10d247109e8cb7070ded7fdfac5b3543a44afb3387261531556eebde41be",
+   "bytes": 11924
+  },
+  "execution_orchestration_v5": {
+   "path": ".local/plan-20261014-final-c/final-final-1011259/execution_orchestration_v5.md",
+   "sha256": "c4668714bc25959f0cb5cc8ef326ca04f90dc33eb03905a40ec6c4114804a2e1",
+   "bytes": 9029
+  }
+ },
+ "patch_trail_reconstruction": {
+  "tool": "base 421eaba054c124d7ff85ae00a96f0eab3a68868ee1a6b6cad5fb9e1f25dbb898 + vp1a/vp1b/vp1c/vp2a/vp2b/vp2c/vp3/vp3b -> d058118f130afd2f0ed5f7b28ec68bc6fcabf597a01b8b893d7fea93b711030d (105039 bytes)",
+  "test": "base 0d48fc5ad962f4e2a9089277f7babbe209da05bce6babc66b00a6fe08690f615 + tp1 -> 1733e15006c24e37d57c449d9d1af77de590eeacd374b197cf01e62f07a37bf2 (57333 bytes, intermediate product revision) + tp2a..tp2j -> 4fe3b827a4c5c6ccca65c3fb8e21099f70c96e42e6ebd19c0087b6b8a1974d74 (71054 bytes, final)",
+  "method": "temp-only codex.exe --codex-run-as-apply-patch re-application with path-prefix rewriting; scripts embedded verbatim in the log"
+ },
+ "readback": {
+  "owned_files": {
+   "tools/verify_data.py": {
+    "sha256": "d058118f130afd2f0ed5f7b28ec68bc6fcabf597a01b8b893d7fea93b711030d",
+    "bytes": 105039
+   },
+   "tests/ai/data_model/test_verify_data.py": {
+    "sha256": "4fe3b827a4c5c6ccca65c3fb8e21099f70c96e42e6ebd19c0087b6b8a1974d74",
+    "bytes": 71054
+   },
+   "data/manifest.json": {
+    "sha256": "5a822cf1ccc042d849acca7bd016465f8b452aac19b82be825124755eb37bd30",
+    "bytes": 10852
+   },
+   "evidence/ai/startup/verify_data.json": {
+    "sha256": null,
+    "bytes": null
+   },
+   "evidence/ai/startup/verify_data.log": {
+    "sha256": "2a99f5b06d5a41013119ca19c7e2d86014514f3bfea5326dc96e6e7f0ef2f7dd",
+    "bytes": 97904
+   }
+  },
+  "product_file_count": 61,
+  "non_owned_files_compared_to_prechange_stage_tree": {
+   "count": 56,
+   "mismatches": []
+  },
+  "python_bytecode_under_product": {
+   "pycache_dirs": [],
+   "pyc_files": []
+  },
+  "git_status_porcelain": [
+   " M .gitattributes",
+   " M .gitignore",
+   " M AGENTS.md",
+   " M README.md",
+   " M deploy/HUMAN_STEPS.md",
+   " M deploy/Join-FPGAMesh.ps1",
+   " M deploy/TEAMMATE_PROMPT.md",
+   " M deploy/configs/node-a.toml",
+   " M deploy/configs/node-b.toml",
+   " M deploy/configs/node-c.toml",
+   " M deploy/register-autostart.ps1",
+   " M docs/deployment/DEPLOYMENT_STATUS.md",
+   " M docs/deployment/FEISHU_APP_HANDOFF.md",
+   " M docs/deployment/OPERATIONS.md",
+   " M docs/superpowers/specs/2026-09-29-fpga-multi-agent-design.md",
+   " M findings.md",
+   " M fpga_mesh/agent_policy.py",
+   " M fpga_mesh/app_server.py",
+   " M fpga_mesh/child_cli.py",
+   " M fpga_mesh/child_control.py",
+   " M fpga_mesh/cli.py",
+   " M fpga_mesh/distribution.py",
+   " M fpga_mesh/dynamic_children.py",
+   " M fpga_mesh/effort.py",
+   " M fpga_mesh/feishu_channel.py",
+   " M fpga_mesh/feishu_registration.py",
+   " M fpga_mesh/feishu_selftest.py",
+   " M fpga_mesh/gateway.py",
+   " M fpga_mesh/mcp_children.py",
+   " M fpga_mesh/mesh_tools.py",
+   " M fpga_mesh/onboarding.py",
+   " M fpga_mesh/rpc.py",
+   " M fpga_mesh/runtime.py",
+   " M fpga_mesh/store.py",
+   " M progress.md",
+   " M scripts/smoke_child_mcp.py",
+   " M scripts/smoke_effort_switch.py",
+   " M scripts/smoke_parent_child.py",
+   " D skills/pynq-z2-single-node/INSTALL.md",
+   " D skills/pynq-z2-single-node/Install.ps1",
+   " D skills/pynq-z2-single-node/SKILL.md",
+   " D skills/pynq-z2-single-node/references/handoff.md",
+   " D skills/pynq-z2-single-node/references/pynq-z2.md",
+   " D skills/pynq-z2-single-node/references/telemetry-option.md",
+   " D skills/pynq-z2-single-node/references/windows-toolchain.md",
+   " D skills/pynq-z2-single-node/scripts/handoff.py",
+   " D skills/pynq-z2-single-node/scripts/preflight.py",
+   " M task_plan.md",
+   " M tests/test_app_gateway.py",
+   " M tests/test_app_server.py",
+   " M tests/test_distribution.py",
+   " M tests/test_dynamic_children.py",
+   " M tests/test_effort.py",
+   " M tests/test_feishu_registration.py",
+   " M tests/test_mcp_children.py",
+   " M tests/test_mesh_tools.py",
+   " M tests/test_runtime.py",
+   "?? .agents/",
+   "?? .planning/",
+   "?? build_pdf.py",
+   "?? deploy/Stop-FPGAMeshForUpdate.ps1",
+   "?? deploy/Update-FPGAMesh.ps1",
+   "?? deploy/Update-OfficialModels.ps1",
+   "?? \"deploy/\\346\\233\\264\\346\\226\\260\\345\\256\\230\\346\\226\\271\\346\\250\\241\\345\\236\\213.cmd\"",
+   "?? docs/competition/deepeye-2026/",
+   "?? docs/competition/mine_plan_20261013/.gitattributes",
+   "?? docs/competition/mine_plan_20261013/README_FINAL.md",
+   "?? docs/competition/mine_plan_20261013/acceptance_final.json",
+   "?? docs/competition/mine_plan_20261013/build_pdf.py",
+   "?? docs/competition/mine_plan_20261013/c/eol_note.md",
+   "?? docs/competition/mine_plan_20261013/c/feishu_final_delivery.txt",
+   "?? docs/competition/mine_plan_20261013/c/feishu_final_readback.json",
+   "?? docs/competition/mine_plan_20261013/c/feishu_resource_question.txt",
+   "?? docs/competition/mine_plan_20261013/c/feishu_resource_readback.json",
+   "?? docs/competition/mine_plan_20261013/c/feishu_track_question.txt",
+   "?? docs/competition/mine_plan_20261013/c/frozen_portfolio_raw.zip",
+   "?? docs/competition/mine_plan_20261013/c/hardware_inventory.json",
+   "?? docs/competition/mine_plan_20261013/c/pdf_child_ownership_deviation.json",
+   "?? docs/competition/mine_plan_20261013/c/pr_body.txt",
+   "?? docs/competition/mine_plan_20261013/c/pr_final_body.txt",
+   "?? docs/competition/mine_plan_20261013/c/publish_final_api.py",
+   "?? docs/competition/mine_plan_20261013/c/publish_planning_api_v2.py",
+   "?? docs/competition/mine_plan_20261013/c/received/",
+   "?? docs/competition/mine_plan_20261013/c/requests/",
+   "?? docs/competition/mine_plan_20261013/c/scope_and_eol_addendum.json",
+   "?? docs/competition/mine_plan_20261013/create_final_taskbook.py",
+   "?? docs/competition/mine_plan_20261013/external/",
+   "?? docs/competition/mine_plan_20261013/external_review.md",
+   "?? docs/competition/mine_plan_20261013/final_manifest.json",
+   "?? docs/competition/mine_plan_20261013/final_qa.json",
+   "?? docs/competition/mine_plan_20261013/pdf_qa/",
+   "?? docs/competition/mine_plan_20261013/round2_budget.json",
+   "?? docs/competition/mine_plan_20261013/round2_budget.py",
+   "?? docs/competition/mine_plan_20261013/taskbook_final.md",
+   "?? docs/competition/mine_plan_20261013/validate_final.py",
+   "?? docs/deployment/AGENT_ROUTING_AUDIT_2026-10-10.md",
+   "?? docs/deployment/AUTONOMOUS_ROUTING_ACCEPTANCE_2026-10-10.md",
+   "?? docs/deployment/IN_PLACE_UPDATE_2026-10-11.md",
+   "?? docs/deployment/OFFICIAL_MODEL_ROUTING_ACCEPTANCE_2026-10-10.md",
+   "?? docs/deployment/evidence/",
+   "?? docs/superpowers/plans/2026-10-10-autonomous-routing.md",
+   "?? docs/superpowers/plans/2026-10-11-in-place-mesh-update.md",
+   "?? docs/superpowers/specs/2026-10-10-autonomous-routing-design.md",
+   "?? fpga_mesh/feishu_permissions.py",
+   "?? fpga_mesh/install_routing.py",
+   "?? fpga_mesh/models_ui.py",
+   "?? fpga_mesh/notifications.py",
+   "?? fpga_mesh/official_models.py",
+   "?? fpga_mesh/project_cli.py",
+   "?? fpga_mesh/project_control.py",
+   "?? fpga_mesh/project_mcp.py",
+   "?? fpga_mesh/service.py",
+   "?? fpga_mesh/sessions.py",
+   "?? fpga_mesh/supervisor.py",
+   "?? fpga_mesh/update.py",
+   "?? fpga_mesh/windows_job.py",
+   "?? output/",
+   "?? pdf_qa/",
+   "?? tests/test_feishu_permissions.py",
+   "?? tests/test_install_routing.py",
+   "?? tests/test_mesh_update.py",
+   "?? tests/test_models_ui.py",
+   "?? tests/test_official_models.py",
+   "?? tests/test_peer_operation_idempotency.py",
+   "?? tests/test_project_control.py",
+   "?? tests/test_routing_hardening.py",
+   "?? tests/test_rpc_frames.py",
+   "?? tests/test_service_lease.py",
+   "?? tests/test_service_logging.py",
+   "?? tests/test_service_restart.py",
+   "?? tests/test_sessions.py",
+   "?? tests/test_supervisor.py",
+   "?? tests/test_work_leases.py"
+  ],
+  "raw_capture_files_preserved": [
+   "tests_product_env.stdout.bin",
+   "offline_manifest.stdout.bin",
+   "full_default.stdout.bin",
+   "scope_verify.stdout.bin",
+   "tests_clean_checkout.stdout.bin",
+   "tests_product_env.stderr.bin",
+   "offline_manifest.stderr.bin",
+   "full_default.stderr.bin",
+   "scope_verify.stderr.bin",
+   "tests_clean_checkout.stderr.bin"
+  ]
+ },
+ "failures_and_fixes": [
+  "Main review VD01-VD05 reproduced the five defects above against the original five files; all five are corrected in this round with the regression tests listed under corrections_addressed (the original five files are preserved read-only in the director snapshot verify-data-before-main-review and in the local temp copy base5).",
+  "Iteration incident (temp-only): an early directory probe used the mistyped path ...competition\\depeye (6 chars) instead of deepeye (7 chars) and reported LOSS (exit 9) three times until corrected; all later helpers assert basename == deepeye and len == 7 (lottery_log.txt records LOSS x3 then WIN with 61 files).",
+  "Iteration incident (temp-only): in-session patch application through the primary path was unreliable under this PowerShell session, so patches were applied via codex.exe --codex-run-as-apply-patch against a staging mirror with path-prefix rewriting (apply_patch_stage.py). The staged sources were then deployed to the product with before/after hash assertions (deploy_test.py).",
+  "Iteration incident (owned file): an intermediate test-file revision (57333 bytes, sha256 1733e15006c24e37d57c449d9d1af77de590eeacd374b197cf01e62f07a37bf2) was present in the product test path during iteration (base + tp1 patch, re-applied deterministically in the temp reconstruction below). It was backed up to the temp dir and replaced by the final staged revision (71054 bytes, sha256 4fe3b827a4c5c6ccca65c3fb8e21099f70c96e42e6ebd19c0087b6b8a1974d74) with deploy assertions before any final run.",
+  "Iteration incident (test-side only): three self-inflicted test-logic errors were found and fixed while iterating the stage suite. (1) The skip-contract test counted occurrences of the skip-reason literal in its own source and the assertion string itself added an extra occurrence (off-by-one); fixed by splitting the literal (tp2i/tp2j). (2) The spec-immutability test asserted production counts after replace(group_counts=...) instead of the caller snapshot (train: 999); corrected to the snapshot semantics plus inequality with PRODUCTION_SPEC (tp2i). (3) The legitimate-output test originally required the real archive and exit 0; rewritten (tp2f) to run without the archive and expect the truthful blocked exit 2 while output_write stays passed, which is checkout-portable. No product-code defect was involved in these three.",
+  "After the stage suite reached 48 tests OK (env archive set), the staged bytes were deployed to the product; the five final runs (product suite with env archive, offline manifest emission, default full scope, immutable scope verification, clean-checkout suite) were executed against the product tree and all hashes were re-verified afterwards as recorded above."
+ ],
+ "limits": [
+  "Software-only correction round: this is not C01 acceptance and no product/hardware card is claimed; product_card_C01=not_run and every formal card remains not_run.",
+  "The archive was hashed as a raw byte stream only: 0 ZIP members opened, 0 LAS values parsed, 0 statistics re-fit; the zipfile-spy regressions enforce the zero-open/zero-parse property.",
+  "Runtime future-label access and real/sim (sensor_live vs sim_em_v2) domain separation remain unknown_not_run, never reported as zero. Four gates remain unresolved: R03 public resource/profile/observation schema acceptance; sensor_live whole acquisition-run manifest; sim_em_v2 whole-scenario and derivative splits; runtime future-label/truth-access instrumentation.",
+  "Provider/model/effort are not observable from inside this ordinary executor session; the assignment dispatch record (route deepseek, instance deepseek-c-15, job child-21d7bc6b0d79417487812570710ab15b) and the assignment-stated DeepSeek Flash/max are recorded, never inferred from the model catalog.",
+  "Reports keep product-relative paths and archive basenames; the manifest embeds no local absolute path (leak probe re-run: all false) and no raw FORCE rows are copied into product files.",
+  "The verifier itself runs no commands, network or git; the git status recorded here is a read-only repo query by the builder. The suite's three real-archive integration cases depend on the caller-supplied DEEPEYE_FORCE_ARCHIVE path and skip (counted) when it is unset.",
+  "Synthetic fixtures are explicitly labelled and cannot claim production provenance; a passing synthetic report does not attest real FORCE data or full C01."
+ ],
+ "public_raw_transcript": "evidence/ai/startup/verify_data.log"
+}

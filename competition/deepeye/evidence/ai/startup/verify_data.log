@@ -1,0 +1,1666 @@
+=== DeepEye C01 verify_data evidence log (raw command transcripts) ===
+task: DEEPEYE-C-VERIFY-DATA-REPAIR1-20261015 v1
+work: C-force-verifier-provenance-output-portability-correction-1-v1
+job: child-21d7bc6b0d79417487812570710ab15b instance deepseek-c-15 route deepseek (per dispatch record; provider/model/effort not observable in-session)
+generated_utc: 2026-10-14T23:03:43Z
+python: 3.12.14 (CPython) platform: Windows-11-10.0.26200-SP0
+scope: bounded correction1 of the offline FORCE provenance/identity/consistency verifier foundation (main review VD01-VD05).
+product_card_C01=not_run; full C01 remains blocked; this is not acceptance and not a hardware observation.
+supersedes: child-5870ac0b8d2748869fe71be7fa846a70 (original verify_data job, terminal completed, rejected with VD01-VD05).
+
+=== corrections addressed (main review VD01-VD05 + current-gate status) ===
+[VD01] verify_pins hashed bytes, but public JSON loaders reopened and parsed unchecked bytes; a replacement between pin pass and parse was consumed while the report still claimed the original verified digest.
+fix: Every public document loader (load_json_document) reads the file once into an immutable byte buffer, verifies sha256 of that exact buffer against the context expected pin, then decodes the same buffer; missing/unreadable/changed inputs produce explicit blocked/failed outcomes and no unverified JSON is consumed. Helper imports hash and compile the same buffer.
+regressions: SyntheticOfflineTests.test_replacement_between_pin_pass_and_parse_is_detected
+
+[VD02] A missing pin masked an observed hash mismatch (corrupt-available + missing reported blocked 2 instead of failed 1); only one of the two lists was reported.
+fix: Precedence: any observed corrupt/unreadable/invalid available input must be failed (exit 1); only all-missing prerequisites are blocked (exit 2). Mixed situations report both the missing list and the mismatch details. Explicit --scope force-offline without --archive is a missing prerequisite (blocked 2), while malformed CLI arguments remain usage_error.
+regressions: SyntheticOfflineTests.test_missing_pin_does_not_mask_observed_corruption, RealPinnedDataTests.test_force_offline_without_archive_is_blocked_not_usage_error, RealPinnedDataTests.test_real_cli_usage_errors_are_deterministic
+
+[VD03] VerificationSpec stored caller-owned mutable dicts, and any spec with name production was accepted (dataclasses.replace on a synthetic spec produced a production-labelled PASS over a 1056-byte synthetic archive).
+fix: All spec containers are immutable copies on ingress (MappingProxyType over dict copies; tuples for sequences), so later caller mutations cannot alter the spec and direct spec-map writes fail. A production-labelled context must exactly match the immutable canonical PRODUCTION_SPEC fields/pins/counts/provenance before any data/helper read, otherwise it is rejected early with deterministic failed exit 1 and no helper execution. Custom contexts are explicitly reported as synthetic_fixture with production_provenance=false; there is no caller-supplied trusted flag.
+regressions: SyntheticOfflineTests.test_spec_containers_are_immutable_ingress_copies, SyntheticOfflineTests.test_production_relabelled_spec_is_rejected_without_any_read
+
+[VD04] --output could overwrite a pinned input (main reproduced with --output clone/data/preprocessing.json inside a cloned tree returning exit 0) while the report presented its prior bytes as verified.
+fix: Before any output probe or write, the resolved/canonicalized output path is compared with all actually-read inputs (the 9 pinned paths, the selected archive, the verifier entrypoint), including equal-path spellings such as .. components and existing-file samefile aliases (hardlink/symlink/junction); a protected target is rejected with failed exit 1 and originals stay byte-identical. Legitimate report paths such as data/manifest.json remain allowed.
+regressions: CliOutputProtectionTests.test_output_rejects_pinned_input_and_parent_alias, CliOutputProtectionTests.test_output_rejects_verifier_entrypoint, CliOutputProtectionTests.test_output_rejects_hardlink_alias_of_pinned_input, CliOutputProtectionTests.test_output_allows_legitimate_report_path
+
+[VD05] The published unit suite required the private controller file verify-data-main-decisions.json and assumed a fixed worktree depth, so an ordinary peer checkout failed FileNotFoundError.
+fix: The constants test compares pinned identity against literal expected 9 hashes/counts/contract written in the test file itself (from main decisions); no private controller file or .local tree is referenced. Real-archive integration cases are gated by the DEEPEYE_FORCE_ARCHIVE environment path and skip with a counted reason when unset (SkipContractTests enforces exactly 3 gated skips). The CLI default full scope no longer invents a 4-parent archive location: without an explicit --archive it reports archive status no_path (blocked 2) truthfully.
+regressions: RealPinnedDataTests.test_production_constants_match_main_decisions, SkipContractTests.test_env_gated_skip_contract
+
+[CURRENT-GATE] Stale missing-gate listing still included the causal curve input main acceptance even though CURVE05 pure builder acceptance is published.
+fix: Removed the stale gate from missing_full_gates (CURVE05 pure builder accepted/published; curve-repair1-main-review.json, PR25 head fe9fc080). Four gates remain unresolved and the default full scope stays blocked with every product card not_run.
+regressions: status-only (no runtime path change)
+
+=== executed commands (raw bytes; stdout/stderr sha256 recorded) ===
+
+[tests_product_env] product unit suite with DEEPEYE_FORCE_ARCHIVE set to the real pinned archive (0 skips expected)
+command: ["C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\venv\\Scripts\\python.exe", "-X", "utf8", "-B", "tests/ai/data_model/test_verify_data.py"]
+cwd: C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\deepeye-implementation-c\competition\deepeye
+exit_code: 0 (expected 0, as_expected=True)
+stdout_bytes: 0 sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+stderr_bytes: 153 sha256: 16e05898cdae17913b12da88cc6494d2a255a1cf1258459956249f74bf4f4da6
+---- stdout (verbatim UTF-8) ----
+
+---- stderr (verbatim UTF-8) ----
+................................................
+----------------------------------------------------------------------
+Ran 48 tests in 14.139s
+
+OK
+
+[offline_manifest] real force-offline CLI emitting data/manifest.json (explicit archive)
+command: ["C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\venv\\Scripts\\python.exe", "-X", "utf8", "-B", "tools/verify_data.py", "--scope", "force-offline", "--archive", "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\datasets\\force-2020\\LAS_files_Force_2020_all_wells_train_test_blind_hidden_final.zip", "--output", "data/manifest.json"]
+cwd: C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\deepeye-implementation-c\competition\deepeye
+exit_code: 0 (expected 0, as_expected=True)
+stdout_bytes: 10852 sha256: 5a822cf1ccc042d849acca7bd016465f8b452aac19b82be825124755eb37bd30
+stderr_bytes: 0 sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+---- stdout (verbatim UTF-8) ----
+{
+ "schema": 1,
+ "kind": "deepeye-verify-data-report",
+ "generated_utc": "2026-10-14T22:55:43Z",
+ "tool": {
+  "path": "tools/verify_data.py",
+  "sha256": "d058118f130afd2f0ed5f7b28ec68bc6fcabf597a01b8b893d7fea93b711030d"
+ },
+ "task_id": "DEEPEYE-IMPLEMENTATION-20261014",
+ "task_version": 1,
+ "design_commit": "1011259415a0916054eb580687612580bc1e5f09",
+ "contract": {
+  "id": "DEEPEYE-HUMAN-LOCK-20261014",
+  "revision": 1,
+  "source_commit": "f5989cd5defce561f9ba98e6b18fc2682945f0a2",
+  "requirements_sha256": "c229834bfc2292f5fe4411fc9f12c68487008f9d1adaf31f0144ee7a98173804"
+ },
+ "spec": "production",
+ "requested_spec_name": "production",
+ "production_provenance": true,
+ "scope": "force-offline",
+ "status": "passed_offline_identity_consistency_only",
+ "exit_code": 0,
+ "product_card_C01": "not_run",
+ "software_scope": "offline provenance/identity/consistency only; no live sensor, sim_em_v2 scenario or runtime verification",
+ "command": {
+  "entrypoint": "tools/verify_data.py",
+  "scope": "force-offline",
+  "archive_file": "LAS_files_Force_2020_all_wells_train_test_blind_hidden_final.zip",
+  "output": "data/manifest.json",
+  "python": "3.12.14"
+ },
+ "provenance": {
+  "dataset": "FORCE 2020 machine learning competition well logs (public lithology domain)",
+  "source_domain": "force_2020_public_lithology",
+  "doi": "10.5281/zenodo.4351156",
+  "record_url": "https://zenodo.org/records/4351156",
+  "authors_repository": "https://github.com/bolgebrygg/Force-2020-Machine-Learning-competition",
+  "authors_repository_commit": "c8d01ee92c1c8e1ecba36f96cca6ea7b689338a1",
+  "record_license_id": "cc-by-4.0",
+  "original_description_license_text": "NOLD 2.0",
+  "original_description_license_note": "Verbatim licensing text from the pinned source record, kept separately from the deposited resource license id.",
+  "archive_file": "LAS_files_Force_2020_all_wells_train_test_blind_hidden_final.zip",
+  "archive_bytes": 169785172,
+  "archive_sha256": "042ef1d473100dc12768cae7107a8cead071a394f137af3bc1ddaf8a5d1b8dda",
+  "raw_archive_in_product_repository": false
+ },
+ "artifacts": [
+  {
+   "path": "data/force_inventory.py",
+   "expected_sha256": "5bba8316ea36484df058dacb2289073ffb09ce19e401dfb297598b3e3cd10f47",
+   "actual_sha256": "5bba8316ea36484df058dacb2289073ffb09ce19e401dfb297598b3e3cd10f47",
+   "bytes": 22801,
+   "status": "verified"
+  },
+  {
+   "path": "data/force_preprocess.py",
+   "expected_sha256": "75b2015c0ec9deab9a94a2032b77117124085631f2bd758a54c7ea7fdfdf2848",
+   "actual_sha256": "75b2015c0ec9deab9a94a2032b77117124085631f2bd758a54c7ea7fdfdf2848",
+   "bytes": 51033,
+   "status": "verified"
+  },
+  {
+   "path": "data/force_wells.json",
+   "expected_sha256": "ace9a0eb9930f19c6b8125e151d07346fb23029b1455eac04964d15b97461e59",
+   "actual_sha256": "ace9a0eb9930f19c6b8125e151d07346fb23029b1455eac04964d15b97461e59",
+   "bytes": 507665,
+   "status": "verified"
+  },
+  {
+   "path": "data/grouping.py",
+   "expected_sha256": "f1a35a5b060cafb640d8f65b2914af9616258b7fa21f99d1a589d232f7b2be4d",
+   "actual_sha256": "f1a35a5b060cafb640d8f65b2914af9616258b7fa21f99d1a589d232f7b2be4d",
+   "bytes": 11608,
+   "status": "verified"
+  },
+  {
+   "path": "data/label_schema.json",
+   "expected_sha256": "0913ff5a59085b47802a9902f23a836f4fa1129700de8e6593840416f4d7beed",
+   "actual_sha256": "0913ff5a59085b47802a9902f23a836f4fa1129700de8e6593840416f4d7beed",
+   "bytes": 3594,
+   "status": "verified"
+  },
+  {
+   "path": "data/preprocessing.json",
+   "expected_sha256": "cb66fd302165c86344f3b8d1af9d9c4e4e229621cef44cbfa6fb8cd121a63eef",
+   "actual_sha256": "cb66fd302165c86344f3b8d1af9d9c4e4e229621cef44cbfa6fb8cd121a63eef",
+   "bytes": 29849,
+   "status": "verified"
+  },
+  {
+   "path": "data/source_inventory.json",
+   "expected_sha256": "7800fda1b4f712d5e93a05d14b6a0726eb5699f979db065dea61eb9a7f84337c",
+   "actual_sha256": "7800fda1b4f712d5e93a05d14b6a0726eb5699f979db065dea61eb9a7f84337c",
+   "bytes": 2690,
+   "status": "verified"
+  },
+  {
+   "path": "data/split_policy.json",
+   "expected_sha256": "66c5138ad45138104bca20d39c4680daa82534a16e381f8d2879eea6f37b81c9",
+   "actual_sha256": "66c5138ad45138104bca20d39c4680daa82534a16e381f8d2879eea6f37b81c9",
+   "bytes": 2852,
+   "status": "verified"
+  },
+  {
+   "path": "data/splits.json",
+   "expected_sha256": "f10ddb8f37e6bdf7c9663eed45d0f6554ef8992899724013a7e487ad3e3cef91",
+   "actual_sha256": "f10ddb8f37e6bdf7c9663eed45d0f6554ef8992899724013a7e487ad3e3cef91",
+   "bytes": 45632,
+   "status": "verified"
+  }
+ ],
+ "archive": {
+  "expected_file": "LAS_files_Force_2020_all_wells_train_test_blind_hidden_final.zip",
+  "expected_sha256": "042ef1d473100dc12768cae7107a8cead071a394f137af3bc1ddaf8a5d1b8dda",
+  "expected_bytes": 169785172,
+  "actual_file": "LAS_files_Force_2020_all_wells_train_test_blind_hidden_final.zip",
+  "actual_sha256": "042ef1d473100dc12768cae7107a8cead071a394f137af3bc1ddaf8a5d1b8dda",
+  "actual_bytes": 169785172,
+  "status": "verified"
+ },
+ "counts": {
+  "inventory_members": 118,
+  "well_rows_total": 2337639,
+  "curves_total": 2393,
+  "parent_roots": 117,
+  "group_counts": {
+   "train": 81,
+   "validation": 17,
+   "test": 19
+  },
+  "well_counts": {
+   "train": 82,
+   "validation": 17,
+   "test": 19
+  },
+  "train_rows": 1634292,
+  "fitting_wells": 82,
+  "fitting_rows": 1634292
+ },
+ "checks": [
+  {
+   "id": "spec_context",
+   "status": "passed",
+   "detail": "context production; production_provenance=True"
+  },
+  {
+   "id": "pinned_artifact_hashes",
+   "status": "passed",
+   "detail": "all 9 pinned artifacts match their expected SHA256 and byte length"
+  },
+  {
+   "id": "pinned_documents_parse",
+   "status": "passed",
+   "detail": "all 6 pinned JSON documents parse as objects"
+  },
+  {
+   "id": "contract_task_design_identity",
+   "status": "passed",
+   "detail": "contract/task/design identity matches DEEPEYE-HUMAN-LOCK-20261014 r1 (source f5989cd5..., design 10112594...) in all 6 documents"
+  },
+  {
+   "id": "cross_file_hash_links",
+   "status": "passed",
+   "detail": "all cross-file SHA256 links, counts, license/DOI/commit provenance fields and curve-order references match the pinned values"
+  },
+  {
+   "id": "inventory_structure",
+   "status": "passed",
+   "detail": "118 members, 2337639 rows and 2393 curve columns verified with unique member/UWI/member-SHA256 identities, wrap NO and per-curve counts consistent with well rows"
+  },
+  {
+   "id": "split_structure_and_coverage",
+   "status": "passed",
+   "detail": "118 split rows map one-to-one onto the 118 pinned wells with matching UWIs and byte hashes, the declared parent rule and the pinned naming rule; per-split counts {'train': 81, 'validation': 17, 'test': 19} groups / {'train': 82, 'validation': 17, 'test': 19} wells"
+  },
+  {
+   "id": "whole_well_grouping",
+   "status": "passed",
+   "detail": "pinned grouping validator accepted 118 rows in 117 root groups with rows per split {'train': 82, 'validation': 17, 'test': 19} and no cross-split parent"
+  },
+  {
+   "id": "rank_split_reconstruction",
+   "status": "passed",
+   "detail": "all 117 parent groups reproduce the SHA256(salt + newline + parent) ranked assignment with floor(fraction * N) cuts"
+  },
+  {
+   "id": "label_schema_alignment",
+   "status": "passed",
+   "detail": "12 label classes (indices 0..11) and confidence codes ['1', '2', '3'] are well-formed metadata; no row-level label value was read"
+  },
+  {
+   "id": "preprocessing_fit_identity",
+   "status": "passed",
+   "detail": "82 fitting wells are exactly the train members in pinned split row order with matching SHA256/UWI/rows; row sum 1634292 equals the documented and inventory-summed train rows in 81 parent groups"
+  },
+  {
+   "id": "preprocessing_statistics_metadata",
+   "status": "passed",
+   "detail": "4 channels in pinned order with finite mean/variance/std, std==sqrt(variance) within rel_tol 1e-9, bucket sums equal to the train rows and the explicit zero-variance effective_scale rule (numeric fit not recomputed)"
+  },
+  {
+   "id": "archive_bytes_and_sha256",
+   "status": "passed",
+   "detail": "archive byte stream verified: 169785172 bytes, sha256 042ef1d473100dc12768cae7107a8cead071a394f137af3bc1ddaf8a5d1b8dda (byte stream only; no ZIP member opened)"
+  },
+  {
+   "id": "zip_member_and_las_parse_absence",
+   "status": "passed",
+   "detail": "by construction this verifier never opens ZIP members and never parses LAS values; the archive is read as a raw byte stream only (current archive check status: passed)"
+  },
+  {
+   "id": "output_write",
+   "status": "passed",
+   "detail": "atomically written to data/manifest.json (temporary sibling then replace); stdout and file content identical"
+  },
+  {
+   "id": "runtime_future_label_access",
+   "status": "not_run",
+   "detail": "requires runtime future-label/truth-access instrumentation (missing full gate); the status is unknown and is not reported as zero"
+  },
+  {
+   "id": "real_sim_domain_separation",
+   "status": "not_run",
+   "detail": "sensor_live acquisition runs and sim_em_v2 complete scenarios are not part of this offline foundation; domain separation is unverified here"
+  },
+  {
+   "id": "full_c01_prerequisite_gates",
+   "status": "not_run",
+   "detail": "4 full-C01 gates are outside the force-offline scope; the offline checks cannot substitute for them"
+  }
+ ],
+ "missing_full_gates": [
+  "R03 public resource/profile/observation schema acceptance",
+  "sensor_live whole acquisition-run manifest",
+  "sim_em_v2 whole-scenario and derivative splits",
+  "runtime future-label/truth-access instrumentation"
+ ],
+ "unverified": {
+  "runtime_future_label_access": "unknown_not_run",
+  "real_sim_domain_separation": "unknown_not_run",
+  "sensor_live_run_manifest": "unknown_not_run",
+  "sim_em_v2_scenario_splits": "unknown_not_run"
+ },
+ "limitations": [
+  "The archive is read only as a raw byte stream (SHA256 plus byte length). No ZIP member was opened, no LAS value was parsed and no statistic was recomputed.",
+  "The archive hash and the previously reviewed pinned inventory together give provenance; this verifier does not perform a fresh per-well parsing measurement.",
+  "The numeric preprocessing fit was previously main-audited; this verifier checks documented metadata and fit-identity consistency only, with defined tolerances for derived scalars.",
+  "Offline FORCE-2020 public lithology domain only; sensor_live acquisition runs and sim_em_v2 complete scenarios are not covered.",
+  "Label-schema metadata only; no row-level label or confidence value is read, and runtime future-label access is unverified (unknown, never reported as zero).",
+  "No model training, no held-out evaluation, no calibration and no hardware acceptance; the C01 product card remains not_run."
+ ],
+ "software_facts": {
+  "zip_members_opened": 0,
+  "las_values_parsed": 0,
+  "statistics_recomputed": false,
+  "network_calls": 0,
+  "subprocesses_spawned": 0
+ }
+}
+---- stderr (verbatim UTF-8) ----
+
+
+[full_default] default full-scope CLI with no archive (truthful missing-prerequisite blocked)
+command: ["C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\venv\\Scripts\\python.exe", "-X", "utf8", "-B", "tools/verify_data.py"]
+cwd: C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\deepeye-implementation-c\competition\deepeye
+exit_code: 2 (expected 2, as_expected=True)
+stdout_bytes: 10551 sha256: 7383b7e685f2e5aa59aa829e74aa0b990928cada8003ab2490f8738b98820fc1
+stderr_bytes: 0 sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+---- stdout (verbatim UTF-8) ----
+{
+ "schema": 1,
+ "kind": "deepeye-verify-data-report",
+ "generated_utc": "2026-10-14T22:55:44Z",
+ "tool": {
+  "path": "tools/verify_data.py",
+  "sha256": "d058118f130afd2f0ed5f7b28ec68bc6fcabf597a01b8b893d7fea93b711030d"
+ },
+ "task_id": "DEEPEYE-IMPLEMENTATION-20261014",
+ "task_version": 1,
+ "design_commit": "1011259415a0916054eb580687612580bc1e5f09",
+ "contract": {
+  "id": "DEEPEYE-HUMAN-LOCK-20261014",
+  "revision": 1,
+  "source_commit": "f5989cd5defce561f9ba98e6b18fc2682945f0a2",
+  "requirements_sha256": "c229834bfc2292f5fe4411fc9f12c68487008f9d1adaf31f0144ee7a98173804"
+ },
+ "spec": "production",
+ "requested_spec_name": "production",
+ "production_provenance": true,
+ "scope": "full_c01",
+ "status": "blocked",
+ "exit_code": 2,
+ "product_card_C01": "not_run",
+ "software_scope": "offline provenance/identity/consistency only; no live sensor, sim_em_v2 scenario or runtime verification",
+ "command": {
+  "entrypoint": "tools/verify_data.py",
+  "scope": "full_c01",
+  "archive_file": null,
+  "output": null,
+  "python": "3.12.14"
+ },
+ "provenance": {
+  "dataset": "FORCE 2020 machine learning competition well logs (public lithology domain)",
+  "source_domain": "force_2020_public_lithology",
+  "doi": "10.5281/zenodo.4351156",
+  "record_url": "https://zenodo.org/records/4351156",
+  "authors_repository": "https://github.com/bolgebrygg/Force-2020-Machine-Learning-competition",
+  "authors_repository_commit": "c8d01ee92c1c8e1ecba36f96cca6ea7b689338a1",
+  "record_license_id": "cc-by-4.0",
+  "original_description_license_text": "NOLD 2.0",
+  "original_description_license_note": "Verbatim licensing text from the pinned source record, kept separately from the deposited resource license id.",
+  "archive_file": "LAS_files_Force_2020_all_wells_train_test_blind_hidden_final.zip",
+  "archive_bytes": 169785172,
+  "archive_sha256": "042ef1d473100dc12768cae7107a8cead071a394f137af3bc1ddaf8a5d1b8dda",
+  "raw_archive_in_product_repository": false
+ },
+ "artifacts": [
+  {
+   "path": "data/force_inventory.py",
+   "expected_sha256": "5bba8316ea36484df058dacb2289073ffb09ce19e401dfb297598b3e3cd10f47",
+   "actual_sha256": "5bba8316ea36484df058dacb2289073ffb09ce19e401dfb297598b3e3cd10f47",
+   "bytes": 22801,
+   "status": "verified"
+  },
+  {
+   "path": "data/force_preprocess.py",
+   "expected_sha256": "75b2015c0ec9deab9a94a2032b77117124085631f2bd758a54c7ea7fdfdf2848",
+   "actual_sha256": "75b2015c0ec9deab9a94a2032b77117124085631f2bd758a54c7ea7fdfdf2848",
+   "bytes": 51033,
+   "status": "verified"
+  },
+  {
+   "path": "data/force_wells.json",
+   "expected_sha256": "ace9a0eb9930f19c6b8125e151d07346fb23029b1455eac04964d15b97461e59",
+   "actual_sha256": "ace9a0eb9930f19c6b8125e151d07346fb23029b1455eac04964d15b97461e59",
+   "bytes": 507665,
+   "status": "verified"
+  },
+  {
+   "path": "data/grouping.py",
+   "expected_sha256": "f1a35a5b060cafb640d8f65b2914af9616258b7fa21f99d1a589d232f7b2be4d",
+   "actual_sha256": "f1a35a5b060cafb640d8f65b2914af9616258b7fa21f99d1a589d232f7b2be4d",
+   "bytes": 11608,
+   "status": "verified"
+  },
+  {
+   "path": "data/label_schema.json",
+   "expected_sha256": "0913ff5a59085b47802a9902f23a836f4fa1129700de8e6593840416f4d7beed",
+   "actual_sha256": "0913ff5a59085b47802a9902f23a836f4fa1129700de8e6593840416f4d7beed",
+   "bytes": 3594,
+   "status": "verified"
+  },
+  {
+   "path": "data/preprocessing.json",
+   "expected_sha256": "cb66fd302165c86344f3b8d1af9d9c4e4e229621cef44cbfa6fb8cd121a63eef",
+   "actual_sha256": "cb66fd302165c86344f3b8d1af9d9c4e4e229621cef44cbfa6fb8cd121a63eef",
+   "bytes": 29849,
+   "status": "verified"
+  },
+  {
+   "path": "data/source_inventory.json",
+   "expected_sha256": "7800fda1b4f712d5e93a05d14b6a0726eb5699f979db065dea61eb9a7f84337c",
+   "actual_sha256": "7800fda1b4f712d5e93a05d14b6a0726eb5699f979db065dea61eb9a7f84337c",
+   "bytes": 2690,
+   "status": "verified"
+  },
+  {
+   "path": "data/split_policy.json",
+   "expected_sha256": "66c5138ad45138104bca20d39c4680daa82534a16e381f8d2879eea6f37b81c9",
+   "actual_sha256": "66c5138ad45138104bca20d39c4680daa82534a16e381f8d2879eea6f37b81c9",
+   "bytes": 2852,
+   "status": "verified"
+  },
+  {
+   "path": "data/splits.json",
+   "expected_sha256": "f10ddb8f37e6bdf7c9663eed45d0f6554ef8992899724013a7e487ad3e3cef91",
+   "actual_sha256": "f10ddb8f37e6bdf7c9663eed45d0f6554ef8992899724013a7e487ad3e3cef91",
+   "bytes": 45632,
+   "status": "verified"
+  }
+ ],
+ "archive": {
+  "expected_file": "LAS_files_Force_2020_all_wells_train_test_blind_hidden_final.zip",
+  "expected_sha256": "042ef1d473100dc12768cae7107a8cead071a394f137af3bc1ddaf8a5d1b8dda",
+  "expected_bytes": 169785172,
+  "actual_file": null,
+  "actual_sha256": null,
+  "actual_bytes": null,
+  "status": "no_path"
+ },
+ "counts": {
+  "inventory_members": 118,
+  "well_rows_total": 2337639,
+  "curves_total": 2393,
+  "parent_roots": 117,
+  "group_counts": {
+   "train": 81,
+   "validation": 17,
+   "test": 19
+  },
+  "well_counts": {
+   "train": 82,
+   "validation": 17,
+   "test": 19
+  },
+  "train_rows": 1634292,
+  "fitting_wells": 82,
+  "fitting_rows": 1634292
+ },
+ "checks": [
+  {
+   "id": "spec_context",
+   "status": "passed",
+   "detail": "context production; production_provenance=True"
+  },
+  {
+   "id": "pinned_artifact_hashes",
+   "status": "passed",
+   "detail": "all 9 pinned artifacts match their expected SHA256 and byte length"
+  },
+  {
+   "id": "pinned_documents_parse",
+   "status": "passed",
+   "detail": "all 6 pinned JSON documents parse as objects"
+  },
+  {
+   "id": "contract_task_design_identity",
+   "status": "passed",
+   "detail": "contract/task/design identity matches DEEPEYE-HUMAN-LOCK-20261014 r1 (source f5989cd5..., design 10112594...) in all 6 documents"
+  },
+  {
+   "id": "cross_file_hash_links",
+   "status": "passed",
+   "detail": "all cross-file SHA256 links, counts, license/DOI/commit provenance fields and curve-order references match the pinned values"
+  },
+  {
+   "id": "inventory_structure",
+   "status": "passed",
+   "detail": "118 members, 2337639 rows and 2393 curve columns verified with unique member/UWI/member-SHA256 identities, wrap NO and per-curve counts consistent with well rows"
+  },
+  {
+   "id": "split_structure_and_coverage",
+   "status": "passed",
+   "detail": "118 split rows map one-to-one onto the 118 pinned wells with matching UWIs and byte hashes, the declared parent rule and the pinned naming rule; per-split counts {'train': 81, 'validation': 17, 'test': 19} groups / {'train': 82, 'validation': 17, 'test': 19} wells"
+  },
+  {
+   "id": "whole_well_grouping",
+   "status": "passed",
+   "detail": "pinned grouping validator accepted 118 rows in 117 root groups with rows per split {'train': 82, 'validation': 17, 'test': 19} and no cross-split parent"
+  },
+  {
+   "id": "rank_split_reconstruction",
+   "status": "passed",
+   "detail": "all 117 parent groups reproduce the SHA256(salt + newline + parent) ranked assignment with floor(fraction * N) cuts"
+  },
+  {
+   "id": "label_schema_alignment",
+   "status": "passed",
+   "detail": "12 label classes (indices 0..11) and confidence codes ['1', '2', '3'] are well-formed metadata; no row-level label value was read"
+  },
+  {
+   "id": "preprocessing_fit_identity",
+   "status": "passed",
+   "detail": "82 fitting wells are exactly the train members in pinned split row order with matching SHA256/UWI/rows; row sum 1634292 equals the documented and inventory-summed train rows in 81 parent groups"
+  },
+  {
+   "id": "preprocessing_statistics_metadata",
+   "status": "passed",
+   "detail": "4 channels in pinned order with finite mean/variance/std, std==sqrt(variance) within rel_tol 1e-9, bucket sums equal to the train rows and the explicit zero-variance effective_scale rule (numeric fit not recomputed)"
+  },
+  {
+   "id": "archive_bytes_and_sha256",
+   "status": "blocked",
+   "detail": "no archive path was supplied"
+  },
+  {
+   "id": "zip_member_and_las_parse_absence",
+   "status": "passed",
+   "detail": "by construction this verifier never opens ZIP members and never parses LAS values; the archive is read as a raw byte stream only (current archive check status: blocked)"
+  },
+  {
+   "id": "output_write",
+   "status": "not_run",
+   "detail": "stdout only (no --output path given)"
+  },
+  {
+   "id": "runtime_future_label_access",
+   "status": "not_run",
+   "detail": "requires runtime future-label/truth-access instrumentation (missing full gate); the status is unknown and is not reported as zero"
+  },
+  {
+   "id": "real_sim_domain_separation",
+   "status": "not_run",
+   "detail": "sensor_live acquisition runs and sim_em_v2 complete scenarios are not part of this offline foundation; domain separation is unverified here"
+  },
+  {
+   "id": "full_c01_prerequisite_gates",
+   "status": "blocked",
+   "detail": "full C01 verification is blocked; missing gates: R03 public resource/profile/observation schema acceptance; sensor_live whole acquisition-run manifest; sim_em_v2 whole-scenario and derivative splits; runtime future-label/truth-access instrumentation"
+  }
+ ],
+ "missing_full_gates": [
+  "R03 public resource/profile/observation schema acceptance",
+  "sensor_live whole acquisition-run manifest",
+  "sim_em_v2 whole-scenario and derivative splits",
+  "runtime future-label/truth-access instrumentation"
+ ],
+ "unverified": {
+  "runtime_future_label_access": "unknown_not_run",
+  "real_sim_domain_separation": "unknown_not_run",
+  "sensor_live_run_manifest": "unknown_not_run",
+  "sim_em_v2_scenario_splits": "unknown_not_run"
+ },
+ "limitations": [
+  "The archive is read only as a raw byte stream (SHA256 plus byte length). No ZIP member was opened, no LAS value was parsed and no statistic was recomputed.",
+  "The archive hash and the previously reviewed pinned inventory together give provenance; this verifier does not perform a fresh per-well parsing measurement.",
+  "The numeric preprocessing fit was previously main-audited; this verifier checks documented metadata and fit-identity consistency only, with defined tolerances for derived scalars.",
+  "Offline FORCE-2020 public lithology domain only; sensor_live acquisition runs and sim_em_v2 complete scenarios are not covered.",
+  "Label-schema metadata only; no row-level label or confidence value is read, and runtime future-label access is unverified (unknown, never reported as zero).",
+  "No model training, no held-out evaluation, no calibration and no hardware acceptance; the C01 product card remains not_run."
+ ],
+ "software_facts": {
+  "zip_members_opened": 0,
+  "las_values_parsed": 0,
+  "statistics_recomputed": false,
+  "network_calls": 0,
+  "subprocesses_spawned": 0
+ }
+}
+---- stderr (verbatim UTF-8) ----
+
+
+[scope_verify] immutable scope verification (read-only, no product writes)
+command: ["C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\venv\\Scripts\\python.exe", "-X", "utf8", ".local/plan-20261014-final-c/final-final-1011259/verify_immutable_scope.py", "--expected-sha", "c229834bfc2292f5fe4411fc9f12c68487008f9d1adaf31f0144ee7a98173804", "--book", ".local/plan-20261014-final-c/final-final-1011259/taskbook_final.md", "--plan", ".local/plan-20261014-final-c/final-final-1011259/execution_plan_final.json"]
+cwd: C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c
+exit_code: 0 (expected 0, as_expected=True)
+stdout_bytes: 272 sha256: e6a0a5722482707d449e03400819ffe28ddb53cb53e43f355e9645f5c9303f1c
+stderr_bytes: 0 sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+---- stdout (verbatim UTF-8) ----
+{"status": "passed", "scope": "human requirement identity and trace coverage only", "contract": "DEEPEYE-HUMAN-LOCK-20261014", "requirements": 15, "requirements_sha256": "c229834bfc2292f5fe4411fc9f12c68487008f9d1adaf31f0144ee7a98173804", "runtime_acceptance": "not_run"}
+---- stderr (verbatim UTF-8) ----
+
+
+[tests_clean_checkout] unit suite from a clean checkout copy with no env var and no private controller tree (3 counted skips expected)
+command: ["C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\venv\\Scripts\\python.exe", "-X", "utf8", "-B", "tests/ai/data_model/test_verify_data.py"]
+cwd: C:\Users\Alan\AppData\Local\Temp\vp_repair1_20261015\clean_checkout
+exit_code: 0 (expected 0, as_expected=True)
+stdout_bytes: 0 sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+stderr_bytes: 165 sha256: 5b6af389903ce0bb64abb5299d3963beb48886a49b28c5270c58478dfe9d2327
+---- stdout (verbatim UTF-8) ----
+
+---- stderr (verbatim UTF-8) ----
+..........s..ss.................................
+----------------------------------------------------------------------
+Ran 48 tests in 12.232s
+
+OK (skipped=3)
+
+=== readback: data/manifest.json ===
+path: data/manifest.json sha256: 5a822cf1ccc042d849acca7bd016465f8b452aac19b82be825124755eb37bd30 bytes: 10852
+status: passed_offline_identity_consistency_only exit_code: 0 product_card_C01: not_run spec: production production_provenance: True
+command block: {"archive_file": "LAS_files_Force_2020_all_wells_train_test_blind_hidden_final.zip", "entrypoint": "tools/verify_data.py", "output": "data/manifest.json", "python": "3.12.14", "scope": "force-offline"}
+counts: {"curves_total": 2393, "fitting_rows": 1634292, "fitting_wells": 82, "group_counts": {"test": 19, "train": 81, "validation": 17}, "inventory_members": 118, "parent_roots": 117, "train_rows": 1634292, "well_counts": {"test": 19, "train": 82, "validation": 17}, "well_rows_total": 2337639}
+provenance: {"archive_bytes": 169785172, "archive_file": "LAS_files_Force_2020_all_wells_train_test_blind_hidden_final.zip", "archive_sha256": "042ef1d473100dc12768cae7107a8cead071a394f137af3bc1ddaf8a5d1b8dda", "authors_repository": "https://github.com/bolgebrygg/Force-2020-Machine-Learning-competition", "authors_repository_commit": "c8d01ee92c1c8e1ecba36f96cca6ea7b689338a1", "dataset": "FORCE 2020 machine learning competition well logs (public lithology domain)", "doi": "10.5281/zenodo.4351156", "original_description_license_note": "Verbatim licensing text from the pinned source record, kept separately from the deposited resource license id.", "original_description_license_text": "NOLD 2.0", "raw_archive_in_product_repository": false, "record_license_id": "cc-by-4.0", "record_url": "https://zenodo.org/records/4351156", "source_domain": "force_2020_public_lithology"}
+local-path leak probe on manifest text: {".local/": false, "AppData": false, "C:/": false, "C:\\": false, "Users/": false, "Users\\": false}
+archive section: {"actual_bytes": 169785172, "actual_file": "LAS_files_Force_2020_all_wells_train_test_blind_hidden_final.zip", "actual_sha256": "042ef1d473100dc12768cae7107a8cead071a394f137af3bc1ddaf8a5d1b8dda", "expected_bytes": 169785172, "expected_file": "LAS_files_Force_2020_all_wells_train_test_blind_hidden_final.zip", "expected_sha256": "042ef1d473100dc12768cae7107a8cead071a394f137af3bc1ddaf8a5d1b8dda", "status": "verified"}
+check statuses: {"archive_bytes_and_sha256": "passed", "contract_task_design_identity": "passed", "cross_file_hash_links": "passed", "full_c01_prerequisite_gates": "not_run", "inventory_structure": "passed", "label_schema_alignment": "passed", "output_write": "passed", "pinned_artifact_hashes": "passed", "pinned_documents_parse": "passed", "preprocessing_fit_identity": "passed", "preprocessing_statistics_metadata": "passed", "rank_split_reconstruction": "passed", "real_sim_domain_separation": "not_run", "runtime_future_label_access": "not_run", "spec_context": "passed", "split_structure_and_coverage": "passed", "whole_well_grouping": "passed", "zip_member_and_las_parse_absence": "passed"}
+checks passed: 15 not_run: 3 total: 18; not_run ids: ["full_c01_prerequisite_gates", "real_sim_domain_separation", "runtime_future_label_access"]
+missing_full_gates: ["R03 public resource/profile/observation schema acceptance", "sensor_live whole acquisition-run manifest", "sim_em_v2 whole-scenario and derivative splits", "runtime future-label/truth-access instrumentation"]
+stdout of the manifest run is byte-identical to the file: True
+
+=== readback: owned file hashes (current) ===
+tools/verify_data.py sha256=d058118f130afd2f0ed5f7b28ec68bc6fcabf597a01b8b893d7fea93b711030d bytes=105039
+tests/ai/data_model/test_verify_data.py sha256=4fe3b827a4c5c6ccca65c3fb8e21099f70c96e42e6ebd19c0087b6b8a1974d74 bytes=71054
+data/manifest.json sha256=5a822cf1ccc042d849acca7bd016465f8b452aac19b82be825124755eb37bd30 bytes=10852
+evidence files: verify_data.log is written immediately after this log text is assembled and verify_data.json after it; both sha256/bytes values are recorded in verify_data.json files[] (a file cannot stably embed its own hash).
+evidence-run builder: this log was assembled by the temp helper build_evidence2.py (source embedded verbatim at the end of this log).
+
+=== readback: bytecode scan under product (must be empty) ===
+__pycache__ dirs: []
+*.pyc files: []
+
+=== readback: non-owned files vs pre-change stage tree (no writes outside ownership) ===
+product file count: 61; non-owned files compared: 56; mismatches: []
+
+=== readback: git status --porcelain (read-only; no commits/adds performed) ===
+ M .gitattributes
+ M .gitignore
+ M AGENTS.md
+ M README.md
+ M deploy/HUMAN_STEPS.md
+ M deploy/Join-FPGAMesh.ps1
+ M deploy/TEAMMATE_PROMPT.md
+ M deploy/configs/node-a.toml
+ M deploy/configs/node-b.toml
+ M deploy/configs/node-c.toml
+ M deploy/register-autostart.ps1
+ M docs/deployment/DEPLOYMENT_STATUS.md
+ M docs/deployment/FEISHU_APP_HANDOFF.md
+ M docs/deployment/OPERATIONS.md
+ M docs/superpowers/specs/2026-09-29-fpga-multi-agent-design.md
+ M findings.md
+ M fpga_mesh/agent_policy.py
+ M fpga_mesh/app_server.py
+ M fpga_mesh/child_cli.py
+ M fpga_mesh/child_control.py
+ M fpga_mesh/cli.py
+ M fpga_mesh/distribution.py
+ M fpga_mesh/dynamic_children.py
+ M fpga_mesh/effort.py
+ M fpga_mesh/feishu_channel.py
+ M fpga_mesh/feishu_registration.py
+ M fpga_mesh/feishu_selftest.py
+ M fpga_mesh/gateway.py
+ M fpga_mesh/mcp_children.py
+ M fpga_mesh/mesh_tools.py
+ M fpga_mesh/onboarding.py
+ M fpga_mesh/rpc.py
+ M fpga_mesh/runtime.py
+ M fpga_mesh/store.py
+ M progress.md
+ M scripts/smoke_child_mcp.py
+ M scripts/smoke_effort_switch.py
+ M scripts/smoke_parent_child.py
+ D skills/pynq-z2-single-node/INSTALL.md
+ D skills/pynq-z2-single-node/Install.ps1
+ D skills/pynq-z2-single-node/SKILL.md
+ D skills/pynq-z2-single-node/references/handoff.md
+ D skills/pynq-z2-single-node/references/pynq-z2.md
+ D skills/pynq-z2-single-node/references/telemetry-option.md
+ D skills/pynq-z2-single-node/references/windows-toolchain.md
+ D skills/pynq-z2-single-node/scripts/handoff.py
+ D skills/pynq-z2-single-node/scripts/preflight.py
+ M task_plan.md
+ M tests/test_app_gateway.py
+ M tests/test_app_server.py
+ M tests/test_distribution.py
+ M tests/test_dynamic_children.py
+ M tests/test_effort.py
+ M tests/test_feishu_registration.py
+ M tests/test_mcp_children.py
+ M tests/test_mesh_tools.py
+ M tests/test_runtime.py
+?? .agents/
+?? .planning/
+?? build_pdf.py
+?? deploy/Stop-FPGAMeshForUpdate.ps1
+?? deploy/Update-FPGAMesh.ps1
+?? deploy/Update-OfficialModels.ps1
+?? "deploy/\346\233\264\346\226\260\345\256\230\346\226\271\346\250\241\345\236\213.cmd"
+?? docs/competition/deepeye-2026/
+?? docs/competition/mine_plan_20261013/.gitattributes
+?? docs/competition/mine_plan_20261013/README_FINAL.md
+?? docs/competition/mine_plan_20261013/acceptance_final.json
+?? docs/competition/mine_plan_20261013/build_pdf.py
+?? docs/competition/mine_plan_20261013/c/eol_note.md
+?? docs/competition/mine_plan_20261013/c/feishu_final_delivery.txt
+?? docs/competition/mine_plan_20261013/c/feishu_final_readback.json
+?? docs/competition/mine_plan_20261013/c/feishu_resource_question.txt
+?? docs/competition/mine_plan_20261013/c/feishu_resource_readback.json
+?? docs/competition/mine_plan_20261013/c/feishu_track_question.txt
+?? docs/competition/mine_plan_20261013/c/frozen_portfolio_raw.zip
+?? docs/competition/mine_plan_20261013/c/hardware_inventory.json
+?? docs/competition/mine_plan_20261013/c/pdf_child_ownership_deviation.json
+?? docs/competition/mine_plan_20261013/c/pr_body.txt
+?? docs/competition/mine_plan_20261013/c/pr_final_body.txt
+?? docs/competition/mine_plan_20261013/c/publish_final_api.py
+?? docs/competition/mine_plan_20261013/c/publish_planning_api_v2.py
+?? docs/competition/mine_plan_20261013/c/received/
+?? docs/competition/mine_plan_20261013/c/requests/
+?? docs/competition/mine_plan_20261013/c/scope_and_eol_addendum.json
+?? docs/competition/mine_plan_20261013/create_final_taskbook.py
+?? docs/competition/mine_plan_20261013/external/
+?? docs/competition/mine_plan_20261013/external_review.md
+?? docs/competition/mine_plan_20261013/final_manifest.json
+?? docs/competition/mine_plan_20261013/final_qa.json
+?? docs/competition/mine_plan_20261013/pdf_qa/
+?? docs/competition/mine_plan_20261013/round2_budget.json
+?? docs/competition/mine_plan_20261013/round2_budget.py
+?? docs/competition/mine_plan_20261013/taskbook_final.md
+?? docs/competition/mine_plan_20261013/validate_final.py
+?? docs/deployment/AGENT_ROUTING_AUDIT_2026-10-10.md
+?? docs/deployment/AUTONOMOUS_ROUTING_ACCEPTANCE_2026-10-10.md
+?? docs/deployment/IN_PLACE_UPDATE_2026-10-11.md
+?? docs/deployment/OFFICIAL_MODEL_ROUTING_ACCEPTANCE_2026-10-10.md
+?? docs/deployment/evidence/
+?? docs/superpowers/plans/2026-10-10-autonomous-routing.md
+?? docs/superpowers/plans/2026-10-11-in-place-mesh-update.md
+?? docs/superpowers/specs/2026-10-10-autonomous-routing-design.md
+?? fpga_mesh/feishu_permissions.py
+?? fpga_mesh/install_routing.py
+?? fpga_mesh/models_ui.py
+?? fpga_mesh/notifications.py
+?? fpga_mesh/official_models.py
+?? fpga_mesh/project_cli.py
+?? fpga_mesh/project_control.py
+?? fpga_mesh/project_mcp.py
+?? fpga_mesh/service.py
+?? fpga_mesh/sessions.py
+?? fpga_mesh/supervisor.py
+?? fpga_mesh/update.py
+?? fpga_mesh/windows_job.py
+?? output/
+?? pdf_qa/
+?? tests/test_feishu_permissions.py
+?? tests/test_install_routing.py
+?? tests/test_mesh_update.py
+?? tests/test_models_ui.py
+?? tests/test_official_models.py
+?? tests/test_peer_operation_idempotency.py
+?? tests/test_project_control.py
+?? tests/test_routing_hardening.py
+?? tests/test_rpc_frames.py
+?? tests/test_service_lease.py
+?? tests/test_service_logging.py
+?? tests/test_service_restart.py
+?? tests/test_sessions.py
+?? tests/test_supervisor.py
+?? tests/test_work_leases.py
+
+=== patch-trail reconstruction (temp-only; independent re-application of the recorded patches onto the main-reviewed base revision) ===
+[recon_patch.py] exit_code: 0
+start: 0d48fc5ad962f4e2a9089277f7babbe209da05bce6babc66b00a6fe08690f615
+tp1.txt 0 1733e15006c24e37 57333
+tp2a.txt 0 abd965736bc5c8d8 57467
+tp2b.txt 0 ebe0aa64fb2d206e 57850
+tp2c.txt 0 b55a2b465626fac3 58586
+tp2d.txt 0 a8125663cf1811d9 58887
+tp2e.txt 0 b4102db3c09c8f96 59488
+tp2f.txt 0 df1f8a90a6c62dd1 59416
+tp2g.txt 0 cd9ef6085bfb6db3 65462
+tp2h.txt 0 5d627dd86db22fad 70062
+tp2i.txt 0 8eb64bb6cc7b4d7b 71013
+tp2j.txt 0 4fe3b827a4c5c6cc 71054
+[
+ {
+  "patch": "tp1.txt",
+  "exit": 0,
+  "stdout": "Success. Updated the following files:\nM tests/ai/data_model/test_verify_data.py",
+  "stderr": "",
+  "sha256": "1733e15006c24e37d57c449d9d1af77de590eeacd374b197cf01e62f07a37bf2",
+  "bytes": 57333
+ },
+ {
+  "patch": "tp2a.txt",
+  "exit": 0,
+  "stdout": "Success. Updated the following files:\nM tests/ai/data_model/test_verify_data.py",
+  "stderr": "",
+  "sha256": "abd965736bc5c8d87cff25a38f1ddaaa7825579bf468e43592f40857351f7420",
+  "bytes": 57467
+ },
+ {
+  "patch": "tp2b.txt",
+  "exit": 0,
+  "stdout": "Success. Updated the following files:\nM tests/ai/data_model/test_verify_data.py",
+  "stderr": "",
+  "sha256": "ebe0aa64fb2d206e7b2a4a3c860d245ddf8a2ece7b8ab64e198a53ee06dddd28",
+  "bytes": 57850
+ },
+ {
+  "patch": "tp2c.txt",
+  "exit": 0,
+  "stdout": "Success. Updated the following files:\nM tests/ai/data_model/test_verify_data.py",
+  "stderr": "",
+  "sha256": "b55a2b465626fac32c090c17c07806f260aab16249ef1b0adcd1fb0ef88d2dd0",
+  "bytes": 58586
+ },
+ {
+  "patch": "tp2d.txt",
+  "exit": 0,
+  "stdout": "Success. Updated the following files:\nM tests/ai/data_model/test_verify_data.py",
+  "stderr": "",
+  "sha256": "a8125663cf1811d978b5aca9abe971ebe3767b77cce96ed088a53c3800d1a123",
+  "bytes": 58887
+ },
+ {
+  "patch": "tp2e.txt",
+  "exit": 0,
+  "stdout": "Success. Updated the following files:\nM tests/ai/data_model/test_verify_data.py",
+  "stderr": "",
+  "sha256": "b4102db3c09c8f96dfcf9a3b47c523eea33546725fc4935408a4345152f9f370",
+  "bytes": 59488
+ },
+ {
+  "patch": "tp2f.txt",
+  "exit": 0,
+  "stdout": "Success. Updated the following files:\nM tests/ai/data_model/test_verify_data.py",
+  "stderr": "",
+  "sha256": "df1f8a90a6c62dd180ae139c4fa9a1303eb3c301989079b67b7262749318c1c5",
+  "bytes": 59416
+ },
+ {
+  "patch": "tp2g.txt",
+  "exit": 0,
+  "stdout": "Success. Updated the following files:\nM tests/ai/data_model/test_verify_data.py",
+  "stderr": "",
+  "sha256": "cd9ef6085bfb6db38e2b74cc2b363e98a8bf9ba21c5dc7996f9af089313b5714",
+  "bytes": 65462
+ },
+ {
+  "patch": "tp2h.txt",
+  "exit": 0,
+  "stdout": "Success. Updated the following files:\nM tests/ai/data_model/test_verify_data.py",
+  "stderr": "",
+  "sha256": "5d627dd86db22fadd104475d7cb896804afcdd4ea1aed575d5fd0264bb36d429",
+  "bytes": 70062
+ },
+ {
+  "patch": "tp2i.txt",
+  "exit": 0,
+  "stdout": "Success. Updated the following files:\nM tests/ai/data_model/test_verify_data.py",
+  "stderr": "",
+  "sha256": "8eb64bb6cc7b4d7b3705f8f18dbdbbb3a20ba8d0256e68a443754fe7fc32f40f",
+  "bytes": 71013
+ },
+ {
+  "patch": "tp2j.txt",
+  "exit": 0,
+  "stdout": "Success. Updated the following files:\nM tests/ai/data_model/test_verify_data.py",
+  "stderr": "",
+  "sha256": "4fe3b827a4c5c6ccca65c3fb8e21099f70c96e42e6ebd19c0087b6b8a1974d74",
+  "bytes": 71054
+ }
+]
+M1 target intermediate 1733e15006c24e37d57c449d9d1af77de590eeacd374b197cf01e62f07a37bf2 -> 1733e15006c24e37d57c449d9d1af77de590eeacd374b197cf01e62f07a37bf2
+M2 target final        4fe3b827a4c5c6ccca65c3fb8e21099f70c96e42e6ebd19c0087b6b8a1974d74 -> 4fe3b827a4c5c6ccca65c3fb8e21099f70c96e42e6ebd19c0087b6b8a1974d74
+
+[recon_tool.py] exit_code: 0
+start: 421eaba054c124d7ff85ae00a96f0eab3a68868ee1a6b6cad5fb9e1f25dbb898
+vp1a.txt 0 13e5c2a58eea43f932f47ac3903b01ad2e295129c834a35ab6a047f70aa4c05f 94785 ['Success. Updated the following files:']
+vp1b.txt 0 d1ec11201b6d6218cbc94e67fcff076fa7714d7c9ae08bcce3701656194db05c 95267 ['Success. Updated the following files:']
+vp1c.txt 0 6a448f4feb682cdd7940ddfcefd42e41a4398c7d9df85daa51748bd3bf4807dd 99410 ['Success. Updated the following files:']
+vp2a.txt 0 f1ce171bffba7ffcf6914ff0955597ba91900e5f7bc60747d460842e0b1b4289 99311 ['Success. Updated the following files:']
+vp2b.txt 0 41c8c86816e5174abcf6cb814d4e444383f1998ec775b22d2246d900c4859d30 100265 ['Success. Updated the following files:']
+vp2c.txt 0 3080f258de7a7a39e28ffb318f951628ee38a53f872f39354913d2cd92164616 102805 ['Success. Updated the following files:']
+vp3.txt 0 1c8f4f7d801e320ac1b10748bdec27a0f72f7d8f99b98acda5e6b1bd0bffa17d 105000 ['Success. Updated the following files:']
+vp3b.txt 0 d058118f130afd2f0ed5f7b28ec68bc6fcabf597a01b8b893d7fea93b711030d 105039 ['Success. Updated the following files:']
+target final d058118f130afd2f0ed5f7b28ec68bc6fcabf597a01b8b893d7fea93b711030d -> d058118f130afd2f0ed5f7b28ec68bc6fcabf597a01b8b893d7fea93b711030d
+
+Both trails reconstruct byte-exact: tool base 421eaba0... + vp1a/1b/1c/2a/2b/2c/3/3b -> d058118f... (105039 bytes); test base 0d48fc5a... + tp1 -> 1733e150... (57333 bytes, the intermediate product revision) then + tp2a..tp2j -> 4fe3b827... (71054 bytes, the final deployed revision).
+
+=== temporary helper sources (lived only under the OS temp dir, embedded verbatim) ===
+---- run_evidence.py ----
+import hashlib, json, os, shutil, subprocess, sys
+
+PY = r"C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\venv\Scripts\python.exe"
+PROD = (r"C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local"
+        + "\\" + "deepeye-implementation-c" + "\\" + "competition" + "\\" + ("dee" + "peye"))
+assert os.path.basename(PROD) == "dee" + "peye" and len(os.path.basename(PROD)) == 7
+assert os.path.isdir(PROD), PROD
+assert os.path.isfile(os.path.join(PROD, "tools", "verify_data.py")), PROD
+W = r"C:\Users\Alan\AppData\Local\Temp\vp_repair1_20261015"
+ARCHIVE = (r"C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local"
+           + "\\" + "datasets" + "\\" + "force-2020" + "\\"
+           + "LAS_files_Force_2020_all_wells_train_test_blind_hidden_final.zip")
+REPO = r"C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c"
+RAW = os.path.join(W, "raw")
+os.makedirs(RAW, exist_ok=True)
+
+def sha_bytes(data):
+    return hashlib.sha256(data).hexdigest()
+
+def sha_file(p):
+    return sha_bytes(open(p, "rb").read())
+
+def run(name, cmd, cwd, with_archive=False, timeout=1800):
+    env = dict(os.environ)
+    env["PYTHONDONTWRITEBYTECODE"] = "1"
+    env.pop("DEEPEYE_FORCE_ARCHIVE", None)
+    if with_archive:
+        env["DEEPEYE_FORCE_ARCHIVE"] = ARCHIVE
+    p = subprocess.run(cmd, cwd=cwd, capture_output=True, env=env, timeout=timeout)
+    entry = {
+        "name": name,
+        "command": cmd,
+        "cwd": cwd,
+        "exit_code": p.returncode,
+        "stdout_bytes": len(p.stdout),
+        "stdout_sha256": sha_bytes(p.stdout),
+        "stderr_bytes": len(p.stderr),
+        "stderr_sha256": sha_bytes(p.stderr),
+    }
+    with open(os.path.join(RAW, name + ".stdout.bin"), "wb") as f:
+        f.write(p.stdout)
+    with open(os.path.join(RAW, name + ".stderr.bin"), "wb") as f:
+        f.write(p.stderr)
+    return entry, p
+
+summary = {"python": subprocess.run([PY, "--version"], capture_output=True, text=True).stdout.strip()}
+
+e1, p1 = run("tests_product_env", [PY, "-X", "utf8", "-B", "tests/ai/data_model/test_verify_data.py"], PROD, with_archive=True)
+t1 = p1.stderr.decode("utf-8", "replace")
+summary["tests_product"] = {
+    "ran_line": [l for l in t1.splitlines() if l.startswith("Ran ")],
+    "ok": t1.strip().endswith("OK"),
+    "skipped": "skipped" in t1,
+}
+summary["entry_tests_product"] = e1
+
+e2, p2 = run("offline_manifest", [PY, "-X", "utf8", "-B", "tools/verify_data.py", "--scope", "force-offline", "--archive", ARCHIVE, "--output", "data/manifest.json"], PROD)
+manifest_path = os.path.join(PROD, "data", "manifest.json")
+m = json.loads(open(manifest_path, "rb").read().decode("utf-8"))
+summary["entry_offline_manifest"] = e2
+summary["manifest"] = {
+    "sha256": sha_file(manifest_path),
+    "stdout_equals_file": p2.stdout == open(manifest_path, "rb").read(),
+    "kind": m["kind"], "status": m["status"], "exit_code_field": m["exit_code"],
+    "product_card_C01": m["product_card_C01"],
+    "spec": m["spec"], "production_provenance": m["production_provenance"],
+    "counts": m["counts"],
+    "missing_full_gates": m["missing_full_gates"],
+    "archive": {k: m["archive"].get(k) for k in ("status", "actual_bytes", "actual_sha256")},
+    "artifacts_verified": [a["status"] for a in m["artifacts"]],
+    "checks_passed": sum(1 for c in m["checks"] if c["status"] == "passed"),
+    "checks_not_run": sum(1 for c in m["checks"] if c["status"] == "not_run"),
+    "checks_total": len(m["checks"]),
+    "command_archive": m["command"]["archive_file"],
+}
+
+e3, p3 = run("full_default", [PY, "-X", "utf8", "-B", "tools/verify_data.py"], PROD)
+full = json.loads(p3.stdout.decode("utf-8"))
+summary["entry_full_default"] = e3
+summary["full_default"] = {
+    "status": full["status"], "exit_field": full["exit_code"],
+    "product_card_C01": full["product_card_C01"],
+    "archive_check": {c["id"]: c["status"] for c in full["checks"] if c["id"] == "archive_bytes_and_sha256"},
+    "archive_status": full["archive"]["status"],
+    "command_archive": full["command"]["archive_file"],
+}
+
+e4, p4 = run("scope_verify", [PY, "-X", "utf8", ".local/plan-20261014-final-c/final-final-1011259/verify_immutable_scope.py", "--expected-sha", "c229834bfc2292f5fe4411fc9f12c68487008f9d1adaf31f0144ee7a98173804", "--book", ".local/plan-20261014-final-c/final-final-1011259/taskbook_final.md", "--plan", ".local/plan-20261014-final-c/final-final-1011259/execution_plan_final.json"], REPO)
+summary["entry_scope_verify"] = e4
+summary["scope_verify_stdout"] = p4.stdout.decode("utf-8", "replace")[:800]
+
+clean = os.path.join(W, "clean_checkout")
+if os.path.exists(clean):
+    shutil.rmtree(clean)
+shutil.copytree(PROD, clean)
+e5, p5 = run("tests_clean_checkout", [PY, "-X", "utf8", "-B", "tests/ai/data_model/test_verify_data.py"], clean)
+t5 = p5.stderr.decode("utf-8", "replace")
+summary["entry_tests_clean"] = e5
+summary["tests_clean"] = {
+    "ran_line": [l for l in t5.splitlines() if l.startswith("Ran ")],
+    "ok_status_line": [l for l in t5.splitlines() if l.startswith("OK")],
+    "skip_line": [l for l in t5.splitlines() if "skipped" in l],
+}
+
+for rel in ("tools/verify_data.py", "tests/ai/data_model/test_verify_data.py"):
+    summary.setdefault("source_sha256", {})[rel] = sha_file(os.path.join(PROD, rel))
+for rel in ("data/source_inventory.json", "data/force_wells.json", "data/splits.json", "data/split_policy.json", "data/label_schema.json", "data/preprocessing.json", "data/force_inventory.py", "data/grouping.py", "data/force_preprocess.py"):
+    summary["source_sha256"][rel] = sha_file(os.path.join(PROD, rel))
+summary["archive_file"] = {"path": ARCHIVE, "bytes": os.path.getsize(ARCHIVE), "sha256": sha_file(ARCHIVE)}
+
+with open(os.path.join(W, "runtime_summary.json"), "w", encoding="utf-8") as f:
+    json.dump(summary, f, indent=1)
+print(json.dumps(summary, indent=1))
+---- run_evidence.py sha256: 185aa748ec3672dc8ce364c3f2179e5adeb56e55781750dee642ce3b532042f8 bytes: 5816 ----
+
+---- deploy_test.py ----
+import hashlib, os, shutil, json
+PROD = r"C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\deepeye-implementation-c\competition\deepeye"
+STAGE = r"C:\Users\Alan\AppData\Local\Temp\vp_repair1_20261015\stage"
+W = r"C:\Users\Alan\AppData\Local\Temp\vp_repair1_20261015"
+
+def sha(p):
+    return hashlib.sha256(open(p, "rb").read()).hexdigest()
+
+report = {}
+rel_test = "tests/ai/data_model/test_verify_data.py"
+rel_tool = "tools/verify_data.py"
+prod_test = os.path.join(PROD, rel_test)
+prod_tool = os.path.join(PROD, rel_tool)
+stage_test = os.path.join(STAGE, rel_test)
+stage_tool = os.path.join(STAGE, rel_tool)
+
+report["stage_test_sha"] = sha(stage_test)
+report["stage_tool_sha"] = sha(stage_tool)
+report["prod_test_sha_before"] = sha(prod_test)
+report["prod_tool_sha"] = sha(prod_tool)
+assert report["prod_test_sha_before"] == "1733e15006c24e37d57c449d9d1af77de590eeacd374b197cf01e62f07a37bf2", "product test file changed since snapshot!"
+assert report["prod_tool_sha"] == report["stage_tool_sha"], "tool differs between product and stage!"
+
+backup = os.path.join(W, "backup", rel_test)
+os.makedirs(os.path.dirname(backup), exist_ok=True)
+shutil.copyfile(prod_test, backup)
+report["backup_sha"] = sha(backup)
+assert report["backup_sha"] == report["prod_test_sha_before"]
+
+shutil.copyfile(stage_test, prod_test)
+report["prod_test_sha_after"] = sha(prod_test)
+assert report["prod_test_sha_after"] == report["stage_test_sha"]
+report["ok"] = True
+print(json.dumps(report, indent=1))
+---- deploy_test.py sha256: a61e984dd0bba616f0cff9ee3cec8e10a35d4b3409336e0bf4b00222adfeaf02 bytes: 1490 ----
+
+---- apply_patch_stage.py ----
+import pathlib, re, subprocess, sys, json
+
+EXE = r"C:\Users\Alan\AppData\Local\OpenAI\Codex\bin\2e5e00daee91c61d\codex.exe"
+STAGE = r"C:\Users\Alan\AppData\Local\Temp\vp_repair1_20261015\stage"
+PREFIX = ".local/deepeye-implementation-c/competition/deepeye/"
+HDR = re.compile(r"^\*\*\* (Update|Add|Delete) File: (.+)$")
+
+def rewrite(text):
+    out = []
+    for line in text.splitlines(keepends=True):
+        m = HDR.match(line.rstrip("\r\n"))
+        if m:
+            rest = m.group(2)
+            if rest.startswith(PREFIX):
+                rest = rest[len(PREFIX):]
+            out.append("*** %s File: %s\n" % (m.group(1), rest))
+        else:
+            out.append(line)
+    return "".join(out)
+
+def main():
+    results = []
+    for f in sys.argv[1:]:
+        text = pathlib.Path(f).read_text(encoding="utf-8")
+        fixed = rewrite(text)
+        print("REWRITE-HEAD:", repr(fixed.splitlines()[1]))
+        proc = subprocess.run([EXE, "--codex-run-as-apply-patch", fixed], cwd=STAGE, capture_output=True)
+        results.append({"patch": pathlib.Path(f).name, "exit": proc.returncode,
+                        "stdout": proc.stdout.decode("utf-8", "replace").strip()[:200],
+                        "stderr": proc.stderr.decode("utf-8", "replace").strip()[:200]})
+    print(json.dumps(results, indent=1))
+
+main()
+---- apply_patch_stage.py sha256: 0826934edffbfc2d822f87eb6da5c5359c5ac10a43160a7e79c91d275177cb7d bytes: 1318 ----
+
+---- show.py ----
+import re, sys
+p = sys.argv[1]
+mode = sys.argv[2] if len(sys.argv) > 2 else "range"
+lines = open(p, encoding="utf-8").read().splitlines()
+if mode == "range":
+    start = int(sys.argv[3]); end = int(sys.argv[4])
+    for i in range(start - 1, min(end, len(lines))):
+        print("%4d %s" % (i + 1, lines[i]))
+elif mode == "grep":
+    pat = re.compile(sys.argv[3])
+    for i, l in enumerate(lines, 1):
+        if pat.search(l):
+            print("%4d %s" % (i, l.rstrip()[:150]))
+---- show.py sha256: 153ade9f18085d653d753e12da348a211a057e4c3d2b665f9a0ba9c4f08c0fd5 bytes: 477 ----
+
+---- recon_patch.py ----
+import hashlib, os, pathlib, re, shutil, subprocess, json
+
+EXE = r"C:\Users\Alan\AppData\Local\OpenAI\Codex\bin\2e5e00daee91c61d\codex.exe"
+W = r"C:\Users\Alan\AppData\Local\Temp\vp_repair1_20261015"
+SCRATCH = os.path.join(W, "recon")
+REL = os.path.join("tests", "ai", "data_model", "test_verify_data.py")
+PREFIX = ".local/deepeye-implementation-c/competition/deepeye/"
+HDR = re.compile(r"^\*\*\* (Update|Add|Delete) File: (.+)$")
+
+def sha(p):
+    return hashlib.sha256(open(p, "rb").read()).hexdigest()
+
+def rewrite(text):
+    out = []
+    for line in text.splitlines(keepends=True):
+        m = HDR.match(line.rstrip("\r\n"))
+        if m:
+            rest = m.group(2)
+            if rest.startswith(PREFIX):
+                rest = rest[len(PREFIX):]
+            out.append("*** %s File: %s\n" % (m.group(1), rest))
+        else:
+            out.append(line)
+    return "".join(out)
+
+if os.path.exists(SCRATCH):
+    shutil.rmtree(SCRATCH)
+os.makedirs(os.path.join(SCRATCH, os.path.dirname(REL)))
+shutil.copyfile(os.path.join(W, "base5", REL), os.path.join(SCRATCH, REL))
+print("start:", sha(os.path.join(SCRATCH, REL)))
+
+patches = ["tp1.txt"] + ["tp2%s.txt" % c for c in "abcdefghij"]
+results = []
+for name in patches:
+    text = pathlib.Path(os.path.join(W if name == "tp1.txt" else W, name))
+    if not text.exists():
+        text = pathlib.Path(os.path.join(r"C:\Users\Alan\AppData\Local\Temp\fp_repair1_probe_20261015", name))
+    fixed = rewrite(text.read_text(encoding="utf-8"))
+    proc = subprocess.run([EXE, "--codex-run-as-apply-patch", fixed], cwd=SCRATCH, capture_output=True)
+    h = sha(os.path.join(SCRATCH, REL))
+    results.append({"patch": name, "exit": proc.returncode,
+                    "stdout": proc.stdout.decode("utf-8", "replace").strip()[:160],
+                    "stderr": proc.stderr.decode("utf-8", "replace").strip()[:160],
+                    "sha256": h, "bytes": os.path.getsize(os.path.join(SCRATCH, REL))})
+    print(name, proc.returncode, h[:16], os.path.getsize(os.path.join(SCRATCH, REL)))
+
+print(json.dumps(results, indent=1))
+print("M1 target intermediate 1733e15006c24e37d57c449d9d1af77de590eeacd374b197cf01e62f07a37bf2 ->", results[0]["sha256"])
+print("M2 target final        4fe3b827a4c5c6ccca65c3fb8e21099f70c96e42e6ebd19c0087b6b8a1974d74 ->", results[-1]["sha256"])
+---- recon_patch.py sha256: f119fe6d9ac82839eee10154fc63785f682ca899caaaef7c687951f948c1c606 bytes: 2316 ----
+
+---- recon_tool.py ----
+import hashlib, os, pathlib, re, shutil, subprocess
+
+EXE = r"C:\Users\Alan\AppData\Local\OpenAI\Codex\bin\2e5e00daee91c61d\codex.exe"
+W = r"C:\Users\Alan\AppData\Local\Temp\vp_repair1_20261015"
+PROBE = r"C:\Users\Alan\AppData\Local\Temp\fp_repair1_probe_20261015"
+SCRATCH = os.path.join(W, "recon_tool")
+REL = os.path.join("tools", "verify_data.py")
+PREFIX = ".local/deepeye-implementation-c/competition/deepeye/"
+HDR = re.compile(r"^\*\*\* (Update|Add|Delete) File: (.+)$")
+
+def sha(p):
+    return hashlib.sha256(open(p, "rb").read()).hexdigest()
+
+def rewrite(text):
+    out = []
+    for line in text.splitlines(keepends=True):
+        m = HDR.match(line.rstrip("\r\n"))
+        if m:
+            rest = m.group(2)
+            if rest.startswith(PREFIX):
+                rest = rest[len(PREFIX):]
+            out.append("*** %s File: %s\n" % (m.group(1), rest))
+        else:
+            out.append(line)
+    return "".join(out)
+
+if os.path.exists(SCRATCH):
+    shutil.rmtree(SCRATCH)
+os.makedirs(os.path.join(SCRATCH, "tools"))
+shutil.copyfile(os.path.join(W, "base5", REL), os.path.join(SCRATCH, REL))
+print("start:", sha(os.path.join(SCRATCH, REL)))
+
+patches = ["vp1a.txt", "vp1b.txt", "vp1c.txt", "vp2a.txt", "vp2b.txt", "vp2c.txt", "vp3.txt", "vp3b.txt"]
+for name in patches:
+    text = pathlib.Path(os.path.join(PROBE, name))
+    fixed = rewrite(text.read_text(encoding="utf-8"))
+    proc = subprocess.run([EXE, "--codex-run-as-apply-patch", fixed], cwd=SCRATCH, capture_output=True)
+    h = sha(os.path.join(SCRATCH, REL))
+    print(name, proc.returncode, h, os.path.getsize(os.path.join(SCRATCH, REL)), proc.stdout.decode("utf-8", "replace").strip().splitlines()[:1])
+print("target final d058118f130afd2f0ed5f7b28ec68bc6fcabf597a01b8b893d7fea93b711030d ->", sha(os.path.join(SCRATCH, REL)))
+---- recon_tool.py sha256: 342be0fa8ad402747507c588cb5ea1a287508bf7aa3665b66714abb94fdf4462 bytes: 1799 ----
+
+---- build_evidence2.py ----
+import hashlib, json, os, platform, subprocess, time
+
+REPO = r"C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c"
+PROD = os.path.join(REPO, ".local", "deepeye-implementation-c", "competition", "deepeye")
+assert os.path.basename(PROD) == "deepeye" and len(os.path.basename(PROD)) == 7, PROD
+W = r"C:\Users\Alan\AppData\Local\Temp\vp_repair1_20261015"
+RAW = os.path.join(W, "raw")
+STAGE = os.path.join(W, "stage")
+EVID = os.path.join(PROD, "evidence", "ai", "startup")
+PY = os.path.join(REPO, ".local", "venv", "Scripts", "python.exe")
+
+def sha_bytes(b):
+    return hashlib.sha256(b).hexdigest()
+
+def sha_file(p):
+    return sha_bytes(open(p, "rb").read())
+
+def file_bytes(p):
+    return open(p, "rb").read()
+
+summary = json.loads(open(os.path.join(W, "runtime_summary.json"), encoding="utf-8").read())
+manifest_bytes = file_bytes(os.path.join(PROD, "data", "manifest.json"))
+manifest = json.loads(manifest_bytes.decode("utf-8"))
+
+RAW_FILES = ["tests_product_env", "offline_manifest", "full_default", "scope_verify", "tests_clean_checkout"]
+raw = {}
+for name in RAW_FILES:
+    raw[name] = {
+        "stdout": file_bytes(os.path.join(RAW, name + ".stdout.bin")),
+        "stderr": file_bytes(os.path.join(RAW, name + ".stderr.bin")),
+    }
+
+tool_rel = "tools/verify_data.py"
+test_rel = "tests/ai/data_model/test_verify_data.py"
+man_rel = "data/manifest.json"
+log_rel = "evidence/ai/startup/verify_data.log"
+json_rel = "evidence/ai/startup/verify_data.json"
+tool_sha = sha_file(os.path.join(PROD, tool_rel))
+test_sha = sha_file(os.path.join(PROD, test_rel))
+man_sha = sha_file(os.path.join(PROD, man_rel))
+assert tool_sha == summary["source_sha256"][tool_rel], "tool hash drift"
+assert test_sha == summary["source_sha256"][test_rel], "test hash drift"
+assert man_sha == "5a822cf1ccc042d849acca7bd016465f8b452aac19b82be825124755eb37bd30"
+assert man_sha == summary["manifest"]["sha256"]
+assert tool_sha == manifest["tool"]["sha256"], "manifest tool sha vs fresh"
+assert len(manifest_bytes) == summary["entry_offline_manifest"]["stdout_bytes"]
+assert manifest_bytes == raw["offline_manifest"]["stdout"], "stdout not byte-identical to file"
+
+pins = {k: v for k, v in summary["source_sha256"].items() if "/" in k and not k.startswith("tools/") and not k.startswith("tests/")}
+assert len(pins) == 9, sorted(pins)
+pin_actual = {rel: sha_file(os.path.join(PROD, rel)) for rel in pins}
+assert pin_actual == pins, ("pin drift", pin_actual, pins)
+
+ARCHIVE = summary["archive_file"]["path"]
+archive_sha = sha_file(ARCHIVE)
+archive_bytes = os.path.getsize(ARCHIVE)
+assert archive_sha == "042ef1d473100dc12768cae7107a8cead071a394f137af3bc1ddaf8a5d1b8dda"
+assert archive_bytes == 169785172
+
+INPUT_FILES = {
+    "main_decisions": os.path.join(REPO, ".local", "plan-20261014-final-c", "director-startup", "verify-data-main-decisions.json"),
+    "main_review": os.path.join(REPO, ".local", "plan-20261014-final-c", "director-startup", "verify-data-main-review.json"),
+    "repair1_main_decisions": os.path.join(REPO, ".local", "plan-20261014-final-c", "director-startup", "verify-data-repair1-main-decisions.json"),
+    "taskbook_final": os.path.join(REPO, ".local", "plan-20261014-final-c", "final-final-1011259", "taskbook_final.md"),
+    "execution_plan_final": os.path.join(REPO, ".local", "plan-20261014-final-c", "final-final-1011259", "execution_plan_final.json"),
+    "execution_orchestration_v5": os.path.join(REPO, ".local", "plan-20261014-final-c", "final-final-1011259", "execution_orchestration_v5.md"),
+}
+input_hashes = {k: {"path": os.path.relpath(p, REPO).replace(os.sep, "/"), "sha256": sha_file(p), "bytes": os.path.getsize(p)} for k, p in INPUT_FILES.items()}
+pycache, pyc_files = [], []
+for root_dir, dirs, files in os.walk(PROD):
+    for d in dirs:
+        if d == "__pycache__":
+            pycache.append(os.path.join(root_dir, d))
+    for f in files:
+        if f.endswith((".pyc", ".pyo")):
+            pyc_files.append(os.path.join(root_dir, f))
+
+git_proc = subprocess.run(["git", "-C", REPO, "status", "--porcelain"], capture_output=True)
+git_text = git_proc.stdout.decode("utf-8", "replace")
+
+owned_set = {tool_rel, test_rel, man_rel, log_rel, json_rel}
+all_files = []
+for root_dir, dirs, files in os.walk(PROD):
+    for f in files:
+        full = os.path.join(root_dir, f)
+        all_files.append(os.path.relpath(full, PROD).replace(os.sep, "/"))
+assert len(all_files) == 61, (len(all_files), sorted(all_files))
+non_owned = sorted(set(all_files) - owned_set)
+mismatches = []
+for rel in non_owned:
+    prod_hash = sha_file(os.path.join(PROD, rel))
+    stage_hash = sha_file(os.path.join(STAGE, rel))
+    if prod_hash != stage_hash:
+        mismatches.append(rel)
+assert not mismatches, mismatches
+
+recon_runs = {}
+for script in ("recon_patch.py", "recon_tool.py"):
+    proc = subprocess.run([PY, "-X", "utf8", "-B", os.path.join(W, script)], capture_output=True)
+    recon_runs[script] = {
+        "exit_code": proc.returncode,
+        "stdout": proc.stdout.decode("utf-8", "replace"),
+        "stderr": proc.stderr.decode("utf-8", "replace"),
+    }
+    assert proc.returncode == 0, script
+
+leak_probe = {p: (p in manifest_bytes.decode("utf-8")) for p in (".local/", "C:\\", "C:/", "AppData", "Users\\", "Users/")}
+assert not any(leak_probe.values()), leak_probe
+
+now_utc = time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
+
+CORRECTIONS = [
+    {
+        "id": "VD01",
+        "main_review_issue": "verify_pins hashed bytes, but public JSON loaders reopened and parsed unchecked bytes; a replacement between pin pass and parse was consumed while the report still claimed the original verified digest.",
+        "fix": "Every public document loader (load_json_document) reads the file once into an immutable byte buffer, verifies sha256 of that exact buffer against the context expected pin, then decodes the same buffer; missing/unreadable/changed inputs produce explicit blocked/failed outcomes and no unverified JSON is consumed. Helper imports hash and compile the same buffer.",
+        "regression_tests": ["SyntheticOfflineTests.test_replacement_between_pin_pass_and_parse_is_detected"],
+        "note": "Race regression runs against isolated temporary copies; no product input is mutated by tests.",
+    },
+    {
+        "id": "VD02",
+        "main_review_issue": "A missing pin masked an observed hash mismatch (corrupt-available + missing reported blocked 2 instead of failed 1); only one of the two lists was reported.",
+        "fix": "Precedence: any observed corrupt/unreadable/invalid available input must be failed (exit 1); only all-missing prerequisites are blocked (exit 2). Mixed situations report both the missing list and the mismatch details. Explicit --scope force-offline without --archive is a missing prerequisite (blocked 2), while malformed CLI arguments remain usage_error.",
+        "regression_tests": [
+            "SyntheticOfflineTests.test_missing_pin_does_not_mask_observed_corruption",
+            "RealPinnedDataTests.test_force_offline_without_archive_is_blocked_not_usage_error",
+            "RealPinnedDataTests.test_real_cli_usage_errors_are_deterministic",
+        ],
+    },
+    {
+        "id": "VD03",
+        "main_review_issue": "VerificationSpec stored caller-owned mutable dicts, and any spec with name production was accepted (dataclasses.replace on a synthetic spec produced a production-labelled PASS over a 1056-byte synthetic archive).",
+        "fix": "All spec containers are immutable copies on ingress (MappingProxyType over dict copies; tuples for sequences), so later caller mutations cannot alter the spec and direct spec-map writes fail. A production-labelled context must exactly match the immutable canonical PRODUCTION_SPEC fields/pins/counts/provenance before any data/helper read, otherwise it is rejected early with deterministic failed exit 1 and no helper execution. Custom contexts are explicitly reported as synthetic_fixture with production_provenance=false; there is no caller-supplied trusted flag.",
+        "regression_tests": [
+            "SyntheticOfflineTests.test_spec_containers_are_immutable_ingress_copies",
+            "SyntheticOfflineTests.test_production_relabelled_spec_is_rejected_without_any_read",
+        ],
+    },
+    {
+        "id": "VD04",
+        "main_review_issue": "--output could overwrite a pinned input (main reproduced with --output clone/data/preprocessing.json inside a cloned tree returning exit 0) while the report presented its prior bytes as verified.",
+        "fix": "Before any output probe or write, the resolved/canonicalized output path is compared with all actually-read inputs (the 9 pinned paths, the selected archive, the verifier entrypoint), including equal-path spellings such as .. components and existing-file samefile aliases (hardlink/symlink/junction); a protected target is rejected with failed exit 1 and originals stay byte-identical. Legitimate report paths such as data/manifest.json remain allowed.",
+        "regression_tests": [
+            "CliOutputProtectionTests.test_output_rejects_pinned_input_and_parent_alias",
+            "CliOutputProtectionTests.test_output_rejects_verifier_entrypoint",
+            "CliOutputProtectionTests.test_output_rejects_hardlink_alias_of_pinned_input",
+            "CliOutputProtectionTests.test_output_allows_legitimate_report_path",
+        ],
+    },
+    {
+        "id": "VD05",
+        "main_review_issue": "The published unit suite required the private controller file verify-data-main-decisions.json and assumed a fixed worktree depth, so an ordinary peer checkout failed FileNotFoundError.",
+        "fix": "The constants test compares pinned identity against literal expected 9 hashes/counts/contract written in the test file itself (from main decisions); no private controller file or .local tree is referenced. Real-archive integration cases are gated by the DEEPEYE_FORCE_ARCHIVE environment path and skip with a counted reason when unset (SkipContractTests enforces exactly 3 gated skips). The CLI default full scope no longer invents a 4-parent archive location: without an explicit --archive it reports archive status no_path (blocked 2) truthfully.",
+        "regression_tests": [
+            "RealPinnedDataTests.test_production_constants_match_main_decisions",
+            "SkipContractTests.test_env_gated_skip_contract",
+        ],
+        "clean_checkout_result": "48 tests, OK (skipped=3) with no env var, no private controller tree and no archive location",
+    },
+    {
+        "id": "CURRENT-GATE",
+        "main_review_issue": "Stale missing-gate listing still included the causal curve input main acceptance even though CURVE05 pure builder acceptance is published.",
+        "fix": "Removed the stale gate from missing_full_gates (CURVE05 pure builder accepted/published; curve-repair1-main-review.json, PR25 head fe9fc080). Four gates remain unresolved and the default full scope stays blocked with every product card not_run.",
+        "regression_tests": [],
+    },
+]
+FAILURES = [
+    "Main review VD01-VD05 reproduced the five defects above against the original five files; all five are corrected in this round with the regression tests listed under corrections_addressed (the original five files are preserved read-only in the director snapshot verify-data-before-main-review and in the local temp copy base5).",
+    "Iteration incident (temp-only): an early directory probe used the mistyped path ...competition\\depeye (6 chars) instead of deepeye (7 chars) and reported LOSS (exit 9) three times until corrected; all later helpers assert basename == deepeye and len == 7 (lottery_log.txt records LOSS x3 then WIN with 61 files).",
+    "Iteration incident (temp-only): in-session patch application through the primary path was unreliable under this PowerShell session, so patches were applied via codex.exe --codex-run-as-apply-patch against a staging mirror with path-prefix rewriting (apply_patch_stage.py). The staged sources were then deployed to the product with before/after hash assertions (deploy_test.py).",
+    "Iteration incident (owned file): an intermediate test-file revision (57333 bytes, sha256 1733e15006c24e37d57c449d9d1af77de590eeacd374b197cf01e62f07a37bf2) was present in the product test path during iteration (base + tp1 patch, re-applied deterministically in the temp reconstruction below). It was backed up to the temp dir and replaced by the final staged revision (71054 bytes, sha256 4fe3b827a4c5c6ccca65c3fb8e21099f70c96e42e6ebd19c0087b6b8a1974d74) with deploy assertions before any final run.",
+    "Iteration incident (test-side only): three self-inflicted test-logic errors were found and fixed while iterating the stage suite. (1) The skip-contract test counted occurrences of the skip-reason literal in its own source and the assertion string itself added an extra occurrence (off-by-one); fixed by splitting the literal (tp2i/tp2j). (2) The spec-immutability test asserted production counts after replace(group_counts=...) instead of the caller snapshot (train: 999); corrected to the snapshot semantics plus inequality with PRODUCTION_SPEC (tp2i). (3) The legitimate-output test originally required the real archive and exit 0; rewritten (tp2f) to run without the archive and expect the truthful blocked exit 2 while output_write stays passed, which is checkout-portable. No product-code defect was involved in these three.",
+    "After the stage suite reached 48 tests OK (env archive set), the staged bytes were deployed to the product; the five final runs (product suite with env archive, offline manifest emission, default full scope, immutable scope verification, clean-checkout suite) were executed against the product tree and all hashes were re-verified afterwards as recorded above.",
+]
+
+LIMITS = [
+    "Software-only correction round: this is not C01 acceptance and no product/hardware card is claimed; product_card_C01=not_run and every formal card remains not_run.",
+    "The archive was hashed as a raw byte stream only: 0 ZIP members opened, 0 LAS values parsed, 0 statistics re-fit; the zipfile-spy regressions enforce the zero-open/zero-parse property.",
+    "Runtime future-label access and real/sim (sensor_live vs sim_em_v2) domain separation remain unknown_not_run, never reported as zero. Four gates remain unresolved: R03 public resource/profile/observation schema acceptance; sensor_live whole acquisition-run manifest; sim_em_v2 whole-scenario and derivative splits; runtime future-label/truth-access instrumentation.",
+    "Provider/model/effort are not observable from inside this ordinary executor session; the assignment dispatch record (route deepseek, instance deepseek-c-15, job child-21d7bc6b0d79417487812570710ab15b) and the assignment-stated DeepSeek Flash/max are recorded, never inferred from the model catalog.",
+    "Reports keep product-relative paths and archive basenames; the manifest embeds no local absolute path (leak probe re-run: all false) and no raw FORCE rows are copied into product files.",
+    "The verifier itself runs no commands, network or git; the git status recorded here is a read-only repo query by the builder. The suite's three real-archive integration cases depend on the caller-supplied DEEPEYE_FORCE_ARCHIVE path and skip (counted) when it is unset.",
+    "Synthetic fixtures are explicitly labelled and cannot claim production provenance; a passing synthetic report does not attest real FORCE data or full C01.",
+]
+
+parts = []
+parts.append("=== DeepEye C01 verify_data evidence log (raw command transcripts) ===")
+parts.append("task: DEEPEYE-C-VERIFY-DATA-REPAIR1-20261015 v1")
+parts.append("work: C-force-verifier-provenance-output-portability-correction-1-v1")
+parts.append("job: child-21d7bc6b0d79417487812570710ab15b instance deepseek-c-15 route deepseek (per dispatch record; provider/model/effort not observable in-session)")
+parts.append("generated_utc: " + now_utc)
+parts.append("python: " + platform.python_version() + " (" + platform.python_implementation() + ") platform: " + platform.platform())
+parts.append("scope: bounded correction1 of the offline FORCE provenance/identity/consistency verifier foundation (main review VD01-VD05).")
+parts.append("product_card_C01=not_run; full C01 remains blocked; this is not acceptance and not a hardware observation.")
+parts.append("supersedes: child-5870ac0b8d2748869fe71be7fa846a70 (original verify_data job, terminal completed, rejected with VD01-VD05).")
+parts.append("")
+parts.append("=== corrections addressed (main review VD01-VD05 + current-gate status) ===")
+for item in CORRECTIONS:
+    parts.append("[" + item["id"] + "] " + item["main_review_issue"])
+    parts.append("fix: " + item["fix"])
+    if item["regression_tests"]:
+        parts.append("regressions: " + ", ".join(item["regression_tests"]))
+    else:
+        parts.append("regressions: status-only (no runtime path change)")
+    parts.append("")
+parts.append("=== executed commands (raw bytes; stdout/stderr sha256 recorded) ===")
+parts.append("")
+labels = {
+    "tests_product_env": "product unit suite with DEEPEYE_FORCE_ARCHIVE set to the real pinned archive (0 skips expected)",
+    "offline_manifest": "real force-offline CLI emitting data/manifest.json (explicit archive)",
+    "full_default": "default full-scope CLI with no archive (truthful missing-prerequisite blocked)",
+    "scope_verify": "immutable scope verification (read-only, no product writes)",
+    "tests_clean_checkout": "unit suite from a clean checkout copy with no env var and no private controller tree (3 counted skips expected)",
+}
+ENTRY_KEY = {"tests_product_env": "entry_tests_product", "offline_manifest": "entry_offline_manifest", "full_default": "entry_full_default", "scope_verify": "entry_scope_verify", "tests_clean_checkout": "entry_tests_clean"}
+for name in RAW_FILES:
+    entry = summary[ENTRY_KEY[name]]
+    parts.append("[" + name + "] " + labels[name])
+    parts.append("command: " + json.dumps(entry["command"]))
+    parts.append("cwd: " + entry["cwd"])
+    exp = {"tests_product_env": 0, "offline_manifest": 0, "full_default": 2, "scope_verify": 0, "tests_clean_checkout": 0}[name]
+    parts.append("exit_code: %d (expected %d, as_expected=%s)" % (entry["exit_code"], exp, entry["exit_code"] == exp))
+    parts.append("stdout_bytes: %d sha256: %s" % (entry["stdout_bytes"], entry["stdout_sha256"]))
+    parts.append("stderr_bytes: %d sha256: %s" % (entry["stderr_bytes"], entry["stderr_sha256"]))
+    parts.append("---- stdout (verbatim UTF-8) ----")
+    parts.append(raw[name]["stdout"].decode("utf-8", "replace").rstrip("\n"))
+    parts.append("---- stderr (verbatim UTF-8) ----")
+    parts.append(raw[name]["stderr"].decode("utf-8", "replace").rstrip("\n"))
+    parts.append("")
+parts.append("=== readback: data/manifest.json ===")
+parts.append("path: %s sha256: %s bytes: %d" % (man_rel, man_sha, len(manifest_bytes)))
+parts.append("status: %s exit_code: %d product_card_C01: %s spec: %s production_provenance: %s" % (manifest["status"], manifest["exit_code"], manifest["product_card_C01"], manifest["spec"], manifest["production_provenance"]))
+parts.append("command block: " + json.dumps(manifest["command"], sort_keys=True))
+parts.append("counts: " + json.dumps(manifest["counts"], sort_keys=True))
+parts.append("provenance: " + json.dumps(manifest["provenance"], sort_keys=True))
+parts.append("local-path leak probe on manifest text: " + json.dumps(leak_probe, sort_keys=True))
+parts.append("archive section: " + json.dumps(manifest["archive"], sort_keys=True))
+part_statuses = {c["id"]: c["status"] for c in manifest["checks"]}
+parts.append("check statuses: " + json.dumps(part_statuses, sort_keys=True))
+not_run_ids = sorted(k for k, v in part_statuses.items() if v == "not_run")
+passed_ids = [k for k in part_statuses if part_statuses[k] == "passed"]
+parts.append("checks passed: %d not_run: %d total: %d; not_run ids: %s" % (len(passed_ids), len(not_run_ids), len(part_statuses), json.dumps(not_run_ids)))
+parts.append("missing_full_gates: " + json.dumps(manifest["missing_full_gates"]))
+parts.append("stdout of the manifest run is byte-identical to the file: %s" % (manifest_bytes == raw["offline_manifest"]["stdout"]))
+parts.append("")
+parts.append("=== readback: owned file hashes (current) ===")
+parts.append(tool_rel + " sha256=" + tool_sha + " bytes=" + str(os.path.getsize(os.path.join(PROD, tool_rel))))
+parts.append(test_rel + " sha256=" + test_sha + " bytes=" + str(os.path.getsize(os.path.join(PROD, test_rel))))
+parts.append(man_rel + " sha256=" + man_sha + " bytes=" + str(len(manifest_bytes)))
+parts.append("evidence files: verify_data.log is written immediately after this log text is assembled and verify_data.json after it; both sha256/bytes values are recorded in verify_data.json files[] (a file cannot stably embed its own hash).")
+parts.append("evidence-run builder: this log was assembled by the temp helper build_evidence2.py (source embedded verbatim at the end of this log).")
+parts.append("")
+parts.append("=== readback: bytecode scan under product (must be empty) ===")
+parts.append("__pycache__ dirs: " + json.dumps(pycache))
+parts.append("*.pyc files: " + json.dumps(pyc_files))
+parts.append("")
+parts.append("=== readback: non-owned files vs pre-change stage tree (no writes outside ownership) ===")
+parts.append("product file count: %d; non-owned files compared: %d; mismatches: %s" % (len(all_files), len(non_owned), json.dumps(mismatches)))
+parts.append("")
+parts.append("=== readback: git status --porcelain (read-only; no commits/adds performed) ===")
+parts.append(git_text.rstrip())
+parts.append("")
+parts.append("=== patch-trail reconstruction (temp-only; independent re-application of the recorded patches onto the main-reviewed base revision) ===")
+for script, run in recon_runs.items():
+    parts.append("[" + script + "] exit_code: %d" % run["exit_code"])
+    parts.append(run["stdout"].rstrip())
+    if run["stderr"].strip():
+        parts.append("stderr: " + run["stderr"].rstrip())
+    parts.append("")
+parts.append("Both trails reconstruct byte-exact: tool base 421eaba0... + vp1a/1b/1c/2a/2b/2c/3/3b -> d058118f... (105039 bytes); test base 0d48fc5a... + tp1 -> 1733e150... (57333 bytes, the intermediate product revision) then + tp2a..tp2j -> 4fe3b827... (71054 bytes, the final deployed revision).")
+parts.append("")
+parts.append("=== temporary helper sources (lived only under the OS temp dir, embedded verbatim) ===")
+for helper in ("run_evidence.py", "deploy_test.py", "apply_patch_stage.py", "show.py", "recon_patch.py", "recon_tool.py", "build_evidence2.py"):
+    src = file_bytes(os.path.join(W, helper))
+    parts.append("---- " + helper + " ----")
+    parts.append(src.decode("utf-8", "replace").rstrip("\n"))
+    parts.append("---- " + helper + " sha256: " + sha_bytes(src) + " bytes: " + str(len(src)) + " ----")
+    parts.append("")
+parts.append("=== failures and fixes (this correction round) ===")
+for item in FAILURES:
+    parts.append("- " + item)
+parts.append("")
+parts.append("=== limits ===")
+for item in LIMITS:
+    parts.append("- " + item)
+parts.append("")
+log_text = "\n".join(parts) + "\n"
+log_bytes = log_text.encode("utf-8")
+log_path = os.path.join(EVID, "verify_data.log")
+open(log_path, "wb").write(log_bytes)
+H1 = sha_bytes(log_bytes)
+assert sha_file(log_path) == H1
+
+evidence = {
+    "schema": 1,
+    "kind": "deepeye-verify-data-evidence",
+    "generated_utc": now_utc,
+    "task_id": "DEEPEYE-C-VERIFY-DATA-REPAIR1-20261015",
+    "task_version": 1,
+    "work_id": "C-force-verifier-provenance-output-portability-correction-1-v1",
+    "implementation_job": {
+        "job_id": "child-21d7bc6b0d79417487812570710ab15b",
+        "instance_id": "deepseek-c-15",
+        "route": "deepseek (per the assignment dispatch record; not observable from inside the session)",
+        "provider": "deepseek (per the assignment controller dispatch record; actual provider/model/effort are not observable from inside this ordinary executor session and are never inferred from the catalog)",
+        "model": "stated deepseek-v4.1-flash (DeepSeek Flash) by the delivering controller; not independently observable in-session",
+        "effort": "stated max by the delivering controller; not independently observable in-session",
+        "supersedes": "child-5870ac0b8d2748869fe71be7fa846a70 (original verify_data job, terminal completed; main review rejected with VD01-VD05)",
+    },
+    "contract": {
+        "id": "DEEPEYE-HUMAN-LOCK-20261014",
+        "revision": 1,
+        "source_commit": "f5989cd5defce561f9ba98e6b18fc2682945f0a2",
+        "requirements_sha256": "c229834bfc2292f5fe4411fc9f12c68487008f9d1adaf31f0144ee7a98173804",
+    },
+    "design_commit": "1011259415a0916054eb580687612580bc1e5f09",
+    "scope": "Bounded correction1 of the C01 offline provenance/identity/consistency verifier foundation (tools/verify_data.py) addressing main-review findings VD01-VD05; full C01 remains blocked by four unresolved gates; product and hardware cards remain not_run",
+    "status": "software_corrections_completed_pending_director_review_no_product_acceptance",
+    "corrections_addressed": CORRECTIONS,
+    "files": [
+        {"path": tool_rel, "role": "verifier CLI + importable module (corrected for VD01-VD05)", "sha256": tool_sha, "bytes": os.path.getsize(os.path.join(PROD, tool_rel))},
+        {"path": test_rel, "role": "unit tests incl. VD01-VD05 regressions, env-gated real-archive integration, checkout-portable constants", "sha256": test_sha, "bytes": os.path.getsize(os.path.join(PROD, test_rel))},
+        {"path": man_rel, "role": "partial offline manifest re-emitted by the force-offline run with the corrected source", "sha256": man_sha, "bytes": len(manifest_bytes)},
+        {"path": json_rel, "role": "this evidence file; its own sha256 cannot be embedded stably and is omitted by design - the director recomputes it from the delivered bytes", "sha256": None, "bytes": None},
+        {"path": log_rel, "role": "raw transcripts + readback (written before this json)", "sha256": H1, "bytes": len(log_bytes)},
+    ],
+    "tool_versions": {
+        "python": platform.python_version(),
+        "implementation": platform.python_implementation(),
+        "platform": platform.platform(),
+        "interpreter": PY,
+    },
+    "commands": [
+        dict(summary[ENTRY_KEY[n]], expected_exit_code=e, exit_as_expected=summary[ENTRY_KEY[n]]["exit_code"] == e)
+        for n, e in (("tests_product_env", 0), ("offline_manifest", 0), ("full_default", 2), ("scope_verify", 0), ("tests_clean_checkout", 0))
+    ],
+    "tests": {
+        "path": test_rel,
+        "command": summary["entry_tests_product"]["command"],
+        "cwd": summary["entry_tests_product"]["cwd"],
+        "exit_code": summary["entry_tests_product"]["exit_code"],
+        "tests_run": 48,
+        "classes": {"RealPinnedDataTests": 9, "SyntheticOfflineTests": 31, "OutputAtomicityTests": 3, "CliOutputProtectionTests": 4, "SkipContractTests": 1},
+        "verdict": "OK",
+        "ran_line": summary["tests_product"]["ran_line"],
+        "skipped": summary["tests_product"]["skipped"],
+        "environment": "DEEPEYE_FORCE_ARCHIVE set to the real pinned archive (0 skips; all real-archive integration cases ran)",
+        "stdout_sha256": summary["entry_tests_product"]["stdout_sha256"],
+        "stderr_sha256": summary["entry_tests_product"]["stderr_sha256"],
+        "clean_checkout": {
+            "cwd": summary["entry_tests_clean"]["cwd"],
+            "command": summary["entry_tests_clean"]["command"],
+            "exit_code": summary["entry_tests_clean"]["exit_code"],
+            "tests_run": 48,
+            "skipped": 3,
+            "expected_skipped": 3,
+            "ran_line": summary["tests_clean"]["ran_line"],
+            "verdict_line": summary["tests_clean"]["ok_status_line"],
+            "environment": "no DEEPEYE_FORCE_ARCHIVE and no private controller tree; pure tests ran, only the 3 env-gated real-archive cases skipped",
+        },
+    },
+    "manifest_emission": {
+        "command": summary["entry_offline_manifest"]["command"],
+        "exit_code": summary["entry_offline_manifest"]["exit_code"],
+        "status": manifest["status"],
+        "product_card_C01": manifest["product_card_C01"],
+        "sha256": man_sha,
+        "bytes": len(manifest_bytes),
+        "stdout_equals_file": manifest_bytes == raw["offline_manifest"]["stdout"],
+        "counts": manifest["counts"],
+        "checks": {"passed": len(passed_ids), "not_run": len(not_run_ids), "total": len(part_statuses), "not_run_ids": not_run_ids},
+        "provenance": manifest["provenance"],
+        "missing_full_gates": manifest["missing_full_gates"],
+        "local_path_leak_probe": leak_probe,
+    },
+    "default_full_scope": {
+        "command": summary["entry_full_default"]["command"],
+        "exit_code": summary["entry_full_default"]["exit_code"],
+        "stdout_sha256": summary["entry_full_default"]["stdout_sha256"],
+        "status": summary["full_default"]["status"],
+        "product_card_C01": summary["full_default"]["product_card_C01"],
+        "archive_status": summary["full_default"]["archive_status"],
+        "archive_check": summary["full_default"]["archive_check"],
+        "command_archive": summary["full_default"]["command_archive"],
+        "expected": "blocked exit 2 with every card not_run while the four required gates are missing; the default full scope does not invent an archive location",
+    },
+    "scope_verify": {
+        "command": summary["entry_scope_verify"]["command"],
+        "exit_code": summary["entry_scope_verify"]["exit_code"],
+        "stdout_sha256": summary["entry_scope_verify"]["stdout_sha256"],
+        "stdout": summary["scope_verify_stdout"].strip(),
+    },
+    "input_sha256": {
+        "pinned_artifacts_expected_equals_actual": pin_actual,
+        "archive": {
+            "basename": os.path.basename(ARCHIVE),
+            "bytes": archive_bytes,
+            "sha256": archive_sha,
+            "status": "verified",
+        },
+        "main_decisions": input_hashes["main_decisions"],
+        "main_review": input_hashes["main_review"],
+        "repair1_main_decisions": input_hashes["repair1_main_decisions"],
+        "taskbook_final": input_hashes["taskbook_final"],
+        "execution_plan_final": input_hashes["execution_plan_final"],
+        "execution_orchestration_v5": input_hashes["execution_orchestration_v5"],
+    },
+    "patch_trail_reconstruction": {
+        "tool": "base 421eaba054c124d7ff85ae00a96f0eab3a68868ee1a6b6cad5fb9e1f25dbb898 + vp1a/vp1b/vp1c/vp2a/vp2b/vp2c/vp3/vp3b -> d058118f130afd2f0ed5f7b28ec68bc6fcabf597a01b8b893d7fea93b711030d (105039 bytes)",
+        "test": "base 0d48fc5ad962f4e2a9089277f7babbe209da05bce6babc66b00a6fe08690f615 + tp1 -> 1733e15006c24e37d57c449d9d1af77de590eeacd374b197cf01e62f07a37bf2 (57333 bytes, intermediate product revision) + tp2a..tp2j -> 4fe3b827a4c5c6ccca65c3fb8e21099f70c96e42e6ebd19c0087b6b8a1974d74 (71054 bytes, final)",
+        "method": "temp-only codex.exe --codex-run-as-apply-patch re-application with path-prefix rewriting; scripts embedded verbatim in the log",
+    },
+    "readback": {
+        "owned_files": {
+            tool_rel: {"sha256": tool_sha, "bytes": os.path.getsize(os.path.join(PROD, tool_rel))},
+            test_rel: {"sha256": test_sha, "bytes": os.path.getsize(os.path.join(PROD, test_rel))},
+            man_rel: {"sha256": man_sha, "bytes": len(manifest_bytes)},
+            json_rel: {"sha256": None, "bytes": None},
+            log_rel: {"sha256": H1, "bytes": len(log_bytes)},
+        },
+        "product_file_count": len(all_files),
+        "non_owned_files_compared_to_prechange_stage_tree": {"count": len(non_owned), "mismatches": mismatches},
+        "python_bytecode_under_product": {"pycache_dirs": pycache, "pyc_files": pyc_files},
+        "git_status_porcelain": git_text.splitlines(),
+        "raw_capture_files_preserved": [n + ".stdout.bin" for n in RAW_FILES] + [n + ".stderr.bin" for n in RAW_FILES],
+    },
+    "failures_and_fixes": FAILURES,
+    "limits": LIMITS,
+    "public_raw_transcript": log_rel,
+}
+json_text = json.dumps(evidence, indent=1, ensure_ascii=False) + "\n"
+json_bytes = json_text.encode("utf-8")
+json_path = os.path.join(EVID, "verify_data.json")
+open(json_path, "wb").write(json_bytes)
+
+print(json.dumps({
+    "log": {"path": log_rel, "sha256": H1, "bytes": len(log_bytes)},
+    "json": {"path": json_rel, "sha256": sha_file(json_path), "bytes": len(json_bytes)},
+    "tool": {"sha256": tool_sha, "bytes": os.path.getsize(os.path.join(PROD, tool_rel))},
+    "tests": {"sha256": test_sha, "bytes": os.path.getsize(os.path.join(PROD, test_rel))},
+    "manifest": {"sha256": man_sha, "bytes": len(manifest_bytes)},
+    "non_owned_mismatches": mismatches,
+    "pycache": len(pycache), "pyc": len(pyc_files),
+}, indent=1))
+---- build_evidence2.py sha256: 5c83c7cb5f4afe316a501711f55073d77553bd6ad003672c795607535a2115ea bytes: 32814 ----
+
+=== failures and fixes (this correction round) ===
+- Main review VD01-VD05 reproduced the five defects above against the original five files; all five are corrected in this round with the regression tests listed under corrections_addressed (the original five files are preserved read-only in the director snapshot verify-data-before-main-review and in the local temp copy base5).
+- Iteration incident (temp-only): an early directory probe used the mistyped path ...competition\depeye (6 chars) instead of deepeye (7 chars) and reported LOSS (exit 9) three times until corrected; all later helpers assert basename == deepeye and len == 7 (lottery_log.txt records LOSS x3 then WIN with 61 files).
+- Iteration incident (temp-only): in-session patch application through the primary path was unreliable under this PowerShell session, so patches were applied via codex.exe --codex-run-as-apply-patch against a staging mirror with path-prefix rewriting (apply_patch_stage.py). The staged sources were then deployed to the product with before/after hash assertions (deploy_test.py).
+- Iteration incident (owned file): an intermediate test-file revision (57333 bytes, sha256 1733e15006c24e37d57c449d9d1af77de590eeacd374b197cf01e62f07a37bf2) was present in the product test path during iteration (base + tp1 patch, re-applied deterministically in the temp reconstruction below). It was backed up to the temp dir and replaced by the final staged revision (71054 bytes, sha256 4fe3b827a4c5c6ccca65c3fb8e21099f70c96e42e6ebd19c0087b6b8a1974d74) with deploy assertions before any final run.
+- Iteration incident (test-side only): three self-inflicted test-logic errors were found and fixed while iterating the stage suite. (1) The skip-contract test counted occurrences of the skip-reason literal in its own source and the assertion string itself added an extra occurrence (off-by-one); fixed by splitting the literal (tp2i/tp2j). (2) The spec-immutability test asserted production counts after replace(group_counts=...) instead of the caller snapshot (train: 999); corrected to the snapshot semantics plus inequality with PRODUCTION_SPEC (tp2i). (3) The legitimate-output test originally required the real archive and exit 0; rewritten (tp2f) to run without the archive and expect the truthful blocked exit 2 while output_write stays passed, which is checkout-portable. No product-code defect was involved in these three.
+- After the stage suite reached 48 tests OK (env archive set), the staged bytes were deployed to the product; the five final runs (product suite with env archive, offline manifest emission, default full scope, immutable scope verification, clean-checkout suite) were executed against the product tree and all hashes were re-verified afterwards as recorded above.
+
+=== limits ===
+- Software-only correction round: this is not C01 acceptance and no product/hardware card is claimed; product_card_C01=not_run and every formal card remains not_run.
+- The archive was hashed as a raw byte stream only: 0 ZIP members opened, 0 LAS values parsed, 0 statistics re-fit; the zipfile-spy regressions enforce the zero-open/zero-parse property.
+- Runtime future-label access and real/sim (sensor_live vs sim_em_v2) domain separation remain unknown_not_run, never reported as zero. Four gates remain unresolved: R03 public resource/profile/observation schema acceptance; sensor_live whole acquisition-run manifest; sim_em_v2 whole-scenario and derivative splits; runtime future-label/truth-access instrumentation.
+- Provider/model/effort are not observable from inside this ordinary executor session; the assignment dispatch record (route deepseek, instance deepseek-c-15, job child-21d7bc6b0d79417487812570710ab15b) and the assignment-stated DeepSeek Flash/max are recorded, never inferred from the model catalog.
+- Reports keep product-relative paths and archive basenames; the manifest embeds no local absolute path (leak probe re-run: all false) and no raw FORCE rows are copied into product files.
+- The verifier itself runs no commands, network or git; the git status recorded here is a read-only repo query by the builder. The suite's three real-archive integration cases depend on the caller-supplied DEEPEYE_FORCE_ARCHIVE path and skip (counted) when it is unset.
+- Synthetic fixtures are explicitly labelled and cannot claim production provenance; a passing synthetic report does not attest real FORCE data or full C01.
+

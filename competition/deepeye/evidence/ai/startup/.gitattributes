@@ -21,3 +21,8 @@ curve_input.log -text whitespace=cr-at-eol,-blank-at-eof,-blank-at-eol
 curve_main_review.json -text
 curve_main_review.py -text whitespace=cr-at-eol
 curve_main_review.txt -text whitespace=cr-at-eol,-blank-at-eof
+verify_data.json -text whitespace=cr-at-eol
+verify_data.log -text whitespace=cr-at-eol,-blank-at-eof,-blank-at-eol
+verify_data_main_review.json -text
+verify_data_main_review.py -text whitespace=cr-at-eol
+verify_data_main_review.txt -text whitespace=cr-at-eol,-blank-at-eof

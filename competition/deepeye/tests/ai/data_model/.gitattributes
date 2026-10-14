@@ -1,2 +1,3 @@
 test_force_preprocess.py -text whitespace=cr-at-eol
 test_curve_input.py -text whitespace=cr-at-eol
+test_verify_data.py -text whitespace=cr-at-eol

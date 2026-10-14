@@ -1,0 +1,230 @@
+{
+  "task_id": "DEEPEYE-IMPLEMENTATION-20261014",
+  "task_version": 1,
+  "contract_id": "DEEPEYE-HUMAN-LOCK-20261014/revision1",
+  "requirements_sha256": "c229834bfc2292f5fe4411fc9f12c68487008f9d1adaf31f0144ee7a98173804",
+  "design_commit": "1011259415a0916054eb580687612580bc1e5f09",
+  "job_id": "child-21d7bc6b0d79417487812570710ab15b",
+  "at_utc": "2026-10-14T23:07:24.567844+00:00",
+  "unit_tests": 48,
+  "real_archive_skipped": 0,
+  "portable_tests": 48,
+  "portable_skipped": 3,
+  "json_race_cases": [
+    "source_inventory",
+    "force_wells",
+    "splits",
+    "split_policy",
+    "label_schema",
+    "preprocessing"
+  ],
+  "mixed_corruption_missing_cases": 72,
+  "canonical_spec_field_mutations": 29,
+  "immutable_mapping_cases": 5,
+  "path_guard_probes": 21,
+  "CLI_input_alias_cases": 4,
+  "commands": [
+    {
+      "command": [
+        "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\venv\\Scripts\\python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\deepeye-implementation-c\\competition\\deepeye\\tests\\ai\\data_model\\test_verify_data.py"
+      ],
+      "exit_code": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "57f2066e3e65ce4ebd0d5d81af5ebeadd37416aa3e43a49837adf9b020ae644a",
+      "evidence_prefix": "verify-data-repair1-main-tests"
+    },
+    {
+      "command": [
+        "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\venv\\Scripts\\python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\plan-20261014-final-c\\director-startup\\verify-data-repair1-independent-cases\\portable-checkout\\tests\\ai\\data_model\\test_verify_data.py"
+      ],
+      "exit_code": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "b257f147bcb77cb9906165b2cf63ea768e36e316984a2a561a9a858b825514db",
+      "evidence_prefix": "verify-data-repair1-main-portable-tests"
+    },
+    {
+      "command": [
+        "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\venv\\Scripts\\python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\plan-20261014-final-c\\director-startup\\verify-data-repair1-independent-cases\\output-input-guards\\tools\\verify_data.py",
+        "--scope",
+        "force-offline",
+        "--archive",
+        "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\datasets\\force-2020\\LAS_files_Force_2020_all_wells_train_test_blind_hidden_final.zip",
+        "--output",
+        "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\plan-20261014-final-c\\director-startup\\verify-data-repair1-independent-cases\\output-input-guards\\data\\preprocessing.json"
+      ],
+      "exit_code": 1,
+      "stdout_sha256": "309330093e434e0d4aeef278bacd5ffdb39d8fdbf51642003062823ef05d2696",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_prefix": "verify-data-repair1-main-protect-2"
+    },
+    {
+      "command": [
+        "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\venv\\Scripts\\python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\plan-20261014-final-c\\director-startup\\verify-data-repair1-independent-cases\\output-input-guards\\tools\\verify_data.py",
+        "--scope",
+        "force-offline",
+        "--archive",
+        "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\datasets\\force-2020\\LAS_files_Force_2020_all_wells_train_test_blind_hidden_final.zip",
+        "--output",
+        "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\plan-20261014-final-c\\director-startup\\verify-data-repair1-independent-cases\\output-input-guards\\data\\..\\data\\preprocessing.json"
+      ],
+      "exit_code": 1,
+      "stdout_sha256": "20fac5f00048e27dded02dae583e9ff980fcf630da9536c8f2be549acbb9a033",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_prefix": "verify-data-repair1-main-protect-3"
+    },
+    {
+      "command": [
+        "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\venv\\Scripts\\python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\plan-20261014-final-c\\director-startup\\verify-data-repair1-independent-cases\\output-input-guards\\tools\\verify_data.py",
+        "--scope",
+        "force-offline",
+        "--archive",
+        "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\datasets\\force-2020\\LAS_files_Force_2020_all_wells_train_test_blind_hidden_final.zip",
+        "--output",
+        "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\plan-20261014-final-c\\director-startup\\verify-data-repair1-independent-cases\\output-input-guards\\hardlink-preprocessing.json"
+      ],
+      "exit_code": 1,
+      "stdout_sha256": "74bff960d14168550f46cb50d547a144a8f268a3ce0ffa0283a10a0d93271d08",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_prefix": "verify-data-repair1-main-protect-4"
+    },
+    {
+      "command": [
+        "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\venv\\Scripts\\python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\plan-20261014-final-c\\director-startup\\verify-data-repair1-independent-cases\\output-input-guards\\tools\\verify_data.py",
+        "--scope",
+        "force-offline",
+        "--archive",
+        "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\datasets\\force-2020\\LAS_files_Force_2020_all_wells_train_test_blind_hidden_final.zip",
+        "--output",
+        "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\plan-20261014-final-c\\director-startup\\verify-data-repair1-independent-cases\\output-input-guards\\tools\\verify_data.py"
+      ],
+      "exit_code": 1,
+      "stdout_sha256": "c489a5901633198fb49bc5020126796fca332259db3458556e613c98b00fee4d",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_prefix": "verify-data-repair1-main-protect-5"
+    },
+    {
+      "command": [
+        "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\venv\\Scripts\\python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\deepeye-implementation-c\\competition\\deepeye\\tools\\verify_data.py",
+        "--scope",
+        "force-offline",
+        "--archive",
+        "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\datasets\\force-2020\\LAS_files_Force_2020_all_wells_train_test_blind_hidden_final.zip",
+        "--output",
+        "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\plan-20261014-final-c\\director-startup\\verify-data-repair1-independent-cases\\actual-report.json"
+      ],
+      "exit_code": 0,
+      "stdout_sha256": "5781cb3197e55a93903bcce11adf780bf50183a8aec1aeef5fcdd7aa7ec24c13",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_prefix": "verify-data-repair1-main-offline"
+    },
+    {
+      "command": [
+        "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\venv\\Scripts\\python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\deepeye-implementation-c\\competition\\deepeye\\tools\\verify_data.py"
+      ],
+      "exit_code": 2,
+      "stdout_sha256": "e8e90f9373e856ec5bcab0eb84f4cd8e505882befc92071ae19b92312965837e",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_prefix": "verify-data-repair1-main-full"
+    },
+    {
+      "command": [
+        "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\venv\\Scripts\\python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\deepeye-implementation-c\\competition\\deepeye\\tools\\verify_data.py",
+        "--scope",
+        "force-offline"
+      ],
+      "exit_code": 2,
+      "stdout_sha256": "c7be7954788f9729945e9389943e2559ad7ac2056061c2ce571ea649497a817a",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_prefix": "verify-data-repair1-main-missing-archive"
+    }
+  ],
+  "python_version": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+  "source_sha256": {
+    "data/manifest.json": "5a822cf1ccc042d849acca7bd016465f8b452aac19b82be825124755eb37bd30",
+    "evidence/ai/startup/verify_data.json": "2576490ebe2cee6540f5635413200da238ae9de2c9435fa79a69c4e6b0a1fb63",
+    "evidence/ai/startup/verify_data.log": "2a99f5b06d5a41013119ca19c7e2d86014514f3bfea5326dc96e6e7f0ef2f7dd",
+    "tests/ai/data_model/test_verify_data.py": "4fe3b827a4c5c6ccca65c3fb8e21099f70c96e42e6ebd19c0087b6b8a1974d74",
+    "tools/verify_data.py": "d058118f130afd2f0ed5f7b28ec68bc6fcabf597a01b8b893d7fea93b711030d"
+  },
+  "real_offline_counts": {
+    "inventory_members": 118,
+    "well_rows_total": 2337639,
+    "curves_total": 2393,
+    "parent_roots": 117,
+    "group_counts": {
+      "train": 81,
+      "validation": 17,
+      "test": 19
+    },
+    "well_counts": {
+      "train": 82,
+      "validation": 17,
+      "test": 19
+    },
+    "train_rows": 1634292,
+    "fitting_wells": 82,
+    "fitting_rows": 1634292
+  },
+  "closed_findings": [
+    "VD01",
+    "VD02",
+    "VD03",
+    "VD04",
+    "VD05"
+  ],
+  "acceptance": "passed_offline_software_foundation_only",
+  "C01": "not_run",
+  "default_full_exit_code": 2,
+  "remaining_full_gates": [
+    "R03 public resource/profile/observation schema acceptance",
+    "sensor_live whole acquisition-run manifest",
+    "sim_em_v2 whole-scenario and derivative splits",
+    "runtime future-label/truth-access instrumentation"
+  ],
+  "provider": "deepseek",
+  "model": "deepseek-flash",
+  "reasoning_effort": "max",
+  "limits": [
+    "Byte stream hash and pinned metadata only, no LAS member parse or refit",
+    "No runtime future-label/truth or real/sim domain acceptance",
+    "No trained model/wire/board/AMD/system acceptance",
+    "Clean portable suite skips exactly3 real-archive cases; real C suite skips0"
+  ],
+  "reproduction_note": "Captured quality-main harness references private job metadata for executor identity and review snapshots; portable unit command directly reruns from product source. Independent counterexample/reference/replay logic is preserved in verify_data_main_review.py; production code has no file I/O."
+}

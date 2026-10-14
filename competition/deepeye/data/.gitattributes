@@ -1,2 +1,3 @@
 *.json -text whitespace=cr-at-eol
 force_preprocess.py -text whitespace=cr-at-eol
+manifest.json -text whitespace=cr-at-eol
