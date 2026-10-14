@@ -1,8 +1,10 @@
 {
   "task_id": "COMP-20261013-DEEPEYE",
   "task_version": 5,
+  "technical_revision": 1,
   "release_name": "three-node final taskbook",
-  "source_commit": "2c21765b4ad921a4f3a6317d09d6ced30316651f",
+  "source_commit": "b49e7a33e6a40c428333ae097a063c887c0ff81c",
+  "superseded_review_candidate": "8864324dba2b3b965ade64236a5c19976ee41d3c",
   "immutable_scope_id": "DEEPEYE-HUMAN-LOCK-20261014/revision1",
   "immutable_scope_sha256": "c229834bfc2292f5fe4411fc9f12c68487008f9d1adaf31f0144ee7a98173804",
   "files": {
@@ -23,12 +25,12 @@
       "sha256": "e3b12a32ce21cd087ab14c627d0974708ece8ac3952fcf0757cf78ef301ec518"
     },
     "checks_final.json": {
-      "bytes": 11983,
-      "sha256": "6de171def30db4fe4eec2d565a695a9a8a175e294d9e12e7c7d03b91cc9bea0f"
+      "bytes": 12312,
+      "sha256": "f543e1d4b008e667cb61e8c2ce83b8caebbe1d738e9f7bfbef0dc84e1e1f6e9d"
     },
     "deepeye_taskbook_final.pdf": {
-      "bytes": 1043461,
-      "sha256": "9f6dd73d5aec40aa80a281ea0c266ff96388232d950e3c486910ddd128a22335"
+      "bytes": 1048626,
+      "sha256": "172393d5407c4fc313e202dacdfb0c7d402de5363190f5da1c1ff2af43b6f356"
     },
     "execution_orchestration_v5.md": {
       "bytes": 9029,
@@ -36,15 +38,15 @@
     },
     "execution_plan_final.json": {
       "bytes": 11924,
-      "sha256": "6c3bf4f474ee5f0a8be10172b60fff7f019b385cd221de1a6214b09cdaadd578"
+      "sha256": "e93f10d247109e8cb7070ded7fdfac5b3543a44afb3387261531556eebde41be"
     },
     "fusion_review_final.json": {
-      "bytes": 3969,
-      "sha256": "47f00d5226e1bb916a21dad5423f04e5da54fe1f62fd8a33f7bbdfb1a599820e"
+      "bytes": 4732,
+      "sha256": "7f8a6fbba600edfbb62357a76151fb86cc9115426a64f9d4f617976b346e12cc"
     },
     "fusion_review_final.md": {
-      "bytes": 2586,
-      "sha256": "44c0ee00b41a5deffe9e17099ca76578aa14a854321a60dbfab425f1a6a527ff"
+      "bytes": 3243,
+      "sha256": "2048e6050163adb72c98378d64f8d50a912638d882a35dd35623be570499c161"
     },
     "immutable_scope.json": {
       "bytes": 6684,
@@ -114,13 +116,89 @@
       "bytes": 919,
       "sha256": "fb4927ce0eb7e2bdce7e04683bbaff985b1b95815f27475c01ba45c50b3f61a2"
     },
+    "round3/b/.gitattributes": {
+      "bytes": 14,
+      "sha256": "a79691a93b46e49ce460c26ef22afcc03d6eca1e63bf2edbc20e96159510f6c9"
+    },
+    "round3/b/README.md": {
+      "bytes": 1594,
+      "sha256": "57d97707c2f50e172c8dcbebe17f0107668975be3edc05261ca47d9fe09e004a"
+    },
+    "round3/b/check_research.py": {
+      "bytes": 4029,
+      "sha256": "4918d1933120e834783ffcbc95e5b777a71de6ac0ad6e9c4fad323f31bbf414c"
+    },
+    "round3/b/checks.json": {
+      "bytes": 4819,
+      "sha256": "da3caaf44789c6064a4e7cb5374b042590211f3df08b621cfec4ad5e8a45476e"
+    },
+    "round3/b/corrections.md": {
+      "bytes": 9351,
+      "sha256": "a902348b0da38f5ba21147f7e7ff440024cef1ee9d1058865fbb04a84d6d034a"
+    },
+    "round3/b/evidence.md": {
+      "bytes": 2482,
+      "sha256": "26dc7e7105f49768d8ed0e099a399a0d843e5e6dacc060e278ac072d59141de9"
+    },
+    "round3/b/freeze.json": {
+      "bytes": 1878,
+      "sha256": "e61fd84ec41e38dce5eb13e11f7ead8bfee3be70fa8537cf24535b2c8b940e9c"
+    },
+    "round3/b/fusion_review.md": {
+      "bytes": 5323,
+      "sha256": "1d17710e3f16b34183a93523ef48b034fc52f64d827003d045da8c5f6241a401"
+    },
+    "round3/b/sources.json": {
+      "bytes": 4235,
+      "sha256": "fae25e7118a047c68e2432c5118f1617257bf6ec032192eee879d6a3975164a5"
+    },
+    "round3/c/.gitattributes": {
+      "bytes": 80,
+      "sha256": "6cac7e3ba10653a00b01d4028829ee18e893cf7da69218d5f41d6caea105dfaa"
+    },
+    "round3/c/README.md": {
+      "bytes": 2483,
+      "sha256": "c814111a71eb2cd872cd26185a05e48c99ca56a0baf11564c8a51f7a63dbc876"
+    },
+    "round3/c/acceptance.json": {
+      "bytes": 18246,
+      "sha256": "199d3085042315391f8a1fc493e2efd2dd4b744e318481f9b7fa43756a7373c7"
+    },
+    "round3/c/freeze_manifest.json": {
+      "bytes": 4880,
+      "sha256": "0f8cdc9dde6e857ab4d4e6e91dc20783b882575aae379d915ed6c1fdd555f839"
+    },
+    "round3/c/research_checks.json": {
+      "bytes": 1017,
+      "sha256": "26efd90f380095d9e693a88f20c7a45c318c67abbd6aefe85d92fe8972aa2b73"
+    },
+    "round3/c/review.md": {
+      "bytes": 15421,
+      "sha256": "780d94bf19a1921f19c9d317b409762d23d13a9f4a5b4ecca4715cb65e6aa56b"
+    },
+    "round3/c/scope_addendum_manifest.json": {
+      "bytes": 2831,
+      "sha256": "0c1a33dc3eba7c0bf251a6f625a6fd59b5df4b58467a793b347617185f0b75cb"
+    },
+    "round3/c/scope_and_peer_addendum.md": {
+      "bytes": 5573,
+      "sha256": "99935688559baa31bc36ad74285f49b91cb1c260caa9c82e95ad7bcaf0ae579f"
+    },
+    "round3/c/sources.json": {
+      "bytes": 9928,
+      "sha256": "bfa6a915f170354359e45924627544ac3344707f338b01225700e1fba8da05fd"
+    },
+    "round3/c/verify_review.py": {
+      "bytes": 3042,
+      "sha256": "6b144ef4c71abc1bc4089361f6fe294f922fa0cc86fc4f5c6ab17e7f86d9c49a"
+    },
     "simulation_contract_final.json": {
-      "bytes": 7623,
-      "sha256": "f89db784d612887e6bb80c1d569f9dedf40f3afb468fd9a65a38193a65a0d04f"
+      "bytes": 8257,
+      "sha256": "f77589954051b36eeb42f1a6cb4ceb13f97df631bd305b8c2ae8b0d2678bd3b9"
     },
     "taskbook_final.md": {
-      "bytes": 106788,
-      "sha256": "0b17981bc5bdd2b1d81dbbb0db2aa419d4952c79c4c32e1398a3f5ad284d10ce"
+      "bytes": 109430,
+      "sha256": "7f5c94f7fc73698236be954ae7818266d6dfe8b4949d1752dd045d76f4b71f18"
     },
     "v5/c/.gitattributes": {
       "bytes": 80,
@@ -151,24 +229,24 @@
       "sha256": "6b144ef4c71abc1bc4089361f6fe294f922fa0cc86fc4f5c6ab17e7f86d9c49a"
     },
     "verification_final.txt": {
-      "bytes": 1709,
-      "sha256": "c9039d1a8b6801ac76df0188508f009d5fe2d468a913e49e705ce7d086bd7112"
+      "bytes": 1773,
+      "sha256": "e449f76f1f283fd23cd15d57fc9a3ad404c0535ae64ddaa45642ac69df67316c"
     },
     "verify_immutable_scope.py": {
       "bytes": 2287,
       "sha256": "cb91a864a5b5f5a6bf014bbbd32b9656ee588075d9b115586df544c96cebc2eb"
     },
     "verify_taskbook_final.py": {
-      "bytes": 9297,
-      "sha256": "694363b2e21e8adac37a04634c2476f5cda681f6026b0063f6a044620a7ee99e"
+      "bytes": 10214,
+      "sha256": "b92df28ed0d62cdbfd677ca7e77e7a826686505c11daa07d48d630a123ebc42a"
     },
     "visual_qa_final.json": {
-      "bytes": 2970,
-      "sha256": "d753da2d796b9ceffee031d44bfa04bd5174d8657e2cb103717973146e884eb4"
+      "bytes": 3002,
+      "sha256": "2b70ab9f02a8a016a6044db33dffef8d4a72bd38f2fcbc9a9f26d74829ce9b42"
     }
   },
   "manifest_self_hash": "excluded to avoid recursive hash; use actual publication commit",
-  "verification_scope": "159 static checks;28page visual QA;product all29 root tasks not_run",
+  "verification_scope": "166 static checks;29page visual QA;product all29 root tasks not_run",
   "next_task": "DEEPEYE-IMPLEMENTATION-20261014/version1",
   "handoff_record": "implementation_handoff.json appended only after actual publish/readback/new-main start; does not change frozen artifact bytes"
 }
