@@ -1,0 +1,51 @@
+{
+  "schema": 1,
+  "purpose": "C01 source pinning only",
+  "task_id": "DEEPEYE-IMPLEMENTATION-20261014",
+  "task_version": 1,
+  "design_commit": "1011259415a0916054eb580687612580bc1e5f09",
+  "contract": {
+    "id": "DEEPEYE-HUMAN-LOCK-20261014",
+    "revision": 1,
+    "source_commit": "f5989cd5defce561f9ba98e6b18fc2682945f0a2",
+    "requirements_sha256": "c229834bfc2292f5fe4411fc9f12c68487008f9d1adaf31f0144ee7a98173804"
+  },
+  "read_at_utc": "2026-10-14T18:56:22.323824+00:00",
+  "source_record": {
+    "url": "https://zenodo.org/records/4351156",
+    "doi": "10.5281/zenodo.4351156",
+    "publication_date": "2020-12-18",
+    "version": "v1",
+    "metadata_sha256": "e3aa60cdb0b740e477e582db9139df394d64b369e65a227698758f2f2a09e77a",
+    "license_id_from_record": "cc-by-4.0",
+    "original_data_license_text": "NOLD 2.0",
+    "original_data_license_note": "Verbatim spelling from deposit description; preserved separately from deposited resource license."
+  },
+  "authors_repository": {
+    "url": "https://github.com/bolgebrygg/Force-2020-Machine-Learning-competition",
+    "commit": "c8d01ee92c1c8e1ecba36f96cca6ea7b689338a1"
+  },
+  "selected_file": {
+    "name": "LAS_files_Force_2020_all_wells_train_test_blind_hidden_final.zip",
+    "expected_bytes": 169785172,
+    "record_checksum": "md5:da0d72d5783a780ac71779453d9fbfbf",
+    "download_status": "running",
+    "local_sha256": null,
+    "actual_bytes": null
+  },
+  "data_domain": "public_well_lithology",
+  "source_mode": "geo_replay",
+  "grouping_unit": "complete_well",
+  "split_assignments_status": "not_run",
+  "preprocessing_status": "not_run",
+  "training_status": "not_run",
+  "C01_status": "not_run",
+  "raw_archive_in_product_repository": false,
+  "claims_excluded": [
+    "real water-hazard detection",
+    "synthetic sensor validation",
+    "physical board acquisition",
+    "ROCm/NPU execution",
+    "online access to truth or future data"
+  ]
+}
