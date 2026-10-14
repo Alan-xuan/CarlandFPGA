@@ -4,3 +4,5 @@ force_inventory.json -text
 force_inventory.txt -text whitespace=cr-at-eol
 split_assignment.json -text
 split_assignment.txt -text whitespace=cr-at-eol
+data_model.json -text
+data_model.txt -text whitespace=cr-at-eol,-blank-at-eof

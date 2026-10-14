@@ -1,0 +1,80 @@
+{"command": ["C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\venv\\Scripts\\python.exe", "-X", "utf8", "-B", "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\deepeye-implementation-c\\competition\\deepeye\\tests\\ai\\data_model\\test_causal_input.py", "-v"], "exit_code": 0, "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855", "stderr_sha256": "30666d6fac9e5977d602024018dc452359541cda480bd6c320cca139d61671f4"}
+STDOUT
+
+STDERR
+test_binding_mismatch_rejected (__main__.DuplicateAndBindingTests.test_binding_mismatch_rejected) ... ok
+test_conflicting_seq_rejected (__main__.DuplicateAndBindingTests.test_conflicting_seq_rejected) ... ok
+test_grant_only_difference_same_seq_is_a_transport_duplicate (__main__.DuplicateAndBindingTests.test_grant_only_difference_same_seq_is_a_transport_duplicate) ... ok
+test_identical_seq_duplicate_dropped (__main__.DuplicateAndBindingTests.test_identical_seq_duplicate_dropped) ... ok
+test_source_mode_mix_rejected (__main__.DuplicateAndBindingTests.test_source_mode_mix_rejected) ... ok
+test_unknown_profile_rejected (__main__.DuplicateAndBindingTests.test_unknown_profile_rejected) ... ok
+test_unknown_source_mode_rejected (__main__.DuplicateAndBindingTests.test_unknown_source_mode_rejected) ... ok
+test_conservative_quality_merge_never_clears (__main__.DuplicateTickRepair2Tests.test_conservative_quality_merge_never_clears) ... ok
+test_d04_repeated_deliveries_make_one_column (__main__.DuplicateTickRepair2Tests.test_d04_repeated_deliveries_make_one_column) ... ok
+test_delivery_order_permutation_is_deterministic (__main__.DuplicateTickRepair2Tests.test_delivery_order_permutation_is_deterministic) ... ok
+test_duplicate_deliveries_do_not_evict_older_history (__main__.DuplicateTickRepair2Tests.test_duplicate_deliveries_do_not_evict_older_history) ... ok
+test_grant_variation_never_changes_features (__main__.DuplicateTickRepair2Tests.test_grant_variation_never_changes_features) ... ok
+test_representative_seq_is_smallest_and_grants_stay_per_arrival (__main__.DuplicateTickRepair2Tests.test_representative_seq_is_smallest_and_grants_stay_per_arrival) ... ok
+test_source_fault_union_masks_all_and_never_clears (__main__.DuplicateTickRepair2Tests.test_source_fault_union_masks_all_and_never_clears) ... ok
+test_extreme_stale_age_clips_without_float_overflow (__main__.MainBoundaryRegressionTests.test_extreme_stale_age_clips_without_float_overflow) ... ok
+test_malformed_binding_and_schema_use_domain_error (__main__.MainBoundaryRegressionTests.test_malformed_binding_and_schema_use_domain_error) ... ok
+test_age_limit_and_cutoff_validation (__main__.NumericValidationTests.test_age_limit_and_cutoff_validation) ... ok
+test_boolean_and_non_numeric_means_rejected (__main__.NumericValidationTests.test_boolean_and_non_numeric_means_rejected) ... ok
+test_huge_integer_inputs_rejected (__main__.NumericValidationTests.test_huge_integer_inputs_rejected) ... ok
+test_invalid_identity_fields_rejected (__main__.NumericValidationTests.test_invalid_identity_fields_rejected) ... ok
+test_negative_range_rejected (__main__.NumericValidationTests.test_negative_range_rejected) ... ok
+test_non_finite_means_rejected (__main__.NumericValidationTests.test_non_finite_means_rejected) ... ok
+test_normalization_overflow_rejected (__main__.NumericValidationTests.test_normalization_overflow_rejected) ... ok
+test_scales_validation (__main__.NumericValidationTests.test_scales_validation) ... ok
+test_all_zero_flags_are_invalid_everywhere (__main__.QualityFlagTests.test_all_zero_flags_are_invalid_everywhere) ... ok
+test_combined_saturated_and_held_mask (__main__.QualityFlagTests.test_combined_saturated_and_held_mask) ... ok
+test_grant_bits_never_mask_or_validate (__main__.QualityFlagTests.test_grant_bits_never_mask_or_validate) ... ok
+test_individual_held_bit_positions (__main__.QualityFlagTests.test_individual_held_bit_positions) ... ok
+test_individual_saturated_bit_positions (__main__.QualityFlagTests.test_individual_saturated_bit_positions) ... ok
+test_individual_valid_bit_positions (__main__.QualityFlagTests.test_individual_valid_bit_positions) ... ok
+test_invalid_flag_values_rejected (__main__.QualityFlagTests.test_invalid_flag_values_rejected) ... ok
+test_packed_bit_constants (__main__.QualityFlagTests.test_packed_bit_constants) ... ok
+test_source_fault_bit_masks_all_channels (__main__.QualityFlagTests.test_source_fault_bit_masks_all_channels) ... ok
+test_valid_all_flags_are_fresh (__main__.QualityFlagTests.test_valid_all_flags_are_fresh) ... ok
+test_conflicting_held_payload_same_tick_rejected (__main__.SameTickPolicyTests.test_conflicting_held_payload_same_tick_rejected) ... ok
+test_conflicting_ranges_same_tick_rejected (__main__.SameTickPolicyTests.test_conflicting_ranges_same_tick_rejected) ... ok
+test_conflicting_summaries_same_tick_rejected (__main__.SameTickPolicyTests.test_conflicting_summaries_same_tick_rejected) ... ok
+test_duplicate_tick_merges_to_one_column (__main__.SameTickPolicyTests.test_duplicate_tick_merges_to_one_column) ... ok
+test_grant_only_difference_same_tick_allowed (__main__.SameTickPolicyTests.test_grant_only_difference_same_tick_allowed) ... ok
+test_held_and_fresh_same_tick_same_payload_merges_conservatively (__main__.SameTickPolicyTests.test_held_and_fresh_same_tick_same_payload_merges_conservatively) ... ok
+test_held_same_tick_same_payload_merges_conservatively (__main__.SameTickPolicyTests.test_held_same_tick_same_payload_merges_conservatively) ... ok
+test_custom_schema_renames_fields (__main__.SchemaValidationTests.test_custom_schema_renames_fields) ... ok
+test_default_schema_exposes_one_quality_field (__main__.SchemaValidationTests.test_default_schema_exposes_one_quality_field) ... ok
+test_duplicate_names_rejected (__main__.SchemaValidationTests.test_duplicate_names_rejected) ... ok
+test_extra_and_missing_fields_rejected (__main__.SchemaValidationTests.test_extra_and_missing_fields_rejected) ... ok
+test_field_names_access_is_stable_for_sequences (__main__.SchemaValidationTests.test_field_names_access_is_stable_for_sequences) ... ok
+test_forbidden_record_fields_rejected (__main__.SchemaValidationTests.test_forbidden_record_fields_rejected) ... ok
+test_forbidden_schema_token_rejected (__main__.SchemaValidationTests.test_forbidden_schema_token_rejected) ... ok
+test_list_groups_are_accepted_as_fixed_sequences (__main__.SchemaValidationTests.test_list_groups_are_accepted_as_fixed_sequences) ... ok
+test_malformed_schema_generator_rejected (__main__.SchemaValidationTests.test_malformed_schema_generator_rejected) ... ok
+test_non_sequence_group_rejected_as_causal_error (__main__.SchemaValidationTests.test_non_sequence_group_rejected_as_causal_error) ... ok
+test_non_string_or_empty_names_rejected (__main__.SchemaValidationTests.test_non_string_or_empty_names_rejected) ... ok
+test_one_shot_generator_group_rejected_without_consumption (__main__.SchemaValidationTests.test_one_shot_generator_group_rejected_without_consumption) ... ok
+test_unhashable_names_rejected_as_causal_error (__main__.SchemaValidationTests.test_unhashable_names_rejected_as_causal_error) ... ok
+test_wrong_cardinality_rejected_as_causal_error (__main__.SchemaValidationTests.test_wrong_cardinality_rejected_as_causal_error) ... ok
+test_age_equal_to_limit_is_fresh (__main__.TimeAndFreshnessTests.test_age_equal_to_limit_is_fresh) ... ok
+test_future_records_excluded_and_counted (__main__.TimeAndFreshnessTests.test_future_records_excluded_and_counted) ... ok
+test_held_keeps_truthful_tick_and_unknown_native_tick (__main__.TimeAndFreshnessTests.test_held_keeps_truthful_tick_and_unknown_native_tick) ... ok
+test_native_tick_unknown_and_held_reuse_not_fresh (__main__.TimeAndFreshnessTests.test_native_tick_unknown_and_held_reuse_not_fresh) ... ok
+test_stale_record_masked_with_truthful_age (__main__.TimeAndFreshnessTests.test_stale_record_masked_with_truthful_age) ... ok
+test_cold_start_left_padding_is_masked (__main__.WindowLayoutTests.test_cold_start_left_padding_is_masked) ... ok
+test_last_32_columns_keep_newest_oldest_first (__main__.WindowLayoutTests.test_last_32_columns_keep_newest_oldest_first) ... ok
+test_records_sorted_by_acquisition_tick (__main__.WindowLayoutTests.test_records_sorted_by_acquisition_tick) ... ok
+test_shape_scaling_layout_and_model_input (__main__.WindowLayoutTests.test_shape_scaling_layout_and_model_input) ... ok
+
+----------------------------------------------------------------------
+Ran 64 tests in 0.024s
+
+OK
+
+{"command": ["C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\venv\\Scripts\\python.exe", "-X", "utf8", "-B", "-c", "import sys,random\nfrom pathlib import Path\nsys.path.insert(0,str(Path.cwd()/'.local/deepeye-implementation-c/competition/deepeye/tests/ai/data_model'))\nimport test_causal_input as t\nrng=random.Random(20261015)\nfor case in range(500):\n    flags=[rng.randrange(65536) for _ in range(rng.randrange(1,25))]\n    rows=[t.record(i,100,quality_flags=f) for i,f in enumerate(flags)]\n    valid=15;bad=0\n    for f in flags: valid &= f&15;bad |= f&0x1ff0\n    expected=tuple(float(bool(valid&(1<<c)) and not bool(bad&((1<<(4+c))|(1<<(8+c))|4096))) for c in range(4))\n    result=t.build(rows)\n    assert result.columns[-1].valid_mask==expected\n    before=result.features;rng.shuffle(rows)\n    assert t.build(rows).features==before\nsingle=t.build([t.record(1,100)])\nassert t.build([t.record(i,100,quality_flags=15|((i%8)<<13)) for i in range(32)]).features==single.features\nold=[t.record(i,i) for i in range(31)]\nassert t.build(old+[t.record(i+31,100) for i in range(32)]).features==t.build(old+[t.record(31,100)]).features\nassert t.build([t.record(1,100),t.record(2,1001)]).features==single.features\nassert all(c.source_native_tick_ms is None for c in single.columns)\nprint('500 independent packed-bit/permutation checks; duplicate/history/future/native-age regressions passed')\n"], "exit_code": 0, "stdout_sha256": "301bccb7ad0d548bfa266903448b4ad967bc99a8ef28ee7927963deed4946080", "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"}
+STDOUT
+500 independent packed-bit/permutation checks; duplicate/history/future/native-age regressions passed
+
+STDERR
+

@@ -1,0 +1,62 @@
+{
+  "schema": 1,
+  "task_id": "DEEPEYE-IMPLEMENTATION-20261014",
+  "task_version": 1,
+  "contract_id": "DEEPEYE-HUMAN-LOCK-20261014/revision1",
+  "requirements_sha256": "c229834bfc2292f5fe4411fc9f12c68487008f9d1adaf31f0144ee7a98173804",
+  "design_commit": "1011259415a0916054eb580687612580bc1e5f09",
+  "scope": "pure summary input builder only",
+  "status": "passed",
+  "software_tests": 64,
+  "independent_cases": 500,
+  "commands": [
+    {
+      "command": [
+        "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\venv\\Scripts\\python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\deepeye-implementation-c\\competition\\deepeye\\tests\\ai\\data_model\\test_causal_input.py",
+        "-v"
+      ],
+      "exit_code": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "30666d6fac9e5977d602024018dc452359541cda480bd6c320cca139d61671f4"
+    },
+    {
+      "command": [
+        "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\venv\\Scripts\\python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "-c",
+        "import sys,random\nfrom pathlib import Path\nsys.path.insert(0,str(Path.cwd()/'.local/deepeye-implementation-c/competition/deepeye/tests/ai/data_model'))\nimport test_causal_input as t\nrng=random.Random(20261015)\nfor case in range(500):\n    flags=[rng.randrange(65536) for _ in range(rng.randrange(1,25))]\n    rows=[t.record(i,100,quality_flags=f) for i,f in enumerate(flags)]\n    valid=15;bad=0\n    for f in flags: valid &= f&15;bad |= f&0x1ff0\n    expected=tuple(float(bool(valid&(1<<c)) and not bool(bad&((1<<(4+c))|(1<<(8+c))|4096))) for c in range(4))\n    result=t.build(rows)\n    assert result.columns[-1].valid_mask==expected\n    before=result.features;rng.shuffle(rows)\n    assert t.build(rows).features==before\nsingle=t.build([t.record(1,100)])\nassert t.build([t.record(i,100,quality_flags=15|((i%8)<<13)) for i in range(32)]).features==single.features\nold=[t.record(i,i) for i in range(31)]\nassert t.build(old+[t.record(i+31,100) for i in range(32)]).features==t.build(old+[t.record(31,100)]).features\nassert t.build([t.record(1,100),t.record(2,1001)]).features==single.features\nassert all(c.source_native_tick_ms is None for c in single.columns)\nprint('500 independent packed-bit/permutation checks; duplicate/history/future/native-age regressions passed')\n"
+      ],
+      "exit_code": 0,
+      "stdout_sha256": "301bccb7ad0d548bfa266903448b4ad967bc99a8ef28ee7927963deed4946080",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "source_sha256": {
+    "ai_pc/model/causal_input.py": "f0e924878d2e4e4236c32d45119b518ed6eafc91e2ef3c1b2ffe78ea65637083",
+    "tests/ai/data_model/test_causal_input.py": "1e6cf450c1d1993a54abc0a5d74ac0dfa963f59a41d3e121b4caabe45fd5ca21",
+    "evidence/ai/startup/data_model.txt": "6348820bd72458df7cb1096edba861b86c3885dc090e18ef14b05a9e9d2f5904"
+  },
+  "implementation_job": {
+    "job_id": "child-ea9d8b9036574b5abd559ebb2f5bb754",
+    "provider": "deepseek",
+    "model": "deepseek-flash",
+    "effort": "max",
+    "basis": "completed controller result"
+  },
+  "main_changes": [
+    "age saturation before float division prevents huge-stale-timestamp overflow",
+    "malformed binding/schema reject with CausalInputError"
+  ],
+  "limitations": [
+    "No accepted A wire adapter or process isolation proof",
+    "Feature-mask age is inclusive at limit; movement deadline helpers stop at deadline and independently authorize no movement",
+    "No model training or accuracy claim",
+    "C01 and product/hardware cards not_run"
+  ]
+}
