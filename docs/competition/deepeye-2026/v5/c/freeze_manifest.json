@@ -1,0 +1,103 @@
+{
+  "task_id": "COMP-20261013-DEEPEYE",
+  "task_version": 5,
+  "owner": "Astra-C quality main",
+  "model": "gpt-6-astra",
+  "effort": "ultra",
+  "frozen_at_utc": "2026-10-14T15:33:01.229717+00:00",
+  "status": "C_research_review_complete_for_A_fusion_not_joint_final_acceptance",
+  "branch": "codex/c/comp-20261013-deepeye-v5-review",
+  "reviewed_commit": "74c854d74baf817beafcbd1d4d52a8dd4450bbca",
+  "reviewed_repository": "carolwjade/CarlandFPGA",
+  "inputs": {
+    "checks_v4.json": {
+      "bytes": 9195,
+      "sha256": "b96d35ef6a64039646a918392519f9967a59ff62cb617ae84758ea15475fdcaa"
+    },
+    "execution_plan_v4.json": {
+      "bytes": 6110,
+      "sha256": "6500d90dc0c5fff826a2f5565847a0264ebb23bb9311af0b2f6dd37dc45949ad"
+    },
+    "release_manifest_v4.json": {
+      "bytes": 3086,
+      "sha256": "a95cf4704ee1917e444b0d777fdb317e18b670742478a4463940c42355572603"
+    },
+    "research_v4.md": {
+      "bytes": 5341,
+      "sha256": "8719d8c4617f1fd38391f7e1ecb01452b1850baf10da704c92d83c04d8910cc8"
+    },
+    "revision_v4.md": {
+      "bytes": 2086,
+      "sha256": "2784260b1c9925ac9c584f9b75fac9f2c2b5f568fc443424f4ba60afc3d33e5d"
+    },
+    "simulation_contract_v4.json": {
+      "bytes": 5209,
+      "sha256": "75645fc47c0aed477bf7abdf132721071ad221f876133a1b4a41ab7236ed7ca9"
+    },
+    "taskbook_v4.md": {
+      "bytes": 86841,
+      "sha256": "1b71bb268c140c6cab526c239f5bba28f702668e4c9d8c4e561ef03c39aceb30"
+    }
+  },
+  "historical_inputs": {
+    "C_best_sha256": "5243500c579b3a24e097b2a1d41e038d09128b635648968f313a00bf0a1889af",
+    "B_best_sha256": "6088bb2de9e220f751f0623774f0cba91c0b88ba3fdcfcd0abf179ad483439c8",
+    "A_best_sha256": "d9716026589a298e4554d018c9478539cf9a2840458129e246e1134173911416",
+    "verification_scope": "prior rounds retained; not claimed to have rerun the first two rounds or read a completed B v5 review"
+  },
+  "source_only_children": [
+    {
+      "job_id": "child-048b45f9ffb144a6a409d131c760b652",
+      "role": "sensor primary-source retrieval",
+      "route": "DeepSeek Flash max",
+      "status": "completed",
+      "stale": false,
+      "file_ownership": [],
+      "completed_at_utc": "2026-10-14T15:17:30.022576Z"
+    },
+    {
+      "job_id": "child-b8de68209a7549158ae9b3157f20630e",
+      "role": "engine and collision primary-source retrieval",
+      "route": "DeepSeek Flash max",
+      "status": "completed",
+      "stale": false,
+      "file_ownership": [],
+      "completed_at_utc": "2026-10-14T15:21:53.214875Z"
+    }
+  ],
+  "main_verification": "Main read A v4 and primary references, independently derived angular-quantization/slot/geometry arithmetic, selected architecture and acceptance additions. Child conclusions are not acceptance.",
+  "files": {
+    ".gitattributes": {
+      "bytes": 80,
+      "sha256": "6cac7e3ba10653a00b01d4028829ee18e893cf7da69218d5f41d6caea105dfaa"
+    },
+    "acceptance.json": {
+      "bytes": 18246,
+      "sha256": "199d3085042315391f8a1fc493e2efd2dd4b744e318481f9b7fa43756a7373c7"
+    },
+    "research_checks.json": {
+      "bytes": 1017,
+      "sha256": "26efd90f380095d9e693a88f20c7a45c318c67abbd6aefe85d92fe8972aa2b73"
+    },
+    "review.md": {
+      "bytes": 15421,
+      "sha256": "780d94bf19a1921f19c9d317b409762d23d13a9f4a5b4ecca4715cb65e6aa56b"
+    },
+    "sources.json": {
+      "bytes": 9928,
+      "sha256": "bfa6a915f170354359e45924627544ac3344707f338b01225700e1fba8da05fd"
+    },
+    "verify_review.py": {
+      "bytes": 3042,
+      "sha256": "6b144ef4c71abc1bc4089361f6fe294f922fa0cc86fc4f5c6ab17e7f86d9c49a"
+    }
+  },
+  "text_eol": "UTF-8 LF; exact Git blob bytes will be checked after publication",
+  "all_product_execution": "not_run",
+  "board": "not_run",
+  "rocm_project": "not_run",
+  "purchase": "not_run",
+  "service_or_credential_changes": "not_run",
+  "A_files_and_frozen_prior_files_modified": false,
+  "prepublication_note": "Added LF rule for .gitattributes itself before publication so all manifest files survive fresh Windows checkout byte-for-byte."
+}

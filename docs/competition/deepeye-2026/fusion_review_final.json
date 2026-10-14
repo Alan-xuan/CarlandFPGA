@@ -1,0 +1,67 @@
+{
+  "task_id": "COMP-20261013-DEEPEYE",
+  "task_version": 5,
+  "authority": "A human desktop root; exact source versions retained unchanged",
+  "immutable_scope_sha256": "c229834bfc2292f5fe4411fc9f12c68487008f9d1adaf31f0144ee7a98173804",
+  "sources": [
+    {
+      "node": "A",
+      "commit": "74c854d74baf817beafcbd1d4d52a8dd4450bbca",
+      "path": "taskbook_v4.md",
+      "url": "https://github.com/carolwjade/CarlandFPGA/tree/74c854d74baf817beafcbd1d4d52a8dd4450bbca",
+      "bytes": 86841,
+      "sha256": "1b71bb268c140c6cab526c239f5bba28f702668e4c9d8c4e561ef03c39aceb30",
+      "status": "actual_source_read_and_hash_verified"
+    },
+    {
+      "node": "B",
+      "commit": "1f85095b1f54598956ff3c2c24eb7876d879fe1a",
+      "path": "reviews/v5/b/review.md",
+      "url": "https://github.com/carolwjade/CarlandFPGA/pull/20",
+      "bytes": 6783,
+      "sha256": "d973d3371e851ac7a9b1955d2978ea19bd216b1c59c52edaf2475082eb41063d",
+      "status": "actual_source_read_and_hash_verified"
+    },
+    {
+      "node": "C",
+      "commit": "68423d6c40cfa34474a5e73bf4eda9b227387d02",
+      "path": "v5/c/review.md",
+      "url": "https://github.com/carolwjade/CarlandFPGA/pull/19",
+      "bytes": 15421,
+      "sha256": "780d94bf19a1921f19c9d317b409762d23d13a9f4a5b4ecca4715cb65e6aa56b",
+      "status": "actual_source_read_and_hash_verified"
+    }
+  ],
+  "real_peer_readbacks": [
+    "A:B-COMP-20261013-DEEPEYE-v5-immutable-readback-v1",
+    "A:C:COMP-20261013-DEEPEYE:v5:H01-H15-contract-accepted",
+    "A:B:COMP-20261013-DEEPE:v5:desktop-audit-complete:v1",
+    "A:C-COMP-20261013-DEEPEYE-v5-A-PR19-final",
+    "A:B-COMP-20261013-DEEPEYE-v5-pr20-current-best-delivery-v1",
+    "A:B:COMP-20261013-DEEPEYE:v5:C19-compatibility:A:v1",
+    "A:C:COMP-20261013-DEEPEYE:v5:B-comments-PR19-concur:A",
+    "A:B:COMP-20261013-DEEPEYE:v5:B20-fusion-readback:A:v1"
+  ],
+  "external_evaluation_method": "module comparison and concrete counterexamples; no aggregate score compensates for missing H01-H15; initial per-machine five plans remain frozen history",
+  "adopted": [
+    "B full solid convex decomposition, glTF editable source and licence, quaternion body rates, mode authority and actual IO capture",
+    "B desktop quantization counterexample, missing asset skeleton dependency and G05 fresh rebuild gate",
+    "C independent 3D FDEM applicability, summary motion compensation, source/online detection distinction, uncertainty/OOD maps, stopping-tail planning",
+    "C analytic full-body portals, continuous sweep bounds, actual process permission tests, deadline and fair closed-loop comparison",
+    "B and C common A-owned public ABI and independent 36-face geometry suite, preserving 30x3 blind denominator"
+  ],
+  "candidate_parts_not_selected": {
+    "B 64-point ToF/36B overhead/1Mbps or230400 main": "useful independent proposal; ToF does not see through rock, different rate and field budget; final uses four actual channels and abi_v3 14B overhead",
+    "B 2m/80mm/88mm world": "final remains30m/0.24m/0.8m/0.30m coherent geometry",
+    "B renderer on RTX4060 instead of A concurrent formal test": "optional diagnosis/extra deployment only; final AMD 3D+ROCm concurrent gate retained",
+    "C Godot4.6.3 recommendation": "B4.7.2 stable chosen; official archive/policy verified; all visual and physics requirements retained"
+  },
+  "source_corrections": {
+    "C original B freezes ABI": "A/R03 sole public schema writer; B proposes/implements/independently tests",
+    "C original all face pairs in30blindlayouts": "36 pairs separateG02/G06 suite;30blindlayouts stratified x3=90 unchanged",
+    "C root_cards": "trace mapping only; not automatic reverse dependencies/self cycles",
+    "C C5-10": "startup input/handoff verification; product release still later A04/G08"
+  },
+  "product_runtime": "all 29 root tasks not_run; independent research arithmetic/static checks only",
+  "joint_final_readback": "pending_exact_final_commit_review; not yet claimed"
+}

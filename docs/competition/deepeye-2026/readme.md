@@ -1,9 +1,9 @@
-# 矿脉深瞳参赛规划
+# 矿脉深瞳最终任务书
 
-当前实施规范：[taskbook_v4.md](taskbook_v4.md)；阅读版：[deepeye_taskbook_v4.pdf](deepeye_taskbook_v4.pdf)。29卡DAG：[execution_plan_v4.json](execution_plan_v4.json)；三维参数：[simulation_contract_v4.json](simulation_contract_v4.json)；来源：[research_v4.md](research_v4.md)；变更：[revision_v4.md](revision_v4.md)。
+入口：taskbook_final.md与deepeye_taskbook_final.pdf（版本5）；最高约束immutable_scope.md/json H01-H15，SHA256 c229834bfc2292f5fe4411fc9f12c68487008f9d1adaf31f0144ee7a98173804。
 
-v4落实人类10月14日新增的游戏级3D要求：边框立方体、实体钻头/五类障碍、编辑/镜头、任意六面蓝红圈、隐图传感与三维规划。PC AI为主感知/规划端，HIL经FPGA执行为主，PC_DIRECT为完整对照，板端规则提供快速保护。9600baud交互演示与300baud压力工况分别验收，3D不得退2D。
+执行：execution_plan_final.json，29根卡全部初始not_run；simulation_contract_final.json；execution_orchestration_v5.md。补充C10子门见v5/c/acceptance.json及最终融合修正，不新增自环依赖。源码根competition/deepeye/，设计根本目录。
 
-本批是已完成研究与可验收任务书，不表示游戏、RTL、模型、ROCm或实物任务已实施。R01赛事/实际物理任务认定、R02/C03现有PC的ROCm项目运行继续独立设门；动画不能替代真实PGA任务。A唯一物理板卡操作者。
+证据：fusion_review_final.md/json保存三机精确来源及取舍；checks_final.json和verification_final.txt只证明文档/算术/DAG/PDF；release_manifest_final.json锁文件；implementation_handoff.json记录之后的真实发布、同件读回与新主/工作启动。v1–v4保留历史，不能用旧结果通过新卡。
 
-v1/v2/v3修订1保留原始历史与清单；真实三机首轮各五案和第二轮模块融合见selection_audit.md。本次增补为A统筹，未捏造新的B/C共同签署。产品路径在competition/deepeye/，不混入协作平台。
+校验：python verify_immutable_scope.py --expected-sha c229834bfc2292f5fe4411fc9f12c68487008f9d1adaf31f0144ee7a98173804 --book taskbook_final.md --plan execution_plan_final.json；python verify_taskbook_final.py。游戏、RTL、AMD和板测须按任务书在新主会话另做。
