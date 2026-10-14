@@ -7,8 +7,8 @@
   "immutable_scope_sha256": "c229834bfc2292f5fe4411fc9f12c68487008f9d1adaf31f0144ee7a98173804",
   "files": {
     ".gitattributes": {
-      "bytes": 169,
-      "sha256": "0738407bfcd89e48042c87447759816128a98a42ef6f768ddcee2fcba60a2eab"
+      "bytes": 168,
+      "sha256": "bd36dbd14f9885f0a63e1fab18064bbd0bbe44f200fe97c95129e867b2972e44"
     },
     "architecture_v4.png": {
       "bytes": 193005,
