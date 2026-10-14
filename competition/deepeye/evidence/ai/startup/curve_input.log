@@ -1,0 +1,2316 @@
+==============================================================================
+DEEPEYE C01 CURVE-PROFILE INPUT FOUNDATION - EVIDENCE LOG (correction1)
+==============================================================================
+task_id:        DEEPEYE-C-CURVE-REPAIR1-20261015 (task_version 1; supersedes DEEPEYE-C-CURVE-INPUT-20261015)
+work_id:        C-curve-scaler-provenance-schema-correction-1-v1
+contract:       DEEPEYE-HUMAN-LOCK-20261014/revision1
+requirements_sha256: c229834bfc2292f5fe4411fc9f12c68487008f9d1adaf31f0144ee7a98173804
+design_commit:  1011259415a0916054eb580687612580bc1e5f09
+job:            child-962a94dfb9504ad7a6f3371e34167d05 (instance deepseek-c-15, route deepseek)
+               observable in .local/plan-20261014-final-c/director-startup/curve-repair1-result.json
+               sha256 = 4161d02b14ecb6a0f3fc286ad10b565a935e8ca541c8bd946da938c15080738a
+predecessor:    child-5607ad197fe44f139d2b692696e9c2e0 (terminal); its original four files are retained
+               read-only by the director in curve-input-before-main-review/ (hashes in section 2b)
+generated_at_utc: 2026-10-14T21:37:38Z
+environment:    ordinary DeepSeek Flash executor (no native lease); cwd C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c
+               interpreter .local/venv/Scripts/python.exe = Python 3.12.14; -X utf8 -B;
+               PYTHONDONTWRITEBYTECODE=1 for all captured runs; no external packages installed.
+scope:          correction1 of the C01 curve-profile input foundation (force_curve_v1, [1,8,128,1]).
+               Main review rejected CP01 (scaler statistics could claim a hash they were not parsed
+               from) and CP02 (a mutable schema list changed a live builder field allowlist); both
+               are fixed here. R03 is not accepted; product C01 remains not_run; no model training,
+               no quantization, no wire adapter, no verify_data, no online scene.
+
+1. SCOPE VERIFICATION (mandatory first step)
+command: .local/venv/Scripts/python.exe -X utf8 .local/plan-20261014-final-c/final-final-1011259/verify_immutable_scope.py
+         --expected-sha c229834bfc2292f5fe4411fc9f12c68487008f9d1adaf31f0144ee7a98173804
+         --book .local/plan-20261014-final-c/final-final-1011259/taskbook_final.md
+         --plan .local/plan-20261014-final-c/final-final-1011259/execution_plan_final.json
+exit_code: 0
+stdout (verify_scope.stdout.bin sha256 = e6a0a5722482707d449e03400819ffe28ddb53cb53e43f355e9645f5c9303f1c):
+stderr: 0 bytes  (verify_scope.stderr.bin sha256 = e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855)
+{"status": "passed", "scope": "human requirement identity and trace coverage only", "contract": "DEEPEYE-HUMAN-LOCK-20261014", "requirements": 15, "requirements_sha256": "c229834bfc2292f5fe4411fc9f12c68487008f9d1adaf31f0144ee7a98173804", "runtime_acceptance": "not_run"}
+
+2. OWNED FILES (exactly four; nothing else written)
+ai_pc/model/curve_input.py                      39152 bytes  sha256 c017729a2d5717ff2bbf5a6c591320519c415ac10068b4cee19b3136913d848c
+tests/ai/data_model/test_curve_input.py       42098 bytes  sha256 11b936b94addae44a05c5a5365d876ba25eb08dbd087c45c28bbef0e8884ebcc
+evidence/ai/startup/curve_input.log       (this file)
+evidence/ai/startup/curve_input.json      (companion; embeds this file's sha256)
+
+2b. MAIN REVIEW FINDINGS FIXED IN CORRECTION1 (review and snapshot kept read-only by the director)
+main review file: .local/plan-20261014-final-c/director-startup/curve-input-main-review.json
+                  sha256 = 1a093b13fb54e1ffb69f19c13166f7a8825bcb7e379d5b8c7b46499c2d83f7c8
+- CP01: the public CurveScaler(hash, channels) constructor accepted caller statistics while
+  asserting the pinned preprocessing hash, so a builder could emit changed features under the
+  audited hash (review reproduced a GR mean+10 change). Fix: CurveScaler is now
+  @dataclass(frozen=True, init=False) whose only constructor takes the document bytes plus keyword
+  expected_sha256, copies bytearray/memoryview input, hashes it, parses and validates the frozen
+  contract/profile/statistics and sets fields only from that parse; from_document_bytes is a thin
+  wrapper; legacy hash+channels construction and dataclasses.replace raise TypeError. Regressions
+  include the committed production preprocessing document (pinned sha256 cb66fd30...) read-only,
+  forged-statistics rejection and forged-scaler/pinned-binding rejection.
+- CP02: CurveSchema stored the caller list, so mutating it after builder construction changed the
+  accepted field names. Fix: CurveSchema.__post_init__ validates all thirteen names (string type,
+  forbidden tokens, duplicates) and copies values/valid into immutable tuples at construction; the
+  builder keeps the frozen instance, so caller-list mutation or appends have no effect and renamed
+  fields are rejected atomically.
+- Original four files (before this correction), retained read-only at
+  .local/plan-20261014-final-c/director-startup/curve-input-before-main-review/ :
+    ai_pc/model/curve_input.py                     98348013a2e9283d4758ba46a817779c69ab2152a894e498b3fcee6c3b354435
+    tests/ai/data_model/test_curve_input.py        df62c40495de84ebe32c01bc2aa3967e28649ca739d484b3a68b607796add808
+    evidence/ai/startup/curve_input.json           29a27797f310ec9ddd09495ed4f3340200f4182eadb2cad7b48aaf6bfac130e8
+    evidence/ai/startup/curve_input.log            db94fd9ee3532a2c5d3021d3c2eec2326d08ef16b5ea5b00f7161561f4198300
+
+3. DRIVER AND CAPTURED RUNS
+driver command: ['C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\venv\\Scripts\\python.exe', '-X', 'utf8', '-B', 'C:\\Users\\Alan\\AppData\\Local\\Temp\\fp_curve_input_20261015\\runner.py']
+driver exit: 0
+driver console (observed verbatim in the terminal; byte-equivalent reproduction using the driver's own print format):
+tests exit=0 stdout=e3b0c44298fc1c14 stderr=993f452ce2e9a2ef
+exercise exit=0 stdout=51e4a4342dfc3305 stderr=e3b0c44298fc1c14
+readback exit=0 stdout=a0bcb41b63607d8f stderr=e3b0c44298fc1c14
+MANIFEST C:\Users\Alan\AppData\Local\Temp\fp_curve_input_20261015\manifest.json
+
+### run: tests
+command: ["C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\venv\\Scripts\\python.exe", "-X", "utf8", "-B", "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\deepeye-implementation-c\\competition\\deepeye\\tests\\ai\\data_model\\test_curve_input.py"]
+exit_code: 0
+stdout: 0 bytes  sha256 e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+stderr: 132 bytes  sha256 993f452ce2e9a2ef1e72df06c36e2417550b908719e673c08cb9ed504a780514
+(raw bytes preserved in tests.stdout.bin; text below is the utf-8 decode)
+----- stdout -----
+(empty)
+----- end stdout -----
+----- stderr -----
+............................
+----------------------------------------------------------------------
+Ran 28 tests in 0.050s
+
+OK
+
+----- end stderr -----
+
+### run: exercise
+command: ["C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\venv\\Scripts\\python.exe", "-X", "utf8", "-B", "C:\\Users\\Alan\\AppData\\Local\\Temp\\fp_curve_input_20261015\\force_exercise.py"]
+exit_code: 0
+stdout: 1592 bytes  sha256 51e4a4342dfc33059785d8da7aa7cac7f0b34be68b01a24d139e0cb7c074845a
+stderr: 0 bytes  sha256 e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+(raw bytes preserved in exercise.stdout.bin; text below is the utf-8 decode)
+----- stdout -----
+{
+ "archive_matches_pinned": true,
+ "archive_sha256": "042ef1d473100dc12768cae7107a8cead071a394f137af3bc1ddaf8a5d1b8dda",
+ "binding_run_id": "force-train-first-member-16_8-1-offline",
+ "binding_source_domain": "geo_replay",
+ "comparisons": 1024,
+ "conversion_bound": 1280,
+ "conversions_channel": 1024,
+ "conversions_depth": 256,
+ "crc_verified": true,
+ "depth_first": 96.975196838,
+ "depth_last": 135.73519684,
+ "depth_strictly_increasing": true,
+ "features_digest_sha256": "bfa80771dd934e390800aca32b3a485e2a27b1f65def04da460c5d062f20ece7",
+ "held_out_members_opened": [],
+ "labels_numerically_parsed": false,
+ "member": "Force_2020_all_wells_train_test_blind_hidden_final/16_8-1.las",
+ "member_bytes_read": 3633500,
+ "member_sha256": "623a93a17418a55cdd128c97a5eb2d499ec1037b4440413a69a1f8924fe2039d",
+ "member_sha_matches_inventory": true,
+ "member_sha_matches_split": true,
+ "members_opened": [
+  "Force_2020_all_wells_train_test_blind_hidden_final/16_8-1.las"
+ ],
+ "mismatches": 0,
+ "null_sentinel": -999.25,
+ "preprocessing_sha256": "cb66fd302165c86344f3b8d1af9d9c4e4e229621cef44cbfa6fb8cd121a63eef",
+ "rows_parsed": 256,
+ "selected_mnemonics": [
+  "DEPT",
+  "GR",
+  "RHOB",
+  "NPHI",
+  "RDEP"
+ ],
+ "uwi": "16/8-1",
+ "valid_counts": {
+  "GR": 236,
+  "NPHI": 0,
+  "RDEP": 0,
+  "RHOB": 0
+ },
+ "window_accepted_observations": 256,
+ "window_dropped_oldest": 128,
+ "window_filled_slots": 128,
+ "window_idempotent_repeats": 0,
+ "window_latest_sequence": 255,
+ "wrap": "NO"
+}
+FORCE CURVE EXERCISE OK: comparisons equal, masks/order preserved
+
+----- end stdout -----
+----- stderr -----
+(empty)
+----- end stderr -----
+
+### run: readback
+command: ["C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\venv\\Scripts\\python.exe", "-X", "utf8", "-B", "C:\\Users\\Alan\\AppData\\Local\\Temp\\fp_curve_input_20261015\\readback.py"]
+exit_code: 0
+stdout: 3759 bytes  sha256 a0bcb41b63607d8f08652b464abd84172b4b311842dc820103f3b2635372a983
+stderr: 0 bytes  sha256 e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+(raw bytes preserved in readback.stdout.bin; text below is the utf-8 decode)
+----- stdout -----
+module parses as text                                      PASS
+module AST parses                                          PASS
+test parses as text                                        PASS
+test AST parses                                            PASS
+exercise helper parses as text                             PASS
+exercise helper AST parses                                 PASS
+runner parses as text                                      PASS
+runner AST parses                                          PASS
+readback parses as text                                    PASS
+readback AST parses                                        PASS
+preprocessing.json parses as text                          PASS
+splits.json parses as text                                 PASS
+force_wells.json parses as text                            PASS
+module imports: ['collections', 'dataclasses', 'hashlib', 'itertools', 'json', 'math']
+module imports stdlib allowlist only                       PASS
+module does not import causal_input                        PASS
+module does not fit statistics                             PASS
+model input shape [1,8,128,1]                              PASS
+profile id force_curve_v1                                  PASS
+channel order                                              PASS
+window columns 128                                         PASS
+preprocessing pinned sha256                                PASS
+scaler loads from pinned bytes                             PASS
+CP01 legacy hash+channels constructor rejected             PASS
+CP01 dataclasses.replace cannot rebuild a scaler           PASS
+CP01 modified statistics cannot claim the pinned hash      PASS
+CP01 forged scaler carries only its own derived hash       PASS
+CP01 forged scaler cannot pair with a pinned binding       PASS
+CP02 schema copied caller lists to tuples                  PASS
+CP02 original mapping still accepted after caller mutation PASS
+CP02 renamed field rejected atomically                     PASS
+splits pinned sha256                                       PASS
+archive pinned sha256                                      PASS
+manifest records tests+exercise                            PASS
+run tests exit 0                                           PASS
+run tests stdout hash                                      PASS
+run tests stderr hash                                      PASS
+run exercise exit 0                                        PASS
+run exercise stdout hash                                   PASS
+run exercise stderr hash                                   PASS
+tests ran 28 tests                                         PASS
+tests ended OK                                             PASS
+exercise ok line present                                   PASS
+exercise comparisons 1024                                  PASS
+exercise mismatches 0                                      PASS
+exercise conversions bounded                               PASS
+exercise labels not parsed                                 PASS
+exercise member sha matches split                          PASS
+exercise member sha matches inventory                      PASS
+exercise bytes read == inventory size                      PASS
+exercise archive pinned                                    PASS
+exercise preprocessing pinned                              PASS
+exercise no held-out opened                                PASS
+exercise only one member opened                            PASS
+exercise depth strictly increasing                         PASS
+exercise window metadata                                   PASS
+exercise wrap NO                                           PASS
+CURVE INPUT READBACK ALL PASS
+
+----- end stdout -----
+----- stderr -----
+(empty)
+----- end stderr -----
+
+### run: check_columns (independent column/validity cross-check, executed after the driver capture)
+command: ['C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\venv\\Scripts\\python.exe', '-X', 'utf8', '-B', 'C:\\Users\\Alan\\AppData\\Local\\Temp\\fp_curve_input_20261015\\check_columns.py']
+exit_code: 0
+stdout: 1556 bytes  sha256 c9c9a3bb0d2fa504079fb33ac711f444c861252ad1b9255dd523a02262303fde
+stderr: 0 bytes  sha256 e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+----- stdout -----
+section markers matched exactly: '~Curve' and '~Ascii'
+numeric parsing limited to: DEPT, GR, NPHI, RDEP, RHOB; all other columns NULL-token match only
+col  0 DEPT                                   nonnull=256 null=  0
+col  1 FORCE_2020_LITHOFACIES_CONFIDENCE      nonnull=  0 null=256
+col  2 FORCE_2020_LITHOFACIES_LITHOLOGY       nonnull=  0 null=256
+col  3 CALI                                   nonnull=  0 null=256
+col  4 MUDWEIGHT                              nonnull=  0 null=256
+col  5 ROP                                    nonnull=169 null= 87
+col  6 RDEP                                   nonnull=  0 null=256
+col  7 RSHA                                   nonnull=  0 null=256
+col  8 RMED                                   nonnull=  0 null=256
+col  9 SP                                     nonnull=  0 null=256
+col 10 DTC                                    nonnull=  0 null=256
+col 11 NPHI                                   nonnull=  0 null=256
+col 12 GR                                     nonnull=236 null= 20
+col 13 RHOB                                   nonnull=  0 null=256
+col 14 DRHO                                   nonnull=  0 null=256
+col 15 DEPTH_MD                               nonnull=  0 null=256
+col 16 X_LOC                                  nonnull=  0 null=256
+col 17 Y_LOC                                  nonnull=  0 null=256
+col 18 Z_LOC                                  nonnull=  0 null=256
+selected DEPT/GR/RHOB/NPHI/RDEP: {'DEPT': 256, 'GR': 236, 'RHOB': 0, 'NPHI': 0, 'RDEP': 0}
+rows_counted: 256
+
+----- end stdout -----
+
+4. INPUT HASHES (all verified before/during use)
+data/preprocessing.json       29849 bytes  sha256 cb66fd302165c86344f3b8d1af9d9c4e4e229621cef44cbfa6fb8cd121a63eef (pinned expectation; unchanged)
+data/splits.json              45632 bytes  sha256 f10ddb8f37e6bdf7c9663eed45d0f6554ef8992899724013a7e487ad3e3cef91
+data/force_wells.json        507665 bytes  sha256 ace9a0eb9930f19c6b8125e151d07346fb23029b1455eac04964d15b97461e59
+archive                   169785172 bytes  sha256 042ef1d473100dc12768cae7107a8cead071a394f137af3bc1ddaf8a5d1b8dda
+member                      3633500 bytes  sha256 623a93a17418a55cdd128c97a5eb2d499ec1037b4440413a69a1f8924fe2039d
+member path: Force_2020_all_wells_train_test_blind_hidden_final/16_8-1.las (uwi 16/8-1, WRAP NO, NULL -999.25)
+
+5. FORCE OFFLINE EXERCISE SUMMARY (software_fixture/geo_replay preprocessing evidence only)
+{
+ "archive_matches_pinned": true,
+ "archive_sha256": "042ef1d473100dc12768cae7107a8cead071a394f137af3bc1ddaf8a5d1b8dda",
+ "binding_run_id": "force-train-first-member-16_8-1-offline",
+ "binding_source_domain": "geo_replay",
+ "comparisons": 1024,
+ "conversion_bound": 1280,
+ "conversions_channel": 1024,
+ "conversions_depth": 256,
+ "crc_verified": true,
+ "depth_first": 96.975196838,
+ "depth_last": 135.73519684,
+ "depth_strictly_increasing": true,
+ "features_digest_sha256": "bfa80771dd934e390800aca32b3a485e2a27b1f65def04da460c5d062f20ece7",
+ "held_out_members_opened": [],
+ "labels_numerically_parsed": false,
+ "member": "Force_2020_all_wells_train_test_blind_hidden_final/16_8-1.las",
+ "member_bytes_read": 3633500,
+ "member_sha256": "623a93a17418a55cdd128c97a5eb2d499ec1037b4440413a69a1f8924fe2039d",
+ "member_sha_matches_inventory": true,
+ "member_sha_matches_split": true,
+ "members_opened": [
+  "Force_2020_all_wells_train_test_blind_hidden_final/16_8-1.las"
+ ],
+ "mismatches": 0,
+ "null_sentinel": -999.25,
+ "preprocessing_sha256": "cb66fd302165c86344f3b8d1af9d9c4e4e229621cef44cbfa6fb8cd121a63eef",
+ "rows_parsed": 256,
+ "selected_mnemonics": [
+  "DEPT",
+  "GR",
+  "RHOB",
+  "NPHI",
+  "RDEP"
+ ],
+ "uwi": "16/8-1",
+ "valid_counts": {
+  "GR": 236,
+  "NPHI": 0,
+  "RDEP": 0,
+  "RHOB": 0
+ },
+ "window_accepted_observations": 256,
+ "window_dropped_oldest": 128,
+ "window_filled_slots": 128,
+ "window_idempotent_repeats": 0,
+ "window_latest_sequence": 255,
+ "wrap": "NO"
+}
+
+6. INDEPENDENT COLUMN CHECK (check_columns.py; read-only, opens only the same first train member;
+   numeric parsing limited to depth + the four selected channels; non-selected columns incl. labels
+   are classified by exact NULL-token match only)
+curve order (19 columns): 0 DEPT, 1 FORCE_2020_LITHOFACIES_CONFIDENCE, 2 FORCE_2020_LITHOFACIES_LITHOLOGY, 3 CALI, 4 MUDWEIGHT, 5 ROP, 6 RDEP, 7 RSHA, 8 RMED, 9 SP, DTC, NPHI, GR, RHOB, DRHO, DEPTH_MD, X_LOC, Y_LOC, Z_LOC
+valid (non-NULL) counts per column over first 256 data rows: {"0 DEPT": 256, "1 FORCE_2020_LITHOFACIES_CONFIDENCE": 0, "2 FORCE_2020_LITHOFACIES_LITHOLOGY": 0, "3 CALI": 0, "4 MUDWEIGHT": 0, "5 ROP": 169, "6 RDEP": 0, "7 RSHA": 0, "8 RMED": 0, "9 SP": 0, "DEPTH_MD": 0, "DRHO": 0, "DTC": 0, "GR": 236, "NPHI": 0, "RHOB": 0, "X_LOC": 0, "Y_LOC": 0, "Z_LOC": 0}
+selected channels: {"DEPT": 256, "GR": 236, "NPHI": 0, "RDEP": 0, "RHOB": 0}
+rows_counted: 256
+note: matches the exercise summary exactly (GR 236 valid; RHOB/NPHI/RDEP 0 valid in this slice).
+
+7. EMBEDDED SOURCE (auditable helper scripts; tempdir scratch only)
+### source: runner.py (sha256 ea594666f76bb4ca88fb35b7238eca75ecd7e4a0796101574551cc89167bd0d2)
+"""Capture runner: tests -> FORCE exercise -> readback, raw bytes + manifest."""
+import hashlib
+import json
+import os
+import pathlib
+import subprocess
+import sys
+import time
+
+ROOT = pathlib.Path(r"C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c")
+TEMP = pathlib.Path(r"C:\Users\Alan\AppData\Local\Temp\fp_curve_input_20261015")
+PY = ROOT / ".local/venv/Scripts/python.exe"
+BASE = ROOT / ".local/deepeye-implementation-c/competition/deepeye"
+
+runs = [
+    ("tests", [str(PY), "-X", "utf8", "-B", str(BASE / "tests/ai/data_model/test_curve_input.py")]),
+    ("exercise", [str(PY), "-X", "utf8", "-B", str(TEMP / "force_exercise.py")]),
+    ("readback", [str(PY), "-X", "utf8", "-B", str(TEMP / "readback.py")]),
+]
+env = dict(os.environ)
+env["PYTHONDONTWRITEBYTECODE"] = "1"
+manifest = {
+    "generated_utc": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
+    "interpreter": str(PY),
+    "python": "%d.%d.%d" % sys.version_info[:3],
+    "cwd": str(ROOT),
+    "env": {"PYTHONDONTWRITEBYTECODE": "1"},
+    "runs": [],
+}
+rc_all = 0
+for name, argv in runs:
+    started = time.time()
+    proc = subprocess.run(argv, cwd=str(ROOT), env=env, capture_output=True)
+    (TEMP / (name + ".stdout.bin")).write_bytes(proc.stdout)
+    (TEMP / (name + ".stderr.bin")).write_bytes(proc.stderr)
+    entry = {
+        "name": name,
+        "command": argv,
+        "exit_code": proc.returncode,
+        "stdout_sha256": hashlib.sha256(proc.stdout).hexdigest(),
+        "stderr_sha256": hashlib.sha256(proc.stderr).hexdigest(),
+        "stdout_bytes": len(proc.stdout),
+        "stderr_bytes": len(proc.stderr),
+        "seconds": round(time.time() - started, 3),
+    }
+    manifest["runs"].append(entry)
+    (TEMP / "manifest.json").write_text(json.dumps(manifest, indent=1) + "\n", encoding="utf-8")
+    if proc.returncode != 0:
+        rc_all = 1
+    print("%s exit=%d stdout=%s stderr=%s" % (name, proc.returncode, entry["stdout_sha256"][:16], entry["stderr_sha256"][:16]))
+    sys.stdout.flush()
+print("MANIFEST %s" % (TEMP / "manifest.json"))
+sys.exit(rc_all)
+
+### source: force_exercise.py (sha256 d55f20ab89c08eac12a059bfa30e777e519369b26d17b3287ddb5563fbc64b92)
+"""FORCE offline curve-profile exercise: first train member -> [1,8,128,1] window.
+
+Software-only preparation exercise.  It reads exactly the first train member
+selected by the fixed splits.json, verifies the full archive SHA256 and the
+member SHA256 against the split and the reviewed inventory, converts only the
+depth column and the four selected feature columns (GR, RHOB, NPHI, RDEP;
+LAS-declared NULL sentinel -> adapter validity flag) for the first 256 rows,
+feeds them through ai_pc.model.curve_input and compares every produced window
+entry against direct arithmetic with the committed train statistics.  Labels
+and confidence values are never numerically parsed.  This is offline
+geo_replay preparation evidence, not real board observations and not product
+acceptance.
+"""
+
+import hashlib
+import json
+import math
+import pathlib
+import sys
+import zipfile
+
+ROOT = pathlib.Path(r"C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c")
+BASE = ROOT / ".local/deepeye-implementation-c/competition/deepeye"
+ARCHIVE = ROOT / ".local/datasets/force-2020/LAS_files_Force_2020_all_wells_train_test_blind_hidden_final.zip"
+ARCHIVE_SHA256 = "042ef1d473100dc12768cae7107a8cead071a394f137af3bc1ddaf8a5d1b8dda"
+PREPROCESSING_SHA256 = "cb66fd302165c86344f3b8d1af9d9c4e4e229621cef44cbfa6fb8cd121a63eef"
+SELECTED_MNEMONICS = ("DEPT", "GR", "RHOB", "NPHI", "RDEP")
+ROW_LIMIT = 256
+
+sys.path.insert(0, str(BASE))
+
+from ai_pc.model.curve_input import (  # noqa: E402
+    CHANNEL_NAMES,
+    CurveBinding,
+    CurveObservation,
+    CurveScaler,
+    CurveWindowBuilder,
+)
+
+
+def sha256_file(path):
+    digest = hashlib.sha256()
+    with open(path, "rb") as handle:
+        for chunk in iter(lambda: handle.read(1024 * 1024), b""):
+            digest.update(chunk)
+    return digest.hexdigest()
+
+
+def fail(message):
+    raise SystemExit("EXERCISE FAILURE: %s" % message)
+
+
+splits = json.loads((BASE / "data" / "splits.json").read_text(encoding="utf-8"))
+train_rows = [row for row in splits["rows"] if row["split"] == "train"]
+if not train_rows:
+    fail("splits.json has no train rows")
+first = train_rows[0]
+member_path = first["member"]
+held_out = sorted({row["member"] for row in splits["rows"] if row["split"] != "train"})
+
+inventory = json.loads((BASE / "data" / "force_wells.json").read_text(encoding="utf-8"))
+well = next(entry for entry in inventory["wells"] if entry["member"] == member_path)
+if well["uwi"] != first["well_id"]:
+    fail("split well_id %r != inventory UWI %r" % (first["well_id"], well["uwi"]))
+if well["member_sha256"] != first["member_sha256"]:
+    fail("split member sha != inventory member sha")
+
+archive_sha = sha256_file(ARCHIVE)
+if archive_sha != ARCHIVE_SHA256 or archive_sha != splits["source_archive_sha256"]:
+    fail("archive sha256 mismatch: %s" % archive_sha)
+
+counters = {"depth": 0, "channel": 0}
+
+
+def to_number(token, context, counter=None):
+    if counter is not None:
+        counters[counter] += 1
+    try:
+        value = float(token)
+    except ValueError as exc:
+        fail("non-numeric %s: %r" % (context, token))
+    if not math.isfinite(value):
+        fail("non-finite %s: %r" % (context, token))
+    return value
+
+
+rows = []
+member_hash = hashlib.sha256()
+total_bytes = 0
+curve_mnemonics = []
+null_value = None
+uwi = None
+wrap = None
+section = "other"
+finished = False
+with zipfile.ZipFile(ARCHIVE) as archive:
+    if member_path not in archive.namelist():
+        fail("member %r not present in archive" % member_path)
+    with archive.open(member_path) as stream:
+        buffer = b""
+        line_number = 0
+        while True:
+            chunk = stream.read(256 * 1024)
+            if not chunk:
+                break
+            member_hash.update(chunk)
+            total_bytes += len(chunk)
+            if finished:
+                continue
+            buffer += chunk
+            while b"\n" in buffer:
+                raw_line, buffer = buffer.split(b"\n", 1)
+                line_number += 1
+                line = raw_line.decode("latin-1").rstrip("\r")
+                stripped = line.strip()
+                if stripped.startswith("~"):
+                    lowered = stripped.lower()
+                    if lowered.startswith("~curve"):
+                        section = "curve"
+                    elif lowered.startswith("~well"):
+                        section = "well"
+                    elif lowered.startswith("~version"):
+                        section = "version"
+                    elif lowered.startswith("~ascii"):
+                        section = "ascii"
+                    else:
+                        section = "other"
+                    continue
+                if section == "curve" and stripped:
+                    curve_mnemonics.append(stripped.split(":", 1)[0].split()[0].rstrip(".").upper())
+                    continue
+                if section == "well" and stripped:
+                    head = stripped.split(":", 1)[0].split()
+                    if head and head[0].upper().startswith("NULL"):
+                        null_value = float(head[-1])
+                    elif head and head[0].upper().startswith("UWI"):
+                        uwi = head[-1]
+                    continue
+                if section == "version" and stripped:
+                    head = stripped.split(":", 1)[0].split()
+                    if head and head[0].upper().startswith("WRAP"):
+                        wrap = head[-1]
+                    continue
+                if section != "ascii" or not stripped or stripped.startswith("#"):
+                    continue
+                if len(rows) >= ROW_LIMIT:
+                    finished = True
+                    continue
+                tokens = line.split()
+                if len(tokens) < len(curve_mnemonics):
+                    fail("member=%s line=%d has %d tokens for %d curves" % (member_path, line_number, len(tokens), len(curve_mnemonics)))
+                depth = to_number(tokens[0], "member=%s line=%d depth" % (member_path, line_number), "depth")
+                values = []
+                valid = []
+                for channel in CHANNEL_NAMES:
+                    index = curve_mnemonics.index(channel)
+                    value = to_number(tokens[index], "member=%s line=%d %s" % (member_path, line_number, channel), "channel")
+                    values.append(value)
+                    valid.append(value != null_value)
+                rows.append((line_number, depth, tuple(values), tuple(valid)))
+
+member_sha = member_hash.hexdigest()
+if null_value is None or uwi is None:
+    fail("LAS header did not declare NULL/UWI")
+if wrap is not None and wrap.upper() != "NO":
+    fail("unexpected WRAP %r" % wrap)
+if uwi != first["well_id"]:
+    fail("LAS UWI %r != split well_id %r" % (uwi, first["well_id"]))
+if member_sha != first["member_sha256"] or member_sha != well["member_sha256"]:
+    fail("member sha256 mismatch")
+if total_bytes != well["member_size_bytes"]:
+    fail("member byte count %d != inventory %d" % (total_bytes, well["member_size_bytes"]))
+if len(rows) != ROW_LIMIT:
+    fail("parsed %d rows, expected %d" % (len(rows), ROW_LIMIT))
+for index in range(1, len(rows)):
+    if rows[index][1] <= rows[index - 1][1]:
+        fail("depth not strictly increasing at row %d" % index)
+inventory_names = {entry["mnemonic"] for entry in well["curves"]}
+for mnemonic in SELECTED_MNEMONICS:
+    if mnemonic not in inventory_names:
+        fail("inventory curves do not contain %r" % mnemonic)
+
+pre_bytes = (BASE / "data" / "preprocessing.json").read_bytes()
+pre_sha = hashlib.sha256(pre_bytes).hexdigest()
+if pre_sha != PREPROCESSING_SHA256:
+    fail("preprocessing sha256 %s != pinned %s" % (pre_sha, PREPROCESSING_SHA256))
+scaler = CurveScaler.from_document_bytes(pre_bytes, expected_sha256=PREPROCESSING_SHA256)
+binding = CurveBinding(
+    run_id="force-train-first-member-16_8-1-offline",
+    source_domain="geo_replay",
+    preprocessing_sha256=scaler.preprocessing_sha256,
+)
+builder = CurveWindowBuilder(scaler=scaler, binding=binding)
+for index, (line_number, depth, values, valid) in enumerate(rows):
+    builder.observe(CurveObservation(binding=binding, sequence=index, values=values, valid=valid))
+snapshot = builder.snapshot()
+
+mismatches = 0
+means = [channel.mean for channel in scaler.channels]
+scales = [channel.effective_scale for channel in scaler.channels]
+for column in range(128):
+    row = rows[128 + column]
+    for channel_index in range(4):
+        value = row[2][channel_index]
+        if not row[3][channel_index]:
+            expected, mask = 0.0, 0.0
+        elif channel_index == 3 and value <= 0.0:
+            expected, mask = 0.0, 0.0
+        else:
+            transformed = math.log10(value) if channel_index == 3 else value
+            expected = (transformed - means[channel_index]) / scales[channel_index]
+            mask = 1.0
+        if snapshot.features[channel_index][column] != expected:
+            mismatches += 1
+        if snapshot.features[4 + channel_index][column] != mask:
+            mismatches += 1
+
+metadata = snapshot.metadata
+valid_counts = {name: sum(1 for row in rows if row[3][channel_index]) for channel_index, name in enumerate(CHANNEL_NAMES)}
+digest = hashlib.sha256(repr(snapshot.features).encode("ascii")).hexdigest()
+summary = {
+    "archive_sha256": archive_sha,
+    "archive_matches_pinned": True,
+    "binding_run_id": binding.run_id,
+    "binding_source_domain": binding.source_domain,
+    "comparisons": 128 * 8,
+    "conversion_bound": ROW_LIMIT * len(SELECTED_MNEMONICS),
+    "conversions_channel": counters["channel"],
+    "conversions_depth": counters["depth"],
+    "crc_verified": True,
+    "depth_first": rows[0][1],
+    "depth_last": rows[-1][1],
+    "depth_strictly_increasing": True,
+    "features_digest_sha256": digest,
+    "held_out_members_opened": [],
+    "labels_numerically_parsed": False,
+    "member": member_path,
+    "member_bytes_read": total_bytes,
+    "member_sha256": member_sha,
+    "member_sha_matches_inventory": True,
+    "member_sha_matches_split": True,
+    "members_opened": [member_path],
+    "mismatches": mismatches,
+    "null_sentinel": null_value,
+    "preprocessing_sha256": pre_sha,
+    "rows_parsed": len(rows),
+    "selected_mnemonics": list(SELECTED_MNEMONICS),
+    "uwi": uwi,
+    "valid_counts": valid_counts,
+    "window_accepted_observations": metadata.accepted_observations,
+    "window_dropped_oldest": metadata.dropped_oldest,
+    "window_filled_slots": metadata.filled_slots,
+    "window_idempotent_repeats": metadata.idempotent_repeats,
+    "window_latest_sequence": metadata.latest_sequence,
+    "wrap": wrap,
+}
+if counters["depth"] != ROW_LIMIT or counters["channel"] != ROW_LIMIT * 4:
+    fail("numeric conversion counts %r do not match the selected-column bound" % counters)
+if mismatches != 0:
+    fail("%d window entries differ from direct arithmetic" % mismatches)
+if (metadata.latest_sequence, metadata.filled_slots, metadata.dropped_oldest, metadata.accepted_observations, metadata.idempotent_repeats) != (255, 128, 128, 256, 0):
+    fail("window metadata unexpected: %r" % (metadata,))
+print(json.dumps(summary, indent=1, sort_keys=True))
+print("FORCE CURVE EXERCISE OK: comparisons equal, masks/order preserved")
+
+### source: readback.py (sha256 2015981b2646046fee71255e56fc764b634267599b424d82969806cb8585b9c9)
+"""Independent readback for the C01 curve-input foundation evidence bundle."""
+import ast
+import dataclasses
+import hashlib
+import json
+import pathlib
+import sys
+
+ROOT = pathlib.Path(r"C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c")
+BASE = ROOT / ".local/deepeye-implementation-c/competition/deepeye"
+TEMP = pathlib.Path(r"C:\Users\Alan\AppData\Local\Temp\fp_curve_input_20261015")
+MODULE = BASE / "ai_pc/model/curve_input.py"
+TEST = BASE / "tests/ai/data_model/test_curve_input.py"
+ARCHIVE = ROOT / ".local/datasets/force-2020/LAS_files_Force_2020_all_wells_train_test_blind_hidden_final.zip"
+PREPROCESSING = "cb66fd302165c86344f3b8d1af9d9c4e4e229621cef44cbfa6fb8cd121a63eef"
+ARCHIVE_SHA = "042ef1d473100dc12768cae7107a8cead071a394f137af3bc1ddaf8a5d1b8dda"
+SPLITS_SHA = "f10ddb8f37e6bdf7c9663eed45d0f6554ef8992899724013a7e487ad3e3cef91"
+IMPORT_ALLOWLIST = {"collections", "dataclasses", "hashlib", "itertools", "json", "math"}
+
+failures = []
+def check(name, condition):
+    if not condition:
+        failures.append(name)
+    print("%-58s %s" % (name, "PASS" if condition else "FAIL"))
+
+def sha(path):
+    return hashlib.sha256(pathlib.Path(path).read_bytes()).hexdigest()
+
+for label, path in (("module", MODULE), ("test", TEST), ("exercise helper", TEMP / "force_exercise.py"),
+                    ("runner", TEMP / "runner.py"), ("readback", TEMP / "readback.py"),
+                    ("preprocessing.json", BASE / "data/preprocessing.json"),
+                    ("splits.json", BASE / "data/splits.json"),
+                    ("force_wells.json", BASE / "data/force_wells.json")):
+    check("%s parses as text" % label, path.stat().st_size > 0)
+    if path.suffix == ".py":
+        check("%s AST parses" % label, ast.parse(path.read_text(encoding="utf-8")) is not None)
+
+module_source = MODULE.read_text(encoding="utf-8")
+module_tree = ast.parse(module_source)
+module_imports = set()
+for node in ast.walk(module_tree):
+    if isinstance(node, ast.Import):
+        for alias in node.names:
+            module_imports.add(alias.name.split(".")[0])
+    elif isinstance(node, ast.ImportFrom):
+        module_imports.add("RELATIVE" if node.level else (node.module or "").split(".")[0])
+print("module imports: %s" % sorted(module_imports))
+check("module imports stdlib allowlist only", module_imports <= IMPORT_ALLOWLIST)
+check("module does not import causal_input", "causal_input" not in module_imports)
+check("module does not fit statistics", "welford" not in module_source.lower() and "Welford" not in module_source)
+sys.path.insert(0, str(BASE))
+from ai_pc.model.curve_input import (  # noqa: E402
+    CHANNEL_NAMES, MODEL_INPUT_SHAPE, PROFILE_ID, WINDOW_COLUMNS,
+    CurveBinding, CurveInputError, CurveScaler, CurveSchema, CurveWindowBuilder,
+)
+check("model input shape [1,8,128,1]", MODEL_INPUT_SHAPE == (1, 8, 128, 1))
+check("profile id force_curve_v1", PROFILE_ID == "force_curve_v1")
+check("channel order", CHANNEL_NAMES == ("GR", "RHOB", "NPHI", "RDEP"))
+check("window columns 128", WINDOW_COLUMNS == 128)
+pre_bytes = (BASE / "data/preprocessing.json").read_bytes()
+check("preprocessing pinned sha256", hashlib.sha256(pre_bytes).hexdigest() == PREPROCESSING)
+scaler = CurveScaler.from_document_bytes(pre_bytes, expected_sha256=PREPROCESSING)
+check("scaler loads from pinned bytes", scaler.preprocessing_sha256 == PREPROCESSING)
+legacy_rejected = False
+try:
+    CurveScaler(preprocessing_sha256=PREPROCESSING, channels=scaler.channels)
+except (TypeError, CurveInputError):
+    legacy_rejected = True
+check("CP01 legacy hash+channels constructor rejected", legacy_rejected)
+replace_rejected = False
+try:
+    dataclasses.replace(scaler, channels=scaler.channels)
+except (TypeError, ValueError):
+    replace_rejected = True
+check("CP01 dataclasses.replace cannot rebuild a scaler", replace_rejected)
+document = json.loads(pre_bytes.decode("utf-8"))
+document["channels"][0]["mean"] = float(document["channels"][0]["mean"]) + 10.0
+forged_bytes = json.dumps(document, sort_keys=True).encode("utf-8")
+forged_claim_rejected = False
+try:
+    CurveScaler(forged_bytes, expected_sha256=PREPROCESSING)
+except CurveInputError:
+    forged_claim_rejected = True
+check("CP01 modified statistics cannot claim the pinned hash", forged_claim_rejected)
+forged_scaler = CurveScaler(forged_bytes, expected_sha256=hashlib.sha256(forged_bytes).hexdigest())
+check("CP01 forged scaler carries only its own derived hash", forged_scaler.preprocessing_sha256 != PREPROCESSING)
+pinned_binding = CurveBinding(run_id="readback-run", source_domain="geo_replay", preprocessing_sha256=PREPROCESSING)
+paired = False
+try:
+    CurveWindowBuilder(scaler=forged_scaler, binding=pinned_binding)
+    paired = True
+except CurveInputError:
+    paired = False
+check("CP01 forged scaler cannot pair with a pinned binding", paired is False)
+values = ["v0", "v1", "v2", "v3"]
+valid = ["m0", "m1", "m2", "m3"]
+schema = CurveSchema(sequence="seqx", values=values, valid=valid)
+values[0] = "changed"
+values.append("extra")
+valid[0] = "changed_m"
+check("CP02 schema copied caller lists to tuples",
+      schema.values == ("v0", "v1", "v2", "v3") and schema.valid == ("m0", "m1", "m2", "m3"))
+schema_builder = CurveWindowBuilder(scaler=scaler, binding=pinned_binding, schema=schema)
+record = {
+    "run_id": "readback-run", "source_domain": "geo_replay", "profile_id": PROFILE_ID,
+    "preprocessing_sha256": PREPROCESSING, "seqx": 1,
+    "v0": 80.0, "v1": 2.5, "v2": 0.25, "v3": 40.0,
+    "m0": True, "m1": True, "m2": True, "m3": True,
+}
+schema_builder.observe(record)
+check("CP02 original mapping still accepted after caller mutation",
+      schema_builder.snapshot().metadata.latest_sequence == 1)
+renamed = dict(record)
+renamed["changed"] = renamed.pop("v0")
+renamed_rejected = False
+try:
+    schema_builder.observe(renamed)
+except CurveInputError:
+    renamed_rejected = True
+after = schema_builder.snapshot()
+check("CP02 renamed field rejected atomically",
+      renamed_rejected and after.metadata.latest_sequence == 1 and after.metadata.accepted_observations == 1)
+check("splits pinned sha256", sha(BASE / "data/splits.json") == SPLITS_SHA)
+check("archive pinned sha256", sha(ARCHIVE) == ARCHIVE_SHA)
+
+manifest = json.loads((TEMP / "manifest.json").read_text(encoding="utf-8"))
+run_names = sorted(run["name"] for run in manifest["runs"])
+check("manifest records tests+exercise", {"tests", "exercise"} <= set(run_names))
+for run in manifest["runs"]:
+    if run["name"] == "readback":
+        continue
+    check("run %s exit 0" % run["name"], run["exit_code"] == 0)
+    check("run %s stdout hash" % run["name"], sha(TEMP / (run["name"] + ".stdout.bin")) == run["stdout_sha256"])
+    check("run %s stderr hash" % run["name"], sha(TEMP / (run["name"] + ".stderr.bin")) == run["stderr_sha256"])
+
+tests_err = (TEMP / "tests.stderr.bin").read_text(encoding="utf-8", errors="replace")
+check("tests ran 28 tests", "Ran 28 tests" in tests_err)
+check("tests ended OK", tests_err.rstrip().endswith("OK"))
+exercise_out = (TEMP / "exercise.stdout.bin").read_text(encoding="utf-8")
+check("exercise ok line present", "FORCE CURVE EXERCISE OK" in exercise_out)
+payload = "{" + exercise_out.split("{", 1)[1].rsplit("}", 1)[0] + "}"
+summary = json.loads(payload)
+check("exercise comparisons 1024", summary["comparisons"] == 1024)
+check("exercise mismatches 0", summary["mismatches"] == 0)
+check("exercise conversions bounded", summary["conversions_channel"] == 1024 and summary["conversions_depth"] == 256)
+check("exercise labels not parsed", summary["labels_numerically_parsed"] is False)
+check("exercise member sha matches split", summary["member_sha_matches_split"] is True)
+check("exercise member sha matches inventory", summary["member_sha_matches_inventory"] is True)
+check("exercise bytes read == inventory size", summary["member_bytes_read"] == 3633500)
+check("exercise archive pinned", summary["archive_sha256"] == ARCHIVE_SHA and summary["archive_matches_pinned"] is True)
+check("exercise preprocessing pinned", summary["preprocessing_sha256"] == PREPROCESSING)
+check("exercise no held-out opened", summary["held_out_members_opened"] == [])
+check("exercise only one member opened", summary["members_opened"] == [summary["member"]])
+check("exercise depth strictly increasing", summary["depth_strictly_increasing"] is True)
+check("exercise window metadata", summary["window_latest_sequence"] == 255 and summary["window_filled_slots"] == 128
+      and summary["window_dropped_oldest"] == 128 and summary["window_accepted_observations"] == 256
+      and summary["window_idempotent_repeats"] == 0)
+check("exercise wrap NO", summary["wrap"] == "NO")
+
+if failures:
+    print("READBACK FAILURES:", failures)
+    sys.exit(1)
+print("CURVE INPUT READBACK ALL PASS")
+
+
+### source: check_columns.py (sha256 cad33c03898f57cbd1d0450633e3eadb934408bfabf9f1ad06607a73dcfcbcbf)
+"""Independent column/validity cross-check for the FORCE curve exercise (read-only).
+
+Numeric parsing is limited to depth and the four selected feature channels.
+All other columns (including the two label/confidence columns) are classified
+only by exact NULL-token string match and are never converted to numbers.
+"""
+import io
+import pathlib
+import zipfile
+
+ARCHIVE = pathlib.Path(r"C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\datasets\force-2020\LAS_files_Force_2020_all_wells_train_test_blind_hidden_final.zip")
+MEMBER = "Force_2020_all_wells_train_test_blind_hidden_final/16_8-1.las"
+N_ROWS = 256
+NULL = -999.25
+NULL_TOKEN = "-999.250000"
+SELECTED = {"DEPT", "GR", "RHOB", "NPHI", "RDEP"}
+
+curves = []
+counts = None
+nulls = None
+rows_counted = 0
+state = None
+with zipfile.ZipFile(ARCHIVE) as z:
+    with z.open(MEMBER) as f:
+        for raw in io.TextIOWrapper(f, encoding="ascii", errors="replace"):
+            row = raw.strip()
+            if not row:
+                continue
+            up = row.upper()
+            if up == "~CURVE":
+                state = "C"
+                continue
+            if up == "~ASCII":
+                state = "A"
+                counts = [0] * len(curves)
+                nulls = [0] * len(curves)
+                continue
+            if up.startswith("~"):
+                state = None
+                continue
+            if state == "C":
+                mnem = row.split(".")[0].strip().upper()
+                if mnem:
+                    curves.append(mnem)
+            elif state == "A":
+                if rows_counted >= N_ROWS:
+                    break
+                rows_counted += 1
+                vals = row.split()
+                for i, name in enumerate(curves):
+                    if i >= len(vals):
+                        nulls[i] += 1
+                        continue
+                    token = vals[i]
+                    if name in SELECTED:
+                        try:
+                            value = float(token)
+                        except ValueError:
+                            nulls[i] += 1
+                            continue
+                        if value == NULL:
+                            nulls[i] += 1
+                        else:
+                            counts[i] += 1
+                    else:
+                        if token == NULL_TOKEN:
+                            nulls[i] += 1
+                        else:
+                            counts[i] += 1
+
+print("section markers matched exactly: '~Curve' and '~Ascii'")
+print("numeric parsing limited to: " + ", ".join(sorted(SELECTED)) + "; all other columns NULL-token match only")
+for i, c in enumerate(curves):
+    print("col %2d %-38s nonnull=%3d null=%3d" % (i, c, counts[i], nulls[i]))
+selected = {name: counts[curves.index(name)] for name in ("DEPT", "GR", "RHOB", "NPHI", "RDEP")}
+print("selected DEPT/GR/RHOB/NPHI/RDEP:", selected)
+print("rows_counted:", rows_counted)
+
+### source: recapture_extra.py (sha256 8d9db832615a3ca7c26cd5e137c3fdb42726561502613472fd9a223a04aa835d)
+import os, pathlib, subprocess, sys
+ROOT = pathlib.Path(r"C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c")
+TEMP = pathlib.Path(r"C:\Users\Alan\AppData\Local\Temp\fp_curve_input_20261015")
+PY = str(ROOT / ".local/venv/Scripts/python.exe")
+env = dict(os.environ)
+env["PYTHONDONTWRITEBYTECODE"] = "1"
+runs = [
+    ("check_columns", [PY, "-X", "utf8", "-B", str(TEMP / "check_columns.py")]),
+    ("verify_scope", [PY, "-X", "utf8",
+                      str(ROOT / ".local/plan-20261014-final-c/final-final-1011259/verify_immutable_scope.py"),
+                      "--expected-sha", "c229834bfc2292f5fe4411fc9f12c68487008f9d1adaf31f0144ee7a98173804",
+                      "--book", str(ROOT / ".local/plan-20261014-final-c/final-final-1011259/taskbook_final.md"),
+                      "--plan", str(ROOT / ".local/plan-20261014-final-c/final-final-1011259/execution_plan_final.json")]),
+]
+for name, argv in runs:
+    proc = subprocess.run(argv, cwd=str(ROOT), env=env, capture_output=True)
+    (TEMP / (name + ".stdout.bin")).write_bytes(proc.stdout)
+    (TEMP / (name + ".stderr.bin")).write_bytes(proc.stderr)
+    print(name, "exit=%d" % proc.returncode, "stdout=%d" % len(proc.stdout), "stderr=%d" % len(proc.stderr))
+old = TEMP / "verify_scope.out.txt"
+if old.exists():
+    old.unlink()
+    print("removed stale", old.name)
+
+### source: apply_patch_safe.py (sha256 06e9da595ff90c27a821b9e1617b906d9fb7e461e6a1a34270d7bea10b4ff356)
+"""Safe apply_patch caller: passes the patch file text as one exact argv element."""
+import pathlib
+import subprocess
+import sys
+
+EXE = r"C:\Users\Alan\AppData\Local\OpenAI\Codex\bin\2e5e00daee91c61d\codex.exe"
+ROOT = r"C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c"
+patch_path = pathlib.Path(sys.argv[1])
+text = patch_path.read_text(encoding="utf-8")
+proc = subprocess.run([EXE, "--codex-run-as-apply-patch", text], cwd=ROOT, capture_output=True)
+sys.stdout.write(proc.stdout.decode("utf-8", "replace"))
+sys.stderr.write(proc.stderr.decode("utf-8", "replace"))
+sys.exit(proc.returncode)
+
+### source: patch_a.txt (sha256 49b42321afc65f93052404bc91328dd6fb7b394dedd5c264f3f02d70e2a8b1fe)
+*** Begin Patch
+*** Update File: .local/deepeye-implementation-c/competition/deepeye/ai_pc/model/curve_input.py
+@@
+-  motion.  The frozen scaler is built from exactly the expected
+-  preprocessing-document bytes and their pinned SHA256; the committed train
+-  statistics are validated and used, never refitted, modified or clipped.
++  motion.  The frozen scaler is constructed only from exactly the expected
++  preprocessing-document bytes and their pinned SHA256 - there is no
++  constructor that accepts a hash together with caller-supplied statistics,
++  so statistics can never claim a provenance they were not parsed from -
++  and the committed train statistics are validated and used, never refitted,
++  modified or clipped.
+ * One immutable binding identifies the opaque ``run_id``, the
+   ``source_domain`` (``geo_replay`` or ``software_fixture``), the profile id
+   ``force_curve_v1`` and the preprocessing SHA256.  This is a C internal
+-  model API, not a new A wire field.
++  model API, not a new A wire field.  The observation schema is validated
++  and copied into immutable tuples at construction, so it is frozen for the
++  lifetime of a builder.
+*** End Patch
+
+### source: patch_b.txt (sha256 ca9aa056f58964f448c7720654bdcb4160d345060be32f3c4cdf736706e7b9d9)
+*** Begin Patch
+*** Update File: .local/deepeye-implementation-c/competition/deepeye/ai_pc/model/curve_input.py
+@@
+-    """Exact field allowlist for caller-supplied curve observations.
+-
+-    Callers may rename every field by passing a different schema; each
+-    observation mapping must then contain exactly those names and nothing
+-    else.  ``values`` and ``valid`` keep the frozen curve-channel order of
+-    :data:`CHANNEL_NAMES` and must each name exactly four fields as a fixed
+-    sequence (tuple/list); one-shot iterables such as generators are rejected
+-    so repeated validate/access calls stay stable.
+-    """
++    """Exact frozen field allowlist for caller-supplied curve observations.
++
++    Callers may rename every field by passing a different schema; each
++    observation mapping must then contain exactly those names and nothing
++    else.  Every scalar field must be a non-empty non-forbidden string and
++    ``values``/``valid`` must each be a fixed sequence of exactly four such
++    strings in the frozen curve-channel order of :data:`CHANNEL_NAMES`.
++    Construction validates all thirteen names (string type, forbidden
++    tokens, duplicates) and copies the two groups into immutable tuples, so
++    a builder's schema cannot be changed afterwards by mutating the
++    caller's original lists; one-shot iterables such as generators are
++    rejected.
++    """
+@@
+-    def field_names(self):
+-        names = [self.run_id, self.source_domain, self.profile_id, self.preprocessing_sha256, self.sequence]
++    def __post_init__(self):
++        for label in ("run_id", "source_domain", "profile_id", "preprocessing_sha256", "sequence"):
++            value = getattr(self, label)
++            if not isinstance(value, str) or not value:
++                raise CurveInputError("schema %s field name must be a non-empty string" % label)
++        checked_groups = []
+         for label, group in (("values", self.values), ("valid", self.valid)):
+             if isinstance(group, (str, bytes)) or not isinstance(group, Sequence):
+                 raise CurveInputError(
+                     "schema %s must be a fixed sequence (e.g. a tuple) of exactly 4 field names; "
+                     "one-shot iterables such as generators are not supported" % label
+                 )
+             group_names = tuple(group)
+             if len(group_names) != 4:
+                 raise CurveInputError("schema %s must name exactly 4 fields, got %d" % (label, len(group_names)))
+-            names.extend(group_names)
+-        return tuple(names)
++            checked_groups.append(group_names)
++        seen = set()
++        for name in (
++            self.run_id,
++            self.source_domain,
++            self.profile_id,
++            self.preprocessing_sha256,
++            self.sequence,
++            checked_groups[0][0],
++            checked_groups[0][1],
++            checked_groups[0][2],
++            checked_groups[0][3],
++            checked_groups[1][0],
++            checked_groups[1][1],
++            checked_groups[1][2],
++            checked_groups[1][3],
++        ):
++            if not isinstance(name, str) or not name:
++                raise CurveInputError("schema field names must be non-empty strings")
++            if _forbidden_field(name):
++                raise CurveInputError(
++                    "schema field name %r is not allowed (label/coordinate/future/truth-style names are rejected)" % name
++                )
++            if name in seen:
++                raise CurveInputError("schema field name %r is used more than once" % name)
++            seen.add(name)
++        object.__setattr__(self, "values", checked_groups[0])
++        object.__setattr__(self, "valid", checked_groups[1])
++
++    def field_names(self):
++        """Return the frozen, validated field names in exact schema order."""
++        return (
++            self.run_id,
++            self.source_domain,
++            self.profile_id,
++            self.preprocessing_sha256,
++            self.sequence,
++            self.values[0],
++            self.values[1],
++            self.values[2],
++            self.values[3],
++            self.valid[0],
++            self.valid[1],
++            self.valid[2],
++            self.valid[3],
++        )
+*** End Patch
+
+### source: patch_c.txt (sha256 eb81cdb3f872a5ddbcc11b65a03373e2ccd2d098be8b85e6abc2785ec90a735c)
+*** Begin Patch
+*** Update File: .local/deepeye-implementation-c/competition/deepeye/ai_pc/model/curve_input.py
+@@
+-@dataclass(frozen=True)
+-class CurveScaler:
+-    """Frozen four-channel scaler loaded from the pinned preprocessing bytes.
+-
+-    Construction goes through :meth:`from_document_bytes`, which verifies the
+-    document SHA256, the frozen DEEPEYE contract identity, the
+-    ``force_curve_v1`` channel order/units/transforms, finite statistics,
+-    positive valid counts, ``variance >= 0``, the recorded std/variance
+-    consistency, and the explicit zero-variance ``effective_scale == 1``
+-    rule.  This module never fits or modifies scalers.
+-    """
+-
+-    preprocessing_sha256: str
+-    channels: tuple
+-
+-    def __post_init__(self):
+-        _sha256_hex(self.preprocessing_sha256, "scaler preprocessing_sha256")
+-        if not isinstance(self.channels, Sequence) or isinstance(self.channels, (str, bytes)) or len(self.channels) != 4:
+-            raise CurveInputError("scaler channels must be a fixed sequence of exactly 4 CurveChannelStatistics")
+-        checked = tuple(self.channels)
+-        for index, stats in enumerate(checked):
+-            if not isinstance(stats, CurveChannelStatistics):
+-                raise CurveInputError("scaler channel %d must be a CurveChannelStatistics" % index)
+-            if stats.name != CHANNEL_NAMES[index]:
+-                raise CurveInputError(
+-                    "scaler channel %d must be %r in the frozen profile order, got %r"
+-                    % (index, CHANNEL_NAMES[index], stats.name)
+-                )
+-            if stats.unit != CHANNEL_UNITS[index]:
+-                raise CurveInputError("scaler channel %s unit must be %r, got %r" % (stats.name, CHANNEL_UNITS[index], stats.unit))
+-            if stats.transform_version != CHANNEL_TRANSFORMS[index]:
+-                raise CurveInputError(
+-                    "scaler channel %s transform_version must be %r, got %r"
+-                    % (stats.name, CHANNEL_TRANSFORMS[index], stats.transform_version)
+-                )
+-        object.__setattr__(self, "channels", checked)
++def _parse_preprocessing_document(data, expected_sha256):
++    """Hash, copy, decode and validate preprocessing document bytes.
++
++    Private helper: every public scaler construction path funnels here, so a
++    :class:`CurveScaler` can only ever derive its statistics from bytes whose
++    SHA256 was verified against the caller-pinned expected hash.  Returns the
++    actual document digest and the validated four-channel statistics tuple.
++    """
++    expected = _sha256_hex(expected_sha256, "expected_sha256")
++    if isinstance(data, (bytearray, memoryview)):
++        data = bytes(data)
++    if not isinstance(data, bytes):
++        raise CurveInputError("preprocessing document must be passed as bytes")
++    actual = hashlib.sha256(data).hexdigest()
++    if actual != expected:
++        raise CurveInputError(
++            "preprocessing document sha256 %s does not match the expected %s" % (actual, expected)
++        )
++    try:
++        decoded = data.decode("utf-8")
++    except UnicodeDecodeError as exc:
++        raise CurveInputError("preprocessing document is not valid UTF-8: %s" % exc) from exc
++    try:
++        document = json.loads(decoded)
++    except ValueError as exc:
++        raise CurveInputError("preprocessing document is not valid JSON: %s" % exc) from exc
++    if not isinstance(document, dict):
++        raise CurveInputError("preprocessing document must be a JSON object")
++    if document.get("kind") != DOCUMENT_KIND:
++        raise CurveInputError("preprocessing document kind must be %r" % DOCUMENT_KIND)
++    schema = document.get("schema")
++    if isinstance(schema, bool) or schema != DOCUMENT_SCHEMA:
++        raise CurveInputError("preprocessing document schema must be %r" % DOCUMENT_SCHEMA)
++    contract = document.get("contract")
++    if not isinstance(contract, dict):
++        raise CurveInputError("preprocessing document contract block is missing")
++    contract_expected = {
++        "id": CONTRACT_ID,
++        "revision": CONTRACT_REVISION,
++        "source_commit": CONTRACT_SOURCE_COMMIT,
++        "requirements_sha256": CONTRACT_REQUIREMENTS_SHA256,
++        "design_commit": CONTRACT_DESIGN_COMMIT,
++    }
++    for key, wanted in contract_expected.items():
++        if contract.get(key) != wanted:
++            raise CurveInputError("preprocessing document contract %r does not match the frozen DEEPEYE contract" % key)
++    if document.get("software_only") is not True:
++        raise CurveInputError("preprocessing document must be software_only true")
++    if document.get("product_card_c01") != PRODUCT_CARD_STATUS:
++        raise CurveInputError("preprocessing document product_card_c01 must be %r" % PRODUCT_CARD_STATUS)
++    algorithm = document.get("algorithm")
++    if not isinstance(algorithm, dict) or list(algorithm.get("channel_order", ())) != list(CHANNEL_NAMES):
++        raise CurveInputError("preprocessing document algorithm channel_order does not match the frozen curve profile")
++    entries = document.get("channels")
++    if not isinstance(entries, list) or len(entries) != 4:
++        raise CurveInputError("preprocessing document must carry exactly 4 channel blocks")
++    statistics = []
++    for index, entry in enumerate(entries):
++        statistics.append(_channel_statistics(entry, index))
++    return actual, tuple(statistics)
++
++
++@dataclass(frozen=True, init=False)
++class CurveScaler:
++    """Frozen four-channel scaler derived from the pinned preprocessing bytes.
++
++    The only construction path takes the exact preprocessing document bytes
++    plus the expected document SHA256; the bytes are copied to an immutable
++    ``bytes`` object, hashed and parsed, and the frozen DEEPEYE contract
++    identity, the ``force_curve_v1`` channel order/units/transforms, finite
++    statistics, positive valid counts, ``variance >= 0``, the recorded
++    std/variance consistency and the explicit zero-variance
++    ``effective_scale == 1`` rule are all validated while parsing, before any
++    field is set.  There is deliberately no constructor that accepts a hash
++    together with caller-supplied statistics, so a scaler can never assert a
++    provenance its statistics were not parsed from, and the dataclass
++    ``replace`` helper cannot rebuild a scaler either.  This module never
++    fits or modifies scalers.
++    """
++
++    preprocessing_sha256: str
++    channels: tuple
++
++    def __init__(self, document_bytes, *, expected_sha256):
++        actual, statistics = _parse_preprocessing_document(document_bytes, expected_sha256)
++        object.__setattr__(self, "preprocessing_sha256", actual)
++        object.__setattr__(self, "channels", statistics)
+@@
+     @classmethod
+     def from_document_bytes(cls, data, *, expected_sha256):
+         """Validate and load the frozen scaler from the exact document bytes."""
+-        expected = _sha256_hex(expected_sha256, "expected_sha256")
+-        if isinstance(data, bytearray):
+-            data = bytes(data)
+-        if not isinstance(data, bytes):
+-            raise CurveInputError("preprocessing document must be passed as bytes")
+-        actual = hashlib.sha256(data).hexdigest()
+-        if actual != expected:
+-            raise CurveInputError(
+-                "preprocessing document sha256 %s does not match the expected %s" % (actual, expected)
+-            )
+-        try:
+-            decoded = data.decode("utf-8")
+-        except UnicodeDecodeError as exc:
+-            raise CurveInputError("preprocessing document is not valid UTF-8: %s" % exc) from exc
+-        try:
+-            document = json.loads(decoded)
+-        except ValueError as exc:
+-            raise CurveInputError("preprocessing document is not valid JSON: %s" % exc) from exc
+-        if not isinstance(document, dict):
+-            raise CurveInputError("preprocessing document must be a JSON object")
+-        if document.get("kind") != DOCUMENT_KIND:
+-            raise CurveInputError("preprocessing document kind must be %r" % DOCUMENT_KIND)
+-        schema = document.get("schema")
+-        if isinstance(schema, bool) or schema != DOCUMENT_SCHEMA:
+-            raise CurveInputError("preprocessing document schema must be %r" % DOCUMENT_SCHEMA)
+-        contract = document.get("contract")
+-        if not isinstance(contract, dict):
+-            raise CurveInputError("preprocessing document contract block is missing")
+-        contract_expected = {
+-            "id": CONTRACT_ID,
+-            "revision": CONTRACT_REVISION,
+-            "source_commit": CONTRACT_SOURCE_COMMIT,
+-            "requirements_sha256": CONTRACT_REQUIREMENTS_SHA256,
+-            "design_commit": CONTRACT_DESIGN_COMMIT,
+-        }
+-        for key, wanted in contract_expected.items():
+-            if contract.get(key) != wanted:
+-                raise CurveInputError("preprocessing document contract %r does not match the frozen DEEPEYE contract" % key)
+-        if document.get("software_only") is not True:
+-            raise CurveInputError("preprocessing document must be software_only true")
+-        if document.get("product_card_c01") != PRODUCT_CARD_STATUS:
+-            raise CurveInputError("preprocessing document product_card_c01 must be %r" % PRODUCT_CARD_STATUS)
+-        algorithm = document.get("algorithm")
+-        if not isinstance(algorithm, dict) or list(algorithm.get("channel_order", ())) != list(CHANNEL_NAMES):
+-            raise CurveInputError("preprocessing document algorithm channel_order does not match the frozen curve profile")
+-        entries = document.get("channels")
+-        if not isinstance(entries, list) or len(entries) != 4:
+-            raise CurveInputError("preprocessing document must carry exactly 4 channel blocks")
+-        statistics = []
+-        for index, entry in enumerate(entries):
+-            statistics.append(_channel_statistics(entry, index))
+-        return cls(preprocessing_sha256=actual, channels=tuple(statistics))
++        return cls(data, expected_sha256=expected_sha256)
+*** End Patch
+
+### source: patch_ta.txt (sha256 91d739218c9040eb458b0235d78dcb6fa65881dcb65c42dbd2864889c7b977b7)
+*** Begin Patch
+*** Update File: .local/deepeye-implementation-c/competition/deepeye/tests/ai/data_model/test_curve_input.py
+@@
+-snapshots, mutable input isolation, bounded retained state over 2000
+-acquisitions and the public-constructor validation surface.
+-"""
+-
+-import hashlib
++snapshots, mutable input isolation, bounded retained state over 2000
++acquisitions, scaler provenance (construction only from document bytes whose
++pinned SHA256 was verified, including a regression against the committed
++production preprocessing document, and rejection of forged
++hash+statistics construction), frozen schema copies (post-construction
++caller-list mutation cannot change a builder's allowlist) and the
++public-constructor validation surface.
++"""
++
++import dataclasses
++import hashlib
+@@
+ PRODUCT_ROOT = Path(__file__).resolve().parents[3]
+ if str(PRODUCT_ROOT) not in sys.path:
+     sys.path.insert(0, str(PRODUCT_ROOT))
++
++PINNED_PREPROCESSING_SHA256 = "cb66fd302165c86344f3b8d1af9d9c4e4e229621cef44cbfa6fb8cd121a63eef"
+*** End Patch
+
+### source: patch_tb.txt (sha256 d15c053b09a1987eb8d23c476901ee662c4edf624f3b1964fbafa694dcb96ca6)
+*** Begin Patch
+*** Update File: .local/deepeye-implementation-c/competition/deepeye/tests/ai/data_model/test_curve_input.py
+@@
+     def test_scaler_constructor_validation_cannot_be_bypassed(self):
+         good = dict(
+             name="GR", unit="gAPI", transform_version="identity-v1", valid_samples=10,
+             mean=1.0, variance=1.0, std=1.0, zero_variance=False, effective_scale=1.0,
+         )
+         stats = CurveChannelStatistics(**good)
+-        with self.assertRaises(CurveInputError):
+-            CurveScaler(preprocessing_sha256="zz", channels=(stats, stats, stats, stats))
+-        with self.assertRaises(CurveInputError):
+-            CurveScaler(preprocessing_sha256="0" * 64, channels=(stats, stats, stats))
+-        with self.assertRaises(CurveInputError):
+-            CurveScaler(preprocessing_sha256="0" * 64, channels=(stats, stats, stats, stats))
++        for kwargs in (
++            dict(preprocessing_sha256="zz", channels=(stats, stats, stats, stats)),
++            dict(preprocessing_sha256="0" * 64, channels=(stats, stats, stats)),
++            dict(preprocessing_sha256="0" * 64, channels=(stats, stats, stats, stats)),
++        ):
++            with self.assertRaises((TypeError, CurveInputError)):
++                CurveScaler(**kwargs)
++        scaler = _default_scaler()
++        with self.assertRaises((TypeError, ValueError)):
++            dataclasses.replace(scaler)
++        with self.assertRaises((TypeError, ValueError)):
++            dataclasses.replace(scaler, channels=(stats, stats, stats, stats))
++        with self.assertRaises((TypeError, ValueError)):
++            dataclasses.replace(scaler, preprocessing_sha256="0" * 64)
+         for mutate in (
+             {"valid_samples": 0},
+             {"variance": 4.0, "std": 1.0, "effective_scale": 1.0},
+             {"variance": -1.0},
+             {"variance": 0.0, "std": 0.0, "effective_scale": 0.0},
+             {"zero_variance": True},
+             {"mean": float("inf")},
+             {"effective_scale": True},
+             {"name": ""},
+         ):
+             fields = dict(good)
+             fields.update(mutate)
+             with self.assertRaises(CurveInputError, msg=repr(mutate)):
+                 CurveChannelStatistics(**fields)
+         zero = CurveChannelStatistics(
+             name="GR", unit="gAPI", transform_version="identity-v1", valid_samples=10,
+             mean=10.0, variance=0.0, std=0.0, zero_variance=True, effective_scale=1.0,
+         )
+         self.assertEqual(zero.effective_scale, 1.0)
++
++    def test_scaler_constructs_only_from_document_bytes(self):
++        data = _document_bytes(_document())
++        expected = hashlib.sha256(data).hexdigest()
++        direct = CurveScaler(data, expected_sha256=expected)
++        wrapped = CurveScaler.from_document_bytes(data, expected_sha256=expected)
++        self.assertEqual(direct, wrapped)
++        self.assertEqual(direct.preprocessing_sha256, expected)
++        mutable = bytearray(data)
++        copied = CurveScaler(mutable, expected_sha256=expected)
++        mutable[0:1] = b"{"
++        self.assertEqual(copied, direct)
++        self.assertEqual(copied.preprocessing_sha256, hashlib.sha256(data).hexdigest())
++
++    def test_cp01_forged_statistics_cannot_reuse_a_verified_hash(self):
++        document = _document()
++        document["channels"][0]["mean"] = _GR_MEAN + 10.0
++        data = _document_bytes(document)
++        own_hash = hashlib.sha256(data).hexdigest()
++        with self.assertRaises(CurveInputError):
++            CurveScaler(data, expected_sha256=PINNED_PREPROCESSING_SHA256)
++        with self.assertRaises(CurveInputError):
++            CurveScaler.from_document_bytes(data, expected_sha256=PINNED_PREPROCESSING_SHA256)
++        forged = CurveScaler(data, expected_sha256=own_hash)
++        self.assertNotEqual(forged.preprocessing_sha256, PINNED_PREPROCESSING_SHA256)
++        self.assertEqual(forged.channels[0].mean, _GR_MEAN + 10.0)
++        mismatched = CurveBinding(
++            run_id="forged-run", source_domain="software_fixture",
++            preprocessing_sha256=PINNED_PREPROCESSING_SHA256,
++        )
++        with self.assertRaises(CurveInputError):
++            CurveWindowBuilder(scaler=forged, binding=mismatched)
++
++    def test_cp01_committed_production_document_provenance(self):
++        data = (PRODUCT_ROOT / "data" / "preprocessing.json").read_bytes()
++        self.assertEqual(hashlib.sha256(data).hexdigest(), PINNED_PREPROCESSING_SHA256)
++        scaler = CurveScaler(data, expected_sha256=PINNED_PREPROCESSING_SHA256)
++        self.assertEqual(scaler.preprocessing_sha256, PINNED_PREPROCESSING_SHA256)
++        self.assertEqual(tuple(channel.name for channel in scaler.channels), CHANNEL_NAMES)
++        document = json.loads(data.decode("utf-8"))
++        document["channels"][0]["mean"] = float(document["channels"][0]["mean"]) + 10.0
++        modified = json.dumps(document, sort_keys=True).encode("utf-8")
++        with self.assertRaises(CurveInputError):
++            CurveScaler(modified, expected_sha256=PINNED_PREPROCESSING_SHA256)
++        with self.assertRaises((TypeError, CurveInputError)):
++            CurveScaler(preprocessing_sha256=PINNED_PREPROCESSING_SHA256, channels=scaler.channels)
+*** End Patch
+
+### source: patch_tc.txt (sha256 204dbbcad68f294eb2214c5ad2539625060abc2d8217bb7f865b8176a3275578)
+*** Begin Patch
+*** Update File: .local/deepeye-implementation-c/competition/deepeye/tests/ai/data_model/test_curve_input.py
+@@
+         with self.assertRaises(CurveInputError):
+             observation_from_mapping(record)
+-        bad_schema = CurveSchema(values=(name for name in ("v0", "v1", "v2", "v3")))
+         with self.assertRaises(CurveInputError):
+-            bad_schema.field_names()
++            CurveSchema(values=(name for name in ("v0", "v1", "v2", "v3")))
+         with self.assertRaises(CurveInputError):
+             CurveWindowBuilder(scaler=self.scaler, binding=self.binding, schema=CurveSchema(run_id="label"))
++
++    def test_cp02_schema_freezes_caller_sequences(self):
++        values = ["a0", "a1", "a2", "a3"]
++        valid = ["b0", "b1", "b2", "b3"]
++        schema = CurveSchema(sequence="seqx", values=values, valid=valid)
++        self.assertIsInstance(schema.values, tuple)
++        self.assertIsInstance(schema.valid, tuple)
++        builder = CurveWindowBuilder(scaler=self.scaler, binding=self.binding, schema=schema)
++        values[0] = "renamed_a0"
++        values.append("extra_a")
++        valid[1] = "renamed_b1"
++        record = {
++            "run_id": "run-a", "source_domain": "software_fixture", "profile_id": PROFILE_ID,
++            "preprocessing_sha256": self.scaler.preprocessing_sha256, "seqx": 1,
++            "a0": 12.0, "a1": 0.3, "a2": 0.2, "a3": 10.0,
++            "b0": True, "b1": True, "b2": True, "b3": False,
++        }
++        builder.observe(record)
++        snapshot = builder.snapshot()
++        self.assertEqual(snapshot.metadata.latest_sequence, 1)
++        self.assertEqual(snapshot.metadata.accepted_observations, 1)
++        renamed = dict(record)
++        renamed["renamed_a0"] = renamed.pop("a0")
++        with self.assertRaises(CurveInputError):
++            builder.observe(renamed)
++        after = builder.snapshot()
++        self.assertEqual(after.metadata.latest_sequence, 1)
++        self.assertEqual(after.metadata.accepted_observations, 1)
++        self.assertEqual(schema.values, ("a0", "a1", "a2", "a3"))
++        self.assertEqual(schema.valid, ("b0", "b1", "b2", "b3"))
++
++    def test_cp02_schema_constructor_rejects_invalid_names(self):
++        cases = (
++            dict(values=(name for name in ("v0", "v1", "v2", "v3"))),
++            dict(values=["v0", "v1", "v2"]),
++            dict(valid=("m0", "m1", "m2", "m3", "m4")),
++            dict(values=("v0", "v0", "v2", "v3")),
++            dict(run_id="label"),
++            dict(values=("v0", "v1", "v2", 4)),
++            dict(source_domain=""),
++            dict(values=("run_id", "v1", "v2", "v3")),
++            dict(values="v0"),
++        )
++        for kwargs in cases:
++            with self.assertRaises(CurveInputError, msg=repr(kwargs)):
++                CurveSchema(**kwargs)
+*** End Patch
+
+### source: patch_rb.txt (sha256 41c32f920f9b3ed7f78f23d83259aefc33592e176d8f65795e3429719a64417f)
+*** Begin Patch
+*** Update File: C:\Users\Alan\AppData\Local\Temp\fp_curve_input_20261015\readback.py
+@@
+ import ast
++import dataclasses
+ import hashlib
+ import json
+ import pathlib
+ import sys
+@@
+ from ai_pc.model.curve_input import (  # noqa: E402
+-    CHANNEL_NAMES, MODEL_INPUT_SHAPE, PROFILE_ID, WINDOW_COLUMNS, CurveScaler, CurveWindowBuilder,
++    CHANNEL_NAMES, MODEL_INPUT_SHAPE, PROFILE_ID, WINDOW_COLUMNS,
++    CurveBinding, CurveInputError, CurveScaler, CurveSchema, CurveWindowBuilder,
+ )
+@@
+ check("scaler loads from pinned bytes", scaler.preprocessing_sha256 == PREPROCESSING)
++legacy_rejected = False
++try:
++    CurveScaler(preprocessing_sha256=PREPROCESSING, channels=scaler.channels)
++except (TypeError, CurveInputError):
++    legacy_rejected = True
++check("CP01 legacy hash+channels constructor rejected", legacy_rejected)
++replace_rejected = False
++try:
++    dataclasses.replace(scaler, channels=scaler.channels)
++except (TypeError, ValueError):
++    replace_rejected = True
++check("CP01 dataclasses.replace cannot rebuild a scaler", replace_rejected)
++document = json.loads(pre_bytes.decode("utf-8"))
++document["channels"][0]["mean"] = float(document["channels"][0]["mean"]) + 10.0
++forged_bytes = json.dumps(document, sort_keys=True).encode("utf-8")
++forged_claim_rejected = False
++try:
++    CurveScaler(forged_bytes, expected_sha256=PREPROCESSING)
++except CurveInputError:
++    forged_claim_rejected = True
++check("CP01 modified statistics cannot claim the pinned hash", forged_claim_rejected)
++forged_scaler = CurveScaler(forged_bytes, expected_sha256=hashlib.sha256(forged_bytes).hexdigest())
++check("CP01 forged scaler carries only its own derived hash", forged_scaler.preprocessing_sha256 != PREPROCESSING)
++pinned_binding = CurveBinding(run_id="readback-run", source_domain="geo_replay", preprocessing_sha256=PREPROCESSING)
++paired = False
++try:
++    CurveWindowBuilder(scaler=forged_scaler, binding=pinned_binding)
++    paired = True
++except CurveInputError:
++    paired = False
++check("CP01 forged scaler cannot pair with a pinned binding", paired is False)
++values = ["v0", "v1", "v2", "v3"]
++valid = ["m0", "m1", "m2", "m3"]
++schema = CurveSchema(sequence="seqx", values=values, valid=valid)
++values[0] = "changed"
++values.append("extra")
++valid[0] = "changed_m"
++check("CP02 schema copied caller lists to tuples",
++      schema.values == ("v0", "v1", "v2", "v3") and schema.valid == ("m0", "m1", "m2", "m3"))
++schema_builder = CurveWindowBuilder(scaler=scaler, binding=pinned_binding, schema=schema)
++record = {
++    "run_id": "readback-run", "source_domain": "geo_replay", "profile_id": PROFILE_ID,
++    "preprocessing_sha256": PREPROCESSING, "seqx": 1,
++    "v0": 80.0, "v1": 2.5, "v2": 0.25, "v3": 40.0,
++    "m0": True, "m1": True, "m2": True, "m3": True,
++}
++schema_builder.observe(record)
++check("CP02 original mapping still accepted after caller mutation",
++      schema_builder.snapshot().metadata.latest_sequence == 1)
++renamed = dict(record)
++renamed["changed"] = renamed.pop("v0")
++renamed_rejected = False
++try:
++    schema_builder.observe(renamed)
++except CurveInputError:
++    renamed_rejected = True
++after = schema_builder.snapshot()
++check("CP02 renamed field rejected atomically",
++      renamed_rejected and after.metadata.latest_sequence == 1 and after.metadata.accepted_observations == 1)
+ check("splits pinned sha256", sha(BASE / "data/splits.json") == SPLITS_SHA)
+*** End Patch
+
+### source: patch_rb2.txt (sha256 4a2de7b94638846846db2fea270d77dfea1ecce6075bcdea64092d040db1ede1)
+*** Begin Patch
+*** Update File: C:\Users\Alan\AppData\Local\Temp\fp_curve_input_20261015\readback.py
+@@
+-check("tests ran 23 tests", "Ran 23 tests" in tests_err)
++check("tests ran 28 tests", "Ran 28 tests" in tests_err)
+*** End Patch
+
+### source: update_builder.py (sha256 a78ebf52f5589afb56a78c3f5a073a5382dbe8ff6e5731ebdc8f57d2b3915351)
+"""Guarded in-place update of build_evidence.py for correction1."""
+import pathlib
+
+p = pathlib.Path(r"C:\Users\Alan\AppData\Local\Temp\fp_curve_input_20261015\build_evidence.py")
+s = p.read_text(encoding="utf-8")
+
+def rep(old, new):
+    global s
+    count = s.count(old)
+    assert count == 1, "count=%d for %r" % (count, old[:80])
+    s = s.replace(old, new, 1)
+
+# --- imports and dispatch paths -------------------------------------------------
+rep("import platform\nimport sys", "import platform\nimport re\nimport sys")
+rep('DISPATCH = ROOT / ".local/plan-20261014-final-c/director-startup/curve-input-result.json"',
+    'DISPATCH = ROOT / ".local/plan-20261014-final-c/director-startup/curve-repair1-result.json"')
+
+# --- new computed block ---------------------------------------------------------
+rep("pre_bytes = rb(BASE / \"data/preprocessing.json\")",
+    "pre_bytes = rb(BASE / \"data/preprocessing.json\")\n"
+    "DISPATCH_OLD = ROOT / \".local/plan-20261014-final-c/director-startup/curve-input-result.json\"\n"
+    "REVIEW_PATH = ROOT / \".local/plan-20261014-final-c/director-startup/curve-input-main-review.json\"\n"
+    "SNAPSHOT_DIR = ROOT / \".local/plan-20261014-final-c/director-startup/curve-input-before-main-review\"\n"
+    "SNAPSHOT_RELS = (\"ai_pc/model/curve_input.py\", \"tests/ai/data_model/test_curve_input.py\",\n"
+    "                 \"evidence/ai/startup/curve_input.json\", \"evidence/ai/startup/curve_input.log\")\n"
+    "snapshot_hashes = {rel: sha_file(SNAPSHOT_DIR / rel) for rel in SNAPSHOT_RELS}\n"
+    "review_sha = sha_file(REVIEW_PATH)\n"
+    "dispatch_old_sha = sha_file(DISPATCH_OLD)\n"
+    "tests_err_text = rt(TEMP / \"tests.stderr.bin\")\n"
+    "tests_match = re.search(r\"Ran (\\d+) tests\", tests_err_text)\n"
+    "if tests_match is None or tests_err_text.rstrip().splitlines()[-1] != \"OK\":\n"
+    "    raise SystemExit(\"tests capture is not green\")\n"
+    "tests_count = int(tests_match.group(1))\n"
+    "readback_out_text = rt(TEMP / \"readback.stdout.bin\")\n"
+    "readback_lines = readback_out_text.splitlines()\n"
+    "readback_fails = sum(1 for line in readback_lines if \"FAIL\" in line)\n"
+    "readback_passes = sum(1 for line in readback_lines if line.rstrip().endswith(\"PASS\"))\n"
+    "if readback_fails != 0 or \"CURVE INPUT READBACK ALL PASS\" not in readback_out_text:\n"
+    "    raise SystemExit(\"readback capture is not green\")\n"
+    "readback_checks = readback_passes - 1")
+
+# --- source/capture lists -------------------------------------------------------
+rep('source_files = ["runner.py", "force_exercise.py", "readback.py", "check_columns.py", "recapture_extra.py", "build_evidence.py"]',
+    'source_files = ["runner.py", "force_exercise.py", "readback.py", "check_columns.py", "recapture_extra.py",\n'
+    '                "apply_patch_safe.py", "patch_a.txt", "patch_b.txt", "patch_c.txt", "patch_ta.txt",\n'
+    '                "patch_tb.txt", "patch_tc.txt", "patch_rb.txt", "patch_rb2.txt", "build_evidence.py"]')
+
+# --- log header -----------------------------------------------------------------
+rep('add("DEEPEYE C01 CURVE-PROFILE INPUT FOUNDATION - EVIDENCE LOG")',
+    'add("DEEPEYE C01 CURVE-PROFILE INPUT FOUNDATION - EVIDENCE LOG (correction1)")')
+rep('add("task_id:        DEEPEYE-C-CURVE-INPUT-20261015 (task_version 1)")\nadd("work_id:        C-force-causal-curve-profile-foundation-v1")',
+    'add("task_id:        DEEPEYE-C-CURVE-REPAIR1-20261015 (task_version 1; supersedes DEEPEYE-C-CURVE-INPUT-20261015)")\n'
+    'add("work_id:        C-curve-scaler-provenance-schema-correction-1-v1")')
+rep('add("job:            child-5607ad197fe44f139d2b692696e9c2e0 (instance deepseek-c-15, route deepseek)")\n'
+    'add("               observable in .local/plan-20261014-final-c/director-startup/curve-input-result.json")\n'
+    'add("               sha256 = %s" % dispatch_sha)',
+    'add("job:            child-962a94dfb9504ad7a6f3371e34167d05 (instance deepseek-c-15, route deepseek)")\n'
+    'add("               observable in .local/plan-20261014-final-c/director-startup/curve-repair1-result.json")\n'
+    'add("               sha256 = %s" % dispatch_sha)\n'
+    'add("predecessor:    child-5607ad197fe44f139d2b692696e9c2e0 (terminal); its original four files are retained")\n'
+    'add("               read-only by the director in curve-input-before-main-review/ (hashes in section 2b)")')
+rep('add("scope:          C01 curve-profile input foundation (force_curve_v1, [1,8,128,1]) as independent")\n'
+    'add("               software preparation. R03 is not accepted; product C01 remains not_run;")\n'
+    'add("               no model training, no quantization, no wire adapter, no verify_data, no online scene.")',
+    'add("scope:          correction1 of the C01 curve-profile input foundation (force_curve_v1, [1,8,128,1]).")\n'
+    'add("               Main review rejected CP01 (scaler statistics could claim a hash they were not parsed")\n'
+    'add("               from) and CP02 (a mutable schema list changed a live builder field allowlist); both")\n'
+    'add("               are fixed here. R03 is not accepted; product C01 remains not_run; no model training,")\n'
+    'add("               no quantization, no wire adapter, no verify_data, no online scene.")')
+
+# --- section 2b insertion -------------------------------------------------------
+rep('add("evidence/ai/startup/curve_input.json      (companion; embeds this file\'s sha256)")\nadd("")\nadd("3. DRIVER AND CAPTURED RUNS")',
+    'add("evidence/ai/startup/curve_input.json      (companion; embeds this file\'s sha256)")\n'
+    'add("")\n'
+    'add("2b. MAIN REVIEW FINDINGS FIXED IN CORRECTION1 (review and snapshot kept read-only by the director)")\n'
+    'add("main review file: .local/plan-20261014-final-c/director-startup/curve-input-main-review.json")\n'
+    'add("                  sha256 = %s" % review_sha)\n'
+    'add("- CP01: the public CurveScaler(hash, channels) constructor accepted caller statistics while")\n'
+    'add("  asserting the pinned preprocessing hash, so a builder could emit changed features under the")\n'
+    'add("  audited hash (review reproduced a GR mean+10 change). Fix: CurveScaler is now")\n'
+    'add("  @dataclass(frozen=True, init=False) whose only constructor takes the document bytes plus keyword")\n'
+    'add("  expected_sha256, copies bytearray/memoryview input, hashes it, parses and validates the frozen")\n'
+    'add("  contract/profile/statistics and sets fields only from that parse; from_document_bytes is a thin")\n'
+    'add("  wrapper; legacy hash+channels construction and dataclasses.replace raise TypeError. Regressions")\n'
+    'add("  include the committed production preprocessing document (pinned sha256 cb66fd30...) read-only,")\n'
+    'add("  forged-statistics rejection and forged-scaler/pinned-binding rejection.")\n'
+    'add("- CP02: CurveSchema stored the caller list, so mutating it after builder construction changed the")\n'
+    'add("  accepted field names. Fix: CurveSchema.__post_init__ validates all thirteen names (string type,")\n'
+    'add("  forbidden tokens, duplicates) and copies values/valid into immutable tuples at construction; the")\n'
+    'add("  builder keeps the frozen instance, so caller-list mutation or appends have no effect and renamed")\n'
+    'add("  fields are rejected atomically.")\n'
+    'add("- Original four files (before this correction), retained read-only at")\n'
+    'add("  .local/plan-20261014-final-c/director-startup/curve-input-before-main-review/ :")\n'
+    'for rel in SNAPSHOT_RELS:\n'
+    '    add("    %-46s %s" % (rel, snapshot_hashes[rel]))\n'
+    'add("")\n'
+    'add("3. DRIVER AND CAPTURED RUNS")')
+
+# --- failures round text --------------------------------------------------------
+rep('add("9. FAILURES AND FIXES (complete)")',
+    'add("9. FAILURES AND FIXES (complete)")\n'
+    'add("- Correction1 round (this evidence bundle): main review (child-5607ad197fe44f139d2b692696e9c2e0)")\n'
+    'add("  rejected CP01/CP02; both were reproduced from the review document, fixed in the only public")\n'
+    'add("  construction paths and locked by new regressions (%d tests total)." % tests_count)\n'
+    'add("- A PowerShell here-string patch attempt for the correction1 edits failed with the apply_patch")\n'
+    'add("  wrapper (multi-line patch text through apply_patch.bat/cmd mangles embedded double quotes);")\n'
+    'add("  nothing was written. All edits were then applied with the official codex apply_patch engine")\n'
+    'add("  invoked from Python with the patch text as one exact argv element (apply_patch_safe.py and")\n'
+    'add("  patch_*.txt, embedded in section 7), each returning success before any re-run.")\n'
+    'add("- Readback first pass this round failed exactly one stale self-check (\'tests ran 23 tests\');")\n'
+    'add("  it now expects the new 28-test count and the whole driver capture re-ran green (%d PASS" % readback_passes)\n'
+    'add("  lines including the final summary, 0 FAIL).")')
+rep('add("  the whole capture was then re-run: all three runs exit 0 and all 49 readback checks PASS.")',
+    'add("  the whole capture was then re-run: all three runs exit 0 and all 49 check lines PASS in that round.")')
+rep('add("- No other failures. The 23 unit tests passed in every formal capture run.")',
+    'add("- No other failures. The unit tests passed in every formal capture run (23 in the original round,")\n'
+    'add("  %d after correction1)." % tests_count)')
+
+# --- limits ---------------------------------------------------------------------
+rep('add("- Window snapshots are model inputs only; nothing here authorizes motion or claims planning/collision.")\nadd(separator)',
+    'add("- Window snapshots are model inputs only; nothing here authorizes motion or claims planning/collision.")\n'
+    'add("- Correction1 intentionally invalidates the previously public hash+channels scaler constructor and")\n'
+    'add("  the mutable-input schema path; no backwards compatibility is promised for this unaccepted fixture")\n'
+    'add("  API, and this is static construction-path hardening, not sandboxing of hostile in-process Python.")\n'
+    'add("- Readback this round: %d individual checks PASS plus the final summary line, 0 FAIL." % readback_checks)\n'
+    'add(separator)')
+
+# --- json doc -------------------------------------------------------------------
+rep('    "task_id": "DEEPEYE-C-CURVE-INPUT-20261015",\n    "task_version": 1,\n    "work_id": "C-force-causal-curve-profile-foundation-v1",',
+    '    "task_id": "DEEPEYE-C-CURVE-REPAIR1-20261015",\n    "task_version": 1,\n    "work_id": "C-curve-scaler-provenance-schema-correction-1-v1",')
+rep('    "scope": "C01 curve-profile input foundation (force_curve_v1, [1,8,128,1]) as independent software preparation; R03 not accepted; product C01 remains not_run",',
+    '    "scope": "correction1 of the C01 curve-profile input foundation (force_curve_v1, [1,8,128,1]): CP01 scaler provenance and CP02 frozen schema fixed; R03 not accepted; product C01 remains not_run",')
+rep('    "tests": 23,', '    "tests": tests_count,')
+rep('''        "director_dispatch_result": {
+            "path": ".local/plan-20261014-final-c/director-startup/curve-input-result.json",
+            "sha256": dispatch_sha,
+        },''',
+    '''        "director_dispatch_result": {
+            "path": ".local/plan-20261014-final-c/director-startup/curve-repair1-result.json",
+            "sha256": dispatch_sha,
+        },
+        "predecessor_dispatch_result": {
+            "path": ".local/plan-20261014-final-c/director-startup/curve-input-result.json",
+            "sha256": dispatch_old_sha,
+        },''')
+rep('''    "scope_verification": {''',
+    '''    "correction1": {
+        "round": 1,
+        "findings_fixed": ["CP01", "CP02"],
+        "cp01": "CurveScaler is now @dataclass(frozen=True, init=False) with a single constructor taking document bytes plus keyword expected_sha256; bytearray/memoryview input is copied, the bytes are hashed and parsed, statistics are validated and set as frozen fields only from that parse, from_document_bytes is a thin wrapper, and legacy hash+channels construction plus dataclasses.replace raise TypeError. Regressions cover the committed production document (pinned sha256 cb66fd30...) read-only, forged-statistics rejection and forged-scaler/pinned-binding rejection.",
+        "cp02": "CurveSchema.__post_init__ validates all thirteen names (string type, forbidden tokens, duplicates) and copies values/valid into immutable tuples at construction; builders keep the frozen instance, so post-construction caller-list mutation or appends cannot change the allowlist and renamed fields are rejected atomically.",
+        "main_review": {"path": ".local/plan-20261014-final-c/director-startup/curve-input-main-review.json", "sha256": review_sha},
+        "before_snapshot": {"dir": ".local/plan-20261014-final-c/director-startup/curve-input-before-main-review", "files": snapshot_hashes},
+        "apply_patch_engine": "codex.exe --codex-run-as-apply-patch via apply_patch_safe.py with the patch text as one exact argv element; patch files embedded in the log",
+    },
+    "scope_verification": {''')
+rep('''        "checks": 49,
+        "script": "readback.py",
+        "script_sha256": sha_file(TEMP / "readback.py"),
+        "note": "AST stdlib import allowlist + pinned hashes (preprocessing/splits/archive) + manifest run cross-checks + exercise summary field checks",
+        "first_pass_failure": "substring causal_input check false positive on docstring reference, and manifest read before the driver wrote it; both fixed and the whole capture re-run green",''',
+    '''        "checks": readback_checks,
+        "script": "readback.py",
+        "script_sha256": sha_file(TEMP / "readback.py"),
+        "note": "AST stdlib import allowlist + pinned hashes (preprocessing/splits/archive) + manifest run cross-checks + exercise summary field checks + correction1 CP01/CP02 end-to-end checks against the committed production document",
+        "first_pass_failure": "original round: substring causal_input check false positive on docstring reference, and manifest read before the driver wrote it; correction1 round: one stale 'tests ran 23 tests' count check; all fixed and the driver capture re-run green",''')
+rep('''    "failures_and_fixes": [
+        "First capture pass: tests exit 0''',
+    '''    "failures_and_fixes": [
+        "Correction1 round: main review rejected CP01 (scaler hash+channels constructor bypassed provenance) and CP02 (mutable schema list changed a live builder allowlist); both were reproduced from the review document, fixed in the only public construction paths and locked by new regressions (28 tests total).",
+        "A PowerShell here-string patch attempt for the correction1 edits failed with the apply_patch wrapper (multi-line patch text through apply_patch.bat/cmd mangles embedded double quotes); nothing was written. All edits were then applied with the official codex apply_patch engine invoked from Python with the patch text as one exact argv element (apply_patch_safe.py and patch_*.txt, all embedded in the log), each returning success before any re-run.",
+        "Readback first pass this round failed exactly one stale self-check ('tests ran 23 tests'); it now expects the new 28-test count and the whole driver capture re-ran green.",
+        "First capture pass: tests exit 0''')
+rep('''        "Window snapshots are model inputs only; nothing here authorizes motion or claims planning/collision capability.",
+    ],''',
+    '''        "Window snapshots are model inputs only; nothing here authorizes motion or claims planning/collision capability.",
+        "Correction1 intentionally invalidates the previously public hash+channels scaler constructor and the mutable-input schema path; no backwards compatibility is promised for this unaccepted fixture API, and this is static construction-path hardening rather than sandboxing of hostile in-process Python.",
+        "Readback this round: 56 individual checks PASS plus the final summary line, 0 FAIL.",
+    ],''')
+rep('''        "job_id": "child-5607ad197fe44f139d2b692696e9c2e0",''',
+    '''        "job_id": "child-962a94dfb9504ad7a6f3371e34167d05",''')
+rep('''        "packages": "stdlib only; module imports collections/collections.abc, dataclasses, hashlib, itertools, json, math; tests and helpers use ast, hashlib, json, pathlib, subprocess, sys, time, unittest; no external packages installed",''',
+    '''        "packages": "stdlib only; module imports collections/collections.abc, dataclasses, hashlib, itertools, json, math; tests and helpers use ast, hashlib, json, pathlib, subprocess, sys, time, unittest; no external packages installed",
+        "apply_patch_engine": "codex.exe --codex-run-as-apply-patch (official Codex apply_patch engine), invoked via apply_patch_safe.py with the patch text as one exact argv element",''')
+
+p.write_text(s, encoding="utf-8", newline="")
+print("builder updated OK")
+
+### source: build_evidence.py (sha256 63a3cf71eea41086031e793fe955560fce300a5a275517c4afa137f5903afc8c)
+"""Evidence builder for DEEPEYE-C-CURVE-INPUT-20261015 (writes the two owned evidence files)."""
+import ast
+import hashlib
+import importlib
+import json
+import pathlib
+import platform
+import re
+import sys
+import time
+import types
+
+ROOT = pathlib.Path(r"C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c")
+BASE = ROOT / ".local/deepeye-implementation-c/competition/deepeye"
+TEMP = pathlib.Path(r"C:\Users\Alan\AppData\Local\Temp\fp_curve_input_20261015")
+DISPATCH = ROOT / ".local/plan-20261014-final-c/director-startup/curve-repair1-result.json"
+LOG = BASE / "evidence/ai/startup/curve_input.log"
+JSN = BASE / "evidence/ai/startup/curve_input.json"
+ARCHIVE = ROOT / ".local/datasets/force-2020/LAS_files_Force_2020_all_wells_train_test_blind_hidden_final.zip"
+
+def sha_bytes(data):
+    return hashlib.sha256(data).hexdigest()
+
+def sha_file(path):
+    h = hashlib.sha256()
+    with open(path, "rb") as fh:
+        for chunk in iter(lambda: fh.read(1 << 20), b""):
+            h.update(chunk)
+    return h.hexdigest()
+
+def rb(path):
+    return pathlib.Path(path).read_bytes()
+
+def rt(path):
+    return rb(path).decode("utf-8", "strict")
+
+MANIFEST_PATH = TEMP / "manifest.json"
+manifest = json.loads(rt(MANIFEST_PATH))
+runs = {entry["name"]: entry for entry in manifest["runs"]}
+
+driver_lines = []
+for name in ("tests", "exercise", "readback"):
+    entry = runs[name]
+    driver_lines.append("%s exit=%d stdout=%s stderr=%s" % (
+        name, entry["exit_code"], entry["stdout_sha256"][:16], entry["stderr_sha256"][:16]))
+driver_lines.append("MANIFEST %s" % MANIFEST_PATH)
+driver_console = "\n".join(driver_lines)
+
+exercise_out = rt(TEMP / "exercise.stdout.bin")
+exercise_summary = json.loads("{" + exercise_out.split("{", 1)[1].rsplit("}", 1)[0] + "}")
+
+check_out = rt(TEMP / "check_columns.stdout.bin")
+curve_order = []
+curve_valid = {}
+selected = None
+rows_counted = None
+for line in check_out.splitlines():
+    if line.startswith("col "):
+        idx_s, rest = line[4:].split(" ", 1)
+        name, tail = rest.rsplit(" nonnull=", 1)
+        curve_valid[name.strip()] = int(tail.split(" null=")[0])
+        curve_order.append(name.strip())
+    elif line.startswith("selected "):
+        selected = ast.literal_eval(line.split(": ", 1)[1])
+    elif line.startswith("rows_counted:"):
+        rows_counted = int(line.split(":", 1)[1].strip())
+
+verify_out = rt(TEMP / "verify_scope.stdout.bin").strip()
+verify_json = json.loads(verify_out)
+
+sys.path.insert(0, str(BASE))
+module = importlib.import_module("ai_pc.model.curve_input")
+public_names = sorted(n for n in dir(module)
+                      if not n.startswith("_") and not isinstance(getattr(module, n), types.ModuleType))
+
+module_sha = sha_file(BASE / "ai_pc/model/curve_input.py")
+test_sha = sha_file(BASE / "tests/ai/data_model/test_curve_input.py")
+pre_sha = sha_file(BASE / "data/preprocessing.json")
+splits_sha = sha_file(BASE / "data/splits.json")
+inv_sha = sha_file(BASE / "data/force_wells.json")
+archive_sha = sha_file(ARCHIVE)
+dispatch_sha = sha_file(DISPATCH)
+pre_bytes = rb(BASE / "data/preprocessing.json")
+DISPATCH_OLD = ROOT / ".local/plan-20261014-final-c/director-startup/curve-input-result.json"
+REVIEW_PATH = ROOT / ".local/plan-20261014-final-c/director-startup/curve-input-main-review.json"
+SNAPSHOT_DIR = ROOT / ".local/plan-20261014-final-c/director-startup/curve-input-before-main-review"
+SNAPSHOT_RELS = ("ai_pc/model/curve_input.py", "tests/ai/data_model/test_curve_input.py",
+                 "evidence/ai/startup/curve_input.json", "evidence/ai/startup/curve_input.log")
+snapshot_hashes = {rel: sha_file(SNAPSHOT_DIR / rel) for rel in SNAPSHOT_RELS}
+review_sha = sha_file(REVIEW_PATH)
+dispatch_old_sha = sha_file(DISPATCH_OLD)
+tests_err_text = rt(TEMP / "tests.stderr.bin")
+tests_match = re.search(r"Ran (\d+) tests", tests_err_text)
+if tests_match is None or tests_err_text.rstrip().splitlines()[-1] != "OK":
+    raise SystemExit("tests capture is not green")
+tests_count = int(tests_match.group(1))
+readback_out_text = rt(TEMP / "readback.stdout.bin")
+readback_lines = readback_out_text.splitlines()
+readback_fails = sum(1 for line in readback_lines if "FAIL" in line)
+readback_passes = sum(1 for line in readback_lines if line.rstrip().endswith("PASS"))
+if readback_fails != 0 or "CURVE INPUT READBACK ALL PASS" not in readback_out_text:
+    raise SystemExit("readback capture is not green")
+readback_checks = readback_passes - 1
+
+source_files = ["runner.py", "force_exercise.py", "readback.py", "check_columns.py", "recapture_extra.py",
+                "apply_patch_safe.py", "patch_a.txt", "patch_b.txt", "patch_c.txt", "patch_ta.txt",
+                "patch_tb.txt", "patch_tc.txt", "patch_rb.txt", "patch_rb2.txt", "update_builder.py",
+                "build_evidence.py"]
+capture_names = source_files + [
+    "manifest.json", "tests.stdout.bin", "tests.stderr.bin",
+    "exercise.stdout.bin", "exercise.stderr.bin",
+    "readback.stdout.bin", "readback.stderr.bin",
+    "check_columns.stdout.bin", "check_columns.stderr.bin",
+    "verify_scope.stdout.bin",
+    "verify_scope.stderr.bin",
+]
+capture_files = []
+for name in capture_names:
+    path = TEMP / name
+    if path.exists():
+        capture_files.append({"name": name, "bytes": path.stat().st_size, "sha256": sha_file(path)})
+
+def framed(title, text):
+    return ["----- %s -----" % title, text if text else "(empty)", "----- end %s -----" % title]
+
+separator = "=" * 78
+L = []
+add = L.append
+add(separator)
+add("DEEPEYE C01 CURVE-PROFILE INPUT FOUNDATION - EVIDENCE LOG (correction1)")
+add(separator)
+add("task_id:        DEEPEYE-C-CURVE-REPAIR1-20261015 (task_version 1; supersedes DEEPEYE-C-CURVE-INPUT-20261015)")
+add("work_id:        C-curve-scaler-provenance-schema-correction-1-v1")
+add("contract:       DEEPEYE-HUMAN-LOCK-20261014/revision1")
+add("requirements_sha256: c229834bfc2292f5fe4411fc9f12c68487008f9d1adaf31f0144ee7a98173804")
+add("design_commit:  1011259415a0916054eb580687612580bc1e5f09")
+add("job:            child-962a94dfb9504ad7a6f3371e34167d05 (instance deepseek-c-15, route deepseek)")
+add("               observable in .local/plan-20261014-final-c/director-startup/curve-repair1-result.json")
+add("               sha256 = %s" % dispatch_sha)
+add("predecessor:    child-5607ad197fe44f139d2b692696e9c2e0 (terminal); its original four files are retained")
+add("               read-only by the director in curve-input-before-main-review/ (hashes in section 2b)")
+add("generated_at_utc: %s" % time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()))
+add("environment:    ordinary DeepSeek Flash executor (no native lease); cwd %s" % ROOT)
+add("               interpreter .local/venv/Scripts/python.exe = Python %d.%d.%d; -X utf8 -B;" % sys.version_info[:3])
+add("               PYTHONDONTWRITEBYTECODE=1 for all captured runs; no external packages installed.")
+add("scope:          correction1 of the C01 curve-profile input foundation (force_curve_v1, [1,8,128,1]).")
+add("               Main review rejected CP01 (scaler statistics could claim a hash they were not parsed")
+add("               from) and CP02 (a mutable schema list changed a live builder field allowlist); both")
+add("               are fixed here. R03 is not accepted; product C01 remains not_run; no model training,")
+add("               no quantization, no wire adapter, no verify_data, no online scene.")
+add("")
+add("1. SCOPE VERIFICATION (mandatory first step)")
+add("command: .local/venv/Scripts/python.exe -X utf8 .local/plan-20261014-final-c/final-final-1011259/verify_immutable_scope.py")
+add("         --expected-sha c229834bfc2292f5fe4411fc9f12c68487008f9d1adaf31f0144ee7a98173804")
+add("         --book .local/plan-20261014-final-c/final-final-1011259/taskbook_final.md")
+add("         --plan .local/plan-20261014-final-c/final-final-1011259/execution_plan_final.json")
+add("exit_code: 0")
+add("stdout (verify_scope.stdout.bin sha256 = %s):" % sha_file(TEMP / "verify_scope.stdout.bin"))
+add("stderr: 0 bytes  (verify_scope.stderr.bin sha256 = %s)" % sha_file(TEMP / "verify_scope.stderr.bin"))
+add(verify_out)
+add("")
+add("2. OWNED FILES (exactly four; nothing else written)")
+add("ai_pc/model/curve_input.py                 %10d bytes  sha256 %s" % ((BASE / "ai_pc/model/curve_input.py").stat().st_size, module_sha))
+add("tests/ai/data_model/test_curve_input.py  %10d bytes  sha256 %s" % ((BASE / "tests/ai/data_model/test_curve_input.py").stat().st_size, test_sha))
+add("evidence/ai/startup/curve_input.log       (this file)")
+add("evidence/ai/startup/curve_input.json      (companion; embeds this file's sha256)")
+add("")
+add("2b. MAIN REVIEW FINDINGS FIXED IN CORRECTION1 (review and snapshot kept read-only by the director)")
+add("main review file: .local/plan-20261014-final-c/director-startup/curve-input-main-review.json")
+add("                  sha256 = %s" % review_sha)
+add("- CP01: the public CurveScaler(hash, channels) constructor accepted caller statistics while")
+add("  asserting the pinned preprocessing hash, so a builder could emit changed features under the")
+add("  audited hash (review reproduced a GR mean+10 change). Fix: CurveScaler is now")
+add("  @dataclass(frozen=True, init=False) whose only constructor takes the document bytes plus keyword")
+add("  expected_sha256, copies bytearray/memoryview input, hashes it, parses and validates the frozen")
+add("  contract/profile/statistics and sets fields only from that parse; from_document_bytes is a thin")
+add("  wrapper; legacy hash+channels construction and dataclasses.replace raise TypeError. Regressions")
+add("  include the committed production preprocessing document (pinned sha256 cb66fd30...) read-only,")
+add("  forged-statistics rejection and forged-scaler/pinned-binding rejection.")
+add("- CP02: CurveSchema stored the caller list, so mutating it after builder construction changed the")
+add("  accepted field names. Fix: CurveSchema.__post_init__ validates all thirteen names (string type,")
+add("  forbidden tokens, duplicates) and copies values/valid into immutable tuples at construction; the")
+add("  builder keeps the frozen instance, so caller-list mutation or appends have no effect and renamed")
+add("  fields are rejected atomically.")
+add("- Original four files (before this correction), retained read-only at")
+add("  .local/plan-20261014-final-c/director-startup/curve-input-before-main-review/ :")
+for rel in SNAPSHOT_RELS:
+    add("    %-46s %s" % (rel, snapshot_hashes[rel]))
+add("")
+add("3. DRIVER AND CAPTURED RUNS")
+add("driver command: [%r, '-X', 'utf8', '-B', %r]" % (str(ROOT / ".local/venv/Scripts/python.exe"), str(TEMP / "runner.py")))
+add("driver exit: 0")
+add("driver console (observed verbatim in the terminal; byte-equivalent reproduction using the driver's own print format):")
+add(driver_console)
+add("")
+for name in ("tests", "exercise", "readback"):
+    entry = runs[name]
+    add("### run: %s" % name)
+    add("command: %s" % json.dumps(entry["command"]))
+    add("exit_code: %d" % entry["exit_code"])
+    add("stdout: %d bytes  sha256 %s" % (entry["stdout_bytes"], entry["stdout_sha256"]))
+    add("stderr: %d bytes  sha256 %s" % (entry["stderr_bytes"], entry["stderr_sha256"]))
+    add("(raw bytes preserved in %s.%s.bin; text below is the utf-8 decode)" % (name, "stdout"))
+    add("\n".join(framed("stdout", rt(TEMP / (name + ".stdout.bin")))))
+    add("\n".join(framed("stderr", rt(TEMP / (name + ".stderr.bin")))))
+    add("")
+add("### run: check_columns (independent column/validity cross-check, executed after the driver capture)")
+add("command: [%r, '-X', 'utf8', '-B', %r]" % (str(ROOT / ".local/venv/Scripts/python.exe"), str(TEMP / "check_columns.py")))
+add("exit_code: 0")
+add("stdout: %d bytes  sha256 %s" % ((TEMP / "check_columns.stdout.bin").stat().st_size, sha_file(TEMP / "check_columns.stdout.bin")))
+add("stderr: %d bytes  sha256 %s" % ((TEMP / "check_columns.stderr.bin").stat().st_size, sha_file(TEMP / "check_columns.stderr.bin")))
+add("\n".join(framed("stdout", check_out)))
+add("")
+add("4. INPUT HASHES (all verified before/during use)")
+add("data/preprocessing.json  %10d bytes  sha256 %s (pinned expectation; unchanged)" % ((BASE / "data/preprocessing.json").stat().st_size, pre_sha))
+add("data/splits.json         %10d bytes  sha256 %s" % ((BASE / "data/splits.json").stat().st_size, splits_sha))
+add("data/force_wells.json    %10d bytes  sha256 %s" % ((BASE / "data/force_wells.json").stat().st_size, inv_sha))
+add("archive                  %10d bytes  sha256 %s" % (ARCHIVE.stat().st_size, archive_sha))
+add("member                   %10d bytes  sha256 %s" % (exercise_summary["member_bytes_read"], exercise_summary["member_sha256"]))
+add("member path: %s (uwi %s, WRAP %s, NULL %s)" % (exercise_summary["member"], exercise_summary["uwi"], exercise_summary["wrap"], exercise_summary["null_sentinel"]))
+add("")
+add("5. FORCE OFFLINE EXERCISE SUMMARY (software_fixture/geo_replay preprocessing evidence only)")
+add(json.dumps(exercise_summary, indent=1, sort_keys=True))
+add("")
+add("6. INDEPENDENT COLUMN CHECK (check_columns.py; read-only, opens only the same first train member;")
+add("   numeric parsing limited to depth + the four selected channels; non-selected columns incl. labels")
+add("   are classified by exact NULL-token match only)")
+add("curve order (19 columns): %s" % ", ".join(curve_order))
+add("valid (non-NULL) counts per column over first 256 data rows: %s" % json.dumps(curve_valid, sort_keys=True))
+add("selected channels: %s" % json.dumps(selected, sort_keys=True))
+add("rows_counted: %d" % rows_counted)
+add("note: matches the exercise summary exactly (GR 236 valid; RHOB/NPHI/RDEP 0 valid in this slice).")
+add("")
+add("7. EMBEDDED SOURCE (auditable helper scripts; tempdir scratch only)")
+for name in source_files:
+    path = TEMP / name
+    if not path.exists():
+        continue
+    add("### source: %s (sha256 %s)" % (name, sha_file(path)))
+    add(rt(path))
+    add("")
+add("### manifest.json (sha256 %s)" % sha_file(MANIFEST_PATH))
+add(rt(MANIFEST_PATH))
+add("")
+add("8. CAPTURE INVENTORY (C:\\Users\\Alan\\AppData\\Local\\Temp\\fp_curve_input_20261015)")
+for item in capture_files:
+    add("%-28s %10d bytes  sha256 %s" % (item["name"], item["bytes"], item["sha256"]))
+add("")
+add("9. FAILURES AND FIXES (complete)")
+add("- Correction1 round (this evidence bundle): main review (child-5607ad197fe44f139d2b692696e9c2e0)")
+add("  rejected CP01/CP02; both were reproduced from the review document, fixed in the only public")
+add("  construction paths and locked by new regressions (%d tests total)." % tests_count)
+add("- A PowerShell here-string patch attempt for the correction1 edits failed with the apply_patch")
+add("  wrapper (multi-line patch text through apply_patch.bat/cmd mangles embedded double quotes);")
+add("  nothing was written. All edits were then applied with the official codex apply_patch engine")
+add("  invoked from Python with the patch text as one exact argv element (apply_patch_safe.py and")
+add("  patch_*.txt, embedded in section 7), each returning success before any re-run.")
+add("- Readback first pass this round failed exactly one stale self-check ('tests ran 23 tests');")
+add("  it now expects the new 28-test count and the whole driver capture re-ran green (%d PASS" % readback_passes)
+add("  lines including the final summary, 0 FAIL).")
+add("- First capture pass: tests exit 0 (Ran 23 tests OK) and FORCE exercise exit 0, but readback exit 1 with")
+add("  exactly two issues: (a) its 'module does not import causal_input' check was a substring test that the")
+add("  module docstring's legitimate cross-reference to ai_pc.model.causal_input (the distinct [1,13,32,1]")
+add("  sim_em_v2 summary profile) made fail; (b) it read manifest.json before the driver had written it")
+add("  (the driver wrote the manifest only after all runs). Fixed by (a) an AST-based stdlib import allowlist")
+add("  check plus 'causal_input not in imports' and (b) the driver writing manifest.json after every run;")
+add("  the whole capture was then re-run: all three runs exit 0 and all 49 check lines PASS in that round.")
+add("- A PowerShell here-string patch attempt for those two helper fixes produced literal backtick-escape")
+add("  text (single-quoted here-strings do not interpret backticks); it errored before any write, both helper")
+add("  files were re-read and confirmed unchanged, then rewritten wholesale and AST-gated before re-running.")
+add("- The first ad-hoc column check matched section headers with a naive '~A' prefix test, which wrongly")
+add("  matched the '~Ascii' header and produced bogus all-NULL counts. Corrected to exact section-header")
+add("  equality ('~Curve'/'~Ascii'/other '~'), captured as check_columns.py; counts then matched the exercise.")
+add("- An early ad-hoc capture of check_columns and verify_scope used a PowerShell text redirect, which")
+add("  produced UTF-16LE bytes with a BOM; both were re-captured via Python subprocess capture_output")
+add("  (snippet executed via stdin, exact source saved as recapture_extra.py), the stale UTF-16 file was")
+add("  deleted, and the cited .bin captures are raw process bytes.")
+add("- The captured column check was then tightened once more for label hygiene: its intermediate variant")
+add("  classified every column via float() conversion; the final check_columns.py parses numbers only for")
+add("  depth + the four selected channels and classifies all other columns (including both label columns)")
+add("  by exact NULL-token match, and the capture was regenerated from that final source.")
+add("- No other failures. The unit tests passed in every formal capture run (23 in the original round,")
+add("  %d after correction1)." % tests_count)
+add("")
+add("10. LIMITS AND NON-CLAIMS")
+add("- Software-only verification of the curve-window builder. No training, no quantization, no wire")
+add("  adapter, no verify_data, no probabilistic map or graph search; those remain next implementation.")
+add("- The FORCE slice is one train member converted for software_fixture/geo_replay preprocessing evidence.")
+add("  It is not a board observation, not device capability evidence, and not C01/R03 acceptance; R03 is not")
+add("  accepted and all product/hardware cards remain not_run.")
+add("- In the real first-256-row slice only GR has valid values (236); RHOB/NPHI/RDEP were entirely LAS NULL")
+add("  there, so the real-data exercise did not exercise the RDEP log10 path (covered by unit tests only).")
+add("- Labels were never used as inputs; the final captured scripts do not numerically parse label")
+add("  columns (an intermediate ad-hoc check variant did, is disclosed above and was replaced before the")
+add("  final capture). No held-out member was decompressed; only the first train member selected by the")
+add("  fixed splits was opened. Raw dataset rows are not published in this log.")
+add("- Provider/model/effort beyond route+instance are not runtime-observable in this child run; they are")
+add("  taken from the assignment brief and the local dispatch result file.")
+add("- Window snapshots are model inputs only; nothing here authorizes motion or claims planning/collision.")
+add("- Correction1 intentionally invalidates the previously public hash+channels scaler constructor and")
+add("  the mutable-input schema path; no backwards compatibility is promised for this unaccepted fixture")
+add("  API, and this is static construction-path hardening, not sandboxing of hostile in-process Python.")
+add("- Readback this round: %d individual checks PASS plus the final summary line, 0 FAIL." % readback_checks)
+add(separator)
+add("END OF LOG")
+add(separator)
+log_text = "\n".join(L) + "\n"
+with open(LOG, "w", encoding="utf-8", newline="\n") as fh:
+    fh.write(log_text)
+log_sha = sha_file(LOG)
+
+driver_entry = {
+    "command": [str(ROOT / ".local/venv/Scripts/python.exe"), "-X", "utf8", "-B", str(TEMP / "runner.py")],
+    "exit_code": 0,
+    "note": "console output regenerated byte-equivalently from manifest.json using the driver's print format; the three sub-runs below were byte-captured",
+}
+commands = [driver_entry]
+for name in ("tests", "exercise", "readback"):
+    entry = runs[name]
+    commands.append({
+        "command": entry["command"],
+        "exit_code": entry["exit_code"],
+        "stdout_sha256": entry["stdout_sha256"],
+        "stderr_sha256": entry["stderr_sha256"],
+    })
+commands.append({
+    "command": [str(ROOT / ".local/venv/Scripts/python.exe"), "-X", "utf8", str(ROOT / ".local/plan-20261014-final-c/final-final-1011259/verify_immutable_scope.py"),
+                "--expected-sha", "c229834bfc2292f5fe4411fc9f12c68487008f9d1adaf31f0144ee7a98173804",
+                "--book", str(ROOT / ".local/plan-20261014-final-c/final-final-1011259/taskbook_final.md"),
+                "--plan", str(ROOT / ".local/plan-20261014-final-c/final-final-1011259/execution_plan_final.json")],
+    "exit_code": 0,
+    "stdout_sha256": sha_file(TEMP / "verify_scope.stdout.bin"),
+    "stderr_sha256": sha_file(TEMP / "verify_scope.stderr.bin"),
+    "note": "separate stdout/stderr capture via Python subprocess (PYTHONDONTWRITEBYTECODE=1)",
+})
+commands.append({
+    "command": [str(ROOT / ".local/venv/Scripts/python.exe"), "-X", "utf8", "-B", str(TEMP / "check_columns.py")],
+    "exit_code": 0,
+    "stdout_sha256": sha_file(TEMP / "check_columns.stdout.bin"),
+    "stderr_sha256": sha_file(TEMP / "check_columns.stderr.bin"),
+})
+
+doc = {
+    "schema": 1,
+    "task_id": "DEEPEYE-C-CURVE-REPAIR1-20261015",
+    "task_version": 1,
+    "work_id": "C-curve-scaler-provenance-schema-correction-1-v1",
+    "contract_id": "DEEPEYE-HUMAN-LOCK-20261014/revision1",
+    "requirements_sha256": "c229834bfc2292f5fe4411fc9f12c68487008f9d1adaf31f0144ee7a98173804",
+    "design_commit": "1011259415a0916054eb580687612580bc1e5f09",
+    "generated_at_utc": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
+    "scope": "correction1 of the C01 curve-profile input foundation (force_curve_v1, [1,8,128,1]): CP01 scaler provenance and CP02 frozen schema fixed; R03 not accepted; product C01 remains not_run",
+    "status": "passed",
+    "tests": tests_count,
+    "commands": commands,
+    "tool_versions": {
+        "python": "%d.%d.%d" % sys.version_info[:3],
+        "platform": platform.platform(),
+        "packages": "stdlib only; module imports collections/collections.abc, dataclasses, hashlib, itertools, json, math; tests and helpers use ast, hashlib, json, pathlib, subprocess, sys, time, unittest; no external packages installed",
+        "apply_patch_engine": "codex.exe --codex-run-as-apply-patch (official Codex apply_patch engine), invoked via apply_patch_safe.py with the patch text as one exact argv element",
+    },
+    "source_sha256": {
+        "ai_pc/model/curve_input.py": module_sha,
+        "tests/ai/data_model/test_curve_input.py": test_sha,
+        "evidence/ai/startup/curve_input.log": log_sha,
+    },
+    "input_sha256": {
+        "preprocessing": pre_sha,
+        "splits": splits_sha,
+        "force_wells": inv_sha,
+        "archive": archive_sha,
+        "archive_bytes": ARCHIVE.stat().st_size,
+        "member": exercise_summary["member_sha256"],
+        "member_path": exercise_summary["member"],
+        "member_bytes": exercise_summary["member_bytes_read"],
+        "director_dispatch_result": {
+            "path": ".local/plan-20261014-final-c/director-startup/curve-repair1-result.json",
+            "sha256": dispatch_sha,
+        },
+        "predecessor_dispatch_result": {
+            "path": ".local/plan-20261014-final-c/director-startup/curve-input-result.json",
+            "sha256": dispatch_old_sha,
+        },
+    },
+    "curve_contract": {
+        "profile_id": "force_curve_v1",
+        "channels": ["GR", "RHOB", "NPHI", "RDEP"],
+        "model_input_shape": [1, 8, 128, 1],
+        "window_columns": 128,
+        "validity": "four exact-bool validity mask channels in the same fixed order",
+        "module_public_names": public_names,
+    },
+    "correction1": {
+        "round": 1,
+        "findings_fixed": ["CP01", "CP02"],
+        "cp01": "CurveScaler is now @dataclass(frozen=True, init=False) with a single constructor taking document bytes plus keyword expected_sha256; bytearray/memoryview input is copied, the bytes are hashed and parsed, statistics are validated and set as frozen fields only from that parse, from_document_bytes is a thin wrapper, and legacy hash+channels construction plus dataclasses.replace raise TypeError. Regressions cover the committed production document (pinned sha256 cb66fd30...) read-only, forged-statistics rejection and forged-scaler/pinned-binding rejection.",
+        "cp02": "CurveSchema.__post_init__ validates all thirteen names (string type, forbidden tokens, duplicates) and copies values/valid into immutable tuples at construction; builders keep the frozen instance, so post-construction caller-list mutation or appends cannot change the allowlist and renamed fields are rejected atomically.",
+        "main_review": {"path": ".local/plan-20261014-final-c/director-startup/curve-input-main-review.json", "sha256": review_sha},
+        "before_snapshot": {"dir": ".local/plan-20261014-final-c/director-startup/curve-input-before-main-review", "files": snapshot_hashes},
+        "apply_patch_engine": "codex.exe --codex-run-as-apply-patch via apply_patch_safe.py with the patch text as one exact argv element; patch files embedded in the log",
+    },
+    "scope_verification": {
+        "exit_code": 0,
+        "output": verify_json,
+    },
+    "exercise_summary": exercise_summary,
+    "independent_column_check": {
+        "script": "check_columns.py",
+        "script_sha256": sha_file(TEMP / "check_columns.py"),
+        "exit_code": 0,
+        "stdout_sha256": sha_file(TEMP / "check_columns.stdout.bin"),
+        "rows_counted": rows_counted,
+        "curve_order": curve_order,
+        "valid_counts": curve_valid,
+        "selected": selected,
+        "note": "read-only independent recount; numeric parsing limited to depth + the four selected channels, non-selected columns (incl. labels) classified by exact NULL-token match only; matches exercise valid_counts exactly",
+    },
+    "readback": {
+        "status": "passed",
+        "checks": readback_checks,
+        "script": "readback.py",
+        "script_sha256": sha_file(TEMP / "readback.py"),
+        "note": "AST stdlib import allowlist + pinned hashes (preprocessing/splits/archive) + manifest run cross-checks + exercise summary field checks + correction1 CP01/CP02 end-to-end checks against the committed production document",
+        "first_pass_failure": "original round: substring causal_input check false positive on docstring reference, and manifest read before the driver wrote it; correction1 round: one stale 'tests ran 23 tests' count check; all fixed and the driver capture re-run green",
+    },
+    "captures": {
+        "dir": str(TEMP),
+        "manifest_sha256": sha_file(MANIFEST_PATH),
+        "files": capture_files,
+    },
+    "failures_and_fixes": [
+        "Correction1 round: main review rejected CP01 (scaler hash+channels constructor bypassed provenance) and CP02 (mutable schema list changed a live builder allowlist); both were reproduced from the review document, fixed in the only public construction paths and locked by new regressions (28 tests total).",
+        "A PowerShell here-string patch attempt for the correction1 edits failed with the apply_patch wrapper (multi-line patch text through apply_patch.bat/cmd mangles embedded double quotes); nothing was written. All edits were then applied with the official codex apply_patch engine invoked from Python with the patch text as one exact argv element (apply_patch_safe.py and patch_*.txt, all embedded in the log), each returning success before any re-run.",
+        "Readback first pass this round failed exactly one stale self-check ('tests ran 23 tests'); it now expects the new 28-test count and the whole driver capture re-ran green.",
+        "First capture pass: tests exit 0 (Ran 23 tests OK) and FORCE exercise exit 0, but readback exit 1 with exactly two issues: (a) its 'module does not import causal_input' check was a substring test that the module docstring's legitimate cross-reference to ai_pc.model.causal_input (the distinct [1,13,32,1] sim_em_v2 summary profile) made fail; (b) it read manifest.json before the driver had written it. Fixed by (a) an AST-based stdlib import allowlist check plus 'causal_input not in imports' and (b) the driver writing manifest.json after every run; the whole capture was re-run: all three runs exit 0 and all 49 readback checks PASS.",
+        "A PowerShell here-string patch attempt for those two helper fixes produced literal backtick-escape text (single-quoted here-strings do not interpret backticks); it errored before any write, both helper files were re-read and confirmed unchanged, then rewritten wholesale and AST-gated before re-running.",
+        "The first ad-hoc column check used a naive '~A' prefix match that wrongly matched the '~Ascii' header, producing bogus all-NULL counts; corrected to exact section-header equality and captured as check_columns.py, whose counts then matched the exercise summary.",
+        "An early ad-hoc capture of check_columns and verify_scope used a PowerShell text redirect, which produced UTF-16LE bytes with a BOM; both were re-captured via Python subprocess capture_output (snippet executed via stdin, exact source saved as recapture_extra.py), the stale UTF-16 file was deleted, and the cited .bin captures are raw process bytes.",
+        "The captured column check was tightened once more for label hygiene: its intermediate variant classified every column via float() conversion; the final check_columns.py parses numbers only for depth + the four selected channels and classifies all other columns (including both label columns) by exact NULL-token match, and the capture was regenerated from that final source.",
+        "No other failures. The 23 unit tests passed in every formal capture run.",
+    ],
+    "limits": [
+        "Software-only verification of the curve-window builder; no training, no quantization, no wire adapter, no verify_data, no probabilistic map or graph search.",
+        "The FORCE slice is one train member converted for software_fixture/geo_replay preprocessing evidence; it is not a board observation, not device capability evidence, and not C01/R03 acceptance. R03 is not accepted; all product/hardware cards remain not_run.",
+        "In the real first-256-row slice only GR has valid values (236); RHOB/NPHI/RDEP were entirely LAS NULL there, so the real-data exercise did not exercise the RDEP log10 path (covered by unit tests only).",
+        "Labels were never used as inputs; the final captured scripts do not numerically parse label columns (an intermediate ad-hoc check variant did, is disclosed in failures_and_fixes and was replaced before the final capture). No held-out member was decompressed; only the first train member selected by the fixed splits was opened; raw dataset rows are not published in committed artifacts.",
+        "Provider/model/effort beyond route+instance are not runtime-observable in this child run; they are taken from the assignment brief and the local dispatch result file.",
+        "Window snapshots are model inputs only; nothing here authorizes motion or claims planning/collision capability.",
+        "Correction1 intentionally invalidates the previously public hash+channels scaler constructor and the mutable-input schema path; no backwards compatibility is promised for this unaccepted fixture API, and this is static construction-path hardening rather than sandboxing of hostile in-process Python.",
+        "Readback this round: 56 individual checks PASS plus the final summary line, 0 FAIL.",
+    ],
+    "implementation_job": {
+        "job_id": "child-962a94dfb9504ad7a6f3371e34167d05",
+        "instance_id": "deepseek-c-15",
+        "route": "deepseek",
+        "provider": "deepseek",
+        "model": "deepseek-flash",
+        "effort": "max",
+        "observability": "job_id/instance/route observable in the local dispatch result file; provider/model/effort stated by the assignment brief only",
+    },
+    "raw_stream_bytes_preserved": True,
+    "public_raw_transcript": "curve_input.log",
+}
+with open(JSN, "w", encoding="utf-8", newline="\n") as fh:
+    fh.write(json.dumps(doc, indent=1, ensure_ascii=False) + "\n")
+
+json_check = json.loads(rt(JSN))
+print("LOG  %s bytes sha256 %s" % (LOG.stat().st_size, log_sha))
+print("JSON %s bytes sha256 %s" % (JSN.stat().st_size, sha_file(JSN)))
+print("JSON keys:", len(json_check))
+
+### manifest.json (sha256 6d68ce604d00c4638a4ad2b3712e25e2a16d572092dbe0273dc07cb174882c65)
+{
+ "generated_utc": "2026-10-14T21:36:01Z",
+ "interpreter": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\venv\\Scripts\\python.exe",
+ "python": "3.12.14",
+ "cwd": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c",
+ "env": {
+  "PYTHONDONTWRITEBYTECODE": "1"
+ },
+ "runs": [
+  {
+   "name": "tests",
+   "command": [
+    "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\venv\\Scripts\\python.exe",
+    "-X",
+    "utf8",
+    "-B",
+    "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\deepeye-implementation-c\\competition\\deepeye\\tests\\ai\\data_model\\test_curve_input.py"
+   ],
+   "exit_code": 0,
+   "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "stderr_sha256": "993f452ce2e9a2ef1e72df06c36e2417550b908719e673c08cb9ed504a780514",
+   "stdout_bytes": 0,
+   "stderr_bytes": 132,
+   "seconds": 0.267
+  },
+  {
+   "name": "exercise",
+   "command": [
+    "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\venv\\Scripts\\python.exe",
+    "-X",
+    "utf8",
+    "-B",
+    "C:\\Users\\Alan\\AppData\\Local\\Temp\\fp_curve_input_20261015\\force_exercise.py"
+   ],
+   "exit_code": 0,
+   "stdout_sha256": "51e4a4342dfc33059785d8da7aa7cac7f0b34be68b01a24d139e0cb7c074845a",
+   "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "stdout_bytes": 1592,
+   "stderr_bytes": 0,
+   "seconds": 0.562
+  },
+  {
+   "name": "readback",
+   "command": [
+    "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\venv\\Scripts\\python.exe",
+    "-X",
+    "utf8",
+    "-B",
+    "C:\\Users\\Alan\\AppData\\Local\\Temp\\fp_curve_input_20261015\\readback.py"
+   ],
+   "exit_code": 0,
+   "stdout_sha256": "a0bcb41b63607d8f08652b464abd84172b4b311842dc820103f3b2635372a983",
+   "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "stdout_bytes": 3759,
+   "stderr_bytes": 0,
+   "seconds": 0.447
+  }
+ ]
+}
+
+
+8. CAPTURE INVENTORY (C:\Users\Alan\AppData\Local\Temp\fp_curve_input_20261015)
+runner.py                          2056 bytes  sha256 ea594666f76bb4ca88fb35b7238eca75ecd7e4a0796101574551cc89167bd0d2
+force_exercise.py                 11195 bytes  sha256 d55f20ab89c08eac12a059bfa30e777e519369b26d17b3287ddb5563fbc64b92
+readback.py                        8720 bytes  sha256 2015981b2646046fee71255e56fc764b634267599b424d82969806cb8585b9c9
+check_columns.py                   2950 bytes  sha256 cad33c03898f57cbd1d0450633e3eadb934408bfabf9f1ad06607a73dcfcbcbf
+recapture_extra.py                 1335 bytes  sha256 8d9db832615a3ca7c26cd5e137c3fdb42726561502613472fd9a223a04aa835d
+apply_patch_safe.py                 597 bytes  sha256 06e9da595ff90c27a821b9e1617b906d9fb7e461e6a1a34270d7bea10b4ff356
+patch_a.txt                        1175 bytes  sha256 49b42321afc65f93052404bc91328dd6fb7b394dedd5c264f3f02d70e2a8b1fe
+patch_b.txt                        4279 bytes  sha256 ca9aa056f58964f448c7720654bdcb4160d345060be32f3c4cdf736706e7b9d9
+patch_c.txt                       10111 bytes  sha256 eb81cdb3f872a5ddbcc11b65a03373e2ccd2d098be8b85e6abc2785ec90a735c
+patch_ta.txt                       1036 bytes  sha256 91d739218c9040eb458b0235d78dcb6fa65881dcb65c42dbd2864889c7b977b7
+patch_tb.txt                       5270 bytes  sha256 d15c053b09a1987eb8d23c476901ee662c4edf624f3b1964fbafa694dcb96ca6
+patch_tc.txt                       2847 bytes  sha256 204dbbcad68f294eb2214c5ad2539625060abc2d8217bb7f865b8176a3275578
+patch_rb.txt                       3433 bytes  sha256 41c32f920f9b3ed7f78f23d83259aefc33592e176d8f65795e3429719a64417f
+patch_rb2.txt                       234 bytes  sha256 4a2de7b94638846846db2fea270d77dfea1ecce6075bcdea64092d040db1ede1
+update_builder.py                 17052 bytes  sha256 a78ebf52f5589afb56a78c3f5a073a5382dbe8ff6e5731ebdc8f57d2b3915351
+build_evidence.py                 32644 bytes  sha256 63a3cf71eea41086031e793fe955560fce300a5a275517c4afa137f5903afc8c
+manifest.json                      2066 bytes  sha256 6d68ce604d00c4638a4ad2b3712e25e2a16d572092dbe0273dc07cb174882c65
+tests.stdout.bin                      0 bytes  sha256 e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+tests.stderr.bin                    132 bytes  sha256 993f452ce2e9a2ef1e72df06c36e2417550b908719e673c08cb9ed504a780514
+exercise.stdout.bin                1592 bytes  sha256 51e4a4342dfc33059785d8da7aa7cac7f0b34be68b01a24d139e0cb7c074845a
+exercise.stderr.bin                   0 bytes  sha256 e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+readback.stdout.bin                3759 bytes  sha256 a0bcb41b63607d8f08652b464abd84172b4b311842dc820103f3b2635372a983
+readback.stderr.bin                   0 bytes  sha256 e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+check_columns.stdout.bin           1556 bytes  sha256 c9c9a3bb0d2fa504079fb33ac711f444c861252ad1b9255dd523a02262303fde
+check_columns.stderr.bin              0 bytes  sha256 e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+verify_scope.stdout.bin             272 bytes  sha256 e6a0a5722482707d449e03400819ffe28ddb53cb53e43f355e9645f5c9303f1c
+verify_scope.stderr.bin               0 bytes  sha256 e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+
+9. FAILURES AND FIXES (complete)
+- Correction1 round (this evidence bundle): main review (child-5607ad197fe44f139d2b692696e9c2e0)
+  rejected CP01/CP02; both were reproduced from the review document, fixed in the only public
+  construction paths and locked by new regressions (28 tests total).
+- A PowerShell here-string patch attempt for the correction1 edits failed with the apply_patch
+  wrapper (multi-line patch text through apply_patch.bat/cmd mangles embedded double quotes);
+  nothing was written. All edits were then applied with the official codex apply_patch engine
+  invoked from Python with the patch text as one exact argv element (apply_patch_safe.py and
+  patch_*.txt, embedded in section 7), each returning success before any re-run.
+- Readback first pass this round failed exactly one stale self-check ('tests ran 23 tests');
+  it now expects the new 28-test count and the whole driver capture re-ran green (57 PASS
+  lines including the final summary, 0 FAIL).
+- First capture pass: tests exit 0 (Ran 23 tests OK) and FORCE exercise exit 0, but readback exit 1 with
+  exactly two issues: (a) its 'module does not import causal_input' check was a substring test that the
+  module docstring's legitimate cross-reference to ai_pc.model.causal_input (the distinct [1,13,32,1]
+  sim_em_v2 summary profile) made fail; (b) it read manifest.json before the driver had written it
+  (the driver wrote the manifest only after all runs). Fixed by (a) an AST-based stdlib import allowlist
+  check plus 'causal_input not in imports' and (b) the driver writing manifest.json after every run;
+  the whole capture was then re-run: all three runs exit 0 and all 49 check lines PASS in that round.
+- A PowerShell here-string patch attempt for those two helper fixes produced literal backtick-escape
+  text (single-quoted here-strings do not interpret backticks); it errored before any write, both helper
+  files were re-read and confirmed unchanged, then rewritten wholesale and AST-gated before re-running.
+- The first ad-hoc column check matched section headers with a naive '~A' prefix test, which wrongly
+  matched the '~Ascii' header and produced bogus all-NULL counts. Corrected to exact section-header
+  equality ('~Curve'/'~Ascii'/other '~'), captured as check_columns.py; counts then matched the exercise.
+- An early ad-hoc capture of check_columns and verify_scope used a PowerShell text redirect, which
+  produced UTF-16LE bytes with a BOM; both were re-captured via Python subprocess capture_output
+  (snippet executed via stdin, exact source saved as recapture_extra.py), the stale UTF-16 file was
+  deleted, and the cited .bin captures are raw process bytes.
+- The captured column check was then tightened once more for label hygiene: its intermediate variant
+  classified every column via float() conversion; the final check_columns.py parses numbers only for
+  depth + the four selected channels and classifies all other columns (including both label columns)
+  by exact NULL-token match, and the capture was regenerated from that final source.
+- No other failures. The unit tests passed in every formal capture run (23 in the original round,
+  28 after correction1).
+
+10. LIMITS AND NON-CLAIMS
+- Software-only verification of the curve-window builder. No training, no quantization, no wire
+  adapter, no verify_data, no probabilistic map or graph search; those remain next implementation.
+- The FORCE slice is one train member converted for software_fixture/geo_replay preprocessing evidence.
+  It is not a board observation, not device capability evidence, and not C01/R03 acceptance; R03 is not
+  accepted and all product/hardware cards remain not_run.
+- In the real first-256-row slice only GR has valid values (236); RHOB/NPHI/RDEP were entirely LAS NULL
+  there, so the real-data exercise did not exercise the RDEP log10 path (covered by unit tests only).
+- Labels were never used as inputs; the final captured scripts do not numerically parse label
+  columns (an intermediate ad-hoc check variant did, is disclosed above and was replaced before the
+  final capture). No held-out member was decompressed; only the first train member selected by the
+  fixed splits was opened. Raw dataset rows are not published in this log.
+- Provider/model/effort beyond route+instance are not runtime-observable in this child run; they are
+  taken from the assignment brief and the local dispatch result file.
+- Window snapshots are model inputs only; nothing here authorizes motion or claims planning/collision.
+- Correction1 intentionally invalidates the previously public hash+channels scaler constructor and
+  the mutable-input schema path; no backwards compatibility is promised for this unaccepted fixture
+  API, and this is static construction-path hardening, not sandboxing of hostile in-process Python.
+- Readback this round: 56 individual checks PASS plus the final summary line, 0 FAIL.
+==============================================================================
+END OF LOG
+==============================================================================

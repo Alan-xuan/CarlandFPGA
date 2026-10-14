@@ -16,3 +16,8 @@ broker.log -text whitespace=cr-at-eol,-blank-at-eof,-blank-at-eol
 broker_main_review.json -text
 broker_main_review.py -text whitespace=cr-at-eol
 broker_main_review.txt -text whitespace=cr-at-eol,-blank-at-eof
+curve_input.json -text whitespace=cr-at-eol
+curve_input.log -text whitespace=cr-at-eol,-blank-at-eof,-blank-at-eol
+curve_main_review.json -text
+curve_main_review.py -text whitespace=cr-at-eol
+curve_main_review.txt -text whitespace=cr-at-eol,-blank-at-eof
