@@ -1,0 +1,63 @@
+{
+  "request": {
+    "operation_id": "C-DEEPEYE-DATA-20261015-02",
+    "task_id": "DEEPEYE-IMPLEMENTATION-20261014",
+    "task_version": 1,
+    "requester": "node-c",
+    "code_commit": "9127c75f11e6eb1833c5713db83560c7cd0ddbeb",
+    "test_steps": [
+      "python -X utf8 -B competition/deepeye/tests/ai/data_model/test_force_inventory.py",
+      "python -X utf8 -B competition/deepeye/tests/ai/data_model/test_grouping.py",
+      "python -X utf8 -B competition/deepeye/tests/ai/data_model/test_causal_input.py",
+      "python -X utf8 -B competition/deepeye/tests/ai/planning/test_kinematics.py",
+      "Verify current manifest and frozen data/splits.json SHA; independently inspect packed quality, one-column-per-ADC-tick semantics and absence of forbidden truth fields. No physical board operation requested."
+    ],
+    "expected_result": "23 inventory +12 grouping +64 summary-input +16 unchanged kinematics software tests pass. FORCE118wells/2337639rows independently read back; fixed82/17/19 well split with117 parent groups. No preprocessing/model accuracy, wire/runtime isolation, planning/system or board acceptance. H01-H15 DEEPEYE-HUMAN-LOCK-20261014/revision1 source f5989cd5defce561f9ba98e6b18fc2682945f0a2 requirements SHA256 c229834bfc2292f5fe4411fc9f12c68487008f9d1adaf31f0144ee7a98173804; design1011259415a0916054eb580687612580bc1e5f09 unchanged."
+  },
+  "artifacts": [
+    "competition/deepeye/ai_pc/model/causal_input.py",
+    "competition/deepeye/ai_pc/planning/kinematics.py",
+    "competition/deepeye/data/dataset_card.md",
+    "competition/deepeye/data/force_inventory.py",
+    "competition/deepeye/data/force_wells.json",
+    "competition/deepeye/data/grouping.py",
+    "competition/deepeye/data/label_schema.json",
+    "competition/deepeye/data/source_inventory.json",
+    "competition/deepeye/data/split_policy.json",
+    "competition/deepeye/data/splits.json",
+    "competition/deepeye/evidence/ai/startup/data_model.json",
+    "competition/deepeye/evidence/ai/startup/data_model.txt",
+    "competition/deepeye/evidence/ai/startup/force_inventory.json",
+    "competition/deepeye/evidence/ai/startup/force_inventory.txt",
+    "competition/deepeye/evidence/ai/startup/planner.json",
+    "competition/deepeye/evidence/ai/startup/planner.txt",
+    "competition/deepeye/evidence/ai/startup/split_assignment.json",
+    "competition/deepeye/evidence/ai/startup/split_assignment.txt",
+    "competition/deepeye/tests/ai/data_model/test_causal_input.py",
+    "competition/deepeye/tests/ai/data_model/test_force_inventory.py",
+    "competition/deepeye/tests/ai/data_model/test_grouping.py",
+    "competition/deepeye/tests/ai/planning/kinematics_vectors.json",
+    "competition/deepeye/tests/ai/planning/test_kinematics.py"
+  ],
+  "stages": {
+    "simulation": {
+      "status": "not_run"
+    },
+    "synthesis": {
+      "status": "not_run"
+    },
+    "implementation": {
+      "status": "not_run"
+    },
+    "board": {
+      "status": "not_run"
+    },
+    "system": {
+      "status": "not_run"
+    },
+    "software_unit": {
+      "status": "passed",
+      "log": "competition/deepeye/evidence/ai/startup/data_model.txt"
+    }
+  }
+}
