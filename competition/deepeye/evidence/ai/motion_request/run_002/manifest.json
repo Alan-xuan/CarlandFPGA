@@ -1,0 +1,231 @@
+{
+  "work_id": "C-motion-request-adapter-20261015-v1",
+  "task_id": "DEEPEYE-IMPLEMENTATION-20261014",
+  "task_version": 1,
+  "base_commit": "6e1624d0b0ae3f46adaded330f0bc23840ac9886",
+  "A_reference_commit": "d5bf26adcf76f8c9af3165cdd7043cb3ff19649b",
+  "contract_id": "DEEPEYE-HUMAN-LOCK-20261014/revision1",
+  "requirements_sha256": "c229834bfc2292f5fe4411fc9f12c68487008f9d1adaf31f0144ee7a98173804",
+  "frozen_design": "1011259415a0916054eb580687612580bc1e5f09",
+  "python": "3.13.5 (tags/v3.13.5:6cb20a2, Jun 11 2025, 16:15:46) [MSC v.1943 64 bit (AMD64)]",
+  "python_executable": "C:\\Users\\Alan\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "reference_dependency_jsonschema": "4.26.0",
+  "commands": [
+    {
+      "name": "scope",
+      "cwd": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\deepeye-implementation-c",
+      "command": [
+        "C:\\Users\\Alan\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "docs/competition/deepeye-2026/verify_immutable_scope.py",
+        "--expected-sha",
+        "c229834bfc2292f5fe4411fc9f12c68487008f9d1adaf31f0144ee7a98173804"
+      ],
+      "started_utc": "2026-10-15T15:43:22.431904+00:00",
+      "finished_utc": "2026-10-15T15:43:22.601738+00:00",
+      "exit_code": 0,
+      "stdout": {
+        "path": "scope.stdout.txt",
+        "bytes": 272,
+        "sha256": "e6a0a5722482707d449e03400819ffe28ddb53cb53e43f355e9645f5c9303f1c",
+        "git_blob_sha1": "431ed7a3bf6822f8572c916076d549b5c97534eb"
+      },
+      "stderr": {
+        "path": "scope.stderr.txt",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "git_blob_sha1": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+      }
+    },
+    {
+      "name": "motion_request",
+      "cwd": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\deepeye-implementation-c\\competition\\deepeye",
+      "command": [
+        "C:\\Users\\Alan\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests/ai/control_broker",
+        "-p",
+        "test_motion_request.py",
+        "-v"
+      ],
+      "started_utc": "2026-10-15T15:43:22.601813+00:00",
+      "finished_utc": "2026-10-15T15:43:23.898099+00:00",
+      "exit_code": 0,
+      "stdout": {
+        "path": "motion_request.stdout.txt",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "git_blob_sha1": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+      },
+      "stderr": {
+        "path": "motion_request.stderr.txt",
+        "bytes": 4525,
+        "sha256": "5db4b4b28536b7292a967a3e6fd7f0570f3e09488642e92313465069fde66634",
+        "git_blob_sha1": "80ec8cb40aff127e8a8a44876381e1a7ecb838f4"
+      }
+    },
+    {
+      "name": "mailbox_regression",
+      "cwd": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\deepeye-implementation-c\\competition\\deepeye",
+      "command": [
+        "C:\\Users\\Alan\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests/ai/control_broker",
+        "-p",
+        "test_mailbox.py",
+        "-v"
+      ],
+      "started_utc": "2026-10-15T15:43:23.898151+00:00",
+      "finished_utc": "2026-10-15T15:43:24.209634+00:00",
+      "exit_code": 0,
+      "stdout": {
+        "path": "mailbox_regression.stdout.txt",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "git_blob_sha1": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+      },
+      "stderr": {
+        "path": "mailbox_regression.stderr.txt",
+        "bytes": 5844,
+        "sha256": "17a6bcada18516021fd029117cdee8ec0fb3c3cea00ffd994a8b62d01b74e236",
+        "git_blob_sha1": "666e5d6669293d81b2d5b69f1adccf87c57afbdb"
+      }
+    },
+    {
+      "name": "deadline_regression",
+      "cwd": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\deepeye-implementation-c\\competition\\deepeye",
+      "command": [
+        "C:\\Users\\Alan\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests/ai/control_broker",
+        "-p",
+        "test_deadlines.py",
+        "-v"
+      ],
+      "started_utc": "2026-10-15T15:43:24.209690+00:00",
+      "finished_utc": "2026-10-15T15:43:24.484264+00:00",
+      "exit_code": 0,
+      "stdout": {
+        "path": "deadline_regression.stdout.txt",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "git_blob_sha1": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+      },
+      "stderr": {
+        "path": "deadline_regression.stderr.txt",
+        "bytes": 4456,
+        "sha256": "10f9fcdcb914c9eddf9fcbf4b09884a77644db2f5ea25161f31e430fd9e733b5",
+        "git_blob_sha1": "725f2030688b708d22533dd8b53f3df0a8f5728c"
+      }
+    }
+  ],
+  "source_hashes": [
+    {
+      "path": "competition/deepeye/ai_pc/control_broker/motion_request.py",
+      "bytes": 18289,
+      "sha256": "db910520bb55cc0c86d7bd8c027c7ca9f0e363bbf0570ffb2e6ecac2b340b072",
+      "git_blob_sha1": "a2023e380afd0d39ef733742258a05602158342d"
+    },
+    {
+      "path": "competition/deepeye/ai_pc/control_broker/mailbox.py",
+      "bytes": 22532,
+      "sha256": "705b565d6047ae34a676566c2df42ef7596707656fc52e298380f1d3ffbb9f61",
+      "git_blob_sha1": "5612c3751836b31269c559b68375a46a82085523"
+    },
+    {
+      "path": "competition/deepeye/ai_pc/control_broker/deadlines.py",
+      "bytes": 16985,
+      "sha256": "9439b4bc2bc2fef5bea2fb829694c8c8e41c5102067775dde5e8d42721aa7bfc",
+      "git_blob_sha1": "b89c1008d52798170e91d3a71550f30403445f77"
+    },
+    {
+      "path": "competition/deepeye/tests/ai/control_broker/test_motion_request.py",
+      "bytes": 24714,
+      "sha256": "1e531025171c6863c50e7b2b2961aafcd42f80f4a43ec974dc2a444cef9c87db",
+      "git_blob_sha1": "df19dfbd4324040054e8c35b522d4af60231546c"
+    },
+    {
+      "path": "competition/deepeye/evidence/ai/motion_request/run_evidence.py",
+      "bytes": 6996,
+      "sha256": "6d04f49735453f1e58baae37117af14f6a77b174e6c9ebdcb69df56d8532af24",
+      "git_blob_sha1": "29446f7a5add17c9acd536894d6b077b4915a1c9"
+    },
+    {
+      "path": "competition/deepeye/tests/ai/control_broker/test_mailbox.py",
+      "bytes": 40555,
+      "sha256": "5f22312714ffda533bc9b3a7feaefde97a577aefa5f7a1248408f8ec1d75a125",
+      "git_blob_sha1": "4f962dc6ca2d8bc647f1aa5fdcb9362be7b94342"
+    },
+    {
+      "path": "competition/deepeye/tests/ai/control_broker/test_deadlines.py",
+      "bytes": 29212,
+      "sha256": "d6739eb0475ccf0ce450b0ebed13f5896e227783c2d41ab87851b1aad3170c8c",
+      "git_blob_sha1": "11807dd97b29dab8ca1b8629923ea1dbcc12a9f8"
+    },
+    {
+      "path": "docs/competition/deepeye-2026/immutable_scope.md",
+      "bytes": 6139,
+      "sha256": "27c5bf0b194036cf4300dbec371b6abba42bc5fda604da0e6e06284e4c5a2ddd",
+      "git_blob_sha1": "f744f507f5e972f77a07de7099bb381c1085961d"
+    },
+    {
+      "path": "docs/competition/deepeye-2026/immutable_scope.json",
+      "bytes": 6684,
+      "sha256": "6a86000e97d1571c0b7b89b9d3cf7facb11d2b6a06455eb1d53e0637676b6bc4",
+      "git_blob_sha1": "190e46b7dee1dba49f0d92f9044a898931a7644b"
+    },
+    {
+      "path": "docs/competition/deepeye-2026/verify_immutable_scope.py",
+      "bytes": 2287,
+      "sha256": "cb91a864a5b5f5a6bf014bbbd32b9656ee588075d9b115586df544c96cebc2eb",
+      "git_blob_sha1": "41b605cc2b6a38f8d922a97ef167c7625b0f7d8f"
+    },
+    {
+      "path": "competition/deepeye/evidence/ai/motion_request/README.md",
+      "bytes": 5053,
+      "sha256": "3e0d36fbb8e5e4ca06e9df56d6aaba06b4864ff05edd5a0bed8c1499362defc9",
+      "git_blob_sha1": "66a73112bacf61fc4316e169b0809aa2cacddf2a"
+    },
+    {
+      "path": "competition/deepeye/evidence/ai/motion_request/reference/manifest.json",
+      "bytes": 3163,
+      "sha256": "b39076c6282a29dda4a9af19ab6b409502f378f5fe2d5dffcd55396877c10750",
+      "git_blob_sha1": "dc78c710eb69c460284b5ff924c8a62d01ae57ae"
+    }
+  ],
+  "stages": {
+    "software_tests": "passed",
+    "authenticated_runtime_clock_source_liveness": "not_run",
+    "HIL_execution": "not_run",
+    "PC_DIRECT_execution": "not_run",
+    "physical_board": "not_run",
+    "system_acceptance": "not_run"
+  },
+  "limitations": [
+    "Runtime verifier is absent by default; test verifier is deliberately fake.",
+    "No live transport, process ACL, source liveness, measured clock or holdover proof.",
+    "No A motion_grant, physical capture, hardware or complete-route claim.",
+    "Single adapter/allocator lifetime must be integrated for each negotiated session."
+  ]
+}

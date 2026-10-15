@@ -1,0 +1,287 @@
+{
+  "work_id": "C-motion-request-adapter-review-repair1-20261015-v1",
+  "parent_work_id": "C-motion-request-adapter-20261015-v1",
+  "task_id": "DEEPEYE-IMPLEMENTATION-20261014",
+  "task_version": 1,
+  "base_commit": "6e1624d0b0ae3f46adaded330f0bc23840ac9886",
+  "A_reference_commit": "d5bf26adcf76f8c9af3165cdd7043cb3ff19649b",
+  "contract_id": "DEEPEYE-HUMAN-LOCK-20261014/revision1",
+  "requirements_sha256": "c229834bfc2292f5fe4411fc9f12c68487008f9d1adaf31f0144ee7a98173804",
+  "frozen_design": "1011259415a0916054eb580687612580bc1e5f09",
+  "python": "3.13.5 (tags/v3.13.5:6cb20a2, Jun 11 2025, 16:15:46) [MSC v.1943 64 bit (AMD64)]",
+  "python_executable": "C:\\Users\\Alan\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "reference_dependency_jsonschema": "4.26.0",
+  "commands": [
+    {
+      "name": "scope",
+      "cwd": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\deepeye-implementation-c",
+      "command": [
+        "C:\\Users\\Alan\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "docs/competition/deepeye-2026/verify_immutable_scope.py",
+        "--expected-sha",
+        "c229834bfc2292f5fe4411fc9f12c68487008f9d1adaf31f0144ee7a98173804"
+      ],
+      "started_utc": "2026-10-15T15:47:31.562278+00:00",
+      "finished_utc": "2026-10-15T15:47:31.742959+00:00",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "stdout": {
+        "path": "scope.stdout.txt",
+        "bytes": 272,
+        "sha256": "e6a0a5722482707d449e03400819ffe28ddb53cb53e43f355e9645f5c9303f1c",
+        "git_blob_sha1": "431ed7a3bf6822f8572c916076d549b5c97534eb"
+      },
+      "stderr": {
+        "path": "scope.stderr.txt",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "git_blob_sha1": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+      }
+    },
+    {
+      "name": "review_repair1_negative_control",
+      "cwd": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\deepeye-implementation-c\\competition\\deepeye",
+      "command": [
+        "C:\\Users\\Alan\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\deepeye-implementation-c\\competition\\deepeye\\evidence\\ai\\motion_request\\review_repair1\\negative_control.py"
+      ],
+      "started_utc": "2026-10-15T15:47:31.743042+00:00",
+      "finished_utc": "2026-10-15T15:47:32.081543+00:00",
+      "exit_code": 1,
+      "expected_exit_code": 1,
+      "stdout": {
+        "path": "review_repair1_negative_control.stdout.txt",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "git_blob_sha1": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+      },
+      "stderr": {
+        "path": "review_repair1_negative_control.stderr.txt",
+        "bytes": 3571,
+        "sha256": "c2038ae95062e95f73a83fce0294048da01a1903a4db825f607f40399ec2c89c",
+        "git_blob_sha1": "041e963519239e40447075e8ad2931c753df8a05"
+      }
+    },
+    {
+      "name": "motion_request",
+      "cwd": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\deepeye-implementation-c\\competition\\deepeye",
+      "command": [
+        "C:\\Users\\Alan\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests/ai/control_broker",
+        "-p",
+        "test_motion_request.py",
+        "-v"
+      ],
+      "started_utc": "2026-10-15T15:47:32.081594+00:00",
+      "finished_utc": "2026-10-15T15:47:34.014489+00:00",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "stdout": {
+        "path": "motion_request.stdout.txt",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "git_blob_sha1": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+      },
+      "stderr": {
+        "path": "motion_request.stderr.txt",
+        "bytes": 5084,
+        "sha256": "4aee398fd162efa907d1b7e8e19f53b22b0ae69d9a8119126ec840a24999bfd4",
+        "git_blob_sha1": "b6e888d174514049975ac22ec473a304b9a367a7"
+      }
+    },
+    {
+      "name": "mailbox_regression",
+      "cwd": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\deepeye-implementation-c\\competition\\deepeye",
+      "command": [
+        "C:\\Users\\Alan\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests/ai/control_broker",
+        "-p",
+        "test_mailbox.py",
+        "-v"
+      ],
+      "started_utc": "2026-10-15T15:47:34.014539+00:00",
+      "finished_utc": "2026-10-15T15:47:34.321281+00:00",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "stdout": {
+        "path": "mailbox_regression.stdout.txt",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "git_blob_sha1": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+      },
+      "stderr": {
+        "path": "mailbox_regression.stderr.txt",
+        "bytes": 5844,
+        "sha256": "17a6bcada18516021fd029117cdee8ec0fb3c3cea00ffd994a8b62d01b74e236",
+        "git_blob_sha1": "666e5d6669293d81b2d5b69f1adccf87c57afbdb"
+      }
+    },
+    {
+      "name": "deadline_regression",
+      "cwd": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\deepeye-implementation-c\\competition\\deepeye",
+      "command": [
+        "C:\\Users\\Alan\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests/ai/control_broker",
+        "-p",
+        "test_deadlines.py",
+        "-v"
+      ],
+      "started_utc": "2026-10-15T15:47:34.321332+00:00",
+      "finished_utc": "2026-10-15T15:47:34.616044+00:00",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "stdout": {
+        "path": "deadline_regression.stdout.txt",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "git_blob_sha1": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+      },
+      "stderr": {
+        "path": "deadline_regression.stderr.txt",
+        "bytes": 4456,
+        "sha256": "c0a3663cb0ca98140ed1d04392b976ad9a38da6edd59c15eadbeec17fba35d1e",
+        "git_blob_sha1": "90084a61caae782061ad9fd6738de1fe065bf4d9"
+      }
+    }
+  ],
+  "source_hashes": [
+    {
+      "path": "competition/deepeye/ai_pc/control_broker/motion_request.py",
+      "bytes": 19811,
+      "sha256": "29bf83a68929a882671bbed1a14b5a717e2e0bfa53cdb812512400a0aa621e7f",
+      "git_blob_sha1": "1fe7df7c0bc5a8b4fcbbe0d8ce29c8bc3deaaca8"
+    },
+    {
+      "path": "competition/deepeye/ai_pc/control_broker/mailbox.py",
+      "bytes": 22532,
+      "sha256": "705b565d6047ae34a676566c2df42ef7596707656fc52e298380f1d3ffbb9f61",
+      "git_blob_sha1": "5612c3751836b31269c559b68375a46a82085523"
+    },
+    {
+      "path": "competition/deepeye/ai_pc/control_broker/deadlines.py",
+      "bytes": 16985,
+      "sha256": "9439b4bc2bc2fef5bea2fb829694c8c8e41c5102067775dde5e8d42721aa7bfc",
+      "git_blob_sha1": "b89c1008d52798170e91d3a71550f30403445f77"
+    },
+    {
+      "path": "competition/deepeye/tests/ai/control_broker/test_motion_request.py",
+      "bytes": 28473,
+      "sha256": "f662e18845a6077790bab6a9bd9f148d3da8acfbfde13e74d4a3bcbf7d212bb0",
+      "git_blob_sha1": "50aa8ac7b7c95951ec04b58027c8caa08134b672"
+    },
+    {
+      "path": "competition/deepeye/evidence/ai/motion_request/run_evidence.py",
+      "bytes": 7568,
+      "sha256": "0aa3dc7acd92e46ca1a581080ebb6d30033e5f5993169927a940e35d9af11acf",
+      "git_blob_sha1": "4b727b0fb2c9d83602ef064131bfdcd78606b1c2"
+    },
+    {
+      "path": "competition/deepeye/tests/ai/control_broker/test_mailbox.py",
+      "bytes": 40555,
+      "sha256": "5f22312714ffda533bc9b3a7feaefde97a577aefa5f7a1248408f8ec1d75a125",
+      "git_blob_sha1": "4f962dc6ca2d8bc647f1aa5fdcb9362be7b94342"
+    },
+    {
+      "path": "competition/deepeye/tests/ai/control_broker/test_deadlines.py",
+      "bytes": 29212,
+      "sha256": "d6739eb0475ccf0ce450b0ebed13f5896e227783c2d41ab87851b1aad3170c8c",
+      "git_blob_sha1": "11807dd97b29dab8ca1b8629923ea1dbcc12a9f8"
+    },
+    {
+      "path": "docs/competition/deepeye-2026/immutable_scope.md",
+      "bytes": 6139,
+      "sha256": "27c5bf0b194036cf4300dbec371b6abba42bc5fda604da0e6e06284e4c5a2ddd",
+      "git_blob_sha1": "f744f507f5e972f77a07de7099bb381c1085961d"
+    },
+    {
+      "path": "docs/competition/deepeye-2026/immutable_scope.json",
+      "bytes": 6684,
+      "sha256": "6a86000e97d1571c0b7b89b9d3cf7facb11d2b6a06455eb1d53e0637676b6bc4",
+      "git_blob_sha1": "190e46b7dee1dba49f0d92f9044a898931a7644b"
+    },
+    {
+      "path": "docs/competition/deepeye-2026/verify_immutable_scope.py",
+      "bytes": 2287,
+      "sha256": "cb91a864a5b5f5a6bf014bbbd32b9656ee588075d9b115586df544c96cebc2eb",
+      "git_blob_sha1": "41b605cc2b6a38f8d922a97ef167c7625b0f7d8f"
+    },
+    {
+      "path": "competition/deepeye/evidence/ai/motion_request/README.md",
+      "bytes": 5786,
+      "sha256": "c9c51f08eb9e118273b60a689f0bde6cea76f8ce1188da70e5b5a2da28038199",
+      "git_blob_sha1": "a542bf3d592a09436c96166762093d60dfff589e"
+    },
+    {
+      "path": "competition/deepeye/evidence/ai/motion_request/reference/manifest.json",
+      "bytes": 3163,
+      "sha256": "b39076c6282a29dda4a9af19ab6b409502f378f5fe2d5dffcd55396877c10750",
+      "git_blob_sha1": "dc78c710eb69c460284b5ff924c8a62d01ae57ae"
+    },
+    {
+      "path": "competition/deepeye/evidence/ai/motion_request/review_repair1/README.md",
+      "bytes": 1370,
+      "sha256": "dc54609421fefd2182740e237b4650bcb4070198d497b6fd6b272c0773ec1227",
+      "git_blob_sha1": "edc14020faa56d5f4d2c06d1b22b79e2c9a72b82"
+    },
+    {
+      "path": "competition/deepeye/evidence/ai/motion_request/review_repair1/negative_control.py",
+      "bytes": 1319,
+      "sha256": "a9ef3fd580fdbd7caa62f390da16a87d0e72c5bebb766ace43335b0d48a0418d",
+      "git_blob_sha1": "4886c3d2709e3076931dcfe6c031538ee1442c2c"
+    },
+    {
+      "path": "competition/deepeye/evidence/ai/motion_request/review_repair1/pre_repair/motion_request.py",
+      "bytes": 18289,
+      "sha256": "db910520bb55cc0c86d7bd8c027c7ca9f0e363bbf0570ffb2e6ecac2b340b072",
+      "git_blob_sha1": "a2023e380afd0d39ef733742258a05602158342d"
+    },
+    {
+      "path": "competition/deepeye/evidence/ai/motion_request/review_repair1/pre_repair/test_motion_request.py",
+      "bytes": 24714,
+      "sha256": "1e531025171c6863c50e7b2b2961aafcd42f80f4a43ec974dc2a444cef9c87db",
+      "git_blob_sha1": "df19dfbd4324040054e8c35b522d4af60231546c"
+    }
+  ],
+  "stages": {
+    "software_tests": "passed",
+    "authenticated_runtime_clock_source_liveness": "not_run",
+    "HIL_execution": "not_run",
+    "PC_DIRECT_execution": "not_run",
+    "physical_board": "not_run",
+    "system_acceptance": "not_run"
+  },
+  "limitations": [
+    "Runtime verifier is absent by default; test verifier is deliberately fake.",
+    "No live transport, process ACL, source liveness, measured clock or holdover proof.",
+    "No A motion_grant, physical capture, hardware or complete-route claim.",
+    "Single adapter/allocator lifetime must be integrated for each negotiated session."
+  ]
+}

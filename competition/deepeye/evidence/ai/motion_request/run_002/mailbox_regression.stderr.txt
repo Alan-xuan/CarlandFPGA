@@ -1,0 +1,49 @@
+test_br22_oversized_caller_cap_rejected_even_empty (test_mailbox.CallerAgeCapBoundTests.test_br22_oversized_caller_cap_rejected_even_empty) ... ok
+test_cap_boundary_both_profiles (test_mailbox.CallerAgeCapBoundTests.test_cap_boundary_both_profiles) ... ok
+test_malformed_caps_rejected_without_state_change (test_mailbox.CallerAgeCapBoundTests.test_malformed_caps_rejected_without_state_change) ... ok
+test_stress_profile_allows_larger_legal_caller_cap (test_mailbox.CallerAgeCapBoundTests.test_stress_profile_allows_larger_legal_caller_cap) ... ok
+test_stricter_caller_budget_and_exact_expiry (test_mailbox.CallerAgeCapBoundTests.test_stricter_caller_budget_and_exact_expiry) ... ok
+test_br21_regressed_clock_rejected_after_missed_slot (test_mailbox.CallerClockHighWaterTests.test_br21_regressed_clock_rejected_after_missed_slot) ... ok
+test_empty_consume_establishes_clock_before_offer (test_mailbox.CallerClockHighWaterTests.test_empty_consume_establishes_clock_before_offer) ... ok
+test_expiry_then_higher_generation_regressed_clock_rejected (test_mailbox.CallerClockHighWaterTests.test_expiry_then_higher_generation_regressed_clock_rejected) ... ok
+test_future_completion_retries_at_equal_or_later_clock_only (test_mailbox.CallerClockHighWaterTests.test_future_completion_retries_at_equal_or_later_clock_only) ... ok
+test_high_water_scalar_is_constant_size_and_per_binding (test_mailbox.CallerClockHighWaterTests.test_high_water_scalar_is_constant_size_and_per_binding) ... ok
+test_malformed_arguments_never_advance_the_clock (test_mailbox.CallerClockHighWaterTests.test_malformed_arguments_never_advance_the_clock) ... ok
+test_age_boundary_drops_candidate (test_mailbox.ConsumptionTests.test_age_boundary_drops_candidate) ... ok
+test_age_is_measured_from_sample_lower_bound (test_mailbox.ConsumptionTests.test_age_is_measured_from_sample_lower_bound) ... ok
+test_b01_older_completion_after_consume_is_stale (test_mailbox.ConsumptionTests.test_b01_older_completion_after_consume_is_stale) ... ok
+test_b01_stale_older_completion_after_expiry_not_requeued (test_mailbox.ConsumptionTests.test_b01_stale_older_completion_after_expiry_not_requeued) ... ok
+test_b02_future_completion_rejected_and_retained (test_mailbox.ConsumptionTests.test_b02_future_completion_rejected_and_retained) ... ok
+test_completion_before_sample_lower_rejected (test_mailbox.ConsumptionTests.test_completion_before_sample_lower_rejected) ... ok
+test_completion_exactly_at_slot_deadline_is_ok (test_mailbox.ConsumptionTests.test_completion_exactly_at_slot_deadline_is_ok) ... ok
+test_consume_validation (test_mailbox.ConsumptionTests.test_consume_validation) ... ok
+test_consumed_time_before_sample_bound_rejected (test_mailbox.ConsumptionTests.test_consumed_time_before_sample_bound_rejected) ... ok
+test_consumption_is_never_movement_permission (test_mailbox.ConsumptionTests.test_consumption_is_never_movement_permission) ... ok
+test_empty_mailbox_consumes_nothing (test_mailbox.ConsumptionTests.test_empty_mailbox_consumes_nothing) ... ok
+test_evicted_observation_drops_pending (test_mailbox.ConsumptionTests.test_evicted_observation_drops_pending) ... ok
+test_high_water_persists_after_consume (test_mailbox.ConsumptionTests.test_high_water_persists_after_consume) ... ok
+test_higher_generation_is_new_without_age_renewal (test_mailbox.ConsumptionTests.test_higher_generation_is_new_without_age_renewal) ... ok
+test_next_slot_handoff_150_250ms (test_mailbox.ConsumptionTests.test_next_slot_handoff_150_250ms) ... ok
+test_absent_history_rejected (test_mailbox.OfferTests.test_absent_history_rejected) ... ok
+test_binding_mismatch_rejected (test_mailbox.OfferTests.test_binding_mismatch_rejected) ... ok
+test_conflicting_duplicate_same_key_rejected (test_mailbox.OfferTests.test_conflicting_duplicate_same_key_rejected) ... ok
+test_forged_candidate_inputs_rejected (test_mailbox.OfferTests.test_forged_candidate_inputs_rejected) ... ok
+test_generation_ordinal_order_within_observation (test_mailbox.OfferTests.test_generation_ordinal_order_within_observation) ... ok
+test_identical_duplicate_keeps_earliest_completion (test_mailbox.OfferTests.test_identical_duplicate_keeps_earliest_completion) ... ok
+test_newer_lineage_wins_over_late_old_completion (test_mailbox.OfferTests.test_newer_lineage_wins_over_late_old_completion) ... ok
+test_observation_fields_must_match_registered (test_mailbox.OfferTests.test_observation_fields_must_match_registered) ... ok
+test_bounded_history_retains_four_and_retires_oldest (test_mailbox.RegistrationTests.test_bounded_history_retains_four_and_retires_oldest) ... ok
+test_conflicting_reregistration_rejected (test_mailbox.RegistrationTests.test_conflicting_reregistration_rejected) ... ok
+test_id_reuse_after_eviction_requires_later_ordinal (test_mailbox.RegistrationTests.test_id_reuse_after_eviction_requires_later_ordinal) ... ok
+test_idempotent_reregistration_returns_same_ordinal (test_mailbox.RegistrationTests.test_idempotent_reregistration_returns_same_ordinal) ... ok
+test_lower_bound_regression_rejected (test_mailbox.RegistrationTests.test_lower_bound_regression_rejected) ... ok
+test_more_than_1000_registrations_stay_constant_size (test_mailbox.RegistrationTests.test_more_than_1000_registrations_stay_constant_size) ... ok
+test_no_wrap_or_restart_within_binding (test_mailbox.RegistrationTests.test_no_wrap_or_restart_within_binding) ... ok
+test_non_increasing_tick_rejected_as_sequence_wrap (test_mailbox.RegistrationTests.test_non_increasing_tick_rejected_as_sequence_wrap) ... ok
+test_register_validation (test_mailbox.RegistrationTests.test_register_validation) ... ok
+test_uint64_ordinal_bounds (test_mailbox.RegistrationTests.test_uint64_ordinal_bounds) ... ok
+
+----------------------------------------------------------------------
+Ran 44 tests in 0.005s
+
+OK

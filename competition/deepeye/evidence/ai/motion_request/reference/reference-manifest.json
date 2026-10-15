@@ -1,0 +1,42 @@
+{
+  "repository": "carolwjade/CarlandFPGA",
+  "pull_request": 24,
+  "commit": "d5bf26adcf76f8c9af3165cdd7043cb3ff19649b",
+  "frozen_base": "1011259415a0916054eb580687612580bc1e5f09",
+  "contract_id": "DEEPEYE-HUMAN-LOCK-20261014/revision1",
+  "requirements_sha256": "c229834bfc2292f5fe4411fc9f12c68487008f9d1adaf31f0144ee7a98173804",
+  "files": [
+    {
+      "path": "competition/deepeye/docs/host_contract.json",
+      "local_file": "host_contract.json",
+      "bytes": 19892,
+      "git_blob_sha1": "11ae4992cb4983684c90460f5622d41efae76670",
+      "sha256": "a291d48a8791757bf0d612bdcc08d4c5c0d2a133b57990e803063619f8a88f28",
+      "source_url": "https://github.com/carolwjade/CarlandFPGA/blob/d5bf26adcf76f8c9af3165cdd7043cb3ff19649b/competition/deepeye/docs/host_contract.json"
+    },
+    {
+      "path": "competition/deepeye/docs/host_timing_contract.md",
+      "local_file": "host_timing_contract.md",
+      "bytes": 8180,
+      "git_blob_sha1": "2118b7fbb2a21cf9f00dc1154c4ae55c7381c7c4",
+      "sha256": "0f15f4f2589f4804ef671d520531fc12f163d2df21ca887e40723492f2eff5ff",
+      "source_url": "https://github.com/carolwjade/CarlandFPGA/blob/d5bf26adcf76f8c9af3165cdd7043cb3ff19649b/competition/deepeye/docs/host_timing_contract.md"
+    },
+    {
+      "path": "competition/deepeye/docs/trace_contract_review.md",
+      "local_file": "trace_contract_review.md",
+      "bytes": 14359,
+      "git_blob_sha1": "b241e5a0357674a359f97d9553bb39ece324d341",
+      "sha256": "0b96fd5845c49d10e38658f6fbbe9e87a0e9a0a5ef91a523028b0d2afbd7dd88",
+      "source_url": "https://github.com/carolwjade/CarlandFPGA/blob/d5bf26adcf76f8c9af3165cdd7043cb3ff19649b/competition/deepeye/docs/trace_contract_review.md"
+    },
+    {
+      "path": "competition/deepeye/integration/host_envelope.py",
+      "local_file": "host_envelope.py",
+      "bytes": 26184,
+      "git_blob_sha1": "705ef2e8b33d0e8c3874e65172dd334307c5a889",
+      "sha256": "025adf0eee851327f6492ac853b77bc6ebfbb26c17eb7960f01baf644de4b7fd",
+      "source_url": "https://github.com/carolwjade/CarlandFPGA/blob/d5bf26adcf76f8c9af3165cdd7043cb3ff19649b/competition/deepeye/integration/host_envelope.py"
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+[
+  {
+    "path": "competition/deepeye/docs/enums.json",
+    "local_file": "enums.json",
+    "bytes": 3255,
+    "git_blob_sha1": "5eb1ea83660ebff0b313b41ff2ab529170583002",
+    "sha256": "a52f3631d94d396c7da769f82a09e70d55c765b0c2651de27476e644c486573e"
+  },
+  {
+    "path": "competition/deepeye/docs/interface.json",
+    "local_file": "interface.json",
+    "bytes": 23031,
+    "git_blob_sha1": "ed7d405510c4c5d542e98cbc67c016aadfca9fe8",
+    "sha256": "0577cba5bfeda43171483abc73545e45806c44ea5546d1bcb1d581cd49b450cb"
+  },
+  {
+    "path": "competition/deepeye/integration/clock_bounds.py",
+    "local_file": "clock_bounds.py",
+    "bytes": 10136,
+    "git_blob_sha1": "0bec384496c8dc39bea63845eb52e3d5afbc77c8",
+    "sha256": "d4dcbeff8f741574c6842ee7556d8e04fcce8731b0f9ad4f413dc5968b59dc08"
+  },
+  {
+    "path": "competition/deepeye/integration/motion.py",
+    "local_file": "motion.py",
+    "bytes": 3770,
+    "git_blob_sha1": "698778a0112f7274c3d2da22abda81812e36701a",
+    "sha256": "69d016f8890298829e71c18efbbb76e747bbf5c79d2ca3af1d5defd364071822"
+  },
+  {
+    "path": "competition/deepeye/integration/wire.py",
+    "local_file": "wire.py",
+    "bytes": 5459,
+    "git_blob_sha1": "ca2a7d9ad44c239cbf36840d35a502a306cd6834",
+    "sha256": "31533439f1bab32ca71fae138bb988f51ce1d043b4e364a6c33a09eab1d5f5ec"
+  }
+]

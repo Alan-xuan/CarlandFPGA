@@ -1,0 +1,35 @@
+test_mutated_context_and_shadowed_validation_cannot_emit_invalid_context (repair1_new_tests.RuntimeBoundaryTests.test_mutated_context_and_shadowed_validation_cannot_emit_invalid_context) ... FAIL
+test_observation_class_validation_and_detached_sample_snapshots (repair1_new_tests.RuntimeBoundaryTests.test_observation_class_validation_and_detached_sample_snapshots) ... FAIL
+test_deadline_signed63_overflow_blocks_without_fabricating_timing (repair1_new_tests.RuntimeBoundaryTests.test_deadline_signed63_overflow_blocks_without_fabricating_timing) ... FAIL
+
+======================================================================
+FAIL: test_mutated_context_and_shadowed_validation_cannot_emit_invalid_context (repair1_new_tests.RuntimeBoundaryTests.test_mutated_context_and_shadowed_validation_cannot_emit_invalid_context)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\deepeye-implementation-c\competition\deepeye\tests\ai\control_broker\test_motion_request.py", line 369, in test_mutated_context_and_shadowed_validation_cannot_emit_invalid_context
+    with self.assertRaises(MotionRequestError):
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+AssertionError: MotionRequestError not raised
+
+======================================================================
+FAIL: test_observation_class_validation_and_detached_sample_snapshots (repair1_new_tests.RuntimeBoundaryTests.test_observation_class_validation_and_detached_sample_snapshots)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\deepeye-implementation-c\competition\deepeye\tests\ai\control_broker\test_motion_request.py", line 397, in test_observation_class_validation_and_detached_sample_snapshots
+    with self.assertRaises(MotionRequestError):
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+AssertionError: MotionRequestError not raised
+
+======================================================================
+FAIL: test_deadline_signed63_overflow_blocks_without_fabricating_timing (repair1_new_tests.RuntimeBoundaryTests.test_deadline_signed63_overflow_blocks_without_fabricating_timing)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\deepeye-implementation-c\competition\deepeye\tests\ai\control_broker\test_motion_request.py", line 416, in test_deadline_signed63_overflow_blocks_without_fabricating_timing
+    self.assertIsNone(result.request_bytes)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: b'{"candidate_id":1,"command_seq":0,"context":{"acquisition_profile_id":1,"boot_sha256":"bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb","config_epoch":3,"session":42,"source_id":1,"topology_id":2,"transport_profile_id":1},"host_issue_monotonic_ns":9223372036849775807,"kind":"motion_request","observation":{"context":{"acquisition_profile_id":1,"boot_sha256":"bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb","config_epoch":3,"session":42,"source_id":1,"topology_id":2,"transport_profile_id":1},"observed_seq":7},"schema_version":1,"target":{"action":1,"duration_ms":1000,"pitch_q":0,"speed_code":20,"yaw_q":0}}' is not None
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.004s
+
+FAILED (failures=3)

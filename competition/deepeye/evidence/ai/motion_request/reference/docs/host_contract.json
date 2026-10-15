@@ -1,0 +1,777 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:carlandfpga:deepeye:host-contract:v1",
+  "title": "DeepEye local pipe whitelist revision 1",
+  "description": "A-owned structure contract only. Runtime cross-field validation, ACL separation and measured timing/capture are required independently. No product acceptance.",
+  "x-owner": "A-main",
+  "x-implementation-task": "DEEPEYE-IMPLEMENTATION-20261014/v1",
+  "x-design-commit": "1011259415a0916054eb580687612580bc1e5f09",
+  "x-immutable-scope-sha256": "c229834bfc2292f5fe4411fc9f12c68487008f9d1adaf31f0144ee7a98173804",
+  "x-status": "structure_reviewed_runtime_and_process_isolation_not_run",
+  "oneOf": [
+    {
+      "$ref": "#/$defs/telem_observation"
+    },
+    {
+      "$ref": "#/$defs/event_observation"
+    },
+    {
+      "$ref": "#/$defs/model_candidate"
+    },
+    {
+      "$ref": "#/$defs/motion_request"
+    },
+    {
+      "$ref": "#/$defs/motion_grant"
+    },
+    {
+      "$ref": "#/$defs/odometry"
+    },
+    {
+      "$ref": "#/$defs/public_task_geometry"
+    },
+    {
+      "$ref": "#/$defs/board_response"
+    }
+  ],
+  "$defs": {
+    "interval_ns": {
+      "type": "object",
+      "properties": {
+        "lower_ns": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9223372036854775807
+        },
+        "upper_ns": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9223372036854775807
+        }
+      },
+      "required": [
+        "lower_ns",
+        "upper_ns"
+      ],
+      "additionalProperties": false
+    },
+    "context": {
+      "type": "object",
+      "properties": {
+        "session": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4294967295
+        },
+        "config_epoch": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 255
+        },
+        "boot_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "transport_profile_id": {
+          "enum": [
+            1,
+            2
+          ]
+        },
+        "source_id": {
+          "enum": [
+            1,
+            2,
+            3,
+            4
+          ]
+        },
+        "topology_id": {
+          "enum": [
+            1,
+            2,
+            3
+          ]
+        },
+        "acquisition_profile_id": {
+          "enum": [
+            1,
+            2,
+            3
+          ]
+        }
+      },
+      "required": [
+        "session",
+        "config_epoch",
+        "boot_sha256",
+        "transport_profile_id",
+        "source_id",
+        "topology_id",
+        "acquisition_profile_id"
+      ],
+      "additionalProperties": false
+    },
+    "observation_key": {
+      "type": "object",
+      "properties": {
+        "context": {
+          "$ref": "#/$defs/context"
+        },
+        "observed_seq": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 65535
+        }
+      },
+      "required": [
+        "context",
+        "observed_seq"
+      ],
+      "additionalProperties": false
+    },
+    "motion_target": {
+      "type": "object",
+      "properties": {
+        "action": {
+          "enum": [
+            0,
+            1
+          ]
+        },
+        "yaw_q": {
+          "type": "integer",
+          "minimum": -15000,
+          "maximum": 15000
+        },
+        "pitch_q": {
+          "type": "integer",
+          "minimum": -15000,
+          "maximum": 15000
+        },
+        "speed_code": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 20
+        },
+        "duration_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 12000
+        }
+      },
+      "required": [
+        "action",
+        "yaw_q",
+        "pitch_q",
+        "speed_code",
+        "duration_ms"
+      ],
+      "additionalProperties": false
+    },
+    "pose": {
+      "type": "object",
+      "properties": {
+        "position_m": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          },
+          "minItems": 3,
+          "maxItems": 3
+        },
+        "orientation_xyzw": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          },
+          "minItems": 4,
+          "maxItems": 4
+        },
+        "position_error_bound_m": {
+          "type": "number",
+          "minimum": 0
+        },
+        "orientation_error_bound_rad": {
+          "type": "number",
+          "minimum": 0
+        }
+      },
+      "required": [
+        "position_m",
+        "orientation_xyzw",
+        "position_error_bound_m",
+        "orientation_error_bound_rad"
+      ],
+      "additionalProperties": false
+    },
+    "gate": {
+      "type": "object",
+      "properties": {
+        "face": {
+          "enum": [
+            "+X",
+            "-X",
+            "+Y",
+            "-Y",
+            "+Z",
+            "-Z"
+          ]
+        },
+        "center_m": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          },
+          "minItems": 3,
+          "maxItems": 3
+        },
+        "radius_m": {
+          "const": 0.15
+        }
+      },
+      "required": [
+        "face",
+        "center_m",
+        "radius_m"
+      ],
+      "additionalProperties": false
+    },
+    "telem_observation": {
+      "type": "object",
+      "properties": {
+        "schema_version": {
+          "const": 1
+        },
+        "context": {
+          "$ref": "#/$defs/context"
+        },
+        "kind": {
+          "const": "telem_observation"
+        },
+        "observed_seq": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 65535
+        },
+        "tick_ms_raw": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4294967295
+        },
+        "receipt_interval_ns": {
+          "$ref": "#/$defs/interval_ns"
+        },
+        "adc_last_interval_ns": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/interval_ns"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "adc_first_interval_ns": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/interval_ns"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "native_em_interval_ns": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/interval_ns"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "sample_count": {
+          "enum": [
+            50,
+            800
+          ]
+        },
+        "mean_counts": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 65535
+          },
+          "minItems": 4,
+          "maxItems": 4
+        },
+        "range_counts": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 65535
+          },
+          "minItems": 4,
+          "maxItems": 4
+        },
+        "quality_flags": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 65535
+        },
+        "wire_frame_hex": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        }
+      },
+      "required": [
+        "schema_version",
+        "context",
+        "kind",
+        "observed_seq",
+        "tick_ms_raw",
+        "receipt_interval_ns",
+        "adc_last_interval_ns",
+        "adc_first_interval_ns",
+        "native_em_interval_ns",
+        "sample_count",
+        "mean_counts",
+        "range_counts",
+        "quality_flags",
+        "wire_frame_hex"
+      ],
+      "additionalProperties": false
+    },
+    "event_observation": {
+      "type": "object",
+      "properties": {
+        "schema_version": {
+          "const": 1
+        },
+        "context": {
+          "$ref": "#/$defs/context"
+        },
+        "kind": {
+          "const": "event_observation"
+        },
+        "observed_seq": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 65535
+        },
+        "tick_ms_raw": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4294967295
+        },
+        "receipt_interval_ns": {
+          "$ref": "#/$defs/interval_ns"
+        },
+        "trigger_sample_interval_ns": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/interval_ns"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "bitmap": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 65535
+        },
+        "channel": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 3
+        },
+        "severity": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 255
+        },
+        "peak_counts": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 65535
+        },
+        "wire_frame_hex": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{40}$"
+        }
+      },
+      "required": [
+        "schema_version",
+        "context",
+        "kind",
+        "observed_seq",
+        "tick_ms_raw",
+        "receipt_interval_ns",
+        "trigger_sample_interval_ns",
+        "bitmap",
+        "channel",
+        "severity",
+        "peak_counts",
+        "wire_frame_hex"
+      ],
+      "additionalProperties": false
+    },
+    "model_candidate": {
+      "type": "object",
+      "properties": {
+        "schema_version": {
+          "const": 1
+        },
+        "context": {
+          "$ref": "#/$defs/context"
+        },
+        "kind": {
+          "const": "model_candidate"
+        },
+        "candidate_id": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9223372036854775807
+        },
+        "model_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "observation": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/observation_key"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "completed_monotonic_ns": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9223372036854775807
+        },
+        "target": {
+          "$ref": "#/$defs/motion_target"
+        }
+      },
+      "required": [
+        "schema_version",
+        "context",
+        "kind",
+        "candidate_id",
+        "model_sha256",
+        "observation",
+        "completed_monotonic_ns",
+        "target"
+      ],
+      "additionalProperties": false
+    },
+    "motion_request": {
+      "type": "object",
+      "properties": {
+        "schema_version": {
+          "const": 1
+        },
+        "context": {
+          "$ref": "#/$defs/context"
+        },
+        "kind": {
+          "const": "motion_request"
+        },
+        "candidate_id": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9223372036854775807
+        },
+        "command_seq": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 65535
+        },
+        "observation": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/observation_key"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "host_issue_monotonic_ns": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9223372036854775807
+        },
+        "target": {
+          "$ref": "#/$defs/motion_target"
+        }
+      },
+      "required": [
+        "schema_version",
+        "context",
+        "kind",
+        "candidate_id",
+        "command_seq",
+        "observation",
+        "host_issue_monotonic_ns",
+        "target"
+      ],
+      "additionalProperties": false
+    },
+    "motion_grant": {
+      "type": "object",
+      "properties": {
+        "schema_version": {
+          "const": 1
+        },
+        "context": {
+          "$ref": "#/$defs/context"
+        },
+        "kind": {
+          "const": "motion_grant"
+        },
+        "command_seq": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 65535
+        },
+        "observation": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/observation_key"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "target": {
+          "$ref": "#/$defs/motion_target"
+        },
+        "action_source": {
+          "enum": [
+            "board_capture",
+            "pc_direct_host",
+            "fpga_local_capture"
+          ]
+        },
+        "deadline_monotonic_ns": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9223372036854775807
+        },
+        "capture_seq": {
+          "oneOf": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 65535
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "schema_version",
+        "context",
+        "kind",
+        "command_seq",
+        "observation",
+        "target",
+        "action_source",
+        "deadline_monotonic_ns",
+        "capture_seq"
+      ],
+      "additionalProperties": false
+    },
+    "odometry": {
+      "type": "object",
+      "properties": {
+        "schema_version": {
+          "const": 1
+        },
+        "context": {
+          "$ref": "#/$defs/context"
+        },
+        "kind": {
+          "const": "odometry"
+        },
+        "at_interval_ns": {
+          "$ref": "#/$defs/interval_ns"
+        },
+        "pose": {
+          "$ref": "#/$defs/pose"
+        },
+        "provenance": {
+          "enum": [
+            "executed_motion_integrator",
+            "encoder_estimate"
+          ]
+        }
+      },
+      "required": [
+        "schema_version",
+        "context",
+        "kind",
+        "at_interval_ns",
+        "pose",
+        "provenance"
+      ],
+      "additionalProperties": false
+    },
+    "public_task_geometry": {
+      "type": "object",
+      "properties": {
+        "schema_version": {
+          "const": 1
+        },
+        "context": {
+          "$ref": "#/$defs/context"
+        },
+        "kind": {
+          "const": "public_task_geometry"
+        },
+        "cube_half_extent_m": {
+          "const": 15
+        },
+        "drill_radius_m": {
+          "const": 0.12
+        },
+        "drill_length_m": {
+          "const": 0.8
+        },
+        "minimum_turn_radius_m": {
+          "const": 2
+        },
+        "acceleration_bound_m_s2": {
+          "const": 0.25
+        },
+        "entry_blue": {
+          "$ref": "#/$defs/gate"
+        },
+        "exit_red": {
+          "$ref": "#/$defs/gate"
+        },
+        "initial_odometry": {
+          "$ref": "#/$defs/pose"
+        }
+      },
+      "required": [
+        "schema_version",
+        "context",
+        "kind",
+        "cube_half_extent_m",
+        "drill_radius_m",
+        "drill_length_m",
+        "minimum_turn_radius_m",
+        "acceleration_bound_m_s2",
+        "entry_blue",
+        "exit_red",
+        "initial_odometry"
+      ],
+      "additionalProperties": false
+    },
+    "board_response": {
+      "type": "object",
+      "properties": {
+        "schema_version": {
+          "const": 1
+        },
+        "context": {
+          "$ref": "#/$defs/context"
+        },
+        "kind": {
+          "const": "board_response"
+        },
+        "receipt_interval_ns": {
+          "$ref": "#/$defs/interval_ns"
+        },
+        "wire_frame_hex": {
+          "type": "string",
+          "pattern": "^(?:[0-9a-f]{2}){14,46}$"
+        },
+        "timing_record_sha256": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "physical_capture_record_sha256": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "schema_version",
+        "context",
+        "kind",
+        "receipt_interval_ns",
+        "wire_frame_hex",
+        "timing_record_sha256",
+        "physical_capture_record_sha256"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "x-producers": {
+    "hardware_bridge": [
+      "telem_observation",
+      "event_observation",
+      "board_response"
+    ],
+    "ai_controller": [
+      "model_candidate"
+    ],
+    "control_broker": [
+      "motion_request"
+    ],
+    "world_authority": [
+      "motion_grant",
+      "odometry",
+      "public_task_geometry"
+    ]
+  },
+  "x-cross-field-invariants": [
+    "Reject duplicate JSON keys, NaN/Infinity, non-integral timestamps and booleans as integer fields; bounded message length before parsing.",
+    "All nested context fields must equal the top-level context and active negotiated BOOT/profile/session; unknown fields or enums reject.",
+    "Re-encode/reparse wire_frame_hex with ABI3 CRC/length/type; header sequence/config_epoch/tick and payload must exactly match envelope.",
+    "TELEM count is50 for fast_9600 and800 for stress_300; sample windows are actual acquisition windows, not receipt times.",
+    "Intervals satisfy0<=lower<=upper; unknown intervals are null and block motion. Native EM interval remains null without verified source phase.",
+    "Candidates complete no later than host now; candidate/command ids cannot roll back or wrap within a session. Latest completed mailbox never revives consumed or retired work.",
+    "Duration <=3000ms FAST or <=12000ms STRESS; action STOP requires all target fields zero and may carry null observation. SET_TARGET requires a nonnull fresh actual FPGA observation in formal HIL/PC_DIRECT.",
+    "Validate target combined curvature and zero-speed q rule; preserve first-send/original TTL and monotonically shrinking deadline under host_timing_contract.md.",
+    "Grant producers are authenticated by process/pipe ACL, not by the kind string; ai_controller/broker cannot write the grant pipe.",
+    "HIL/topology1 usesboard_capture and nonnullcapture_seq; PC_DIRECT/topology2 usespc_direct_host and nullcapture_seq; topology3 isprotectivebaseline, notcomplete-routeclaim.",
+    "Pose quaternion finite, unit and xyzw; uncertain odometry contains only self pose. Gate centers must lie on selected faces with full-circle clearance and equal radii; geometry legality does not prove reachability.",
+    "No controller inputs may contain obstacle IDs/geometry/type/labels, hidden-map seeds, editor history, future sensors, collision queries, screenshots or precomputed hidden routes.",
+    "board_response is hardware_bridge-to-world_authority only, never a controller/model input. Decode ABI3 CRC and exact type/length; only STATE(8), CONFIG_ACK(9), GAIN_ACK(11), BOOT_ACK(13), ACK3D(15), STATE3D(16). The decoded session and applicable epoch must match context; current response/request/observation history and capture/TTL are independently checked by authority before any grant.",
+    "For BOOT_ACK, context is the proposed stopped-state negotiation, not an already-enabled context. Exact complete BOOT/profile echo and fresh session are required before activating it. A stored measurement hash is a reference, never authentication or a substitute for verified measurement content; null timing/capture evidence cannot authorize HIL motion.",
+    "STATE(8) is a 32-byte physical GAIN or PC_DIRECT health/clock heartbeat. It never provides three-axis motion capture, observed_seq, sample freshness, or a renewed motion deadline. PC_DIRECT STATE requires physical_capture_record_sha256=null; fault state is forwarded for authority to stop."
+  ],
+  "x-authority-only-kinds": [
+    "board_response"
+  ]
+}

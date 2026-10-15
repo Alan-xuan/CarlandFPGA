@@ -1,0 +1,34 @@
+{
+  "work_id": "C-independent-motion-adapter-verifier-20261015-v1",
+  "scope": "Independent software record/fixture checks only; no runtime/ACL/source-clock/capture/board/product acceptance",
+  "a_commit": "d5bf26adcf76f8c9af3165cdd7043cb3ff19649b",
+  "a_references": {
+    "host_contract.json": "a291d48a8791757bf0d612bdcc08d4c5c0d2a133b57990e803063619f8a88f28",
+    "host_envelope.py": "025adf0eee851327f6492ac853b77bc6ebfbb26c17eb7960f01baf644de4b7fd",
+    "motion.py": "69d016f8890298829e71c18efbbb76e747bbf5c79d2ca3af1d5defd364071822",
+    "wire.py": "31533439f1bab32ca71fae138bb988f51ce1d043b4e364a6c33a09eab1d5f5ec"
+  },
+  "immutable_scope_sha256": "c229834bfc2292f5fe4411fc9f12c68487008f9d1adaf31f0144ee7a98173804",
+  "python_executable": "C:\\Users\\Alan\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+  "python_version": "3.13.5 (tags/v3.13.5:6cb20a2, Jun 11 2025, 16:15:46) [MSC v.1943 64 bit (AMD64)]",
+  "jsonschema": "4.26.0",
+  "verifier_source_sha256": "1e16410730672400fc5fa02e85024c2ea4edf18ca139227c955371abe7d65b41",
+  "source_hashes_before": {
+    "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\deepeye-implementation-c\\competition\\deepeye\\ai_pc\\control_broker\\motion_request.py": "29bf83a68929a882671bbed1a14b5a717e2e0bfa53cdb812512400a0aa621e7f",
+    "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\deepeye-implementation-c\\competition\\deepeye\\ai_pc\\control_broker\\mailbox.py": "705b565d6047ae34a676566c2df42ef7596707656fc52e298380f1d3ffbb9f61",
+    "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\deepeye-implementation-c\\competition\\deepeye\\ai_pc\\control_broker\\deadlines.py": "9439b4bc2bc2fef5bea2fb829694c8c8e41c5102067775dde5e8d42721aa7bfc"
+  },
+  "source_hashes_after": {
+    "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\deepeye-implementation-c\\competition\\deepeye\\ai_pc\\control_broker\\motion_request.py": "29bf83a68929a882671bbed1a14b5a717e2e0bfa53cdb812512400a0aa621e7f",
+    "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\deepeye-implementation-c\\competition\\deepeye\\ai_pc\\control_broker\\mailbox.py": "705b565d6047ae34a676566c2df42ef7596707656fc52e298380f1d3ffbb9f61",
+    "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\deepeye-implementation-c\\competition\\deepeye\\ai_pc\\control_broker\\deadlines.py": "9439b4bc2bc2fef5bea2fb829694c8c8e41c5102067775dde5e8d42721aa7bfc"
+  },
+  "source_bytes_unchanged": true,
+  "tests_run": 17,
+  "random_deadline_vectors": 96,
+  "public_stop_allocations": 65536,
+  "failures": 0,
+  "errors": 0,
+  "exit_code": 0,
+  "raw_log_sha256": "0636cd40bf6e5407021c45736e7c8d0c4bdc2e8b3feb461ad0ce8d913a34a450"
+}

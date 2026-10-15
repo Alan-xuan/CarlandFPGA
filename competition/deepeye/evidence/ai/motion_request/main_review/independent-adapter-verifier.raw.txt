@@ -1,0 +1,22 @@
+test_01_exact_A_interoperability_and_projection (__main__.IndependentAdapterTests.test_01_exact_A_interoperability_and_projection) ... ok
+test_02_missing_provenance_is_closed_and_identity_retired (__main__.IndependentAdapterTests.test_02_missing_provenance_is_closed_and_identity_retired) ... ok
+test_03_verifier_failure_or_non_none_is_closed (__main__.IndependentAdapterTests.test_03_verifier_failure_or_non_none_is_closed) ... ok
+test_04_safe_stop_independent_of_observation_and_verifier (__main__.IndependentAdapterTests.test_04_safe_stop_independent_of_observation_and_verifier) ... ok
+test_05_model_stop_null_observation_is_legal (__main__.IndependentAdapterTests.test_05_model_stop_null_observation_is_legal) ... ok
+test_06_replay_or_changed_payload_cannot_reissue (__main__.IndependentAdapterTests.test_06_replay_or_changed_payload_cannot_reissue) ... ok
+test_07_candidate_id_monotonicity_and_range (__main__.IndependentAdapterTests.test_07_candidate_id_monotonicity_and_range) ... ok
+test_08_context_whitelist_and_target_rejections (__main__.IndependentAdapterTests.test_08_context_whitelist_and_target_rejections) ... ok
+test_09_raw_parser_rejects_duplicates_nonfinite_and_oversize (__main__.IndependentAdapterTests.test_09_raw_parser_rejects_duplicates_nonfinite_and_oversize) ... ok
+test_10_timestamp_and_clock_order_fail_closed (__main__.IndependentAdapterTests.test_10_timestamp_and_clock_order_fail_closed) ... ok
+test_11_history_eviction_and_wrong_reference (__main__.IndependentAdapterTests.test_11_history_eviction_and_wrong_reference) ... ok
+test_12_independent_random_deadline_arithmetic (__main__.IndependentAdapterTests.test_12_independent_random_deadline_arithmetic) ... ok
+test_13_exact_deadline_and_age_expire (__main__.IndependentAdapterTests.test_13_exact_deadline_and_age_expire) ... ok
+test_14_public_command_allocator_never_wraps (__main__.IndependentAdapterTests.test_14_public_command_allocator_never_wraps) ... ok
+test_15_candidate_allocator_does_not_wrap_at_INT63 (__main__.IndependentAdapterTests.test_15_candidate_allocator_does_not_wrap_at_INT63) ... ok
+test_16_mutated_dataclasses_cannot_bypass_public_boundaries (__main__.IndependentAdapterTests.test_16_mutated_dataclasses_cannot_bypass_public_boundaries) ... ok
+test_17_deadline_representability_does_not_wrap_or_authorize (__main__.IndependentAdapterTests.test_17_deadline_representability_does_not_wrap_or_authorize) ... ok
+
+----------------------------------------------------------------------
+Ran 17 tests in 1.804s
+
+OK

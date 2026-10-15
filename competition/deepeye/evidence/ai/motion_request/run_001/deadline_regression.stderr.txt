@@ -1,0 +1,39 @@
+test_profile_limits_mapping_is_read_only (test_deadlines.FrozenLimitsTests.test_profile_limits_mapping_is_read_only) ... ok
+test_profile_limits_values_are_frozen (test_deadlines.FrozenLimitsTests.test_profile_limits_values_are_frozen) ... ok
+test_b04_pc_direct_future_sample_lower_now_rejected (test_deadlines.FutureSampleLowerTests.test_b04_pc_direct_future_sample_lower_now_rejected) ... ok
+test_hil_rejects_sample_lower_after_first_send (test_deadlines.FutureSampleLowerTests.test_hil_rejects_sample_lower_after_first_send) ... ok
+test_age_term_binds_for_fast_profile (test_deadlines.HilDeadlineTests.test_age_term_binds_for_fast_profile) ... ok
+test_fast_analogue_3s_ttl (test_deadlines.HilDeadlineTests.test_fast_analogue_3s_ttl) ... ok
+test_first_ack_lost_bounded_by_first_send_plus_ttl (test_deadlines.HilDeadlineTests.test_first_ack_lost_bounded_by_first_send_plus_ttl) ... ok
+test_late_ack_8s_original_ttl_12s_stale_replay_never_extends (test_deadlines.HilDeadlineTests.test_late_ack_8s_original_ttl_12s_stale_replay_never_extends) ... ok
+test_late_ack_8s_reduced_remaining_stops_earlier (test_deadlines.HilDeadlineTests.test_late_ack_8s_reduced_remaining_stops_earlier) ... ok
+test_late_ack_with_state_event_lost_stops (test_deadlines.HilDeadlineTests.test_late_ack_with_state_event_lost_stops) ... ok
+test_negative_delay_subtraction_yields_immediate_stop (test_deadlines.HilDeadlineTests.test_negative_delay_subtraction_yields_immediate_stop) ... ok
+test_previous_deadline_chain_cannot_extend (test_deadlines.HilDeadlineTests.test_previous_deadline_chain_cannot_extend) ... ok
+test_receipt_absent_with_bounds_rejected (test_deadlines.HilDeadlineTests.test_receipt_absent_with_bounds_rejected) ... ok
+test_receipt_term_150ms (test_deadlines.HilDeadlineTests.test_receipt_term_150ms) ... ok
+test_receipt_term_250ms (test_deadlines.HilDeadlineTests.test_receipt_term_250ms) ... ok
+test_unknown_usb_clock_or_serialization_bound_stops (test_deadlines.HilDeadlineTests.test_unknown_usb_clock_or_serialization_bound_stops) ... ok
+test_expired_at_rejects_bad_now (test_deadlines.InputValidationTests.test_expired_at_rejects_bad_now) ... ok
+test_numeric_inputs_reject_bool_float_and_negative (test_deadlines.InputValidationTests.test_numeric_inputs_reject_bool_float_and_negative) ... ok
+test_profile_caps_are_enforced (test_deadlines.InputValidationTests.test_profile_caps_are_enforced) ... ok
+test_receipt_must_not_precede_first_send (test_deadlines.InputValidationTests.test_receipt_must_not_precede_first_send) ... ok
+test_audit_structure_is_not_provenance_or_authorization (test_deadlines.LeaseDeadlineValidationTests.test_audit_structure_is_not_provenance_or_authorization) ... ok
+test_br23_unknown_crossmode_and_missing_names_rejected (test_deadlines.LeaseDeadlineValidationTests.test_br23_unknown_crossmode_and_missing_names_rejected) ... ok
+test_builder_term_names_match_the_mode_contract (test_deadlines.LeaseDeadlineValidationTests.test_builder_term_names_match_the_mode_contract) ... ok
+test_expired_at_revalidates_mutated_instance (test_deadlines.LeaseDeadlineValidationTests.test_expired_at_revalidates_mutated_instance) ... ok
+test_malformed_constructions_rejected (test_deadlines.LeaseDeadlineValidationTests.test_malformed_constructions_rejected) ... ok
+test_valid_manual_constructions (test_deadlines.LeaseDeadlineValidationTests.test_valid_manual_constructions) ... ok
+test_pc_direct_age_term_and_previous_deadline (test_deadlines.PcDirectTests.test_pc_direct_age_term_and_previous_deadline) ... ok
+test_pc_direct_caps_and_validation (test_deadlines.PcDirectTests.test_pc_direct_caps_and_validation) ... ok
+test_pc_direct_min_terms_and_mode (test_deadlines.PcDirectTests.test_pc_direct_min_terms_and_mode) ... ok
+test_pc_direct_needs_no_motion_ack (test_deadlines.PcDirectTests.test_pc_direct_needs_no_motion_ack) ... ok
+test_pc_direct_zero_duration_stops_immediately (test_deadlines.PcDirectTests.test_pc_direct_zero_duration_stops_immediately) ... ok
+test_profile_caps_are_frozen (test_deadlines.ProfileAndModeTests.test_profile_caps_are_frozen) ... ok
+test_unknown_profile_stops (test_deadlines.ProfileAndModeTests.test_unknown_profile_stops) ... ok
+test_sources_have_no_world_clock_network_or_file_io (test_deadlines.SourceScanTests.test_sources_have_no_world_clock_network_or_file_io) ... ok
+
+----------------------------------------------------------------------
+Ran 34 tests in 0.013s
+
+OK

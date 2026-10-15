@@ -1,0 +1,134 @@
+{
+  "task_id": "DEEPEYE-IMPLEMENTATION-20261014",
+  "task_version": 1,
+  "work_id": "C-motion-adapter-main-review-handoff-20261015-v1",
+  "base_commit": "6e1624d0b0ae3f46adaded330f0bc23840ac9886",
+  "design_commit": "1011259415a0916054eb580687612580bc1e5f09",
+  "a_reference_commit": "d5bf26adcf76f8c9af3165cdd7043cb3ff19649b",
+  "contract_id": "DEEPEYE-HUMAN-LOCK-20261014/revision1",
+  "requirements_sha256": "c229834bfc2292f5fe4411fc9f12c68487008f9d1adaf31f0144ee7a98173804",
+  "worker_run_manifest_sha256": "55c46409c5f309d5ce584744cbc085b9c69d99f48f3d0f6edf6718845db2cfc2",
+  "worker_source_and_log_readback": [
+    {
+      "path": "competition\\deepeye\\evidence\\ai\\motion_request\\run_003\\scope.stdout.txt",
+      "sha256": "e6a0a5722482707d449e03400819ffe28ddb53cb53e43f355e9645f5c9303f1c"
+    },
+    {
+      "path": "competition\\deepeye\\evidence\\ai\\motion_request\\run_003\\scope.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "competition\\deepeye\\evidence\\ai\\motion_request\\run_003\\review_repair1_negative_control.stdout.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "competition\\deepeye\\evidence\\ai\\motion_request\\run_003\\review_repair1_negative_control.stderr.txt",
+      "sha256": "c2038ae95062e95f73a83fce0294048da01a1903a4db825f607f40399ec2c89c"
+    },
+    {
+      "path": "competition\\deepeye\\evidence\\ai\\motion_request\\run_003\\motion_request.stdout.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "competition\\deepeye\\evidence\\ai\\motion_request\\run_003\\motion_request.stderr.txt",
+      "sha256": "4aee398fd162efa907d1b7e8e19f53b22b0ae69d9a8119126ec840a24999bfd4"
+    },
+    {
+      "path": "competition\\deepeye\\evidence\\ai\\motion_request\\run_003\\mailbox_regression.stdout.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "competition\\deepeye\\evidence\\ai\\motion_request\\run_003\\mailbox_regression.stderr.txt",
+      "sha256": "17a6bcada18516021fd029117cdee8ec0fb3c3cea00ffd994a8b62d01b74e236"
+    },
+    {
+      "path": "competition\\deepeye\\evidence\\ai\\motion_request\\run_003\\deadline_regression.stdout.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "competition\\deepeye\\evidence\\ai\\motion_request\\run_003\\deadline_regression.stderr.txt",
+      "sha256": "c0a3663cb0ca98140ed1d04392b976ad9a38da6edd59c15eadbeec17fba35d1e"
+    },
+    {
+      "path": "competition\\deepeye\\ai_pc\\control_broker\\motion_request.py",
+      "sha256": "29bf83a68929a882671bbed1a14b5a717e2e0bfa53cdb812512400a0aa621e7f"
+    },
+    {
+      "path": "competition\\deepeye\\ai_pc\\control_broker\\mailbox.py",
+      "sha256": "705b565d6047ae34a676566c2df42ef7596707656fc52e298380f1d3ffbb9f61"
+    },
+    {
+      "path": "competition\\deepeye\\ai_pc\\control_broker\\deadlines.py",
+      "sha256": "9439b4bc2bc2fef5bea2fb829694c8c8e41c5102067775dde5e8d42721aa7bfc"
+    },
+    {
+      "path": "competition\\deepeye\\tests\\ai\\control_broker\\test_motion_request.py",
+      "sha256": "f662e18845a6077790bab6a9bd9f148d3da8acfbfde13e74d4a3bcbf7d212bb0"
+    },
+    {
+      "path": "competition\\deepeye\\evidence\\ai\\motion_request\\run_evidence.py",
+      "sha256": "0aa3dc7acd92e46ca1a581080ebb6d30033e5f5993169927a940e35d9af11acf"
+    },
+    {
+      "path": "competition\\deepeye\\tests\\ai\\control_broker\\test_mailbox.py",
+      "sha256": "5f22312714ffda533bc9b3a7feaefde97a577aefa5f7a1248408f8ec1d75a125"
+    },
+    {
+      "path": "competition\\deepeye\\tests\\ai\\control_broker\\test_deadlines.py",
+      "sha256": "d6739eb0475ccf0ce450b0ebed13f5896e227783c2d41ab87851b1aad3170c8c"
+    },
+    {
+      "path": "docs\\competition\\deepeye-2026\\immutable_scope.md",
+      "sha256": "27c5bf0b194036cf4300dbec371b6abba42bc5fda604da0e6e06284e4c5a2ddd"
+    },
+    {
+      "path": "docs\\competition\\deepeye-2026\\immutable_scope.json",
+      "sha256": "6a86000e97d1571c0b7b89b9d3cf7facb11d2b6a06455eb1d53e0637676b6bc4"
+    },
+    {
+      "path": "docs\\competition\\deepeye-2026\\verify_immutable_scope.py",
+      "sha256": "cb91a864a5b5f5a6bf014bbbd32b9656ee588075d9b115586df544c96cebc2eb"
+    },
+    {
+      "path": "competition\\deepeye\\evidence\\ai\\motion_request\\README.md",
+      "sha256": "c9c51f08eb9e118273b60a689f0bde6cea76f8ce1188da70e5b5a2da28038199"
+    },
+    {
+      "path": "competition\\deepeye\\evidence\\ai\\motion_request\\reference\\manifest.json",
+      "sha256": "b39076c6282a29dda4a9af19ab6b409502f378f5fe2d5dffcd55396877c10750"
+    },
+    {
+      "path": "competition\\deepeye\\evidence\\ai\\motion_request\\review_repair1\\README.md",
+      "sha256": "dc54609421fefd2182740e237b4650bcb4070198d497b6fd6b272c0773ec1227"
+    },
+    {
+      "path": "competition\\deepeye\\evidence\\ai\\motion_request\\review_repair1\\negative_control.py",
+      "sha256": "a9ef3fd580fdbd7caa62f390da16a87d0e72c5bebb766ace43335b0d48a0418d"
+    },
+    {
+      "path": "competition\\deepeye\\evidence\\ai\\motion_request\\review_repair1\\pre_repair\\motion_request.py",
+      "sha256": "db910520bb55cc0c86d7bd8c027c7ca9f0e363bbf0570ffb2e6ecac2b340b072"
+    },
+    {
+      "path": "competition\\deepeye\\evidence\\ai\\motion_request\\review_repair1\\pre_repair\\test_motion_request.py",
+      "sha256": "1e531025171c6863c50e7b2b2961aafcd42f80f4a43ec974dc2a444cef9c87db"
+    }
+  ],
+  "worker_positive_tests": 107,
+  "independent_tests": 17,
+  "independent_random_deadline_vectors": 96,
+  "independent_public_stop_allocations": 65536,
+  "review_correction": "Reject original context mutation bypass; repaired public class-level checks/context snapshot/observation copies and deadline representability. Three targeted regressions fail against preserved rejected source, expected exit1.",
+  "accepted_scope": "Pure bounded candidate-to-motion-request software adapter and exact A static interoperability only",
+  "not_accepted": [
+    "Authenticated measured clock/source/model liveness",
+    "live transport integration",
+    "B TRACE codec/time mapping",
+    "R03",
+    "C05/G06",
+    "full PC_DIRECT/HIL",
+    "physical board",
+    "complete product"
+  ],
+  "product_cards": "not_run; dependencies and runtime acceptance remain incomplete"
+}
