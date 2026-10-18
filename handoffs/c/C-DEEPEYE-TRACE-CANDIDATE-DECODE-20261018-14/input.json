@@ -1,0 +1,125 @@
+{
+  "request": {
+    "operation_id": "C-DEEPEYE-TRACE-CANDIDATE-DECODE-20261018-14",
+    "task_id": "DEEPEYE-IMPLEMENTATION-20261014",
+    "task_version": 1,
+    "requester": "node-c",
+    "code_commit": "3c1e584942bab4207b694f27ed116efb84ceedd7",
+    "test_steps": [
+      "From any cwd run Python3.12 or3.13 with -B -X utf8 competition/deepeye/evidence/ai/trace_candidate_decode/provenance.py --check-only, then replay.py. These direct scripts need only their committed owned inputs, not private author deployment paths. Expected81casegroups/exit0.",
+      "Compare candidate_decode.py SHA256 b02010280b72d3a94842db627f733df9c1fa6ecfe54f572509d57869d2d3d72c with independent_review/candidate_snapshot.py exactbytes; run independent_review/probe.py (5methods,300validgrid,154noncanonicalRAW+254wrong-k rejects,held/metadata/highwater cases).",
+      "Run main_review/main_probe.py --candidate competition/deepeye/evidence/ai/trace_candidate_decode/candidate_decode.py (4methods,296singlewirebitcorruptions/CRC/cache/retirement/input+returnalias).",
+      "Inspect portable-result.json/rawlogs: author copied allcandidatefiles to an unrelated temporarytree and ran provenance+replay from anothercwd underPython3.13.5, bothexit0; original43workerartifacts unchanged. Worker/QAusedPython3.12.14.",
+      "Verify pinned Bop05/request/inputhead, all70artifacthashes/Gitblobs, scopeidentity and original failedharnesslog; return samePRoperation/request_hash/tested_commit/rawresults. Do not enableproductiontype7 or infer source/clock/unit/scheduling/hardware acceptance."
+    ],
+    "expected_result": "Independent offline C candidate decoder only, derived from five normative/rawinputs without opening/importing B encoder/decoder or using B roundtriporacle. B TRACEop05 requestabe52729c5bb46944ec8c55dd92481af9362b4d5a92b0bdefd13d1061038de4a, fixedinputhead781be78d9da77a75ea711cf690eeea6523733d3a.81casegroups pass:8manual+32synthetic streams,126frames/1046points,34pinnednegatives; strictCRC/RAW/Rice/canonicality and sparseindex/fulltick/sourceorigin/masks/Ebounds. IndependentQA5methods andmain4methods/portablecheckspass. Positivefixture costs1816selectedvalidRAWbytes->5346completeframebytes/53460linebits8N1 showframingexpansion, not realcompression/latency/slotproof. Originalharnessfailure retained. Productiontype7 remainsdisabled/reject, R03/publicABI/sourceclock/BOOT/units/grouping/schedule/runtime/board/system acceptance remainspending/not_run; A alone owns publicauthority/physicalboard. No production or oldsource/oldtest changed. Frozen design1011259415a0916054eb580687612580bc1e5f09, contractDEEPEYE-HUMAN-LOCK-20261014/revision1 sourcef5989cd5defce561f9ba98e6b18fc2682945f0a2 requirementsSHA256c229834bfc2292f5fe4411fc9f12c68487008f9d1adaf31f0144ee7a98173804 unchanged."
+  },
+  "artifacts": [
+    "competition/deepeye/evidence/ai/trace_candidate_decode/.gitattributes",
+    "competition/deepeye/evidence/ai/trace_candidate_decode/artifact_manifest.json",
+    "competition/deepeye/evidence/ai/trace_candidate_decode/candidate_decode.py",
+    "competition/deepeye/evidence/ai/trace_candidate_decode/capture.py",
+    "competition/deepeye/evidence/ai/trace_candidate_decode/captures/preflight-01.command.json",
+    "competition/deepeye/evidence/ai/trace_candidate_decode/captures/preflight-01.stderr.txt",
+    "competition/deepeye/evidence/ai/trace_candidate_decode/captures/preflight-01.stdout.txt",
+    "competition/deepeye/evidence/ai/trace_candidate_decode/captures/provenance-01.command.json",
+    "competition/deepeye/evidence/ai/trace_candidate_decode/captures/provenance-01.stderr.txt",
+    "competition/deepeye/evidence/ai/trace_candidate_decode/captures/provenance-01.stdout.txt",
+    "competition/deepeye/evidence/ai/trace_candidate_decode/captures/provenance-02.command.json",
+    "competition/deepeye/evidence/ai/trace_candidate_decode/captures/provenance-02.stderr.txt",
+    "competition/deepeye/evidence/ai/trace_candidate_decode/captures/provenance-02.stdout.txt",
+    "competition/deepeye/evidence/ai/trace_candidate_decode/captures/replay-01.command.json",
+    "competition/deepeye/evidence/ai/trace_candidate_decode/captures/replay-01.stderr.txt",
+    "competition/deepeye/evidence/ai/trace_candidate_decode/captures/replay-01.stdout.txt",
+    "competition/deepeye/evidence/ai/trace_candidate_decode/captures/replay-02.command.json",
+    "competition/deepeye/evidence/ai/trace_candidate_decode/captures/replay-02.stderr.txt",
+    "competition/deepeye/evidence/ai/trace_candidate_decode/captures/replay-02.stdout.txt",
+    "competition/deepeye/evidence/ai/trace_candidate_decode/captures/replay-03.command.json",
+    "competition/deepeye/evidence/ai/trace_candidate_decode/captures/replay-03.stderr.txt",
+    "competition/deepeye/evidence/ai/trace_candidate_decode/captures/replay-03.stdout.txt",
+    "competition/deepeye/evidence/ai/trace_candidate_decode/captures/replay-final.command.json",
+    "competition/deepeye/evidence/ai/trace_candidate_decode/captures/replay-final.stderr.txt",
+    "competition/deepeye/evidence/ai/trace_candidate_decode/captures/replay-final.stdout.txt",
+    "competition/deepeye/evidence/ai/trace_candidate_decode/captures/scope-01.command.json",
+    "competition/deepeye/evidence/ai/trace_candidate_decode/captures/scope-01.stderr.txt",
+    "competition/deepeye/evidence/ai/trace_candidate_decode/captures/scope-01.stdout.txt",
+    "competition/deepeye/evidence/ai/trace_candidate_decode/independent_expected.json",
+    "competition/deepeye/evidence/ai/trace_candidate_decode/independent_review/README.md",
+    "competition/deepeye/evidence/ai/trace_candidate_decode/independent_review/candidate_snapshot.py",
+    "competition/deepeye/evidence/ai/trace_candidate_decode/independent_review/capture.py",
+    "competition/deepeye/evidence/ai/trace_candidate_decode/independent_review/finalize.py",
+    "competition/deepeye/evidence/ai/trace_candidate_decode/independent_review/manifest.json",
+    "competition/deepeye/evidence/ai/trace_candidate_decode/independent_review/metrics.json",
+    "competition/deepeye/evidence/ai/trace_candidate_decode/independent_review/normative_inputs/TRACE_CANDIDATE.md",
+    "competition/deepeye/evidence/ai/trace_candidate_decode/independent_review/normative_inputs/main_candidate_spec.md",
+    "competition/deepeye/evidence/ai/trace_candidate_decode/independent_review/normative_inputs/main_manual_vectors.json",
+    "competition/deepeye/evidence/ai/trace_candidate_decode/independent_review/normative_inputs/trace_candidate_layout.json",
+    "competition/deepeye/evidence/ai/trace_candidate_decode/independent_review/normative_inputs/trace_candidate_vectors.json",
+    "competition/deepeye/evidence/ai/trace_candidate_decode/independent_review/probe.py",
+    "competition/deepeye/evidence/ai/trace_candidate_decode/independent_review/release.json",
+    "competition/deepeye/evidence/ai/trace_candidate_decode/independent_review/result.json",
+    "competition/deepeye/evidence/ai/trace_candidate_decode/independent_review/stderr.txt",
+    "competition/deepeye/evidence/ai/trace_candidate_decode/independent_review/stdout.txt",
+    "competition/deepeye/evidence/ai/trace_candidate_decode/input_manifest.json",
+    "competition/deepeye/evidence/ai/trace_candidate_decode/inputs/TRACE_CANDIDATE.md",
+    "competition/deepeye/evidence/ai/trace_candidate_decode/inputs/immutable_scope.json",
+    "competition/deepeye/evidence/ai/trace_candidate_decode/inputs/immutable_scope.md",
+    "competition/deepeye/evidence/ai/trace_candidate_decode/inputs/main_candidate_spec.md",
+    "competition/deepeye/evidence/ai/trace_candidate_decode/inputs/main_manual_vectors.json",
+    "competition/deepeye/evidence/ai/trace_candidate_decode/inputs/trace_candidate_layout.json",
+    "competition/deepeye/evidence/ai/trace_candidate_decode/inputs/trace_candidate_vectors.json",
+    "competition/deepeye/evidence/ai/trace_candidate_decode/main_review/main-review.json",
+    "competition/deepeye/evidence/ai/trace_candidate_decode/main_review/main_probe.py",
+    "competition/deepeye/evidence/ai/trace_candidate_decode/main_review/portable-provenance.stderr.txt",
+    "competition/deepeye/evidence/ai/trace_candidate_decode/main_review/portable-provenance.stdout.txt",
+    "competition/deepeye/evidence/ai/trace_candidate_decode/main_review/portable-replay.stderr.txt",
+    "competition/deepeye/evidence/ai/trace_candidate_decode/main_review/portable-replay.stdout.txt",
+    "competition/deepeye/evidence/ai/trace_candidate_decode/main_review/portable-result.json",
+    "competition/deepeye/evidence/ai/trace_candidate_decode/main_review/result.json",
+    "competition/deepeye/evidence/ai/trace_candidate_decode/main_review/stderr.txt",
+    "competition/deepeye/evidence/ai/trace_candidate_decode/main_review/stdout.txt",
+    "competition/deepeye/evidence/ai/trace_candidate_decode/provenance.py",
+    "competition/deepeye/evidence/ai/trace_candidate_decode/release.json",
+    "competition/deepeye/evidence/ai/trace_candidate_decode/replay.py",
+    "competition/deepeye/evidence/ai/trace_candidate_decode/replay_results.json",
+    "competition/deepeye/evidence/ai/trace_candidate_decode/report.md",
+    "competition/deepeye/evidence/ai/trace_candidate_decode/seal.py",
+    "competition/deepeye/evidence/ai/trace_candidate_decode/source_versions.json"
+  ],
+  "stages": {
+    "simulation": {
+      "status": "not_run"
+    },
+    "synthesis": {
+      "status": "not_run"
+    },
+    "implementation": {
+      "status": "not_run"
+    },
+    "board": {
+      "status": "not_run"
+    },
+    "system": {
+      "status": "not_run"
+    },
+    "production_type7": {
+      "status": "not_run"
+    },
+    "candidate_decode_software": {
+      "status": "passed",
+      "log": "competition/deepeye/evidence/ai/trace_candidate_decode/captures/replay-final.stdout.txt"
+    },
+    "independent_candidate_review": {
+      "status": "passed",
+      "log": "competition/deepeye/evidence/ai/trace_candidate_decode/independent_review/stderr.txt"
+    },
+    "main_candidate_review": {
+      "status": "passed",
+      "log": "competition/deepeye/evidence/ai/trace_candidate_decode/main_review/stderr.txt"
+    },
+    "R03_public_ABI": {
+      "status": "blocked",
+      "log": "competition/deepeye/evidence/ai/trace_candidate_decode/report.md"
+    }
+  }
+}

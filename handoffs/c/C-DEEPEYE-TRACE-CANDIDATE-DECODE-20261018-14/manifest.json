@@ -1,0 +1,409 @@
+{
+  "artifacts": [
+    "competition/deepeye/evidence/ai/trace_candidate_decode/.gitattributes",
+    "competition/deepeye/evidence/ai/trace_candidate_decode/artifact_manifest.json",
+    "competition/deepeye/evidence/ai/trace_candidate_decode/candidate_decode.py",
+    "competition/deepeye/evidence/ai/trace_candidate_decode/capture.py",
+    "competition/deepeye/evidence/ai/trace_candidate_decode/captures/preflight-01.command.json",
+    "competition/deepeye/evidence/ai/trace_candidate_decode/captures/preflight-01.stderr.txt",
+    "competition/deepeye/evidence/ai/trace_candidate_decode/captures/preflight-01.stdout.txt",
+    "competition/deepeye/evidence/ai/trace_candidate_decode/captures/provenance-01.command.json",
+    "competition/deepeye/evidence/ai/trace_candidate_decode/captures/provenance-01.stderr.txt",
+    "competition/deepeye/evidence/ai/trace_candidate_decode/captures/provenance-01.stdout.txt",
+    "competition/deepeye/evidence/ai/trace_candidate_decode/captures/provenance-02.command.json",
+    "competition/deepeye/evidence/ai/trace_candidate_decode/captures/provenance-02.stderr.txt",
+    "competition/deepeye/evidence/ai/trace_candidate_decode/captures/provenance-02.stdout.txt",
+    "competition/deepeye/evidence/ai/trace_candidate_decode/captures/replay-01.command.json",
+    "competition/deepeye/evidence/ai/trace_candidate_decode/captures/replay-01.stderr.txt",
+    "competition/deepeye/evidence/ai/trace_candidate_decode/captures/replay-01.stdout.txt",
+    "competition/deepeye/evidence/ai/trace_candidate_decode/captures/replay-02.command.json",
+    "competition/deepeye/evidence/ai/trace_candidate_decode/captures/replay-02.stderr.txt",
+    "competition/deepeye/evidence/ai/trace_candidate_decode/captures/replay-02.stdout.txt",
+    "competition/deepeye/evidence/ai/trace_candidate_decode/captures/replay-03.command.json",
+    "competition/deepeye/evidence/ai/trace_candidate_decode/captures/replay-03.stderr.txt",
+    "competition/deepeye/evidence/ai/trace_candidate_decode/captures/replay-03.stdout.txt",
+    "competition/deepeye/evidence/ai/trace_candidate_decode/captures/replay-final.command.json",
+    "competition/deepeye/evidence/ai/trace_candidate_decode/captures/replay-final.stderr.txt",
+    "competition/deepeye/evidence/ai/trace_candidate_decode/captures/replay-final.stdout.txt",
+    "competition/deepeye/evidence/ai/trace_candidate_decode/captures/scope-01.command.json",
+    "competition/deepeye/evidence/ai/trace_candidate_decode/captures/scope-01.stderr.txt",
+    "competition/deepeye/evidence/ai/trace_candidate_decode/captures/scope-01.stdout.txt",
+    "competition/deepeye/evidence/ai/trace_candidate_decode/independent_expected.json",
+    "competition/deepeye/evidence/ai/trace_candidate_decode/independent_review/README.md",
+    "competition/deepeye/evidence/ai/trace_candidate_decode/independent_review/candidate_snapshot.py",
+    "competition/deepeye/evidence/ai/trace_candidate_decode/independent_review/capture.py",
+    "competition/deepeye/evidence/ai/trace_candidate_decode/independent_review/finalize.py",
+    "competition/deepeye/evidence/ai/trace_candidate_decode/independent_review/manifest.json",
+    "competition/deepeye/evidence/ai/trace_candidate_decode/independent_review/metrics.json",
+    "competition/deepeye/evidence/ai/trace_candidate_decode/independent_review/normative_inputs/TRACE_CANDIDATE.md",
+    "competition/deepeye/evidence/ai/trace_candidate_decode/independent_review/normative_inputs/main_candidate_spec.md",
+    "competition/deepeye/evidence/ai/trace_candidate_decode/independent_review/normative_inputs/main_manual_vectors.json",
+    "competition/deepeye/evidence/ai/trace_candidate_decode/independent_review/normative_inputs/trace_candidate_layout.json",
+    "competition/deepeye/evidence/ai/trace_candidate_decode/independent_review/normative_inputs/trace_candidate_vectors.json",
+    "competition/deepeye/evidence/ai/trace_candidate_decode/independent_review/probe.py",
+    "competition/deepeye/evidence/ai/trace_candidate_decode/independent_review/release.json",
+    "competition/deepeye/evidence/ai/trace_candidate_decode/independent_review/result.json",
+    "competition/deepeye/evidence/ai/trace_candidate_decode/independent_review/stderr.txt",
+    "competition/deepeye/evidence/ai/trace_candidate_decode/independent_review/stdout.txt",
+    "competition/deepeye/evidence/ai/trace_candidate_decode/input_manifest.json",
+    "competition/deepeye/evidence/ai/trace_candidate_decode/inputs/TRACE_CANDIDATE.md",
+    "competition/deepeye/evidence/ai/trace_candidate_decode/inputs/immutable_scope.json",
+    "competition/deepeye/evidence/ai/trace_candidate_decode/inputs/immutable_scope.md",
+    "competition/deepeye/evidence/ai/trace_candidate_decode/inputs/main_candidate_spec.md",
+    "competition/deepeye/evidence/ai/trace_candidate_decode/inputs/main_manual_vectors.json",
+    "competition/deepeye/evidence/ai/trace_candidate_decode/inputs/trace_candidate_layout.json",
+    "competition/deepeye/evidence/ai/trace_candidate_decode/inputs/trace_candidate_vectors.json",
+    "competition/deepeye/evidence/ai/trace_candidate_decode/main_review/main-review.json",
+    "competition/deepeye/evidence/ai/trace_candidate_decode/main_review/main_probe.py",
+    "competition/deepeye/evidence/ai/trace_candidate_decode/main_review/portable-provenance.stderr.txt",
+    "competition/deepeye/evidence/ai/trace_candidate_decode/main_review/portable-provenance.stdout.txt",
+    "competition/deepeye/evidence/ai/trace_candidate_decode/main_review/portable-replay.stderr.txt",
+    "competition/deepeye/evidence/ai/trace_candidate_decode/main_review/portable-replay.stdout.txt",
+    "competition/deepeye/evidence/ai/trace_candidate_decode/main_review/portable-result.json",
+    "competition/deepeye/evidence/ai/trace_candidate_decode/main_review/result.json",
+    "competition/deepeye/evidence/ai/trace_candidate_decode/main_review/stderr.txt",
+    "competition/deepeye/evidence/ai/trace_candidate_decode/main_review/stdout.txt",
+    "competition/deepeye/evidence/ai/trace_candidate_decode/provenance.py",
+    "competition/deepeye/evidence/ai/trace_candidate_decode/release.json",
+    "competition/deepeye/evidence/ai/trace_candidate_decode/replay.py",
+    "competition/deepeye/evidence/ai/trace_candidate_decode/replay_results.json",
+    "competition/deepeye/evidence/ai/trace_candidate_decode/report.md",
+    "competition/deepeye/evidence/ai/trace_candidate_decode/seal.py",
+    "competition/deepeye/evidence/ai/trace_candidate_decode/source_versions.json"
+  ],
+  "files": {
+    "competition/deepeye/evidence/ai/trace_candidate_decode/.gitattributes": {
+      "sha256": "85e48d232edc7b02f6cecf8fbbf905f3b126c467b594d8dd16c4f8fa283a8320",
+      "size": 14
+    },
+    "competition/deepeye/evidence/ai/trace_candidate_decode/artifact_manifest.json": {
+      "sha256": "82b519bfaf8ab4542fd035717104e83347e6abecf5b1c52314f1a21c3041aee6",
+      "size": 9928
+    },
+    "competition/deepeye/evidence/ai/trace_candidate_decode/candidate_decode.py": {
+      "sha256": "b02010280b72d3a94842db627f733df9c1fa6ecfe54f572509d57869d2d3d72c",
+      "size": 10519
+    },
+    "competition/deepeye/evidence/ai/trace_candidate_decode/capture.py": {
+      "sha256": "4fb0a04f353627628782b1bc0fe77c0a116e17d84fd2d0f67ada6ef8e402b184",
+      "size": 3019
+    },
+    "competition/deepeye/evidence/ai/trace_candidate_decode/captures/preflight-01.command.json": {
+      "sha256": "5e56a7ee43e39822ab67f1e38295e06ee98e949efe372986d2a675b54ac16223",
+      "size": 970
+    },
+    "competition/deepeye/evidence/ai/trace_candidate_decode/captures/preflight-01.stderr.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0
+    },
+    "competition/deepeye/evidence/ai/trace_candidate_decode/captures/preflight-01.stdout.txt": {
+      "sha256": "a431b17aa3a337fed830fafd867ccac80c15ad7440f913347e03a5b0918eb501",
+      "size": 192
+    },
+    "competition/deepeye/evidence/ai/trace_candidate_decode/captures/provenance-01.command.json": {
+      "sha256": "7c55742a377f8bbaeaa12295c5ab1021ae3e02bb329b2f529527b1ff2d207619",
+      "size": 1108
+    },
+    "competition/deepeye/evidence/ai/trace_candidate_decode/captures/provenance-01.stderr.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0
+    },
+    "competition/deepeye/evidence/ai/trace_candidate_decode/captures/provenance-01.stdout.txt": {
+      "sha256": "90ff89300f4af90908cacac60750c38ff1652ca6fe90c3ad19118e1aaa3b22af",
+      "size": 307
+    },
+    "competition/deepeye/evidence/ai/trace_candidate_decode/captures/provenance-02.command.json": {
+      "sha256": "a29b99054f4d0b5f2c8aa257f20e2ebe65f61b5ee67d47f741296bb55fc82863",
+      "size": 1281
+    },
+    "competition/deepeye/evidence/ai/trace_candidate_decode/captures/provenance-02.stderr.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0
+    },
+    "competition/deepeye/evidence/ai/trace_candidate_decode/captures/provenance-02.stdout.txt": {
+      "sha256": "e41b8c619e5981a472c307d6128023738a8e43ebccb2f89ae4badd20b94838b3",
+      "size": 334
+    },
+    "competition/deepeye/evidence/ai/trace_candidate_decode/captures/replay-01.command.json": {
+      "sha256": "933769faacb44af5078de8d6bc1d50391c36f820d0f5221adb9bc631f63b26e4",
+      "size": 1011
+    },
+    "competition/deepeye/evidence/ai/trace_candidate_decode/captures/replay-01.stderr.txt": {
+      "sha256": "e57f0e7bf74234daa6c32aa58da5a98962c58aa8c26139c87467fa5d7b1ee708",
+      "size": 1031
+    },
+    "competition/deepeye/evidence/ai/trace_candidate_decode/captures/replay-01.stdout.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0
+    },
+    "competition/deepeye/evidence/ai/trace_candidate_decode/captures/replay-02.command.json": {
+      "sha256": "8148679963bdd173334085a0e89b408d768facda6b942b8b45952901226a0b18",
+      "size": 1011
+    },
+    "competition/deepeye/evidence/ai/trace_candidate_decode/captures/replay-02.stderr.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0
+    },
+    "competition/deepeye/evidence/ai/trace_candidate_decode/captures/replay-02.stdout.txt": {
+      "sha256": "a3d5d4ed0050decef5557a4ae0bafbb52a7286efddca8869bfc7262be46325d5",
+      "size": 24892
+    },
+    "competition/deepeye/evidence/ai/trace_candidate_decode/captures/replay-03.command.json": {
+      "sha256": "28b7ff9ae076d27bb1a60bdd5c10e826ce97ddae34de6283f6270c18866e89b7",
+      "size": 1011
+    },
+    "competition/deepeye/evidence/ai/trace_candidate_decode/captures/replay-03.stderr.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0
+    },
+    "competition/deepeye/evidence/ai/trace_candidate_decode/captures/replay-03.stdout.txt": {
+      "sha256": "1cde66670c7b9002e363c39978e54cafed91949283042c5f6d4616bb189dcba1",
+      "size": 27481
+    },
+    "competition/deepeye/evidence/ai/trace_candidate_decode/captures/replay-final.command.json": {
+      "sha256": "1e9c9c1d50996a585114de43f6a81351698e070f945947a12d2912dbb989194c",
+      "size": 1186
+    },
+    "competition/deepeye/evidence/ai/trace_candidate_decode/captures/replay-final.stderr.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0
+    },
+    "competition/deepeye/evidence/ai/trace_candidate_decode/captures/replay-final.stdout.txt": {
+      "sha256": "1cde66670c7b9002e363c39978e54cafed91949283042c5f6d4616bb189dcba1",
+      "size": 27481
+    },
+    "competition/deepeye/evidence/ai/trace_candidate_decode/captures/scope-01.command.json": {
+      "sha256": "2d9b6f7e0fcb5354864713ae7cac693b2141d9e943e2268978a0078605e4dd35",
+      "size": 1278
+    },
+    "competition/deepeye/evidence/ai/trace_candidate_decode/captures/scope-01.stderr.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0
+    },
+    "competition/deepeye/evidence/ai/trace_candidate_decode/captures/scope-01.stdout.txt": {
+      "sha256": "e6a0a5722482707d449e03400819ffe28ddb53cb53e43f355e9645f5c9303f1c",
+      "size": 272
+    },
+    "competition/deepeye/evidence/ai/trace_candidate_decode/independent_expected.json": {
+      "sha256": "5e607d78e553d54e321f85cc1b026dd286ef8fd19c23e2cb7b918c6162585caa",
+      "size": 357580
+    },
+    "competition/deepeye/evidence/ai/trace_candidate_decode/independent_review/README.md": {
+      "sha256": "1b91ead03a6b1aeae2960ee849f5829800dba59e31b65b334ce7755506198d8a",
+      "size": 4576
+    },
+    "competition/deepeye/evidence/ai/trace_candidate_decode/independent_review/candidate_snapshot.py": {
+      "sha256": "b02010280b72d3a94842db627f733df9c1fa6ecfe54f572509d57869d2d3d72c",
+      "size": 10519
+    },
+    "competition/deepeye/evidence/ai/trace_candidate_decode/independent_review/capture.py": {
+      "sha256": "02a9459b3e3613ebcb0139e9b693e0d113b8543c1dc434a5ec7339887cb9e311",
+      "size": 3526
+    },
+    "competition/deepeye/evidence/ai/trace_candidate_decode/independent_review/finalize.py": {
+      "sha256": "4c6a3bea57448148ce2e4d2ed6e0f6f424c3759d848048e05e540bcca65e6375",
+      "size": 2299
+    },
+    "competition/deepeye/evidence/ai/trace_candidate_decode/independent_review/manifest.json": {
+      "sha256": "7db19ca290a0acebb7f086ba533f2298942d087943bf02e4a09b7421905977ea",
+      "size": 2222
+    },
+    "competition/deepeye/evidence/ai/trace_candidate_decode/independent_review/metrics.json": {
+      "sha256": "e58796e9b09549333efeaa1970cd6c0afdf3bafa19312ba381b0e6af33e6468d",
+      "size": 393
+    },
+    "competition/deepeye/evidence/ai/trace_candidate_decode/independent_review/normative_inputs/TRACE_CANDIDATE.md": {
+      "sha256": "f702db7239082570a26856091a3131293b7df610c76d7af830415ed40a08d56b",
+      "size": 24050
+    },
+    "competition/deepeye/evidence/ai/trace_candidate_decode/independent_review/normative_inputs/main_candidate_spec.md": {
+      "sha256": "7bc33ebc28c9f08e200c539a1a59c07b42b36211cb49b08ac449875bf75f9a73",
+      "size": 11748
+    },
+    "competition/deepeye/evidence/ai/trace_candidate_decode/independent_review/normative_inputs/main_manual_vectors.json": {
+      "sha256": "36b8e3fdb53e3c8fc911cc44b4f4151d62863d2e05b189f68c42fefe869b2d24",
+      "size": 31201
+    },
+    "competition/deepeye/evidence/ai/trace_candidate_decode/independent_review/normative_inputs/trace_candidate_layout.json": {
+      "sha256": "0de9a9a303ed691c645beba2ba9d39c7eb2261a8df336ea321f5055a07436e9c",
+      "size": 9784
+    },
+    "competition/deepeye/evidence/ai/trace_candidate_decode/independent_review/normative_inputs/trace_candidate_vectors.json": {
+      "sha256": "e9fb59aa20324ebdeffb25ac89f43e42a085b3d49cec3ee9104ff551d9409bf2",
+      "size": 530236
+    },
+    "competition/deepeye/evidence/ai/trace_candidate_decode/independent_review/probe.py": {
+      "sha256": "cc46c1280a925101b2bbd920102c683eb0b6677031c156f64582673ea01e3790",
+      "size": 14079
+    },
+    "competition/deepeye/evidence/ai/trace_candidate_decode/independent_review/release.json": {
+      "sha256": "87756792175725788cfdaba4cf16633f29cf00fd8b3b1216ed4bba27f8ecd64d",
+      "size": 781
+    },
+    "competition/deepeye/evidence/ai/trace_candidate_decode/independent_review/result.json": {
+      "sha256": "3a2d1089e7f638e6107d986f7ee2c7ca88caa193a305ee29650f3a8b683bfcb4",
+      "size": 2310
+    },
+    "competition/deepeye/evidence/ai/trace_candidate_decode/independent_review/stderr.txt": {
+      "sha256": "28a2a7f261eea65a1d727ea97ca14b9be2e651c9d69fd78554b2668647b76973",
+      "size": 789
+    },
+    "competition/deepeye/evidence/ai/trace_candidate_decode/independent_review/stdout.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0
+    },
+    "competition/deepeye/evidence/ai/trace_candidate_decode/input_manifest.json": {
+      "sha256": "762e8971148d7570fcdbfadbfe52e1d68486273c731660e2ed84f4fa4cceda9e",
+      "size": 4572
+    },
+    "competition/deepeye/evidence/ai/trace_candidate_decode/inputs/TRACE_CANDIDATE.md": {
+      "sha256": "f702db7239082570a26856091a3131293b7df610c76d7af830415ed40a08d56b",
+      "size": 24050
+    },
+    "competition/deepeye/evidence/ai/trace_candidate_decode/inputs/immutable_scope.json": {
+      "sha256": "6a86000e97d1571c0b7b89b9d3cf7facb11d2b6a06455eb1d53e0637676b6bc4",
+      "size": 6684
+    },
+    "competition/deepeye/evidence/ai/trace_candidate_decode/inputs/immutable_scope.md": {
+      "sha256": "27c5bf0b194036cf4300dbec371b6abba42bc5fda604da0e6e06284e4c5a2ddd",
+      "size": 6139
+    },
+    "competition/deepeye/evidence/ai/trace_candidate_decode/inputs/main_candidate_spec.md": {
+      "sha256": "7bc33ebc28c9f08e200c539a1a59c07b42b36211cb49b08ac449875bf75f9a73",
+      "size": 11748
+    },
+    "competition/deepeye/evidence/ai/trace_candidate_decode/inputs/main_manual_vectors.json": {
+      "sha256": "36b8e3fdb53e3c8fc911cc44b4f4151d62863d2e05b189f68c42fefe869b2d24",
+      "size": 31201
+    },
+    "competition/deepeye/evidence/ai/trace_candidate_decode/inputs/trace_candidate_layout.json": {
+      "sha256": "0de9a9a303ed691c645beba2ba9d39c7eb2261a8df336ea321f5055a07436e9c",
+      "size": 9784
+    },
+    "competition/deepeye/evidence/ai/trace_candidate_decode/inputs/trace_candidate_vectors.json": {
+      "sha256": "e9fb59aa20324ebdeffb25ac89f43e42a085b3d49cec3ee9104ff551d9409bf2",
+      "size": 530236
+    },
+    "competition/deepeye/evidence/ai/trace_candidate_decode/main_review/main-review.json": {
+      "sha256": "78492b81f89dedade11530da49e69377b1b41a374c0ccb7a31e7c7905bff21f9",
+      "size": 1416
+    },
+    "competition/deepeye/evidence/ai/trace_candidate_decode/main_review/main_probe.py": {
+      "sha256": "cdc42e3418fc69d57746d5d59109201f8fd0cbba800ef91d6c6e3c4db93e13ce",
+      "size": 3439
+    },
+    "competition/deepeye/evidence/ai/trace_candidate_decode/main_review/portable-provenance.stderr.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0
+    },
+    "competition/deepeye/evidence/ai/trace_candidate_decode/main_review/portable-provenance.stdout.txt": {
+      "sha256": "74862e323ebbc338ad4a52916d84dffcafedce10c5fdec803e8020945871d1ea",
+      "size": 335
+    },
+    "competition/deepeye/evidence/ai/trace_candidate_decode/main_review/portable-replay.stderr.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0
+    },
+    "competition/deepeye/evidence/ai/trace_candidate_decode/main_review/portable-replay.stdout.txt": {
+      "sha256": "1cde66670c7b9002e363c39978e54cafed91949283042c5f6d4616bb189dcba1",
+      "size": 27481
+    },
+    "competition/deepeye/evidence/ai/trace_candidate_decode/main_review/portable-result.json": {
+      "sha256": "981df75b0e5b7aaa78e60de0c0d3ab07e28f99ca62e5706488ca011d2ba539cc",
+      "size": 1347
+    },
+    "competition/deepeye/evidence/ai/trace_candidate_decode/main_review/result.json": {
+      "sha256": "bf5a40bea6cddea4d0d2259802fdd5433126160db1b5ee9a8c31ee0d0ed05ba0",
+      "size": 832
+    },
+    "competition/deepeye/evidence/ai/trace_candidate_decode/main_review/stderr.txt": {
+      "sha256": "54981ac1344b130988aafd49161000e94fc437bf96ee07b27ff7b19249c2970b",
+      "size": 659
+    },
+    "competition/deepeye/evidence/ai/trace_candidate_decode/main_review/stdout.txt": {
+      "sha256": "4381636903792c05249464de0ad9eed0c43b49f0da7dcfd051cfae86e4113abb",
+      "size": 80
+    },
+    "competition/deepeye/evidence/ai/trace_candidate_decode/provenance.py": {
+      "sha256": "a4383f9e34260bad8112ad09333ca03e483a473eef0ed3a269bc90d7da34ef49",
+      "size": 5398
+    },
+    "competition/deepeye/evidence/ai/trace_candidate_decode/release.json": {
+      "sha256": "e0bc00428ce7b4c45499e84ebf017d6cadc11c05c620ce8305edc1ccd7310d41",
+      "size": 1021
+    },
+    "competition/deepeye/evidence/ai/trace_candidate_decode/replay.py": {
+      "sha256": "e0135756de0233252413ae76fd211d31ba13a7c6e22eae363b512d9ea8d59f4e",
+      "size": 22945
+    },
+    "competition/deepeye/evidence/ai/trace_candidate_decode/replay_results.json": {
+      "sha256": "2c45593d9842bbdd774e2094c0759689fbda5e4955c1a0bc08f09de88555c485",
+      "size": 39975
+    },
+    "competition/deepeye/evidence/ai/trace_candidate_decode/report.md": {
+      "sha256": "956d83f79bdf9fce152b1751432fc84c1676b08d334fff14243896b83d40e1ae",
+      "size": 7755
+    },
+    "competition/deepeye/evidence/ai/trace_candidate_decode/seal.py": {
+      "sha256": "4afb33bb76173fb216c42c9080fef382880608be8ecd860f7e415cd9cf1c9f60",
+      "size": 2735
+    },
+    "competition/deepeye/evidence/ai/trace_candidate_decode/source_versions.json": {
+      "sha256": "e1da8e76506179c160fb29bc284acc7cb0dbe458782e0e65ba8bbc0f3b492a60",
+      "size": 989
+    }
+  },
+  "request": {
+    "code_commit": "3c1e584942bab4207b694f27ed116efb84ceedd7",
+    "expected_result": "Independent offline C candidate decoder only, derived from five normative/rawinputs without opening/importing B encoder/decoder or using B roundtriporacle. B TRACEop05 requestabe52729c5bb46944ec8c55dd92481af9362b4d5a92b0bdefd13d1061038de4a, fixedinputhead781be78d9da77a75ea711cf690eeea6523733d3a.81casegroups pass:8manual+32synthetic streams,126frames/1046points,34pinnednegatives; strictCRC/RAW/Rice/canonicality and sparseindex/fulltick/sourceorigin/masks/Ebounds. IndependentQA5methods andmain4methods/portablecheckspass. Positivefixture costs1816selectedvalidRAWbytes->5346completeframebytes/53460linebits8N1 showframingexpansion, not realcompression/latency/slotproof. Originalharnessfailure retained. Productiontype7 remainsdisabled/reject, R03/publicABI/sourceclock/BOOT/units/grouping/schedule/runtime/board/system acceptance remainspending/not_run; A alone owns publicauthority/physicalboard. No production or oldsource/oldtest changed. Frozen design1011259415a0916054eb580687612580bc1e5f09, contractDEEPEYE-HUMAN-LOCK-20261014/revision1 sourcef5989cd5defce561f9ba98e6b18fc2682945f0a2 requirementsSHA256c229834bfc2292f5fe4411fc9f12c68487008f9d1adaf31f0144ee7a98173804 unchanged.",
+    "operation_id": "C-DEEPEYE-TRACE-CANDIDATE-DECODE-20261018-14",
+    "requester": "node-c",
+    "task_id": "DEEPEYE-IMPLEMENTATION-20261014",
+    "task_version": 1,
+    "test_steps": [
+      "From any cwd run Python3.12 or3.13 with -B -X utf8 competition/deepeye/evidence/ai/trace_candidate_decode/provenance.py --check-only, then replay.py. These direct scripts need only their committed owned inputs, not private author deployment paths. Expected81casegroups/exit0.",
+      "Compare candidate_decode.py SHA256 b02010280b72d3a94842db627f733df9c1fa6ecfe54f572509d57869d2d3d72c with independent_review/candidate_snapshot.py exactbytes; run independent_review/probe.py (5methods,300validgrid,154noncanonicalRAW+254wrong-k rejects,held/metadata/highwater cases).",
+      "Run main_review/main_probe.py --candidate competition/deepeye/evidence/ai/trace_candidate_decode/candidate_decode.py (4methods,296singlewirebitcorruptions/CRC/cache/retirement/input+returnalias).",
+      "Inspect portable-result.json/rawlogs: author copied allcandidatefiles to an unrelated temporarytree and ran provenance+replay from anothercwd underPython3.13.5, bothexit0; original43workerartifacts unchanged. Worker/QAusedPython3.12.14.",
+      "Verify pinned Bop05/request/inputhead, all70artifacthashes/Gitblobs, scopeidentity and original failedharnesslog; return samePRoperation/request_hash/tested_commit/rawresults. Do not enableproductiontype7 or infer source/clock/unit/scheduling/hardware acceptance."
+    ]
+  },
+  "request_hash": "3102d6d5e65dad3dfc6dba65eea465d7ac91816a65413d36b8825e2e71eb800e",
+  "schema_version": 1,
+  "stages": {
+    "R03_public_ABI": {
+      "log": "competition/deepeye/evidence/ai/trace_candidate_decode/report.md",
+      "status": "blocked"
+    },
+    "board": {
+      "status": "not_run"
+    },
+    "candidate_decode_software": {
+      "log": "competition/deepeye/evidence/ai/trace_candidate_decode/captures/replay-final.stdout.txt",
+      "status": "passed"
+    },
+    "implementation": {
+      "status": "not_run"
+    },
+    "independent_candidate_review": {
+      "log": "competition/deepeye/evidence/ai/trace_candidate_decode/independent_review/stderr.txt",
+      "status": "passed"
+    },
+    "main_candidate_review": {
+      "log": "competition/deepeye/evidence/ai/trace_candidate_decode/main_review/stderr.txt",
+      "status": "passed"
+    },
+    "production_type7": {
+      "status": "not_run"
+    },
+    "simulation": {
+      "status": "not_run"
+    },
+    "synthesis": {
+      "status": "not_run"
+    },
+    "system": {
+      "status": "not_run"
+    }
+  }
+}
