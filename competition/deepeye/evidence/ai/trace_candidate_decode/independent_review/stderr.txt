@@ -1,0 +1,10 @@
+test_canonical_selection_independent_grid (__main__.TargetedReview.test_canonical_selection_independent_grid) ... ok
+test_cross_channel_highwaters_invalid_acquisitions_and_recovery (__main__.TargetedReview.test_cross_channel_highwaters_invalid_acquisitions_and_recovery) ... ok
+test_explicit_ties_tc01_padding_and_impossible_residuals (__main__.TargetedReview.test_explicit_ties_tc01_padding_and_impossible_residuals) ... ok
+test_held_source_age_boundaries_and_constant_origin (__main__.TargetedReview.test_held_source_age_boundaries_and_constant_origin) ... ok
+test_progression_masks_and_length_metadata (__main__.TargetedReview.test_progression_masks_and_length_metadata) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.050s
+
+OK

@@ -1,0 +1,35 @@
+{
+  "worker_manifest_artifacts_verified": 43,
+  "commands": [
+    {
+      "label": "portable-provenance",
+      "command": [
+        "C:\\Users\\Alan\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "C:\\Users\\Alan\\AppData\\Local\\Temp\\C_trace_portable_v_0r3ybv\\standalone_candidate\\provenance.py",
+        "--check-only"
+      ],
+      "cwd": "C:\\Users\\Alan\\AppData\\Local\\Temp\\C_trace_portable_v_0r3ybv\\unrelated_cwd",
+      "exit_code": 0
+    },
+    {
+      "label": "portable-replay",
+      "command": [
+        "C:\\Users\\Alan\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "C:\\Users\\Alan\\AppData\\Local\\Temp\\C_trace_portable_v_0r3ybv\\standalone_candidate\\replay.py"
+      ],
+      "cwd": "C:\\Users\\Alan\\AppData\\Local\\Temp\\C_trace_portable_v_0r3ybv\\unrelated_cwd",
+      "exit_code": 0
+    }
+  ],
+  "passed_from_unrelated_cwd_in_copied_standalone_tree": true,
+  "original_worker_evidence_unchanged": true,
+  "python": "3.13.5 (tags/v3.13.5:6cb20a2, Jun 11 2025, 16:15:46) [MSC v.1943 64 bit (AMD64)]",
+  "candidate_sha256": "b02010280b72d3a94842db627f733df9c1fa6ecfe54f572509d57869d2d3d72c",
+  "scope": "candidate offline; runtime/board/system not_run"
+}

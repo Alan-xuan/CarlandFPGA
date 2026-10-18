@@ -1,0 +1,15 @@
+{
+  "command": [
+    "C:\\Users\\Alan\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+    "-X",
+    "utf8",
+    "-B",
+    "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\main-20261015-01a14025\\watch-20261018\\trace-root-review\\main_probe.py",
+    "--candidate",
+    "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\deepeye-implementation-c\\competition\\deepeye\\evidence\\ai\\trace_candidate_decode\\candidate_decode.py"
+  ],
+  "exit_code": 0,
+  "methods": 4,
+  "wire_bit_mutations": 296,
+  "source_review": "Bounded pure candidate parser; exact types/length before allocation; CRC first; finite uint16 Rice arithmetic/canonical byte predicate; metadata preserved; receiver atomic accepted-state updates and detached snapshots; disconnected production."
+}

@@ -1,0 +1,31 @@
+{
+  "schema": 1,
+  "task_id": "DEEPEYE-IMPLEMENTATION-20261014",
+  "task_version": 1,
+  "work_id": "C-independent-trace-candidate-decoder-20261018-v1",
+  "actual_agent_id": "/root/trace_decoder",
+  "state": "released",
+  "released_utc": "2026-10-18T15:27:22.564426+00:00",
+  "ownership": [
+    "competition/deepeye/evidence/ai/trace_candidate_decode/**"
+  ],
+  "released_to": "parent /root; current C main 01a14025-4dfd-7ec3-aebb-57be48daba59",
+  "reason": "Assigned offline implementation and evidence complete; final handoff follows with no more writes.",
+  "commands_all_finished": true,
+  "background_jobs_started": false,
+  "child_agents_started": false,
+  "no_further_product_or_evidence_writes": true,
+  "command_exit_codes": {
+    "preflight-01": 0,
+    "provenance-01": 0,
+    "provenance-02": 0,
+    "replay-01": 1,
+    "replay-02": 0,
+    "replay-03": 0,
+    "replay-final": 0,
+    "scope-01": 0
+  },
+  "runtime_acceptance": "not_run",
+  "physical_board": "not_run",
+  "production_type7": "remains_rejected"
+}

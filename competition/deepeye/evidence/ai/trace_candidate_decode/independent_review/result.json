@@ -1,0 +1,49 @@
+{
+  "task_id": "DEEPEYE-IMPLEMENTATION-20261014",
+  "task_version": 1,
+  "work_id": "C-independent-trace-adversarial-review-20261018-v1",
+  "actual_agent_id": "/root/data_boundary_repair",
+  "command": [
+    "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\venv\\Scripts\\python.exe",
+    "-B",
+    "-X",
+    "utf8",
+    "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\main-20261015-01a14025\\watch-20261018\\trace-adversarial-review\\probe.py"
+  ],
+  "cwd": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c",
+  "started_utc": "2026-10-18T15:26:52.754784+00:00",
+  "completed_utc": "2026-10-18T15:26:53.017133+00:00",
+  "exit_code": 0,
+  "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+  "candidate_sha256": "b02010280b72d3a94842db627f733df9c1fa6ecfe54f572509d57869d2d3d72c",
+  "candidate_unchanged_during_review": true,
+  "normative_inputs": {
+    "main_candidate_spec.md": {
+      "sha256": "7bc33ebc28c9f08e200c539a1a59c07b42b36211cb49b08ac449875bf75f9a73",
+      "bytes": 11748
+    },
+    "TRACE_CANDIDATE.md": {
+      "sha256": "f702db7239082570a26856091a3131293b7df610c76d7af830415ed40a08d56b",
+      "bytes": 24050
+    },
+    "trace_candidate_layout.json": {
+      "sha256": "0de9a9a303ed691c645beba2ba9d39c7eb2261a8df336ea321f5055a07436e9c",
+      "bytes": 9784
+    },
+    "main_manual_vectors.json": {
+      "sha256": "36b8e3fdb53e3c8fc911cc44b4f4151d62863d2e05b189f68c42fefe869b2d24",
+      "bytes": 31201
+    },
+    "trace_candidate_vectors.json": {
+      "sha256": "e9fb59aa20324ebdeffb25ac89f43e42a085b3d49cec3ee9104ff551d9409bf2",
+      "bytes": 530236
+    }
+  },
+  "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stderr_sha256": "28a2a7f261eea65a1d727ea97ca14b9be2e651c9d69fd78554b2668647b76973",
+  "probe_sha256": "cc46c1280a925101b2bbd920102c683eb0b6677031c156f64582673ea01e3790",
+  "contract": "DEEPEYE-HUMAN-LOCK-20261014/revision1",
+  "requirements_sha256": "c229834bfc2292f5fe4411fc9f12c68487008f9d1adaf31f0144ee7a98173804",
+  "design_commit": "1011259415a0916054eb580687612580bc1e5f09",
+  "exclusions": "No B implementation/scripts/oracle; no production/runtime/ABI/clock/units/schedule/board acceptance"
+}

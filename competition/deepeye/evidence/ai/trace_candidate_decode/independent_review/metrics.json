@@ -1,0 +1,19 @@
+{
+  "canonical_grid": {
+    "accepted": 300,
+    "raw": 46,
+    "rice": 254,
+    "noncanonical_raw_rejected": 154,
+    "nonoptimal_k_rejected": 254
+  },
+  "highwater_atomic_recovery_checks": 18,
+  "explicit_canonical_boundaries": 11,
+  "held_metadata": {
+    "positive": 6,
+    "negative": 8
+  },
+  "progression_mask_metadata": {
+    "positive": 6,
+    "negative": 21
+  }
+}

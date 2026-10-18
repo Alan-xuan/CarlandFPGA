@@ -1,0 +1,64 @@
+{
+  "artifacts": {
+    "candidate_snapshot.py": {
+      "sha256": "b02010280b72d3a94842db627f733df9c1fa6ecfe54f572509d57869d2d3d72c",
+      "bytes": 10519
+    },
+    "capture.py": {
+      "sha256": "02a9459b3e3613ebcb0139e9b693e0d113b8543c1dc434a5ec7339887cb9e311",
+      "bytes": 3526
+    },
+    "finalize.py": {
+      "sha256": "4c6a3bea57448148ce2e4d2ed6e0f6f424c3759d848048e05e540bcca65e6375",
+      "bytes": 2299
+    },
+    "metrics.json": {
+      "sha256": "e58796e9b09549333efeaa1970cd6c0afdf3bafa19312ba381b0e6af33e6468d",
+      "bytes": 393
+    },
+    "normative_inputs/main_candidate_spec.md": {
+      "sha256": "7bc33ebc28c9f08e200c539a1a59c07b42b36211cb49b08ac449875bf75f9a73",
+      "bytes": 11748
+    },
+    "normative_inputs/main_manual_vectors.json": {
+      "sha256": "36b8e3fdb53e3c8fc911cc44b4f4151d62863d2e05b189f68c42fefe869b2d24",
+      "bytes": 31201
+    },
+    "normative_inputs/TRACE_CANDIDATE.md": {
+      "sha256": "f702db7239082570a26856091a3131293b7df610c76d7af830415ed40a08d56b",
+      "bytes": 24050
+    },
+    "normative_inputs/trace_candidate_layout.json": {
+      "sha256": "0de9a9a303ed691c645beba2ba9d39c7eb2261a8df336ea321f5055a07436e9c",
+      "bytes": 9784
+    },
+    "normative_inputs/trace_candidate_vectors.json": {
+      "sha256": "e9fb59aa20324ebdeffb25ac89f43e42a085b3d49cec3ee9104ff551d9409bf2",
+      "bytes": 530236
+    },
+    "probe.py": {
+      "sha256": "cc46c1280a925101b2bbd920102c683eb0b6677031c156f64582673ea01e3790",
+      "bytes": 14079
+    },
+    "README.md": {
+      "sha256": "1b91ead03a6b1aeae2960ee849f5829800dba59e31b65b334ce7755506198d8a",
+      "bytes": 4576
+    },
+    "release.json": {
+      "sha256": "87756792175725788cfdaba4cf16633f29cf00fd8b3b1216ed4bba27f8ecd64d",
+      "bytes": 781
+    },
+    "result.json": {
+      "sha256": "3a2d1089e7f638e6107d986f7ee2c7ca88caa193a305ee29650f3a8b683bfcb4",
+      "bytes": 2310
+    },
+    "stderr.txt": {
+      "sha256": "28a2a7f261eea65a1d727ea97ca14b9be2e651c9d69fd78554b2668647b76973",
+      "bytes": 789
+    },
+    "stdout.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    }
+  }
+}

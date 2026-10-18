@@ -1,0 +1,21 @@
+{
+  "label": "replay-01",
+  "args": [
+    "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\venv\\Scripts\\python.exe",
+    "-B",
+    "-X",
+    "utf8",
+    "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\deepeye-implementation-c\\competition\\deepeye\\evidence\\ai\\trace_candidate_decode\\replay.py"
+  ],
+  "cwd": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c",
+  "started_utc": "2026-10-18T15:21:40.794681+00:00",
+  "finished_utc": "2026-10-18T15:21:40.978213+00:00",
+  "exit_code": 1,
+  "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stderr_sha256": "e57f0e7bf74234daa6c32aa58da5a98962c58aa8c26139c87467fa5d7b1ee708",
+  "sources": {
+    "candidate_decode.py": "b02010280b72d3a94842db627f733df9c1fa6ecfe54f572509d57869d2d3d72c",
+    "capture.py": "5473819657688464a452dea031d8a9366e9d7174ad157ea602ddaacfc93fc4e7",
+    "replay.py": "6df396a7b9c1c37eef35d393c22dc29e73fd0fc7544e872dd111192458a9ce6f"
+  }
+}

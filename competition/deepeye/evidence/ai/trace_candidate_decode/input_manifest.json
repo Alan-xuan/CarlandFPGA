@@ -1,0 +1,92 @@
+{
+  "schema": 1,
+  "task_id": "DEEPEYE-IMPLEMENTATION-20261014",
+  "task_version": 1,
+  "work_id": "C-independent-trace-candidate-decoder-20261018-v1",
+  "agent_id": "/root/trace_decoder",
+  "input_head": "781be78d9da77a75ea711cf690eeea6523733d3a",
+  "operation": "B-DEEPEYE-TRACE-CANDIDATE-20261017-05",
+  "request_hash": "abe52729c5bb46944ec8c55dd92481af9362b4d5a92b0bdefd13d1061038de4a",
+  "contract": "DEEPEYE-HUMAN-LOCK-20261014/revision1",
+  "contract_source_commit": "f5989cd5defce561f9ba98e6b18fc2682945f0a2",
+  "requirements_sha256": "c229834bfc2292f5fe4411fc9f12c68487008f9d1adaf31f0144ee7a98173804",
+  "design_commit": "1011259415a0916054eb580687612580bc1e5f09",
+  "source_imports": {
+    "candidate_decode.py": [
+      "collections",
+      "copy"
+    ],
+    "replay.py": [
+      "candidate_decode",
+      "copy",
+      "json",
+      "pathlib"
+    ]
+  },
+  "input_files": [
+    {
+      "path": "inputs/TRACE_CANDIDATE.md",
+      "source_relative_to_root": ".local/main-20261015-01a14025/watch-20261018/github/snapshot-20261018T143222Z/new-reference-bytes/pr30--competition__deepeye__golden__codec__TRACE_CANDIDATE.md",
+      "bytes": 24050,
+      "sha256": "f702db7239082570a26856091a3131293b7df610c76d7af830415ed40a08d56b",
+      "source_bytes_equal": true,
+      "documented_sha256": null,
+      "git_blob_sha1": "a2a3f1fa097f8ec88146d42d3b7fbc5a0f300fb8"
+    },
+    {
+      "path": "inputs/trace_candidate_layout.json",
+      "source_relative_to_root": ".local/main-20261015-01a14025/watch-20261018/b-candidate-review/sources/competition/deepeye/golden/codec/trace_candidate_layout.json",
+      "bytes": 9784,
+      "sha256": "0de9a9a303ed691c645beba2ba9d39c7eb2261a8df336ea321f5055a07436e9c",
+      "source_bytes_equal": true,
+      "documented_sha256": "0de9a9a303ed691c645beba2ba9d39c7eb2261a8df336ea321f5055a07436e9c",
+      "git_blob_sha1": "339147cf8ed75395e9749fc451caa92c327931a8"
+    },
+    {
+      "path": "inputs/trace_candidate_vectors.json",
+      "source_relative_to_root": ".local/main-20261015-01a14025/watch-20261018/b-candidate-review/sources/competition/deepeye/golden/codec/trace_candidate_vectors.json",
+      "bytes": 530236,
+      "sha256": "e9fb59aa20324ebdeffb25ac89f43e42a085b3d49cec3ee9104ff551d9409bf2",
+      "source_bytes_equal": true,
+      "documented_sha256": "e9fb59aa20324ebdeffb25ac89f43e42a085b3d49cec3ee9104ff551d9409bf2",
+      "git_blob_sha1": "66516f1e3f677acee6adcd9d23f3957f6683eca7"
+    },
+    {
+      "path": "inputs/main_manual_vectors.json",
+      "source_relative_to_root": ".local/main-20261015-01a14025/watch-20261018/b-candidate-review/sources/competition/deepeye/evidence/codec/trace-candidate-20261017-05/main/main_manual_vectors.json",
+      "bytes": 31201,
+      "sha256": "36b8e3fdb53e3c8fc911cc44b4f4151d62863d2e05b189f68c42fefe869b2d24",
+      "source_bytes_equal": true,
+      "documented_sha256": "36b8e3fdb53e3c8fc911cc44b4f4151d62863d2e05b189f68c42fefe869b2d24",
+      "git_blob_sha1": "df3e3eb0b0ef7b406dc1ef15898d12725a3d17f2"
+    },
+    {
+      "path": "inputs/main_candidate_spec.md",
+      "source_relative_to_root": ".local/main-20261015-01a14025/watch-20261018/b-candidate-review/sources/competition/deepeye/evidence/codec/trace-candidate-20261017-05/main/main_candidate_spec.md",
+      "bytes": 11748,
+      "sha256": "7bc33ebc28c9f08e200c539a1a59c07b42b36211cb49b08ac449875bf75f9a73",
+      "source_bytes_equal": true,
+      "documented_sha256": "7bc33ebc28c9f08e200c539a1a59c07b42b36211cb49b08ac449875bf75f9a73",
+      "git_blob_sha1": "5970501901b8c698f10b1a6b6bd7c8a9acc6f30d"
+    },
+    {
+      "path": "inputs/immutable_scope.json",
+      "source_relative_to_root": ".local/deepeye-implementation-c/docs/competition/deepeye-2026/immutable_scope.json",
+      "bytes": 6684,
+      "sha256": "6a86000e97d1571c0b7b89b9d3cf7facb11d2b6a06455eb1d53e0637676b6bc4",
+      "source_bytes_equal": true,
+      "documented_sha256": null,
+      "git_blob_sha1": "190e46b7dee1dba49f0d92f9044a898931a7644b"
+    },
+    {
+      "path": "inputs/immutable_scope.md",
+      "source_relative_to_root": ".local/deepeye-implementation-c/docs/competition/deepeye-2026/immutable_scope.md",
+      "bytes": 6139,
+      "sha256": "27c5bf0b194036cf4300dbec371b6abba42bc5fda604da0e6e06284e4c5a2ddd",
+      "source_bytes_equal": true,
+      "documented_sha256": null,
+      "git_blob_sha1": "f744f507f5e972f77a07de7099bb381c1085961d"
+    }
+  ],
+  "independence": "No B encoder/decoder implementation or review script opened/imported. Source math uses original fixture values; raw expected bytes are pinned data."
+}

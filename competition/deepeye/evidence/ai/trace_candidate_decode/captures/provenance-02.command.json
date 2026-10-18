@@ -1,0 +1,25 @@
+{
+  "label": "provenance-02",
+  "args": [
+    "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\venv\\Scripts\\python.exe",
+    "-B",
+    "-X",
+    "utf8",
+    "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\deepeye-implementation-c\\competition\\deepeye\\evidence\\ai\\trace_candidate_decode\\provenance.py",
+    "--source-root",
+    "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c"
+  ],
+  "cwd": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c",
+  "started_utc": "2026-10-18T15:26:48.265861+00:00",
+  "finished_utc": "2026-10-18T15:26:48.450202+00:00",
+  "exit_code": 0,
+  "stdout_sha256": "e41b8c619e5981a472c307d6128023738a8e43ebccb2f89ae4badd20b94838b3",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "sources": {
+    "candidate_decode.py": "b02010280b72d3a94842db627f733df9c1fa6ecfe54f572509d57869d2d3d72c",
+    "capture.py": "4fb0a04f353627628782b1bc0fe77c0a116e17d84fd2d0f67ada6ef8e402b184",
+    "provenance.py": "a4383f9e34260bad8112ad09333ca03e483a473eef0ed3a269bc90d7da34ef49",
+    "replay.py": "e0135756de0233252413ae76fd211d31ba13a7c6e22eae363b512d9ea8d59f4e",
+    "seal.py": "4afb33bb76173fb216c42c9080fef382880608be8ecd860f7e415cd9cf1c9f60"
+  }
+}

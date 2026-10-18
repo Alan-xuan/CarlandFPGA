@@ -1,0 +1,9 @@
+test_binding_return_aliases_and_terminal_retirement (__main__.MainReview.test_binding_return_aliases_and_terminal_retirement) ... ok
+test_every_single_wire_bit_corruption_rejects_without_statechange (__main__.MainReview.test_every_single_wire_bit_corruption_rejects_without_statechange) ... ok
+test_known_manual_bytes_and_independent_CRC_primitive (__main__.MainReview.test_known_manual_bytes_and_independent_CRC_primitive) ... ok
+test_replay_eviction_and_seq_wrap_fail_closed (__main__.MainReview.test_replay_eviction_and_seq_wrap_fail_closed) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.018s
+
+OK

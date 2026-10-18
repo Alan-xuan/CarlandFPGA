@@ -1,0 +1,1417 @@
+{
+  "status": "passed",
+  "manual_vectors": 8,
+  "synthetic_streams": 32,
+  "malformed_payloads": 23,
+  "malformed_frames": 11,
+  "total_checks": 81,
+  "results": [
+    {
+      "case": "manual/raw_single_LE_anchor",
+      "status": "passed",
+      "frames": 1,
+      "points": 1,
+      "max_abs_error": 0,
+      "ledger": {
+        "frame_count": 1,
+        "payload_bytes_total": 23,
+        "frame_bytes_total": 37,
+        "line_bits_8n1_total": 370,
+        "value_count_total": 1,
+        "selected_raw_bytes_total": 2,
+        "significant_bits_total": 16,
+        "stored_code_bytes_total": 2,
+        "padding_bits_total": 0,
+        "metadata_bytes_total": 21
+      }
+    },
+    {
+      "case": "manual/rice_three_flat",
+      "status": "passed",
+      "frames": 1,
+      "points": 3,
+      "max_abs_error": 0,
+      "ledger": {
+        "frame_count": 1,
+        "payload_bytes_total": 28,
+        "frame_bytes_total": 42,
+        "line_bits_8n1_total": 420,
+        "value_count_total": 3,
+        "selected_raw_bytes_total": 6,
+        "significant_bits_total": 18,
+        "stored_code_bytes_total": 3,
+        "padding_bits_total": 6,
+        "metadata_bytes_total": 25
+      }
+    },
+    {
+      "case": "manual/stored_byte_tie_RAW",
+      "status": "passed",
+      "frames": 1,
+      "points": 2,
+      "max_abs_error": 0,
+      "ledger": {
+        "frame_count": 1,
+        "payload_bytes_total": 29,
+        "frame_bytes_total": 43,
+        "line_bits_8n1_total": 430,
+        "value_count_total": 2,
+        "selected_raw_bytes_total": 4,
+        "significant_bits_total": 32,
+        "stored_code_bytes_total": 4,
+        "padding_bits_total": 0,
+        "metadata_bytes_total": 25
+      }
+    },
+    {
+      "case": "manual/held_short",
+      "status": "passed",
+      "frames": 1,
+      "points": 1,
+      "max_abs_error": 0,
+      "ledger": {
+        "frame_count": 1,
+        "payload_bytes_total": 25,
+        "frame_bytes_total": 39,
+        "line_bits_8n1_total": 390,
+        "value_count_total": 1,
+        "selected_raw_bytes_total": 2,
+        "significant_bits_total": 16,
+        "stored_code_bytes_total": 2,
+        "padding_bits_total": 0,
+        "metadata_bytes_total": 23
+      }
+    },
+    {
+      "case": "manual/held_long",
+      "status": "passed",
+      "frames": 1,
+      "points": 1,
+      "max_abs_error": 0,
+      "ledger": {
+        "frame_count": 1,
+        "payload_bytes_total": 31,
+        "frame_bytes_total": 45,
+        "line_bits_8n1_total": 450,
+        "value_count_total": 1,
+        "selected_raw_bytes_total": 2,
+        "significant_bits_total": 16,
+        "stored_code_bytes_total": 2,
+        "padding_bits_total": 0,
+        "metadata_bytes_total": 29
+      }
+    },
+    {
+      "case": "manual/quality_only_invalid",
+      "status": "passed",
+      "frames": 1,
+      "points": 1,
+      "max_abs_error": 0,
+      "ledger": {
+        "frame_count": 1,
+        "payload_bytes_total": 21,
+        "frame_bytes_total": 35,
+        "line_bits_8n1_total": 350,
+        "value_count_total": 0,
+        "selected_raw_bytes_total": 0,
+        "significant_bits_total": 0,
+        "stored_code_bytes_total": 0,
+        "padding_bits_total": 0,
+        "metadata_bytes_total": 21
+      }
+    },
+    {
+      "case": "manual/exact_32B_41_flat",
+      "status": "passed",
+      "frames": 1,
+      "points": 41,
+      "max_abs_error": 0,
+      "ledger": {
+        "frame_count": 1,
+        "payload_bytes_total": 32,
+        "frame_bytes_total": 46,
+        "line_bits_8n1_total": 460,
+        "value_count_total": 41,
+        "selected_raw_bytes_total": 82,
+        "significant_bits_total": 56,
+        "stored_code_bytes_total": 7,
+        "padding_bits_total": 0,
+        "metadata_bytes_total": 25
+      }
+    },
+    {
+      "case": "manual/low32_tick_rollover",
+      "status": "passed",
+      "frames": 1,
+      "points": 2,
+      "max_abs_error": 0,
+      "ledger": {
+        "frame_count": 1,
+        "payload_bytes_total": 28,
+        "frame_bytes_total": 42,
+        "line_bits_8n1_total": 420,
+        "value_count_total": 2,
+        "selected_raw_bytes_total": 4,
+        "significant_bits_total": 17,
+        "stored_code_bytes_total": 3,
+        "padding_bits_total": 7,
+        "metadata_bytes_total": 25
+      }
+    },
+    {
+      "case": "synthetic/all_e_e0",
+      "status": "passed",
+      "frames": 1,
+      "points": 8,
+      "max_abs_error": 0,
+      "ledger": {
+        "frame_count": 1,
+        "payload_bytes_total": 31,
+        "frame_bytes_total": 45,
+        "line_bits_8n1_total": 450,
+        "value_count_total": 8,
+        "selected_raw_bytes_total": 16,
+        "significant_bits_total": 44,
+        "stored_code_bytes_total": 6,
+        "padding_bits_total": 4,
+        "metadata_bytes_total": 25
+      }
+    },
+    {
+      "case": "synthetic/all_e_e1",
+      "status": "passed",
+      "frames": 1,
+      "points": 8,
+      "max_abs_error": 0,
+      "ledger": {
+        "frame_count": 1,
+        "payload_bytes_total": 30,
+        "frame_bytes_total": 44,
+        "line_bits_8n1_total": 440,
+        "value_count_total": 8,
+        "selected_raw_bytes_total": 16,
+        "significant_bits_total": 37,
+        "stored_code_bytes_total": 5,
+        "padding_bits_total": 3,
+        "metadata_bytes_total": 25
+      }
+    },
+    {
+      "case": "synthetic/all_e_e2",
+      "status": "passed",
+      "frames": 1,
+      "points": 8,
+      "max_abs_error": 2,
+      "ledger": {
+        "frame_count": 1,
+        "payload_bytes_total": 29,
+        "frame_bytes_total": 43,
+        "line_bits_8n1_total": 430,
+        "value_count_total": 8,
+        "selected_raw_bytes_total": 16,
+        "significant_bits_total": 31,
+        "stored_code_bytes_total": 4,
+        "padding_bits_total": 1,
+        "metadata_bytes_total": 25
+      }
+    },
+    {
+      "case": "synthetic/all_e_e4",
+      "status": "passed",
+      "frames": 1,
+      "points": 8,
+      "max_abs_error": 3,
+      "ledger": {
+        "frame_count": 1,
+        "payload_bytes_total": 29,
+        "frame_bytes_total": 43,
+        "line_bits_8n1_total": 430,
+        "value_count_total": 8,
+        "selected_raw_bytes_total": 16,
+        "significant_bits_total": 27,
+        "stored_code_bytes_total": 4,
+        "padding_bits_total": 5,
+        "metadata_bytes_total": 25
+      }
+    },
+    {
+      "case": "synthetic/all_e_e8",
+      "status": "passed",
+      "frames": 1,
+      "points": 8,
+      "max_abs_error": 8,
+      "ledger": {
+        "frame_count": 1,
+        "payload_bytes_total": 29,
+        "frame_bytes_total": 43,
+        "line_bits_8n1_total": 430,
+        "value_count_total": 8,
+        "selected_raw_bytes_total": 16,
+        "significant_bits_total": 25,
+        "stored_code_bytes_total": 4,
+        "padding_bits_total": 7,
+        "metadata_bytes_total": 25
+      }
+    },
+    {
+      "case": "synthetic/boundary_exact_32B_40_flat",
+      "status": "passed",
+      "frames": 1,
+      "points": 40,
+      "max_abs_error": 0,
+      "ledger": {
+        "frame_count": 1,
+        "payload_bytes_total": 32,
+        "frame_bytes_total": 46,
+        "line_bits_8n1_total": 460,
+        "value_count_total": 40,
+        "selected_raw_bytes_total": 80,
+        "significant_bits_total": 55,
+        "stored_code_bytes_total": 7,
+        "padding_bits_total": 1,
+        "metadata_bytes_total": 25
+      }
+    },
+    {
+      "case": "synthetic/boundary_42_flat_splits",
+      "status": "passed",
+      "frames": 2,
+      "points": 42,
+      "max_abs_error": 0,
+      "ledger": {
+        "frame_count": 2,
+        "payload_bytes_total": 55,
+        "frame_bytes_total": 83,
+        "line_bits_8n1_total": 830,
+        "value_count_total": 42,
+        "selected_raw_bytes_total": 84,
+        "significant_bits_total": 72,
+        "stored_code_bytes_total": 9,
+        "padding_bits_total": 0,
+        "metadata_bytes_total": 46
+      }
+    },
+    {
+      "case": "synthetic/boundary_singleton_forms",
+      "status": "passed",
+      "frames": 4,
+      "points": 4,
+      "max_abs_error": 0,
+      "ledger": {
+        "frame_count": 4,
+        "payload_bytes_total": 100,
+        "frame_bytes_total": 156,
+        "line_bits_8n1_total": 1560,
+        "value_count_total": 3,
+        "selected_raw_bytes_total": 6,
+        "significant_bits_total": 48,
+        "stored_code_bytes_total": 6,
+        "padding_bits_total": 0,
+        "metadata_bytes_total": 94
+      }
+    },
+    {
+      "case": "synthetic/boundary_invalid_128_single",
+      "status": "passed",
+      "frames": 1,
+      "points": 128,
+      "max_abs_error": 0,
+      "ledger": {
+        "frame_count": 1,
+        "payload_bytes_total": 25,
+        "frame_bytes_total": 39,
+        "line_bits_8n1_total": 390,
+        "value_count_total": 0,
+        "selected_raw_bytes_total": 0,
+        "significant_bits_total": 0,
+        "stored_code_bytes_total": 0,
+        "padding_bits_total": 0,
+        "metadata_bytes_total": 25
+      }
+    },
+    {
+      "case": "synthetic/mask_saturated_valid",
+      "status": "passed",
+      "frames": 1,
+      "points": 3,
+      "max_abs_error": 0,
+      "ledger": {
+        "frame_count": 1,
+        "payload_bytes_total": 28,
+        "frame_bytes_total": 42,
+        "line_bits_8n1_total": 420,
+        "value_count_total": 3,
+        "selected_raw_bytes_total": 6,
+        "significant_bits_total": 18,
+        "stored_code_bytes_total": 3,
+        "padding_bits_total": 6,
+        "metadata_bytes_total": 25
+      }
+    },
+    {
+      "case": "synthetic/mask_fault_valid",
+      "status": "passed",
+      "frames": 1,
+      "points": 3,
+      "max_abs_error": 0,
+      "ledger": {
+        "frame_count": 1,
+        "payload_bytes_total": 28,
+        "frame_bytes_total": 42,
+        "line_bits_8n1_total": 420,
+        "value_count_total": 3,
+        "selected_raw_bytes_total": 6,
+        "significant_bits_total": 18,
+        "stored_code_bytes_total": 3,
+        "padding_bits_total": 6,
+        "metadata_bytes_total": 25
+      }
+    },
+    {
+      "case": "synthetic/mask_fault_invalid",
+      "status": "passed",
+      "frames": 1,
+      "points": 3,
+      "max_abs_error": 0,
+      "ledger": {
+        "frame_count": 1,
+        "payload_bytes_total": 25,
+        "frame_bytes_total": 39,
+        "line_bits_8n1_total": 390,
+        "value_count_total": 0,
+        "selected_raw_bytes_total": 0,
+        "significant_bits_total": 0,
+        "stored_code_bytes_total": 0,
+        "padding_bits_total": 0,
+        "metadata_bytes_total": 25
+      }
+    },
+    {
+      "case": "synthetic/mask_saturated_held",
+      "status": "passed",
+      "frames": 1,
+      "points": 3,
+      "max_abs_error": 0,
+      "ledger": {
+        "frame_count": 1,
+        "payload_bytes_total": 30,
+        "frame_bytes_total": 44,
+        "line_bits_8n1_total": 440,
+        "value_count_total": 3,
+        "selected_raw_bytes_total": 6,
+        "significant_bits_total": 18,
+        "stored_code_bytes_total": 3,
+        "padding_bits_total": 6,
+        "metadata_bytes_total": 27
+      }
+    },
+    {
+      "case": "synthetic/mask_split_on_flag_change",
+      "status": "passed",
+      "frames": 6,
+      "points": 6,
+      "max_abs_error": 0,
+      "ledger": {
+        "frame_count": 6,
+        "payload_bytes_total": 138,
+        "frame_bytes_total": 222,
+        "line_bits_8n1_total": 2220,
+        "value_count_total": 6,
+        "selected_raw_bytes_total": 12,
+        "significant_bits_total": 96,
+        "stored_code_bytes_total": 12,
+        "padding_bits_total": 0,
+        "metadata_bytes_total": 126
+      }
+    },
+    {
+      "case": "synthetic/mask_saturated_not_endpoint",
+      "status": "passed",
+      "frames": 1,
+      "points": 3,
+      "max_abs_error": 0,
+      "ledger": {
+        "frame_count": 1,
+        "payload_bytes_total": 31,
+        "frame_bytes_total": 45,
+        "line_bits_8n1_total": 450,
+        "value_count_total": 3,
+        "selected_raw_bytes_total": 6,
+        "significant_bits_total": 48,
+        "stored_code_bytes_total": 6,
+        "padding_bits_total": 0,
+        "metadata_bytes_total": 25
+      }
+    },
+    {
+      "case": "synthetic/age_held_short_multipoint",
+      "status": "passed",
+      "frames": 1,
+      "points": 3,
+      "max_abs_error": 0,
+      "ledger": {
+        "frame_count": 1,
+        "payload_bytes_total": 30,
+        "frame_bytes_total": 44,
+        "line_bits_8n1_total": 440,
+        "value_count_total": 3,
+        "selected_raw_bytes_total": 6,
+        "significant_bits_total": 18,
+        "stored_code_bytes_total": 3,
+        "padding_bits_total": 6,
+        "metadata_bytes_total": 27
+      }
+    },
+    {
+      "case": "synthetic/age_forms_five_frames",
+      "status": "passed",
+      "frames": 5,
+      "points": 5,
+      "max_abs_error": 0,
+      "ledger": {
+        "frame_count": 5,
+        "payload_bytes_total": 135,
+        "frame_bytes_total": 205,
+        "line_bits_8n1_total": 2050,
+        "value_count_total": 5,
+        "selected_raw_bytes_total": 10,
+        "significant_bits_total": 80,
+        "stored_code_bytes_total": 10,
+        "padding_bits_total": 0,
+        "metadata_bytes_total": 125
+      }
+    },
+    {
+      "case": "synthetic/age_long_singleton_from_main_pattern",
+      "status": "passed",
+      "frames": 1,
+      "points": 1,
+      "max_abs_error": 0,
+      "ledger": {
+        "frame_count": 1,
+        "payload_bytes_total": 31,
+        "frame_bytes_total": 45,
+        "line_bits_8n1_total": 450,
+        "value_count_total": 1,
+        "selected_raw_bytes_total": 2,
+        "significant_bits_total": 16,
+        "stored_code_bytes_total": 2,
+        "padding_bits_total": 0,
+        "metadata_bytes_total": 29
+      }
+    },
+    {
+      "case": "synthetic/tick_low32_rollover_synthetic",
+      "status": "passed",
+      "frames": 1,
+      "points": 4,
+      "max_abs_error": 0,
+      "ledger": {
+        "frame_count": 1,
+        "payload_bytes_total": 28,
+        "frame_bytes_total": 42,
+        "line_bits_8n1_total": 420,
+        "value_count_total": 4,
+        "selected_raw_bytes_total": 8,
+        "significant_bits_total": 19,
+        "stored_code_bytes_total": 3,
+        "padding_bits_total": 5,
+        "metadata_bytes_total": 25
+      }
+    },
+    {
+      "case": "synthetic/tick_uint64_high_synthetic",
+      "status": "passed",
+      "frames": 1,
+      "points": 10,
+      "max_abs_error": 0,
+      "ledger": {
+        "frame_count": 1,
+        "payload_bytes_total": 29,
+        "frame_bytes_total": 43,
+        "line_bits_8n1_total": 430,
+        "value_count_total": 10,
+        "selected_raw_bytes_total": 20,
+        "significant_bits_total": 25,
+        "stored_code_bytes_total": 4,
+        "padding_bits_total": 7,
+        "metadata_bytes_total": 25
+      }
+    },
+    {
+      "case": "synthetic/index_uint32_high_synthetic",
+      "status": "passed",
+      "frames": 1,
+      "points": 10,
+      "max_abs_error": 0,
+      "ledger": {
+        "frame_count": 1,
+        "payload_bytes_total": 29,
+        "frame_bytes_total": 43,
+        "line_bits_8n1_total": 430,
+        "value_count_total": 10,
+        "selected_raw_bytes_total": 20,
+        "significant_bits_total": 25,
+        "stored_code_bytes_total": 4,
+        "padding_bits_total": 7,
+        "metadata_bytes_total": 25
+      }
+    },
+    {
+      "case": "synthetic/tie_raw_wins_stored_bytes",
+      "status": "passed",
+      "frames": 1,
+      "points": 2,
+      "max_abs_error": 0,
+      "ledger": {
+        "frame_count": 1,
+        "payload_bytes_total": 29,
+        "frame_bytes_total": 43,
+        "line_bits_8n1_total": 430,
+        "value_count_total": 2,
+        "selected_raw_bytes_total": 4,
+        "significant_bits_total": 32,
+        "stored_code_bytes_total": 4,
+        "padding_bits_total": 0,
+        "metadata_bytes_total": 25
+      }
+    },
+    {
+      "case": "synthetic/tie_raw_wins_triple",
+      "status": "passed",
+      "frames": 1,
+      "points": 3,
+      "max_abs_error": 0,
+      "ledger": {
+        "frame_count": 1,
+        "payload_bytes_total": 31,
+        "frame_bytes_total": 45,
+        "line_bits_8n1_total": 450,
+        "value_count_total": 3,
+        "selected_raw_bytes_total": 6,
+        "significant_bits_total": 48,
+        "stored_code_bytes_total": 6,
+        "padding_bits_total": 0,
+        "metadata_bytes_total": 25
+      }
+    },
+    {
+      "case": "synthetic/canonical_k_tc01_manual_expected",
+      "status": "passed",
+      "frames": 1,
+      "points": 4,
+      "max_abs_error": 0,
+      "ledger": {
+        "frame_count": 1,
+        "payload_bytes_total": 29,
+        "frame_bytes_total": 43,
+        "line_bits_8n1_total": 430,
+        "value_count_total": 4,
+        "selected_raw_bytes_total": 8,
+        "significant_bits_total": 26,
+        "stored_code_bytes_total": 4,
+        "padding_bits_total": 6,
+        "metadata_bytes_total": 25
+      }
+    },
+    {
+      "case": "synthetic/canonical_k_padded_tie_family",
+      "status": "passed",
+      "frames": 1,
+      "points": 3,
+      "max_abs_error": 0,
+      "ledger": {
+        "frame_count": 1,
+        "payload_bytes_total": 29,
+        "frame_bytes_total": 43,
+        "line_bits_8n1_total": 430,
+        "value_count_total": 3,
+        "selected_raw_bytes_total": 6,
+        "significant_bits_total": 28,
+        "stored_code_bytes_total": 4,
+        "padding_bits_total": 4,
+        "metadata_bytes_total": 25
+      }
+    },
+    {
+      "case": "synthetic/channels4_ch0_128_fresh",
+      "status": "passed",
+      "frames": 16,
+      "points": 128,
+      "max_abs_error": 0,
+      "ledger": {
+        "frame_count": 16,
+        "payload_bytes_total": 512,
+        "frame_bytes_total": 736,
+        "line_bits_8n1_total": 7360,
+        "value_count_total": 128,
+        "selected_raw_bytes_total": 256,
+        "significant_bits_total": 850,
+        "stored_code_bytes_total": 112,
+        "padding_bits_total": 46,
+        "metadata_bytes_total": 400
+      }
+    },
+    {
+      "case": "synthetic/channels4_ch1_128_fault_span",
+      "status": "passed",
+      "frames": 16,
+      "points": 128,
+      "max_abs_error": 0,
+      "ledger": {
+        "frame_count": 16,
+        "payload_bytes_total": 512,
+        "frame_bytes_total": 736,
+        "line_bits_8n1_total": 7360,
+        "value_count_total": 128,
+        "selected_raw_bytes_total": 256,
+        "significant_bits_total": 849,
+        "stored_code_bytes_total": 112,
+        "padding_bits_total": 47,
+        "metadata_bytes_total": 400
+      }
+    },
+    {
+      "case": "synthetic/channels4_ch2_128_held_spans",
+      "status": "passed",
+      "frames": 6,
+      "points": 128,
+      "max_abs_error": 0,
+      "ledger": {
+        "frame_count": 6,
+        "payload_bytes_total": 186,
+        "frame_bytes_total": 270,
+        "line_bits_8n1_total": 2700,
+        "value_count_total": 128,
+        "selected_raw_bytes_total": 256,
+        "significant_bits_total": 218,
+        "stored_code_bytes_total": 28,
+        "padding_bits_total": 6,
+        "metadata_bytes_total": 158
+      }
+    },
+    {
+      "case": "synthetic/channels4_ch3_128_stride_segments",
+      "status": "passed",
+      "frames": 10,
+      "points": 128,
+      "max_abs_error": 0,
+      "ledger": {
+        "frame_count": 10,
+        "payload_bytes_total": 317,
+        "frame_bytes_total": 457,
+        "line_bits_8n1_total": 4570,
+        "value_count_total": 128,
+        "selected_raw_bytes_total": 256,
+        "significant_bits_total": 514,
+        "stored_code_bytes_total": 67,
+        "padding_bits_total": 22,
+        "metadata_bytes_total": 250
+      }
+    },
+    {
+      "case": "synthetic/sparse_pair_then_singletons",
+      "status": "passed",
+      "frames": 2,
+      "points": 4,
+      "max_abs_error": 0,
+      "ledger": {
+        "frame_count": 2,
+        "payload_bytes_total": 56,
+        "frame_bytes_total": 84,
+        "line_bits_8n1_total": 840,
+        "value_count_total": 4,
+        "selected_raw_bytes_total": 8,
+        "significant_bits_total": 38,
+        "stored_code_bytes_total": 6,
+        "padding_bits_total": 10,
+        "metadata_bytes_total": 50
+      }
+    },
+    {
+      "case": "synthetic/sparse_flat_128_budget_split",
+      "status": "passed",
+      "frames": 4,
+      "points": 128,
+      "max_abs_error": 0,
+      "ledger": {
+        "frame_count": 4,
+        "payload_bytes_total": 124,
+        "frame_bytes_total": 180,
+        "line_bits_8n1_total": 1800,
+        "value_count_total": 128,
+        "selected_raw_bytes_total": 256,
+        "significant_bits_total": 188,
+        "stored_code_bytes_total": 24,
+        "padding_bits_total": 4,
+        "metadata_bytes_total": 100
+      }
+    },
+    {
+      "case": "synthetic/sparse_quality_mix_30",
+      "status": "passed",
+      "frames": 26,
+      "points": 30,
+      "max_abs_error": 0,
+      "ledger": {
+        "frame_count": 26,
+        "payload_bytes_total": 618,
+        "frame_bytes_total": 982,
+        "line_bits_8n1_total": 9820,
+        "value_count_total": 25,
+        "selected_raw_bytes_total": 50,
+        "significant_bits_total": 362,
+        "stored_code_bytes_total": 46,
+        "padding_bits_total": 6,
+        "metadata_bytes_total": 572
+      }
+    },
+    {
+      "case": "malformed_payloads/m01_payload_over_32B",
+      "status": "passed",
+      "independent_rejection": "payload length outside 21..32",
+      "fixture_claimed_defect": "exceeds the 32 B candidate budget",
+      "receiver_rejection": "frame length outside 35..46",
+      "no_state_commit": true,
+      "next_frame_recovery": true
+    },
+    {
+      "case": "malformed_payloads/m02_trailing_byte",
+      "status": "passed",
+      "independent_rejection": "code length mismatch or trailing bytes",
+      "fixture_claimed_defect": "length does not match",
+      "receiver_rejection": "code length mismatch or trailing bytes",
+      "no_state_commit": true,
+      "next_frame_recovery": true
+    },
+    {
+      "case": "malformed_payloads/m03_noncanonical_k1_same_bytes",
+      "status": "passed",
+      "independent_rejection": "noncanonical mode/k/bits/code",
+      "fixture_claimed_defect": "noncanonical",
+      "receiver_rejection": "noncanonical mode/k/bits/code",
+      "no_state_commit": true,
+      "next_frame_recovery": true
+    },
+    {
+      "case": "malformed_payloads/m04_raw_when_rice_strictly_better",
+      "status": "passed",
+      "independent_rejection": "noncanonical mode/k/bits/code",
+      "fixture_claimed_defect": "noncanonical mode",
+      "receiver_rejection": "noncanonical mode/k/bits/code",
+      "no_state_commit": true,
+      "next_frame_recovery": true
+    },
+    {
+      "case": "malformed_payloads/m05_nonzero_padding",
+      "status": "passed",
+      "independent_rejection": "nonzero low padding",
+      "fixture_claimed_defect": "padding bit",
+      "receiver_rejection": "nonzero low padding",
+      "no_state_commit": true,
+      "next_frame_recovery": true
+    },
+    {
+      "case": "malformed_payloads/m06_reserved_quality_bit",
+      "status": "passed",
+      "independent_rejection": "reserved quality bit",
+      "fixture_claimed_defect": "bit7",
+      "receiver_rejection": "reserved quality bit",
+      "no_state_commit": true,
+      "next_frame_recovery": true
+    },
+    {
+      "case": "malformed_payloads/m07_e_mismatch",
+      "status": "passed",
+      "independent_rejection": "E binding mismatch",
+      "fixture_claimed_defect": "binding.e",
+      "receiver_rejection": "E binding mismatch",
+      "no_state_commit": true,
+      "next_frame_recovery": true
+    },
+    {
+      "case": "malformed_payloads/m08_zero_index_stride",
+      "status": "passed",
+      "independent_rejection": "zero stride",
+      "fixture_claimed_defect": "index stride must be positive",
+      "receiver_rejection": "zero stride",
+      "no_state_commit": true,
+      "next_frame_recovery": true
+    },
+    {
+      "case": "malformed_payloads/m09_index_overflow",
+      "status": "passed",
+      "independent_rejection": "index progression overflow",
+      "fixture_claimed_defect": "overflows uint32",
+      "receiver_rejection": "index progression overflow",
+      "no_state_commit": true,
+      "next_frame_recovery": true
+    },
+    {
+      "case": "malformed_payloads/m10_tick_overflow",
+      "status": "passed",
+      "independent_rejection": "tick progression overflow",
+      "fixture_claimed_defect": "overflows uint64",
+      "receiver_rejection": "tick progression overflow",
+      "no_state_commit": true,
+      "next_frame_recovery": true
+    },
+    {
+      "case": "malformed_payloads/m11_long_form_for_short_age",
+      "status": "passed",
+      "independent_rejection": "noncanonical long source origin",
+      "fixture_claimed_defect": "not canonical",
+      "receiver_rejection": "noncanonical long source origin",
+      "no_state_commit": true,
+      "next_frame_recovery": true
+    },
+    {
+      "case": "malformed_payloads/m12_zero_short_age",
+      "status": "passed",
+      "independent_rejection": "short source age bound",
+      "fixture_claimed_defect": "positive age",
+      "receiver_rejection": "short source age bound",
+      "no_state_commit": true,
+      "next_frame_recovery": true
+    },
+    {
+      "case": "malformed_payloads/m13_invalid_with_held",
+      "status": "passed",
+      "independent_rejection": "invalid flags",
+      "fixture_claimed_defect": "cannot be held",
+      "receiver_rejection": "invalid flags",
+      "no_state_commit": true,
+      "next_frame_recovery": true
+    },
+    {
+      "case": "malformed_payloads/m14_count_zero",
+      "status": "passed",
+      "independent_rejection": "point count outside 1..128",
+      "fixture_claimed_defect": "point count 0",
+      "receiver_rejection": "point count outside 1..128",
+      "no_state_commit": true,
+      "next_frame_recovery": true
+    },
+    {
+      "case": "malformed_payloads/m15_count_129",
+      "status": "passed",
+      "independent_rejection": "point count outside 1..128",
+      "fixture_claimed_defect": "point count 129",
+      "receiver_rejection": "point count outside 1..128",
+      "no_state_commit": true,
+      "next_frame_recovery": true
+    },
+    {
+      "case": "malformed_payloads/m16_undefined_e_code",
+      "status": "passed",
+      "independent_rejection": "invalid E code",
+      "fixture_claimed_defect": "not defined",
+      "receiver_rejection": "invalid E code",
+      "no_state_commit": true,
+      "next_frame_recovery": true
+    },
+    {
+      "case": "malformed_payloads/m17_session_mismatch",
+      "status": "passed",
+      "independent_rejection": "session binding mismatch",
+      "fixture_claimed_defect": "binding.session",
+      "receiver_rejection": "session binding mismatch",
+      "no_state_commit": true,
+      "next_frame_recovery": true
+    },
+    {
+      "case": "malformed_payloads/m18_raw_with_k",
+      "status": "passed",
+      "independent_rejection": "RAW requires k0",
+      "fixture_claimed_defect": "require k=0",
+      "receiver_rejection": "RAW requires k0",
+      "no_state_commit": true,
+      "next_frame_recovery": true
+    },
+    {
+      "case": "malformed_payloads/m19_invalid_without_raw",
+      "status": "passed",
+      "independent_rejection": "invalid quality-only shape",
+      "fixture_claimed_defect": "RAW flag",
+      "receiver_rejection": "invalid quality-only shape",
+      "no_state_commit": true,
+      "next_frame_recovery": true
+    },
+    {
+      "case": "malformed_payloads/m20_truncated_unary",
+      "status": "passed",
+      "independent_rejection": "truncated Rice code",
+      "fixture_claimed_defect": "truncated",
+      "receiver_rejection": "truncated Rice code",
+      "no_state_commit": true,
+      "next_frame_recovery": true
+    },
+    {
+      "case": "malformed_payloads/m21_overlong_unary",
+      "status": "passed",
+      "independent_rejection": "overlong Rice unary",
+      "fixture_claimed_defect": "overlong",
+      "receiver_rejection": "overlong Rice unary",
+      "no_state_commit": true,
+      "next_frame_recovery": true
+    },
+    {
+      "case": "malformed_payloads/m22_payload_shorter_than_prefix",
+      "status": "passed",
+      "independent_rejection": "payload length outside 21..32",
+      "fixture_claimed_defect": "shorter than the 21 B prefix",
+      "receiver_rejection": "frame length outside 35..46",
+      "no_state_commit": true,
+      "next_frame_recovery": true
+    },
+    {
+      "case": "malformed_payloads/m23_short_age_exceeds_payload_tick",
+      "status": "passed",
+      "independent_rejection": "short source age bound",
+      "fixture_claimed_defect": "exceeds the first tick",
+      "receiver_rejection": "short source age bound",
+      "no_state_commit": true,
+      "next_frame_recovery": true
+    },
+    {
+      "case": "malformed_frames/f01_bad_crc",
+      "status": "passed",
+      "independent_rejection": "CRC mismatch",
+      "fixture_claimed_defect": "CRC mismatch",
+      "receiver_rejection": "CRC mismatch",
+      "no_state_commit": true,
+      "next_frame_recovery": true
+    },
+    {
+      "case": "malformed_frames/f02_declared_length_mismatch",
+      "status": "passed",
+      "independent_rejection": "declared frame length",
+      "fixture_claimed_defect": "declared payload",
+      "receiver_rejection": "declared frame length",
+      "no_state_commit": true,
+      "next_frame_recovery": true
+    },
+    {
+      "case": "malformed_frames/f03_bad_magic",
+      "status": "passed",
+      "independent_rejection": "frame magic",
+      "fixture_claimed_defect": "magic",
+      "receiver_rejection": "frame magic",
+      "no_state_commit": true,
+      "next_frame_recovery": true
+    },
+    {
+      "case": "malformed_frames/f04_bad_version",
+      "status": "passed",
+      "independent_rejection": "frame version/type",
+      "fixture_claimed_defect": "version",
+      "receiver_rejection": "frame version/type",
+      "no_state_commit": true,
+      "next_frame_recovery": true
+    },
+    {
+      "case": "malformed_frames/f05_bad_type",
+      "status": "passed",
+      "independent_rejection": "frame version/type",
+      "fixture_claimed_defect": "outer type",
+      "receiver_rejection": "frame version/type",
+      "no_state_commit": true,
+      "next_frame_recovery": true
+    },
+    {
+      "case": "malformed_frames/f06_tick_low_mismatch",
+      "status": "passed",
+      "independent_rejection": "header tick-low mismatch",
+      "fixture_claimed_defect": "low32",
+      "receiver_rejection": "header tick-low mismatch",
+      "no_state_commit": true,
+      "next_frame_recovery": true
+    },
+    {
+      "case": "malformed_frames/f07_epoch_mismatch",
+      "status": "passed",
+      "independent_rejection": "epoch binding mismatch",
+      "fixture_claimed_defect": "config_epoch",
+      "receiver_rejection": "epoch binding mismatch",
+      "no_state_commit": true,
+      "next_frame_recovery": true
+    },
+    {
+      "case": "malformed_frames/f08_frame_over_46B",
+      "status": "passed",
+      "independent_rejection": "frame length outside 35..46",
+      "fixture_claimed_defect": "frame budget",
+      "receiver_rejection": "frame length outside 35..46",
+      "no_state_commit": true,
+      "next_frame_recovery": true
+    },
+    {
+      "case": "malformed_frames/f09_frame_below_minimum",
+      "status": "passed",
+      "independent_rejection": "frame length outside 35..46",
+      "fixture_claimed_defect": "shorter than the smallest",
+      "receiver_rejection": "frame length outside 35..46",
+      "no_state_commit": true,
+      "next_frame_recovery": true
+    },
+    {
+      "case": "malformed_frames/f10_short_age_exceeds_tick_main",
+      "status": "passed",
+      "independent_rejection": "short source age bound",
+      "fixture_claimed_defect": "exceeds the first tick",
+      "receiver_rejection": "short source age bound",
+      "no_state_commit": true,
+      "next_frame_recovery": true
+    },
+    {
+      "case": "malformed_frames/f11_short_age_one_over_tick_zero",
+      "status": "passed",
+      "independent_rejection": "short source age bound",
+      "fixture_claimed_defect": "exceeds the first tick",
+      "receiver_rejection": "short source age bound",
+      "no_state_commit": true,
+      "next_frame_recovery": true
+    },
+    {
+      "case": "receiver/state_machine",
+      "status": "passed",
+      "cache_limit": 16,
+      "channels": 4,
+      "coverage": [
+        "CRC known answer",
+        "binding copied",
+        "outputs detached",
+        "snapshots detached",
+        "cached duplicate zero points/no renewal",
+        "eviction",
+        "conflict",
+        "stale",
+        "future gap",
+        "independent index/tick highwaters",
+        "four channels",
+        "65535 no wrap",
+        "session/epoch mismatch",
+        "terminal idempotent close",
+        "explicit successor"
+      ]
+    },
+    {
+      "case": "strict_ingress",
+      "status": "passed",
+      "checks": 11,
+      "user_operators_executed": false
+    },
+    {
+      "case": "independent/hand_arithmetic",
+      "status": "passed",
+      "checks": 6,
+      "literal_expectations": [
+        {
+          "values": [
+            10000,
+            10001,
+            10002,
+            10004
+          ],
+          "mode": "rice",
+          "k": 1,
+          "significant_bits": 26
+        },
+        {
+          "values": [
+            0,
+            8,
+            16
+          ],
+          "mode": "rice",
+          "k": 3,
+          "significant_bits": 28
+        },
+        {
+          "values": [
+            0,
+            64
+          ],
+          "mode": "raw",
+          "k": 0,
+          "significant_bits": 32
+        },
+        {
+          "values": [
+            0,
+            2048,
+            4096
+          ],
+          "mode": "raw",
+          "k": 0,
+          "significant_bits": 48
+        },
+        {
+          "values": [
+            100,
+            100,
+            100
+          ],
+          "mode": "rice",
+          "k": 0,
+          "significant_bits": 18
+        },
+        {
+          "values": [
+            100,
+            100,
+            100,
+            100,
+            100,
+            100,
+            100,
+            100,
+            100,
+            100,
+            100,
+            100,
+            100,
+            100,
+            100,
+            100,
+            100,
+            100,
+            100,
+            100,
+            100,
+            100,
+            100,
+            100,
+            100,
+            100,
+            100,
+            100,
+            100,
+            100,
+            100,
+            100,
+            100,
+            100,
+            100,
+            100,
+            100,
+            100,
+            100,
+            100,
+            100
+          ],
+          "mode": "rice",
+          "k": 0,
+          "significant_bits": 56
+        }
+      ]
+    },
+    {
+      "case": "independent/additional_malformed",
+      "status": "passed",
+      "payload_cases": [
+        {
+          "name": "unknown revision",
+          "payload_hex": "02080401100403020107000000e803000000000000d204",
+          "binding": {
+            "session": 16909060,
+            "config_epoch": 2,
+            "e": 0
+          },
+          "reason": "candidate revision"
+        },
+        {
+          "name": "undefined E code 5",
+          "payload_hex": "010d0401100403020107000000e803000000000000d204",
+          "binding": {
+            "session": 16909060,
+            "config_epoch": 2,
+            "e": 0
+          },
+          "reason": "invalid E code"
+        },
+        {
+          "name": "undefined E code 6",
+          "payload_hex": "010e0401100403020107000000e803000000000000d204",
+          "binding": {
+            "session": 16909060,
+            "config_epoch": 2,
+            "e": 0
+          },
+          "reason": "invalid E code"
+        },
+        {
+          "name": "undefined E code 7",
+          "payload_hex": "010f0401100403020107000000e803000000000000d204",
+          "binding": {
+            "session": 16909060,
+            "config_epoch": 2,
+            "e": 0
+          },
+          "reason": "invalid E code"
+        },
+        {
+          "name": "long origin without held",
+          "payload_hex": "01084401100403020107000000e803000000000000d204",
+          "binding": {
+            "session": 16909060,
+            "config_epoch": 2,
+            "e": 0
+          },
+          "reason": "long source without held"
+        },
+        {
+          "name": "valid missing anchor",
+          "payload_hex": "01080401000403020107000000e803000000000000d204",
+          "binding": {
+            "session": 16909060,
+            "config_epoch": 2,
+            "e": 0
+          },
+          "reason": "code length mismatch or trailing bytes"
+        },
+        {
+          "name": "count128 singleton metadata absent",
+          "payload_hex": "01080480100403020107000000e803000000000000d204",
+          "binding": {
+            "session": 16909060,
+            "config_epoch": 2,
+            "e": 0
+          },
+          "reason": "truncated metadata"
+        },
+        {
+          "name": "invalid saturated",
+          "payload_hex": "01080801000403020107000000e803000000000000",
+          "binding": {
+            "session": 16909060,
+            "config_epoch": 2,
+            "e": 0
+          },
+          "reason": "invalid flags"
+        },
+        {
+          "name": "invalid held",
+          "payload_hex": "01081001000403020107000000e803000000000000",
+          "binding": {
+            "session": 16909060,
+            "config_epoch": 2,
+            "e": 0
+          },
+          "reason": "invalid flags"
+        },
+        {
+          "name": "invalid fabricated anchor",
+          "payload_hex": "01080001000403020107000000e8030000000000000000",
+          "binding": {
+            "session": 16909060,
+            "config_epoch": 2,
+            "e": 0
+          },
+          "reason": "code length mismatch or trailing bytes"
+        },
+        {
+          "name": "impossible negative clamp",
+          "payload_hex": "01010402120403020107000000e80300000000000001000a00000040",
+          "binding": {
+            "session": 16909060,
+            "config_epoch": 2,
+            "e": 1
+          },
+          "reason": "noncanonical mode/k/bits/code"
+        },
+        {
+          "name": "impossible positive clamp",
+          "payload_hex": "01010402130403020107000000e80300000000000001000a00ffff20",
+          "binding": {
+            "session": 16909060,
+            "config_epoch": 2,
+            "e": 1
+          },
+          "reason": "noncanonical mode/k/bits/code"
+        }
+      ],
+      "all_frame_prefix_truncations": 37,
+      "trailing_frame_byte": true
+    },
+    {
+      "case": "independent/every_single_bit_corruption",
+      "status": "passed",
+      "frame_bits": 296,
+      "crc_recomputed": false
+    },
+    {
+      "case": "packer_data/greedy_equals_brute_force_longest_prefix",
+      "status": "passed",
+      "independently_sized_counts": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        1,
+        1,
+        1,
+        1,
+        2,
+        1,
+        1,
+        1,
+        1,
+        2,
+        1,
+        1,
+        1,
+        1,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "note": "Sizing of opaque fixture source only; no encoder API or partial-output claim"
+    },
+    {
+      "case": "packer_data/sequence_capacity_rejection",
+      "status": "passed",
+      "independently_sized_counts": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "note": "Sizing of opaque fixture source only; no encoder API or partial-output claim"
+    }
+  ],
+  "runtime_acceptance": "not_run",
+  "production_type7": "not_enabled",
+  "physical_board": "not_run"
+}

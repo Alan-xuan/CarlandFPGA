@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\deepeye-implementation-c\competition\deepeye\evidence\ai\trace_candidate_decode\replay.py", line 359, in <module>
+    main()
+  File "C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\deepeye-implementation-c\competition\deepeye\evidence\ai\trace_candidate_decode\replay.py", line 342, in main
+    positives(vectors, manual)
+  File "C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\deepeye-implementation-c\competition\deepeye\evidence\ai\trace_candidate_decode\replay.py", line 200, in positives
+    equal(error, row['max_abs_error'], row['id'] + ' max error')
+  File "C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\deepeye-implementation-c\competition\deepeye\evidence\ai\trace_candidate_decode\replay.py", line 21, in equal
+    raise AssertionError(f'{label}: got {got!r}; expected {expected!r}')
+AssertionError: boundary_singleton_forms max error: got 0; expected None

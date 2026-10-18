@@ -1,0 +1,33 @@
+{
+  "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+  "executable": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\venv\\Scripts\\python.exe",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "implementation": "CPython",
+  "installed_multi_node_role": {
+    "schema": 1,
+    "version": "2026.10.15.1",
+    "scope": "project",
+    "role": "client",
+    "allowed_nodes": [
+      "B",
+      "C"
+    ],
+    "board_operator": "A"
+  },
+  "installed_single_node_role": {
+    "schema": 1,
+    "version": "2026.10.15.1",
+    "scope": "project",
+    "role": "client",
+    "allowed_nodes": [
+      "B",
+      "C"
+    ],
+    "board_operator": "A",
+    "board_access": false
+  },
+  "input_head": "781be78d9da77a75ea711cf690eeea6523733d3a",
+  "base_local_commit": "cdbb6b4daef1ae1df324accd4d5086b48d005c6b",
+  "operation": "B-DEEPEYE-TRACE-CANDIDATE-20261017-05",
+  "request_hash": "abe52729c5bb46944ec8c55dd92481af9362b4d5a92b0bdefd13d1061038de4a"
+}
