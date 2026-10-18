@@ -1,0 +1,28 @@
+{
+  "task_id": "DEEPEYE-IMPLEMENTATION-20261014",
+  "task_version": 1,
+  "work_id": "C-main-independent-motion-review-20261018-v1",
+  "reviewer": "/root current C main",
+  "command": [
+    "C:\\Users\\Alan\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+    "-X",
+    "utf8",
+    "-B",
+    "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\deepeye-implementation-c\\competition\\deepeye\\evidence\\ai\\motion_request\\review_repair2\\main_review\\independent_motion_review.py",
+    "--product-root",
+    "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\deepeye-implementation-c\\competition\\deepeye"
+  ],
+  "exit_code": 0,
+  "independent_methods": 4,
+  "nested_stop_variations": 6,
+  "source_sha256": "18c02349e9ebe1387e6763e90c707de67208407f067088edacffa31ce99dedda",
+  "test_sha256": "286df39e7975e78063ed1a2a8d77a796e9645ca14954239ff551754231ead53a",
+  "raw_logs": {
+    "stderr.txt": "1d6ccc6d22fdefb6645ee0f59e845c2c6e7fa512dfb1686073ff2c5c6fea041f",
+    "stdout.txt": "b817099fce4b076d2fcebda6c4f3deeb2a9ac87a12314b9e4400d6761153b410"
+  },
+  "diff_review": "constant-size generation token invalidates outer emission after meaningful newer public state; public safety STOP remains callable. Detached verifier context/observation/timing preserve original audit. Single owner helper; no multithread synchronization claim.",
+  "software_only": true,
+  "runtime_board_system_acceptance": "not_run",
+  "review_script_sha256": "255bb92ed66fdf581413707f093d48ee191cd2c3a17d74f893ea6bab670b8bfa"
+}

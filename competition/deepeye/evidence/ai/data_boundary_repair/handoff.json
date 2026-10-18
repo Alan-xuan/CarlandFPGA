@@ -1,0 +1,90 @@
+{
+  "task_id": "DEEPEYE-IMPLEMENTATION-20261014",
+  "task_version": 1,
+  "work_id": "C-las-header-and-portable-fixture-fix-20261018-v1",
+  "actual_agent_id": "/root/data_boundary_repair",
+  "base_commit": "31267d6c4ae284b8788ebb457f49c4ae5a49c60c",
+  "contract": "DEEPEYE-HUMAN-LOCK-20261014/revision1",
+  "contract_source_commit": "f5989cd5defce561f9ba98e6b18fc2682945f0a2",
+  "requirements_sha256": "c229834bfc2292f5fe4411fc9f12c68487008f9d1adaf31f0144ee7a98173804",
+  "frozen_design_commit": "1011259415a0916054eb580687612580bc1e5f09",
+  "final_sources": {
+    "data/force_inventory.py": {
+      "sha256": "86404425615f7551ce04907c9dbd6d7a40edca76372ad82a1a9655092a186932",
+      "bytes": 24320
+    },
+    "data/force_preprocess.py": {
+      "sha256": "1cc71d045065495d99a3f79c31107705cdc3a4942409a8decf6ae732501bc308",
+      "bytes": 51890
+    },
+    "tests/ai/data_model/test_force_inventory.py": {
+      "sha256": "d5bc098714afe5565fe026dded51a39671f60228510e3f5898bf4fb23415f504",
+      "bytes": 24387
+    },
+    "tests/ai/data_model/test_force_preprocess.py": {
+      "sha256": "238ab21224e705f03bf9555e43185e435adc3d809145097823e31c99a485ac00",
+      "bytes": 66835
+    },
+    "tests/ai/data_model/test_verify_data.py": {
+      "sha256": "3205d9f6db697152684ea988fa2aa5d506433f74d2ca085aa749854defe824e2",
+      "bytes": 71791
+    }
+  },
+  "unchanged_canonical_artifacts": {
+    "tools/verify_data.py": {
+      "sha256": "d058118f130afd2f0ed5f7b28ec68bc6fcabf597a01b8b893d7fea93b711030d",
+      "bytes": 105039
+    },
+    "data/source_inventory.json": {
+      "sha256": "7800fda1b4f712d5e93a05d14b6a0726eb5699f979db065dea61eb9a7f84337c",
+      "bytes": 2690
+    },
+    "data/force_wells.json": {
+      "sha256": "ace9a0eb9930f19c6b8125e151d07346fb23029b1455eac04964d15b97461e59",
+      "bytes": 507665
+    },
+    "data/splits.json": {
+      "sha256": "f10ddb8f37e6bdf7c9663eed45d0f6554ef8992899724013a7e487ad3e3cef91",
+      "bytes": 45632
+    },
+    "data/split_policy.json": {
+      "sha256": "66c5138ad45138104bca20d39c4680daa82534a16e381f8d2879eea6f37b81c9",
+      "bytes": 2852
+    },
+    "data/label_schema.json": {
+      "sha256": "0913ff5a59085b47802a9902f23a836f4fa1129700de8e6593840416f4d7beed",
+      "bytes": 3594
+    },
+    "data/preprocessing.json": {
+      "sha256": "cb66fd302165c86344f3b8d1af9d9c4e4e229621cef44cbfa6fb8cd121a63eef",
+      "bytes": 29849
+    },
+    "data/grouping.py": {
+      "sha256": "f1a35a5b060cafb640d8f65b2914af9616258b7fa21f99d1a589d232f7b2be4d",
+      "bytes": 11608
+    }
+  },
+  "result_exit_codes": {
+    "baseline_force_inventory": 0,
+    "baseline_force_preprocess": 0,
+    "baseline_verify_data": 0,
+    "candidate_verify_cli": 1,
+    "candidate_verify_suite": 1,
+    "green_inventory": 0,
+    "green_portable": 0,
+    "green_preprocess": 0,
+    "preflight": 0,
+    "red_inventory": 1,
+    "red_portable": 1,
+    "red_preprocess": 1,
+    "review6196800813": 0,
+    "review6197182815": 0,
+    "review6197806056": 0,
+    "scope": 0,
+    "verifier_historical": 0,
+    "verifier_unaffected": 0
+  },
+  "production_verifier_status": "expected refusal: both repaired source hashes differ from unchanged historical pins",
+  "remaining_main_work": "Review separate provenance migration; bind new live helper and original generator snapshot identities without rewriting historical data",
+  "hardware_and_product_acceptance": "not_run"
+}

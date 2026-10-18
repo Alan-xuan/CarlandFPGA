@@ -1,0 +1,5 @@
+Candidate check; historical-pin expectation failures excluded explicitly:
+  CliOutputProtectionTests.test_output_allows_legitimate_report_path
+  RealPinnedDataTests.test_force_offline_without_archive_is_blocked_not_usage_error
+  RealPinnedDataTests.test_real_default_full_scope_is_blocked_exit_2
+  RealPinnedDataTests.test_real_missing_archive_blocked_and_wrong_archive_failed

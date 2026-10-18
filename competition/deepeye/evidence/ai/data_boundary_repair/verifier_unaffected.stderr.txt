@@ -1,0 +1,49 @@
+test_output_rejects_hardlink_alias_of_pinned_input (candidate_verifier_tests.CliOutputProtectionTests.test_output_rejects_hardlink_alias_of_pinned_input) ... ok
+test_output_rejects_pinned_input_and_parent_alias (candidate_verifier_tests.CliOutputProtectionTests.test_output_rejects_pinned_input_and_parent_alias) ... ok
+test_output_rejects_verifier_entrypoint (candidate_verifier_tests.CliOutputProtectionTests.test_output_rejects_verifier_entrypoint) ... ok
+test_cli_output_into_missing_directory_fails_exit_1 (candidate_verifier_tests.OutputAtomicityTests.test_cli_output_into_missing_directory_fails_exit_1) ... ok
+test_write_text_atomic_failure_leaves_nothing (candidate_verifier_tests.OutputAtomicityTests.test_write_text_atomic_failure_leaves_nothing) ... ok
+test_write_text_atomic_roundtrip_and_no_residue (candidate_verifier_tests.OutputAtomicityTests.test_write_text_atomic_roundtrip_and_no_residue) ... ok
+test_fresh_import_does_not_load_zipfile_module (candidate_verifier_tests.RealPinnedDataTests.test_fresh_import_does_not_load_zipfile_module) ... ok
+test_production_constants_match_main_decisions (candidate_verifier_tests.RealPinnedDataTests.test_production_constants_match_main_decisions) ... ok
+test_real_cli_from_non_product_cwd_with_atomic_output (candidate_verifier_tests.RealPinnedDataTests.test_real_cli_from_non_product_cwd_with_atomic_output) ... skipped 'set DEEPEYE_FORCE_ARCHIVE to the pinned FORCE-2020 archive'
+test_real_cli_usage_errors_are_deterministic (candidate_verifier_tests.RealPinnedDataTests.test_real_cli_usage_errors_are_deterministic) ... ok
+test_real_force_offline_passes_without_claiming_c01 (candidate_verifier_tests.RealPinnedDataTests.test_real_force_offline_passes_without_claiming_c01) ... skipped 'set DEEPEYE_FORCE_ARCHIVE to the pinned FORCE-2020 archive'
+test_real_inprocess_run_with_zipfile_spy (candidate_verifier_tests.RealPinnedDataTests.test_real_inprocess_run_with_zipfile_spy) ... skipped 'set DEEPEYE_FORCE_ARCHIVE to the pinned FORCE-2020 archive'
+test_env_gated_skip_contract (candidate_verifier_tests.SkipContractTests.test_env_gated_skip_contract) ... ok
+test_archive_missing_blocks (candidate_verifier_tests.SyntheticOfflineTests.test_archive_missing_blocks) ... ok
+test_archive_size_change_fails (candidate_verifier_tests.SyntheticOfflineTests.test_archive_size_change_fails) ... ok
+test_archive_tampered_bytes_fail (candidate_verifier_tests.SyntheticOfflineTests.test_archive_tampered_bytes_fail) ... ok
+test_contract_identity_tamper_fails (candidate_verifier_tests.SyntheticOfflineTests.test_contract_identity_tamper_fails) ... ok
+test_cross_file_link_tamper_fails (candidate_verifier_tests.SyntheticOfflineTests.test_cross_file_link_tamper_fails) ... ok
+test_derivative_row_rejected_by_pinned_split_table_check (candidate_verifier_tests.SyntheticOfflineTests.test_derivative_row_rejected_by_pinned_split_table_check) ... ok
+test_derivative_rows_inherit_root_groups (candidate_verifier_tests.SyntheticOfflineTests.test_derivative_rows_inherit_root_groups) ... ok
+test_duplicate_fitting_member_fails (candidate_verifier_tests.SyntheticOfflineTests.test_duplicate_fitting_member_fails) ... ok
+test_full_scope_with_synthetic_fixture_is_still_blocked (candidate_verifier_tests.SyntheticOfflineTests.test_full_scope_with_synthetic_fixture_is_still_blocked) ... ok
+test_grouping_helper_hash_gate (candidate_verifier_tests.SyntheticOfflineTests.test_grouping_helper_hash_gate) ... ok
+test_held_out_fitting_member_fails (candidate_verifier_tests.SyntheticOfflineTests.test_held_out_fitting_member_fails) ... ok
+test_invalid_statistics_fail (candidate_verifier_tests.SyntheticOfflineTests.test_invalid_statistics_fail) ... ok
+test_inventory_duplicate_uwi_fails (candidate_verifier_tests.SyntheticOfflineTests.test_inventory_duplicate_uwi_fails) ... ok
+test_label_curve_order_confusion_fails (candidate_verifier_tests.SyntheticOfflineTests.test_label_curve_order_confusion_fails) ... ok
+test_malformed_document_is_deterministic_failed (candidate_verifier_tests.SyntheticOfflineTests.test_malformed_document_is_deterministic_failed) ... ok
+test_missing_pin_does_not_mask_observed_corruption (candidate_verifier_tests.SyntheticOfflineTests.test_missing_pin_does_not_mask_observed_corruption) ... ok
+test_missing_pinned_file_blocks (candidate_verifier_tests.SyntheticOfflineTests.test_missing_pinned_file_blocks) ... ok
+test_open_spy_sees_no_las_or_zip_member_reads (candidate_verifier_tests.SyntheticOfflineTests.test_open_spy_sees_no_las_or_zip_member_reads) ... ok
+test_parent_group_crossing_splits_fails (candidate_verifier_tests.SyntheticOfflineTests.test_parent_group_crossing_splits_fails) ... ok
+test_parent_group_misranked_fails (candidate_verifier_tests.SyntheticOfflineTests.test_parent_group_misranked_fails) ... ok
+test_positive_force_offline_passes_with_synthetic_label (candidate_verifier_tests.SyntheticOfflineTests.test_positive_force_offline_passes_with_synthetic_label) ... ok
+test_production_relabelled_spec_is_rejected_without_any_read (candidate_verifier_tests.SyntheticOfflineTests.test_production_relabelled_spec_is_rejected_without_any_read) ... ok
+test_replacement_between_pin_pass_and_parse_is_detected (candidate_verifier_tests.SyntheticOfflineTests.test_replacement_between_pin_pass_and_parse_is_detected) ... ok
+test_spec_containers_are_immutable_ingress_copies (candidate_verifier_tests.SyntheticOfflineTests.test_spec_containers_are_immutable_ingress_copies) ... ok
+test_split_domain_confusion_fails (candidate_verifier_tests.SyntheticOfflineTests.test_split_domain_confusion_fails) ... ok
+test_split_duplicate_row_fails (candidate_verifier_tests.SyntheticOfflineTests.test_split_duplicate_row_fails) ... ok
+test_split_omitted_well_fails (candidate_verifier_tests.SyntheticOfflineTests.test_split_omitted_well_fails) ... ok
+test_split_row_type_confusion_is_deterministic_failed (candidate_verifier_tests.SyntheticOfflineTests.test_split_row_type_confusion_is_deterministic_failed) ... ok
+test_top_level_list_document_is_deterministic_failed (candidate_verifier_tests.SyntheticOfflineTests.test_top_level_list_document_is_deterministic_failed) ... ok
+test_training_rows_mismatch_fails (candidate_verifier_tests.SyntheticOfflineTests.test_training_rows_mismatch_fails) ... ok
+test_wrong_pin_hash_fails (candidate_verifier_tests.SyntheticOfflineTests.test_wrong_pin_hash_fails) ... ok
+
+----------------------------------------------------------------------
+Ran 44 tests in 4.805s
+
+OK (skipped=3)

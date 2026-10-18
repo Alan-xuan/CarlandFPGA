@@ -1,0 +1,27 @@
+{
+  "task_id": "DEEPEYE-IMPLEMENTATION-20261014",
+  "task_version": 1,
+  "work_id": "C-motion-adapter-verifier-reentrancy-fix-20261018-v1",
+  "base_commit": "31267d6c4ae284b8788ebb457f49c4ae5a49c60c",
+  "contract_id": "DEEPEYE-HUMAN-LOCK-20261014/revision1",
+  "requirements_sha256": "c229834bfc2292f5fe4411fc9f12c68487008f9d1adaf31f0144ee7a98173804",
+  "frozen_design_commit": "1011259415a0916054eb580687612580bc1e5f09",
+  "python": "3.13.5 (tags/v3.13.5:6cb20a2, Jun 11 2025, 16:15:46) [MSC v.1943 64 bit (AMD64)]",
+  "python_executable": "C:\\Users\\Alan\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+  "files": [
+    {
+      "source_path": "competition/deepeye/ai_pc/control_broker/motion_request.py",
+      "preserved_path": "pre_repair/motion_request.py",
+      "bytes": 19811,
+      "sha256": "29bf83a68929a882671bbed1a14b5a717e2e0bfa53cdb812512400a0aa621e7f",
+      "git_blob_sha1": "1fe7df7c0bc5a8b4fcbbe0d8ce29c8bc3deaaca8"
+    },
+    {
+      "source_path": "competition/deepeye/tests/ai/control_broker/test_motion_request.py",
+      "preserved_path": "pre_repair/test_motion_request.py",
+      "bytes": 28473,
+      "sha256": "f662e18845a6077790bab6a9bd9f148d3da8acfbfde13e74d4a3bcbf7d212bb0",
+      "git_blob_sha1": "50aa8ac7b7c95951ec04b58027c8caa08134b672"
+    }
+  ]
+}

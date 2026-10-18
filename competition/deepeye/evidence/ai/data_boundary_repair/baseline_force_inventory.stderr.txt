@@ -1,0 +1,28 @@
+test_ambiguous_curve_names_are_rejected (__main__.ForceInventoryTests.test_ambiguous_curve_names_are_rejected) ... ok
+test_archive_hash_precheck (__main__.ForceInventoryTests.test_archive_hash_precheck) ... ok
+test_cli_end_to_end (__main__.ForceInventoryTests.test_cli_end_to_end) ... ok
+test_crcrlf_and_cr_only_terminators (__main__.ForceInventoryTests.test_crcrlf_and_cr_only_terminators) ... ok
+test_curve_section_after_data_refused (__main__.ForceInventoryTests.test_curve_section_after_data_refused) ... ok
+test_dependency_free_imports (__main__.ForceInventoryTests.test_dependency_free_imports) ... ok
+test_duplicate_uwi_refused_and_distinct_pass (__main__.ForceInventoryTests.test_duplicate_uwi_refused_and_distinct_pass) ... ok
+test_empty_archive_is_rejected (__main__.ForceInventoryTests.test_empty_archive_is_rejected) ... ok
+test_good_well_inventory_fields (__main__.ForceInventoryTests.test_good_well_inventory_fields) ... ok
+test_invalid_chunk_sizes_are_rejected (__main__.ForceInventoryTests.test_invalid_chunk_sizes_are_rejected) ... ok
+test_iter_las_lines_terminator_and_boundary_handling (__main__.ForceInventoryTests.test_iter_las_lines_terminator_and_boundary_handling) ... ok
+test_malformed_numeric_fails_with_member_and_line (__main__.ForceInventoryTests.test_malformed_numeric_fails_with_member_and_line) ... ok
+test_member_sha_and_size_match_raw_member (__main__.ForceInventoryTests.test_member_sha_and_size_match_raw_member) ... ok
+test_missing_null_or_uwi_refused (__main__.ForceInventoryTests.test_missing_null_or_uwi_refused) ... ok
+test_non_ascii_byte_fails (__main__.ForceInventoryTests.test_non_ascii_byte_fails) ... ok
+test_nonfinite_null_sentinel_is_rejected (__main__.ForceInventoryTests.test_nonfinite_null_sentinel_is_rejected) ... ok
+test_null_sentinel_versus_valid_negative (__main__.ForceInventoryTests.test_null_sentinel_versus_valid_negative) ... ok
+test_parse_section_line_real_formats (__main__.ForceInventoryTests.test_parse_section_line_real_formats) ... ok
+test_plain_stream_cannot_claim_zip_crc (__main__.ForceInventoryTests.test_plain_stream_cannot_claim_zip_crc) ... ok
+test_row_column_count_mismatch_fails (__main__.ForceInventoryTests.test_row_column_count_mismatch_fails) ... ok
+test_unsafe_member_paths_refused (__main__.ForceInventoryTests.test_unsafe_member_paths_refused) ... ok
+test_wrap_yes_and_version_refusals (__main__.ForceInventoryTests.test_wrap_yes_and_version_refusals) ... ok
+test_zero_data_rows_refused (__main__.ForceInventoryTests.test_zero_data_rows_refused) ... ok
+
+----------------------------------------------------------------------
+Ran 23 tests in 0.690s
+
+OK

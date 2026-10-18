@@ -1,0 +1,37 @@
+F......F..s.FssF................................
+======================================================================
+FAIL: test_output_allows_legitimate_report_path (__main__.CliOutputProtectionTests.test_output_allows_legitimate_report_path)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\deepeye-implementation-c\competition\deepeye\tests\ai\data_model\test_verify_data.py", line 1585, in test_output_allows_legitimate_report_path
+    self.assertEqual(proc.returncode, 2, proc.stderr.decode("utf-8", "replace"))
+AssertionError: 1 != 2 : 
+
+======================================================================
+FAIL: test_force_offline_without_archive_is_blocked_not_usage_error (__main__.RealPinnedDataTests.test_force_offline_without_archive_is_blocked_not_usage_error)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\deepeye-implementation-c\competition\deepeye\tests\ai\data_model\test_verify_data.py", line 872, in test_force_offline_without_archive_is_blocked_not_usage_error
+    self.assertEqual(proc.returncode, 2, proc.stderr.decode("utf-8", "replace"))
+AssertionError: 1 != 2 : 
+
+======================================================================
+FAIL: test_real_default_full_scope_is_blocked_exit_2 (__main__.RealPinnedDataTests.test_real_default_full_scope_is_blocked_exit_2)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\deepeye-implementation-c\competition\deepeye\tests\ai\data_model\test_verify_data.py", line 775, in test_real_default_full_scope_is_blocked_exit_2
+    self.assertEqual(proc.returncode, 2, proc.stderr.decode("utf-8", "replace"))
+AssertionError: 1 != 2 : 
+
+======================================================================
+FAIL: test_real_missing_archive_blocked_and_wrong_archive_failed (__main__.RealPinnedDataTests.test_real_missing_archive_blocked_and_wrong_archive_failed)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\deepeye-implementation-c\competition\deepeye\tests\ai\data_model\test_verify_data.py", line 840, in test_real_missing_archive_blocked_and_wrong_archive_failed
+    self.assertEqual(proc.returncode, 2)
+AssertionError: 1 != 2
+
+----------------------------------------------------------------------
+Ran 48 tests in 5.654s
+
+FAILED (failures=4, skipped=3)

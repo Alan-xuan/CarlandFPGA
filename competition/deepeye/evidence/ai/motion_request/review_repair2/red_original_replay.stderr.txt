@@ -1,0 +1,137 @@
+test_nested_safety_stop_keeps_newer_stop_and_blocks_outer_candidate10 (repair2_red_tests.VerifierReentrancyTests.test_nested_safety_stop_keeps_newer_stop_and_blocks_outer_candidate10) ... 
+  test_nested_safety_stop_keeps_newer_stop_and_blocks_outer_candidate10 (repair2_red_tests.VerifierReentrancyTests.test_nested_safety_stop_keeps_newer_stop_and_blocks_outer_candidate10) (stop_delta=0) ... FAIL
+  test_nested_safety_stop_keeps_newer_stop_and_blocks_outer_candidate10 (repair2_red_tests.VerifierReentrancyTests.test_nested_safety_stop_keeps_newer_stop_and_blocks_outer_candidate10) (stop_delta=1000000) ... FAIL
+test_nested_stop_survives_verifier_exception_or_non_none_result (repair2_red_tests.VerifierReentrancyTests.test_nested_stop_survives_verifier_exception_or_non_none_result) ... 
+  test_nested_stop_survives_verifier_exception_or_non_none_result (repair2_red_tests.VerifierReentrancyTests.test_nested_stop_survives_verifier_exception_or_non_none_result) (failure='exception') ... FAIL
+  test_nested_stop_survives_verifier_exception_or_non_none_result (repair2_red_tests.VerifierReentrancyTests.test_nested_stop_survives_verifier_exception_or_non_none_result) (failure='non_none') ... FAIL
+test_new_observation_or_history_eviction_supersedes_outer (repair2_red_tests.VerifierReentrancyTests.test_new_observation_or_history_eviction_supersedes_outer) ... 
+  test_new_observation_or_history_eviction_supersedes_outer (repair2_red_tests.VerifierReentrancyTests.test_new_observation_or_history_eviction_supersedes_outer) (registration_count=1) ... FAIL
+  test_new_observation_or_history_eviction_supersedes_outer (repair2_red_tests.VerifierReentrancyTests.test_new_observation_or_history_eviction_supersedes_outer) (registration_count=4) ... FAIL
+test_newer_valid_candidate_blocks_outer_even_when_newer_candidate_is_blocked (repair2_red_tests.VerifierReentrancyTests.test_newer_valid_candidate_blocks_outer_even_when_newer_candidate_is_blocked) ... FAIL
+test_newer_verified_candidate_emits_once_and_older_outer_does_not_emit (repair2_red_tests.VerifierReentrancyTests.test_newer_verified_candidate_emits_once_and_older_outer_does_not_emit) ... FAIL
+test_reads_exact_observation_duplicate_and_rejected_calls_do_not_supersede (repair2_red_tests.VerifierReentrancyTests.test_reads_exact_observation_duplicate_and_rejected_calls_do_not_supersede) ... ok
+test_retained_verifier_check_has_no_alias_to_returned_timing (repair2_red_tests.VerifierReentrancyTests.test_retained_verifier_check_has_no_alias_to_returned_timing) ... FAIL
+test_verifier_cannot_mutate_original_timing_during_verification (repair2_red_tests.VerifierReentrancyTests.test_verifier_cannot_mutate_original_timing_during_verification) ... FAIL
+
+======================================================================
+FAIL: test_nested_safety_stop_keeps_newer_stop_and_blocks_outer_candidate10 (repair2_red_tests.VerifierReentrancyTests.test_nested_safety_stop_keeps_newer_stop_and_blocks_outer_candidate10) (stop_delta=0)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\deepeye-implementation-c\competition\deepeye\evidence\ai\motion_request\review_repair2\red_test_motion_request.py", line 492, in test_nested_safety_stop_keeps_newer_stop_and_blocks_outer_candidate10
+    self.assertIsNone(outer.request_bytes)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+AssertionError: b'{"candidate_id":10,"command_seq":1,"context":{"acquisition_profile_id":1,"boot_sha256":"bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb","config_epoch":3,"session":42,"source_id":1,"topology_id":2,"transport_profile_id":1},"host_issue_monotonic_ns":20000000,"kind":"motion_request","observation":{"context":{"acquisition_profile_id":1,"boot_sha256":"bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb","config_epoch":3,"session":42,"source_id":1,"topology_id":2,"transport_profile_id":1},"observed_seq":7},"schema_version":1,"target":{"action":1,"duration_ms":1000,"pitch_q":0,"speed_code":20,"yaw_q":0}}' is not None
+
+======================================================================
+FAIL: test_nested_safety_stop_keeps_newer_stop_and_blocks_outer_candidate10 (repair2_red_tests.VerifierReentrancyTests.test_nested_safety_stop_keeps_newer_stop_and_blocks_outer_candidate10) (stop_delta=1000000)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\deepeye-implementation-c\competition\deepeye\evidence\ai\motion_request\review_repair2\red_test_motion_request.py", line 492, in test_nested_safety_stop_keeps_newer_stop_and_blocks_outer_candidate10
+    self.assertIsNone(outer.request_bytes)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+AssertionError: b'{"candidate_id":10,"command_seq":1,"context":{"acquisition_profile_id":1,"boot_sha256":"bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb","config_epoch":3,"session":42,"source_id":1,"topology_id":2,"transport_profile_id":1},"host_issue_monotonic_ns":20000000,"kind":"motion_request","observation":{"context":{"acquisition_profile_id":1,"boot_sha256":"bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb","config_epoch":3,"session":42,"source_id":1,"topology_id":2,"transport_profile_id":1},"observed_seq":7},"schema_version":1,"target":{"action":1,"duration_ms":1000,"pitch_q":0,"speed_code":20,"yaw_q":0}}' is not None
+
+======================================================================
+FAIL: test_nested_stop_survives_verifier_exception_or_non_none_result (repair2_red_tests.VerifierReentrancyTests.test_nested_stop_survives_verifier_exception_or_non_none_result) (failure='exception')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\deepeye-implementation-c\competition\deepeye\evidence\ai\motion_request\review_repair2\red_test_motion_request.py", line 634, in test_nested_stop_survives_verifier_exception_or_non_none_result
+    self.assertEqual(outer.reason, "superseded_during_verification")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'runtime_evidence_unverified' != 'superseded_during_verification'
+- runtime_evidence_unverified
++ superseded_during_verification
+
+
+======================================================================
+FAIL: test_nested_stop_survives_verifier_exception_or_non_none_result (repair2_red_tests.VerifierReentrancyTests.test_nested_stop_survives_verifier_exception_or_non_none_result) (failure='non_none')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\deepeye-implementation-c\competition\deepeye\evidence\ai\motion_request\review_repair2\red_test_motion_request.py", line 634, in test_nested_stop_survives_verifier_exception_or_non_none_result
+    self.assertEqual(outer.reason, "superseded_during_verification")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'runtime_evidence_unverified' != 'superseded_during_verification'
+- runtime_evidence_unverified
++ superseded_during_verification
+
+
+======================================================================
+FAIL: test_new_observation_or_history_eviction_supersedes_outer (repair2_red_tests.VerifierReentrancyTests.test_new_observation_or_history_eviction_supersedes_outer) (registration_count=1)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\deepeye-implementation-c\competition\deepeye\evidence\ai\motion_request\review_repair2\red_test_motion_request.py", line 550, in test_new_observation_or_history_eviction_supersedes_outer
+    self.assertIsNone(outer.request_bytes)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+AssertionError: b'{"candidate_id":10,"command_seq":0,"context":{"acquisition_profile_id":1,"boot_sha256":"bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb","config_epoch":3,"session":42,"source_id":1,"topology_id":2,"transport_profile_id":1},"host_issue_monotonic_ns":20000000,"kind":"motion_request","observation":{"context":{"acquisition_profile_id":1,"boot_sha256":"bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb","config_epoch":3,"session":42,"source_id":1,"topology_id":2,"transport_profile_id":1},"observed_seq":7},"schema_version":1,"target":{"action":1,"duration_ms":1000,"pitch_q":0,"speed_code":20,"yaw_q":0}}' is not None
+
+======================================================================
+FAIL: test_new_observation_or_history_eviction_supersedes_outer (repair2_red_tests.VerifierReentrancyTests.test_new_observation_or_history_eviction_supersedes_outer) (registration_count=4)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\deepeye-implementation-c\competition\deepeye\evidence\ai\motion_request\review_repair2\red_test_motion_request.py", line 550, in test_new_observation_or_history_eviction_supersedes_outer
+    self.assertIsNone(outer.request_bytes)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+AssertionError: b'{"candidate_id":10,"command_seq":0,"context":{"acquisition_profile_id":1,"boot_sha256":"bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb","config_epoch":3,"session":42,"source_id":1,"topology_id":2,"transport_profile_id":1},"host_issue_monotonic_ns":20000000,"kind":"motion_request","observation":{"context":{"acquisition_profile_id":1,"boot_sha256":"bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb","config_epoch":3,"session":42,"source_id":1,"topology_id":2,"transport_profile_id":1},"observed_seq":7},"schema_version":1,"target":{"action":1,"duration_ms":1000,"pitch_q":0,"speed_code":20,"yaw_q":0}}' is not None
+
+======================================================================
+FAIL: test_newer_valid_candidate_blocks_outer_even_when_newer_candidate_is_blocked (repair2_red_tests.VerifierReentrancyTests.test_newer_valid_candidate_blocks_outer_even_when_newer_candidate_is_blocked)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\deepeye-implementation-c\competition\deepeye\evidence\ai\motion_request\review_repair2\red_test_motion_request.py", line 512, in test_newer_valid_candidate_blocks_outer_even_when_newer_candidate_is_blocked
+    self.assertIsNone(outer.request_bytes)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+AssertionError: b'{"candidate_id":10,"command_seq":0,"context":{"acquisition_profile_id":1,"boot_sha256":"bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb","config_epoch":3,"session":42,"source_id":1,"topology_id":2,"transport_profile_id":1},"host_issue_monotonic_ns":20000000,"kind":"motion_request","observation":{"context":{"acquisition_profile_id":1,"boot_sha256":"bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb","config_epoch":3,"session":42,"source_id":1,"topology_id":2,"transport_profile_id":1},"observed_seq":7},"schema_version":1,"target":{"action":1,"duration_ms":1000,"pitch_q":0,"speed_code":20,"yaw_q":0}}' is not None
+
+======================================================================
+FAIL: test_newer_verified_candidate_emits_once_and_older_outer_does_not_emit (repair2_red_tests.VerifierReentrancyTests.test_newer_verified_candidate_emits_once_and_older_outer_does_not_emit)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\deepeye-implementation-c\competition\deepeye\evidence\ai\motion_request\review_repair2\red_test_motion_request.py", line 532, in test_newer_verified_candidate_emits_once_and_older_outer_does_not_emit
+    self.assertIsNone(outer.request_bytes)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+AssertionError: b'{"candidate_id":10,"command_seq":1,"context":{"acquisition_profile_id":1,"boot_sha256":"bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb","config_epoch":3,"session":42,"source_id":1,"topology_id":2,"transport_profile_id":1},"host_issue_monotonic_ns":20000000,"kind":"motion_request","observation":{"context":{"acquisition_profile_id":1,"boot_sha256":"bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb","config_epoch":3,"session":42,"source_id":1,"topology_id":2,"transport_profile_id":1},"observed_seq":7},"schema_version":1,"target":{"action":1,"duration_ms":1000,"pitch_q":0,"speed_code":20,"yaw_q":0}}' is not None
+
+======================================================================
+FAIL: test_retained_verifier_check_has_no_alias_to_returned_timing (repair2_red_tests.VerifierReentrancyTests.test_retained_verifier_check_has_no_alias_to_returned_timing)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\deepeye-implementation-c\competition\deepeye\evidence\ai\motion_request\review_repair2\red_test_motion_request.py", line 612, in test_retained_verifier_check_has_no_alias_to_returned_timing
+    self.assertEqual((result.timing.first_issue_ns, result.timing.original_duration_ms,
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                      result.timing.sample_lower_ns, result.timing.sample_upper_ns,
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                      result.timing.deadline_ns), original)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Tuples differ: (9223372036854775807, 1000, 0, 1000000, 9223372036854775807) != (20000000, 1000, 0, 1000000, 1020000000)
+
+First differing element 0:
+9223372036854775807
+20000000
+
+- (9223372036854775807, 1000, 0, 1000000, 9223372036854775807)
++ (20000000, 1000, 0, 1000000, 1020000000)
+
+======================================================================
+FAIL: test_verifier_cannot_mutate_original_timing_during_verification (repair2_red_tests.VerifierReentrancyTests.test_verifier_cannot_mutate_original_timing_during_verification)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\deepeye-implementation-c\competition\deepeye\evidence\ai\motion_request\review_repair2\red_test_motion_request.py", line 595, in test_verifier_cannot_mutate_original_timing_during_verification
+    self.assertEqual((result.timing.first_issue_ns, result.timing.original_duration_ms,
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                      result.timing.sample_lower_ns, result.timing.sample_upper_ns,
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                      result.timing.deadline_ns), (20 * MS, 1000, 0, MS, 1020 * MS))
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Tuples differ: (999, 999, 999, 999, 999) != (20000000, 1000, 0, 1000000, 1020000000)
+
+First differing element 0:
+999
+20000000
+
+- (999, 999, 999, 999, 999)
++ (20000000, 1000, 0, 1000000, 1020000000)
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.007s
+
+FAILED (failures=10)

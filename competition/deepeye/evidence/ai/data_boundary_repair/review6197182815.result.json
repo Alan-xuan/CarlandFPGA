@@ -1,0 +1,24 @@
+{
+  "command": [
+    "gh",
+    "api",
+    "repos/carolwjade/CarlandFPGA/issues/comments/6197182815"
+  ],
+  "cwd": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\deepeye-implementation-c",
+  "started_utc": "2026-10-18T14:44:56.089460+00:00",
+  "completed_utc": "2026-10-18T14:44:57.069340+00:00",
+  "exit_code": 0,
+  "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+  "TEMP": "C:\\Users\\Alan\\AppData\\Local\\Temp",
+  "TMP": "C:\\Users\\Alan\\AppData\\Local\\Temp",
+  "archive_override_set": false,
+  "stdout_sha256": "0be5636af6c63f7cc1730517ad86a34e1cef71dce9232f93a352655f40498b3e",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "sources": {
+    "data/force_inventory.py": "5bba8316ea36484df058dacb2289073ffb09ce19e401dfb297598b3e3cd10f47",
+    "data/force_preprocess.py": "75b2015c0ec9deab9a94a2032b77117124085631f2bd758a54c7ea7fdfdf2848",
+    "tests/ai/data_model/test_force_inventory.py": "6a261640d04fec0281f618b1b87f7f2670137c2e189320e01cd305aec468b077",
+    "tests/ai/data_model/test_force_preprocess.py": "a96529e9f3954379f23bb1c5d4806b750801a10c037101712effcdcb8d71bef4",
+    "tests/ai/data_model/test_verify_data.py": "4fe3b827a4c5c6ccca65c3fb8e21099f70c96e42e6ebd19c0087b6b8a1974d74"
+  }
+}

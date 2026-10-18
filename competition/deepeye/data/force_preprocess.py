@@ -149,6 +149,7 @@ def _load_streaming_helpers():
 _STREAMING = _load_streaming_helpers()
 iter_las_lines = _STREAMING.iter_las_lines
 parse_section_line = _STREAMING.parse_section_line
+_record_critical_header = _STREAMING._record_critical_header
 
 FORCE_PARENT_PATTERN = re.compile(r"^([0-9]+/[0-9]+-[0-9]+)(?:[ ]+[A-Z0-9 -]+)?$")
 
@@ -405,11 +406,16 @@ def _fit_member(stream, member_name, chunk_bytes, channels):
     cardinality but never parsed, so label, confidence, coordinate or other
     unselected metadata may carry opaque non-numeric or non-finite sentinels
     without failing the fit.
+    Critical VERS/WRAP/UWI/NULL declarations follow the inventory policy:
+    identical parsed values may repeat before ASCII, conflicting values may
+    not, and every declaration after the first ASCII marker is refused.
     """
     reader = _HashingStream(stream)
     section = None
     version = None
     wrap = None
+    critical_headers = {}
+    ascii_started = False
     well_fields = {}
     curves = []
     null_value = None
@@ -431,6 +437,7 @@ def _fit_member(stream, member_name, chunk_bytes, channels):
             body = stripped[1:].strip()
             section = body.split()[0].lower() if body else ""
             if section in ("ascii", "a"):
+                ascii_started = True
                 if not curves:
                     raise ForcePreprocessError(
                         "ASCII data section before curve definitions",
@@ -461,6 +468,11 @@ def _fit_member(stream, member_name, chunk_bytes, channels):
         if section == "version":
             mnemonic, _unit, value, _description = parse_section_line(stripped)
             key = mnemonic.upper()
+            if key in ("VERS", "WRAP"):
+                _record_critical_header(
+                    critical_headers, key, value, ascii_started, ForcePreprocessError,
+                    member_name, line_number,
+                )
             if key == "VERS":
                 version = value
             elif key == "WRAP":
@@ -468,7 +480,13 @@ def _fit_member(stream, member_name, chunk_bytes, channels):
             continue
         if section == "well":
             mnemonic, _unit, value, _description = parse_section_line(stripped)
-            well_fields[mnemonic.upper()] = value
+            key = mnemonic.upper()
+            if key in ("UWI", "NULL"):
+                _record_critical_header(
+                    critical_headers, key, value, ascii_started, ForcePreprocessError,
+                    member_name, line_number,
+                )
+            well_fields[key] = value
             continue
         if section == "curve":
             if rows:

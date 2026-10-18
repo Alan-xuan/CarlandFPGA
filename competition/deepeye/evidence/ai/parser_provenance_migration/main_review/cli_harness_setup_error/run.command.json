@@ -1,0 +1,16 @@
+{
+  "command": [
+    "C:\\Users\\Alan\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+    "-X",
+    "utf8",
+    "-B",
+    "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\deepeye-implementation-c\\competition\\deepeye\\evidence\\ai\\parser_provenance_migration\\main_review\\independent_provenance_review.py",
+    "--product-root",
+    "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\deepeye-implementation-c\\competition\\deepeye",
+    "--archive",
+    "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\datasets\\force-2020\\LAS_files_Force_2020_all_wells_train_test_blind_hidden_final.zip",
+    "--out",
+    "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\deepeye-implementation-c\\competition\\deepeye\\evidence\\ai\\parser_provenance_migration\\main_review"
+  ],
+  "exit_code": 1
+}

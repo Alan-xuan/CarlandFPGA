@@ -30,6 +30,16 @@ Original issue, sample interval and expiry are kept in the returned audit,
 outside A's request bytes. Candidate replay is rejected, so a retry cannot
 renew them. This request-stage expiry is only an upper bound; A's HIL capture
 and remaining-TTL checks can tighten it, never extend it.
+
+Verifier callbacks may call public methods, including safety STOP. Every new
+observation, valid candidate retirement or valid STOP replaces a constant-size
+state-generation token. A submit whose verifier observed a newer generation
+returns blocked without emitting its older request or reverting newer state.
+Reads, exact observation duplicates and rejected malformed calls do not replace
+that token. Verifier-visible context, observation and timing are detached audit
+snapshots; retaining or forcibly mutating them cannot rewrite broker state or
+the original timing returned in a decision. This remains a single-owner helper,
+not a synchronization primitive for concurrent threads.
 """
 from __future__ import annotations
 
@@ -296,6 +306,8 @@ class MotionRequestAdapter:
         self._candidate_high = -1
         self._next_command_seq = 0
         self._last_now_ns = None
+        # Identity tokens do not wrap and need no per-operation history ledger.
+        self._state_generation = object()
 
     @property
     def context(self):
@@ -335,6 +347,7 @@ class MotionRequestAdapter:
         snapshot = _observation_copy(observation)
         self._observations.append(snapshot)
         self._observation_high = snapshot
+        self._state_generation = object()
 
     def _clock(self, now_ns):
         now = _integer(now_ns, "now_ns")
@@ -400,6 +413,8 @@ class MotionRequestAdapter:
             raise MotionRequestError("SET_TARGET needs a same-context observation")
         self._last_now_ns = now
         self._candidate_high = identity
+        # Retirement is meaningful even if this valid candidate is later blocked.
+        self._state_generation = object()
         digest = sha256(candidate_bytes).hexdigest()
         if target[0] == 0:
             return self._emit(identity, observation_key, issue, target, digest)
@@ -419,13 +434,23 @@ class MotionRequestAdapter:
             return self._blocked("original_deadline_expired", identity, digest, timing)
         if self._verifier is None:
             return self._blocked("runtime_verifier_missing", identity, digest, timing)
-        check = RuntimeCheck(context, _observation_copy(observation), identity, model_hash, completed, now,
-                             target, timing)
+        check_timing = OriginalTiming(timing.first_issue_ns, timing.original_duration_ms,
+                                      timing.sample_lower_ns, timing.sample_upper_ns,
+                                      timing.deadline_ns)
+        check_context = HostContext.from_mapping(HostContext.as_dict(context))
+        check = RuntimeCheck(check_context, _observation_copy(observation), identity,
+                             model_hash, completed, now, target, check_timing)
+        generation = self._state_generation
+        verified = False
         try:
-            outcome = self._verifier.verify_motion(check)
-            if outcome is not None:
-                raise RuntimeBlocked("verifier must return None only after verification")
+            verified = self._verifier.verify_motion(check) is None
         except Exception:
+            pass
+        # A callback may emit STOP, retire a newer candidate (even a blocked one),
+        # or replace observation history. Never emit the stale outer operation.
+        if self._state_generation is not generation:
+            return self._blocked("superseded_during_verification", identity, digest, timing)
+        if not verified:
             return self._blocked("runtime_evidence_unverified", identity, digest, timing)
         return self._emit(identity, observation.key(), issue, target, digest, timing)
 
@@ -434,6 +459,8 @@ class MotionRequestAdapter:
         self._validate_context()
         now = self._clock(now_ns)
         self._last_now_ns = now
+        # Keep STOP callable during verification, including exhaustion outcomes.
+        self._state_generation = object()
         if self._candidate_high == INT63_MAX:
             return self._blocked("candidate_identity_exhausted:new_session_required")
         self._candidate_high += 1

@@ -1,0 +1,70 @@
+{
+ "schema": 1,
+ "kind": "deepeye-verify-data-report",
+ "generated_utc": "2026-10-18T15:02:52Z",
+ "tool": {
+  "path": "tools/verify_data.py",
+  "sha256": "bf8a59490c334544ea6a7c95fe0156ec3c143e87756f75e937fd28abada4a551"
+ },
+ "task_id": "DEEPEYE-IMPLEMENTATION-20261014",
+ "task_version": 1,
+ "design_commit": "1011259415a0916054eb580687612580bc1e5f09",
+ "contract": {
+  "id": "DEEPEYE-HUMAN-LOCK-20261014",
+  "revision": 1,
+  "source_commit": "f5989cd5defce561f9ba98e6b18fc2682945f0a2",
+  "requirements_sha256": "c229834bfc2292f5fe4411fc9f12c68487008f9d1adaf31f0144ee7a98173804"
+ },
+ "spec": "production",
+ "scope": "full_c01",
+ "status": "usage_error",
+ "exit_code": 2,
+ "product_card_C01": "not_run",
+ "software_scope": "offline provenance/identity/consistency only; no live sensor, sim_em_v2 scenario or runtime verification",
+ "command": {
+  "entrypoint": "tools/verify_data.py",
+  "scope": "full_c01",
+  "archive_file": null,
+  "output": null,
+  "python": "3.13.5"
+ },
+ "artifacts": [],
+ "archive": {},
+ "counts": {},
+ "checks": [
+  {
+   "id": "cli_arguments",
+   "status": "failed",
+   "detail": "--archive requires --scope force-offline"
+  }
+ ],
+ "missing_full_gates": [
+  "R03 public resource/profile/observation schema acceptance",
+  "sensor_live whole acquisition-run manifest",
+  "sim_em_v2 whole-scenario and derivative splits",
+  "runtime future-label/truth-access instrumentation"
+ ],
+ "unverified": {
+  "runtime_future_label_access": "unknown_not_run",
+  "real_sim_domain_separation": "unknown_not_run",
+  "sensor_live_run_manifest": "unknown_not_run",
+  "sim_em_v2_scenario_splits": "unknown_not_run"
+ },
+ "limitations": [
+  "The archive is read only as a raw byte stream (SHA256 plus byte length). No ZIP member was opened, no LAS value was parsed and no statistic was recomputed.",
+  "The archive hash and the previously reviewed pinned inventory together give provenance; this verifier does not perform a fresh per-well parsing measurement.",
+  "The numeric preprocessing fit was previously main-audited; this verifier checks documented metadata and fit-identity consistency only, with defined tolerances for derived scalars.",
+  "Current parser modules and historical generator snapshots have separate byte pins. Historical snapshots preserve the frozen preprocessing provenance and are never imported or executed; repaired parsers did not regenerate the frozen documents.",
+  "Offline FORCE-2020 public lithology domain only; sensor_live acquisition runs and sim_em_v2 complete scenarios are not covered.",
+  "Label-schema metadata only; no row-level label or confidence value is read, and runtime future-label access is unverified (unknown, never reported as zero).",
+  "No model training, no held-out evaluation, no calibration and no hardware acceptance; the C01 product card remains not_run."
+ ],
+ "software_facts": {
+  "zip_members_opened": 0,
+  "las_values_parsed": 0,
+  "statistics_recomputed": false,
+  "network_calls": 0,
+  "subprocesses_spawned": 0
+ },
+ "error": "--archive requires --scope force-offline"
+}

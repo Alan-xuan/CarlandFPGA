@@ -471,6 +471,187 @@ class RuntimeBoundaryTests(unittest.TestCase):
             check.observation.sample_lower_ns = 40 * MS
 
 
+class VerifierReentrancyTests(unittest.TestCase):
+    """Software callback fixtures only; public reentrancy must remain fail closed."""
+
+    def test_nested_safety_stop_keeps_newer_stop_and_blocks_outer_candidate10(self):
+        for stop_delta in (0, MS):
+            with self.subTest(stop_delta=stop_delta):
+                nested = []
+
+                class Verifier:
+                    def verify_motion(self, check):
+                        if check.candidate_id == 10:
+                            nested.append(adapter.safe_stop(now_ns=check.now_ns + stop_delta))
+
+                adapter, _ = adapter_with(verifier=Verifier())
+                outer = submit(adapter, candidate(10))
+                stop = json.loads(nested[0].request_bytes)
+                self.assertEqual((stop["candidate_id"], stop["command_seq"]), (11, 0))
+                self.assertEqual(stop["target"]["action"], 0)
+                self.assertIsNone(outer.request_bytes)
+                self.assertTrue(outer.must_stop)
+                self.assertEqual(outer.reason, "superseded_during_verification")
+                self.assertEqual(outer.timing.deadline_ns, 1020 * MS)
+                with self.assertRaises(MotionRequestError):
+                    submit(adapter, candidate(11), now=20 * MS + stop_delta)
+                following = submit(adapter, candidate(12), now=20 * MS + stop_delta)
+                self.assertEqual((following.candidate_id, following.command_seq), (12, 1))
+
+    def test_newer_valid_candidate_blocks_outer_even_when_newer_candidate_is_blocked(self):
+        nested = []
+
+        class Verifier:
+            def verify_motion(self, check):
+                nested.append(submit(adapter, candidate(11, seq=99)))
+
+        adapter, _ = adapter_with(verifier=Verifier())
+        outer = submit(adapter, candidate(10))
+        self.assertEqual(nested[0].reason, "observation_missing_or_retired")
+        self.assertIsNone(nested[0].request_bytes)
+        self.assertIsNone(outer.request_bytes)
+        self.assertTrue(outer.must_stop)
+        self.assertEqual(outer.reason, "superseded_during_verification")
+        with self.assertRaises(MotionRequestError):
+            submit(adapter, candidate(11, seq=99))
+        stop = adapter.safe_stop(now_ns=20 * MS)
+        self.assertEqual((stop.candidate_id, stop.command_seq), (12, 0))
+
+    def test_newer_verified_candidate_emits_once_and_older_outer_does_not_emit(self):
+        nested = []
+
+        class Verifier:
+            def verify_motion(self, check):
+                if check.candidate_id == 10:
+                    nested.append(submit(adapter, candidate(11)))
+
+        adapter, _ = adapter_with(verifier=Verifier())
+        outer = submit(adapter, candidate(10))
+        self.assertEqual((nested[0].candidate_id, nested[0].command_seq), (11, 0))
+        self.assertEqual(json.loads(nested[0].request_bytes)["target"]["action"], 1)
+        self.assertIsNone(outer.request_bytes)
+        self.assertEqual(outer.reason, "superseded_during_verification")
+        following = submit(adapter, candidate(12))
+        self.assertEqual(following.command_seq, 1)
+
+    def test_new_observation_or_history_eviction_supersedes_outer(self):
+        for registration_count in (1, MAX_OBSERVATIONS):
+            with self.subTest(registration_count=registration_count):
+                class Verifier:
+                    def verify_motion(self, check):
+                        if check.candidate_id == 10:
+                            for index in range(1, registration_count + 1):
+                                adapter.register_observation(observation(
+                                    7 + index, ordinal=70000 + index,
+                                    tick=100 + index, lower=index * MS))
+
+                adapter, _ = adapter_with(verifier=Verifier())
+                outer = submit(adapter, candidate(10))
+                self.assertIsNone(outer.request_bytes)
+                self.assertTrue(outer.must_stop)
+                self.assertEqual(outer.reason, "superseded_during_verification")
+                following = submit(adapter, candidate(11, seq=7 + registration_count))
+                self.assertEqual(following.command_seq, 0)
+
+    def test_reads_exact_observation_duplicate_and_rejected_calls_do_not_supersede(self):
+        class Verifier:
+            def verify_motion(self, check):
+                self_context = adapter.context
+                retained = adapter.retained_observations
+                self.assertEqual(self_context, CONTEXT)
+                adapter.register_observation(retained[0])
+                for call in (
+                    lambda: adapter.safe_stop(now_ns=-1),
+                    lambda: submit(adapter, candidate(10)),
+                    lambda: submit(adapter, candidate(11, duration=0)),
+                    lambda: adapter.register_observation(observation(8, ordinal=70000, tick=101)),
+                ):
+                    with self.assertRaises(MotionRequestError):
+                        call()
+
+        verifier = Verifier()
+        verifier.assertEqual = self.assertEqual
+        verifier.assertRaises = self.assertRaises
+        adapter, _ = adapter_with(verifier=verifier)
+        outer = submit(adapter, candidate(10))
+        self.assertIsNotNone(outer.request_bytes)
+        self.assertEqual((outer.candidate_id, outer.command_seq), (10, 0))
+
+    def test_verifier_cannot_mutate_original_timing_during_verification(self):
+        class Verifier:
+            def verify_motion(self, check):
+                object.__setattr__(check.timing, "first_issue_ns", 999)
+                object.__setattr__(check.timing, "original_duration_ms", 999)
+                object.__setattr__(check.timing, "sample_lower_ns", 999)
+                object.__setattr__(check.timing, "sample_upper_ns", 999)
+                object.__setattr__(check.timing, "deadline_ns", 999)
+                object.__setattr__(check.context, "source_id", True)
+                object.__setattr__(check.observation.context, "source_id", True)
+                object.__setattr__(check.observation, "sample_lower_ns", 999)
+
+        adapter, _ = adapter_with(verifier=Verifier())
+        result = submit(adapter, candidate(10))
+        self.assertIsNotNone(result.request_bytes)
+        self.assertEqual((result.timing.first_issue_ns, result.timing.original_duration_ms,
+                          result.timing.sample_lower_ns, result.timing.sample_upper_ns,
+                          result.timing.deadline_ns), (20 * MS, 1000, 0, MS, 1020 * MS))
+        wire = json.loads(result.request_bytes)
+        self.assertEqual(wire["context"], CONTEXT.as_dict())
+        self.assertEqual(wire["host_issue_monotonic_ns"], 20 * MS)
+        self.assertEqual(adapter.retained_observations[0].sample_lower_ns, 0)
+
+    def test_retained_verifier_check_has_no_alias_to_returned_timing(self):
+        adapter, verifier = adapter_with()
+        result = submit(adapter, candidate(10))
+        saved = verifier.checks[0]
+        original = (result.timing.first_issue_ns, result.timing.original_duration_ms,
+                    result.timing.sample_lower_ns, result.timing.sample_upper_ns,
+                    result.timing.deadline_ns)
+        object.__setattr__(saved.timing, "deadline_ns", INT63_MAX)
+        object.__setattr__(saved.timing, "first_issue_ns", INT63_MAX)
+        self.assertEqual((result.timing.first_issue_ns, result.timing.original_duration_ms,
+                          result.timing.sample_lower_ns, result.timing.sample_upper_ns,
+                          result.timing.deadline_ns), original)
+        self.assertIsNot(saved.timing, result.timing)
+
+    def test_nested_stop_survives_verifier_exception_or_non_none_result(self):
+        for failure in ("exception", "non_none"):
+            with self.subTest(failure=failure):
+                nested = []
+
+                class Verifier:
+                    def verify_motion(self, check):
+                        nested.append(adapter.safe_stop(now_ns=check.now_ns))
+                        if failure == "exception":
+                            raise RuntimeBlocked("fixture cannot verify")
+                        return False
+
+                adapter, _ = adapter_with(verifier=Verifier())
+                outer = submit(adapter, candidate(10))
+                self.assertIsNotNone(nested[0].request_bytes)
+                self.assertEqual(json.loads(nested[0].request_bytes)["target"]["action"], 0)
+                self.assertIsNone(outer.request_bytes)
+                self.assertEqual(outer.reason, "superseded_during_verification")
+                following = adapter.safe_stop(now_ns=20 * MS)
+                self.assertEqual((following.candidate_id, following.command_seq), (12, 1))
+
+    def test_nested_stop_at_candidate_exhaustion_still_invalidates_outer_motion(self):
+        nested = []
+
+        class Verifier:
+            def verify_motion(self, check):
+                nested.append(adapter.safe_stop(now_ns=check.now_ns))
+
+        adapter, _ = adapter_with(verifier=Verifier())
+        outer = submit(adapter, candidate(INT63_MAX))
+        self.assertIsNone(nested[0].request_bytes)
+        self.assertTrue(nested[0].must_stop)
+        self.assertIn("candidate_identity_exhausted", nested[0].reason)
+        self.assertIsNone(outer.request_bytes)
+        self.assertTrue(outer.must_stop)
+        self.assertEqual(outer.reason, "superseded_during_verification")
+
+
 class ExactAInteroperabilityTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):

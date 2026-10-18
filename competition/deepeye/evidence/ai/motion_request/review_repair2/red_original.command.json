@@ -1,0 +1,51 @@
+{
+  "work_id": "C-motion-adapter-verifier-reentrancy-fix-20261018-v1",
+  "cwd": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\deepeye-implementation-c\\competition\\deepeye",
+  "command": [
+    "python",
+    "-B",
+    "-X",
+    "utf8",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "tests/ai/control_broker",
+    "-p",
+    "test_motion_request.py",
+    "-k",
+    "VerifierReentrancyTests",
+    "-v"
+  ],
+  "started_utc": "2026-10-18T14:41:42.687301+00:00",
+  "finished_utc": "2026-10-18T14:41:43.291789+00:00",
+  "actual_exit_code": 1,
+  "expected_exit_code": 1,
+  "expected_result": true,
+  "source_hashes": [
+    {
+      "path": "competition/deepeye/ai_pc/control_broker/motion_request.py",
+      "bytes": 19811,
+      "sha256": "29bf83a68929a882671bbed1a14b5a717e2e0bfa53cdb812512400a0aa621e7f",
+      "git_blob_sha1": "1fe7df7c0bc5a8b4fcbbe0d8ce29c8bc3deaaca8"
+    },
+    {
+      "path": "competition/deepeye/tests/ai/control_broker/test_motion_request.py",
+      "bytes": 37201,
+      "sha256": "c23f6d17f4ee68296b7807721f31a2fe148a26a125cb713f83fa7b65b3563060",
+      "git_blob_sha1": "dd85251eaff02108c6ba5311aed6641526b41a21"
+    }
+  ],
+  "stdout": {
+    "path": "red_original.stdout.txt",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "git_blob_sha1": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  "stderr": {
+    "path": "red_original.stderr.txt",
+    "bytes": 15748,
+    "sha256": "9c0c30b1299fb2638467cc051a6c7c9cc2235a5a7278b7330ca9a3de7d33bd63",
+    "git_blob_sha1": "44e43642c6165ae4baa604c3f6eb51dc6e2e4498"
+  }
+}

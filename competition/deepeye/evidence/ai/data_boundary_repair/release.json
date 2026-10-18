@@ -1,0 +1,28 @@
+{
+  "task_id": "DEEPEYE-IMPLEMENTATION-20261014",
+  "task_version": 1,
+  "work_id": "C-las-header-and-portable-fixture-fix-20261018-v1",
+  "actual_agent_id": "/root/data_boundary_repair",
+  "base_commit": "31267d6c4ae284b8788ebb457f49c4ae5a49c60c",
+  "contract": "DEEPEYE-HUMAN-LOCK-20261014/revision1",
+  "contract_source_commit": "f5989cd5defce561f9ba98e6b18fc2682945f0a2",
+  "requirements_sha256": "c229834bfc2292f5fe4411fc9f12c68487008f9d1adaf31f0144ee7a98173804",
+  "frozen_design_commit": "1011259415a0916054eb580687612580bc1e5f09",
+  "released_utc": "2026-10-18T14:52:06.607861+00:00",
+  "worker_state": "completed; no further writes or execution; ownership released to parent /root",
+  "released_paths": [
+    "competition/deepeye/data/force_inventory.py",
+    "competition/deepeye/data/force_preprocess.py",
+    "competition/deepeye/tests/ai/data_model/test_force_inventory.py",
+    "competition/deepeye/tests/ai/data_model/test_force_preprocess.py",
+    "competition/deepeye/tests/ai/data_model/test_verify_data.py",
+    "competition/deepeye/evidence/ai/data_boundary_repair/**"
+  ],
+  "source_sha256": {
+    "data/force_inventory.py": "86404425615f7551ce04907c9dbd6d7a40edca76372ad82a1a9655092a186932",
+    "data/force_preprocess.py": "1cc71d045065495d99a3f79c31107705cdc3a4942409a8decf6ae732501bc308",
+    "tests/ai/data_model/test_force_inventory.py": "d5bc098714afe5565fe026dded51a39671f60228510e3f5898bf4fb23415f504",
+    "tests/ai/data_model/test_force_preprocess.py": "238ab21224e705f03bf9555e43185e435adc3d809145097823e31c99a485ac00",
+    "tests/ai/data_model/test_verify_data.py": "3205d9f6db697152684ea988fa2aa5d506433f74d2ca085aa749854defe824e2"
+  }
+}

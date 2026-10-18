@@ -6,8 +6,8 @@ Software-only foundation for the C01 "causal data and model input" card
 FORCE-2020 artifact family that C already produced without touching,
 re-fitting, re-splitting or re-parsing it:
 
-* SHA256 and byte pins for the nine reviewed artifacts (six JSON documents
-  and three helper modules);
+* SHA256 and byte pins for six frozen JSON documents, three current helper
+  modules and two historical generator snapshots;
 * contract / task / design identity fields wherever defined;
 * cross-file hash links between the documents;
 * inventory structure (member / UWI / member SHA256 uniqueness, counts)
@@ -46,7 +46,7 @@ not_run):
   decoded and parsed, so a file swapped in after the pin pass is detected
   and never parsed as verified data.
 * ``--output`` is refused (exit 1) when it resolves to any input this run
-  reads: one of the nine pinned artifacts, the selected archive or this
+  reads: one of the pinned artifacts, the selected archive or this
   entrypoint (including symlink/junction/hardlink aliases).
 * Only the canonical ``PRODUCTION_SPEC`` carries the production label.  A
   nonproduction spec is reported as ``synthetic_fixture`` with
@@ -149,9 +149,11 @@ PINNED_ARTIFACTS = types.MappingProxyType(
         "data/split_policy.json": "66c5138ad45138104bca20d39c4680daa82534a16e381f8d2879eea6f37b81c9",
         "data/label_schema.json": "0913ff5a59085b47802a9902f23a836f4fa1129700de8e6593840416f4d7beed",
         "data/preprocessing.json": "cb66fd302165c86344f3b8d1af9d9c4e4e229621cef44cbfa6fb8cd121a63eef",
-        "data/force_inventory.py": "5bba8316ea36484df058dacb2289073ffb09ce19e401dfb297598b3e3cd10f47",
+        "data/force_inventory.py": "86404425615f7551ce04907c9dbd6d7a40edca76372ad82a1a9655092a186932",
         "data/grouping.py": "f1a35a5b060cafb640d8f65b2914af9616258b7fa21f99d1a589d232f7b2be4d",
-        "data/force_preprocess.py": "75b2015c0ec9deab9a94a2032b77117124085631f2bd758a54c7ea7fdfdf2848",
+        "data/force_preprocess.py": "1cc71d045065495d99a3f79c31107705cdc3a4942409a8decf6ae732501bc308",
+        "data/provenance/force_2020_v1/force_inventory.py": "5bba8316ea36484df058dacb2289073ffb09ce19e401dfb297598b3e3cd10f47",
+        "data/provenance/force_2020_v1/force_preprocess.py": "75b2015c0ec9deab9a94a2032b77117124085631f2bd758a54c7ea7fdfdf2848",
     }
 )
 
@@ -197,6 +199,10 @@ LIMITATIONS = (
     "The numeric preprocessing fit was previously main-audited; this verifier"
     " checks documented metadata and fit-identity consistency only, with"
     " defined tolerances for derived scalars.",
+    "Current parser modules and historical generator snapshots have separate"
+    " byte pins. Historical snapshots preserve the frozen preprocessing"
+    " provenance and are never imported or executed; repaired parsers did"
+    " not regenerate the frozen documents.",
     "Offline FORCE-2020 public lithology domain only; sensor_live acquisition"
     " runs and sim_em_v2 complete scenarios are not covered.",
     "Label-schema metadata only; no row-level label or confidence value is"
@@ -859,10 +865,20 @@ def check_cross_file_hash_links(docs: dict, spec: VerificationSpec) -> CheckOutc
         nested(preprocessing, "inputs", "label_schema", "sha256"),
         pins.get("data/label_schema.json"),
     )
+    historical_inventory_path = "data/provenance/force_2020_v1/force_inventory.py"
+    if historical_inventory_path in pins:
+        inventory_generator_sha = pins[historical_inventory_path]
+    elif classify_spec(spec) == SPEC_CONTEXT_SYNTHETIC:
+        # Explicit synthetic fixtures can model a single current generator.
+        # Canonical production always requires both historical snapshot pins;
+        # a missing file/hash never falls back to repaired current code.
+        inventory_generator_sha = pins.get("data/force_inventory.py")
+    else:
+        raise VerifyDataError("failed", "production historical inventory generator pin is missing")
     expect(
         "preprocessing.inputs.helpers.force_inventory.sha256",
         nested(preprocessing, "inputs", "helpers", "force_inventory", "sha256"),
-        pins.get("data/force_inventory.py"),
+        inventory_generator_sha,
     )
     expect(
         "preprocessing.inputs.helpers.grouping.sha256",
@@ -2701,7 +2717,7 @@ def _protected_output_problem(
 ) -> object:
     """Return a failure detail when ``--output`` targets a verifier input.
 
-    The protected set is exactly what this run reads: the nine pinned
+    The protected set is exactly what this run reads: all pinned
     artifacts, the selected archive (when one was given) and this
     entrypoint.  The output path is resolved (``..`` spellings and
     symlinks/junctions are canonicalized) and, when both files exist,

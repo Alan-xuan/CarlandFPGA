@@ -1,0 +1,27 @@
+{
+  "copied_utc": "2026-10-18T14:58:51.529153+00:00",
+  "snapshots": [
+    {
+      "source_commit": "31267d6c4ae284b8788ebb457f49c4ae5a49c60c",
+      "source_path": "competition/deepeye/data/force_inventory.py",
+      "git_blob_sha1": "e37e07250d14fc9031b18a81a3eaa4c752e4a769",
+      "sha256": "5bba8316ea36484df058dacb2289073ffb09ce19e401dfb297598b3e3cd10f47",
+      "bytes": 22801,
+      "path": "data\\provenance\\force_2020_v1\\force_inventory.py",
+      "executed": false
+    },
+    {
+      "source_commit": "31267d6c4ae284b8788ebb457f49c4ae5a49c60c",
+      "source_path": "competition/deepeye/data/force_preprocess.py",
+      "git_blob_sha1": "f3e7036e41d44362f65ed0b887ea62070a639f2d",
+      "sha256": "75b2015c0ec9deab9a94a2032b77117124085631f2bd758a54c7ea7fdfdf2848",
+      "bytes": 51033,
+      "path": "data\\provenance\\force_2020_v1\\force_preprocess.py",
+      "executed": false
+    }
+  ],
+  "preserved_prior_red": {
+    "evidence\\ai\\data_boundary_repair\\candidate_verify_suite.result.json": "107802fbcc1efa3f387f9f0e0a52298ad787c87ce49368f2deeae9154954125e",
+    "evidence\\ai\\data_boundary_repair\\candidate_verify_suite.stderr.txt": "30e6cf4ee50016ff36c829831c72ae77539647d327a1dbeb87c3be3a30acdead"
+  }
+}

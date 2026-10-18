@@ -1,0 +1,331 @@
+diff --git a/competition/deepeye/tests/ai/data_model/test_verify_data.py b/competition/deepeye/tests/ai/data_model/test_verify_data.py
+index e1cf8f1..8461c16 100644
+--- a/competition/deepeye/tests/ai/data_model/test_verify_data.py
++++ b/competition/deepeye/tests/ai/data_model/test_verify_data.py
+@@ -109,9 +109,11 @@ EXPECTED_PINS = {
+     "data/split_policy.json": "66c5138ad45138104bca20d39c4680daa82534a16e381f8d2879eea6f37b81c9",
+     "data/label_schema.json": "0913ff5a59085b47802a9902f23a836f4fa1129700de8e6593840416f4d7beed",
+     "data/preprocessing.json": "cb66fd302165c86344f3b8d1af9d9c4e4e229621cef44cbfa6fb8cd121a63eef",
+-    "data/force_inventory.py": "5bba8316ea36484df058dacb2289073ffb09ce19e401dfb297598b3e3cd10f47",
++    "data/force_inventory.py": "86404425615f7551ce04907c9dbd6d7a40edca76372ad82a1a9655092a186932",
+     "data/grouping.py": "f1a35a5b060cafb640d8f65b2914af9616258b7fa21f99d1a589d232f7b2be4d",
+-    "data/force_preprocess.py": "75b2015c0ec9deab9a94a2032b77117124085631f2bd758a54c7ea7fdfdf2848",
++    "data/force_preprocess.py": "1cc71d045065495d99a3f79c31107705cdc3a4942409a8decf6ae732501bc308",
++    "data/provenance/force_2020_v1/force_inventory.py": "5bba8316ea36484df058dacb2289073ffb09ce19e401dfb297598b3e3cd10f47",
++    "data/provenance/force_2020_v1/force_preprocess.py": "75b2015c0ec9deab9a94a2032b77117124085631f2bd758a54c7ea7fdfdf2848",
+ }
+ EXPECTED_ARCHIVE_BASENAME = (
+     "LAS_files_Force_2020_all_wells_train_test_blind_hidden_final.zip"
+@@ -147,11 +149,11 @@ def sha256_hex(data):
+     return hashlib.sha256(data).hexdigest()
+ 
+ 
+-def run_cli(arguments, cwd):
++def run_cli(arguments, cwd, *, cli_path=CLI_PATH):
+     environment = dict(os.environ)
+     environment["PYTHONDONTWRITEBYTECODE"] = "1"
+     return subprocess.run(
+-        [PYTHON, "-X", "utf8", "-B", str(CLI_PATH), *arguments],
++        [PYTHON, "-X", "utf8", "-B", str(cli_path), *arguments],
+         cwd=str(cwd),
+         capture_output=True,
+         env=environment,
+@@ -763,7 +765,7 @@ class RealPinnedDataTests(unittest.TestCase):
+         self.assertEqual(provenance["archive_file"], ARCHIVE_BASENAME)
+         self.assertEqual(provenance["archive_sha256"], ARCHIVE_SHA256)
+         self.assertFalse(provenance["raw_archive_in_product_repository"])
+-        self.assertEqual(len(report["artifacts"]), 9)
++        self.assertEqual(len(report["artifacts"]), 11)
+         self.assertTrue(
+             all(item["status"] == "verified" for item in report["artifacts"])
+         )
+@@ -946,7 +948,7 @@ class RealPinnedDataTests(unittest.TestCase):
+         self.assertEqual(TASK_ID, "DEEPEYE-IMPLEMENTATION-20261014")
+         self.assertEqual(TASK_VERSION, 1)
+         self.assertEqual(DESIGN_COMMIT, "1011259415a0916054eb580687612580bc1e5f09")
+-        self.assertEqual(len(PINNED_ARTIFACTS), 9)
++        self.assertEqual(len(PINNED_ARTIFACTS), 11)
+         self.assertEqual(PRODUCTION_SPEC.name, "production")
+         self.assertEqual(PRODUCTION_SPEC.members, 118)
+         self.assertEqual(PRODUCTION_SPEC.rows_total, 2337639)
+@@ -1502,6 +1504,125 @@ class OutputAtomicityTests(unittest.TestCase):
+             self.assertEqual(sorted(item.name for item in Path(directory).iterdir()), [])
+ 
+ 
++class HistoricalGeneratorPinTests(FixtureTestCase):
++    """Historical generation and current code are independently pinned roles."""
++
++    HISTORICAL_INVENTORY = "data/provenance/force_2020_v1/force_inventory.py"
++    HISTORICAL_PREPROCESS = "data/provenance/force_2020_v1/force_preprocess.py"
++
++    def historical_fixture(self):
++        historical = {}
++        for relative in (self.HISTORICAL_INVENTORY, self.HISTORICAL_PREPROCESS):
++            path = self.root / relative
++            path.parent.mkdir(parents=True, exist_ok=True)
++            # A pin-only verifier must never execute this deliberately raising
++            # synthetic snapshot, even when every digest is valid.
++            path.write_bytes(("raise AssertionError('historical snapshot executed: "
++                              + path.name + "')\n").encode("ascii"))
++            historical[relative] = sha256_hex(path.read_bytes())
++        self.fixture.mutate(
++            "preprocessing",
++            lambda doc: doc["inputs"]["helpers"]["force_inventory"].__setitem__(
++                "sha256", historical[self.HISTORICAL_INVENTORY]),
++        )
++        self.fixture.pins.update(historical)
++        return historical
++
++    def test_historical_helper_matches_old_snapshot_not_current_code(self):
++        historical = self.historical_fixture()
++        self.assertNotEqual(historical[self.HISTORICAL_INVENTORY],
++                            self.fixture.pins["data/force_inventory.py"])
++        report, code = self.run_scope()
++        self.assertEqual(code, 0)
++        self.assertFalse(report["production_provenance"])
++        self.assertEqual(self.check_entry(report, "cross_file_hash_links")["status"], "passed")
++        self.assertEqual(len(report["artifacts"]), 11)
++
++    def test_current_hash_cannot_relabel_historical_preprocessing(self):
++        historical = self.historical_fixture()
++        self.fixture.mutate(
++            "preprocessing",
++            lambda doc: doc["inputs"]["helpers"]["force_inventory"].__setitem__(
++                "sha256", self.fixture.pins["data/force_inventory.py"]),
++        )
++        self.fixture.pins.update(historical)
++        report, code = self.run_scope()
++        self.assertIn("cross_file_hash_links", self.assert_failed(report, code))
++
++    def test_missing_historical_snapshot_blocks_without_live_fallback(self):
++        self.historical_fixture()
++        for relative in (self.HISTORICAL_INVENTORY, self.HISTORICAL_PREPROCESS):
++            with self.subTest(relative=relative):
++                path = self.root / relative
++                original = path.read_bytes()
++                path.unlink()
++                report, code = self.run_scope()
++                self.assertEqual(code, 2)
++                self.assertEqual(self.check_entry(report, "pinned_artifact_hashes")["status"], "blocked")
++                path.write_bytes(original)
++
++    def test_corrupted_snapshot_fails_without_live_fallback(self):
++        self.historical_fixture()
++        for relative in (self.HISTORICAL_INVENTORY, self.HISTORICAL_PREPROCESS):
++            with self.subTest(relative=relative):
++                path = self.root / relative
++                original = path.read_bytes()
++                path.write_bytes(original + b"# corruption\n")
++                report, code = self.run_scope()
++                self.assertIn("pinned_artifact_hashes", self.assert_failed(report, code))
++                path.write_bytes(original)
++
++    def test_live_helper_corruption_is_not_hidden_by_valid_history(self):
++        self.historical_fixture()
++        for relative in ("data/force_inventory.py", "data/force_preprocess.py"):
++            with self.subTest(relative=relative):
++                path = self.root / relative
++                original = path.read_bytes()
++                path.write_bytes(original + b"# corruption\n")
++                report, code = self.run_scope()
++                self.assertIn("pinned_artifact_hashes", self.assert_failed(report, code))
++                path.write_bytes(original)
++
++    def test_missing_history_does_not_hide_corrupt_live_helper(self):
++        self.historical_fixture()
++        (self.root / self.HISTORICAL_INVENTORY).unlink()
++        path = self.root / "data/force_inventory.py"
++        path.write_bytes(path.read_bytes() + b"# corruption\n")
++        report, code = self.run_scope()
++        self.assertIn("pinned_artifact_hashes", self.assert_failed(report, code))
++        self.assertIn("also missing", self.check_entry(report, "pinned_artifact_hashes")["detail"])
++
++    def test_only_grouping_executes_and_no_zip_member_is_opened(self):
++        self.historical_fixture()
++        imported = []
++        original_loader = verify_data_module.load_pinned_helper_module
++
++        def allowed_loader(root, spec, relative, name):
++            imported.append(relative)
++            self.assertEqual(relative, "data/grouping.py")
++            return original_loader(root, spec, relative, name)
++
++        with mock.patch.object(verify_data_module, "load_pinned_helper_module", allowed_loader):
++            report, code = self.run_scope()
++        self.assertEqual(code, 0)
++        self.assertEqual(imported, ["data/grouping.py"])
++        self.assertEqual(report["software_facts"]["zip_members_opened"], 0)
++        self.assertEqual(report["software_facts"]["las_values_parsed"], 0)
++        self.assertFalse(report["software_facts"]["statistics_recomputed"])
++
++    def test_production_cannot_drop_historical_pins_to_use_synthetic_fallback(self):
++        pins = dict(PRODUCTION_SPEC.pins)
++        for relative in (self.HISTORICAL_INVENTORY, self.HISTORICAL_PREPROCESS):
++            pins.pop(relative, None)
++        forged = dataclasses.replace(PRODUCTION_SPEC, pins=pins)
++        with mock.patch.object(verify_data_module, "verify_pins",
++                               side_effect=AssertionError("forged context read pins")):
++            report, code = self.run_scope(spec=forged)
++        self.assertEqual(code, 1)
++        self.assertEqual(report["spec"], "rejected_forged_production")
++        self.assertEqual(report["artifacts"], [])
++
++
+ class CliOutputProtectionTests(unittest.TestCase):
+     """--output must never replace a verifier input (VD04)."""
+ 
+@@ -1541,13 +1662,25 @@ class CliOutputProtectionTests(unittest.TestCase):
+         self.assertEqual(sha256_hex(CLI_PATH.read_bytes()), before)
+ 
+     def test_output_rejects_hardlink_alias_of_pinned_input(self):
+-        target = PRODUCT_ROOT / "data" / "preprocessing.json"
+-        before = sha256_hex(target.read_bytes())
++        original = PRODUCT_ROOT / "data" / "preprocessing.json"
++        before = sha256_hex(original.read_bytes())
+         with tempfile.TemporaryDirectory(prefix="verify_data_alias_") as directory:
+-            alias = Path(directory) / "alias.json"
++            # A copied minimal product tree keeps the source and alias on
++            # one temporary volume even if the checkout lives elsewhere.
++            product_root = Path(directory) / "product"
++            target = product_root / "data" / "preprocessing.json"
++            entrypoint = product_root / "tools" / "verify_data.py"
++            target.parent.mkdir(parents=True)
++            entrypoint.parent.mkdir(parents=True)
++            shutil.copyfile(original, target)
++            shutil.copyfile(CLI_PATH, entrypoint)
++            alias = product_root / "alias.json"
+             os.link(target, alias)
++            self.assertTrue(os.path.samefile(target, alias))
+             proc = run_cli(
+-                ["--scope", "force-offline", "--output", str(alias)], PRODUCT_ROOT
++                ["--scope", "force-offline", "--output", str(alias)],
++                product_root,
++                cli_path=entrypoint,
+             )
+             self.assertEqual(proc.returncode, 1)
+             report = parse_stdout(proc)
+@@ -1555,10 +1688,11 @@ class CliOutputProtectionTests(unittest.TestCase):
+             self.assertEqual(statuses["output_write"], "failed")
+             self.assertIn("same underlying file", report["error"])
+             self.assertEqual(sha256_hex(alias.read_bytes()), before)
++            self.assertEqual(sha256_hex(target.read_bytes()), before)
+             self.assertNotIn(
+                 "deepeye-verify-data-report", alias.read_text(encoding="utf-8")
+             )
+-        self.assertEqual(sha256_hex(target.read_bytes()), before)
++        self.assertEqual(sha256_hex(original.read_bytes()), before)
+ 
+     def test_output_allows_legitimate_report_path(self):
+         with tempfile.TemporaryDirectory(prefix="verify_data_output_") as directory:
+@@ -1576,6 +1710,31 @@ class CliOutputProtectionTests(unittest.TestCase):
+             self.assertEqual(statuses["output_write"], "passed")
+             self.assertEqual(output.read_bytes(), proc.stdout)
+ 
++    def test_output_protects_historical_snapshots_and_hardlink_aliases(self):
++        for filename in ("force_inventory.py", "force_preprocess.py"):
++            with self.subTest(filename=filename), tempfile.TemporaryDirectory(prefix="verify_history_alias_") as directory:
++                product_root = Path(directory) / "product"
++                target = product_root / "data" / "provenance" / "force_2020_v1" / filename
++                entrypoint = product_root / "tools" / "verify_data.py"
++                target.parent.mkdir(parents=True)
++                entrypoint.parent.mkdir(parents=True)
++                original = b"# synthetic historical snapshot; never execute\n"
++                target.write_bytes(original)
++                shutil.copyfile(CLI_PATH, entrypoint)
++                alias = product_root / "history_alias.py"
++                os.link(target, alias)
++                self.assertTrue(os.path.samefile(target, alias))
++                for output in (target, alias):
++                    proc = run_cli(["--scope", "force-offline", "--output", str(output)],
++                                   product_root, cli_path=entrypoint)
++                    self.assertEqual(proc.returncode, 1)
++                    report = parse_stdout(proc)
++                    outcomes = {item["id"]: item["status"] for item in report["checks"]}
++                    self.assertEqual(outcomes["output_write"], "failed")
++                    self.assertIn("refusing to write", report["error"])
++                    self.assertEqual(target.read_bytes(), original)
++                    self.assertEqual(alias.read_bytes(), original)
++
+ 
+ class SkipContractTests(unittest.TestCase):
+     """The clean-checkout skip contract stays explicit and counted."""
+diff --git a/competition/deepeye/tools/verify_data.py b/competition/deepeye/tools/verify_data.py
+index 01d1091..930ed0b 100644
+--- a/competition/deepeye/tools/verify_data.py
++++ b/competition/deepeye/tools/verify_data.py
+@@ -6,8 +6,8 @@ Software-only foundation for the C01 "causal data and model input" card
+ FORCE-2020 artifact family that C already produced without touching,
+ re-fitting, re-splitting or re-parsing it:
+ 
+-* SHA256 and byte pins for the nine reviewed artifacts (six JSON documents
+-  and three helper modules);
++* SHA256 and byte pins for six frozen JSON documents, three current helper
++  modules and two historical generator snapshots;
+ * contract / task / design identity fields wherever defined;
+ * cross-file hash links between the documents;
+ * inventory structure (member / UWI / member SHA256 uniqueness, counts)
+@@ -46,7 +46,7 @@ not_run):
+   decoded and parsed, so a file swapped in after the pin pass is detected
+   and never parsed as verified data.
+ * ``--output`` is refused (exit 1) when it resolves to any input this run
+-  reads: one of the nine pinned artifacts, the selected archive or this
++  reads: one of the pinned artifacts, the selected archive or this
+   entrypoint (including symlink/junction/hardlink aliases).
+ * Only the canonical ``PRODUCTION_SPEC`` carries the production label.  A
+   nonproduction spec is reported as ``synthetic_fixture`` with
+@@ -149,9 +149,11 @@ PINNED_ARTIFACTS = types.MappingProxyType(
+         "data/split_policy.json": "66c5138ad45138104bca20d39c4680daa82534a16e381f8d2879eea6f37b81c9",
+         "data/label_schema.json": "0913ff5a59085b47802a9902f23a836f4fa1129700de8e6593840416f4d7beed",
+         "data/preprocessing.json": "cb66fd302165c86344f3b8d1af9d9c4e4e229621cef44cbfa6fb8cd121a63eef",
+-        "data/force_inventory.py": "5bba8316ea36484df058dacb2289073ffb09ce19e401dfb297598b3e3cd10f47",
++        "data/force_inventory.py": "86404425615f7551ce04907c9dbd6d7a40edca76372ad82a1a9655092a186932",
+         "data/grouping.py": "f1a35a5b060cafb640d8f65b2914af9616258b7fa21f99d1a589d232f7b2be4d",
+-        "data/force_preprocess.py": "75b2015c0ec9deab9a94a2032b77117124085631f2bd758a54c7ea7fdfdf2848",
++        "data/force_preprocess.py": "1cc71d045065495d99a3f79c31107705cdc3a4942409a8decf6ae732501bc308",
++        "data/provenance/force_2020_v1/force_inventory.py": "5bba8316ea36484df058dacb2289073ffb09ce19e401dfb297598b3e3cd10f47",
++        "data/provenance/force_2020_v1/force_preprocess.py": "75b2015c0ec9deab9a94a2032b77117124085631f2bd758a54c7ea7fdfdf2848",
+     }
+ )
+ 
+@@ -197,6 +199,10 @@ LIMITATIONS = (
+     "The numeric preprocessing fit was previously main-audited; this verifier"
+     " checks documented metadata and fit-identity consistency only, with"
+     " defined tolerances for derived scalars.",
++    "Current parser modules and historical generator snapshots have separate"
++    " byte pins. Historical snapshots preserve the frozen preprocessing"
++    " provenance and are never imported or executed; repaired parsers did"
++    " not regenerate the frozen documents.",
+     "Offline FORCE-2020 public lithology domain only; sensor_live acquisition"
+     " runs and sim_em_v2 complete scenarios are not covered.",
+     "Label-schema metadata only; no row-level label or confidence value is"
+@@ -859,10 +865,20 @@ def check_cross_file_hash_links(docs: dict, spec: VerificationSpec) -> CheckOutc
+         nested(preprocessing, "inputs", "label_schema", "sha256"),
+         pins.get("data/label_schema.json"),
+     )
++    historical_inventory_path = "data/provenance/force_2020_v1/force_inventory.py"
++    if historical_inventory_path in pins:
++        inventory_generator_sha = pins[historical_inventory_path]
++    elif classify_spec(spec) == SPEC_CONTEXT_SYNTHETIC:
++        # Explicit synthetic fixtures can model a single current generator.
++        # Canonical production always requires both historical snapshot pins;
++        # a missing file/hash never falls back to repaired current code.
++        inventory_generator_sha = pins.get("data/force_inventory.py")
++    else:
++        raise VerifyDataError("failed", "production historical inventory generator pin is missing")
+     expect(
+         "preprocessing.inputs.helpers.force_inventory.sha256",
+         nested(preprocessing, "inputs", "helpers", "force_inventory", "sha256"),
+-        pins.get("data/force_inventory.py"),
++        inventory_generator_sha,
+     )
+     expect(
+         "preprocessing.inputs.helpers.grouping.sha256",
+@@ -2701,7 +2717,7 @@ def _protected_output_problem(
+ ) -> object:
+     """Return a failure detail when ``--output`` targets a verifier input.
+ 
+-    The protected set is exactly what this run reads: the nine pinned
++    The protected set is exactly what this run reads: all pinned
+     artifacts, the selected archive (when one was given) and this
+     entrypoint.  The output path is resolved (``..`` spellings and
+     symlinks/junctions are canonicalized) and, when both files exist,

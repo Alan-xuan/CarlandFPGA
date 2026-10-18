@@ -14,6 +14,7 @@ acceptance (C01 stays not_run).
 import ast
 import hashlib
 import importlib.util
+import io
 import json
 import os
 import subprocess
@@ -356,6 +357,73 @@ _STANDARD_SPLITS = {
 
 class ForcePreprocessTests(unittest.TestCase):
     maxDiff = None
+
+    def _parse_header_fixture(self, lines, terminator="\n", chunk_bytes=7):
+        raw = (terminator.join(lines) + terminator).encode("ascii")
+        channels = {name: force_preprocess._ChannelFit(name)
+                    for name in force_preprocess.CHANNELS}
+        record = force_preprocess._fit_member(
+            io.BytesIO(raw), "header.las", chunk_bytes, channels
+        )
+        return record, channels
+
+    def test_conflicting_critical_headers_are_rejected(self):
+        base = _las_bytes(_DEFAULT_CURVES, ["0 1 30000 10 2 0.1 1"], "1/1-1")
+        replacements = {"VERS": ("2.0", "1.2"), "WRAP": ("NO", "YES"),
+                        "UWI": ("1/1-1", "9/9-9"), "NULL": ("-999.25", "-123")}
+        for key, (original, conflicting) in replacements.items():
+            for reverse in (False, True):
+                lines = base.decode("ascii").splitlines()
+                index = next(i for i, line in enumerate(lines)
+                             if line.partition(".")[0].strip().upper() == key)
+                first, second = ((conflicting, original) if reverse
+                                 else (original, conflicting))
+                lines[index:index + 1] = ["%s. %s:" % (key, first),
+                                         "%s. %s:" % (key.lower(), second)]
+                with self.subTest(key=key, reverse=reverse):
+                    with self.assertRaises(force_preprocess.ForcePreprocessError) as caught:
+                        self._parse_header_fixture(lines)
+                    self.assertIn("conflicting duplicate " + key, str(caught.exception))
+                    self.assertEqual(caught.exception.member, "header.las")
+                    self.assertEqual(caught.exception.line, index + 2)
+
+    def test_critical_headers_after_ascii_marker_are_rejected(self):
+        base = _las_bytes(_DEFAULT_CURVES, [], "1/1-1").decode("ascii").splitlines()
+        row = "0 1 30000 10 2 0.1 1"
+        values = {"VERS": ("2.0", "1.2"), "WRAP": ("NO", "YES"),
+                  "UWI": ("1/1-1", "9/9-9"), "NULL": ("-999.25", "-123")}
+        for key, alternatives in values.items():
+            section = "~Version" if key in ("VERS", "WRAP") else "~Well"
+            for value in alternatives:
+                for after_rows in (False, True):
+                    for marker in ("~A", "~Ascii"):
+                        for terminator in ("\n", "\r\n"):
+                            lines = base[:-1] + [marker] + ([row] if after_rows else [])
+                            lines += [section, "%s. %s:" % (key.lower(), value)]
+                            offending_line = len(lines)
+                            lines += [marker] + ([] if after_rows else [row])
+                            with self.subTest(key=key, value=value, after_rows=after_rows,
+                                              marker=marker, terminator=repr(terminator)):
+                                with self.assertRaises(force_preprocess.ForcePreprocessError) as caught:
+                                    self._parse_header_fixture(lines, terminator, chunk_bytes=1)
+                                self.assertIn(key + " header after ASCII data section",
+                                              str(caught.exception))
+                                self.assertEqual(caught.exception.member, "header.las")
+                                self.assertEqual(caught.exception.line, offending_line)
+
+    def test_identical_critical_headers_before_ascii_are_allowed(self):
+        base = _las_bytes(_DEFAULT_CURVES, ["0 1 30000 10 2 0.1 1"], "1/1-1")
+        lines = []
+        for line in base.decode("ascii").splitlines():
+            lines.append(line)
+            if line.partition(".")[0].strip().upper() in ("VERS", "WRAP", "UWI", "NULL"):
+                lines.append(line)
+        record, channels = self._parse_header_fixture(lines)
+        self.assertEqual(record["uwi"], "1/1-1")
+        self.assertEqual(record["null_value"], -999.25)
+        self.assertEqual(record["rows"], 1)
+        self.assertEqual(channels["GR"].n, 1)
+        self.assertEqual(channels["GR"].mean, 10)
 
     def test_analytic_two_and_three_point_statistics(self):
         with tempfile.TemporaryDirectory() as tmp:

@@ -1,0 +1,275 @@
+{
+ "schema": 1,
+ "kind": "deepeye-verify-data-report",
+ "generated_utc": "2026-10-18T15:02:52Z",
+ "tool": {
+  "path": "tools/verify_data.py",
+  "sha256": "bf8a59490c334544ea6a7c95fe0156ec3c143e87756f75e937fd28abada4a551"
+ },
+ "task_id": "DEEPEYE-IMPLEMENTATION-20261014",
+ "task_version": 1,
+ "design_commit": "1011259415a0916054eb580687612580bc1e5f09",
+ "contract": {
+  "id": "DEEPEYE-HUMAN-LOCK-20261014",
+  "revision": 1,
+  "source_commit": "f5989cd5defce561f9ba98e6b18fc2682945f0a2",
+  "requirements_sha256": "c229834bfc2292f5fe4411fc9f12c68487008f9d1adaf31f0144ee7a98173804"
+ },
+ "spec": "production",
+ "requested_spec_name": "production",
+ "production_provenance": true,
+ "scope": "force-offline",
+ "status": "passed_offline_identity_consistency_only",
+ "exit_code": 0,
+ "product_card_C01": "not_run",
+ "software_scope": "offline provenance/identity/consistency only; no live sensor, sim_em_v2 scenario or runtime verification",
+ "command": {
+  "entrypoint": "tools/verify_data.py",
+  "scope": "force-offline",
+  "archive_file": "LAS_files_Force_2020_all_wells_train_test_blind_hidden_final.zip",
+  "output": null,
+  "python": "3.13.5"
+ },
+ "provenance": {
+  "dataset": "FORCE 2020 machine learning competition well logs (public lithology domain)",
+  "source_domain": "force_2020_public_lithology",
+  "doi": "10.5281/zenodo.4351156",
+  "record_url": "https://zenodo.org/records/4351156",
+  "authors_repository": "https://github.com/bolgebrygg/Force-2020-Machine-Learning-competition",
+  "authors_repository_commit": "c8d01ee92c1c8e1ecba36f96cca6ea7b689338a1",
+  "record_license_id": "cc-by-4.0",
+  "original_description_license_text": "NOLD 2.0",
+  "original_description_license_note": "Verbatim licensing text from the pinned source record, kept separately from the deposited resource license id.",
+  "archive_file": "LAS_files_Force_2020_all_wells_train_test_blind_hidden_final.zip",
+  "archive_bytes": 169785172,
+  "archive_sha256": "042ef1d473100dc12768cae7107a8cead071a394f137af3bc1ddaf8a5d1b8dda",
+  "raw_archive_in_product_repository": false
+ },
+ "artifacts": [
+  {
+   "path": "data/force_inventory.py",
+   "expected_sha256": "86404425615f7551ce04907c9dbd6d7a40edca76372ad82a1a9655092a186932",
+   "actual_sha256": "86404425615f7551ce04907c9dbd6d7a40edca76372ad82a1a9655092a186932",
+   "bytes": 24320,
+   "status": "verified"
+  },
+  {
+   "path": "data/force_preprocess.py",
+   "expected_sha256": "1cc71d045065495d99a3f79c31107705cdc3a4942409a8decf6ae732501bc308",
+   "actual_sha256": "1cc71d045065495d99a3f79c31107705cdc3a4942409a8decf6ae732501bc308",
+   "bytes": 51890,
+   "status": "verified"
+  },
+  {
+   "path": "data/force_wells.json",
+   "expected_sha256": "ace9a0eb9930f19c6b8125e151d07346fb23029b1455eac04964d15b97461e59",
+   "actual_sha256": "ace9a0eb9930f19c6b8125e151d07346fb23029b1455eac04964d15b97461e59",
+   "bytes": 507665,
+   "status": "verified"
+  },
+  {
+   "path": "data/grouping.py",
+   "expected_sha256": "f1a35a5b060cafb640d8f65b2914af9616258b7fa21f99d1a589d232f7b2be4d",
+   "actual_sha256": "f1a35a5b060cafb640d8f65b2914af9616258b7fa21f99d1a589d232f7b2be4d",
+   "bytes": 11608,
+   "status": "verified"
+  },
+  {
+   "path": "data/label_schema.json",
+   "expected_sha256": "0913ff5a59085b47802a9902f23a836f4fa1129700de8e6593840416f4d7beed",
+   "actual_sha256": "0913ff5a59085b47802a9902f23a836f4fa1129700de8e6593840416f4d7beed",
+   "bytes": 3594,
+   "status": "verified"
+  },
+  {
+   "path": "data/preprocessing.json",
+   "expected_sha256": "cb66fd302165c86344f3b8d1af9d9c4e4e229621cef44cbfa6fb8cd121a63eef",
+   "actual_sha256": "cb66fd302165c86344f3b8d1af9d9c4e4e229621cef44cbfa6fb8cd121a63eef",
+   "bytes": 29849,
+   "status": "verified"
+  },
+  {
+   "path": "data/provenance/force_2020_v1/force_inventory.py",
+   "expected_sha256": "5bba8316ea36484df058dacb2289073ffb09ce19e401dfb297598b3e3cd10f47",
+   "actual_sha256": "5bba8316ea36484df058dacb2289073ffb09ce19e401dfb297598b3e3cd10f47",
+   "bytes": 22801,
+   "status": "verified"
+  },
+  {
+   "path": "data/provenance/force_2020_v1/force_preprocess.py",
+   "expected_sha256": "75b2015c0ec9deab9a94a2032b77117124085631f2bd758a54c7ea7fdfdf2848",
+   "actual_sha256": "75b2015c0ec9deab9a94a2032b77117124085631f2bd758a54c7ea7fdfdf2848",
+   "bytes": 51033,
+   "status": "verified"
+  },
+  {
+   "path": "data/source_inventory.json",
+   "expected_sha256": "7800fda1b4f712d5e93a05d14b6a0726eb5699f979db065dea61eb9a7f84337c",
+   "actual_sha256": "7800fda1b4f712d5e93a05d14b6a0726eb5699f979db065dea61eb9a7f84337c",
+   "bytes": 2690,
+   "status": "verified"
+  },
+  {
+   "path": "data/split_policy.json",
+   "expected_sha256": "66c5138ad45138104bca20d39c4680daa82534a16e381f8d2879eea6f37b81c9",
+   "actual_sha256": "66c5138ad45138104bca20d39c4680daa82534a16e381f8d2879eea6f37b81c9",
+   "bytes": 2852,
+   "status": "verified"
+  },
+  {
+   "path": "data/splits.json",
+   "expected_sha256": "f10ddb8f37e6bdf7c9663eed45d0f6554ef8992899724013a7e487ad3e3cef91",
+   "actual_sha256": "f10ddb8f37e6bdf7c9663eed45d0f6554ef8992899724013a7e487ad3e3cef91",
+   "bytes": 45632,
+   "status": "verified"
+  }
+ ],
+ "archive": {
+  "expected_file": "LAS_files_Force_2020_all_wells_train_test_blind_hidden_final.zip",
+  "expected_sha256": "042ef1d473100dc12768cae7107a8cead071a394f137af3bc1ddaf8a5d1b8dda",
+  "expected_bytes": 169785172,
+  "actual_file": "LAS_files_Force_2020_all_wells_train_test_blind_hidden_final.zip",
+  "actual_sha256": "042ef1d473100dc12768cae7107a8cead071a394f137af3bc1ddaf8a5d1b8dda",
+  "actual_bytes": 169785172,
+  "status": "verified"
+ },
+ "counts": {
+  "inventory_members": 118,
+  "well_rows_total": 2337639,
+  "curves_total": 2393,
+  "parent_roots": 117,
+  "group_counts": {
+   "train": 81,
+   "validation": 17,
+   "test": 19
+  },
+  "well_counts": {
+   "train": 82,
+   "validation": 17,
+   "test": 19
+  },
+  "train_rows": 1634292,
+  "fitting_wells": 82,
+  "fitting_rows": 1634292
+ },
+ "checks": [
+  {
+   "id": "spec_context",
+   "status": "passed",
+   "detail": "context production; production_provenance=True"
+  },
+  {
+   "id": "pinned_artifact_hashes",
+   "status": "passed",
+   "detail": "all 11 pinned artifacts match their expected SHA256 and byte length"
+  },
+  {
+   "id": "pinned_documents_parse",
+   "status": "passed",
+   "detail": "all 6 pinned JSON documents parse as objects"
+  },
+  {
+   "id": "contract_task_design_identity",
+   "status": "passed",
+   "detail": "contract/task/design identity matches DEEPEYE-HUMAN-LOCK-20261014 r1 (source f5989cd5..., design 10112594...) in all 6 documents"
+  },
+  {
+   "id": "cross_file_hash_links",
+   "status": "passed",
+   "detail": "all cross-file SHA256 links, counts, license/DOI/commit provenance fields and curve-order references match the pinned values"
+  },
+  {
+   "id": "inventory_structure",
+   "status": "passed",
+   "detail": "118 members, 2337639 rows and 2393 curve columns verified with unique member/UWI/member-SHA256 identities, wrap NO and per-curve counts consistent with well rows"
+  },
+  {
+   "id": "split_structure_and_coverage",
+   "status": "passed",
+   "detail": "118 split rows map one-to-one onto the 118 pinned wells with matching UWIs and byte hashes, the declared parent rule and the pinned naming rule; per-split counts {'train': 81, 'validation': 17, 'test': 19} groups / {'train': 82, 'validation': 17, 'test': 19} wells"
+  },
+  {
+   "id": "whole_well_grouping",
+   "status": "passed",
+   "detail": "pinned grouping validator accepted 118 rows in 117 root groups with rows per split {'train': 82, 'validation': 17, 'test': 19} and no cross-split parent"
+  },
+  {
+   "id": "rank_split_reconstruction",
+   "status": "passed",
+   "detail": "all 117 parent groups reproduce the SHA256(salt + newline + parent) ranked assignment with floor(fraction * N) cuts"
+  },
+  {
+   "id": "label_schema_alignment",
+   "status": "passed",
+   "detail": "12 label classes (indices 0..11) and confidence codes ['1', '2', '3'] are well-formed metadata; no row-level label value was read"
+  },
+  {
+   "id": "preprocessing_fit_identity",
+   "status": "passed",
+   "detail": "82 fitting wells are exactly the train members in pinned split row order with matching SHA256/UWI/rows; row sum 1634292 equals the documented and inventory-summed train rows in 81 parent groups"
+  },
+  {
+   "id": "preprocessing_statistics_metadata",
+   "status": "passed",
+   "detail": "4 channels in pinned order with finite mean/variance/std, std==sqrt(variance) within rel_tol 1e-9, bucket sums equal to the train rows and the explicit zero-variance effective_scale rule (numeric fit not recomputed)"
+  },
+  {
+   "id": "archive_bytes_and_sha256",
+   "status": "passed",
+   "detail": "archive byte stream verified: 169785172 bytes, sha256 042ef1d473100dc12768cae7107a8cead071a394f137af3bc1ddaf8a5d1b8dda (byte stream only; no ZIP member opened)"
+  },
+  {
+   "id": "zip_member_and_las_parse_absence",
+   "status": "passed",
+   "detail": "by construction this verifier never opens ZIP members and never parses LAS values; the archive is read as a raw byte stream only (current archive check status: passed)"
+  },
+  {
+   "id": "output_write",
+   "status": "not_run",
+   "detail": "stdout only (no --output path given)"
+  },
+  {
+   "id": "runtime_future_label_access",
+   "status": "not_run",
+   "detail": "requires runtime future-label/truth-access instrumentation (missing full gate); the status is unknown and is not reported as zero"
+  },
+  {
+   "id": "real_sim_domain_separation",
+   "status": "not_run",
+   "detail": "sensor_live acquisition runs and sim_em_v2 complete scenarios are not part of this offline foundation; domain separation is unverified here"
+  },
+  {
+   "id": "full_c01_prerequisite_gates",
+   "status": "not_run",
+   "detail": "4 full-C01 gates are outside the force-offline scope; the offline checks cannot substitute for them"
+  }
+ ],
+ "missing_full_gates": [
+  "R03 public resource/profile/observation schema acceptance",
+  "sensor_live whole acquisition-run manifest",
+  "sim_em_v2 whole-scenario and derivative splits",
+  "runtime future-label/truth-access instrumentation"
+ ],
+ "unverified": {
+  "runtime_future_label_access": "unknown_not_run",
+  "real_sim_domain_separation": "unknown_not_run",
+  "sensor_live_run_manifest": "unknown_not_run",
+  "sim_em_v2_scenario_splits": "unknown_not_run"
+ },
+ "limitations": [
+  "The archive is read only as a raw byte stream (SHA256 plus byte length). No ZIP member was opened, no LAS value was parsed and no statistic was recomputed.",
+  "The archive hash and the previously reviewed pinned inventory together give provenance; this verifier does not perform a fresh per-well parsing measurement.",
+  "The numeric preprocessing fit was previously main-audited; this verifier checks documented metadata and fit-identity consistency only, with defined tolerances for derived scalars.",
+  "Current parser modules and historical generator snapshots have separate byte pins. Historical snapshots preserve the frozen preprocessing provenance and are never imported or executed; repaired parsers did not regenerate the frozen documents.",
+  "Offline FORCE-2020 public lithology domain only; sensor_live acquisition runs and sim_em_v2 complete scenarios are not covered.",
+  "Label-schema metadata only; no row-level label or confidence value is read, and runtime future-label access is unverified (unknown, never reported as zero).",
+  "No model training, no held-out evaluation, no calibration and no hardware acceptance; the C01 product card remains not_run."
+ ],
+ "software_facts": {
+  "zip_members_opened": 0,
+  "las_values_parsed": 0,
+  "statistics_recomputed": false,
+  "network_calls": 0,
+  "subprocesses_spawned": 0
+ }
+}

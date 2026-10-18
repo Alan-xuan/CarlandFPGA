@@ -1,0 +1,25 @@
+test_output_rejects_hardlink_alias_of_pinned_input (portable_test_target.CliOutputProtectionTests.test_output_rejects_hardlink_alias_of_pinned_input) ... FAIL
+
+======================================================================
+FAIL: test_output_rejects_hardlink_alias_of_pinned_input (portable_test_target.CliOutputProtectionTests.test_output_rejects_hardlink_alias_of_pinned_input)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\deepeye-implementation-c\competition\deepeye\tests\ai\data_model\test_verify_data.py", line 1548, in test_output_rejects_hardlink_alias_of_pinned_input
+    os.link(target, alias)
+  File "C:\Users\Alan\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\unittest\mock.py", line 1139, in __call__
+    return self._mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Alan\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\unittest\mock.py", line 1143, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Alan\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\unittest\mock.py", line 1204, in _execute_mock_call
+    result = effect(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\deepeye-implementation-c\competition\deepeye\evidence\ai\data_boundary_repair\portable_fixture_probe.py", line 30, in fixture_only_link
+    raise AssertionError("hardlink source is outside alias's copied temporary product tree")
+AssertionError: hardlink source is outside alias's copied temporary product tree
+
+----------------------------------------------------------------------
+Ran 1 test in 0.008s
+
+FAILED (failures=1)

@@ -112,6 +112,75 @@ def _inventory(path, **kwargs):
 
 
 class ForceInventoryTests(unittest.TestCase):
+    def test_conflicting_critical_headers_are_rejected(self):
+        replacements = {
+            "VERS": ("2.0", "1.2"),
+            "WRAP": ("NO", "YES"),
+            "UWI": ("TEST-1", "9/9-9"),
+            "NULL": ("-999.25", "-123"),
+        }
+        for key, (original, conflicting) in replacements.items():
+            for reverse in (False, True):
+                header = list(BASE_HEADER)
+                index = next(i for i, line in enumerate(header)
+                             if line.partition(".")[0].strip().upper() == key)
+                first, second = ((conflicting, original) if reverse
+                                 else (original, conflicting))
+                header[index:index + 1] = [
+                    "%s. %s:" % (key, first),
+                    "%s. %s:" % (key.lower(), second),
+                ]
+                raw = _las_bytes(header=header)
+                with self.subTest(key=key, reverse=reverse):
+                    with self.assertRaises(force_inventory.LasInventoryError) as caught:
+                        force_inventory.inventory_las_member(
+                            io.BytesIO(raw), "conflict.las", len(raw), chunk_bytes=7
+                        )
+                    self.assertIn("conflicting duplicate " + key, str(caught.exception))
+                    self.assertEqual(caught.exception.member, "conflict.las")
+                    self.assertEqual(caught.exception.line, index + 2)
+
+    def test_critical_headers_after_ascii_marker_are_rejected(self):
+        values = {"VERS": ("2.0", "1.2"), "WRAP": ("NO", "YES"),
+                  "UWI": ("TEST-1", "9/9-9"), "NULL": ("-999.25", "-123")}
+        for key, alternatives in values.items():
+            section = "~Version" if key in ("VERS", "WRAP") else "~Well"
+            for value in alternatives:
+                for after_rows in (False, True):
+                    for marker in ("~A", "~Ascii"):
+                        for terminator in ("\n", "\r\n"):
+                            header = list(BASE_HEADER[:-1]) + [marker]
+                            lines = header + (BASE_ROWS if after_rows else [])
+                            lines += [section, "%s. %s:" % (key.lower(), value)]
+                            offending_line = len(lines)
+                            lines += [marker] + ([] if after_rows else BASE_ROWS)
+                            raw = (terminator.join(lines) + terminator).encode("ascii")
+                            with self.subTest(key=key, value=value, after_rows=after_rows,
+                                              marker=marker, terminator=repr(terminator)):
+                                with self.assertRaises(force_inventory.LasInventoryError) as caught:
+                                    force_inventory.inventory_las_member(
+                                        io.BytesIO(raw), "late.las", len(raw), chunk_bytes=1
+                                    )
+                                self.assertIn(key + " header after ASCII data section",
+                                              str(caught.exception))
+                                self.assertEqual(caught.exception.member, "late.las")
+                                self.assertEqual(caught.exception.line, offending_line)
+
+    def test_identical_critical_headers_before_ascii_are_allowed(self):
+        header = []
+        for line in BASE_HEADER:
+            header.append(line)
+            if line.partition(".")[0].strip().upper() in ("VERS", "WRAP", "UWI", "NULL"):
+                header.append(line)
+        raw = _las_bytes(header=header)
+        record = force_inventory.inventory_las_member(
+            io.BytesIO(raw), "identical.las", len(raw), chunk_bytes=7
+        )
+        self.assertEqual(record["uwi"], "TEST-1")
+        self.assertEqual(record["null_value"], -999.25)
+        self.assertEqual(record["rows"], len(BASE_ROWS))
+        self.assertEqual(record["curves"][3]["null_count"], 1)
+
     def test_nonfinite_null_sentinel_is_rejected(self):
         for value in ("nan", "inf", "-inf", "1e999"):
             raw = _las_bytes(header=_header_with(**{"-999.25": value}))

@@ -1,0 +1,40 @@
+{
+  "work_id": "C-motion-adapter-verifier-reentrancy-fix-20261018-v1",
+  "cwd": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c",
+  "command": [
+    "gh",
+    "api",
+    "repos/carolwjade/CarlandFPGA/issues/comments/6206605911"
+  ],
+  "started_utc": "2026-10-18T14:39:11.790713+00:00",
+  "finished_utc": "2026-10-18T14:39:12.706193+00:00",
+  "actual_exit_code": 0,
+  "expected_exit_code": 0,
+  "expected_result": true,
+  "source_hashes": [
+    {
+      "path": "competition/deepeye/ai_pc/control_broker/motion_request.py",
+      "bytes": 19811,
+      "sha256": "29bf83a68929a882671bbed1a14b5a717e2e0bfa53cdb812512400a0aa621e7f",
+      "git_blob_sha1": "1fe7df7c0bc5a8b4fcbbe0d8ce29c8bc3deaaca8"
+    },
+    {
+      "path": "competition/deepeye/tests/ai/control_broker/test_motion_request.py",
+      "bytes": 28473,
+      "sha256": "f662e18845a6077790bab6a9bd9f148d3da8acfbfde13e74d4a3bcbf7d212bb0",
+      "git_blob_sha1": "50aa8ac7b7c95951ec04b58027c8caa08134b672"
+    }
+  ],
+  "stdout": {
+    "path": "A_feedback_6206605911.stdout.txt",
+    "bytes": 4494,
+    "sha256": "f2446d9102a287e2672c29818729b9bfc21c2de3fe1c81ce2bc702f312f715fb",
+    "git_blob_sha1": "3cc02a20ae939f1b06be88bcf94e3f8dd65213da"
+  },
+  "stderr": {
+    "path": "A_feedback_6206605911.stderr.txt",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "git_blob_sha1": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  }
+}

@@ -1,0 +1,168 @@
+test_output_allows_legitimate_report_path (test_verify_data.CliOutputProtectionTests.test_output_allows_legitimate_report_path) ... FAIL
+test_output_protects_historical_snapshots_and_hardlink_aliases (test_verify_data.CliOutputProtectionTests.test_output_protects_historical_snapshots_and_hardlink_aliases) ... 
+  test_output_protects_historical_snapshots_and_hardlink_aliases (test_verify_data.CliOutputProtectionTests.test_output_protects_historical_snapshots_and_hardlink_aliases) (filename='force_inventory.py') ... FAIL
+  test_output_protects_historical_snapshots_and_hardlink_aliases (test_verify_data.CliOutputProtectionTests.test_output_protects_historical_snapshots_and_hardlink_aliases) (filename='force_preprocess.py') ... FAIL
+test_output_rejects_hardlink_alias_of_pinned_input (test_verify_data.CliOutputProtectionTests.test_output_rejects_hardlink_alias_of_pinned_input) ... ok
+test_output_rejects_pinned_input_and_parent_alias (test_verify_data.CliOutputProtectionTests.test_output_rejects_pinned_input_and_parent_alias) ... ok
+test_output_rejects_verifier_entrypoint (test_verify_data.CliOutputProtectionTests.test_output_rejects_verifier_entrypoint) ... ok
+test_corrupted_snapshot_fails_without_live_fallback (test_verify_data.HistoricalGeneratorPinTests.test_corrupted_snapshot_fails_without_live_fallback) ... ok
+test_current_hash_cannot_relabel_historical_preprocessing (test_verify_data.HistoricalGeneratorPinTests.test_current_hash_cannot_relabel_historical_preprocessing) ... FAIL
+test_historical_helper_matches_old_snapshot_not_current_code (test_verify_data.HistoricalGeneratorPinTests.test_historical_helper_matches_old_snapshot_not_current_code) ... FAIL
+test_live_helper_corruption_is_not_hidden_by_valid_history (test_verify_data.HistoricalGeneratorPinTests.test_live_helper_corruption_is_not_hidden_by_valid_history) ... ok
+test_missing_historical_snapshot_blocks_without_live_fallback (test_verify_data.HistoricalGeneratorPinTests.test_missing_historical_snapshot_blocks_without_live_fallback) ... ok
+test_missing_history_does_not_hide_corrupt_live_helper (test_verify_data.HistoricalGeneratorPinTests.test_missing_history_does_not_hide_corrupt_live_helper) ... ok
+test_only_grouping_executes_and_no_zip_member_is_opened (test_verify_data.HistoricalGeneratorPinTests.test_only_grouping_executes_and_no_zip_member_is_opened) ... FAIL
+test_production_cannot_drop_historical_pins_to_use_synthetic_fallback (test_verify_data.HistoricalGeneratorPinTests.test_production_cannot_drop_historical_pins_to_use_synthetic_fallback) ... FAIL
+test_cli_output_into_missing_directory_fails_exit_1 (test_verify_data.OutputAtomicityTests.test_cli_output_into_missing_directory_fails_exit_1) ... ok
+test_write_text_atomic_failure_leaves_nothing (test_verify_data.OutputAtomicityTests.test_write_text_atomic_failure_leaves_nothing) ... ok
+test_write_text_atomic_roundtrip_and_no_residue (test_verify_data.OutputAtomicityTests.test_write_text_atomic_roundtrip_and_no_residue) ... ok
+test_force_offline_without_archive_is_blocked_not_usage_error (test_verify_data.RealPinnedDataTests.test_force_offline_without_archive_is_blocked_not_usage_error) ... FAIL
+test_fresh_import_does_not_load_zipfile_module (test_verify_data.RealPinnedDataTests.test_fresh_import_does_not_load_zipfile_module) ... ok
+test_production_constants_match_main_decisions (test_verify_data.RealPinnedDataTests.test_production_constants_match_main_decisions) ... ok
+test_real_cli_from_non_product_cwd_with_atomic_output (test_verify_data.RealPinnedDataTests.test_real_cli_from_non_product_cwd_with_atomic_output) ... skipped 'set DEEPEYE_FORCE_ARCHIVE to the pinned FORCE-2020 archive'
+test_real_cli_usage_errors_are_deterministic (test_verify_data.RealPinnedDataTests.test_real_cli_usage_errors_are_deterministic) ... ok
+test_real_default_full_scope_is_blocked_exit_2 (test_verify_data.RealPinnedDataTests.test_real_default_full_scope_is_blocked_exit_2) ... FAIL
+test_real_force_offline_passes_without_claiming_c01 (test_verify_data.RealPinnedDataTests.test_real_force_offline_passes_without_claiming_c01) ... skipped 'set DEEPEYE_FORCE_ARCHIVE to the pinned FORCE-2020 archive'
+test_real_inprocess_run_with_zipfile_spy (test_verify_data.RealPinnedDataTests.test_real_inprocess_run_with_zipfile_spy) ... skipped 'set DEEPEYE_FORCE_ARCHIVE to the pinned FORCE-2020 archive'
+test_real_missing_archive_blocked_and_wrong_archive_failed (test_verify_data.RealPinnedDataTests.test_real_missing_archive_blocked_and_wrong_archive_failed) ... FAIL
+test_env_gated_skip_contract (test_verify_data.SkipContractTests.test_env_gated_skip_contract) ... ok
+test_archive_missing_blocks (test_verify_data.SyntheticOfflineTests.test_archive_missing_blocks) ... ok
+test_archive_size_change_fails (test_verify_data.SyntheticOfflineTests.test_archive_size_change_fails) ... ok
+test_archive_tampered_bytes_fail (test_verify_data.SyntheticOfflineTests.test_archive_tampered_bytes_fail) ... ok
+test_contract_identity_tamper_fails (test_verify_data.SyntheticOfflineTests.test_contract_identity_tamper_fails) ... ok
+test_cross_file_link_tamper_fails (test_verify_data.SyntheticOfflineTests.test_cross_file_link_tamper_fails) ... ok
+test_derivative_row_rejected_by_pinned_split_table_check (test_verify_data.SyntheticOfflineTests.test_derivative_row_rejected_by_pinned_split_table_check) ... ok
+test_derivative_rows_inherit_root_groups (test_verify_data.SyntheticOfflineTests.test_derivative_rows_inherit_root_groups) ... ok
+test_duplicate_fitting_member_fails (test_verify_data.SyntheticOfflineTests.test_duplicate_fitting_member_fails) ... ok
+test_full_scope_with_synthetic_fixture_is_still_blocked (test_verify_data.SyntheticOfflineTests.test_full_scope_with_synthetic_fixture_is_still_blocked) ... ok
+test_grouping_helper_hash_gate (test_verify_data.SyntheticOfflineTests.test_grouping_helper_hash_gate) ... ok
+test_held_out_fitting_member_fails (test_verify_data.SyntheticOfflineTests.test_held_out_fitting_member_fails) ... ok
+test_invalid_statistics_fail (test_verify_data.SyntheticOfflineTests.test_invalid_statistics_fail) ... ok
+test_inventory_duplicate_uwi_fails (test_verify_data.SyntheticOfflineTests.test_inventory_duplicate_uwi_fails) ... ok
+test_label_curve_order_confusion_fails (test_verify_data.SyntheticOfflineTests.test_label_curve_order_confusion_fails) ... ok
+test_malformed_document_is_deterministic_failed (test_verify_data.SyntheticOfflineTests.test_malformed_document_is_deterministic_failed) ... ok
+test_missing_pin_does_not_mask_observed_corruption (test_verify_data.SyntheticOfflineTests.test_missing_pin_does_not_mask_observed_corruption) ... ok
+test_missing_pinned_file_blocks (test_verify_data.SyntheticOfflineTests.test_missing_pinned_file_blocks) ... ok
+test_open_spy_sees_no_las_or_zip_member_reads (test_verify_data.SyntheticOfflineTests.test_open_spy_sees_no_las_or_zip_member_reads) ... ok
+test_parent_group_crossing_splits_fails (test_verify_data.SyntheticOfflineTests.test_parent_group_crossing_splits_fails) ... ok
+test_parent_group_misranked_fails (test_verify_data.SyntheticOfflineTests.test_parent_group_misranked_fails) ... ok
+test_positive_force_offline_passes_with_synthetic_label (test_verify_data.SyntheticOfflineTests.test_positive_force_offline_passes_with_synthetic_label) ... ok
+test_production_relabelled_spec_is_rejected_without_any_read (test_verify_data.SyntheticOfflineTests.test_production_relabelled_spec_is_rejected_without_any_read) ... ok
+test_replacement_between_pin_pass_and_parse_is_detected (test_verify_data.SyntheticOfflineTests.test_replacement_between_pin_pass_and_parse_is_detected) ... ok
+test_spec_containers_are_immutable_ingress_copies (test_verify_data.SyntheticOfflineTests.test_spec_containers_are_immutable_ingress_copies) ... ok
+test_split_domain_confusion_fails (test_verify_data.SyntheticOfflineTests.test_split_domain_confusion_fails) ... ok
+test_split_duplicate_row_fails (test_verify_data.SyntheticOfflineTests.test_split_duplicate_row_fails) ... ok
+test_split_omitted_well_fails (test_verify_data.SyntheticOfflineTests.test_split_omitted_well_fails) ... ok
+test_split_row_type_confusion_is_deterministic_failed (test_verify_data.SyntheticOfflineTests.test_split_row_type_confusion_is_deterministic_failed) ... ok
+test_top_level_list_document_is_deterministic_failed (test_verify_data.SyntheticOfflineTests.test_top_level_list_document_is_deterministic_failed) ... ok
+test_training_rows_mismatch_fails (test_verify_data.SyntheticOfflineTests.test_training_rows_mismatch_fails) ... ok
+test_wrong_pin_hash_fails (test_verify_data.SyntheticOfflineTests.test_wrong_pin_hash_fails) ... ok
+
+======================================================================
+FAIL: test_output_allows_legitimate_report_path (test_verify_data.CliOutputProtectionTests.test_output_allows_legitimate_report_path)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\deepeye-implementation-c\competition\deepeye\tests\ai\data_model\test_verify_data.py", line 1704, in test_output_allows_legitimate_report_path
+    self.assertEqual(proc.returncode, 2, proc.stderr.decode("utf-8", "replace"))
+AssertionError: 1 != 2 : 
+
+======================================================================
+FAIL: test_output_protects_historical_snapshots_and_hardlink_aliases (test_verify_data.CliOutputProtectionTests.test_output_protects_historical_snapshots_and_hardlink_aliases) (filename='force_inventory.py')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\deepeye-implementation-c\competition\deepeye\tests\ai\data_model\test_verify_data.py", line 1728, in test_output_protects_historical_snapshots_and_hardlink_aliases
+    self.assertEqual(proc.returncode, 1)
+AssertionError: 2 != 1
+
+======================================================================
+FAIL: test_output_protects_historical_snapshots_and_hardlink_aliases (test_verify_data.CliOutputProtectionTests.test_output_protects_historical_snapshots_and_hardlink_aliases) (filename='force_preprocess.py')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\deepeye-implementation-c\competition\deepeye\tests\ai\data_model\test_verify_data.py", line 1728, in test_output_protects_historical_snapshots_and_hardlink_aliases
+    self.assertEqual(proc.returncode, 1)
+AssertionError: 2 != 1
+
+======================================================================
+FAIL: test_current_hash_cannot_relabel_historical_preprocessing (test_verify_data.HistoricalGeneratorPinTests.test_current_hash_cannot_relabel_historical_preprocessing)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\deepeye-implementation-c\competition\deepeye\tests\ai\data_model\test_verify_data.py", line 1548, in test_current_hash_cannot_relabel_historical_preprocessing
+    self.assertIn("cross_file_hash_links", self.assert_failed(report, code))
+                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\deepeye-implementation-c\competition\deepeye\tests\ai\data_model\test_verify_data.py", line 701, in assert_failed
+    self.assertEqual(report["status"], "failed")
+AssertionError: 'synthetic_fixture_checks_passed' != 'failed'
+- synthetic_fixture_checks_passed
++ failed
+
+
+======================================================================
+FAIL: test_historical_helper_matches_old_snapshot_not_current_code (test_verify_data.HistoricalGeneratorPinTests.test_historical_helper_matches_old_snapshot_not_current_code)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\deepeye-implementation-c\competition\deepeye\tests\ai\data_model\test_verify_data.py", line 1534, in test_historical_helper_matches_old_snapshot_not_current_code
+    self.assertEqual(code, 0)
+AssertionError: 1 != 0
+
+======================================================================
+FAIL: test_only_grouping_executes_and_no_zip_member_is_opened (test_verify_data.HistoricalGeneratorPinTests.test_only_grouping_executes_and_no_zip_member_is_opened)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\deepeye-implementation-c\competition\deepeye\tests\ai\data_model\test_verify_data.py", line 1605, in test_only_grouping_executes_and_no_zip_member_is_opened
+    self.assertEqual(code, 0)
+AssertionError: 1 != 0
+
+======================================================================
+FAIL: test_production_cannot_drop_historical_pins_to_use_synthetic_fallback (test_verify_data.HistoricalGeneratorPinTests.test_production_cannot_drop_historical_pins_to_use_synthetic_fallback)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\deepeye-implementation-c\competition\deepeye\tests\ai\data_model\test_verify_data.py", line 1618, in test_production_cannot_drop_historical_pins_to_use_synthetic_fallback
+    report, code = self.run_scope(spec=forged)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\deepeye-implementation-c\competition\deepeye\tests\ai\data_model\test_verify_data.py", line 686, in run_scope
+    return run_verification(
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\deepeye-implementation-c\competition\deepeye\tools\verify_data.py", line 2457, in run_verification
+    artifacts = _run_checks(
+                ^^^^^^^^^^^^
+  File "C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\deepeye-implementation-c\competition\deepeye\tools\verify_data.py", line 2147, in _run_checks
+    pin_records = verify_pins(product_root, spec)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Alan\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\unittest\mock.py", line 1139, in __call__
+    return self._mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Alan\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\unittest\mock.py", line 1143, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Alan\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\unittest\mock.py", line 1198, in _execute_mock_call
+    raise effect
+AssertionError: forged context read pins
+
+======================================================================
+FAIL: test_force_offline_without_archive_is_blocked_not_usage_error (test_verify_data.RealPinnedDataTests.test_force_offline_without_archive_is_blocked_not_usage_error)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\deepeye-implementation-c\competition\deepeye\tests\ai\data_model\test_verify_data.py", line 872, in test_force_offline_without_archive_is_blocked_not_usage_error
+    self.assertEqual(proc.returncode, 2, proc.stderr.decode("utf-8", "replace"))
+AssertionError: 1 != 2 : 
+
+======================================================================
+FAIL: test_real_default_full_scope_is_blocked_exit_2 (test_verify_data.RealPinnedDataTests.test_real_default_full_scope_is_blocked_exit_2)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\deepeye-implementation-c\competition\deepeye\tests\ai\data_model\test_verify_data.py", line 775, in test_real_default_full_scope_is_blocked_exit_2
+    self.assertEqual(proc.returncode, 2, proc.stderr.decode("utf-8", "replace"))
+AssertionError: 1 != 2 : 
+
+======================================================================
+FAIL: test_real_missing_archive_blocked_and_wrong_archive_failed (test_verify_data.RealPinnedDataTests.test_real_missing_archive_blocked_and_wrong_archive_failed)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\deepeye-implementation-c\competition\deepeye\tests\ai\data_model\test_verify_data.py", line 840, in test_real_missing_archive_blocked_and_wrong_archive_failed
+    self.assertEqual(proc.returncode, 2)
+AssertionError: 1 != 2
+
+----------------------------------------------------------------------
+Ran 57 tests in 6.994s
+
+FAILED (failures=10, skipped=3)

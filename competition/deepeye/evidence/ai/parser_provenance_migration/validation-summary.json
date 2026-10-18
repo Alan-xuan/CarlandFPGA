@@ -1,0 +1,63 @@
+{
+  "task_id": "DEEPEYE-IMPLEMENTATION-20261014",
+  "task_version": 1,
+  "work_id": "C-parser-provenance-migration-20261018-v1",
+  "actual_agent_id": "/root/host_contract_review",
+  "requirements_sha256": "c229834bfc2292f5fe4411fc9f12c68487008f9d1adaf31f0144ee7a98173804",
+  "frozen_json_unchanged": {
+    "data/source_inventory.json": "7800fda1b4f712d5e93a05d14b6a0726eb5699f979db065dea61eb9a7f84337c",
+    "data/force_wells.json": "ace9a0eb9930f19c6b8125e151d07346fb23029b1455eac04964d15b97461e59",
+    "data/splits.json": "f10ddb8f37e6bdf7c9663eed45d0f6554ef8992899724013a7e487ad3e3cef91",
+    "data/split_policy.json": "66c5138ad45138104bca20d39c4680daa82534a16e381f8d2879eea6f37b81c9",
+    "data/label_schema.json": "0913ff5a59085b47802a9902f23a836f4fa1129700de8e6593840416f4d7beed",
+    "data/preprocessing.json": "cb66fd302165c86344f3b8d1af9d9c4e4e229621cef44cbfa6fb8cd121a63eef"
+  },
+  "grouping_sha256": "f1a35a5b060cafb640d8f65b2914af9616258b7fa21f99d1a589d232f7b2be4d",
+  "current_parser_sha256": {
+    "data/force_inventory.py": "86404425615f7551ce04907c9dbd6d7a40edca76372ad82a1a9655092a186932",
+    "data/force_preprocess.py": "1cc71d045065495d99a3f79c31107705cdc3a4942409a8decf6ae732501bc308"
+  },
+  "historical_snapshots": [
+    {
+      "source_commit": "31267d6c4ae284b8788ebb457f49c4ae5a49c60c",
+      "source_path": "competition/deepeye/data/force_inventory.py",
+      "git_blob_sha1": "e37e07250d14fc9031b18a81a3eaa4c752e4a769",
+      "sha256": "5bba8316ea36484df058dacb2289073ffb09ce19e401dfb297598b3e3cd10f47",
+      "bytes": 22801,
+      "path": "data\\provenance\\force_2020_v1\\force_inventory.py",
+      "executed": false
+    },
+    {
+      "source_commit": "31267d6c4ae284b8788ebb457f49c4ae5a49c60c",
+      "source_path": "competition/deepeye/data/force_preprocess.py",
+      "git_blob_sha1": "f3e7036e41d44362f65ed0b887ea62070a639f2d",
+      "sha256": "75b2015c0ec9deab9a94a2032b77117124085631f2bd758a54c7ea7fdfdf2848",
+      "bytes": 51033,
+      "path": "data\\provenance\\force_2020_v1\\force_preprocess.py",
+      "executed": false
+    }
+  ],
+  "prior_red_unchanged": {
+    "evidence\\ai\\data_boundary_repair\\candidate_verify_suite.result.json": "107802fbcc1efa3f387f9f0e0a52298ad787c87ce49368f2deeae9154954125e",
+    "evidence\\ai\\data_boundary_repair\\candidate_verify_suite.stderr.txt": "30e6cf4ee50016ff36c829831c72ae77539647d327a1dbeb87c3be3a30acdead"
+  },
+  "source_sha256": {
+    "tools/verify_data.py": "bf8a59490c334544ea6a7c95fe0156ec3c143e87756f75e937fd28abada4a551",
+    "tests/ai/data_model/test_verify_data.py": "646d6c56434456a4ada81fa704b317dc072b945b55f9ba43c46870cd52fb3cb1"
+  },
+  "red": {
+    "tests": 57,
+    "failures": 10,
+    "archive_skips": 3,
+    "exit_code": 1
+  },
+  "green": {
+    "tests": 57,
+    "failures": 0,
+    "skips": 0,
+    "exit_code": 0,
+    "raw_stderr_sha256": "37a45c82147fc46169689e5ebc6dc45e138549e9c77757435ecd06e0ad8678d1"
+  },
+  "software_scope": "offline byte provenance/identity consistency only; historical snapshots never executed; no LAS parse/refit/labels/evaluation",
+  "formal_acceptance": "not_run"
+}

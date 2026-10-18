@@ -1,0 +1,6 @@
+positive 0 passed_offline_identity_consistency_only
+default_full_blocked 2 blocked
+missing_snapshot 2 blocked
+corrupt_snapshot 1 failed
+corrupt_live_helper 1 failed
+snapshot_hardlink_output 1 failed

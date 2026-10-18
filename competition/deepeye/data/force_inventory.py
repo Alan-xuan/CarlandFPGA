@@ -21,6 +21,9 @@ Parsing rules (LAS 2.0, as observed in the verified archive):
 - the ~Well section must provide a non-empty UWI, a parseable NULL sentinel and
   was observed to carry STRT/STOP/STEP; VERS must be 2.0 and WRAP must be NO
   (WRAP YES is refused: wrapped records change row semantics);
+- VERS/WRAP/UWI/NULL may repeat before ASCII only with identical parsed text;
+  conflicting duplicates and every declaration after the first ASCII marker
+  are refused, including declarations before that section's first row;
 - '~A'/'~Ascii' rows are whitespace-separated ASCII numbers, exactly one per
   curve, each finite; a value equal to the declared NULL sentinel counts as
   missing, and other negative values remain valid data;
@@ -174,6 +177,21 @@ def _parse_null(text):
         return None
 
 
+def _record_critical_header(headers, key, value, ascii_started, error_type,
+                            member_name, line_number):
+    """Apply the same critical-header policy in inventory and fitting.
+
+    Compare the parsed value text, without silently normalizing declarations.
+    Identical duplicates are harmless only before the first ASCII marker;
+    once row interpretation is frozen even an identical declaration is late.
+    """
+    if ascii_started:
+        raise error_type(key + " header after ASCII data section", member_name, line_number)
+    if key in headers and headers[key] != value:
+        raise error_type("conflicting duplicate " + key + " header", member_name, line_number)
+    headers[key] = value
+
+
 def _check_member_path(name):
     if not name or name.endswith("/"):
         raise LasInventoryError("unsafe or unsupported member path", name)
@@ -209,6 +227,8 @@ def inventory_las_member(stream, member_name, member_size, chunk_bytes=DEFAULT_C
     section_names = []
     version = None
     wrap = None
+    critical_headers = {}
+    ascii_started = False
     well_fields = {}
     curves = []
     counts = []
@@ -249,6 +269,7 @@ def inventory_las_member(stream, member_name, member_size, chunk_bytes=DEFAULT_C
             if section not in section_names:
                 section_names.append(section)
             if section in ("ascii", "a"):
+                ascii_started = True
                 if not curves:
                     raise LasInventoryError(
                         "ASCII data section before curve definitions", member_name, line_number
@@ -266,6 +287,11 @@ def inventory_las_member(stream, member_name, member_size, chunk_bytes=DEFAULT_C
         if section == "version":
             mnemonic, _unit, value, _description = parse_section_line(stripped)
             key = mnemonic.upper()
+            if key in ("VERS", "WRAP"):
+                _record_critical_header(
+                    critical_headers, key, value, ascii_started, LasInventoryError,
+                    member_name, line_number,
+                )
             if key == "VERS":
                 version = value
             elif key == "WRAP":
@@ -273,7 +299,13 @@ def inventory_las_member(stream, member_name, member_size, chunk_bytes=DEFAULT_C
             continue
         if section == "well":
             mnemonic, _unit, value, _description = parse_section_line(stripped)
-            well_fields[mnemonic.upper()] = value
+            key = mnemonic.upper()
+            if key in ("UWI", "NULL"):
+                _record_critical_header(
+                    critical_headers, key, value, ascii_started, LasInventoryError,
+                    member_name, line_number,
+                )
+            well_fields[key] = value
             continue
         if section == "curve":
             if counts:

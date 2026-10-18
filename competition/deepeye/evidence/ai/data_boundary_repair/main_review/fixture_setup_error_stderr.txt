@@ -1,0 +1,21 @@
+test_baseline_null_semantics_and_identical_early_duplicate (__main__.Review.test_baseline_null_semantics_and_identical_early_duplicate) ... ERROR
+test_independent_conflicting_and_late_headers_in_both_parsers (__main__.Review.test_independent_conflicting_and_late_headers_in_both_parsers) ... ok
+
+======================================================================
+ERROR: test_baseline_null_semantics_and_identical_early_duplicate (__main__.Review.test_baseline_null_semantics_and_identical_early_duplicate)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\deepeye-implementation-c\competition\deepeye\evidence\ai\data_boundary_repair\main_review\independent_headers.py", line 15, in test_baseline_null_semantics_and_identical_early_duplicate
+    b=(h+row+"1 10 3 .2 10\n").encode();self.assertEqual(inventory(b)["uwi"],"1/1-1");record,c=fit(b);self.assertEqual(record["uwi"],"1/1-1");self.assertEqual(c["GR"].counts["null"],1);self.assertEqual(c["GR"].mean,10)
+                                                                                               ~~~^^^
+  File "C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\deepeye-implementation-c\competition\deepeye\evidence\ai\data_boundary_repair\main_review\independent_headers.py", line 11, in fit
+    c={name:F._ChannelFit(name) for name in F.CHANNELS};return F._fit_member(io.BytesIO(b),"independent.las",3,c),c
+                                                               ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\deepeye-implementation-c\competition\deepeye\data\force_preprocess.py", line 568, in _fit_member
+    raise ForcePreprocessError("WELL name missing", member_name)
+independent_fit.ForcePreprocessError: member=independent.las: WELL name missing
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.004s
+
+FAILED (errors=1)

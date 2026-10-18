@@ -1,0 +1,21 @@
+{
+  "task_id": "DEEPEYE-IMPLEMENTATION-20261014",
+  "task_version": 1,
+  "work_id": "C-parser-provenance-migration-20261018-v1",
+  "decision_owner": "/root",
+  "main_thread_id": "01a14025-4dfd-7ec3-aebb-57be48daba59",
+  "decision": "Preserve six original JSON and their historical generation metadata. Pin repaired current parser modules and separately pin exact historical generator blobs from original accepted commit. Never execute archived vulnerable helpers; use their independent snapshot digest for historical crosslink. No refit or historical relabel.",
+  "historical_commit": "31267d6c4ae284b8788ebb457f49c4ae5a49c60c",
+  "historical_sha256": {
+    "force_inventory.py": "5bba8316ea36484df058dacb2289073ffb09ce19e401dfb297598b3e3cd10f47",
+    "force_preprocess.py": "75b2015c0ec9deab9a94a2032b77117124085631f2bd758a54c7ea7fdfdf2848"
+  },
+  "current_sha256": {
+    "force_inventory.py": "86404425615f7551ce04907c9dbd6d7a40edca76372ad82a1a9655092a186932",
+    "force_preprocess.py": "1cc71d045065495d99a3f79c31107705cdc3a4942409a8decf6ae732501bc308"
+  },
+  "reviewed_with": "/root/host_contract_review; direct source/diff and independent CLI negatives by current main",
+  "native_identity_note": "Native channel exposes canonical agent IDs recorded in assignments; no additional App thread UUID is returned. These are not fabricated Desktop sessions.",
+  "unchanged_requirements_sha256": "c229834bfc2292f5fe4411fc9f12c68487008f9d1adaf31f0144ee7a98173804",
+  "utc": "2026-10-18T15:00:35.268234+00:00"
+}

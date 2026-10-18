@@ -1,0 +1,136 @@
+{
+  "task_id": "DEEPEYE-IMPLEMENTATION-20261014",
+  "task_version": 1,
+  "reviewer": "/root current C main",
+  "software_only": true,
+  "cases": [
+    {
+      "scenario": "positive",
+      "command": [
+        "C:\\Users\\Alan\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "C:\\Users\\Alan\\AppData\\Local\\Temp\\independent_provenance_kal0q5gp\\product\\tools\\verify_data.py",
+        "--scope",
+        "force-offline",
+        "--archive",
+        "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\datasets\\force-2020\\LAS_files_Force_2020_all_wells_train_test_blind_hidden_final.zip"
+      ],
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "status": "passed_offline_identity_consistency_only",
+      "stdout_sha256": "9532599c24ff5e8ff412b827c85ad11e6a12188fc585933335dee123d417780b",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "scenario": "default_full_blocked",
+      "command": [
+        "C:\\Users\\Alan\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "C:\\Users\\Alan\\AppData\\Local\\Temp\\independent_provenance_1ued5t4t\\product\\tools\\verify_data.py"
+      ],
+      "exit_code": 2,
+      "expected_exit_code": 2,
+      "status": "blocked",
+      "stdout_sha256": "59415340c303b1b0372c42c273058e91491bb61a7838a5c5b5560cd549792108",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "scenario": "missing_snapshot",
+      "command": [
+        "C:\\Users\\Alan\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "C:\\Users\\Alan\\AppData\\Local\\Temp\\independent_provenance_5rfrvrh_\\product\\tools\\verify_data.py",
+        "--scope",
+        "force-offline",
+        "--archive",
+        "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\datasets\\force-2020\\LAS_files_Force_2020_all_wells_train_test_blind_hidden_final.zip"
+      ],
+      "exit_code": 2,
+      "expected_exit_code": 2,
+      "status": "blocked",
+      "stdout_sha256": "7f97378c7d980c26a55c62a36804ddde65008edc93a14cd4b63b06e647765d52",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "scenario": "corrupt_snapshot",
+      "command": [
+        "C:\\Users\\Alan\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "C:\\Users\\Alan\\AppData\\Local\\Temp\\independent_provenance_x7tv3yst\\product\\tools\\verify_data.py",
+        "--scope",
+        "force-offline",
+        "--archive",
+        "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\datasets\\force-2020\\LAS_files_Force_2020_all_wells_train_test_blind_hidden_final.zip"
+      ],
+      "exit_code": 1,
+      "expected_exit_code": 1,
+      "status": "failed",
+      "stdout_sha256": "cca637d3b91f4fcd747318e517163fdf77955613ce96c353b0001439321b2312",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "scenario": "corrupt_live_helper",
+      "command": [
+        "C:\\Users\\Alan\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "C:\\Users\\Alan\\AppData\\Local\\Temp\\independent_provenance_km4yuna3\\product\\tools\\verify_data.py",
+        "--scope",
+        "force-offline",
+        "--archive",
+        "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\datasets\\force-2020\\LAS_files_Force_2020_all_wells_train_test_blind_hidden_final.zip"
+      ],
+      "exit_code": 1,
+      "expected_exit_code": 1,
+      "status": "failed",
+      "stdout_sha256": "efd6c970f3c8619d968bffcfea6574262a0ae3742bf4705fad48a0148d058d70",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "scenario": "snapshot_hardlink_output",
+      "command": [
+        "C:\\Users\\Alan\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "C:\\Users\\Alan\\AppData\\Local\\Temp\\independent_provenance_mw1_1ef6\\product\\tools\\verify_data.py",
+        "--scope",
+        "force-offline",
+        "--archive",
+        "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\datasets\\force-2020\\LAS_files_Force_2020_all_wells_train_test_blind_hidden_final.zip",
+        "--output",
+        "C:\\Users\\Alan\\AppData\\Local\\Temp\\independent_provenance_mw1_1ef6\\product\\snapshot_alias.py"
+      ],
+      "exit_code": 1,
+      "expected_exit_code": 1,
+      "status": "failed",
+      "stdout_sha256": "43aff8c4b12416a5f17df71852520bb0c25441cfd8f9d37755fb989e39528c4d",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "source_sha256": {
+    "data/source_inventory.json": "7800fda1b4f712d5e93a05d14b6a0726eb5699f979db065dea61eb9a7f84337c",
+    "data/force_wells.json": "ace9a0eb9930f19c6b8125e151d07346fb23029b1455eac04964d15b97461e59",
+    "data/splits.json": "f10ddb8f37e6bdf7c9663eed45d0f6554ef8992899724013a7e487ad3e3cef91",
+    "data/split_policy.json": "66c5138ad45138104bca20d39c4680daa82534a16e381f8d2879eea6f37b81c9",
+    "data/label_schema.json": "0913ff5a59085b47802a9902f23a836f4fa1129700de8e6593840416f4d7beed",
+    "data/preprocessing.json": "cb66fd302165c86344f3b8d1af9d9c4e4e229621cef44cbfa6fb8cd121a63eef",
+    "data/force_inventory.py": "86404425615f7551ce04907c9dbd6d7a40edca76372ad82a1a9655092a186932",
+    "data/force_preprocess.py": "1cc71d045065495d99a3f79c31107705cdc3a4942409a8decf6ae732501bc308",
+    "data/grouping.py": "f1a35a5b060cafb640d8f65b2914af9616258b7fa21f99d1a589d232f7b2be4d",
+    "data/provenance/force_2020_v1/force_inventory.py": "5bba8316ea36484df058dacb2289073ffb09ce19e401dfb297598b3e3cd10f47",
+    "data/provenance/force_2020_v1/force_preprocess.py": "75b2015c0ec9deab9a94a2032b77117124085631f2bd758a54c7ea7fdfdf2848",
+    "tools/verify_data.py": "bf8a59490c334544ea6a7c95fe0156ec3c143e87756f75e937fd28abada4a551"
+  },
+  "archive": "raw identity stream only; no ZIP members opened, LAS values parsed, refit, training or heldout evaluation",
+  "runtime_board_system_acceptance": "not_run"
+}

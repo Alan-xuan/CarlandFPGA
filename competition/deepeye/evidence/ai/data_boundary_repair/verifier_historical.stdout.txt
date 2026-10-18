@@ -1,0 +1,2 @@
+HISTORICAL source compatibility only: original parser snapshots, unchanged pins/data, repaired verifier test.
+This does not establish production verification for repaired parser sources.

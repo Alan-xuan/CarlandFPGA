@@ -1,0 +1,120 @@
+{
+  "scope": "assignment artifacts only; manifest and final release excluded to avoid self-reference",
+  "artifacts": [
+    {
+      "path": "data/provenance/force_2020_v1/.gitattributes",
+      "bytes": 14,
+      "sha256": "85e48d232edc7b02f6cecf8fbbf905f3b126c467b594d8dd16c4f8fa283a8320"
+    },
+    {
+      "path": "data/provenance/force_2020_v1/force_inventory.py",
+      "bytes": 22801,
+      "sha256": "5bba8316ea36484df058dacb2289073ffb09ce19e401dfb297598b3e3cd10f47"
+    },
+    {
+      "path": "data/provenance/force_2020_v1/force_preprocess.py",
+      "bytes": 51033,
+      "sha256": "75b2015c0ec9deab9a94a2032b77117124085631f2bd758a54c7ea7fdfdf2848"
+    },
+    {
+      "path": "data/provenance/force_2020_v1/README.md",
+      "bytes": 1692,
+      "sha256": "a9333cf137f2e6be73e9e2ea1b0dc8c757a8caacf6f0094bc5ee027ee4cc4f8d"
+    },
+    {
+      "path": "evidence/ai/parser_provenance_migration/.gitattributes",
+      "bytes": 14,
+      "sha256": "85e48d232edc7b02f6cecf8fbbf905f3b126c467b594d8dd16c4f8fa283a8320"
+    },
+    {
+      "path": "evidence/ai/parser_provenance_migration/capture_run.py",
+      "bytes": 2638,
+      "sha256": "992d7d34ea156e5a0469481858d9c713bc9bfe73b25a3f1dd287152c449e0a65"
+    },
+    {
+      "path": "evidence/ai/parser_provenance_migration/diff_check.command.json",
+      "bytes": 499,
+      "sha256": "adf3a37e640550af56ea633c510d172f0775cb0617b69b39d604ce52fbb04d22"
+    },
+    {
+      "path": "evidence/ai/parser_provenance_migration/diff_check.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "evidence/ai/parser_provenance_migration/diff_check.stdout.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "evidence/ai/parser_provenance_migration/finalize_evidence.py",
+      "bytes": 5107,
+      "sha256": "fb751404e7e0b99132974c1cf32e5620b82ff8460b4256fe8e98165a867e25d3"
+    },
+    {
+      "path": "evidence/ai/parser_provenance_migration/green_full.command.json",
+      "bytes": 2433,
+      "sha256": "efb2b6fd5d28ae0456467bedce44f0a8913ba074a22513ed2ffa11e28aeb8e3b"
+    },
+    {
+      "path": "evidence/ai/parser_provenance_migration/green_full.stderr.txt",
+      "bytes": 8146,
+      "sha256": "37a45c82147fc46169689e5ebc6dc45e138549e9c77757435ecd06e0ad8678d1"
+    },
+    {
+      "path": "evidence/ai/parser_provenance_migration/green_full.stdout.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "evidence/ai/parser_provenance_migration/preserve_snapshots.py",
+      "bytes": 2040,
+      "sha256": "664d423c14f88add6063a3b2e1fe2c9b562ed5f9daa77845220084ea561c4081"
+    },
+    {
+      "path": "evidence/ai/parser_provenance_migration/README.md",
+      "bytes": 3970,
+      "sha256": "3fc355be9503a25765f45a8b86c013698e705b457fd6ff8c4c6a8a2199feb8d9"
+    },
+    {
+      "path": "evidence/ai/parser_provenance_migration/red_new_boundaries.command.json",
+      "bytes": 2278,
+      "sha256": "0ac0ef9fc1cd8280cd836f1f90d3ba3607e393805987419cb1c2fedf2a7dcc70"
+    },
+    {
+      "path": "evidence/ai/parser_provenance_migration/red_new_boundaries.stderr.txt",
+      "bytes": 17317,
+      "sha256": "e7ba6884e20685ab5258ff675fdac9cd6caf1e7e7165257302106e12fa30e8e6"
+    },
+    {
+      "path": "evidence/ai/parser_provenance_migration/red_new_boundaries.stdout.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "evidence/ai/parser_provenance_migration/reviewable.diff.txt",
+      "bytes": 18821,
+      "sha256": "c0a581832492ff3141250071ff5d7ba0f7ad341886d504b446a4434d5577452f"
+    },
+    {
+      "path": "evidence/ai/parser_provenance_migration/snapshot-source-receipt.json",
+      "bytes": 1255,
+      "sha256": "538347f8f70adfb79f7dee32081a5527c2b3606a0ba47ba081b9f2bc44688ee5"
+    },
+    {
+      "path": "evidence/ai/parser_provenance_migration/validation-summary.json",
+      "bytes": 3157,
+      "sha256": "da45149b7baafd594fee2706c118f1059fc1e7af129a307a5c241746e9f68d9d"
+    },
+    {
+      "path": "tests/ai/data_model/test_verify_data.py",
+      "bytes": 79695,
+      "sha256": "646d6c56434456a4ada81fa704b317dc072b945b55f9ba43c46870cd52fb3cb1"
+    },
+    {
+      "path": "tools/verify_data.py",
+      "bytes": 106220,
+      "sha256": "bf8a59490c334544ea6a7c95fe0156ec3c143e87756f75e937fd28abada4a551"
+    }
+  ]
+}

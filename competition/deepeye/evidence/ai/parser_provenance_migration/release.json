@@ -1,0 +1,15 @@
+{
+  "work_id": "C-parser-provenance-migration-20261018-v1",
+  "actual_agent_id": "/root/host_contract_review",
+  "completed_utc": "2026-10-18T15:01:20.268065+00:00",
+  "status": "complete",
+  "ownership_released": true,
+  "remaining_product_writes": false,
+  "manifest_sha256": "6abd67fdfc43e8ce5a39de77e3d88b9f6150369e53bf233bf7fa0a1bfa22aaf5",
+  "validation_summary_sha256": "da45149b7baafd594fee2706c118f1059fc1e7af129a307a5c241746e9f68d9d",
+  "source_sha256": {
+    "tools/verify_data.py": "bf8a59490c334544ea6a7c95fe0156ec3c143e87756f75e937fd28abada4a551",
+    "tests/ai/data_model/test_verify_data.py": "646d6c56434456a4ada81fa704b317dc072b945b55f9ba43c46870cd52fb3cb1"
+  },
+  "formal_acceptance": "not_run"
+}

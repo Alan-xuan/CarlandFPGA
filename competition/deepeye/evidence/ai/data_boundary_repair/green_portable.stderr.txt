@@ -1,0 +1,6 @@
+test_output_rejects_hardlink_alias_of_pinned_input (portable_test_target.CliOutputProtectionTests.test_output_rejects_hardlink_alias_of_pinned_input) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 0.280s
+
+OK

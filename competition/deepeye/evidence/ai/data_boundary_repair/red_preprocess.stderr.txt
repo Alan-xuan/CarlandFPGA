@@ -1,0 +1,710 @@
+test_conflicting_critical_headers_are_rejected (__main__.ForcePreprocessTests.test_conflicting_critical_headers_are_rejected) ... 
+  test_conflicting_critical_headers_are_rejected (__main__.ForcePreprocessTests.test_conflicting_critical_headers_are_rejected) (key='VERS', reverse=False) ... FAIL
+  test_conflicting_critical_headers_are_rejected (__main__.ForcePreprocessTests.test_conflicting_critical_headers_are_rejected) (key='VERS', reverse=True) ... FAIL
+  test_conflicting_critical_headers_are_rejected (__main__.ForcePreprocessTests.test_conflicting_critical_headers_are_rejected) (key='WRAP', reverse=False) ... FAIL
+  test_conflicting_critical_headers_are_rejected (__main__.ForcePreprocessTests.test_conflicting_critical_headers_are_rejected) (key='WRAP', reverse=True) ... FAIL
+  test_conflicting_critical_headers_are_rejected (__main__.ForcePreprocessTests.test_conflicting_critical_headers_are_rejected) (key='UWI', reverse=False) ... FAIL
+  test_conflicting_critical_headers_are_rejected (__main__.ForcePreprocessTests.test_conflicting_critical_headers_are_rejected) (key='UWI', reverse=True) ... FAIL
+  test_conflicting_critical_headers_are_rejected (__main__.ForcePreprocessTests.test_conflicting_critical_headers_are_rejected) (key='NULL', reverse=False) ... FAIL
+  test_conflicting_critical_headers_are_rejected (__main__.ForcePreprocessTests.test_conflicting_critical_headers_are_rejected) (key='NULL', reverse=True) ... FAIL
+test_critical_headers_after_ascii_marker_are_rejected (__main__.ForcePreprocessTests.test_critical_headers_after_ascii_marker_are_rejected) ... 
+  test_critical_headers_after_ascii_marker_are_rejected (__main__.ForcePreprocessTests.test_critical_headers_after_ascii_marker_are_rejected) (key='VERS', value='2.0', after_rows=False, marker='~A', terminator="'\\n'") ... FAIL
+  test_critical_headers_after_ascii_marker_are_rejected (__main__.ForcePreprocessTests.test_critical_headers_after_ascii_marker_are_rejected) (key='VERS', value='2.0', after_rows=False, marker='~A', terminator="'\\r\\n'") ... FAIL
+  test_critical_headers_after_ascii_marker_are_rejected (__main__.ForcePreprocessTests.test_critical_headers_after_ascii_marker_are_rejected) (key='VERS', value='2.0', after_rows=False, marker='~Ascii', terminator="'\\n'") ... FAIL
+  test_critical_headers_after_ascii_marker_are_rejected (__main__.ForcePreprocessTests.test_critical_headers_after_ascii_marker_are_rejected) (key='VERS', value='2.0', after_rows=False, marker='~Ascii', terminator="'\\r\\n'") ... FAIL
+  test_critical_headers_after_ascii_marker_are_rejected (__main__.ForcePreprocessTests.test_critical_headers_after_ascii_marker_are_rejected) (key='VERS', value='2.0', after_rows=True, marker='~A', terminator="'\\n'") ... FAIL
+  test_critical_headers_after_ascii_marker_are_rejected (__main__.ForcePreprocessTests.test_critical_headers_after_ascii_marker_are_rejected) (key='VERS', value='2.0', after_rows=True, marker='~A', terminator="'\\r\\n'") ... FAIL
+  test_critical_headers_after_ascii_marker_are_rejected (__main__.ForcePreprocessTests.test_critical_headers_after_ascii_marker_are_rejected) (key='VERS', value='2.0', after_rows=True, marker='~Ascii', terminator="'\\n'") ... FAIL
+  test_critical_headers_after_ascii_marker_are_rejected (__main__.ForcePreprocessTests.test_critical_headers_after_ascii_marker_are_rejected) (key='VERS', value='2.0', after_rows=True, marker='~Ascii', terminator="'\\r\\n'") ... FAIL
+  test_critical_headers_after_ascii_marker_are_rejected (__main__.ForcePreprocessTests.test_critical_headers_after_ascii_marker_are_rejected) (key='VERS', value='1.2', after_rows=False, marker='~A', terminator="'\\n'") ... FAIL
+  test_critical_headers_after_ascii_marker_are_rejected (__main__.ForcePreprocessTests.test_critical_headers_after_ascii_marker_are_rejected) (key='VERS', value='1.2', after_rows=False, marker='~A', terminator="'\\r\\n'") ... FAIL
+  test_critical_headers_after_ascii_marker_are_rejected (__main__.ForcePreprocessTests.test_critical_headers_after_ascii_marker_are_rejected) (key='VERS', value='1.2', after_rows=False, marker='~Ascii', terminator="'\\n'") ... FAIL
+  test_critical_headers_after_ascii_marker_are_rejected (__main__.ForcePreprocessTests.test_critical_headers_after_ascii_marker_are_rejected) (key='VERS', value='1.2', after_rows=False, marker='~Ascii', terminator="'\\r\\n'") ... FAIL
+  test_critical_headers_after_ascii_marker_are_rejected (__main__.ForcePreprocessTests.test_critical_headers_after_ascii_marker_are_rejected) (key='VERS', value='1.2', after_rows=True, marker='~A', terminator="'\\n'") ... FAIL
+  test_critical_headers_after_ascii_marker_are_rejected (__main__.ForcePreprocessTests.test_critical_headers_after_ascii_marker_are_rejected) (key='VERS', value='1.2', after_rows=True, marker='~A', terminator="'\\r\\n'") ... FAIL
+  test_critical_headers_after_ascii_marker_are_rejected (__main__.ForcePreprocessTests.test_critical_headers_after_ascii_marker_are_rejected) (key='VERS', value='1.2', after_rows=True, marker='~Ascii', terminator="'\\n'") ... FAIL
+  test_critical_headers_after_ascii_marker_are_rejected (__main__.ForcePreprocessTests.test_critical_headers_after_ascii_marker_are_rejected) (key='VERS', value='1.2', after_rows=True, marker='~Ascii', terminator="'\\r\\n'") ... FAIL
+  test_critical_headers_after_ascii_marker_are_rejected (__main__.ForcePreprocessTests.test_critical_headers_after_ascii_marker_are_rejected) (key='WRAP', value='NO', after_rows=False, marker='~A', terminator="'\\n'") ... FAIL
+  test_critical_headers_after_ascii_marker_are_rejected (__main__.ForcePreprocessTests.test_critical_headers_after_ascii_marker_are_rejected) (key='WRAP', value='NO', after_rows=False, marker='~A', terminator="'\\r\\n'") ... FAIL
+  test_critical_headers_after_ascii_marker_are_rejected (__main__.ForcePreprocessTests.test_critical_headers_after_ascii_marker_are_rejected) (key='WRAP', value='NO', after_rows=False, marker='~Ascii', terminator="'\\n'") ... FAIL
+  test_critical_headers_after_ascii_marker_are_rejected (__main__.ForcePreprocessTests.test_critical_headers_after_ascii_marker_are_rejected) (key='WRAP', value='NO', after_rows=False, marker='~Ascii', terminator="'\\r\\n'") ... FAIL
+  test_critical_headers_after_ascii_marker_are_rejected (__main__.ForcePreprocessTests.test_critical_headers_after_ascii_marker_are_rejected) (key='WRAP', value='NO', after_rows=True, marker='~A', terminator="'\\n'") ... FAIL
+  test_critical_headers_after_ascii_marker_are_rejected (__main__.ForcePreprocessTests.test_critical_headers_after_ascii_marker_are_rejected) (key='WRAP', value='NO', after_rows=True, marker='~A', terminator="'\\r\\n'") ... FAIL
+  test_critical_headers_after_ascii_marker_are_rejected (__main__.ForcePreprocessTests.test_critical_headers_after_ascii_marker_are_rejected) (key='WRAP', value='NO', after_rows=True, marker='~Ascii', terminator="'\\n'") ... FAIL
+  test_critical_headers_after_ascii_marker_are_rejected (__main__.ForcePreprocessTests.test_critical_headers_after_ascii_marker_are_rejected) (key='WRAP', value='NO', after_rows=True, marker='~Ascii', terminator="'\\r\\n'") ... FAIL
+  test_critical_headers_after_ascii_marker_are_rejected (__main__.ForcePreprocessTests.test_critical_headers_after_ascii_marker_are_rejected) (key='WRAP', value='YES', after_rows=False, marker='~A', terminator="'\\n'") ... FAIL
+  test_critical_headers_after_ascii_marker_are_rejected (__main__.ForcePreprocessTests.test_critical_headers_after_ascii_marker_are_rejected) (key='WRAP', value='YES', after_rows=False, marker='~A', terminator="'\\r\\n'") ... FAIL
+  test_critical_headers_after_ascii_marker_are_rejected (__main__.ForcePreprocessTests.test_critical_headers_after_ascii_marker_are_rejected) (key='WRAP', value='YES', after_rows=False, marker='~Ascii', terminator="'\\n'") ... FAIL
+  test_critical_headers_after_ascii_marker_are_rejected (__main__.ForcePreprocessTests.test_critical_headers_after_ascii_marker_are_rejected) (key='WRAP', value='YES', after_rows=False, marker='~Ascii', terminator="'\\r\\n'") ... FAIL
+  test_critical_headers_after_ascii_marker_are_rejected (__main__.ForcePreprocessTests.test_critical_headers_after_ascii_marker_are_rejected) (key='WRAP', value='YES', after_rows=True, marker='~A', terminator="'\\n'") ... FAIL
+  test_critical_headers_after_ascii_marker_are_rejected (__main__.ForcePreprocessTests.test_critical_headers_after_ascii_marker_are_rejected) (key='WRAP', value='YES', after_rows=True, marker='~A', terminator="'\\r\\n'") ... FAIL
+  test_critical_headers_after_ascii_marker_are_rejected (__main__.ForcePreprocessTests.test_critical_headers_after_ascii_marker_are_rejected) (key='WRAP', value='YES', after_rows=True, marker='~Ascii', terminator="'\\n'") ... FAIL
+  test_critical_headers_after_ascii_marker_are_rejected (__main__.ForcePreprocessTests.test_critical_headers_after_ascii_marker_are_rejected) (key='WRAP', value='YES', after_rows=True, marker='~Ascii', terminator="'\\r\\n'") ... FAIL
+  test_critical_headers_after_ascii_marker_are_rejected (__main__.ForcePreprocessTests.test_critical_headers_after_ascii_marker_are_rejected) (key='UWI', value='1/1-1', after_rows=False, marker='~A', terminator="'\\n'") ... FAIL
+  test_critical_headers_after_ascii_marker_are_rejected (__main__.ForcePreprocessTests.test_critical_headers_after_ascii_marker_are_rejected) (key='UWI', value='1/1-1', after_rows=False, marker='~A', terminator="'\\r\\n'") ... FAIL
+  test_critical_headers_after_ascii_marker_are_rejected (__main__.ForcePreprocessTests.test_critical_headers_after_ascii_marker_are_rejected) (key='UWI', value='1/1-1', after_rows=False, marker='~Ascii', terminator="'\\n'") ... FAIL
+  test_critical_headers_after_ascii_marker_are_rejected (__main__.ForcePreprocessTests.test_critical_headers_after_ascii_marker_are_rejected) (key='UWI', value='1/1-1', after_rows=False, marker='~Ascii', terminator="'\\r\\n'") ... FAIL
+  test_critical_headers_after_ascii_marker_are_rejected (__main__.ForcePreprocessTests.test_critical_headers_after_ascii_marker_are_rejected) (key='UWI', value='1/1-1', after_rows=True, marker='~A', terminator="'\\n'") ... FAIL
+  test_critical_headers_after_ascii_marker_are_rejected (__main__.ForcePreprocessTests.test_critical_headers_after_ascii_marker_are_rejected) (key='UWI', value='1/1-1', after_rows=True, marker='~A', terminator="'\\r\\n'") ... FAIL
+  test_critical_headers_after_ascii_marker_are_rejected (__main__.ForcePreprocessTests.test_critical_headers_after_ascii_marker_are_rejected) (key='UWI', value='1/1-1', after_rows=True, marker='~Ascii', terminator="'\\n'") ... FAIL
+  test_critical_headers_after_ascii_marker_are_rejected (__main__.ForcePreprocessTests.test_critical_headers_after_ascii_marker_are_rejected) (key='UWI', value='1/1-1', after_rows=True, marker='~Ascii', terminator="'\\r\\n'") ... FAIL
+  test_critical_headers_after_ascii_marker_are_rejected (__main__.ForcePreprocessTests.test_critical_headers_after_ascii_marker_are_rejected) (key='UWI', value='9/9-9', after_rows=False, marker='~A', terminator="'\\n'") ... FAIL
+  test_critical_headers_after_ascii_marker_are_rejected (__main__.ForcePreprocessTests.test_critical_headers_after_ascii_marker_are_rejected) (key='UWI', value='9/9-9', after_rows=False, marker='~A', terminator="'\\r\\n'") ... FAIL
+  test_critical_headers_after_ascii_marker_are_rejected (__main__.ForcePreprocessTests.test_critical_headers_after_ascii_marker_are_rejected) (key='UWI', value='9/9-9', after_rows=False, marker='~Ascii', terminator="'\\n'") ... FAIL
+  test_critical_headers_after_ascii_marker_are_rejected (__main__.ForcePreprocessTests.test_critical_headers_after_ascii_marker_are_rejected) (key='UWI', value='9/9-9', after_rows=False, marker='~Ascii', terminator="'\\r\\n'") ... FAIL
+  test_critical_headers_after_ascii_marker_are_rejected (__main__.ForcePreprocessTests.test_critical_headers_after_ascii_marker_are_rejected) (key='UWI', value='9/9-9', after_rows=True, marker='~A', terminator="'\\n'") ... FAIL
+  test_critical_headers_after_ascii_marker_are_rejected (__main__.ForcePreprocessTests.test_critical_headers_after_ascii_marker_are_rejected) (key='UWI', value='9/9-9', after_rows=True, marker='~A', terminator="'\\r\\n'") ... FAIL
+  test_critical_headers_after_ascii_marker_are_rejected (__main__.ForcePreprocessTests.test_critical_headers_after_ascii_marker_are_rejected) (key='UWI', value='9/9-9', after_rows=True, marker='~Ascii', terminator="'\\n'") ... FAIL
+  test_critical_headers_after_ascii_marker_are_rejected (__main__.ForcePreprocessTests.test_critical_headers_after_ascii_marker_are_rejected) (key='UWI', value='9/9-9', after_rows=True, marker='~Ascii', terminator="'\\r\\n'") ... FAIL
+  test_critical_headers_after_ascii_marker_are_rejected (__main__.ForcePreprocessTests.test_critical_headers_after_ascii_marker_are_rejected) (key='NULL', value='-999.25', after_rows=False, marker='~A', terminator="'\\n'") ... FAIL
+  test_critical_headers_after_ascii_marker_are_rejected (__main__.ForcePreprocessTests.test_critical_headers_after_ascii_marker_are_rejected) (key='NULL', value='-999.25', after_rows=False, marker='~A', terminator="'\\r\\n'") ... FAIL
+  test_critical_headers_after_ascii_marker_are_rejected (__main__.ForcePreprocessTests.test_critical_headers_after_ascii_marker_are_rejected) (key='NULL', value='-999.25', after_rows=False, marker='~Ascii', terminator="'\\n'") ... FAIL
+  test_critical_headers_after_ascii_marker_are_rejected (__main__.ForcePreprocessTests.test_critical_headers_after_ascii_marker_are_rejected) (key='NULL', value='-999.25', after_rows=False, marker='~Ascii', terminator="'\\r\\n'") ... FAIL
+  test_critical_headers_after_ascii_marker_are_rejected (__main__.ForcePreprocessTests.test_critical_headers_after_ascii_marker_are_rejected) (key='NULL', value='-999.25', after_rows=True, marker='~A', terminator="'\\n'") ... FAIL
+  test_critical_headers_after_ascii_marker_are_rejected (__main__.ForcePreprocessTests.test_critical_headers_after_ascii_marker_are_rejected) (key='NULL', value='-999.25', after_rows=True, marker='~A', terminator="'\\r\\n'") ... FAIL
+  test_critical_headers_after_ascii_marker_are_rejected (__main__.ForcePreprocessTests.test_critical_headers_after_ascii_marker_are_rejected) (key='NULL', value='-999.25', after_rows=True, marker='~Ascii', terminator="'\\n'") ... FAIL
+  test_critical_headers_after_ascii_marker_are_rejected (__main__.ForcePreprocessTests.test_critical_headers_after_ascii_marker_are_rejected) (key='NULL', value='-999.25', after_rows=True, marker='~Ascii', terminator="'\\r\\n'") ... FAIL
+  test_critical_headers_after_ascii_marker_are_rejected (__main__.ForcePreprocessTests.test_critical_headers_after_ascii_marker_are_rejected) (key='NULL', value='-123', after_rows=False, marker='~A', terminator="'\\n'") ... FAIL
+  test_critical_headers_after_ascii_marker_are_rejected (__main__.ForcePreprocessTests.test_critical_headers_after_ascii_marker_are_rejected) (key='NULL', value='-123', after_rows=False, marker='~A', terminator="'\\r\\n'") ... FAIL
+  test_critical_headers_after_ascii_marker_are_rejected (__main__.ForcePreprocessTests.test_critical_headers_after_ascii_marker_are_rejected) (key='NULL', value='-123', after_rows=False, marker='~Ascii', terminator="'\\n'") ... FAIL
+  test_critical_headers_after_ascii_marker_are_rejected (__main__.ForcePreprocessTests.test_critical_headers_after_ascii_marker_are_rejected) (key='NULL', value='-123', after_rows=False, marker='~Ascii', terminator="'\\r\\n'") ... FAIL
+  test_critical_headers_after_ascii_marker_are_rejected (__main__.ForcePreprocessTests.test_critical_headers_after_ascii_marker_are_rejected) (key='NULL', value='-123', after_rows=True, marker='~A', terminator="'\\n'") ... FAIL
+  test_critical_headers_after_ascii_marker_are_rejected (__main__.ForcePreprocessTests.test_critical_headers_after_ascii_marker_are_rejected) (key='NULL', value='-123', after_rows=True, marker='~A', terminator="'\\r\\n'") ... FAIL
+  test_critical_headers_after_ascii_marker_are_rejected (__main__.ForcePreprocessTests.test_critical_headers_after_ascii_marker_are_rejected) (key='NULL', value='-123', after_rows=True, marker='~Ascii', terminator="'\\n'") ... FAIL
+  test_critical_headers_after_ascii_marker_are_rejected (__main__.ForcePreprocessTests.test_critical_headers_after_ascii_marker_are_rejected) (key='NULL', value='-123', after_rows=True, marker='~Ascii', terminator="'\\r\\n'") ... FAIL
+test_identical_critical_headers_before_ascii_are_allowed (__main__.ForcePreprocessTests.test_identical_critical_headers_before_ascii_are_allowed) ... ok
+
+======================================================================
+FAIL: test_conflicting_critical_headers_are_rejected (__main__.ForcePreprocessTests.test_conflicting_critical_headers_are_rejected) (key='VERS', reverse=False)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\deepeye-implementation-c\competition\deepeye\tests\ai\data_model\test_force_preprocess.py", line 386, in test_conflicting_critical_headers_are_rejected
+    self.assertIn("conflicting duplicate " + key, str(caught.exception))
+AssertionError: 'conflicting duplicate VERS' not found in "member=header.las: unsupported LAS version '1.2' (expected 2.0)"
+
+======================================================================
+FAIL: test_conflicting_critical_headers_are_rejected (__main__.ForcePreprocessTests.test_conflicting_critical_headers_are_rejected) (key='VERS', reverse=True)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\deepeye-implementation-c\competition\deepeye\tests\ai\data_model\test_force_preprocess.py", line 384, in test_conflicting_critical_headers_are_rejected
+    with self.assertRaises(force_preprocess.ForcePreprocessError) as caught:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ForcePreprocessError not raised
+
+======================================================================
+FAIL: test_conflicting_critical_headers_are_rejected (__main__.ForcePreprocessTests.test_conflicting_critical_headers_are_rejected) (key='WRAP', reverse=False)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\deepeye-implementation-c\competition\deepeye\tests\ai\data_model\test_force_preprocess.py", line 386, in test_conflicting_critical_headers_are_rejected
+    self.assertIn("conflicting duplicate " + key, str(caught.exception))
+AssertionError: 'conflicting duplicate WRAP' not found in "member=header.las: unsupported WRAP 'YES' (expected NO)"
+
+======================================================================
+FAIL: test_conflicting_critical_headers_are_rejected (__main__.ForcePreprocessTests.test_conflicting_critical_headers_are_rejected) (key='WRAP', reverse=True)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\deepeye-implementation-c\competition\deepeye\tests\ai\data_model\test_force_preprocess.py", line 384, in test_conflicting_critical_headers_are_rejected
+    with self.assertRaises(force_preprocess.ForcePreprocessError) as caught:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ForcePreprocessError not raised
+
+======================================================================
+FAIL: test_conflicting_critical_headers_are_rejected (__main__.ForcePreprocessTests.test_conflicting_critical_headers_are_rejected) (key='UWI', reverse=False)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\deepeye-implementation-c\competition\deepeye\tests\ai\data_model\test_force_preprocess.py", line 384, in test_conflicting_critical_headers_are_rejected
+    with self.assertRaises(force_preprocess.ForcePreprocessError) as caught:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ForcePreprocessError not raised
+
+======================================================================
+FAIL: test_conflicting_critical_headers_are_rejected (__main__.ForcePreprocessTests.test_conflicting_critical_headers_are_rejected) (key='UWI', reverse=True)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\deepeye-implementation-c\competition\deepeye\tests\ai\data_model\test_force_preprocess.py", line 384, in test_conflicting_critical_headers_are_rejected
+    with self.assertRaises(force_preprocess.ForcePreprocessError) as caught:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ForcePreprocessError not raised
+
+======================================================================
+FAIL: test_conflicting_critical_headers_are_rejected (__main__.ForcePreprocessTests.test_conflicting_critical_headers_are_rejected) (key='NULL', reverse=False)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\deepeye-implementation-c\competition\deepeye\tests\ai\data_model\test_force_preprocess.py", line 384, in test_conflicting_critical_headers_are_rejected
+    with self.assertRaises(force_preprocess.ForcePreprocessError) as caught:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ForcePreprocessError not raised
+
+======================================================================
+FAIL: test_conflicting_critical_headers_are_rejected (__main__.ForcePreprocessTests.test_conflicting_critical_headers_are_rejected) (key='NULL', reverse=True)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\deepeye-implementation-c\competition\deepeye\tests\ai\data_model\test_force_preprocess.py", line 384, in test_conflicting_critical_headers_are_rejected
+    with self.assertRaises(force_preprocess.ForcePreprocessError) as caught:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ForcePreprocessError not raised
+
+======================================================================
+FAIL: test_critical_headers_after_ascii_marker_are_rejected (__main__.ForcePreprocessTests.test_critical_headers_after_ascii_marker_are_rejected) (key='VERS', value='2.0', after_rows=False, marker='~A', terminator="'\\n'")
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\deepeye-implementation-c\competition\deepeye\tests\ai\data_model\test_force_preprocess.py", line 407, in test_critical_headers_after_ascii_marker_are_rejected
+    with self.assertRaises(force_preprocess.ForcePreprocessError) as caught:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ForcePreprocessError not raised
+
+======================================================================
+FAIL: test_critical_headers_after_ascii_marker_are_rejected (__main__.ForcePreprocessTests.test_critical_headers_after_ascii_marker_are_rejected) (key='VERS', value='2.0', after_rows=False, marker='~A', terminator="'\\r\\n'")
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\deepeye-implementation-c\competition\deepeye\tests\ai\data_model\test_force_preprocess.py", line 407, in test_critical_headers_after_ascii_marker_are_rejected
+    with self.assertRaises(force_preprocess.ForcePreprocessError) as caught:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ForcePreprocessError not raised
+
+======================================================================
+FAIL: test_critical_headers_after_ascii_marker_are_rejected (__main__.ForcePreprocessTests.test_critical_headers_after_ascii_marker_are_rejected) (key='VERS', value='2.0', after_rows=False, marker='~Ascii', terminator="'\\n'")
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\deepeye-implementation-c\competition\deepeye\tests\ai\data_model\test_force_preprocess.py", line 407, in test_critical_headers_after_ascii_marker_are_rejected
+    with self.assertRaises(force_preprocess.ForcePreprocessError) as caught:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ForcePreprocessError not raised
+
+======================================================================
+FAIL: test_critical_headers_after_ascii_marker_are_rejected (__main__.ForcePreprocessTests.test_critical_headers_after_ascii_marker_are_rejected) (key='VERS', value='2.0', after_rows=False, marker='~Ascii', terminator="'\\r\\n'")
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\deepeye-implementation-c\competition\deepeye\tests\ai\data_model\test_force_preprocess.py", line 407, in test_critical_headers_after_ascii_marker_are_rejected
+    with self.assertRaises(force_preprocess.ForcePreprocessError) as caught:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ForcePreprocessError not raised
+
+======================================================================
+FAIL: test_critical_headers_after_ascii_marker_are_rejected (__main__.ForcePreprocessTests.test_critical_headers_after_ascii_marker_are_rejected) (key='VERS', value='2.0', after_rows=True, marker='~A', terminator="'\\n'")
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\deepeye-implementation-c\competition\deepeye\tests\ai\data_model\test_force_preprocess.py", line 407, in test_critical_headers_after_ascii_marker_are_rejected
+    with self.assertRaises(force_preprocess.ForcePreprocessError) as caught:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ForcePreprocessError not raised
+
+======================================================================
+FAIL: test_critical_headers_after_ascii_marker_are_rejected (__main__.ForcePreprocessTests.test_critical_headers_after_ascii_marker_are_rejected) (key='VERS', value='2.0', after_rows=True, marker='~A', terminator="'\\r\\n'")
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\deepeye-implementation-c\competition\deepeye\tests\ai\data_model\test_force_preprocess.py", line 407, in test_critical_headers_after_ascii_marker_are_rejected
+    with self.assertRaises(force_preprocess.ForcePreprocessError) as caught:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ForcePreprocessError not raised
+
+======================================================================
+FAIL: test_critical_headers_after_ascii_marker_are_rejected (__main__.ForcePreprocessTests.test_critical_headers_after_ascii_marker_are_rejected) (key='VERS', value='2.0', after_rows=True, marker='~Ascii', terminator="'\\n'")
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\deepeye-implementation-c\competition\deepeye\tests\ai\data_model\test_force_preprocess.py", line 407, in test_critical_headers_after_ascii_marker_are_rejected
+    with self.assertRaises(force_preprocess.ForcePreprocessError) as caught:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ForcePreprocessError not raised
+
+======================================================================
+FAIL: test_critical_headers_after_ascii_marker_are_rejected (__main__.ForcePreprocessTests.test_critical_headers_after_ascii_marker_are_rejected) (key='VERS', value='2.0', after_rows=True, marker='~Ascii', terminator="'\\r\\n'")
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\deepeye-implementation-c\competition\deepeye\tests\ai\data_model\test_force_preprocess.py", line 407, in test_critical_headers_after_ascii_marker_are_rejected
+    with self.assertRaises(force_preprocess.ForcePreprocessError) as caught:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ForcePreprocessError not raised
+
+======================================================================
+FAIL: test_critical_headers_after_ascii_marker_are_rejected (__main__.ForcePreprocessTests.test_critical_headers_after_ascii_marker_are_rejected) (key='VERS', value='1.2', after_rows=False, marker='~A', terminator="'\\n'")
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\deepeye-implementation-c\competition\deepeye\tests\ai\data_model\test_force_preprocess.py", line 409, in test_critical_headers_after_ascii_marker_are_rejected
+    self.assertIn(key + " header after ASCII data section",
+AssertionError: 'VERS header after ASCII data section' not found in "member=header.las: unsupported LAS version '1.2' (expected 2.0)"
+
+======================================================================
+FAIL: test_critical_headers_after_ascii_marker_are_rejected (__main__.ForcePreprocessTests.test_critical_headers_after_ascii_marker_are_rejected) (key='VERS', value='1.2', after_rows=False, marker='~A', terminator="'\\r\\n'")
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\deepeye-implementation-c\competition\deepeye\tests\ai\data_model\test_force_preprocess.py", line 409, in test_critical_headers_after_ascii_marker_are_rejected
+    self.assertIn(key + " header after ASCII data section",
+AssertionError: 'VERS header after ASCII data section' not found in "member=header.las: unsupported LAS version '1.2' (expected 2.0)"
+
+======================================================================
+FAIL: test_critical_headers_after_ascii_marker_are_rejected (__main__.ForcePreprocessTests.test_critical_headers_after_ascii_marker_are_rejected) (key='VERS', value='1.2', after_rows=False, marker='~Ascii', terminator="'\\n'")
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\deepeye-implementation-c\competition\deepeye\tests\ai\data_model\test_force_preprocess.py", line 409, in test_critical_headers_after_ascii_marker_are_rejected
+    self.assertIn(key + " header after ASCII data section",
+AssertionError: 'VERS header after ASCII data section' not found in "member=header.las: unsupported LAS version '1.2' (expected 2.0)"
+
+======================================================================
+FAIL: test_critical_headers_after_ascii_marker_are_rejected (__main__.ForcePreprocessTests.test_critical_headers_after_ascii_marker_are_rejected) (key='VERS', value='1.2', after_rows=False, marker='~Ascii', terminator="'\\r\\n'")
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\deepeye-implementation-c\competition\deepeye\tests\ai\data_model\test_force_preprocess.py", line 409, in test_critical_headers_after_ascii_marker_are_rejected
+    self.assertIn(key + " header after ASCII data section",
+AssertionError: 'VERS header after ASCII data section' not found in "member=header.las: unsupported LAS version '1.2' (expected 2.0)"
+
+======================================================================
+FAIL: test_critical_headers_after_ascii_marker_are_rejected (__main__.ForcePreprocessTests.test_critical_headers_after_ascii_marker_are_rejected) (key='VERS', value='1.2', after_rows=True, marker='~A', terminator="'\\n'")
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\deepeye-implementation-c\competition\deepeye\tests\ai\data_model\test_force_preprocess.py", line 409, in test_critical_headers_after_ascii_marker_are_rejected
+    self.assertIn(key + " header after ASCII data section",
+AssertionError: 'VERS header after ASCII data section' not found in "member=header.las: unsupported LAS version '1.2' (expected 2.0)"
+
+======================================================================
+FAIL: test_critical_headers_after_ascii_marker_are_rejected (__main__.ForcePreprocessTests.test_critical_headers_after_ascii_marker_are_rejected) (key='VERS', value='1.2', after_rows=True, marker='~A', terminator="'\\r\\n'")
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\deepeye-implementation-c\competition\deepeye\tests\ai\data_model\test_force_preprocess.py", line 409, in test_critical_headers_after_ascii_marker_are_rejected
+    self.assertIn(key + " header after ASCII data section",
+AssertionError: 'VERS header after ASCII data section' not found in "member=header.las: unsupported LAS version '1.2' (expected 2.0)"
+
+======================================================================
+FAIL: test_critical_headers_after_ascii_marker_are_rejected (__main__.ForcePreprocessTests.test_critical_headers_after_ascii_marker_are_rejected) (key='VERS', value='1.2', after_rows=True, marker='~Ascii', terminator="'\\n'")
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\deepeye-implementation-c\competition\deepeye\tests\ai\data_model\test_force_preprocess.py", line 409, in test_critical_headers_after_ascii_marker_are_rejected
+    self.assertIn(key + " header after ASCII data section",
+AssertionError: 'VERS header after ASCII data section' not found in "member=header.las: unsupported LAS version '1.2' (expected 2.0)"
+
+======================================================================
+FAIL: test_critical_headers_after_ascii_marker_are_rejected (__main__.ForcePreprocessTests.test_critical_headers_after_ascii_marker_are_rejected) (key='VERS', value='1.2', after_rows=True, marker='~Ascii', terminator="'\\r\\n'")
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\deepeye-implementation-c\competition\deepeye\tests\ai\data_model\test_force_preprocess.py", line 409, in test_critical_headers_after_ascii_marker_are_rejected
+    self.assertIn(key + " header after ASCII data section",
+AssertionError: 'VERS header after ASCII data section' not found in "member=header.las: unsupported LAS version '1.2' (expected 2.0)"
+
+======================================================================
+FAIL: test_critical_headers_after_ascii_marker_are_rejected (__main__.ForcePreprocessTests.test_critical_headers_after_ascii_marker_are_rejected) (key='WRAP', value='NO', after_rows=False, marker='~A', terminator="'\\n'")
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\deepeye-implementation-c\competition\deepeye\tests\ai\data_model\test_force_preprocess.py", line 407, in test_critical_headers_after_ascii_marker_are_rejected
+    with self.assertRaises(force_preprocess.ForcePreprocessError) as caught:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ForcePreprocessError not raised
+
+======================================================================
+FAIL: test_critical_headers_after_ascii_marker_are_rejected (__main__.ForcePreprocessTests.test_critical_headers_after_ascii_marker_are_rejected) (key='WRAP', value='NO', after_rows=False, marker='~A', terminator="'\\r\\n'")
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\deepeye-implementation-c\competition\deepeye\tests\ai\data_model\test_force_preprocess.py", line 407, in test_critical_headers_after_ascii_marker_are_rejected
+    with self.assertRaises(force_preprocess.ForcePreprocessError) as caught:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ForcePreprocessError not raised
+
+======================================================================
+FAIL: test_critical_headers_after_ascii_marker_are_rejected (__main__.ForcePreprocessTests.test_critical_headers_after_ascii_marker_are_rejected) (key='WRAP', value='NO', after_rows=False, marker='~Ascii', terminator="'\\n'")
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\deepeye-implementation-c\competition\deepeye\tests\ai\data_model\test_force_preprocess.py", line 407, in test_critical_headers_after_ascii_marker_are_rejected
+    with self.assertRaises(force_preprocess.ForcePreprocessError) as caught:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ForcePreprocessError not raised
+
+======================================================================
+FAIL: test_critical_headers_after_ascii_marker_are_rejected (__main__.ForcePreprocessTests.test_critical_headers_after_ascii_marker_are_rejected) (key='WRAP', value='NO', after_rows=False, marker='~Ascii', terminator="'\\r\\n'")
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\deepeye-implementation-c\competition\deepeye\tests\ai\data_model\test_force_preprocess.py", line 407, in test_critical_headers_after_ascii_marker_are_rejected
+    with self.assertRaises(force_preprocess.ForcePreprocessError) as caught:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ForcePreprocessError not raised
+
+======================================================================
+FAIL: test_critical_headers_after_ascii_marker_are_rejected (__main__.ForcePreprocessTests.test_critical_headers_after_ascii_marker_are_rejected) (key='WRAP', value='NO', after_rows=True, marker='~A', terminator="'\\n'")
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\deepeye-implementation-c\competition\deepeye\tests\ai\data_model\test_force_preprocess.py", line 407, in test_critical_headers_after_ascii_marker_are_rejected
+    with self.assertRaises(force_preprocess.ForcePreprocessError) as caught:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ForcePreprocessError not raised
+
+======================================================================
+FAIL: test_critical_headers_after_ascii_marker_are_rejected (__main__.ForcePreprocessTests.test_critical_headers_after_ascii_marker_are_rejected) (key='WRAP', value='NO', after_rows=True, marker='~A', terminator="'\\r\\n'")
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\deepeye-implementation-c\competition\deepeye\tests\ai\data_model\test_force_preprocess.py", line 407, in test_critical_headers_after_ascii_marker_are_rejected
+    with self.assertRaises(force_preprocess.ForcePreprocessError) as caught:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ForcePreprocessError not raised
+
+======================================================================
+FAIL: test_critical_headers_after_ascii_marker_are_rejected (__main__.ForcePreprocessTests.test_critical_headers_after_ascii_marker_are_rejected) (key='WRAP', value='NO', after_rows=True, marker='~Ascii', terminator="'\\n'")
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\deepeye-implementation-c\competition\deepeye\tests\ai\data_model\test_force_preprocess.py", line 407, in test_critical_headers_after_ascii_marker_are_rejected
+    with self.assertRaises(force_preprocess.ForcePreprocessError) as caught:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ForcePreprocessError not raised
+
+======================================================================
+FAIL: test_critical_headers_after_ascii_marker_are_rejected (__main__.ForcePreprocessTests.test_critical_headers_after_ascii_marker_are_rejected) (key='WRAP', value='NO', after_rows=True, marker='~Ascii', terminator="'\\r\\n'")
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\deepeye-implementation-c\competition\deepeye\tests\ai\data_model\test_force_preprocess.py", line 407, in test_critical_headers_after_ascii_marker_are_rejected
+    with self.assertRaises(force_preprocess.ForcePreprocessError) as caught:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ForcePreprocessError not raised
+
+======================================================================
+FAIL: test_critical_headers_after_ascii_marker_are_rejected (__main__.ForcePreprocessTests.test_critical_headers_after_ascii_marker_are_rejected) (key='WRAP', value='YES', after_rows=False, marker='~A', terminator="'\\n'")
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\deepeye-implementation-c\competition\deepeye\tests\ai\data_model\test_force_preprocess.py", line 409, in test_critical_headers_after_ascii_marker_are_rejected
+    self.assertIn(key + " header after ASCII data section",
+AssertionError: 'WRAP header after ASCII data section' not found in "member=header.las: unsupported WRAP 'YES' (expected NO)"
+
+======================================================================
+FAIL: test_critical_headers_after_ascii_marker_are_rejected (__main__.ForcePreprocessTests.test_critical_headers_after_ascii_marker_are_rejected) (key='WRAP', value='YES', after_rows=False, marker='~A', terminator="'\\r\\n'")
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\deepeye-implementation-c\competition\deepeye\tests\ai\data_model\test_force_preprocess.py", line 409, in test_critical_headers_after_ascii_marker_are_rejected
+    self.assertIn(key + " header after ASCII data section",
+AssertionError: 'WRAP header after ASCII data section' not found in "member=header.las: unsupported WRAP 'YES' (expected NO)"
+
+======================================================================
+FAIL: test_critical_headers_after_ascii_marker_are_rejected (__main__.ForcePreprocessTests.test_critical_headers_after_ascii_marker_are_rejected) (key='WRAP', value='YES', after_rows=False, marker='~Ascii', terminator="'\\n'")
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\deepeye-implementation-c\competition\deepeye\tests\ai\data_model\test_force_preprocess.py", line 409, in test_critical_headers_after_ascii_marker_are_rejected
+    self.assertIn(key + " header after ASCII data section",
+AssertionError: 'WRAP header after ASCII data section' not found in "member=header.las: unsupported WRAP 'YES' (expected NO)"
+
+======================================================================
+FAIL: test_critical_headers_after_ascii_marker_are_rejected (__main__.ForcePreprocessTests.test_critical_headers_after_ascii_marker_are_rejected) (key='WRAP', value='YES', after_rows=False, marker='~Ascii', terminator="'\\r\\n'")
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\deepeye-implementation-c\competition\deepeye\tests\ai\data_model\test_force_preprocess.py", line 409, in test_critical_headers_after_ascii_marker_are_rejected
+    self.assertIn(key + " header after ASCII data section",
+AssertionError: 'WRAP header after ASCII data section' not found in "member=header.las: unsupported WRAP 'YES' (expected NO)"
+
+======================================================================
+FAIL: test_critical_headers_after_ascii_marker_are_rejected (__main__.ForcePreprocessTests.test_critical_headers_after_ascii_marker_are_rejected) (key='WRAP', value='YES', after_rows=True, marker='~A', terminator="'\\n'")
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\deepeye-implementation-c\competition\deepeye\tests\ai\data_model\test_force_preprocess.py", line 409, in test_critical_headers_after_ascii_marker_are_rejected
+    self.assertIn(key + " header after ASCII data section",
+AssertionError: 'WRAP header after ASCII data section' not found in "member=header.las: unsupported WRAP 'YES' (expected NO)"
+
+======================================================================
+FAIL: test_critical_headers_after_ascii_marker_are_rejected (__main__.ForcePreprocessTests.test_critical_headers_after_ascii_marker_are_rejected) (key='WRAP', value='YES', after_rows=True, marker='~A', terminator="'\\r\\n'")
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\deepeye-implementation-c\competition\deepeye\tests\ai\data_model\test_force_preprocess.py", line 409, in test_critical_headers_after_ascii_marker_are_rejected
+    self.assertIn(key + " header after ASCII data section",
+AssertionError: 'WRAP header after ASCII data section' not found in "member=header.las: unsupported WRAP 'YES' (expected NO)"
+
+======================================================================
+FAIL: test_critical_headers_after_ascii_marker_are_rejected (__main__.ForcePreprocessTests.test_critical_headers_after_ascii_marker_are_rejected) (key='WRAP', value='YES', after_rows=True, marker='~Ascii', terminator="'\\n'")
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\deepeye-implementation-c\competition\deepeye\tests\ai\data_model\test_force_preprocess.py", line 409, in test_critical_headers_after_ascii_marker_are_rejected
+    self.assertIn(key + " header after ASCII data section",
+AssertionError: 'WRAP header after ASCII data section' not found in "member=header.las: unsupported WRAP 'YES' (expected NO)"
+
+======================================================================
+FAIL: test_critical_headers_after_ascii_marker_are_rejected (__main__.ForcePreprocessTests.test_critical_headers_after_ascii_marker_are_rejected) (key='WRAP', value='YES', after_rows=True, marker='~Ascii', terminator="'\\r\\n'")
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\deepeye-implementation-c\competition\deepeye\tests\ai\data_model\test_force_preprocess.py", line 409, in test_critical_headers_after_ascii_marker_are_rejected
+    self.assertIn(key + " header after ASCII data section",
+AssertionError: 'WRAP header after ASCII data section' not found in "member=header.las: unsupported WRAP 'YES' (expected NO)"
+
+======================================================================
+FAIL: test_critical_headers_after_ascii_marker_are_rejected (__main__.ForcePreprocessTests.test_critical_headers_after_ascii_marker_are_rejected) (key='UWI', value='1/1-1', after_rows=False, marker='~A', terminator="'\\n'")
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\deepeye-implementation-c\competition\deepeye\tests\ai\data_model\test_force_preprocess.py", line 407, in test_critical_headers_after_ascii_marker_are_rejected
+    with self.assertRaises(force_preprocess.ForcePreprocessError) as caught:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ForcePreprocessError not raised
+
+======================================================================
+FAIL: test_critical_headers_after_ascii_marker_are_rejected (__main__.ForcePreprocessTests.test_critical_headers_after_ascii_marker_are_rejected) (key='UWI', value='1/1-1', after_rows=False, marker='~A', terminator="'\\r\\n'")
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\deepeye-implementation-c\competition\deepeye\tests\ai\data_model\test_force_preprocess.py", line 407, in test_critical_headers_after_ascii_marker_are_rejected
+    with self.assertRaises(force_preprocess.ForcePreprocessError) as caught:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ForcePreprocessError not raised
+
+======================================================================
+FAIL: test_critical_headers_after_ascii_marker_are_rejected (__main__.ForcePreprocessTests.test_critical_headers_after_ascii_marker_are_rejected) (key='UWI', value='1/1-1', after_rows=False, marker='~Ascii', terminator="'\\n'")
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\deepeye-implementation-c\competition\deepeye\tests\ai\data_model\test_force_preprocess.py", line 407, in test_critical_headers_after_ascii_marker_are_rejected
+    with self.assertRaises(force_preprocess.ForcePreprocessError) as caught:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ForcePreprocessError not raised
+
+======================================================================
+FAIL: test_critical_headers_after_ascii_marker_are_rejected (__main__.ForcePreprocessTests.test_critical_headers_after_ascii_marker_are_rejected) (key='UWI', value='1/1-1', after_rows=False, marker='~Ascii', terminator="'\\r\\n'")
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\deepeye-implementation-c\competition\deepeye\tests\ai\data_model\test_force_preprocess.py", line 407, in test_critical_headers_after_ascii_marker_are_rejected
+    with self.assertRaises(force_preprocess.ForcePreprocessError) as caught:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ForcePreprocessError not raised
+
+======================================================================
+FAIL: test_critical_headers_after_ascii_marker_are_rejected (__main__.ForcePreprocessTests.test_critical_headers_after_ascii_marker_are_rejected) (key='UWI', value='1/1-1', after_rows=True, marker='~A', terminator="'\\n'")
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\deepeye-implementation-c\competition\deepeye\tests\ai\data_model\test_force_preprocess.py", line 407, in test_critical_headers_after_ascii_marker_are_rejected
+    with self.assertRaises(force_preprocess.ForcePreprocessError) as caught:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ForcePreprocessError not raised
+
+======================================================================
+FAIL: test_critical_headers_after_ascii_marker_are_rejected (__main__.ForcePreprocessTests.test_critical_headers_after_ascii_marker_are_rejected) (key='UWI', value='1/1-1', after_rows=True, marker='~A', terminator="'\\r\\n'")
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\deepeye-implementation-c\competition\deepeye\tests\ai\data_model\test_force_preprocess.py", line 407, in test_critical_headers_after_ascii_marker_are_rejected
+    with self.assertRaises(force_preprocess.ForcePreprocessError) as caught:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ForcePreprocessError not raised
+
+======================================================================
+FAIL: test_critical_headers_after_ascii_marker_are_rejected (__main__.ForcePreprocessTests.test_critical_headers_after_ascii_marker_are_rejected) (key='UWI', value='1/1-1', after_rows=True, marker='~Ascii', terminator="'\\n'")
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\deepeye-implementation-c\competition\deepeye\tests\ai\data_model\test_force_preprocess.py", line 407, in test_critical_headers_after_ascii_marker_are_rejected
+    with self.assertRaises(force_preprocess.ForcePreprocessError) as caught:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ForcePreprocessError not raised
+
+======================================================================
+FAIL: test_critical_headers_after_ascii_marker_are_rejected (__main__.ForcePreprocessTests.test_critical_headers_after_ascii_marker_are_rejected) (key='UWI', value='1/1-1', after_rows=True, marker='~Ascii', terminator="'\\r\\n'")
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\deepeye-implementation-c\competition\deepeye\tests\ai\data_model\test_force_preprocess.py", line 407, in test_critical_headers_after_ascii_marker_are_rejected
+    with self.assertRaises(force_preprocess.ForcePreprocessError) as caught:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ForcePreprocessError not raised
+
+======================================================================
+FAIL: test_critical_headers_after_ascii_marker_are_rejected (__main__.ForcePreprocessTests.test_critical_headers_after_ascii_marker_are_rejected) (key='UWI', value='9/9-9', after_rows=False, marker='~A', terminator="'\\n'")
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\deepeye-implementation-c\competition\deepeye\tests\ai\data_model\test_force_preprocess.py", line 407, in test_critical_headers_after_ascii_marker_are_rejected
+    with self.assertRaises(force_preprocess.ForcePreprocessError) as caught:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ForcePreprocessError not raised
+
+======================================================================
+FAIL: test_critical_headers_after_ascii_marker_are_rejected (__main__.ForcePreprocessTests.test_critical_headers_after_ascii_marker_are_rejected) (key='UWI', value='9/9-9', after_rows=False, marker='~A', terminator="'\\r\\n'")
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\deepeye-implementation-c\competition\deepeye\tests\ai\data_model\test_force_preprocess.py", line 407, in test_critical_headers_after_ascii_marker_are_rejected
+    with self.assertRaises(force_preprocess.ForcePreprocessError) as caught:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ForcePreprocessError not raised
+
+======================================================================
+FAIL: test_critical_headers_after_ascii_marker_are_rejected (__main__.ForcePreprocessTests.test_critical_headers_after_ascii_marker_are_rejected) (key='UWI', value='9/9-9', after_rows=False, marker='~Ascii', terminator="'\\n'")
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\deepeye-implementation-c\competition\deepeye\tests\ai\data_model\test_force_preprocess.py", line 407, in test_critical_headers_after_ascii_marker_are_rejected
+    with self.assertRaises(force_preprocess.ForcePreprocessError) as caught:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ForcePreprocessError not raised
+
+======================================================================
+FAIL: test_critical_headers_after_ascii_marker_are_rejected (__main__.ForcePreprocessTests.test_critical_headers_after_ascii_marker_are_rejected) (key='UWI', value='9/9-9', after_rows=False, marker='~Ascii', terminator="'\\r\\n'")
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\deepeye-implementation-c\competition\deepeye\tests\ai\data_model\test_force_preprocess.py", line 407, in test_critical_headers_after_ascii_marker_are_rejected
+    with self.assertRaises(force_preprocess.ForcePreprocessError) as caught:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ForcePreprocessError not raised
+
+======================================================================
+FAIL: test_critical_headers_after_ascii_marker_are_rejected (__main__.ForcePreprocessTests.test_critical_headers_after_ascii_marker_are_rejected) (key='UWI', value='9/9-9', after_rows=True, marker='~A', terminator="'\\n'")
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\deepeye-implementation-c\competition\deepeye\tests\ai\data_model\test_force_preprocess.py", line 407, in test_critical_headers_after_ascii_marker_are_rejected
+    with self.assertRaises(force_preprocess.ForcePreprocessError) as caught:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ForcePreprocessError not raised
+
+======================================================================
+FAIL: test_critical_headers_after_ascii_marker_are_rejected (__main__.ForcePreprocessTests.test_critical_headers_after_ascii_marker_are_rejected) (key='UWI', value='9/9-9', after_rows=True, marker='~A', terminator="'\\r\\n'")
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\deepeye-implementation-c\competition\deepeye\tests\ai\data_model\test_force_preprocess.py", line 407, in test_critical_headers_after_ascii_marker_are_rejected
+    with self.assertRaises(force_preprocess.ForcePreprocessError) as caught:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ForcePreprocessError not raised
+
+======================================================================
+FAIL: test_critical_headers_after_ascii_marker_are_rejected (__main__.ForcePreprocessTests.test_critical_headers_after_ascii_marker_are_rejected) (key='UWI', value='9/9-9', after_rows=True, marker='~Ascii', terminator="'\\n'")
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\deepeye-implementation-c\competition\deepeye\tests\ai\data_model\test_force_preprocess.py", line 407, in test_critical_headers_after_ascii_marker_are_rejected
+    with self.assertRaises(force_preprocess.ForcePreprocessError) as caught:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ForcePreprocessError not raised
+
+======================================================================
+FAIL: test_critical_headers_after_ascii_marker_are_rejected (__main__.ForcePreprocessTests.test_critical_headers_after_ascii_marker_are_rejected) (key='UWI', value='9/9-9', after_rows=True, marker='~Ascii', terminator="'\\r\\n'")
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\deepeye-implementation-c\competition\deepeye\tests\ai\data_model\test_force_preprocess.py", line 407, in test_critical_headers_after_ascii_marker_are_rejected
+    with self.assertRaises(force_preprocess.ForcePreprocessError) as caught:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ForcePreprocessError not raised
+
+======================================================================
+FAIL: test_critical_headers_after_ascii_marker_are_rejected (__main__.ForcePreprocessTests.test_critical_headers_after_ascii_marker_are_rejected) (key='NULL', value='-999.25', after_rows=False, marker='~A', terminator="'\\n'")
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\deepeye-implementation-c\competition\deepeye\tests\ai\data_model\test_force_preprocess.py", line 407, in test_critical_headers_after_ascii_marker_are_rejected
+    with self.assertRaises(force_preprocess.ForcePreprocessError) as caught:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ForcePreprocessError not raised
+
+======================================================================
+FAIL: test_critical_headers_after_ascii_marker_are_rejected (__main__.ForcePreprocessTests.test_critical_headers_after_ascii_marker_are_rejected) (key='NULL', value='-999.25', after_rows=False, marker='~A', terminator="'\\r\\n'")
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\deepeye-implementation-c\competition\deepeye\tests\ai\data_model\test_force_preprocess.py", line 407, in test_critical_headers_after_ascii_marker_are_rejected
+    with self.assertRaises(force_preprocess.ForcePreprocessError) as caught:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ForcePreprocessError not raised
+
+======================================================================
+FAIL: test_critical_headers_after_ascii_marker_are_rejected (__main__.ForcePreprocessTests.test_critical_headers_after_ascii_marker_are_rejected) (key='NULL', value='-999.25', after_rows=False, marker='~Ascii', terminator="'\\n'")
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\deepeye-implementation-c\competition\deepeye\tests\ai\data_model\test_force_preprocess.py", line 407, in test_critical_headers_after_ascii_marker_are_rejected
+    with self.assertRaises(force_preprocess.ForcePreprocessError) as caught:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ForcePreprocessError not raised
+
+======================================================================
+FAIL: test_critical_headers_after_ascii_marker_are_rejected (__main__.ForcePreprocessTests.test_critical_headers_after_ascii_marker_are_rejected) (key='NULL', value='-999.25', after_rows=False, marker='~Ascii', terminator="'\\r\\n'")
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\deepeye-implementation-c\competition\deepeye\tests\ai\data_model\test_force_preprocess.py", line 407, in test_critical_headers_after_ascii_marker_are_rejected
+    with self.assertRaises(force_preprocess.ForcePreprocessError) as caught:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ForcePreprocessError not raised
+
+======================================================================
+FAIL: test_critical_headers_after_ascii_marker_are_rejected (__main__.ForcePreprocessTests.test_critical_headers_after_ascii_marker_are_rejected) (key='NULL', value='-999.25', after_rows=True, marker='~A', terminator="'\\n'")
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\deepeye-implementation-c\competition\deepeye\tests\ai\data_model\test_force_preprocess.py", line 407, in test_critical_headers_after_ascii_marker_are_rejected
+    with self.assertRaises(force_preprocess.ForcePreprocessError) as caught:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ForcePreprocessError not raised
+
+======================================================================
+FAIL: test_critical_headers_after_ascii_marker_are_rejected (__main__.ForcePreprocessTests.test_critical_headers_after_ascii_marker_are_rejected) (key='NULL', value='-999.25', after_rows=True, marker='~A', terminator="'\\r\\n'")
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\deepeye-implementation-c\competition\deepeye\tests\ai\data_model\test_force_preprocess.py", line 407, in test_critical_headers_after_ascii_marker_are_rejected
+    with self.assertRaises(force_preprocess.ForcePreprocessError) as caught:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ForcePreprocessError not raised
+
+======================================================================
+FAIL: test_critical_headers_after_ascii_marker_are_rejected (__main__.ForcePreprocessTests.test_critical_headers_after_ascii_marker_are_rejected) (key='NULL', value='-999.25', after_rows=True, marker='~Ascii', terminator="'\\n'")
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\deepeye-implementation-c\competition\deepeye\tests\ai\data_model\test_force_preprocess.py", line 407, in test_critical_headers_after_ascii_marker_are_rejected
+    with self.assertRaises(force_preprocess.ForcePreprocessError) as caught:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ForcePreprocessError not raised
+
+======================================================================
+FAIL: test_critical_headers_after_ascii_marker_are_rejected (__main__.ForcePreprocessTests.test_critical_headers_after_ascii_marker_are_rejected) (key='NULL', value='-999.25', after_rows=True, marker='~Ascii', terminator="'\\r\\n'")
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\deepeye-implementation-c\competition\deepeye\tests\ai\data_model\test_force_preprocess.py", line 407, in test_critical_headers_after_ascii_marker_are_rejected
+    with self.assertRaises(force_preprocess.ForcePreprocessError) as caught:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ForcePreprocessError not raised
+
+======================================================================
+FAIL: test_critical_headers_after_ascii_marker_are_rejected (__main__.ForcePreprocessTests.test_critical_headers_after_ascii_marker_are_rejected) (key='NULL', value='-123', after_rows=False, marker='~A', terminator="'\\n'")
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\deepeye-implementation-c\competition\deepeye\tests\ai\data_model\test_force_preprocess.py", line 407, in test_critical_headers_after_ascii_marker_are_rejected
+    with self.assertRaises(force_preprocess.ForcePreprocessError) as caught:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ForcePreprocessError not raised
+
+======================================================================
+FAIL: test_critical_headers_after_ascii_marker_are_rejected (__main__.ForcePreprocessTests.test_critical_headers_after_ascii_marker_are_rejected) (key='NULL', value='-123', after_rows=False, marker='~A', terminator="'\\r\\n'")
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\deepeye-implementation-c\competition\deepeye\tests\ai\data_model\test_force_preprocess.py", line 407, in test_critical_headers_after_ascii_marker_are_rejected
+    with self.assertRaises(force_preprocess.ForcePreprocessError) as caught:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ForcePreprocessError not raised
+
+======================================================================
+FAIL: test_critical_headers_after_ascii_marker_are_rejected (__main__.ForcePreprocessTests.test_critical_headers_after_ascii_marker_are_rejected) (key='NULL', value='-123', after_rows=False, marker='~Ascii', terminator="'\\n'")
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\deepeye-implementation-c\competition\deepeye\tests\ai\data_model\test_force_preprocess.py", line 407, in test_critical_headers_after_ascii_marker_are_rejected
+    with self.assertRaises(force_preprocess.ForcePreprocessError) as caught:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ForcePreprocessError not raised
+
+======================================================================
+FAIL: test_critical_headers_after_ascii_marker_are_rejected (__main__.ForcePreprocessTests.test_critical_headers_after_ascii_marker_are_rejected) (key='NULL', value='-123', after_rows=False, marker='~Ascii', terminator="'\\r\\n'")
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\deepeye-implementation-c\competition\deepeye\tests\ai\data_model\test_force_preprocess.py", line 407, in test_critical_headers_after_ascii_marker_are_rejected
+    with self.assertRaises(force_preprocess.ForcePreprocessError) as caught:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ForcePreprocessError not raised
+
+======================================================================
+FAIL: test_critical_headers_after_ascii_marker_are_rejected (__main__.ForcePreprocessTests.test_critical_headers_after_ascii_marker_are_rejected) (key='NULL', value='-123', after_rows=True, marker='~A', terminator="'\\n'")
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\deepeye-implementation-c\competition\deepeye\tests\ai\data_model\test_force_preprocess.py", line 407, in test_critical_headers_after_ascii_marker_are_rejected
+    with self.assertRaises(force_preprocess.ForcePreprocessError) as caught:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ForcePreprocessError not raised
+
+======================================================================
+FAIL: test_critical_headers_after_ascii_marker_are_rejected (__main__.ForcePreprocessTests.test_critical_headers_after_ascii_marker_are_rejected) (key='NULL', value='-123', after_rows=True, marker='~A', terminator="'\\r\\n'")
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\deepeye-implementation-c\competition\deepeye\tests\ai\data_model\test_force_preprocess.py", line 407, in test_critical_headers_after_ascii_marker_are_rejected
+    with self.assertRaises(force_preprocess.ForcePreprocessError) as caught:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ForcePreprocessError not raised
+
+======================================================================
+FAIL: test_critical_headers_after_ascii_marker_are_rejected (__main__.ForcePreprocessTests.test_critical_headers_after_ascii_marker_are_rejected) (key='NULL', value='-123', after_rows=True, marker='~Ascii', terminator="'\\n'")
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\deepeye-implementation-c\competition\deepeye\tests\ai\data_model\test_force_preprocess.py", line 407, in test_critical_headers_after_ascii_marker_are_rejected
+    with self.assertRaises(force_preprocess.ForcePreprocessError) as caught:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ForcePreprocessError not raised
+
+======================================================================
+FAIL: test_critical_headers_after_ascii_marker_are_rejected (__main__.ForcePreprocessTests.test_critical_headers_after_ascii_marker_are_rejected) (key='NULL', value='-123', after_rows=True, marker='~Ascii', terminator="'\\r\\n'")
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\deepeye-implementation-c\competition\deepeye\tests\ai\data_model\test_force_preprocess.py", line 407, in test_critical_headers_after_ascii_marker_are_rejected
+    with self.assertRaises(force_preprocess.ForcePreprocessError) as caught:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ForcePreprocessError not raised
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.029s
+
+FAILED (failures=72)

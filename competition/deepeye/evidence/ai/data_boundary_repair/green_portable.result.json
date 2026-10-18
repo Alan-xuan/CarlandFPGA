@@ -1,0 +1,26 @@
+{
+  "command": [
+    "C:/Users/Alan/Documents/ChatGPT/FPGA/CarlandFPGA-node-c/.local/venv/Scripts/python.exe",
+    "-B",
+    "-X",
+    "utf8",
+    "competition/deepeye/evidence/ai/data_boundary_repair/portable_fixture_probe.py"
+  ],
+  "cwd": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\deepeye-implementation-c",
+  "started_utc": "2026-10-18T14:48:16.550212+00:00",
+  "completed_utc": "2026-10-18T14:48:17.281016+00:00",
+  "exit_code": 0,
+  "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+  "TEMP": "C:\\Users\\Alan\\AppData\\Local\\Temp",
+  "TMP": "C:\\Users\\Alan\\AppData\\Local\\Temp",
+  "archive_override_set": false,
+  "stdout_sha256": "4751ea82072dad9750607e45562649ab8864a24987448b46917489782ccedddd",
+  "stderr_sha256": "aef8fd00df4e630a2e7249ce396a90d4ac8de6bb6cfc0a6ac067d4329f92c529",
+  "sources": {
+    "data/force_inventory.py": "86404425615f7551ce04907c9dbd6d7a40edca76372ad82a1a9655092a186932",
+    "data/force_preprocess.py": "1cc71d045065495d99a3f79c31107705cdc3a4942409a8decf6ae732501bc308",
+    "tests/ai/data_model/test_force_inventory.py": "d5bc098714afe5565fe026dded51a39671f60228510e3f5898bf4fb23415f504",
+    "tests/ai/data_model/test_force_preprocess.py": "238ab21224e705f03bf9555e43185e435adc3d809145097823e31c99a485ac00",
+    "tests/ai/data_model/test_verify_data.py": "3205d9f6db697152684ea988fa2aa5d506433f74d2ca085aa749854defe824e2"
+  }
+}

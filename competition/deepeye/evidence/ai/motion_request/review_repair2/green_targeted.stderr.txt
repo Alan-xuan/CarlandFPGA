@@ -1,0 +1,13 @@
+test_nested_safety_stop_keeps_newer_stop_and_blocks_outer_candidate10 (test_motion_request.VerifierReentrancyTests.test_nested_safety_stop_keeps_newer_stop_and_blocks_outer_candidate10) ... ok
+test_nested_stop_survives_verifier_exception_or_non_none_result (test_motion_request.VerifierReentrancyTests.test_nested_stop_survives_verifier_exception_or_non_none_result) ... ok
+test_new_observation_or_history_eviction_supersedes_outer (test_motion_request.VerifierReentrancyTests.test_new_observation_or_history_eviction_supersedes_outer) ... ok
+test_newer_valid_candidate_blocks_outer_even_when_newer_candidate_is_blocked (test_motion_request.VerifierReentrancyTests.test_newer_valid_candidate_blocks_outer_even_when_newer_candidate_is_blocked) ... ok
+test_newer_verified_candidate_emits_once_and_older_outer_does_not_emit (test_motion_request.VerifierReentrancyTests.test_newer_verified_candidate_emits_once_and_older_outer_does_not_emit) ... ok
+test_reads_exact_observation_duplicate_and_rejected_calls_do_not_supersede (test_motion_request.VerifierReentrancyTests.test_reads_exact_observation_duplicate_and_rejected_calls_do_not_supersede) ... ok
+test_retained_verifier_check_has_no_alias_to_returned_timing (test_motion_request.VerifierReentrancyTests.test_retained_verifier_check_has_no_alias_to_returned_timing) ... ok
+test_verifier_cannot_mutate_original_timing_during_verification (test_motion_request.VerifierReentrancyTests.test_verifier_cannot_mutate_original_timing_during_verification) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.005s
+
+OK
