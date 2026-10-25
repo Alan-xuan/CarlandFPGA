@@ -1,0 +1,13 @@
+{
+  "task_id": "DEEPEYE-IMPLEMENTATION-20261014",
+  "task_version": 1,
+  "work_id": "C-3D-TRAJECTORY-INDEPENDENT-REVIEW-20261025-v1",
+  "base_commit": "5b237220c6ca87bdea0fbba79f8f1b379d5d4304",
+  "frozen_design": "1011259415a0916054eb580687612580bc1e5f09",
+  "sources_sha256": {
+    "competition/deepeye/ai_pc/planning/kinematics.py": "770f8b4e1ff1e626df385bf220f79a8f4be8a9e9cd05c8070cd0d0dc8c01561a",
+    "docs/competition/deepeye-2026/taskbook_final.md": "7f5c94f7fc73698236be954ae7818266d6dfe8b4949d1752dd045d76f4b71f18"
+  },
+  "requirements_sha256": "c229834bfc2292f5fe4411fc9f12c68487008f9d1adaf31f0144ee7a98173804",
+  "author_source_read": false
+}

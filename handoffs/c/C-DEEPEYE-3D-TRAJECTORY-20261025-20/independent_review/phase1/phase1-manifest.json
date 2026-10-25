@@ -1,0 +1,77 @@
+{
+  "task_id": "DEEPEYE-IMPLEMENTATION-20261014",
+  "task_version": 1,
+  "work_id": "C-3D-TRAJECTORY-INDEPENDENT-REVIEW-20261025-v1",
+  "phase": 1,
+  "canonical_agent_id": "/root/cpu_independent_review",
+  "main_thread": "01a14025-4dfd-7ec3-aebb-57be48daba59",
+  "contract_id": "DEEPEYE-HUMAN-LOCK-20261014/revision1",
+  "contract_source": "f5989cd5defce561f9ba98e6b18fc2682945f0a2",
+  "requirements_sha256": "c229834bfc2292f5fe4411fc9f12c68487008f9d1adaf31f0144ee7a98173804",
+  "H01_H15": "preserved",
+  "recorded_utc": "2026-10-25T04:02:31.9227802Z",
+  "files": [
+    {
+      "path": "assignment-read-tool-result.json",
+      "bytes": 7638,
+      "sha256": "e93d2ddbd864f41458356753ca3cf79e011bd58eb6efc11ae2b3d97c16cd5888"
+    },
+    {
+      "path": "control-excerpt-tool-result.json",
+      "bytes": 26434,
+      "sha256": "84533e4067327bd7edb6bd50b7c8e7ae655b897b221f620644f6c56c25a1a116"
+    },
+    {
+      "path": "derive_oracles.py",
+      "bytes": 5959,
+      "sha256": "97c5aa555d8c8ae108a5b1292f95e44bd4072b79a55018ecf5d058b89c6f3333"
+    },
+    {
+      "path": "frozen-read-tool-result.json",
+      "bytes": 52164,
+      "sha256": "fb4b40847ffc323b74f5c647d99e33e7f040c5f1a593537c70f052aadcc51dca"
+    },
+    {
+      "path": "oracle-execution-tool-result.json",
+      "bytes": 3556,
+      "sha256": "df9cc173b6098e2e3c42cfa3087eed8cea76ea3e6ef50a2324394f0126813c75"
+    },
+    {
+      "path": "path-read-tool-result.json",
+      "bytes": 538,
+      "sha256": "3f75e89c6bc259d3606c9d449007964920ccd3c72e3b36426d99ed38c5420e7b"
+    },
+    {
+      "path": "phase1-oracles.json",
+      "bytes": 9604,
+      "sha256": "f7c59eff96eaaad2fad3506f9cf9b2777ca31d62c68d1436cd8d757004235ff9"
+    },
+    {
+      "path": "phase1-plan.md",
+      "bytes": 7602,
+      "sha256": "9e7cac7a6b65d0bea54a5149b629c52fd4bc7ae27e490d7bc4fb08aedaae49e7"
+    },
+    {
+      "path": "phase1.execution.json",
+      "bytes": 548,
+      "sha256": "d4077abadd79b6bdaba4b1ffa2e5e95f40c829c5b2d1aa45bcbf9e2abb7dd12f"
+    },
+    {
+      "path": "phase1.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "source-pins.json",
+      "bytes": 667,
+      "sha256": "55589a7242b2d84101cf6fbbecaf83710b7f77b17209ab61ea9f8faaf4de5acd"
+    }
+  ],
+  "oracle_exit_code": 0,
+  "author_source_read": false,
+  "product_index_modified": false,
+  "files_exclude": [
+    "phase1-manifest.json",
+    "phase1-release.json"
+  ]
+}

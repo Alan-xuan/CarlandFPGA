@@ -1,0 +1,1098 @@
+--- /dev/null
++++ b/competition/deepeye/ai_pc/planning/trajectory_candidates.py
+@@ -0,0 +1,319 @@
++"""Bounded software-fixture 3D candidate rollouts, without execution authority.
++
++All dynamics use the unchanged kinematics module. Constant body curvature is
++integrated analytically in travelled length, including acceleration saturation.
++There is no map, scene, learning, wire, controller, gate or arrival interface.
++"""
++from dataclasses import dataclass, field
++import hashlib
++import itertools
++import json
++import math
++import re
++
++from .kinematics import (PrimitiveRejected, angular_rate_rad_s,
++                         step_speed_m_s, target_speed_m_s, validate_primitive)
++
++SOURCE_DOMAIN = "software_fixture"
++DT_S = 0.01
++MAX_ROTATION_RAD = math.pi / 3600.0  # 0.05 degree
++MAX_COMMANDS = 8
++MAX_CANDIDATES = 32
++MAX_SUBSTEPS = 8192
++MAX_GRID_COMBINATIONS = 512
++MAX_COORDINATE_M = 1000.0
++_HORIZON = {"fast_9600": 300, "stress_300": 1200}
++__all__ = ["Pose3", "Command", "Candidate", "CandidateSet", "Sample", "Trajectory",
++           "RolloutBatch", "TrajectoryError", "generate_candidates", "integrate_speed",
++           "rollout_candidate", "rollout_candidates"]
++
++
++class TrajectoryError(ValueError):
++    """Invalid/bounded input, rejected without clipping."""
++
++
++def finite(value, name, low, high):
++    if type(value) not in (int, float):
++        raise TrajectoryError(name + " must be an exact int or finite float, never bool")
++    try:
++        result = float(value)
++    except (OverflowError, ValueError) as exc:
++        raise TrajectoryError(name + " is outside the finite domain") from exc
++    if not math.isfinite(result) or not low <= result <= high:
++        raise TrajectoryError(name + " outside finite bounds")
++    if type(value) is int and result != value:
++        raise TrajectoryError(name + " cannot be converted losslessly")
++    return 0.0 if result == 0.0 else result
++
++
++def integer(value, name, low, high):
++    if type(value) is not int or not low <= value <= high:
++        raise TrajectoryError(name + " must be an exact bounded integer")
++    return value
++
++
++def sequence(value, name, low, high):
++    if type(value) not in (tuple, list) or not low <= len(value) <= high:
++        raise TrajectoryError(name + " must be a bounded list/tuple")
++    return tuple(value)
++
++
++def digest(value):
++    raw = json.dumps(value, sort_keys=True, allow_nan=False, separators=(",", ":")).encode("utf-8")
++    return hashlib.sha256(raw).hexdigest()
++
++
++def add(a, b):
++    return tuple(x + y for x, y in zip(a, b))
++
++
++def scale(a, value):
++    return tuple(x * value for x in a)
++
++
++def cross(a, b):
++    return (a[1] * b[2] - a[2] * b[1], a[2] * b[0] - a[0] * b[2], a[0] * b[1] - a[1] * b[0])
++
++
++def quaternion_multiply(a, b):
++    av, bv = a[:3], b[:3]
++    xyz = add(add(scale(bv, a[3]), scale(av, b[3])), cross(av, bv))
++    return xyz + (a[3] * b[3] - sum(x * y for x, y in zip(av, bv)),)
++
++
++def rotate(q, vector):
++    t = scale(cross(q[:3], vector), 2.0)
++    return add(vector, add(scale(t, q[3]), cross(q[:3], t)))
++
++
++@dataclass(frozen=True)
++class Pose3:
++    position: tuple
++    quaternion_xyzw: tuple
++
++    def __post_init__(self):
++        p = sequence(self.position, "position", 3, 3)
++        p = tuple(finite(v, "position", -MAX_COORDINATE_M, MAX_COORDINATE_M) for v in p)
++        q = sequence(self.quaternion_xyzw, "quaternion_xyzw", 4, 4)
++        q = tuple(finite(v, "quaternion_xyzw", -1.0, 1.0) for v in q)
++        if abs(sum(v * v for v in q) - 1.0) > 1e-12:
++            raise TrajectoryError("quaternion must already be normalized; input is never normalized silently")
++        # q and -q represent the same attitude; choose one canonical sign.
++        sign_value = q[3] if q[3] else next((v for v in q[:3] if v), 1.0)
++        if sign_value < 0:
++            q = tuple(-v if v else 0.0 for v in q)
++        object.__setattr__(self, "position", p)
++        object.__setattr__(self, "quaternion_xyzw", q)
++
++
++@dataclass(frozen=True)
++class Command:
++    profile: str
++    speed_code: int
++    yaw_q: int
++    pitch_q: int
++    duration_ticks: int
++
++    def __post_init__(self):
++        try:
++            validate_primitive(self.profile, self.speed_code, self.yaw_q, self.pitch_q)
++        except PrimitiveRejected as exc:
++            raise TrajectoryError(str(exc)) from exc
++        integer(self.duration_ticks, "duration_ticks", 1, _HORIZON[self.profile])
++
++    def primitive(self):
++        return validate_primitive(self.profile, self.speed_code, self.yaw_q, self.pitch_q)
++
++    def canonical(self):
++        return (self.profile, self.speed_code, self.yaw_q, self.pitch_q, self.duration_ticks)
++
++
++@dataclass(frozen=True)
++class Candidate:
++    candidate_id: str
++    commands: tuple
++    source_domain: str = SOURCE_DOMAIN
++    movement_authorized: bool = field(default=False, init=False)
++
++    def __post_init__(self):
++        if type(self.candidate_id) is not str or re.fullmatch(r"[A-Za-z0-9_.-]{1,64}", self.candidate_id) is None:
++            raise TrajectoryError("candidate_id must be 1..64 simple identifier characters")
++        if type(self.source_domain) is not str or self.source_domain != SOURCE_DOMAIN:
++            raise TrajectoryError("only explicit software_fixture candidates are supported")
++        commands = sequence(self.commands, "commands", 1, MAX_COMMANDS)
++        if any(type(c) is not Command for c in commands):
++            raise TrajectoryError("commands must contain validated Command instances")
++        if any(c.profile != commands[0].profile for c in commands):
++            raise TrajectoryError("one candidate must use one profile; mode changes belong to runtime")
++        if sum(c.duration_ticks for c in commands) > _HORIZON[commands[0].profile]:
++            raise TrajectoryError("cumulative profile horizon exceeded")
++        object.__setattr__(self, "commands", commands)
++
++    def canonical(self):
++        return (self.candidate_id, self.source_domain, tuple(c.canonical() for c in self.commands))
++
++
++@dataclass(frozen=True)
++class CandidateSet:
++    status: str
++    candidates: tuple
++    rejected_codes: tuple
++    input_digest: str
++    movement_authorized: bool = field(default=False, init=False)
++
++
++def generate_candidates(*, profile, speed_codes, yaw_codes, pitch_codes,
++                        duration_ticks, max_candidates=MAX_CANDIDATES,
++                        source_domain=SOURCE_DOMAIN):
++    """Deterministic legal 3D fan; rejected curvature combinations are explicit.
++
++    Codes outside wire ranges are malformed input. In-range Cartesian tuples
++    that violate the combined curvature/zero-speed rule are recorded rejected.
++    Exceeding the legal-candidate budget returns no partial candidate set.
++    """
++    if source_domain != SOURCE_DOMAIN or type(source_domain) is not str:
++        raise TrajectoryError("only explicit software_fixture candidate generation")
++    try:
++        target_speed_m_s(profile, 0)
++    except PrimitiveRejected as exc:
++        raise TrajectoryError(str(exc)) from exc
++    integer(duration_ticks, "duration_ticks", 1, _HORIZON[profile])
++    integer(max_candidates, "max_candidates", 0, MAX_CANDIDATES)
++    codes = []
++    for name, values, lo, hi in (("speed_codes", speed_codes, 0, 20),
++                                ("yaw_codes", yaw_codes, -15000, 15000),
++                                ("pitch_codes", pitch_codes, -15000, 15000)):
++        entries = sequence(values, name, 1, 21)
++        entries = tuple(integer(v, name, lo, hi) for v in entries)
++        if len(set(entries)) != len(entries):
++            raise TrajectoryError(name + " contains duplicate codes")
++        codes.append(tuple(sorted(entries)))
++    if math.prod(map(len, codes)) > MAX_GRID_COMBINATIONS:
++        raise TrajectoryError("candidate Cartesian grid exceeds bounded combinations")
++    input_digest = digest((profile, codes, duration_ticks, source_domain, max_candidates))
++    accepted, rejected = [], []
++    for speed, yaw, pitch in itertools.product(*codes):
++        try:
++            command = Command(profile, speed, yaw, pitch, duration_ticks)
++        except TrajectoryError:
++            rejected.append((speed, yaw, pitch))
++            continue
++        if len(accepted) >= max_candidates:
++            return CandidateSet("budget_exhausted", (), tuple(rejected), input_digest)
++        name = "s%d_y%d_p%d" % (speed, yaw, pitch)
++        accepted.append(Candidate(name, (command,)))
++    return CandidateSet("completed", tuple(accepted), tuple(rejected), input_digest)
++
++
++@dataclass(frozen=True)
++class Sample:
++    time_s: float
++    pose: Pose3
++    speed_m_s: float
++    travelled_m: float
++    interval_travel_m: float
++    interval_rotation_rad: float
++    command_index: int
++
++
++@dataclass(frozen=True)
++class Trajectory:
++    status: str
++    samples: tuple
++    input_digest: str
++    substeps_used: int
++    movement_authorized: bool = field(default=False, init=False)
++
++
++@dataclass(frozen=True)
++class RolloutBatch:
++    status: str
++    trajectories: tuple
++    substeps_used: int
++    movement_authorized: bool = field(default=False, init=False)
++
++
++def integrate_speed(actual_speed, target, dt):
++    """Exact integral of the declared bounded acceleration until target hit."""
++    actual_speed = finite(actual_speed, "actual_speed", 0.0, 0.25)
++    target = finite(target, "target", 0.0, 0.25)
++    dt = finite(dt, "dt", 0.0, DT_S)
++    if dt == 0.0:
++        raise TrajectoryError("dt must be positive")
++    final = step_speed_m_s(actual_speed, target, dt)
++    difference = target - actual_speed
++    if difference == 0:
++        return final, actual_speed * dt
++    hit = min(dt, abs(difference) / 0.25)
++    acceleration = math.copysign(0.25, difference)
++    distance = actual_speed * hit + 0.5 * acceleration * hit * hit + target * (dt - hit)
++    return final, distance
++
++
++def _advance(pose, primitive, distance):
++    # local +Z is forward; body angular curvature is (-pitch, yaw, 0).
++    u = (-primitive.curvature_pitch_per_m, primitive.curvature_yaw_per_m, 0.0)
++    k = math.hypot(u[0], u[1])
++    theta = k * distance
++    if k == 0.0:
++        displacement = (0.0, 0.0, distance)
++        dq = (0.0, 0.0, 0.0, 1.0)
++    else:
++        axis = scale(u, 1.0 / k)
++        displacement = add((0.0, 0.0, math.sin(theta) / k),
++                           scale(cross(axis, (0.0, 0.0, 1.0)), 2.0 * math.sin(theta / 2.0) ** 2 / k))
++        dq = scale(axis, math.sin(theta / 2.0)) + (math.cos(theta / 2.0),)
++    q = quaternion_multiply(pose.quaternion_xyzw, dq)  # body-side RIGHT multiply
++    qnorm = math.sqrt(sum(value * value for value in q))
++    q = tuple(value / qnorm for value in q)  # computed-state roundoff only
++    return Pose3(add(pose.position, rotate(pose.quaternion_xyzw, displacement)), q), theta
++
++
++def rollout_candidate(start_pose, initial_speed_m_s, candidate, *, max_substeps=MAX_SUBSTEPS):
++    if type(start_pose) is not Pose3 or type(candidate) is not Candidate:
++        raise TrajectoryError("start_pose/Candidate exact immutable types required")
++    integer(max_substeps, "max_substeps", 0, MAX_SUBSTEPS)
++    speed = finite(initial_speed_m_s, "initial_speed_m_s", 0.0,
++                   target_speed_m_s(candidate.commands[0].profile, 20))
++    input_digest = digest((start_pose.position, start_pose.quaternion_xyzw, speed,
++                           candidate.canonical(), max_substeps))
++    pose, travelled, elapsed = start_pose, 0.0, 0.0
++    samples = [Sample(0.0, pose, speed, 0.0, 0.0, 0.0, 0)]
++    used = 0
++    for command_index, command in enumerate(candidate.commands):
++        primitive = command.primitive()
++        for _ in range(command.duration_ticks):
++            yaw, pitch = angular_rate_rad_s(primitive, max(speed, primitive.target_speed_m_s))
++            subdivisions = max(1, math.ceil(math.hypot(yaw, pitch) * DT_S / MAX_ROTATION_RAD))
++            if used + subdivisions > max_substeps:
++                return Trajectory("budget_exhausted", (), input_digest, used)
++            dt = DT_S / subdivisions
++            for _ in range(subdivisions):
++                speed, distance = integrate_speed(speed, primitive.target_speed_m_s, dt)
++                pose, theta = _advance(pose, primitive, distance)
++                if theta > MAX_ROTATION_RAD + 1e-15:
++                    raise TrajectoryError("internal rotation-subdivision bound violated")
++                travelled += distance
++                elapsed += dt
++                used += 1
++                samples.append(Sample(elapsed, pose, speed, travelled, distance, theta, command_index))
++    return Trajectory("completed", tuple(samples), input_digest, used)
++
++
++def rollout_candidates(start_pose, initial_speed_m_s, candidates, *, max_total_substeps=MAX_SUBSTEPS):
++    """Shared deterministic budget; incomplete batch has no partial trajectories."""
++    candidates = sequence(candidates, "candidates", 1, MAX_CANDIDATES)
++    if any(type(c) is not Candidate for c in candidates):
++        raise TrajectoryError("candidates must be Candidate instances")
++    if len({c.candidate_id for c in candidates}) != len(candidates):
++        raise TrajectoryError("duplicate candidate identifier")
++    integer(max_total_substeps, "max_total_substeps", 0, MAX_SUBSTEPS)
++    results, used = [], 0
++    for candidate in sorted(candidates, key=lambda c: c.candidate_id):
++        result = rollout_candidate(start_pose, initial_speed_m_s, candidate,
++                                   max_substeps=max_total_substeps - used)
++        used += result.substeps_used
++        if result.status != "completed":
++            return RolloutBatch("budget_exhausted", (), used)
++        results.append((candidate.candidate_id, result))
++    return RolloutBatch("completed", tuple(results), used)
+--- /dev/null
++++ b/competition/deepeye/ai_pc/planning/swept_capsule.py
+@@ -0,0 +1,207 @@
++"""Conservative continuous whole-capsule checks on explicit software fixtures.
++
++The bounding-box support deliberately over-encloses a capsule chord cast,
++rotation, arc departure and caller initial pose uncertainty. Only one explicit
++free region containing the entire support proves fixture-clear. Missing or
++union-only coverage is unknown; no engine/world/physical permission is issued.
++"""
++from dataclasses import dataclass, field
++import math
++
++from .trajectory_candidates import (Candidate, Pose3, SOURCE_DOMAIN, TrajectoryError,
++                                    digest, finite, integer, rotate, rollout_candidate,
++                                    sequence, MAX_SUBSTEPS)
++
++HALF_AXIS_M = 0.40
++RADIUS_M = 0.12
++R_BODY_M = 0.52
++BASELINE_MARGIN_M = 0.0005
++MAX_REGIONS = 128
++MAX_GEOMETRY_CHECKS = 1000000
++__all__ = ["Box", "Region", "FixtureMap", "Uncertainty", "SweptSupport", "SweepResult", "check_candidate"]
++
++
++@dataclass(frozen=True)
++class Box:
++    lower: tuple
++    upper: tuple
++
++    def __post_init__(self):
++        lower = tuple(finite(v, "box lower", -1e6, 1e6) for v in sequence(self.lower, "box lower", 3, 3))
++        upper = tuple(finite(v, "box upper", -1e6, 1e6) for v in sequence(self.upper, "box upper", 3, 3))
++        if any(lo >= hi for lo, hi in zip(lower, upper)):
++            raise TrajectoryError("boxes require strictly positive extent on every axis")
++        object.__setattr__(self, "lower", lower)
++        object.__setattr__(self, "upper", upper)
++
++
++@dataclass(frozen=True)
++class Region:
++    region_id: str
++    kind: str
++    box: Box
++
++    def __post_init__(self):
++        if type(self.region_id) is not str or not 1 <= len(self.region_id) <= 64:
++            raise TrajectoryError("bounded region_id required")
++        if type(self.kind) is not str or self.kind not in ("occupied", "unknown", "free"):
++            raise TrajectoryError("region kind must be occupied/unknown/free")
++        if type(self.box) is not Box:
++            raise TrajectoryError("region box must be an immutable Box")
++
++
++@dataclass(frozen=True)
++class FixtureMap:
++    cube: Box
++    regions: tuple = ()
++    source_domain: str = SOURCE_DOMAIN
++
++    def __post_init__(self):
++        if type(self.source_domain) is not str or self.source_domain != SOURCE_DOMAIN:
++            raise TrajectoryError("map must explicitly be software_fixture")
++        if type(self.cube) is not Box:
++            raise TrajectoryError("cube must be Box")
++        widths = tuple(hi - lo for lo, hi in zip(self.cube.lower, self.cube.upper))
++        if max(widths) - min(widths) > 1e-12:
++            raise TrajectoryError("boundary must be a cube with equal extents")
++        regions = sequence(self.regions, "regions", 0, MAX_REGIONS)
++        if any(type(r) is not Region for r in regions) or len({r.region_id for r in regions}) != len(regions):
++            raise TrajectoryError("regions must be immutable Region instances with unique IDs")
++        object.__setattr__(self, "regions", tuple(sorted(regions, key=lambda r: r.region_id)))
++
++    def canonical(self):
++        return (self.source_domain, self.cube.lower, self.cube.upper,
++                tuple((r.region_id, r.kind, r.box.lower, r.box.upper) for r in self.regions))
++
++
++@dataclass(frozen=True)
++class Uncertainty:
++    initial_position_m: float = 0.0
++    initial_orientation_rad: float = 0.0
++    extra_numeric_m: float = 1e-6
++    occupancy_inflation_m: float = 0.0
++
++    def __post_init__(self):
++        for name, lo, hi in (("initial_position_m", 0.0, 10.0),
++                             ("initial_orientation_rad", 0.0, math.pi),
++                             ("extra_numeric_m", 1e-6, 0.01),
++                             ("occupancy_inflation_m", 0.0, 10.0)):
++            object.__setattr__(self, name, finite(getattr(self, name), name, lo, hi))
++
++
++@dataclass(frozen=True)
++class SweptSupport:
++    lower: tuple
++    upper: tuple
++    interval_index: int
++    rotation_margin_m: float
++    translation_arc_margin_m: float
++    uncertainty_margin_m: float
++    numeric_margin_m: float
++
++
++@dataclass(frozen=True)
++class SweepResult:
++    status: str
++    fixture_digest: str
++    input_digest: str
++    substeps_used: int
++    geometry_checks_used: int
++    blocking_interval: object
++    blocking_region: object
++    supports: tuple
++    movement_authorized: bool = field(default=False, init=False)
++
++
++def _support(start, end, index, uncertainty):
++    forward = rotate(start.pose.quaternion_xyzw, (0.0, 0.0, 1.0))
++    points = tuple(tuple(center[i] + sign * HALF_AXIS_M * forward[i] for i in range(3))
++                   for center in (start.pose.position, end.pose.position) for sign in (-1.0, 1.0))
++    rotation = max(BASELINE_MARGIN_M, 2.0 * R_BODY_M * math.sin(end.interval_rotation_rad / 2.0))
++    # Every arc point is <= travelled length from the chord's initial endpoint.
++    # This intentionally loose bound is valid without a sagitta approximation.
++    arc = end.interval_travel_m if index else 0.0
++    initial_error = (uncertainty.initial_position_m
++                     + 2.0 * (R_BODY_M + end.travelled_m) * math.sin(uncertainty.initial_orientation_rad / 2.0))
++    magnitude = max(1.0, *(abs(v) for point in points for v in point))
++    # Positive declared numeric allowance plus accumulated engineering reserve,
++    # coordinate ULP reserve and outward-rounded final bounds; see the document.
++    numeric = uncertainty.extra_numeric_m + (index + 1) * 1e-8 + 32.0 * math.ulp(magnitude)
++    expansion = RADIUS_M + rotation + arc + initial_error + numeric
++    lower = tuple(math.nextafter(min(p[i] for p in points) - expansion, -math.inf) for i in range(3))
++    upper = tuple(math.nextafter(max(p[i] for p in points) + expansion, math.inf) for i in range(3))
++    return SweptSupport(lower, upper, index, rotation, arc, initial_error, numeric)
++
++
++def _intersects(support, box, inflation=0.0):
++    # Closed occupied/unknown regions: tangency is contact, never clear.
++    return all(support.upper[i] >= math.nextafter(box.lower[i] - inflation, -math.inf)
++               and support.lower[i] <= math.nextafter(box.upper[i] + inflation, math.inf) for i in range(3))
++
++
++def _strict_inside(support, box):
++    return all(box.lower[i] < support.lower[i] and support.upper[i] < box.upper[i] for i in range(3))
++
++
++def _covered(support, box):
++    return all(box.lower[i] <= support.lower[i] and support.upper[i] <= box.upper[i] for i in range(3))
++
++
++def check_candidate(start_pose, initial_speed_m_s, candidate, fixture_map, *,
++                    uncertainty=None, max_substeps=MAX_SUBSTEPS,
++                    max_geometry_checks=MAX_GEOMETRY_CHECKS):
++    """Integrate canonical inputs internally; never accepts forged sample arrays.
++
++    AABB false positives and unknowns are intentional. Initial overlap is
++    checked separately; every subsequent support encloses a full interval.
++    Budget exhaustion returns no supports, never a partial clear result.
++    """
++    if type(start_pose) is not Pose3 or type(candidate) is not Candidate or type(fixture_map) is not FixtureMap:
++        raise TrajectoryError("exact Pose3/Candidate/FixtureMap inputs required")
++    if uncertainty is None:
++        uncertainty = Uncertainty()
++    if type(uncertainty) is not Uncertainty:
++        raise TrajectoryError("uncertainty must be immutable Uncertainty")
++    integer(max_geometry_checks, "max_geometry_checks", 0, MAX_GEOMETRY_CHECKS)
++    trajectory = rollout_candidate(start_pose, initial_speed_m_s, candidate, max_substeps=max_substeps)
++    fixture_digest = digest(fixture_map.canonical())
++    input_digest = digest((trajectory.input_digest, fixture_digest,
++                           (uncertainty.initial_position_m, uncertainty.initial_orientation_rad,
++                            uncertainty.extra_numeric_m, uncertainty.occupancy_inflation_m), max_geometry_checks))
++    used = 0
++    supports = []
++
++    def result(status, interval=None, region=None):
++        retained = () if status == "budget_exhausted" else tuple(supports)
++        return SweepResult(status, fixture_digest, input_digest, trajectory.substeps_used,
++                           used, interval, region, retained)
++
++    if trajectory.status != "completed":
++        return result("budget_exhausted")
++    for index, end in enumerate(trajectory.samples):
++        start = trajectory.samples[max(0, index - 1)]
++        support = _support(start, end, index, uncertainty)
++        supports.append(support)
++        if used >= max_geometry_checks:
++            return result("budget_exhausted")
++        used += 1
++        if not _strict_inside(support, fixture_map.cube):
++            return result("conservative_boundary_overlap", index, "closed_cube")
++        for kind in ("occupied", "unknown", "free"):
++            found_free = False
++            for region in fixture_map.regions:
++                if region.kind != kind:
++                    continue
++                if used >= max_geometry_checks:
++                    return result("budget_exhausted")
++                used += 1
++                if kind == "free":
++                    if _covered(support, region.box):
++                        found_free = True
++                        break
++                elif _intersects(support, region.box,
++                                 uncertainty.occupancy_inflation_m if kind == "occupied" else 0.0):
++                    return result("conservative_" + kind + "_overlap", index, region.region_id)
++            if kind == "free" and not found_free:
++                return result("unknown_missing_coverage", index, "missing_full_support_free_coverage")
++    return result("clear_for_supplied_fixture")
+--- /dev/null
++++ b/competition/deepeye/ai_pc/planning/TRAJECTORY_CANDIDATE.md
+@@ -0,0 +1,178 @@
++# Bounded 3D trajectory and conservative capsule support
++
++Task `DEEPEYE-IMPLEMENTATION-20261014/version1`, work
++`C-3D-TRAJECTORY-KERNEL-20261025-v1`, operation
++`C-DEEPEYE-3D-TRAJECTORY-20261025-20`. Frozen design
++`1011259415a0916054eb580687612580bc1e5f09`; all H01-H15 remain required under
++`DEEPEYE-HUMAN-LOCK-20261014/revision1`, source
++`f5989cd5defce561f9ba98e6b18fc2682945f0a2`, requirements SHA256
++`c229834bfc2292f5fe4411fc9f12c68487008f9d1adaf31f0144ee7a98173804`.
++Original source base is `5b237220c6ca87bdea0fbba79f8f1b379d5d4304`.
++
++These two new modules are pure standard-library calculation preparation. They
++accept **software_fixture** inputs only. They contain no observed-map adapter,
++learned model, global search, scene/truth service, gate exemption, entered or
++arrived state, model-candidate or wire bytes, broker, controller or runtime
++authorization. Existing C19 CPU/model, graph, broker and frozen kinematics are
++unchanged. C02/C03 dependencies, qualified perception/mapping/planning benefit,
++both full control paths and all formal/system/physical gates remain incomplete.
++Only A operates the physical board. Fixture-clear is not permission to move.
++
++## APIs and bounded input
++
++`trajectory_candidates.py` defines immutable `Pose3`, `Command`, `Candidate`,
++candidate generation and rollouts. Pose contains finite xyz within +/-1000m
++and already normalized xyzw (squared-norm tolerance1e-12). Inputs are rejected,
++never clipped or silently normalized. q/-q use one canonical sign; computed
++quaternions are normalized after right multiplication to remove roundoff.
++Lists become immutable tuples. Bool/NaN/Inf/lossy integers, malformed shapes,
++unsupported profiles/codes and illegal curvature are rejected.
++
++`generate_candidates` creates a deterministic Cartesian fan in sorted integer
++code order, with explicit rejected in-range combinations; it never clips an
++illegal combined yaw/pitch into a legal turn. It accepts at most512 Cartesian
++combinations and32 legal candidates. Duplicate codes are malformed. If the
++candidate budget is insufficient, status is `budget_exhausted` with no partial
++candidate list. Generation source/budget/normalized inputs have a canonical
++SHA256; no seed or mutable global state is used.
++
++`Command` duration is an exact integer count of nominal100Hz ticks. Each
++candidate has at most8 commands and **one profile**. Its entire horizon is at
++most300ticks FAST or1200ticks STRESS. Initial speed must not exceed that
++profile's maximum (FAST0.25m/s, STRESS0.002m/s). Switching profile within a
++candidate is rejected; mode transitions belong to a separate runtime task.
++These bounds are calculation scopes, not TTL/observation-age/grant semantics.
++
++`rollout_candidate(pose, initial_speed, candidate, max_substeps=8192)` yields
++immutable samples or `budget_exhausted` with no partial sample list. Samples
++include time, pose, actual speed, cumulative/interval travelled length and
++interval rotation. `rollout_candidates` sorts unique candidate IDs and shares
++one <=8192substep budget. Any incomplete batch returns no partial trajectories.
++Its result, single trajectory, candidate and fan all carry fixed
++`movement_authorized:false` fields that cannot be enabled by constructor input.
++
++`swept_capsule.check_candidate` accepts the original pose/commands, initial
++speed and immutable `FixtureMap`, not caller-produced sample arrays. It rolls
++out the canonical input internally. Maps contain at most128 identified AABBs
++of `free`, `occupied` or `unknown` kind and a closed axis-aligned cube. Region
++insertion order does not change the canonical fixture digest or check order.
++Bounds are finite within +/-1e6m and have positive extents. Candidate/pose/map/
++uncertainty/budget identity is reported through separate fixture/input digests.
++
++The map has no automatic free default. Empty maps, missing coverage and even
++free-box unions that lack a **single box containing the whole support** return
++`unknown_missing_coverage`. This deliberate sufficient-only coverage test can
++reject paths whose exact geometry or union coverage would be adequate.
++
++## Dynamics and analytic arc
++
++The unchanged `kinematics.validate_primitive`, `angular_rate_rad_s` and
++`step_speed_m_s` supply legal quantized codes, reference rates and bounded
++speed. No reverse, slip or pivot is added. At each nominal tick the rotation
++rate upper bound uses max(current,target) speed. The tick is split sufficiently
++that each substep rotates <=0.05degree; its time step is <=0.01s.
++
++For a substep of duration h, speed v approaches target vt at a=0.25m/s².
++For v!=vt, let tau=min(h,abs(vt-v)/a), signed acceleration
++as=sign(vt-v)*a. Integrated travelled length is
++
++`L = v*tau + 0.5*as*tau² + vt*(h-tau)`.
++
++For v==vt, L=v*h. This includes target hit inside a step and the stationary
++remainder of braking. It does not approximate the distance by an end-speed
++rectangle or by a trapezoid when saturation occurs inside the substep.
++
++Let body curvature u=(-k_pitch,k_yaw,0), k=norm(u), forward e=(0,0,1),
++theta=k*L. For k>0 the exact constant-body-curvature displacement is
++
++`d = e*sin(theta)/k + cross(u/k,e)*2*sin(theta/2)²/k`.
++
++For k=0 it is e*L. The increment quaternion is
++`dq=((u/k)*sin(theta/2),cos(theta/2))`; new world center is p+R(q)*d and
++new attitude is **q*dq**, body-side right multiplication. Stable sin² avoids
++small-angle cancellation in 1-cos. A single constant command correctly lies
++in an arbitrary oriented plane. Different body primitives form non-coplanar
++3D trajectories; the kernel does not invent torsion to make one arc look 3D.
++
++## Continuous whole-body support proof
++
++The declared center-pivot capsule has spine endpoints p+/-0.40*forward and
++radius0.12m. Its total envelope length is1.04m: this intentionally encloses
++the taskbook's0.80m rigid model conservatively. The enclosing body radius is
++Rb=0.40+0.12=0.52m. These are fixture geometry assumptions, not measurements
++of A's actual complete model or pivot.
++
++Each substep is checked as an interval, with a separate support for initial
++overlap. Fix the start attitude and translate that entire capsule along the
++chord p0..p1. The support AABB bounds its two spine endpoints at each chord
++endpoint, expanded by the capsule radius and all following margins:
++
++1. **Rotation**: every body point is <=Rb from the pivot. A rotation through
++   at most theta moves it by <=2*Rb*sin(theta/2). The allowance is at least
++   `max(0.0005,2*Rb*sin(theta/2))` metres.
++2. **Translation arc departure**: every actual center on this substep is at
++   distance <=L from p0, by travelled arc length and the triangle inequality.
++   Since p0 is on the chord, distance to the chord is <=L. The kernel adds the
++   **full L**, deliberately much looser than a sagitta bound. Thus a translated
++   Euler chord is never silently treated as the true arc, and start/end-only
++   overlap is never used as the continuous check.
++3. **Initial pose uncertainty**: caller center error delta_p and initial
++   angular error phi are relative to the declared initial center/attitude.
++   The same body-command sequence leaves the orientation mismatch at phi;
++   a path point at cumulative length S has translation error
++   <=2*S*sin(phi/2). Including the body, the added allowance is
++   `delta_p+2*(Rb+S_end)*sin(phi/2)`. Bounds delta_p in[0,10]m and phi in[0,pi]
++   ensure monotonic inflation. This does not prove A's actual pose, pivot,
++   odometry history, capture timing or clocks.
++4. **Numerics**: an extra caller allowance >=1micrometre (default1micrometre),
++   plus `(interval_index+1)*1e-8`m accumulated reserve and32coordinate ULPs.
++   Final min/max bounds are rounded outward with `math.nextafter`.
++
++Under the declared geometry/dynamics/error budgets, every continuous capsule
++point is in the support. AABB conversion only enlarges this set. Floating
++arithmetic's positive extra/accumulated reserve is an explicit engineering
++budget exercised on this Python double/libm implementation, not an interval
++arithmetic proof for every platform/compiler or an engine numeric calibration.
++Before adoption into another runtime its actual numeric/model discrepancy
++must be shown within the supplied allowances. Nothing here closes that gate.
++
++Closed occupied/unknown AABBs are tested before free coverage; tangency of the
++conservative support is overlap. Optional nonnegative occupied-box inflation
++only increases rejection. The entire support must be strictly inside the cube;
++there are no doors or crossing exemptions. Support overlap with occupied data
++reports **`conservative_occupied_overlap`**, not proof of actual capsule contact.
++Unknown and boundary overlaps are similarly named. Both AABB and inflation can
++cause false positives; these are potential collisions requiring rejection.
++
++`clear_for_supplied_fixture` is returned only when every full support is inside
++the closed world, disjoint from all supplied occupied/unknown regions and fully
++contained by explicit free coverage. The conclusion applies only to the supplied
++fixture and declared errors. Missing knowledge cannot become clear. Geometry
++work is bounded by <=1,000,000 comparisons; exhausting any substep/geometry
++budget returns `budget_exhausted`, no partial-clear classification or supports.
++
++## Actual new verification
++
++From a checkout root, with a standard Python interpreter and no third-party
++dependencies:
++
++```text
++python -B -X utf8 -m unittest competition.deepeye.tests.ai.planning.test_trajectory_candidates competition.deepeye.tests.ai.planning.test_swept_capsule -v
++```
++
++The final author run is25methods/zero skips/exit0, including independent analytic
++straight and combined-curvature references, body signs/global attitude/right
++multiplication, non-coplanar sequences, exact acceleration/stop, actual positive
++3D candidates, initial/side/tail/tangent rejection, a thin internal-trajectory
++contact outside both actual rollout-endpoint capsules, and independent interior
++capsule-point enclosure at five fractions of every checked interval. It also
++checks unknown/default/partial/union-only map behavior, occupied/unknown priority,
++monotonic uncertainty/occupancy inflation, deterministic shared budgets, canonical
++digests and immutable aliases. The support enclosure checks sample interior
++reference points; continuous completeness comes from the conservative proof,
++not from claiming those sample points exhaust the continuum.
++
++Raw command/log/source snapshots and examples are in
++`../../evidence/ai/trajectory_candidate_20261025/`. Only the two new suites ran;
++no old CPU, training, held-out, broker, graph, hardware or product suite was
++rerun. Independent root/reviewer review is still required before publication.
+--- /dev/null
++++ b/competition/deepeye/tests/ai/planning/test_trajectory_candidates.py
+@@ -0,0 +1,189 @@
++"""New trajectory-only checks with independent closed-form expectations."""
++import math
++from pathlib import Path
++import sys
++import unittest
++
++sys.path.insert(0, str(Path(__file__).resolve().parents[3]))
++from ai_pc.planning.trajectory_candidates import (
++    Candidate, Command, MAX_ROTATION_RAD, Pose3, TrajectoryError,
++    generate_candidates, integrate_speed, rollout_candidate, rollout_candidates,
++)
++
++IDENTITY = (0.0, 0.0, 0.0, 1.0)
++
++
++def command(speed=20, yaw=0, pitch=0, ticks=100, profile="fast_9600"):
++    return Command(profile, speed, yaw, pitch, ticks)
++
++
++def rollout(commands, speed=0.25, pose=None, **kwargs):
++    return rollout_candidate(pose or Pose3((0, 0, 0), IDENTITY), speed,
++                             Candidate("test", tuple(commands)), **kwargs)
++
++
++def analytic_arc(yaw, pitch, speed, seconds):
++    # Independent wire-to-curvature reference, no production helper imports.
++    ky = yaw * math.pi / (180000 * speed)
++    kp = pitch * math.pi / (180000 * speed)
++    k = math.sqrt(ky * ky + kp * kp)
++    length = speed * seconds
++    if k == 0:
++        return (0.0, 0.0, length), IDENTITY
++    theta = k * length
++    return ((ky * (1 - math.cos(theta)) / (k * k),
++             kp * (1 - math.cos(theta)) / (k * k), math.sin(theta) / k),
++            (-kp / k * math.sin(theta / 2), ky / k * math.sin(theta / 2),
++             0.0, math.cos(theta / 2)))
++
++
++class TrajectoryTests(unittest.TestCase):
++    def assertVectorAlmost(self, actual, expected, places=11):
++        self.assertEqual(len(actual), len(expected))
++        for a, b in zip(actual, expected):
++            self.assertAlmostEqual(a, b, places=places)
++
++    def test_real_nonempty_combined_3d_candidate_fan(self):
++        fan = generate_candidates(profile="fast_9600", speed_codes=[20],
++                                  yaw_codes=[4000, 0, -4000], pitch_codes=[3000, 0, -3000],
++                                  duration_ticks=100)
++        self.assertEqual(fan.status, "completed")
++        self.assertEqual(len(fan.candidates), 9)
++        self.assertFalse(fan.movement_authorized)
++        candidate = next(c for c in fan.candidates if c.commands[0].yaw_q == 4000 and c.commands[0].pitch_q == 3000)
++        end = rollout_candidate(Pose3((0, 0, 0), IDENTITY), 0.25, candidate).samples[-1].pose.position
++        self.assertTrue(all(value > 0 for value in end))
++
++    def test_straight_and_combined_curvature_independent_analytic(self):
++        for yaw, pitch in ((0, 0), (4000, 3000), (-4000, 3000), (4000, -3000), (0, 7000)):
++            with self.subTest(yaw=yaw, pitch=pitch):
++                actual = rollout([command(yaw=yaw, pitch=pitch, ticks=200)])
++                position, quaternion = analytic_arc(yaw, pitch, .25, 2.0)
++                self.assertEqual(actual.status, "completed")
++                self.assertVectorAlmost(actual.samples[-1].pose.position, position)
++                self.assertVectorAlmost(actual.samples[-1].pose.quaternion_xyzw, quaternion)
++                self.assertAlmostEqual(actual.samples[-1].travelled_m, .5, places=12)
++
++    def test_yaw_pitch_signs_and_body_right_global_rotation(self):
++        angle = math.pi / 2
++        pose = Pose3((1, 2, 3), (0, 0, math.sin(angle / 2), math.cos(angle / 2)))
++        for yaw, pitch in ((6000, 0), (0, 6000), (4000, 3000)):
++            local, q = analytic_arc(yaw, pitch, .25, 1)
++            actual = rollout([command(yaw=yaw, pitch=pitch)], pose=pose).samples[-1].pose
++            # Rz(90): local x->world y, local y->world -x.
++            self.assertVectorAlmost(actual.position, (1 - local[1], 2 + local[0], 3 + local[2]))
++            s, c = math.sin(angle / 2), math.cos(angle / 2)
++            expected_q = (c * q[0] - s * q[1], c * q[1] + s * q[0], s * q[3], c * q[3])
++            self.assertVectorAlmost(actual.quaternion_xyzw, expected_q)
++
++    def test_distinct_body_primitive_sequence_is_non_coplanar(self):
++        actual = rollout([command(yaw=6000), command(pitch=6000)])
++        a = actual.samples[50].pose.position
++        b = actual.samples[150].pose.position
++        c = actual.samples[-1].pose.position
++        determinant = (a[0] * (b[1] * c[2] - b[2] * c[1])
++                       - a[1] * (b[0] * c[2] - b[2] * c[0])
++                       + a[2] * (b[0] * c[1] - b[1] * c[0]))
++        self.assertGreater(abs(determinant), 1e-7)
++        self.assertNotEqual(actual.samples[-1].pose.quaternion_xyzw[2], 0.0)
++
++    def test_acceleration_distance_includes_target_hit_inside_step(self):
++        end_speed, distance = integrate_speed(.001, .002, .01)
++        self.assertEqual(end_speed, .002)
++        self.assertAlmostEqual(distance, .000018, places=15)
++        end_speed, distance = integrate_speed(.001, 0.0, .01)
++        self.assertEqual(end_speed, 0.0)
++        self.assertAlmostEqual(distance, .000002, places=15)
++        accelerated = rollout([command(ticks=300)], speed=0)
++        self.assertAlmostEqual(accelerated.samples[-1].travelled_m, .625, places=11)
++        self.assertAlmostEqual(accelerated.samples[-1].pose.position[2], .625, places=11)
++
++    def test_acceleration_curved_arc_uses_integrated_length(self):
++        actual = rollout([command(yaw=4000, pitch=3000, ticks=100)], speed=0)
++        # 1 second at a=.25 from rest: L=.125. Equivalent arc at .25 for .5s.
++        expected_p, expected_q = analytic_arc(4000, 3000, .25, .5)
++        self.assertVectorAlmost(actual.samples[-1].pose.position, expected_p)
++        self.assertVectorAlmost(actual.samples[-1].pose.quaternion_xyzw, expected_q)
++        self.assertEqual(actual.samples[0].speed_m_s, 0.0)
++
++    def test_zero_and_braking_never_pivot_or_reverse(self):
++        pose = Pose3((0, 0, 0), (.5, .5, .5, .5))
++        for initial in (0.0, .001, .25):
++            actual = rollout([command(speed=0)], speed=initial, pose=pose)
++            self.assertTrue(all(s.pose.quaternion_xyzw == pose.quaternion_xyzw for s in actual.samples))
++            self.assertTrue(all(s.speed_m_s >= 0 for s in actual.samples))
++            self.assertEqual(actual.samples[-1].speed_m_s, 0.0)
++        with self.assertRaises(TrajectoryError):
++            command(speed=0, yaw=1)
++
++    def test_nominal100hz_rotation_substeps_and_acceleration_bounds(self):
++        actual = rollout([command(yaw=7000, ticks=300)], speed=0)
++        self.assertGreater(actual.substeps_used, 300)
++        for a, b in zip(actual.samples, actual.samples[1:]):
++            dt = b.time_s - a.time_s
++            self.assertGreater(dt, 0)
++            self.assertLessEqual(dt, .01 + 1e-12)
++            self.assertLessEqual(b.interval_rotation_rad, MAX_ROTATION_RAD + 1e-15)
++            self.assertLessEqual(abs(b.speed_m_s - a.speed_m_s), .25 * dt + 1e-12)
++        self.assertAlmostEqual(actual.samples[-1].time_s, 3.0, places=11)
++
++    def test_stress_speed_and_cumulative_single_profile_horizon(self):
++        actual = rollout([command(speed=20, yaw=40, pitch=30, ticks=1200, profile="stress_300")], speed=.002)
++        self.assertAlmostEqual(actual.samples[-1].travelled_m, .024, places=12)
++        self.assertTrue(all(s.speed_m_s <= .002 for s in actual.samples))
++        with self.assertRaises(TrajectoryError):
++            rollout([command(profile="stress_300")], speed=.00201)
++        with self.assertRaises(TrajectoryError):
++            Candidate("mixed", (command(ticks=1), command(ticks=1, profile="stress_300")))
++        with self.assertRaises(TrajectoryError):
++            Candidate("long", (command(ticks=200), command(ticks=101)))
++
++    def test_immutable_aliases_and_quaternion_sign_canonical_digest(self):
++        position, q = [0, 0, 0], [0, 0, 0, 1]
++        pose = Pose3(position, q)
++        commands = [command(ticks=1)]
++        candidate = Candidate("one", commands)
++        expected = rollout_candidate(pose, .25, candidate)
++        position[0], q[0] = 99, 1
++        commands.append(command(ticks=1))
++        self.assertEqual(expected, rollout_candidate(pose, .25, candidate))
++        negative = rollout_candidate(Pose3((0, 0, 0), (0, 0, 0, -1)), .25, candidate)
++        self.assertEqual(expected, negative)
++
++    def test_deterministic_sorted_generation_and_explicit_rejections(self):
++        a = generate_candidates(profile="fast_9600", speed_codes=[20, 0], yaw_codes=[1, 0], pitch_codes=[0], duration_ticks=1)
++        b = generate_candidates(profile="fast_9600", speed_codes=[0, 20], yaw_codes=[0, 1], pitch_codes=[0], duration_ticks=1)
++        self.assertEqual(a, b)
++        self.assertIn((0, 1, 0), a.rejected_codes)
++        exhausted = generate_candidates(profile="fast_9600", speed_codes=[20], yaw_codes=[1, 0], pitch_codes=[0], duration_ticks=1, max_candidates=1)
++        self.assertEqual(exhausted.status, "budget_exhausted")
++        self.assertEqual(exhausted.candidates, ())
++
++    def test_budget_exhaustion_never_returns_partial_rollouts(self):
++        c1, c2 = Candidate("a", (command(ticks=2),)), Candidate("b", (command(ticks=2),))
++        pose = Pose3((0, 0, 0), IDENTITY)
++        limited = rollout_candidate(pose, .25, c1, max_substeps=1)
++        self.assertEqual((limited.status, limited.samples), ("budget_exhausted", ()))
++        limited_batch = rollout_candidates(pose, .25, [c2, c1], max_total_substeps=3)
++        self.assertEqual((limited_batch.status, limited_batch.trajectories), ("budget_exhausted", ()))
++        self.assertFalse(limited_batch.movement_authorized)
++        self.assertEqual(rollout_candidates(pose, .25, [c2, c1], max_total_substeps=4),
++                         rollout_candidates(pose, .25, [c1, c2], max_total_substeps=4))
++
++    def test_bad_numeric_codes_shapes_and_unbounded_inputs_rejected(self):
++        for position, quaternion in (((True, 0, 0), IDENTITY), ((float("nan"), 0, 0), IDENTITY),
++                                     ((0, 0, 0), (0, 0, 0, 2)), ((0, 0, 0), (0, 0, float("inf"), 1))):
++            with self.subTest(position=position, quaternion=quaternion), self.assertRaises(TrajectoryError):
++                Pose3(position, quaternion)
++        for kwargs in ({"yaw": True}, {"yaw": 15001}, {"speed": 21}, {"ticks": True}, {"ticks": 301}):
++            with self.subTest(kwargs=kwargs), self.assertRaises(TrajectoryError):
++                command(**kwargs)
++        for value in (0, -.1, .02, float("nan"), True):
++            with self.subTest(dt=value), self.assertRaises(TrajectoryError):
++                integrate_speed(0, .25, value)
++        with self.assertRaises(TrajectoryError):
++            Candidate("bad", (command(),), source_domain="sensor_live")
++
++
++if __name__ == "__main__":
++    unittest.main(verbosity=2)
+--- /dev/null
++++ b/competition/deepeye/tests/ai/planning/test_swept_capsule.py
+@@ -0,0 +1,190 @@
++"""New conservative whole-body fixture sweep checks (no real map or board)."""
++import math
++from pathlib import Path
++import sys
++import unittest
++
++sys.path.insert(0, str(Path(__file__).resolve().parents[3]))
++from ai_pc.planning.trajectory_candidates import Candidate, Command, Pose3, TrajectoryError, rollout_candidate
++from ai_pc.planning.swept_capsule import Box, FixtureMap, Region, Uncertainty, check_candidate
++
++IDENTITY = (0, 0, 0, 1)
++CUBE = Box((-2, -2, -2), (2, 2, 2))
++FREE = Region("free", "free", CUBE)
++
++
++def candidate(ticks=1, yaw=0, pitch=0):
++    return Candidate("test", (Command("fast_9600", 20, yaw, pitch, ticks),))
++
++
++def fixture(*regions, cube=CUBE):
++    return FixtureMap(cube, (FREE,) + regions)
++
++
++def tiny_region(name, center, half=1e-7, kind="occupied"):
++    return Region(name, kind, Box(tuple(v - half for v in center), tuple(v + half for v in center)))
++
++
++def point_segment_distance(point, a, b):
++    direction = tuple(y - x for x, y in zip(a, b))
++    length2 = sum(v * v for v in direction)
++    t = max(0.0, min(1.0, sum((point[i] - a[i]) * direction[i] for i in range(3)) / length2))
++    return math.sqrt(sum((point[i] - a[i] - t * direction[i]) ** 2 for i in range(3)))
++
++
++class SweepTests(unittest.TestCase):
++    def test_nonempty3d_clear_requires_full_free_support(self):
++        result = check_candidate(Pose3((0, 0, 0), IDENTITY), .25,
++                                 candidate(100, 4000, 3000), fixture())
++        self.assertEqual(result.status, "clear_for_supplied_fixture")
++        self.assertGreater(len(result.supports), 100)
++        self.assertFalse(result.movement_authorized)
++        self.assertTrue(all(s.rotation_margin_m >= .0005 and s.numeric_margin_m > 0 for s in result.supports))
++
++    def test_missing_partial_and_union_only_free_coverage_are_unknown(self):
++        pose = Pose3((0, 0, 0), IDENTITY)
++        maps = [FixtureMap(CUBE), FixtureMap(CUBE, (Region("tip-only", "free", Box((-.2, -.2, .3), (.2, .2, .6))),)),
++                FixtureMap(CUBE, (Region("left", "free", Box((-2, -2, -2), (0, 2, 2))),
++                                  Region("right", "free", Box((0, -2, -2), (2, 2, 2)))))]
++        for value in maps:
++            result = check_candidate(pose, .25, candidate(), value)
++            self.assertEqual(result.status, "unknown_missing_coverage")
++            self.assertFalse(result.movement_authorized)
++
++    def test_explicit_unknown_and_occupied_override_covering_free(self):
++        for kind in ("unknown", "occupied"):
++            result = check_candidate(Pose3((0, 0, 0), IDENTITY), .25, candidate(),
++                                     fixture(tiny_region("obstacle", (0, 0, 0), kind=kind)))
++            self.assertEqual(result.status, "conservative_" + kind + "_overlap")
++            self.assertEqual(result.blocking_interval, 0)
++
++    def test_initial_side_and_tail_contact_detected_separately(self):
++        for point in ((0, 0, -.5), (.119, 0, 0), (0, 0, .5)):
++            result = check_candidate(Pose3((0, 0, 0), IDENTITY), .25, candidate(), fixture(tiny_region("contact", point)))
++            self.assertEqual(result.status, "conservative_occupied_overlap")
++            self.assertEqual(result.blocking_interval, 0)
++
++    def test_closed_cube_and_real_tangency_have_no_gate_exemption(self):
++        cube = Box((-1, -1, -1), (1, 1, 1))
++        value = FixtureMap(cube, (Region("allfree", "free", cube),))
++        for pose in (Pose3((0, 0, .48), IDENTITY), Pose3((.88, 0, 0), IDENTITY)):
++            result = check_candidate(pose, .25, candidate(), value)
++            self.assertEqual(result.status, "conservative_boundary_overlap")
++        tangent = Region("tangent", "occupied", Box((.12, -.01, -.01), (.13, .01, .01)))
++        result = check_candidate(Pose3((0, 0, 0), IDENTITY), .25, candidate(), fixture(tangent))
++        self.assertEqual(result.status, "conservative_occupied_overlap")
++
++    def test_thin_layer_between_rollout_endpoints_rejected(self):
++        # Independent exact mid-arc pose + outer capsule surface. This point is
++        # outside both actual start/end capsules, yet lies on the mid capsule.
++        k = 7000 * math.pi / (180000 * .25)
++        def pose_at(seconds):
++            angle = k * .25 * seconds
++            p = ((1 - math.cos(angle)) / k, 0, math.sin(angle) / k)
++            forward = (math.sin(angle), 0, math.cos(angle))
++            return p, forward
++        p, f = pose_at(1.5)
++        normal = (-f[2], 0, f[0])
++        point = tuple(p[i] + .4 * f[i] + .119999 * normal[i] for i in range(3))
++        for seconds in (0, 3):
++            center, axis = pose_at(seconds)
++            a = tuple(center[i] - .4 * axis[i] for i in range(3))
++            b = tuple(center[i] + .4 * axis[i] for i in range(3))
++            self.assertGreater(point_segment_distance(point, a, b), .1201)
++        result = check_candidate(Pose3((0, 0, 0), IDENTITY), .25,
++                                 candidate(300, 7000), fixture(tiny_region("thin", point, 1e-8)))
++        self.assertEqual(result.status, "conservative_occupied_overlap")
++        self.assertGreater(result.blocking_interval, 0)
++        self.assertLess(result.blocking_interval, result.substeps_used)
++
++    def test_continuous_support_encloses_independent_interior_capsule_points(self):
++        yaw, pitch = 4000, 3000
++        kx, ky = -pitch * math.pi / (180000 * .25), yaw * math.pi / (180000 * .25)
++        k = math.hypot(kx, ky)
++        result = check_candidate(Pose3((0, 0, 0), IDENTITY), .25,
++                                 candidate(20, yaw, pitch), fixture())
++        self.assertEqual(result.status, "clear_for_supplied_fixture")
++        # Reference Rodrigues formulas at interior fractions, independent of
++        # the production quaternion/arc/inflation helper functions.
++        previous_t = 0.0
++        samples = rollout_candidate(Pose3((0, 0, 0), IDENTITY), .25, candidate(20, yaw, pitch)).samples
++        for support, sample in zip(result.supports[1:], samples[1:]):
++            for fraction in (.01, .25, .5, .75, .99):
++                t = previous_t + fraction * (sample.time_s - previous_t)
++                theta = k * .25 * t
++                center = (ky * (1 - math.cos(theta)) / (k * k),
++                          -kx * (1 - math.cos(theta)) / (k * k), math.sin(theta) / k)
++                forward = (ky / k * math.sin(theta), -kx / k * math.sin(theta), math.cos(theta))
++                for sign in (-1, 1):
++                    for axis in range(3):
++                        for radial in (-.12, .12):
++                            point = [center[i] + sign * .4 * forward[i] for i in range(3)]
++                            point[axis] += radial  # sphere around each end
++                            self.assertTrue(all(support.lower[i] <= point[i] <= support.upper[i] for i in range(3)))
++            previous_t = sample.time_s
++
++    def test_whole_support_uncertainty_and_occupancy_inflation_monotonic(self):
++        map_value = fixture(tiny_region("near-side", (.16, 0, 0), .001))
++        pose = Pose3((0, 0, 0), IDENTITY)
++        base = check_candidate(pose, .25, candidate(10), map_value)
++        self.assertEqual(base.status, "clear_for_supplied_fixture")
++        for name, values in (("initial_position_m", (0.0, .01, .04, .08)),
++                              ("initial_orientation_rad", (0.0, .01, .1, .2)),
++                              ("occupancy_inflation_m", (0.0, .01, .04, .08))):
++            seen_nonclear = False
++            for value in values:
++                result = check_candidate(pose, .25, candidate(10), map_value, uncertainty=Uncertainty(**{name: value}))
++                if seen_nonclear:
++                    self.assertNotEqual(result.status, "clear_for_supplied_fixture")
++                seen_nonclear |= result.status != "clear_for_supplied_fixture"
++            self.assertTrue(seen_nonclear)
++
++    def test_initial_angular_uncertainty_includes_travel_displacement(self):
++        result = check_candidate(Pose3((0, 0, 0), IDENTITY), .25, candidate(100), fixture(),
++                                 uncertainty=Uncertainty(initial_orientation_rad=.1))
++        self.assertEqual(result.status, "clear_for_supplied_fixture")
++        self.assertAlmostEqual(result.supports[-1].uncertainty_margin_m,
++                               2 * (.52 + .25) * math.sin(.05), places=12)
++        self.assertGreater(result.supports[-1].uncertainty_margin_m, result.supports[0].uncertainty_margin_m)
++
++    def test_budgets_are_deterministic_and_never_partial_clear(self):
++        pose, c, m = Pose3((0, 0, 0), IDENTITY), candidate(), fixture()
++        for kwargs in ({"max_substeps": 0}, {"max_geometry_checks": 0}, {"max_geometry_checks": 3}):
++            first = check_candidate(pose, .25, c, m, **kwargs)
++            self.assertEqual(first, check_candidate(pose, .25, c, m, **kwargs))
++            self.assertEqual((first.status, first.supports), ("budget_exhausted", ()))
++            self.assertFalse(first.movement_authorized)
++        complete = check_candidate(pose, .25, c, m, max_geometry_checks=4)
++        self.assertEqual(complete.status, "clear_for_supplied_fixture")
++        self.assertEqual(complete.geometry_checks_used, 4)
++
++    def test_map_pose_and_output_aliases_are_immutable_and_digests_stable(self):
++        lo, hi = [-2, -2, -2], [2, 2, 2]
++        cube = Box(lo, hi)
++        regions = [Region("z", "free", cube), tiny_region("a", (.8, .8, .8), kind="unknown")]
++        m1 = FixtureMap(cube, regions)
++        m2 = FixtureMap(cube, list(reversed(regions)))
++        first = check_candidate(Pose3((0, 0, 0), IDENTITY), .25, candidate(), m1)
++        lo[0], hi[0] = 100, 101
++        regions.clear()
++        self.assertEqual(first, check_candidate(Pose3((0, 0, 0), IDENTITY), .25, candidate(), m2))
++        with self.assertRaises((AttributeError, TypeError)):
++            first.supports[0].lower[0] = 0
++
++    def test_all_uncertainty_and_map_inputs_finite_bounded_explicit(self):
++        for kwargs in ({"initial_position_m": True}, {"initial_position_m": -1},
++                       {"initial_orientation_rad": math.pi + .01}, {"extra_numeric_m": 0},
++                       {"occupancy_inflation_m": float("nan")}):
++            with self.subTest(kwargs=kwargs), self.assertRaises(TrajectoryError):
++                Uncertainty(**kwargs)
++        for kwargs in ({"source_domain": "sensor_live"}, {"source_domain": True}):
++            with self.assertRaises(TrajectoryError):
++                FixtureMap(CUBE, **kwargs)
++        with self.assertRaises(TrajectoryError):
++            Box((0, 0, 0), (1, 0, 1))
++        with self.assertRaises(TrajectoryError):
++            FixtureMap(Box((0, 0, 0), (1, 2, 1)))
++
++
++if __name__ == "__main__":
++    unittest.main(verbosity=2)

@@ -1,0 +1,39 @@
+{
+  "work_id": "C-3D-TRAJECTORY-INDEPENDENT-REVIEW-20261025-v1",
+  "phase": 2,
+  "task_id": "DEEPEYE-IMPLEMENTATION-20261014",
+  "task_version": 1,
+  "operation_id": "C-DEEPEYE-3D-TRAJECTORY-20261025-20",
+  "canonical_agent_id": "/root/cpu_independent_review",
+  "main_thread": "01a14025-4dfd-7ec3-aebb-57be48daba59",
+  "recorded_utc": "2026-10-25T04:13:25.6789878Z",
+  "exclusive_scope": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\main-20261015-01a14025\\trajectory-20261025\\review\\phase2",
+  "phase1_bytes": "preserve unchanged",
+  "author_release": "Parent received actual FINAL/release and verified35 files plus raw exits; no author subprocesses remain",
+  "source_root": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\deepeye-implementation-c",
+  "base_commit": "5b237220c6ca87bdea0fbba79f8f1b379d5d4304",
+  "frozen_design": "1011259415a0916054eb580687612580bc1e5f09",
+  "requirements_sha256": "c229834bfc2292f5fe4411fc9f12c68487008f9d1adaf31f0144ee7a98173804",
+  "H01_H15": "preserved",
+  "trajectory_candidates_sha256": "ede34dfa38f093c7ba0858ca211b824e08268447846a0859b9a69cb4cb7a0c15",
+  "swept_capsule_sha256": "765b83405a4773c2e4da4806d9d42bd39bc66bda6e78f0a4acf9e3d86eba5b4a",
+  "document_sha256": "87daba843f69425a7d8db78fc2ba382586770fb581586003601c79e4cf3294b9",
+  "public_delivery_manifest_sha256": "f1f128b867acb623f2aea49cab00e9c453312e93cb5e8ac786f46e7a01e43ad1",
+  "acceptance": [
+    "Static continuous swept support proof, unknown/budget/type/authority boundaries",
+    "Phase1 small independent black-box controls including target hit, combined arc, tail counterexample",
+    "Capture actual RED if any and report blocking findings promptly without product edits",
+    "Final rawargv/exit/manifest/release with active_jobs=[]"
+  ],
+  "forbidden": [
+    "author suite repeat",
+    "old CPU/train/heldout suites",
+    "product/index writes",
+    "network/external messages",
+    "credentials/SQL/controller/board",
+    "subagents"
+  ],
+  "not_alone": true,
+  "input_owner": "released author bytes; read only",
+  "no_revert_others": true
+}

@@ -1,0 +1,20 @@
+{
+  "work_id": "C-3D-TRAJECTORY-INDEPENDENT-REVIEW-20261025-v1",
+  "canonical_agent_id": "/root/cpu_independent_review",
+  "phase": 2,
+  "status": "completed",
+  "bounded_review_complete": true,
+  "released": true,
+  "exclusive_scope": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\main-20261015-01a14025\\trajectory-20261025\\review\\phase2",
+  "released_utc": "2026-10-25T04:22:15.7008633Z",
+  "active_jobs": [],
+  "report_sha256": "4e7e2afd4c732e6e4a85f1b735139163d9239f1505358fa519564aa4919a7c23",
+  "manifest_sha256": "a350f1f85a507d788ebc50b4190b0d94a6fc185a0a828ddfbf4895ba08ed0912",
+  "trajectory_candidates_sha256": "ede34dfa38f093c7ba0858ca211b824e08268447846a0859b9a69cb4cb7a0c15",
+  "swept_capsule_sha256": "765b83405a4773c2e4da4806d9d42bd39bc66bda6e78f0a4acf9e3d86eba5b4a",
+  "remaining_blocking_findings_in_reviewed_scope": [],
+  "formal_C02_C03": "incomplete",
+  "product_runtime_hardware_acceptance": "incomplete",
+  "product_index_modified": false,
+  "main_session_closed": false
+}

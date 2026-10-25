@@ -1,0 +1,21 @@
+{
+  "argv": [
+    "C:\\Users\\Alan\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+    "-B",
+    "-X",
+    "utf8",
+    "-m",
+    "unittest",
+    "competition.deepeye.tests.ai.planning.test_trajectory_candidates",
+    "competition.deepeye.tests.ai.planning.test_swept_capsule",
+    "-v"
+  ],
+  "cwd": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\deepeye-implementation-c",
+  "sources_before": {
+    "competition/deepeye/ai_pc/planning/trajectory_candidates.py": "25bacda5d0575d770ec485a7355bf0e70240662f4b630bfa721520f4ab36c712",
+    "competition/deepeye/ai_pc/planning/swept_capsule.py": "900b043719e93a854d83aed85ba74ad0e704c11f221a3854a2123cad46fb28cf",
+    "competition/deepeye/tests/ai/planning/test_trajectory_candidates.py": "58e0ce3ced3b48b7add489f743ebc7029f6ee12d7db95c8aa8382dc127ffe955",
+    "competition/deepeye/tests/ai/planning/test_swept_capsule.py": "648f7e3aabf29922996231feb7a415cffab444e939bb3883b1972b9b21c7140d"
+  },
+  "utc_start": "2026-10-25T04:04:39.216127+00:00"
+}

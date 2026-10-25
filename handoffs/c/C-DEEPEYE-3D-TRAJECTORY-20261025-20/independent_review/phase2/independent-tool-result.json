@@ -1,0 +1,7 @@
+{
+  "chunk_id": "ebc11d",
+  "wall_time_seconds": 1.0823473,
+  "exit_code": 0,
+  "original_token_count": 139,
+  "output": "{\r\n  \"control_groups\": 23,\r\n  \"passed\": true,\r\n  \"max_numeric_position_error_m\": 1.0658141036401503E-14,\r\n  \"thin_tail\": {\r\n    \"status\": \"conservative_occupied_overlap\",\r\n    \"blocking_interval\": 0,\r\n    \"independent_endpoint_box_clearance_lower_bounds_m\": [\r\n      5.5661396860255305E-06,\r\n      5.566139685095719E-06\r\n    ],\r\n    \"independent_midpoint_penetration_m\": 1.0000000002369225E-06,\r\n    \"interpretation\": \"not false-clear; AABB may reject before the actual capsule contact; not a collision localization or numerical continuity proof\"\r\n  }\r\n}\r\n"
+}

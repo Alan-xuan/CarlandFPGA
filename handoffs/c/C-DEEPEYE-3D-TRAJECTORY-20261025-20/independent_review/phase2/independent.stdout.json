@@ -1,0 +1,267 @@
+{
+  "work_id": "C-3D-TRAJECTORY-INDEPENDENT-REVIEW-20261025-v1",
+  "phase": 2,
+  "source_pins": {
+    "kinematics.py": "770f8b4e1ff1e626df385bf220f79a8f4be8a9e9cd05c8070cd0d0dc8c01561a",
+    "trajectory_candidates.py": "ede34dfa38f093c7ba0858ca211b824e08268447846a0859b9a69cb4cb7a0c15",
+    "swept_capsule.py": "765b83405a4773c2e4da4806d9d42bd39bc66bda6e78f0a4acf9e3d86eba5b4a"
+  },
+  "phase1_oracle_sha256": "f7c59eff96eaaad2fad3506f9cf9b2777ca31d62c68d1436cd8d757004235ff9",
+  "controls": [
+    {
+      "name": "straight_steady",
+      "passed": true,
+      "detail": {
+        "position_max_error_m": 1.0658141036401503e-14,
+        "quaternion_max_error_mod_sign": 0.0,
+        "forward_max_error": 0.0,
+        "distance_error_m": 3.3306690738754696e-16,
+        "substeps": 200,
+        "distance_m": 0.5000000000000003,
+        "movement_authorized": false
+      }
+    },
+    {
+      "name": "straight_acceleration",
+      "passed": true,
+      "detail": {
+        "position_max_error_m": 1.1102230246251565e-16,
+        "quaternion_max_error_mod_sign": 0.0,
+        "forward_max_error": 0.0,
+        "distance_error_m": 1.1102230246251565e-16,
+        "substeps": 150,
+        "distance_m": 0.2500000000000001,
+        "movement_authorized": false
+      }
+    },
+    {
+      "name": "target_hit_inside_one_10ms_step",
+      "passed": true,
+      "detail": {
+        "position_max_error_m": 0.0,
+        "quaternion_max_error_mod_sign": 0.0,
+        "forward_max_error": 0.0,
+        "distance_error_m": 0.0,
+        "substeps": 1,
+        "distance_m": 0.0024980000000000002,
+        "movement_authorized": false
+      }
+    },
+    {
+      "name": "straight_stop_and_hold",
+      "passed": true,
+      "detail": {
+        "position_max_error_m": 4.163336342344337e-17,
+        "quaternion_max_error_mod_sign": 0.0,
+        "forward_max_error": 0.0,
+        "distance_error_m": 4.163336342344337e-17,
+        "substeps": 150,
+        "distance_m": 0.12499999999999996,
+        "movement_authorized": false
+      }
+    },
+    {
+      "name": "combined_yaw3000_pitch4000",
+      "passed": true,
+      "detail": {
+        "position_max_error_m": 4.163336342344337e-17,
+        "quaternion_max_error_mod_sign": 1.249000902703301e-16,
+        "forward_max_error": 2.498001805406602e-16,
+        "distance_error_m": 3.3306690738754696e-16,
+        "substeps": 200,
+        "distance_m": 0.5000000000000003,
+        "movement_authorized": false
+      }
+    },
+    {
+      "name": "yaw_negative_pitch_positive",
+      "passed": true,
+      "detail": {
+        "position_max_error_m": 4.163336342344337e-17,
+        "quaternion_max_error_mod_sign": 1.249000902703301e-16,
+        "forward_max_error": 2.498001805406602e-16,
+        "distance_error_m": 3.3306690738754696e-16,
+        "substeps": 200,
+        "distance_m": 0.5000000000000003,
+        "movement_authorized": false
+      }
+    },
+    {
+      "name": "yaw_positive_pitch_negative",
+      "passed": true,
+      "detail": {
+        "position_max_error_m": 4.163336342344337e-17,
+        "quaternion_max_error_mod_sign": 1.249000902703301e-16,
+        "forward_max_error": 2.498001805406602e-16,
+        "distance_error_m": 3.3306690738754696e-16,
+        "substeps": 200,
+        "distance_m": 0.5000000000000003,
+        "movement_authorized": false
+      }
+    },
+    {
+      "name": "combined_world_roll90",
+      "passed": true,
+      "detail": {
+        "position_max_error_m": 1.1102230246251565e-16,
+        "quaternion_max_error_mod_sign": 9.71445146547012e-17,
+        "forward_max_error": 1.5265566588595902e-16,
+        "distance_error_m": 3.3306690738754696e-16,
+        "substeps": 200,
+        "distance_m": 0.5000000000000003,
+        "movement_authorized": false
+      }
+    },
+    {
+      "name": "combined_acceleration",
+      "passed": true,
+      "detail": {
+        "position_max_error_m": 5.551115123125783e-17,
+        "quaternion_max_error_mod_sign": 3.469446951953614e-17,
+        "forward_max_error": 1.1102230246251565e-16,
+        "distance_error_m": 1.1102230246251565e-16,
+        "substeps": 150,
+        "distance_m": 0.2500000000000001,
+        "movement_authorized": false
+      }
+    },
+    {
+      "name": "curved_deceleration_to_speed10",
+      "passed": true,
+      "detail": {
+        "position_max_error_m": 1.0148132334464322e-16,
+        "quaternion_max_error_mod_sign": 1.1102230246251565e-16,
+        "forward_max_error": 2.7755575615628914e-17,
+        "distance_error_m": 5.551115123125783e-17,
+        "substeps": 100,
+        "distance_m": 0.15625000000000006,
+        "movement_authorized": false
+      }
+    },
+    {
+      "name": "stress_speed20_yaw30_pitch40",
+      "passed": true,
+      "detail": {
+        "position_max_error_m": 1.012034965379438e-17,
+        "quaternion_max_error_mod_sign": 2.710505431213761e-19,
+        "forward_max_error": 5.421010862427522e-19,
+        "distance_error_m": 3.903127820947816e-18,
+        "substeps": 100,
+        "distance_m": 0.002000000000000004,
+        "movement_authorized": false
+      }
+    },
+    {
+      "name": "two_primitive_non_coplanar",
+      "passed": true,
+      "detail": {
+        "position_error_m": 1.1102230246251565e-16,
+        "quaternion_error": 1.3183898417423734e-16,
+        "phase1_four_point_determinant_m3": 7.428693483576811e-06
+      }
+    },
+    {
+      "name": "positive_nonempty_3D_fixture",
+      "passed": true,
+      "detail": {
+        "status": "clear_for_supplied_fixture",
+        "supports": 21,
+        "movement_authorized": false
+      }
+    },
+    {
+      "name": "initial_overlap",
+      "passed": true,
+      "detail": {
+        "status": "conservative_occupied_overlap",
+        "blocking_interval": 0
+      }
+    },
+    {
+      "name": "side_contact",
+      "passed": true,
+      "detail": {
+        "status": "conservative_occupied_overlap",
+        "blocking_interval": 0
+      }
+    },
+    {
+      "name": "rear_body_contact",
+      "passed": true,
+      "detail": {
+        "status": "conservative_occupied_overlap",
+        "blocking_interval": 0
+      }
+    },
+    {
+      "name": "true_surface_tangency",
+      "passed": true,
+      "detail": {
+        "status": "conservative_occupied_overlap",
+        "blocking_interval": 0
+      }
+    },
+    {
+      "name": "phase1_between_endpoints_thin_tail",
+      "passed": true,
+      "detail": {
+        "status": "conservative_occupied_overlap",
+        "blocking_interval": 0,
+        "independent_endpoint_box_clearance_lower_bounds_m": [
+          5.5661396860255305e-06,
+          5.566139685095719e-06
+        ],
+        "independent_midpoint_penetration_m": 1.0000000002369225e-06,
+        "interpretation": "not false-clear; AABB may reject before the actual capsule contact; not a collision localization or numerical continuity proof"
+      }
+    },
+    {
+      "name": "unknown_coverage_and_priority",
+      "passed": true,
+      "detail": {
+        "empty": "unknown_missing_coverage",
+        "explicit_unknown_with_free": "conservative_unknown_overlap",
+        "union_only": "unknown_missing_coverage"
+      }
+    },
+    {
+      "name": "closed_cube_tangency",
+      "passed": true,
+      "detail": {
+        "status": "conservative_boundary_overlap"
+      }
+    },
+    {
+      "name": "uncertainty_and_occupancy_inflation",
+      "passed": true,
+      "detail": [
+        "clear_for_supplied_fixture",
+        "conservative_occupied_overlap",
+        "conservative_occupied_overlap",
+        "conservative_occupied_overlap"
+      ]
+    },
+    {
+      "name": "explicit_budgets_no_partial_clear",
+      "passed": true,
+      "detail": {
+        "all_status": "budget_exhausted",
+        "all_partial_outputs_empty": true
+      }
+    },
+    {
+      "name": "strict_types_aliases_determinism",
+      "passed": true,
+      "detail": {
+        "invalid_inputs_rejected": 7,
+        "mutable_aliases_detached": true,
+        "repeat_result_identical": true
+      }
+    }
+  ],
+  "passed": true,
+  "product_source_modified": false,
+  "author_suite_repeated": false,
+  "CPU_training_inference_heldout_executed": false,
+  "authority": "software_fixture only; movement_authorized remains false; no gate/runtime/product acceptance"
+}

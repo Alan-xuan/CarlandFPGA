@@ -1,0 +1,81 @@
+{
+  "source_pins": {
+    "competition/deepeye/ai_pc/planning/trajectory_candidates.py": "ede34dfa38f093c7ba0858ca211b824e08268447846a0859b9a69cb4cb7a0c15",
+    "competition/deepeye/ai_pc/planning/swept_capsule.py": "765b83405a4773c2e4da4806d9d42bd39bc66bda6e78f0a4acf9e3d86eba5b4a",
+    "competition/deepeye/ai_pc/planning/TRAJECTORY_CANDIDATE.md": "87daba843f69425a7d8db78fc2ba382586770fb581586003601c79e4cf3294b9"
+  },
+  "raw_author_evidence": [
+    {
+      "name": "tests-01",
+      "exit_code": 0,
+      "argv": [
+        "C:\\Users\\Alan\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "-m",
+        "unittest",
+        "competition.deepeye.tests.ai.planning.test_trajectory_candidates",
+        "competition.deepeye.tests.ai.planning.test_swept_capsule",
+        "-v"
+      ],
+      "stream_hashes": {
+        "stdout": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr": "cc357cd7caf814a7e13e81c21bdc409aa0517caa427866e16076f4b63b074d89"
+      },
+      "source_snapshots": {
+        "competition/deepeye/ai_pc/planning/trajectory_candidates.py": "25bacda5d0575d770ec485a7355bf0e70240662f4b630bfa721520f4ab36c712",
+        "competition/deepeye/ai_pc/planning/swept_capsule.py": "900b043719e93a854d83aed85ba74ad0e704c11f221a3854a2123cad46fb28cf"
+      }
+    },
+    {
+      "name": "tests-final",
+      "exit_code": 0,
+      "argv": [
+        "C:\\Users\\Alan\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "-m",
+        "unittest",
+        "competition.deepeye.tests.ai.planning.test_trajectory_candidates",
+        "competition.deepeye.tests.ai.planning.test_swept_capsule",
+        "-v"
+      ],
+      "stream_hashes": {
+        "stdout": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr": "8dd1bd67e5c6a5f0de6ca14e6d568ef6c6a6ec2a23b5a0489fdea65e52e3e9da"
+      },
+      "source_snapshots": {
+        "competition/deepeye/ai_pc/planning/trajectory_candidates.py": "ede34dfa38f093c7ba0858ca211b824e08268447846a0859b9a69cb4cb7a0c15",
+        "competition/deepeye/ai_pc/planning/swept_capsule.py": "765b83405a4773c2e4da4806d9d42bd39bc66bda6e78f0a4acf9e3d86eba5b4a"
+      }
+    },
+    {
+      "name": "examples",
+      "exit_code": 0,
+      "argv": [
+        "C:\\Users\\Alan\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\main-20261015-01a14025\\trajectory-20261025\\worker\\examples.py"
+      ],
+      "stream_hashes": {
+        "stdout": "396476678abedec759dc652a9c3494ca4ece1a46dafcdc73908d6205f97a81f1",
+        "stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "source_snapshots": {
+        "competition/deepeye/ai_pc/planning/trajectory_candidates.py": "ede34dfa38f093c7ba0858ca211b824e08268447846a0859b9a69cb4cb7a0c15",
+        "competition/deepeye/ai_pc/planning/swept_capsule.py": "765b83405a4773c2e4da4806d9d42bd39bc66bda6e78f0a4acf9e3d86eba5b4a"
+      }
+    }
+  ],
+  "actual_diff_final_primary_text_equal": true,
+  "phase1_files_unchanged": 11,
+  "reviewer_runtime": {
+    "python": "3.12.14",
+    "executable": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\venv\\Scripts\\python.exe"
+  },
+  "author_suite_executed_by_reviewer": false
+}

@@ -1,0 +1,17 @@
+{
+  "work_id": "C-3D-TRAJECTORY-INDEPENDENT-REVIEW-20261025-v1",
+  "canonical_agent_id": "/root/cpu_independent_review",
+  "phase": 1,
+  "phase_status": "completed",
+  "phase1_files_released": true,
+  "released_utc": "2026-10-25T04:02:31.9529307Z",
+  "active_jobs": [],
+  "plan_sha256": "9e7cac7a6b65d0bea54a5149b629c52fd4bc7ae27e490d7bc4fb08aedaae49e7",
+  "manifest_sha256": "4d76db33198036483d68556636ba55cdcebbf28c96d18370b86d3c715943277a",
+  "oracle_sha256": "f7c59eff96eaaad2fad3506f9cf9b2777ca31d62c68d1436cd8d757004235ff9",
+  "phase2_executed": false,
+  "overall_review_complete": false,
+  "next_trigger": "Main exact source freeze/release followup only; no polling or idle runner",
+  "formal_acceptance": "incomplete",
+  "main_session_closed": false
+}

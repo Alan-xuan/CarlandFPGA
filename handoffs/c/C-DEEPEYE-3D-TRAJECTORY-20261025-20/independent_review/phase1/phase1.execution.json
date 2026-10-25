@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\venv\\Scripts\\python.exe",
+    "-I",
+    "-S",
+    "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\main-20261015-01a14025\\trajectory-20261025\\review\\derive_oracles.py",
+    "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c"
+  ],
+  "exit_code": 0,
+  "stdout": "phase1-oracles.json",
+  "stderr": "phase1.stderr.txt",
+  "phase": 1,
+  "author_source_read": false,
+  "utc": "2026-10-25T04:00:40.9901023Z"
+}

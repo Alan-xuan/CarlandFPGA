@@ -1,0 +1,14 @@
+{
+  "argv": [
+    "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\venv\\Scripts\\python.exe",
+    "-I",
+    "-S",
+    "-B",
+    "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\main-20261015-01a14025\\trajectory-20261025\\review\\phase2\\check_independent.py",
+    "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c"
+  ],
+  "exit_code": 0,
+  "stdout": "independent.stdout.json",
+  "stderr": "independent.stderr.txt",
+  "utc": "2026-10-25T04:18:37.6986783Z"
+}

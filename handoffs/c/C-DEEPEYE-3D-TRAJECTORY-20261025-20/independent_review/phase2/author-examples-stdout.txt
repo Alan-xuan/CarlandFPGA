@@ -1,0 +1,209 @@
+{
+  "actual_capsule_collision_proof": false,
+  "base_commit": "5b237220c6ca87bdea0fbba79f8f1b379d5d4304",
+  "candidate_generation": {
+    "count": 9,
+    "input_digest": "7c12c5ae85cc928d95200cc1b7ffe9e3e4e5bad3b154b000fda9728233066421",
+    "status": "completed"
+  },
+  "combined_yaw_pitch": {
+    "codes": [
+      "fast_9600",
+      20,
+      4000,
+      3000,
+      100
+    ],
+    "first_sample": {
+      "command_index": 0,
+      "interval_rotation_rad": 0.0,
+      "interval_travel_m": 0.0,
+      "pose": {
+        "position": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "quaternion_xyzw": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      },
+      "speed_m_s": 0.25,
+      "time_s": 0.0,
+      "travelled_m": 0.0
+    },
+    "input_digest": "4889761dbbe1e58c94acc9c3cf1f644bf609ea380a6e14a9454cf47b88de1bc8",
+    "last_sample": {
+      "command_index": 0,
+      "interval_rotation_rad": 0.0008726646259971648,
+      "interval_travel_m": 0.0025,
+      "pose": {
+        "position": [
+          0.008721109564642381,
+          0.00654083217348179,
+          0.24968281098843725
+        ],
+        "quaternion_xyzw": [
+          -0.026171632419201632,
+          0.034895509892268826,
+          -1.6244466147920237e-19,
+          0.9990482215818578
+        ]
+      },
+      "speed_m_s": 0.25,
+      "time_s": 1.0000000000000007,
+      "travelled_m": 0.25000000000000017
+    },
+    "status": "completed",
+    "substeps": 100
+  },
+  "dependency_sha256": {
+    "competition/deepeye/ai_pc/planning/kinematics.py": "770f8b4e1ff1e626df385bf220f79a8f4be8a9e9cd05c8070cd0d0dc8c01561a",
+    "docs/competition/deepeye-2026/taskbook_final.md": "7f5c94f7fc73698236be954ae7818266d6dfe8b4949d1752dd045d76f4b71f18"
+  },
+  "fixture_outcomes": {
+    "default_unknown": {
+      "blocking_interval": 0,
+      "blocking_region": "missing_full_support_free_coverage",
+      "first_support": {
+        "interval_index": 0,
+        "lower": [
+          -0.12050101000000711,
+          -0.12050101000000711,
+          -0.5205010100000073
+        ],
+        "numeric_margin_m": 1.0100000071054272e-06,
+        "rotation_margin_m": 0.0005,
+        "translation_arc_margin_m": 0.0,
+        "uncertainty_margin_m": 0.0,
+        "upper": [
+          0.12050101000000711,
+          0.12050101000000711,
+          0.5205010100000073
+        ]
+      },
+      "fixture_digest": "f1514f0e2126afee54e1d793cc625261fa0242cc3dfbea0eedf4f9bd5efecc4b",
+      "geometry_checks_used": 1,
+      "input_digest": "ce1a709dd2df290480f1f0ca05d896e25bf76bb3105b126f5fdd1e6dc638b4cb",
+      "last_support": {
+        "interval_index": 0,
+        "lower": [
+          -0.12050101000000711,
+          -0.12050101000000711,
+          -0.5205010100000073
+        ],
+        "numeric_margin_m": 1.0100000071054272e-06,
+        "rotation_margin_m": 0.0005,
+        "translation_arc_margin_m": 0.0,
+        "uncertainty_margin_m": 0.0,
+        "upper": [
+          0.12050101000000711,
+          0.12050101000000711,
+          0.5205010100000073
+        ]
+      },
+      "movement_authorized": false,
+      "status": "unknown_missing_coverage",
+      "substeps_used": 100
+    },
+    "explicit_full_free": {
+      "blocking_interval": null,
+      "blocking_region": null,
+      "first_support": {
+        "interval_index": 0,
+        "lower": [
+          -0.12050101000000711,
+          -0.12050101000000711,
+          -0.5205010100000073
+        ],
+        "numeric_margin_m": 1.0100000071054272e-06,
+        "rotation_margin_m": 0.0005,
+        "translation_arc_margin_m": 0.0,
+        "uncertainty_margin_m": 0.0,
+        "upper": [
+          0.12050101000000711,
+          0.12050101000000711,
+          0.5205010100000073
+        ]
+      },
+      "fixture_digest": "19678b9e1645ff14e272e6852e9f7c626a7c6d692bb15dff1be308efbe05ef23",
+      "geometry_checks_used": 202,
+      "input_digest": "4e8cd9cf47f33ae7fd0e64c84f249d9ee87596d9cecd8da0cd0d4c295979ec5f",
+      "last_support": {
+        "interval_index": 100,
+        "lower": [
+          -0.1420659796102528,
+          -0.1372999872076914,
+          -0.2743179311100345
+        ],
+        "numeric_margin_m": 2.0100000071054276e-06,
+        "rotation_margin_m": 0.0005,
+        "translation_arc_margin_m": 0.0025,
+        "uncertainty_margin_m": 0.0,
+        "upper": [
+          0.159334756619985,
+          0.15025156996499056,
+          0.7711929715856211
+        ]
+      },
+      "movement_authorized": false,
+      "status": "clear_for_supplied_fixture",
+      "substeps_used": 100
+    },
+    "tail_occupied": {
+      "blocking_interval": 0,
+      "blocking_region": "tail",
+      "first_support": {
+        "interval_index": 0,
+        "lower": [
+          -0.12050101000000711,
+          -0.12050101000000711,
+          -0.5205010100000073
+        ],
+        "numeric_margin_m": 1.0100000071054272e-06,
+        "rotation_margin_m": 0.0005,
+        "translation_arc_margin_m": 0.0,
+        "uncertainty_margin_m": 0.0,
+        "upper": [
+          0.12050101000000711,
+          0.12050101000000711,
+          0.5205010100000073
+        ]
+      },
+      "fixture_digest": "8d22fe42e6817517d729fa079d136dfe5df972a47c6a9487b80bc915a9e4a0fb",
+      "geometry_checks_used": 2,
+      "input_digest": "5b378efc1435b1a9fbfc1c89a823aaa27f7f7992653b8c10dd71c8a8347c02b8",
+      "last_support": {
+        "interval_index": 0,
+        "lower": [
+          -0.12050101000000711,
+          -0.12050101000000711,
+          -0.5205010100000073
+        ],
+        "numeric_margin_m": 1.0100000071054272e-06,
+        "rotation_margin_m": 0.0005,
+        "translation_arc_margin_m": 0.0,
+        "uncertainty_margin_m": 0.0,
+        "upper": [
+          0.12050101000000711,
+          0.12050101000000711,
+          0.5205010100000073
+        ]
+      },
+      "movement_authorized": false,
+      "status": "conservative_occupied_overlap",
+      "substeps_used": 100
+    }
+  },
+  "formal_acceptance": "incomplete",
+  "movement_authorized": false,
+  "python": "3.13.5",
+  "requirements_sha256": "c229834bfc2292f5fe4411fc9f12c68487008f9d1adaf31f0144ee7a98173804",
+  "source_domain": "software_fixture",
+  "task_id": "DEEPEYE-IMPLEMENTATION-20261014",
+  "task_version": 1,
+  "work_id": "C-3D-TRAJECTORY-KERNEL-20261025-v1"
+}

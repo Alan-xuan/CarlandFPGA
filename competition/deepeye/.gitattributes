@@ -1,0 +1,5 @@
+ai_pc/planning/trajectory_candidates.py -text whitespace=cr-at-eol
+ai_pc/planning/swept_capsule.py -text whitespace=cr-at-eol
+ai_pc/planning/TRAJECTORY_CANDIDATE.md -text whitespace=cr-at-eol
+tests/ai/planning/test_trajectory_candidates.py -text whitespace=cr-at-eol
+tests/ai/planning/test_swept_capsule.py -text whitespace=cr-at-eol

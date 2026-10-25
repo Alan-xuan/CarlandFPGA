@@ -1,0 +1,191 @@
+{
+  "task_id": "DEEPEYE-IMPLEMENTATION-20261014",
+  "task_version": 1,
+  "work_id": "C-3D-TRAJECTORY-INDEPENDENT-REVIEW-20261025-v1",
+  "phase": 2,
+  "canonical_agent_id": "/root/cpu_independent_review",
+  "main_thread": "01a14025-4dfd-7ec3-aebb-57be48daba59",
+  "base_commit": "5b237220c6ca87bdea0fbba79f8f1b379d5d4304",
+  "frozen_design": "1011259415a0916054eb580687612580bc1e5f09",
+  "contract_id": "DEEPEYE-HUMAN-LOCK-20261014/revision1",
+  "contract_source": "f5989cd5defce561f9ba98e6b18fc2682945f0a2",
+  "requirements_sha256": "c229834bfc2292f5fe4411fc9f12c68487008f9d1adaf31f0144ee7a98173804",
+  "H01_H15": "preserved",
+  "recorded_utc": "2026-10-25T04:22:15.6556868Z",
+  "files": [
+    {
+      "path": "assignment.json",
+      "bytes": 2153,
+      "sha256": "dfc982e2a3308e293a85deed6e688bea3ab1fed497af5acb3609d40cb5ef7c18"
+    },
+    {
+      "path": "audit_evidence.py",
+      "bytes": 2999,
+      "sha256": "cc87028f0d0949ca01b73fddf99df6cfba3317ed2169d31f8a4a765d77f1448f"
+    },
+    {
+      "path": "author-delivery-manifest.json",
+      "bytes": 8810,
+      "sha256": "f1f128b867acb623f2aea49cab00e9c453312e93cb5e8ac786f46e7a01e43ad1"
+    },
+    {
+      "path": "author-examples-command.json",
+      "bytes": 1016,
+      "sha256": "d1ac76927e65b26c034ad900edb482920b4bba0d19c03806461b1deb2bb07955"
+    },
+    {
+      "path": "author-examples-result.json",
+      "bytes": 250,
+      "sha256": "23eb870b114358b0aa842be5505d4c3973bb1ae1da2a47ce19329c518e5b2a91"
+    },
+    {
+      "path": "author-examples-stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "author-examples-stdout.txt",
+      "bytes": 6469,
+      "sha256": "396476678abedec759dc652a9c3494ca4ece1a46dafcdc73908d6205f97a81f1"
+    },
+    {
+      "path": "author-raw-read-tool-result.json",
+      "bytes": 6382,
+      "sha256": "8d04ff259178c0d643f2960865afb2a10d7d3ea70cffbfae39f673fb03eec9e2"
+    },
+    {
+      "path": "author-source-review.diff",
+      "bytes": 56283,
+      "sha256": "375f7e92204fa7abb802b01d2a6ac20e937eb135a61e6c8f8f3af122724965fa"
+    },
+    {
+      "path": "author-tests-01-command.json",
+      "bytes": 1049,
+      "sha256": "da6381b03e58c04b1501201727a2c7187f66c032a68054edad1a33e99dd85db2"
+    },
+    {
+      "path": "author-tests-01-result.json",
+      "bytes": 250,
+      "sha256": "d2300c680a1fc06bc76dc6f89588ad26051411024b40b1242138cf193aa11e8e"
+    },
+    {
+      "path": "author-tests-01-stderr.txt",
+      "bytes": 5075,
+      "sha256": "cc357cd7caf814a7e13e81c21bdc409aa0517caa427866e16076f4b63b074d89"
+    },
+    {
+      "path": "author-tests-01-stdout.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "author-tests-final-command.json",
+      "bytes": 1049,
+      "sha256": "7d1609953b39c6d4ae19c904f5cfe4867682f36cdbfaeb55a994ef37a747ab21"
+    },
+    {
+      "path": "author-tests-final-result.json",
+      "bytes": 250,
+      "sha256": "401272e12cac9525ca91b92c7282fc1a8aa1348df09c78a7e5c9070a6ca3e182"
+    },
+    {
+      "path": "author-tests-final-stderr.txt",
+      "bytes": 5075,
+      "sha256": "8dd1bd67e5c6a5f0de6ca14e6d568ef6c6a6ec2a23b5a0489fdea65e52e3e9da"
+    },
+    {
+      "path": "author-tests-final-stdout.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "check_independent.py",
+      "bytes": 11168,
+      "sha256": "7b9b18ac0a46a8ac6f46cb24048201b02d123a1cd6000219a9afaf4dc2254f5d"
+    },
+    {
+      "path": "evidence-audit-tool-result.json",
+      "bytes": 505,
+      "sha256": "1f8869dec203f5c33d541d9ad82249d7c2d1858d003a92bf9730d71ace858039"
+    },
+    {
+      "path": "evidence.execution.json",
+      "bytes": 481,
+      "sha256": "06aa902c8786efe041ae37f6b658b3f160ab171267adf97093cd377cfaa10663"
+    },
+    {
+      "path": "evidence.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "evidence.stdout.json",
+      "bytes": 3534,
+      "sha256": "5b0628fd702f7ceb4049c693b1a0fb032cd7510353bc669dbde3b51d765e4a1c"
+    },
+    {
+      "path": "independent-tool-result.json",
+      "bytes": 734,
+      "sha256": "afc54b561379235de52844602b96b395f2da0a3e14828acf2b5096b5a52718b8"
+    },
+    {
+      "path": "independent.execution.json",
+      "bytes": 532,
+      "sha256": "17dc5749e5894ea257744de6aa944d2d7fe72875e699480279cd75dbc48a4717"
+    },
+    {
+      "path": "independent.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "independent.stdout.json",
+      "bytes": 8462,
+      "sha256": "c57b0e11a914eb52ee2077e08faa0c093d445c7ecd59cb46ba464e4253ada372"
+    },
+    {
+      "path": "report.md",
+      "bytes": 4082,
+      "sha256": "4e7e2afd4c732e6e4a85f1b735139163d9239f1505358fa519564aa4919a7c23"
+    },
+    {
+      "path": "reviewcopy-swept_capsule.py",
+      "bytes": 9536,
+      "sha256": "765b83405a4773c2e4da4806d9d42bd39bc66bda6e78f0a4acf9e3d86eba5b4a"
+    },
+    {
+      "path": "reviewcopy-TRAJECTORY_CANDIDATE.md",
+      "bytes": 10631,
+      "sha256": "87daba843f69425a7d8db78fc2ba382586770fb581586003601c79e4cf3294b9"
+    },
+    {
+      "path": "reviewcopy-trajectory_candidates.py",
+      "bytes": 13443,
+      "sha256": "ede34dfa38f093c7ba0858ca211b824e08268447846a0859b9a69cb4cb7a0c15"
+    },
+    {
+      "path": "source-evidence-inventory-tool-result.json",
+      "bytes": 13433,
+      "sha256": "15887af6bbd11568b18f811f28621ef6af3fdd13dd6b586961f6f46b15364a91"
+    },
+    {
+      "path": "source-sweep-document-read-tool-result.json",
+      "bytes": 22521,
+      "sha256": "4cbe469c0ea7fe1b6b1026d2d5d7bf14c0a63e55a9d2796a096629bb724d8fc9"
+    },
+    {
+      "path": "source-trajectory-read-tool-result.json",
+      "bytes": 16402,
+      "sha256": "0ec52e93c9188d31ba462cb66302a0a78f4b5757b4da155ca4ec35e33062e791"
+    }
+  ],
+  "independent_control_groups": 23,
+  "independent_exit_code": 0,
+  "evidence_audit_exit_code": 0,
+  "author_suites_repeated": false,
+  "phase1_original_files_unchanged": 11,
+  "files_exclude": [
+    "manifest.json",
+    "release.json"
+  ]
+}

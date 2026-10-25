@@ -1,0 +1,30 @@
+test_acceleration_curved_arc_uses_integrated_length (competition.deepeye.tests.ai.planning.test_trajectory_candidates.TrajectoryTests.test_acceleration_curved_arc_uses_integrated_length) ... ok
+test_acceleration_distance_includes_target_hit_inside_step (competition.deepeye.tests.ai.planning.test_trajectory_candidates.TrajectoryTests.test_acceleration_distance_includes_target_hit_inside_step) ... ok
+test_bad_numeric_codes_shapes_and_unbounded_inputs_rejected (competition.deepeye.tests.ai.planning.test_trajectory_candidates.TrajectoryTests.test_bad_numeric_codes_shapes_and_unbounded_inputs_rejected) ... ok
+test_budget_exhaustion_never_returns_partial_rollouts (competition.deepeye.tests.ai.planning.test_trajectory_candidates.TrajectoryTests.test_budget_exhaustion_never_returns_partial_rollouts) ... ok
+test_deterministic_sorted_generation_and_explicit_rejections (competition.deepeye.tests.ai.planning.test_trajectory_candidates.TrajectoryTests.test_deterministic_sorted_generation_and_explicit_rejections) ... ok
+test_distinct_body_primitive_sequence_is_non_coplanar (competition.deepeye.tests.ai.planning.test_trajectory_candidates.TrajectoryTests.test_distinct_body_primitive_sequence_is_non_coplanar) ... ok
+test_immutable_aliases_and_quaternion_sign_canonical_digest (competition.deepeye.tests.ai.planning.test_trajectory_candidates.TrajectoryTests.test_immutable_aliases_and_quaternion_sign_canonical_digest) ... ok
+test_nominal100hz_rotation_substeps_and_acceleration_bounds (competition.deepeye.tests.ai.planning.test_trajectory_candidates.TrajectoryTests.test_nominal100hz_rotation_substeps_and_acceleration_bounds) ... ok
+test_real_nonempty_combined_3d_candidate_fan (competition.deepeye.tests.ai.planning.test_trajectory_candidates.TrajectoryTests.test_real_nonempty_combined_3d_candidate_fan) ... ok
+test_straight_and_combined_curvature_independent_analytic (competition.deepeye.tests.ai.planning.test_trajectory_candidates.TrajectoryTests.test_straight_and_combined_curvature_independent_analytic) ... ok
+test_stress_speed_and_cumulative_single_profile_horizon (competition.deepeye.tests.ai.planning.test_trajectory_candidates.TrajectoryTests.test_stress_speed_and_cumulative_single_profile_horizon) ... ok
+test_yaw_pitch_signs_and_body_right_global_rotation (competition.deepeye.tests.ai.planning.test_trajectory_candidates.TrajectoryTests.test_yaw_pitch_signs_and_body_right_global_rotation) ... ok
+test_zero_and_braking_never_pivot_or_reverse (competition.deepeye.tests.ai.planning.test_trajectory_candidates.TrajectoryTests.test_zero_and_braking_never_pivot_or_reverse) ... ok
+test_all_uncertainty_and_map_inputs_finite_bounded_explicit (competition.deepeye.tests.ai.planning.test_swept_capsule.SweepTests.test_all_uncertainty_and_map_inputs_finite_bounded_explicit) ... ok
+test_budgets_are_deterministic_and_never_partial_clear (competition.deepeye.tests.ai.planning.test_swept_capsule.SweepTests.test_budgets_are_deterministic_and_never_partial_clear) ... ok
+test_closed_cube_and_real_tangency_have_no_gate_exemption (competition.deepeye.tests.ai.planning.test_swept_capsule.SweepTests.test_closed_cube_and_real_tangency_have_no_gate_exemption) ... ok
+test_continuous_support_encloses_independent_interior_capsule_points (competition.deepeye.tests.ai.planning.test_swept_capsule.SweepTests.test_continuous_support_encloses_independent_interior_capsule_points) ... ok
+test_explicit_unknown_and_occupied_override_covering_free (competition.deepeye.tests.ai.planning.test_swept_capsule.SweepTests.test_explicit_unknown_and_occupied_override_covering_free) ... ok
+test_initial_angular_uncertainty_includes_travel_displacement (competition.deepeye.tests.ai.planning.test_swept_capsule.SweepTests.test_initial_angular_uncertainty_includes_travel_displacement) ... ok
+test_initial_side_and_tail_contact_detected_separately (competition.deepeye.tests.ai.planning.test_swept_capsule.SweepTests.test_initial_side_and_tail_contact_detected_separately) ... ok
+test_map_pose_and_output_aliases_are_immutable_and_digests_stable (competition.deepeye.tests.ai.planning.test_swept_capsule.SweepTests.test_map_pose_and_output_aliases_are_immutable_and_digests_stable) ... ok
+test_missing_partial_and_union_only_free_coverage_are_unknown (competition.deepeye.tests.ai.planning.test_swept_capsule.SweepTests.test_missing_partial_and_union_only_free_coverage_are_unknown) ... ok
+test_nonempty3d_clear_requires_full_free_support (competition.deepeye.tests.ai.planning.test_swept_capsule.SweepTests.test_nonempty3d_clear_requires_full_free_support) ... ok
+test_thin_layer_between_rollout_endpoints_rejected (competition.deepeye.tests.ai.planning.test_swept_capsule.SweepTests.test_thin_layer_between_rollout_endpoints_rejected) ... ok
+test_whole_support_uncertainty_and_occupancy_inflation_monotonic (competition.deepeye.tests.ai.planning.test_swept_capsule.SweepTests.test_whole_support_uncertainty_and_occupancy_inflation_monotonic) ... ok
+
+----------------------------------------------------------------------
+Ran 25 tests in 0.142s
+
+OK
