@@ -1,0 +1,222 @@
+{
+  "request": {
+    "operation_id": "C-DEEPEYE-CPU-STREAM-CORE-20261025-21",
+    "task_id": "DEEPEYE-IMPLEMENTATION-20261014",
+    "task_version": 1,
+    "requester": "node-c",
+    "code_commit": "80238476e72d217c48723276ab28d0c033084901",
+    "test_steps": [
+      "Verify immutable identity with python docs/competition/deepeye-2026/verify_immutable_scope.py --expected-sha c229834bfc2292f5fe4411fc9f12c68487008f9d1adaf31f0144ee7a98173804. Identity only, never product acceptance.",
+      "Verify exact source/dependency/raw evidence using python skills/pynq-z2-single-node/scripts/handoff.py verify --root . --manifest handoffs/c/C-DEEPEYE-CPU-STREAM-CORE-20261025-21/manifest.json.",
+      "Read competition/deepeye/ai_pc/cpu_package/STREAM_CORE.md and this handoff README for the synchronous stream API, bounded transaction/session lifecycle and exact non-authority boundary.",
+      "Only new targeted constructor controls: python -B -X utf8 competition/deepeye/tests/ai/cpu/test_stream_init_bounds.py -v. Keep existing compatible CPU Torch; do not rerun training/heldout/old batch benchmark.",
+      "Portable main probe: python -B -X utf8 handoffs/c/C-DEEPEYE-CPU-STREAM-CORE-20261025-21/main_review/main_probe.py --root <checkout> --oracle <checkout>/handoffs/c/C-DEEPEYE-CPU-STREAM-CORE-20261025-21/main_review/selected-prefix-oracle.json --expected-stream-sha256 0a8c07f34080784f36180951b28873b43de5e3f80ad201325254b274bd01217b --output <new file in an existing directory>. It compares3savedprefixes and performs5realforwards, not the old128baseline."
+    ],
+    "expected_result": "One fixed real FORCE model/scaler per CPU core, exactly one bounded raw13field observation per call, immutable finite12class/tensor/rawprefix/originalsequence/binding result with atomic trial-state commit and explicit monotonically checked local lifecycle/token identity. Invalid later records, f32 overflow, inference/serialization limits and stale tokens cannot overwrite accepted prefix results. All new constructor preflight reads finitely capped2MiB. No file suffix pre-read, fake model/source/clock/BOOT/observed_seq/action/verifier/IPC or movement authority. Exact original C19/C20 tracked files remain unchanged. Genuine independent R1 RED and final repair evidence preserved. Original FORCE quality FAIL, sim_em/map/global3Dplanner/qualified history-clock/runtime, both complete control paths and all unmet29/H01-H15 formal gates remain incomplete. Frozen design1011259415a0916054eb580687612580bc1e5f09; DEEPEYE-HUMAN-LOCK-20261014/revision1/sourcef5989cd5defce561f9ba98e6b18fc2682945f0a2/requirementsSHA256c229834bfc2292f5fe4411fc9f12c68487008f9d1adaf31f0144ee7a98173804. A alone operates physical board."
+  },
+  "artifacts": [
+    "competition/deepeye/ai_pc/cpu_model/force_v1/graph.json",
+    "competition/deepeye/ai_pc/cpu_model/force_v1/model_manifest.json",
+    "competition/deepeye/ai_pc/cpu_model/force_v1/weights.json",
+    "competition/deepeye/ai_pc/cpu_package/STREAM_CORE.md",
+    "competition/deepeye/ai_pc/cpu_package/runner.py",
+    "competition/deepeye/ai_pc/cpu_package/stream_core.py",
+    "competition/deepeye/ai_pc/model/curve_input.py",
+    "competition/deepeye/ai_pc/model/force_cnn.py",
+    "competition/deepeye/data/label_schema.json",
+    "competition/deepeye/data/preprocessing.json",
+    "competition/deepeye/evidence/ai/cpu_stream_20261025/.gitattributes",
+    "competition/deepeye/evidence/ai/cpu_stream_20261025/author/.gitattributes",
+    "competition/deepeye/evidence/ai/cpu_stream_20261025/author/README.md",
+    "competition/deepeye/evidence/ai/cpu_stream_20261025/author/capture.py",
+    "competition/deepeye/evidence/ai/cpu_stream_20261025/author/delivery-manifest.json",
+    "competition/deepeye/evidence/ai/cpu_stream_20261025/author/end-boundary-final/command.json",
+    "competition/deepeye/evidence/ai/cpu_stream_20261025/author/end-boundary-final/result.json",
+    "competition/deepeye/evidence/ai/cpu_stream_20261025/author/end-boundary-final/source-before/competition/deepeye/ai_pc/cpu_package/stream_core.py",
+    "competition/deepeye/evidence/ai/cpu_stream_20261025/author/end-boundary-final/source-before/competition/deepeye/tests/ai/cpu/test_stream_core.py",
+    "competition/deepeye/evidence/ai/cpu_stream_20261025/author/end-boundary-final/stderr.txt",
+    "competition/deepeye/evidence/ai/cpu_stream_20261025/author/end-boundary-final/stdout.txt",
+    "competition/deepeye/evidence/ai/cpu_stream_20261025/author/end-error-normalization.diff",
+    "competition/deepeye/evidence/ai/cpu_stream_20261025/author/provenance.json",
+    "competition/deepeye/evidence/ai/cpu_stream_20261025/author/report.json",
+    "competition/deepeye/evidence/ai/cpu_stream_20261025/author/source-review.diff",
+    "competition/deepeye/evidence/ai/cpu_stream_20261025/author/tests-01/command.json",
+    "competition/deepeye/evidence/ai/cpu_stream_20261025/author/tests-01/result.json",
+    "competition/deepeye/evidence/ai/cpu_stream_20261025/author/tests-01/source-before/competition/deepeye/ai_pc/cpu_package/stream_core.py",
+    "competition/deepeye/evidence/ai/cpu_stream_20261025/author/tests-01/source-before/competition/deepeye/tests/ai/cpu/test_stream_core.py",
+    "competition/deepeye/evidence/ai/cpu_stream_20261025/author/tests-01/stderr.txt",
+    "competition/deepeye/evidence/ai/cpu_stream_20261025/author/tests-01/stdout.txt",
+    "competition/deepeye/evidence/ai/cpu_stream_20261025/bounded-init-fix/.gitattributes",
+    "competition/deepeye/evidence/ai/cpu_stream_20261025/bounded-init-fix/README.md",
+    "competition/deepeye/evidence/ai/cpu_stream_20261025/bounded-init-fix/capture.py",
+    "competition/deepeye/evidence/ai/cpu_stream_20261025/bounded-init-fix/controls-01/command.json",
+    "competition/deepeye/evidence/ai/cpu_stream_20261025/bounded-init-fix/controls-01/result.json",
+    "competition/deepeye/evidence/ai/cpu_stream_20261025/bounded-init-fix/controls-01/source-before/competition/deepeye/ai_pc/cpu_package/STREAM_CORE.md",
+    "competition/deepeye/evidence/ai/cpu_stream_20261025/bounded-init-fix/controls-01/source-before/competition/deepeye/ai_pc/cpu_package/stream_core.py",
+    "competition/deepeye/evidence/ai/cpu_stream_20261025/bounded-init-fix/controls-01/source-before/competition/deepeye/tests/ai/cpu/test_stream_core.py",
+    "competition/deepeye/evidence/ai/cpu_stream_20261025/bounded-init-fix/controls-01/source-before/competition/deepeye/tests/ai/cpu/test_stream_init_bounds.py",
+    "competition/deepeye/evidence/ai/cpu_stream_20261025/bounded-init-fix/controls-01/stderr.txt",
+    "competition/deepeye/evidence/ai/cpu_stream_20261025/bounded-init-fix/controls-01/stdout.txt",
+    "competition/deepeye/evidence/ai/cpu_stream_20261025/bounded-init-fix/delivery-manifest.json",
+    "competition/deepeye/evidence/ai/cpu_stream_20261025/bounded-init-fix/documentation-revision.diff",
+    "competition/deepeye/evidence/ai/cpu_stream_20261025/bounded-init-fix/historical-author-readback.json",
+    "competition/deepeye/evidence/ai/cpu_stream_20261025/bounded-init-fix/historical-independent-R1/copy-provenance.json",
+    "competition/deepeye/evidence/ai/cpu_stream_20261025/bounded-init-fix/historical-independent-R1/init-bound-red-exit.json",
+    "competition/deepeye/evidence/ai/cpu_stream_20261025/bounded-init-fix/historical-independent-R1/init-bound-red.stderr.txt",
+    "competition/deepeye/evidence/ai/cpu_stream_20261025/bounded-init-fix/historical-independent-R1/init-bound-red.stdout.txt",
+    "competition/deepeye/evidence/ai/cpu_stream_20261025/bounded-init-fix/historical-independent-R1/report.md",
+    "competition/deepeye/evidence/ai/cpu_stream_20261025/bounded-init-fix/historical-independent-R1/repro_init_bound.py",
+    "competition/deepeye/evidence/ai/cpu_stream_20261025/bounded-init-fix/minimal-source-repair.diff",
+    "competition/deepeye/evidence/ai/cpu_stream_20261025/bounded-init-fix/new-constructor-test.diff",
+    "competition/deepeye/evidence/ai/cpu_stream_20261025/bounded-init-fix/report.json",
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/heldout_metrics.json",
+    "competition/deepeye/tests/ai/cpu/test_stream_core.py",
+    "competition/deepeye/tests/ai/cpu/test_stream_init_bounds.py",
+    "docs/competition/deepeye-2026/immutable_scope.json",
+    "docs/competition/deepeye-2026/immutable_scope.md",
+    "docs/competition/deepeye-2026/taskbook_final.md",
+    "handoffs/c/C-DEEPEYE-CPU-STREAM-CORE-20261025-21/.gitattributes",
+    "handoffs/c/C-DEEPEYE-CPU-STREAM-CORE-20261025-21/immutable-scope-result.json",
+    "handoffs/c/C-DEEPEYE-CPU-STREAM-CORE-20261025-21/independent_review/phase1/A-source-comment.json",
+    "handoffs/c/C-DEEPEYE-CPU-STREAM-CORE-20261025-21/independent_review/phase1/derive-exit.json",
+    "handoffs/c/C-DEEPEYE-CPU-STREAM-CORE-20261025-21/independent_review/phase1/derive.stderr.txt",
+    "handoffs/c/C-DEEPEYE-CPU-STREAM-CORE-20261025-21/independent_review/phase1/derive.stdout.txt",
+    "handoffs/c/C-DEEPEYE-CPU-STREAM-CORE-20261025-21/independent_review/phase1/derive_controls.py",
+    "handoffs/c/C-DEEPEYE-CPU-STREAM-CORE-20261025-21/independent_review/phase1/inspection-tool-results.json",
+    "handoffs/c/C-DEEPEYE-CPU-STREAM-CORE-20261025-21/independent_review/phase1/phase1-assignment.json",
+    "handoffs/c/C-DEEPEYE-CPU-STREAM-CORE-20261025-21/independent_review/phase1/phase1-manifest.json",
+    "handoffs/c/C-DEEPEYE-CPU-STREAM-CORE-20261025-21/independent_review/phase1/phase1-oracles.json",
+    "handoffs/c/C-DEEPEYE-CPU-STREAM-CORE-20261025-21/independent_review/phase1/phase1-plan.md",
+    "handoffs/c/C-DEEPEYE-CPU-STREAM-CORE-20261025-21/independent_review/phase1/phase1-release.json",
+    "handoffs/c/C-DEEPEYE-CPU-STREAM-CORE-20261025-21/independent_review/phase1/source-pins.json",
+    "handoffs/c/C-DEEPEYE-CPU-STREAM-CORE-20261025-21/independent_review/phase2/assignment.json",
+    "handoffs/c/C-DEEPEYE-CPU-STREAM-CORE-20261025-21/independent_review/phase2/frozen-STREAM_CORE.md",
+    "handoffs/c/C-DEEPEYE-CPU-STREAM-CORE-20261025-21/independent_review/phase2/frozen-stream_core.py",
+    "handoffs/c/C-DEEPEYE-CPU-STREAM-CORE-20261025-21/independent_review/phase2/head.stderr.txt",
+    "handoffs/c/C-DEEPEYE-CPU-STREAM-CORE-20261025-21/independent_review/phase2/head.stdout.txt",
+    "handoffs/c/C-DEEPEYE-CPU-STREAM-CORE-20261025-21/independent_review/phase2/init-bound-red-exit.json",
+    "handoffs/c/C-DEEPEYE-CPU-STREAM-CORE-20261025-21/independent_review/phase2/init-bound-red.stderr.txt",
+    "handoffs/c/C-DEEPEYE-CPU-STREAM-CORE-20261025-21/independent_review/phase2/init-bound-red.stdout.txt",
+    "handoffs/c/C-DEEPEYE-CPU-STREAM-CORE-20261025-21/independent_review/phase2/inspect-exit.json",
+    "handoffs/c/C-DEEPEYE-CPU-STREAM-CORE-20261025-21/independent_review/phase2/inspect.stderr.txt",
+    "handoffs/c/C-DEEPEYE-CPU-STREAM-CORE-20261025-21/independent_review/phase2/inspect.stdout.txt",
+    "handoffs/c/C-DEEPEYE-CPU-STREAM-CORE-20261025-21/independent_review/phase2/inspect_source.py",
+    "handoffs/c/C-DEEPEYE-CPU-STREAM-CORE-20261025-21/independent_review/phase2/inspection-tool-results.json",
+    "handoffs/c/C-DEEPEYE-CPU-STREAM-CORE-20261025-21/independent_review/phase2/manifest.json",
+    "handoffs/c/C-DEEPEYE-CPU-STREAM-CORE-20261025-21/independent_review/phase2/new-source-diff.stderr.txt",
+    "handoffs/c/C-DEEPEYE-CPU-STREAM-CORE-20261025-21/independent_review/phase2/new-source-diff.stdout.txt",
+    "handoffs/c/C-DEEPEYE-CPU-STREAM-CORE-20261025-21/independent_review/phase2/release.json",
+    "handoffs/c/C-DEEPEYE-CPU-STREAM-CORE-20261025-21/independent_review/phase2/report.md",
+    "handoffs/c/C-DEEPEYE-CPU-STREAM-CORE-20261025-21/independent_review/phase2/repro_init_bound.py",
+    "handoffs/c/C-DEEPEYE-CPU-STREAM-CORE-20261025-21/independent_review/phase2/source-inspection.json",
+    "handoffs/c/C-DEEPEYE-CPU-STREAM-CORE-20261025-21/independent_review/phase2/tracked-diff.stderr.txt",
+    "handoffs/c/C-DEEPEYE-CPU-STREAM-CORE-20261025-21/independent_review/phase2/tracked-diff.stdout.txt",
+    "handoffs/c/C-DEEPEYE-CPU-STREAM-CORE-20261025-21/independent_review/phase3/assignment.json",
+    "handoffs/c/C-DEEPEYE-CPU-STREAM-CORE-20261025-21/independent_review/phase3/control-facts.json",
+    "handoffs/c/C-DEEPEYE-CPU-STREAM-CORE-20261025-21/independent_review/phase3/controls-01-exit.json",
+    "handoffs/c/C-DEEPEYE-CPU-STREAM-CORE-20261025-21/independent_review/phase3/controls-01.stderr.txt",
+    "handoffs/c/C-DEEPEYE-CPU-STREAM-CORE-20261025-21/independent_review/phase3/controls-01.stdout.txt",
+    "handoffs/c/C-DEEPEYE-CPU-STREAM-CORE-20261025-21/independent_review/phase3/frozen-STREAM_CORE.md",
+    "handoffs/c/C-DEEPEYE-CPU-STREAM-CORE-20261025-21/independent_review/phase3/frozen-stream_core.py",
+    "handoffs/c/C-DEEPEYE-CPU-STREAM-CORE-20261025-21/independent_review/phase3/head.stderr.txt",
+    "handoffs/c/C-DEEPEYE-CPU-STREAM-CORE-20261025-21/independent_review/phase3/head.stdout.txt",
+    "handoffs/c/C-DEEPEYE-CPU-STREAM-CORE-20261025-21/independent_review/phase3/independent-minimal-delta.diff",
+    "handoffs/c/C-DEEPEYE-CPU-STREAM-CORE-20261025-21/independent_review/phase3/independent_controls.py",
+    "handoffs/c/C-DEEPEYE-CPU-STREAM-CORE-20261025-21/independent_review/phase3/inspect-exit.json",
+    "handoffs/c/C-DEEPEYE-CPU-STREAM-CORE-20261025-21/independent_review/phase3/inspect.stderr.txt",
+    "handoffs/c/C-DEEPEYE-CPU-STREAM-CORE-20261025-21/independent_review/phase3/inspect.stdout.txt",
+    "handoffs/c/C-DEEPEYE-CPU-STREAM-CORE-20261025-21/independent_review/phase3/inspect_source.py",
+    "handoffs/c/C-DEEPEYE-CPU-STREAM-CORE-20261025-21/independent_review/phase3/inspection-tool-results.json",
+    "handoffs/c/C-DEEPEYE-CPU-STREAM-CORE-20261025-21/independent_review/phase3/manifest.json",
+    "handoffs/c/C-DEEPEYE-CPU-STREAM-CORE-20261025-21/independent_review/phase3/release.json",
+    "handoffs/c/C-DEEPEYE-CPU-STREAM-CORE-20261025-21/independent_review/phase3/report.md",
+    "handoffs/c/C-DEEPEYE-CPU-STREAM-CORE-20261025-21/independent_review/phase3/source-inspection.json",
+    "handoffs/c/C-DEEPEYE-CPU-STREAM-CORE-20261025-21/independent_review/phase3/tracked-diff.stderr.txt",
+    "handoffs/c/C-DEEPEYE-CPU-STREAM-CORE-20261025-21/independent_review/phase3/tracked-diff.stdout.txt",
+    "handoffs/c/C-DEEPEYE-CPU-STREAM-CORE-20261025-21/main_review/main-controls-frozen.json",
+    "handoffs/c/C-DEEPEYE-CPU-STREAM-CORE-20261025-21/main_review/main-probe-command.json",
+    "handoffs/c/C-DEEPEYE-CPU-STREAM-CORE-20261025-21/main_review/main-probe-exit.json",
+    "handoffs/c/C-DEEPEYE-CPU-STREAM-CORE-20261025-21/main_review/main-probe-result.json",
+    "handoffs/c/C-DEEPEYE-CPU-STREAM-CORE-20261025-21/main_review/main-probe-stderr.txt",
+    "handoffs/c/C-DEEPEYE-CPU-STREAM-CORE-20261025-21/main_review/main-probe-stdout.txt",
+    "handoffs/c/C-DEEPEYE-CPU-STREAM-CORE-20261025-21/main_review/main-scope-identity.json",
+    "handoffs/c/C-DEEPEYE-CPU-STREAM-CORE-20261025-21/main_review/main_probe.py",
+    "handoffs/c/C-DEEPEYE-CPU-STREAM-CORE-20261025-21/main_review/selected-prefix-oracle.json",
+    "handoffs/c/C-DEEPEYE-CPU-STREAM-CORE-20261025-21/prior_freeze/STREAM_CORE.md",
+    "handoffs/c/C-DEEPEYE-CPU-STREAM-CORE-20261025-21/prior_freeze/author-manifest.json",
+    "handoffs/c/C-DEEPEYE-CPU-STREAM-CORE-20261025-21/prior_freeze/author-release.json",
+    "handoffs/c/C-DEEPEYE-CPU-STREAM-CORE-20261025-21/prior_freeze/snapshot.json",
+    "handoffs/c/C-DEEPEYE-CPU-STREAM-CORE-20261025-21/prior_freeze/stream_core.py",
+    "handoffs/c/C-DEEPEYE-CPU-STREAM-CORE-20261025-21/prior_freeze/test_stream_core.py"
+  ],
+  "stages": {
+    "immutable_human_requirement_identity": {
+      "status": "passed",
+      "log": "handoffs/c/C-DEEPEYE-CPU-STREAM-CORE-20261025-21/immutable-scope-result.json"
+    },
+    "author_initial16_on_preserved_source": {
+      "status": "passed",
+      "log": "competition/deepeye/evidence/ai/cpu_stream_20261025/author/tests-01/stderr.txt"
+    },
+    "author_affected_end1_on_preinitfix_source": {
+      "status": "passed",
+      "log": "competition/deepeye/evidence/ai/cpu_stream_20261025/author/end-boundary-final/stderr.txt"
+    },
+    "independent_R1_original_negative_control": {
+      "status": "failed",
+      "log": "handoffs/c/C-DEEPEYE-CPU-STREAM-CORE-20261025-21/independent_review/phase2/init-bound-red-exit.json"
+    },
+    "author_bounded_init_repair4": {
+      "status": "passed",
+      "log": "competition/deepeye/evidence/ai/cpu_stream_20261025/bounded-init-fix/controls-01/result.json"
+    },
+    "independent_final_repaired_source": {
+      "status": "passed",
+      "log": "handoffs/c/C-DEEPEYE-CPU-STREAM-CORE-20261025-21/independent_review/phase3/report.md"
+    },
+    "main_selected_real_stream_prefix_and_lifecycle": {
+      "status": "passed",
+      "log": "handoffs/c/C-DEEPEYE-CPU-STREAM-CORE-20261025-21/main_review/main-probe-exit.json"
+    },
+    "prior_FORCE_heldout_quality": {
+      "status": "failed",
+      "log": "competition/deepeye/evidence/ai/force_cpu_training_20261024/heldout_metrics.json"
+    },
+    "sim_em_qualified_source_data_targets_scales_model": {
+      "status": "blocked"
+    },
+    "qualified_live_observations_history_clock": {
+      "status": "blocked"
+    },
+    "A_process_IPC_runtime_adoption": {
+      "status": "not_run"
+    },
+    "causal_observed_map": {
+      "status": "not_run"
+    },
+    "complete_global_3D_planning": {
+      "status": "not_run"
+    },
+    "both_full_control_paths": {
+      "status": "not_run"
+    },
+    "simulation": {
+      "status": "not_run"
+    },
+    "synthesis": {
+      "status": "not_run"
+    },
+    "implementation": {
+      "status": "not_run"
+    },
+    "board": {
+      "status": "not_run"
+    },
+    "system": {
+      "status": "not_run"
+    },
+    "formal_acceptance": {
+      "status": "not_run"
+    }
+  }
+}
