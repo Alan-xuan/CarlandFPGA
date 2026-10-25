@@ -1,0 +1,175 @@
+{
+  "request": {
+    "operation_id": "C-DEEPEYE-3D-TRAJECTORY-20261025-20",
+    "task_id": "DEEPEYE-IMPLEMENTATION-20261014",
+    "task_version": 1,
+    "requester": "node-c",
+    "code_commit": "f991697a32bf77896aa435ec2df335da846230af",
+    "test_steps": [
+      "Verify H01-H15 identity with docs/competition/deepeye-2026/verify_immutable_scope.py --expected-sha c229834bfc2292f5fe4411fc9f12c68487008f9d1adaf31f0144ee7a98173804. Identity only, no product acceptance.",
+      "Verify all pinned source/evidence with python skills/pynq-z2-single-node/scripts/handoff.py verify --root . --manifest handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/manifest.json.",
+      "Run only the new pure calculation controls from the checkout: python handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/main_review/main_probe.py --root . --controls handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/main_review/analytic-controls.json. Original author commands/raw source snapshots and independent review are preserved; no old FORCE training/inference/suites are required.",
+      "Read competition/deepeye/ai_pc/planning/TRAJECTORY_CANDIDATE.md. Check explicit software_fixture-only assumptions, entire-body continuous enclosure, unknown/free coverage, fixed false authority and bounded budgets before any integration proposal."
+    ],
+    "expected_result": "Bounded pure stdlib 3D candidates with exact acceleration/constant-body-curvature arcs, xyzw body-right rotation, 100Hz nominal integration with <=10ms time substeps and <=0.05deg rotation per collision substep; conservative whole-capsule supports reject occupied/unknown/boundary overlaps. Missing coverage remains unknown and budget exhaustion emits no partial-clear proof. clear_for_supplied_fixture applies only to supplied software geometry/errors, never movement authority, calibrated observation, global planning or gate arrival. All130 prior C19 bytes remain unchanged; prior FORCE F1.1827348 remains failed against centroid.2047005 and target.60. sim_em source/data/scales/model, formal C02/C03 dependencies, both complete control paths, all29 cards, runtime and physical/system gates remain incomplete. Frozen design1011259415a0916054eb580687612580bc1e5f09 and DEEPEYE-HUMAN-LOCK-20261014/revision1 sourcef5989cd5defce561f9ba98e6b18fc2682945f0a2 requirements SHA256 c229834bfc2292f5fe4411fc9f12c68487008f9d1adaf31f0144ee7a98173804 unchanged. Only A operates the physical board."
+  },
+  "artifacts": [
+    "competition/deepeye/.gitattributes",
+    "competition/deepeye/ai_pc/planning/TRAJECTORY_CANDIDATE.md",
+    "competition/deepeye/ai_pc/planning/kinematics.py",
+    "competition/deepeye/ai_pc/planning/swept_capsule.py",
+    "competition/deepeye/ai_pc/planning/trajectory_candidates.py",
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/heldout_metrics.json",
+    "competition/deepeye/evidence/ai/trajectory_candidate_20261025/.gitattributes",
+    "competition/deepeye/evidence/ai/trajectory_candidate_20261025/README.md",
+    "competition/deepeye/evidence/ai/trajectory_candidate_20261025/capture.py",
+    "competition/deepeye/evidence/ai/trajectory_candidate_20261025/delivery-manifest.json",
+    "competition/deepeye/evidence/ai/trajectory_candidate_20261025/examples.py",
+    "competition/deepeye/evidence/ai/trajectory_candidate_20261025/examples/command.json",
+    "competition/deepeye/evidence/ai/trajectory_candidate_20261025/examples/result.json",
+    "competition/deepeye/evidence/ai/trajectory_candidate_20261025/examples/source-before/competition/deepeye/ai_pc/planning/swept_capsule.py",
+    "competition/deepeye/evidence/ai/trajectory_candidate_20261025/examples/source-before/competition/deepeye/ai_pc/planning/trajectory_candidates.py",
+    "competition/deepeye/evidence/ai/trajectory_candidate_20261025/examples/source-before/competition/deepeye/tests/ai/planning/test_swept_capsule.py",
+    "competition/deepeye/evidence/ai/trajectory_candidate_20261025/examples/source-before/competition/deepeye/tests/ai/planning/test_trajectory_candidates.py",
+    "competition/deepeye/evidence/ai/trajectory_candidate_20261025/examples/stderr.txt",
+    "competition/deepeye/evidence/ai/trajectory_candidate_20261025/examples/stdout.txt",
+    "competition/deepeye/evidence/ai/trajectory_candidate_20261025/report.json",
+    "competition/deepeye/evidence/ai/trajectory_candidate_20261025/source-review.diff",
+    "competition/deepeye/evidence/ai/trajectory_candidate_20261025/tests-01/command.json",
+    "competition/deepeye/evidence/ai/trajectory_candidate_20261025/tests-01/result.json",
+    "competition/deepeye/evidence/ai/trajectory_candidate_20261025/tests-01/source-before/competition/deepeye/ai_pc/planning/swept_capsule.py",
+    "competition/deepeye/evidence/ai/trajectory_candidate_20261025/tests-01/source-before/competition/deepeye/ai_pc/planning/trajectory_candidates.py",
+    "competition/deepeye/evidence/ai/trajectory_candidate_20261025/tests-01/source-before/competition/deepeye/tests/ai/planning/test_swept_capsule.py",
+    "competition/deepeye/evidence/ai/trajectory_candidate_20261025/tests-01/source-before/competition/deepeye/tests/ai/planning/test_trajectory_candidates.py",
+    "competition/deepeye/evidence/ai/trajectory_candidate_20261025/tests-01/stderr.txt",
+    "competition/deepeye/evidence/ai/trajectory_candidate_20261025/tests-01/stdout.txt",
+    "competition/deepeye/evidence/ai/trajectory_candidate_20261025/tests-final/command.json",
+    "competition/deepeye/evidence/ai/trajectory_candidate_20261025/tests-final/result.json",
+    "competition/deepeye/evidence/ai/trajectory_candidate_20261025/tests-final/source-before/competition/deepeye/ai_pc/planning/swept_capsule.py",
+    "competition/deepeye/evidence/ai/trajectory_candidate_20261025/tests-final/source-before/competition/deepeye/ai_pc/planning/trajectory_candidates.py",
+    "competition/deepeye/evidence/ai/trajectory_candidate_20261025/tests-final/source-before/competition/deepeye/tests/ai/planning/test_swept_capsule.py",
+    "competition/deepeye/evidence/ai/trajectory_candidate_20261025/tests-final/source-before/competition/deepeye/tests/ai/planning/test_trajectory_candidates.py",
+    "competition/deepeye/evidence/ai/trajectory_candidate_20261025/tests-final/stderr.txt",
+    "competition/deepeye/evidence/ai/trajectory_candidate_20261025/tests-final/stdout.txt",
+    "competition/deepeye/tests/ai/planning/test_swept_capsule.py",
+    "competition/deepeye/tests/ai/planning/test_trajectory_candidates.py",
+    "docs/competition/deepeye-2026/immutable_scope.json",
+    "docs/competition/deepeye-2026/immutable_scope.md",
+    "docs/competition/deepeye-2026/simulation_contract_final.json",
+    "docs/competition/deepeye-2026/taskbook_final.md",
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/.gitattributes",
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/immutable-scope-result.json",
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/independent_review/phase1/assignment-read-tool-result.json",
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/independent_review/phase1/control-excerpt-tool-result.json",
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/independent_review/phase1/derive_oracles.py",
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/independent_review/phase1/frozen-read-tool-result.json",
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/independent_review/phase1/oracle-execution-tool-result.json",
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/independent_review/phase1/path-read-tool-result.json",
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/independent_review/phase1/phase1-manifest.json",
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/independent_review/phase1/phase1-oracles.json",
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/independent_review/phase1/phase1-plan.md",
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/independent_review/phase1/phase1-release.json",
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/independent_review/phase1/phase1.execution.json",
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/independent_review/phase1/phase1.stderr.txt",
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/independent_review/phase1/source-pins.json",
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/independent_review/phase2/assignment.json",
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/independent_review/phase2/audit_evidence.py",
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/independent_review/phase2/author-delivery-manifest.json",
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/independent_review/phase2/author-examples-command.json",
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/independent_review/phase2/author-examples-result.json",
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/independent_review/phase2/author-examples-stderr.txt",
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/independent_review/phase2/author-examples-stdout.txt",
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/independent_review/phase2/author-raw-read-tool-result.json",
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/independent_review/phase2/author-source-review.diff",
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/independent_review/phase2/author-tests-01-command.json",
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/independent_review/phase2/author-tests-01-result.json",
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/independent_review/phase2/author-tests-01-stderr.txt",
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/independent_review/phase2/author-tests-01-stdout.txt",
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/independent_review/phase2/author-tests-final-command.json",
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/independent_review/phase2/author-tests-final-result.json",
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/independent_review/phase2/author-tests-final-stderr.txt",
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/independent_review/phase2/author-tests-final-stdout.txt",
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/independent_review/phase2/check_independent.py",
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/independent_review/phase2/evidence-audit-tool-result.json",
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/independent_review/phase2/evidence.execution.json",
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/independent_review/phase2/evidence.stderr.txt",
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/independent_review/phase2/evidence.stdout.json",
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/independent_review/phase2/independent-tool-result.json",
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/independent_review/phase2/independent.execution.json",
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/independent_review/phase2/independent.stderr.txt",
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/independent_review/phase2/independent.stdout.json",
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/independent_review/phase2/manifest.json",
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/independent_review/phase2/release.json",
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/independent_review/phase2/report.md",
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/independent_review/phase2/reviewcopy-TRAJECTORY_CANDIDATE.md",
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/independent_review/phase2/reviewcopy-swept_capsule.py",
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/independent_review/phase2/reviewcopy-trajectory_candidates.py",
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/independent_review/phase2/source-evidence-inventory-tool-result.json",
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/independent_review/phase2/source-sweep-document-read-tool-result.json",
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/independent_review/phase2/source-trajectory-read-tool-result.json",
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/main_review/analytic-controls.json",
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/main_review/build_analytic_controls.py",
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/main_review/command.json",
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/main_review/execution-result.json",
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/main_review/main_probe.py",
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/main_review/mathematical-review.md",
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/main_review/run_main_probe.py",
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/main_review/stderr.txt",
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/main_review/stdout.txt"
+  ],
+  "stages": {
+    "human_requirement_identity": {
+      "status": "passed",
+      "log": "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/immutable-scope-result.json"
+    },
+    "new_geometry_author_25_tests": {
+      "status": "passed",
+      "log": "competition/deepeye/evidence/ai/trajectory_candidate_20261025/tests-final/stderr.txt"
+    },
+    "root_independent_math_and_boundaries": {
+      "status": "passed",
+      "log": "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/main_review/execution-result.json"
+    },
+    "independent_geometry_review": {
+      "status": "passed",
+      "log": "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/independent_review/phase2/independent.execution.json"
+    },
+    "prior_FORCE_heldout_quality": {
+      "status": "failed",
+      "log": "competition/deepeye/evidence/ai/force_cpu_training_20261024/heldout_metrics.json"
+    },
+    "sim_em_source_data_scales_model": {
+      "status": "blocked"
+    },
+    "qualified_observed_map": {
+      "status": "not_run"
+    },
+    "complete_global_3D_planning": {
+      "status": "not_run"
+    },
+    "gate_passage": {
+      "status": "not_run"
+    },
+    "A_runtime_integration": {
+      "status": "not_run"
+    },
+    "simulation": {
+      "status": "not_run"
+    },
+    "synthesis": {
+      "status": "not_run"
+    },
+    "implementation": {
+      "status": "not_run"
+    },
+    "board": {
+      "status": "not_run"
+    },
+    "system": {
+      "status": "not_run"
+    },
+    "formal_acceptance": {
+      "status": "not_run"
+    }
+  }
+}

@@ -1,0 +1,587 @@
+{
+  "artifacts": [
+    "competition/deepeye/.gitattributes",
+    "competition/deepeye/ai_pc/planning/TRAJECTORY_CANDIDATE.md",
+    "competition/deepeye/ai_pc/planning/kinematics.py",
+    "competition/deepeye/ai_pc/planning/swept_capsule.py",
+    "competition/deepeye/ai_pc/planning/trajectory_candidates.py",
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/heldout_metrics.json",
+    "competition/deepeye/evidence/ai/trajectory_candidate_20261025/.gitattributes",
+    "competition/deepeye/evidence/ai/trajectory_candidate_20261025/README.md",
+    "competition/deepeye/evidence/ai/trajectory_candidate_20261025/capture.py",
+    "competition/deepeye/evidence/ai/trajectory_candidate_20261025/delivery-manifest.json",
+    "competition/deepeye/evidence/ai/trajectory_candidate_20261025/examples.py",
+    "competition/deepeye/evidence/ai/trajectory_candidate_20261025/examples/command.json",
+    "competition/deepeye/evidence/ai/trajectory_candidate_20261025/examples/result.json",
+    "competition/deepeye/evidence/ai/trajectory_candidate_20261025/examples/source-before/competition/deepeye/ai_pc/planning/swept_capsule.py",
+    "competition/deepeye/evidence/ai/trajectory_candidate_20261025/examples/source-before/competition/deepeye/ai_pc/planning/trajectory_candidates.py",
+    "competition/deepeye/evidence/ai/trajectory_candidate_20261025/examples/source-before/competition/deepeye/tests/ai/planning/test_swept_capsule.py",
+    "competition/deepeye/evidence/ai/trajectory_candidate_20261025/examples/source-before/competition/deepeye/tests/ai/planning/test_trajectory_candidates.py",
+    "competition/deepeye/evidence/ai/trajectory_candidate_20261025/examples/stderr.txt",
+    "competition/deepeye/evidence/ai/trajectory_candidate_20261025/examples/stdout.txt",
+    "competition/deepeye/evidence/ai/trajectory_candidate_20261025/report.json",
+    "competition/deepeye/evidence/ai/trajectory_candidate_20261025/source-review.diff",
+    "competition/deepeye/evidence/ai/trajectory_candidate_20261025/tests-01/command.json",
+    "competition/deepeye/evidence/ai/trajectory_candidate_20261025/tests-01/result.json",
+    "competition/deepeye/evidence/ai/trajectory_candidate_20261025/tests-01/source-before/competition/deepeye/ai_pc/planning/swept_capsule.py",
+    "competition/deepeye/evidence/ai/trajectory_candidate_20261025/tests-01/source-before/competition/deepeye/ai_pc/planning/trajectory_candidates.py",
+    "competition/deepeye/evidence/ai/trajectory_candidate_20261025/tests-01/source-before/competition/deepeye/tests/ai/planning/test_swept_capsule.py",
+    "competition/deepeye/evidence/ai/trajectory_candidate_20261025/tests-01/source-before/competition/deepeye/tests/ai/planning/test_trajectory_candidates.py",
+    "competition/deepeye/evidence/ai/trajectory_candidate_20261025/tests-01/stderr.txt",
+    "competition/deepeye/evidence/ai/trajectory_candidate_20261025/tests-01/stdout.txt",
+    "competition/deepeye/evidence/ai/trajectory_candidate_20261025/tests-final/command.json",
+    "competition/deepeye/evidence/ai/trajectory_candidate_20261025/tests-final/result.json",
+    "competition/deepeye/evidence/ai/trajectory_candidate_20261025/tests-final/source-before/competition/deepeye/ai_pc/planning/swept_capsule.py",
+    "competition/deepeye/evidence/ai/trajectory_candidate_20261025/tests-final/source-before/competition/deepeye/ai_pc/planning/trajectory_candidates.py",
+    "competition/deepeye/evidence/ai/trajectory_candidate_20261025/tests-final/source-before/competition/deepeye/tests/ai/planning/test_swept_capsule.py",
+    "competition/deepeye/evidence/ai/trajectory_candidate_20261025/tests-final/source-before/competition/deepeye/tests/ai/planning/test_trajectory_candidates.py",
+    "competition/deepeye/evidence/ai/trajectory_candidate_20261025/tests-final/stderr.txt",
+    "competition/deepeye/evidence/ai/trajectory_candidate_20261025/tests-final/stdout.txt",
+    "competition/deepeye/tests/ai/planning/test_swept_capsule.py",
+    "competition/deepeye/tests/ai/planning/test_trajectory_candidates.py",
+    "docs/competition/deepeye-2026/immutable_scope.json",
+    "docs/competition/deepeye-2026/immutable_scope.md",
+    "docs/competition/deepeye-2026/simulation_contract_final.json",
+    "docs/competition/deepeye-2026/taskbook_final.md",
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/.gitattributes",
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/immutable-scope-result.json",
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/independent_review/phase1/assignment-read-tool-result.json",
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/independent_review/phase1/control-excerpt-tool-result.json",
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/independent_review/phase1/derive_oracles.py",
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/independent_review/phase1/frozen-read-tool-result.json",
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/independent_review/phase1/oracle-execution-tool-result.json",
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/independent_review/phase1/path-read-tool-result.json",
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/independent_review/phase1/phase1-manifest.json",
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/independent_review/phase1/phase1-oracles.json",
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/independent_review/phase1/phase1-plan.md",
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/independent_review/phase1/phase1-release.json",
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/independent_review/phase1/phase1.execution.json",
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/independent_review/phase1/phase1.stderr.txt",
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/independent_review/phase1/source-pins.json",
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/independent_review/phase2/assignment.json",
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/independent_review/phase2/audit_evidence.py",
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/independent_review/phase2/author-delivery-manifest.json",
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/independent_review/phase2/author-examples-command.json",
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/independent_review/phase2/author-examples-result.json",
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/independent_review/phase2/author-examples-stderr.txt",
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/independent_review/phase2/author-examples-stdout.txt",
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/independent_review/phase2/author-raw-read-tool-result.json",
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/independent_review/phase2/author-source-review.diff",
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/independent_review/phase2/author-tests-01-command.json",
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/independent_review/phase2/author-tests-01-result.json",
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/independent_review/phase2/author-tests-01-stderr.txt",
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/independent_review/phase2/author-tests-01-stdout.txt",
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/independent_review/phase2/author-tests-final-command.json",
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/independent_review/phase2/author-tests-final-result.json",
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/independent_review/phase2/author-tests-final-stderr.txt",
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/independent_review/phase2/author-tests-final-stdout.txt",
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/independent_review/phase2/check_independent.py",
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/independent_review/phase2/evidence-audit-tool-result.json",
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/independent_review/phase2/evidence.execution.json",
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/independent_review/phase2/evidence.stderr.txt",
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/independent_review/phase2/evidence.stdout.json",
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/independent_review/phase2/independent-tool-result.json",
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/independent_review/phase2/independent.execution.json",
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/independent_review/phase2/independent.stderr.txt",
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/independent_review/phase2/independent.stdout.json",
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/independent_review/phase2/manifest.json",
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/independent_review/phase2/release.json",
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/independent_review/phase2/report.md",
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/independent_review/phase2/reviewcopy-TRAJECTORY_CANDIDATE.md",
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/independent_review/phase2/reviewcopy-swept_capsule.py",
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/independent_review/phase2/reviewcopy-trajectory_candidates.py",
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/independent_review/phase2/source-evidence-inventory-tool-result.json",
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/independent_review/phase2/source-sweep-document-read-tool-result.json",
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/independent_review/phase2/source-trajectory-read-tool-result.json",
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/main_review/analytic-controls.json",
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/main_review/build_analytic_controls.py",
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/main_review/command.json",
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/main_review/execution-result.json",
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/main_review/main_probe.py",
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/main_review/mathematical-review.md",
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/main_review/run_main_probe.py",
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/main_review/stderr.txt",
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/main_review/stdout.txt"
+  ],
+  "files": {
+    "competition/deepeye/.gitattributes": {
+      "sha256": "53ce1b4bd87fd2979ed3905de38c268667fda82727a9f4328ed55700e3309100",
+      "size": 334
+    },
+    "competition/deepeye/ai_pc/planning/TRAJECTORY_CANDIDATE.md": {
+      "sha256": "87daba843f69425a7d8db78fc2ba382586770fb581586003601c79e4cf3294b9",
+      "size": 10631
+    },
+    "competition/deepeye/ai_pc/planning/kinematics.py": {
+      "sha256": "770f8b4e1ff1e626df385bf220f79a8f4be8a9e9cd05c8070cd0d0dc8c01561a",
+      "size": 9032
+    },
+    "competition/deepeye/ai_pc/planning/swept_capsule.py": {
+      "sha256": "765b83405a4773c2e4da4806d9d42bd39bc66bda6e78f0a4acf9e3d86eba5b4a",
+      "size": 9536
+    },
+    "competition/deepeye/ai_pc/planning/trajectory_candidates.py": {
+      "sha256": "ede34dfa38f093c7ba0858ca211b824e08268447846a0859b9a69cb4cb7a0c15",
+      "size": 13443
+    },
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/heldout_metrics.json": {
+      "sha256": "39ba0e9575511fa202bc7682c3b291ac3e28f729a02412f9dbc121ffbfc8f897",
+      "size": 457698
+    },
+    "competition/deepeye/evidence/ai/trajectory_candidate_20261025/.gitattributes": {
+      "sha256": "85e48d232edc7b02f6cecf8fbbf905f3b126c467b594d8dd16c4f8fa283a8320",
+      "size": 14
+    },
+    "competition/deepeye/evidence/ai/trajectory_candidate_20261025/README.md": {
+      "sha256": "80350341763433e1481658eeafa8376523447d70d40c8fd4b702d60220176adc",
+      "size": 4491
+    },
+    "competition/deepeye/evidence/ai/trajectory_candidate_20261025/capture.py": {
+      "sha256": "06268e468c1f70e972c8cb581a77f222e088a91c067d6eb40f2aa92dc06aa007",
+      "size": 1713
+    },
+    "competition/deepeye/evidence/ai/trajectory_candidate_20261025/delivery-manifest.json": {
+      "sha256": "f1f128b867acb623f2aea49cab00e9c453312e93cb5e8ac786f46e7a01e43ad1",
+      "size": 8810
+    },
+    "competition/deepeye/evidence/ai/trajectory_candidate_20261025/examples.py": {
+      "sha256": "03c1943fb0fbd99d75103a1a5e5442a03335a9d8bf8fc89949eaf9cc868fd75b",
+      "size": 4187
+    },
+    "competition/deepeye/evidence/ai/trajectory_candidate_20261025/examples/command.json": {
+      "sha256": "d1ac76927e65b26c034ad900edb482920b4bba0d19c03806461b1deb2bb07955",
+      "size": 1016
+    },
+    "competition/deepeye/evidence/ai/trajectory_candidate_20261025/examples/result.json": {
+      "sha256": "23eb870b114358b0aa842be5505d4c3973bb1ae1da2a47ce19329c518e5b2a91",
+      "size": 250
+    },
+    "competition/deepeye/evidence/ai/trajectory_candidate_20261025/examples/source-before/competition/deepeye/ai_pc/planning/swept_capsule.py": {
+      "sha256": "765b83405a4773c2e4da4806d9d42bd39bc66bda6e78f0a4acf9e3d86eba5b4a",
+      "size": 9536
+    },
+    "competition/deepeye/evidence/ai/trajectory_candidate_20261025/examples/source-before/competition/deepeye/ai_pc/planning/trajectory_candidates.py": {
+      "sha256": "ede34dfa38f093c7ba0858ca211b824e08268447846a0859b9a69cb4cb7a0c15",
+      "size": 13443
+    },
+    "competition/deepeye/evidence/ai/trajectory_candidate_20261025/examples/source-before/competition/deepeye/tests/ai/planning/test_swept_capsule.py": {
+      "sha256": "648f7e3aabf29922996231feb7a415cffab444e939bb3883b1972b9b21c7140d",
+      "size": 10640
+    },
+    "competition/deepeye/evidence/ai/trajectory_candidate_20261025/examples/source-before/competition/deepeye/tests/ai/planning/test_trajectory_candidates.py": {
+      "sha256": "a171ea20b1038c66ef18b8bdeef3ec76f6f0c77d9be0e7207d7434fd182e5830",
+      "size": 10461
+    },
+    "competition/deepeye/evidence/ai/trajectory_candidate_20261025/examples/stderr.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0
+    },
+    "competition/deepeye/evidence/ai/trajectory_candidate_20261025/examples/stdout.txt": {
+      "sha256": "396476678abedec759dc652a9c3494ca4ece1a46dafcdc73908d6205f97a81f1",
+      "size": 6469
+    },
+    "competition/deepeye/evidence/ai/trajectory_candidate_20261025/report.json": {
+      "sha256": "a2443e2c0e91bb5866bf4bbcb5648bcc53bf9f58c7c89512587072e080d66a46",
+      "size": 2696
+    },
+    "competition/deepeye/evidence/ai/trajectory_candidate_20261025/source-review.diff": {
+      "sha256": "375f7e92204fa7abb802b01d2a6ac20e937eb135a61e6c8f8f3af122724965fa",
+      "size": 56283
+    },
+    "competition/deepeye/evidence/ai/trajectory_candidate_20261025/tests-01/command.json": {
+      "sha256": "da6381b03e58c04b1501201727a2c7187f66c032a68054edad1a33e99dd85db2",
+      "size": 1049
+    },
+    "competition/deepeye/evidence/ai/trajectory_candidate_20261025/tests-01/result.json": {
+      "sha256": "d2300c680a1fc06bc76dc6f89588ad26051411024b40b1242138cf193aa11e8e",
+      "size": 250
+    },
+    "competition/deepeye/evidence/ai/trajectory_candidate_20261025/tests-01/source-before/competition/deepeye/ai_pc/planning/swept_capsule.py": {
+      "sha256": "900b043719e93a854d83aed85ba74ad0e704c11f221a3854a2123cad46fb28cf",
+      "size": 9395
+    },
+    "competition/deepeye/evidence/ai/trajectory_candidate_20261025/tests-01/source-before/competition/deepeye/ai_pc/planning/trajectory_candidates.py": {
+      "sha256": "25bacda5d0575d770ec485a7355bf0e70240662f4b630bfa721520f4ab36c712",
+      "size": 12893
+    },
+    "competition/deepeye/evidence/ai/trajectory_candidate_20261025/tests-01/source-before/competition/deepeye/tests/ai/planning/test_swept_capsule.py": {
+      "sha256": "648f7e3aabf29922996231feb7a415cffab444e939bb3883b1972b9b21c7140d",
+      "size": 10640
+    },
+    "competition/deepeye/evidence/ai/trajectory_candidate_20261025/tests-01/source-before/competition/deepeye/tests/ai/planning/test_trajectory_candidates.py": {
+      "sha256": "58e0ce3ced3b48b7add489f743ebc7029f6ee12d7db95c8aa8382dc127ffe955",
+      "size": 10368
+    },
+    "competition/deepeye/evidence/ai/trajectory_candidate_20261025/tests-01/stderr.txt": {
+      "sha256": "cc357cd7caf814a7e13e81c21bdc409aa0517caa427866e16076f4b63b074d89",
+      "size": 5075
+    },
+    "competition/deepeye/evidence/ai/trajectory_candidate_20261025/tests-01/stdout.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0
+    },
+    "competition/deepeye/evidence/ai/trajectory_candidate_20261025/tests-final/command.json": {
+      "sha256": "7d1609953b39c6d4ae19c904f5cfe4867682f36cdbfaeb55a994ef37a747ab21",
+      "size": 1049
+    },
+    "competition/deepeye/evidence/ai/trajectory_candidate_20261025/tests-final/result.json": {
+      "sha256": "401272e12cac9525ca91b92c7282fc1a8aa1348df09c78a7e5c9070a6ca3e182",
+      "size": 250
+    },
+    "competition/deepeye/evidence/ai/trajectory_candidate_20261025/tests-final/source-before/competition/deepeye/ai_pc/planning/swept_capsule.py": {
+      "sha256": "765b83405a4773c2e4da4806d9d42bd39bc66bda6e78f0a4acf9e3d86eba5b4a",
+      "size": 9536
+    },
+    "competition/deepeye/evidence/ai/trajectory_candidate_20261025/tests-final/source-before/competition/deepeye/ai_pc/planning/trajectory_candidates.py": {
+      "sha256": "ede34dfa38f093c7ba0858ca211b824e08268447846a0859b9a69cb4cb7a0c15",
+      "size": 13443
+    },
+    "competition/deepeye/evidence/ai/trajectory_candidate_20261025/tests-final/source-before/competition/deepeye/tests/ai/planning/test_swept_capsule.py": {
+      "sha256": "648f7e3aabf29922996231feb7a415cffab444e939bb3883b1972b9b21c7140d",
+      "size": 10640
+    },
+    "competition/deepeye/evidence/ai/trajectory_candidate_20261025/tests-final/source-before/competition/deepeye/tests/ai/planning/test_trajectory_candidates.py": {
+      "sha256": "a171ea20b1038c66ef18b8bdeef3ec76f6f0c77d9be0e7207d7434fd182e5830",
+      "size": 10461
+    },
+    "competition/deepeye/evidence/ai/trajectory_candidate_20261025/tests-final/stderr.txt": {
+      "sha256": "8dd1bd67e5c6a5f0de6ca14e6d568ef6c6a6ec2a23b5a0489fdea65e52e3e9da",
+      "size": 5075
+    },
+    "competition/deepeye/evidence/ai/trajectory_candidate_20261025/tests-final/stdout.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0
+    },
+    "competition/deepeye/tests/ai/planning/test_swept_capsule.py": {
+      "sha256": "648f7e3aabf29922996231feb7a415cffab444e939bb3883b1972b9b21c7140d",
+      "size": 10640
+    },
+    "competition/deepeye/tests/ai/planning/test_trajectory_candidates.py": {
+      "sha256": "a171ea20b1038c66ef18b8bdeef3ec76f6f0c77d9be0e7207d7434fd182e5830",
+      "size": 10461
+    },
+    "docs/competition/deepeye-2026/immutable_scope.json": {
+      "sha256": "6a86000e97d1571c0b7b89b9d3cf7facb11d2b6a06455eb1d53e0637676b6bc4",
+      "size": 6684
+    },
+    "docs/competition/deepeye-2026/immutable_scope.md": {
+      "sha256": "27c5bf0b194036cf4300dbec371b6abba42bc5fda604da0e6e06284e4c5a2ddd",
+      "size": 6139
+    },
+    "docs/competition/deepeye-2026/simulation_contract_final.json": {
+      "sha256": "f77589954051b36eeb42f1a6cb4ceb13f97df631bd305b8c2ae8b0d2678bd3b9",
+      "size": 8257
+    },
+    "docs/competition/deepeye-2026/taskbook_final.md": {
+      "sha256": "7f5c94f7fc73698236be954ae7818266d6dfe8b4949d1752dd045d76f4b71f18",
+      "size": 109430
+    },
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/.gitattributes": {
+      "sha256": "730a35ae3d558080083c3103d9ac8100c3f6561678092abe341701dfa331eb1d",
+      "size": 29
+    },
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/immutable-scope-result.json": {
+      "sha256": "e6a0a5722482707d449e03400819ffe28ddb53cb53e43f355e9645f5c9303f1c",
+      "size": 272
+    },
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/independent_review/phase1/assignment-read-tool-result.json": {
+      "sha256": "e93d2ddbd864f41458356753ca3cf79e011bd58eb6efc11ae2b3d97c16cd5888",
+      "size": 7638
+    },
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/independent_review/phase1/control-excerpt-tool-result.json": {
+      "sha256": "84533e4067327bd7edb6bd50b7c8e7ae655b897b221f620644f6c56c25a1a116",
+      "size": 26434
+    },
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/independent_review/phase1/derive_oracles.py": {
+      "sha256": "97c5aa555d8c8ae108a5b1292f95e44bd4072b79a55018ecf5d058b89c6f3333",
+      "size": 5959
+    },
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/independent_review/phase1/frozen-read-tool-result.json": {
+      "sha256": "fb4b40847ffc323b74f5c647d99e33e7f040c5f1a593537c70f052aadcc51dca",
+      "size": 52164
+    },
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/independent_review/phase1/oracle-execution-tool-result.json": {
+      "sha256": "df9cc173b6098e2e3c42cfa3087eed8cea76ea3e6ef50a2324394f0126813c75",
+      "size": 3556
+    },
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/independent_review/phase1/path-read-tool-result.json": {
+      "sha256": "3f75e89c6bc259d3606c9d449007964920ccd3c72e3b36426d99ed38c5420e7b",
+      "size": 538
+    },
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/independent_review/phase1/phase1-manifest.json": {
+      "sha256": "4d76db33198036483d68556636ba55cdcebbf28c96d18370b86d3c715943277a",
+      "size": 2553
+    },
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/independent_review/phase1/phase1-oracles.json": {
+      "sha256": "f7c59eff96eaaad2fad3506f9cf9b2777ca31d62c68d1436cd8d757004235ff9",
+      "size": 9604
+    },
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/independent_review/phase1/phase1-plan.md": {
+      "sha256": "9e7cac7a6b65d0bea54a5149b629c52fd4bc7ae27e490d7bc4fb08aedaae49e7",
+      "size": 7602
+    },
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/independent_review/phase1/phase1-release.json": {
+      "sha256": "3ac28d000d7b5ed0e746243e718e5a7619cff80ac9613af6de8c49b9c5ab5f5b",
+      "size": 775
+    },
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/independent_review/phase1/phase1.execution.json": {
+      "sha256": "d4077abadd79b6bdaba4b1ffa2e5e95f40c829c5b2d1aa45bcbf9e2abb7dd12f",
+      "size": 548
+    },
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/independent_review/phase1/phase1.stderr.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0
+    },
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/independent_review/phase1/source-pins.json": {
+      "sha256": "55589a7242b2d84101cf6fbbecaf83710b7f77b17209ab61ea9f8faaf4de5acd",
+      "size": 667
+    },
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/independent_review/phase2/assignment.json": {
+      "sha256": "dfc982e2a3308e293a85deed6e688bea3ab1fed497af5acb3609d40cb5ef7c18",
+      "size": 2153
+    },
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/independent_review/phase2/audit_evidence.py": {
+      "sha256": "cc87028f0d0949ca01b73fddf99df6cfba3317ed2169d31f8a4a765d77f1448f",
+      "size": 2999
+    },
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/independent_review/phase2/author-delivery-manifest.json": {
+      "sha256": "f1f128b867acb623f2aea49cab00e9c453312e93cb5e8ac786f46e7a01e43ad1",
+      "size": 8810
+    },
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/independent_review/phase2/author-examples-command.json": {
+      "sha256": "d1ac76927e65b26c034ad900edb482920b4bba0d19c03806461b1deb2bb07955",
+      "size": 1016
+    },
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/independent_review/phase2/author-examples-result.json": {
+      "sha256": "23eb870b114358b0aa842be5505d4c3973bb1ae1da2a47ce19329c518e5b2a91",
+      "size": 250
+    },
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/independent_review/phase2/author-examples-stderr.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0
+    },
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/independent_review/phase2/author-examples-stdout.txt": {
+      "sha256": "396476678abedec759dc652a9c3494ca4ece1a46dafcdc73908d6205f97a81f1",
+      "size": 6469
+    },
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/independent_review/phase2/author-raw-read-tool-result.json": {
+      "sha256": "8d04ff259178c0d643f2960865afb2a10d7d3ea70cffbfae39f673fb03eec9e2",
+      "size": 6382
+    },
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/independent_review/phase2/author-source-review.diff": {
+      "sha256": "375f7e92204fa7abb802b01d2a6ac20e937eb135a61e6c8f8f3af122724965fa",
+      "size": 56283
+    },
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/independent_review/phase2/author-tests-01-command.json": {
+      "sha256": "da6381b03e58c04b1501201727a2c7187f66c032a68054edad1a33e99dd85db2",
+      "size": 1049
+    },
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/independent_review/phase2/author-tests-01-result.json": {
+      "sha256": "d2300c680a1fc06bc76dc6f89588ad26051411024b40b1242138cf193aa11e8e",
+      "size": 250
+    },
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/independent_review/phase2/author-tests-01-stderr.txt": {
+      "sha256": "cc357cd7caf814a7e13e81c21bdc409aa0517caa427866e16076f4b63b074d89",
+      "size": 5075
+    },
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/independent_review/phase2/author-tests-01-stdout.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0
+    },
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/independent_review/phase2/author-tests-final-command.json": {
+      "sha256": "7d1609953b39c6d4ae19c904f5cfe4867682f36cdbfaeb55a994ef37a747ab21",
+      "size": 1049
+    },
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/independent_review/phase2/author-tests-final-result.json": {
+      "sha256": "401272e12cac9525ca91b92c7282fc1a8aa1348df09c78a7e5c9070a6ca3e182",
+      "size": 250
+    },
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/independent_review/phase2/author-tests-final-stderr.txt": {
+      "sha256": "8dd1bd67e5c6a5f0de6ca14e6d568ef6c6a6ec2a23b5a0489fdea65e52e3e9da",
+      "size": 5075
+    },
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/independent_review/phase2/author-tests-final-stdout.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0
+    },
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/independent_review/phase2/check_independent.py": {
+      "sha256": "7b9b18ac0a46a8ac6f46cb24048201b02d123a1cd6000219a9afaf4dc2254f5d",
+      "size": 11168
+    },
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/independent_review/phase2/evidence-audit-tool-result.json": {
+      "sha256": "1f8869dec203f5c33d541d9ad82249d7c2d1858d003a92bf9730d71ace858039",
+      "size": 505
+    },
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/independent_review/phase2/evidence.execution.json": {
+      "sha256": "06aa902c8786efe041ae37f6b658b3f160ab171267adf97093cd377cfaa10663",
+      "size": 481
+    },
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/independent_review/phase2/evidence.stderr.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0
+    },
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/independent_review/phase2/evidence.stdout.json": {
+      "sha256": "5b0628fd702f7ceb4049c693b1a0fb032cd7510353bc669dbde3b51d765e4a1c",
+      "size": 3534
+    },
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/independent_review/phase2/independent-tool-result.json": {
+      "sha256": "afc54b561379235de52844602b96b395f2da0a3e14828acf2b5096b5a52718b8",
+      "size": 734
+    },
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/independent_review/phase2/independent.execution.json": {
+      "sha256": "17dc5749e5894ea257744de6aa944d2d7fe72875e699480279cd75dbc48a4717",
+      "size": 532
+    },
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/independent_review/phase2/independent.stderr.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0
+    },
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/independent_review/phase2/independent.stdout.json": {
+      "sha256": "c57b0e11a914eb52ee2077e08faa0c093d445c7ecd59cb46ba464e4253ada372",
+      "size": 8462
+    },
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/independent_review/phase2/manifest.json": {
+      "sha256": "a350f1f85a507d788ebc50b4190b0d94a6fc185a0a828ddfbf4895ba08ed0912",
+      "size": 6457
+    },
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/independent_review/phase2/release.json": {
+      "sha256": "3e85f7e02033ee9f7853441db7e18e13d2168e38a71ac60d3417f17389dfd09a",
+      "size": 1043
+    },
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/independent_review/phase2/report.md": {
+      "sha256": "4e7e2afd4c732e6e4a85f1b735139163d9239f1505358fa519564aa4919a7c23",
+      "size": 4082
+    },
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/independent_review/phase2/reviewcopy-TRAJECTORY_CANDIDATE.md": {
+      "sha256": "87daba843f69425a7d8db78fc2ba382586770fb581586003601c79e4cf3294b9",
+      "size": 10631
+    },
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/independent_review/phase2/reviewcopy-swept_capsule.py": {
+      "sha256": "765b83405a4773c2e4da4806d9d42bd39bc66bda6e78f0a4acf9e3d86eba5b4a",
+      "size": 9536
+    },
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/independent_review/phase2/reviewcopy-trajectory_candidates.py": {
+      "sha256": "ede34dfa38f093c7ba0858ca211b824e08268447846a0859b9a69cb4cb7a0c15",
+      "size": 13443
+    },
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/independent_review/phase2/source-evidence-inventory-tool-result.json": {
+      "sha256": "15887af6bbd11568b18f811f28621ef6af3fdd13dd6b586961f6f46b15364a91",
+      "size": 13433
+    },
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/independent_review/phase2/source-sweep-document-read-tool-result.json": {
+      "sha256": "4cbe469c0ea7fe1b6b1026d2d5d7bf14c0a63e55a9d2796a096629bb724d8fc9",
+      "size": 22521
+    },
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/independent_review/phase2/source-trajectory-read-tool-result.json": {
+      "sha256": "0ec52e93c9188d31ba462cb66302a0a78f4b5757b4da155ca4ec35e33062e791",
+      "size": 16402
+    },
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/main_review/analytic-controls.json": {
+      "sha256": "0eee01da3b7082aa9926621a24ed47df919350310cdca83a168d270326195ecf",
+      "size": 11944
+    },
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/main_review/build_analytic_controls.py": {
+      "sha256": "7593b3860defaefaab6c63eede7eb784dc7b6dd0334d5d067db5813150181de6",
+      "size": 4412
+    },
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/main_review/command.json": {
+      "sha256": "40d101ced0b3abfdf4e22c40d1c537476be29548b64b3a3e4441cb8898cd97ea",
+      "size": 757
+    },
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/main_review/execution-result.json": {
+      "sha256": "8ca358ed210466f68bd752a3531624c96d7cf7f863803faf083932a38dc45d64",
+      "size": 878
+    },
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/main_review/main_probe.py": {
+      "sha256": "3df2f51059fe3d569aeac2f5e90361f74f452444027036da511796bc8d69b5d1",
+      "size": 5858
+    },
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/main_review/mathematical-review.md": {
+      "sha256": "edde6651c71eb23c24d9b01755fd4060b017a61baaaab95addb9cfea82556016",
+      "size": 2579
+    },
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/main_review/run_main_probe.py": {
+      "sha256": "0af66f471cf71ef28f60ac27e45db7200a7ff7dc104133ce0f9e3751eb15a8e0",
+      "size": 1171
+    },
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/main_review/stderr.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0
+    },
+    "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/main_review/stdout.txt": {
+      "sha256": "d4a58e670e209b784f16b9921ba05de1a5e90cabd01d8d5f4e86f6b38cf12886",
+      "size": 3157
+    }
+  },
+  "request": {
+    "code_commit": "f991697a32bf77896aa435ec2df335da846230af",
+    "expected_result": "Bounded pure stdlib 3D candidates with exact acceleration/constant-body-curvature arcs, xyzw body-right rotation, 100Hz nominal integration with <=10ms time substeps and <=0.05deg rotation per collision substep; conservative whole-capsule supports reject occupied/unknown/boundary overlaps. Missing coverage remains unknown and budget exhaustion emits no partial-clear proof. clear_for_supplied_fixture applies only to supplied software geometry/errors, never movement authority, calibrated observation, global planning or gate arrival. All130 prior C19 bytes remain unchanged; prior FORCE F1.1827348 remains failed against centroid.2047005 and target.60. sim_em source/data/scales/model, formal C02/C03 dependencies, both complete control paths, all29 cards, runtime and physical/system gates remain incomplete. Frozen design1011259415a0916054eb580687612580bc1e5f09 and DEEPEYE-HUMAN-LOCK-20261014/revision1 sourcef5989cd5defce561f9ba98e6b18fc2682945f0a2 requirements SHA256 c229834bfc2292f5fe4411fc9f12c68487008f9d1adaf31f0144ee7a98173804 unchanged. Only A operates the physical board.",
+    "operation_id": "C-DEEPEYE-3D-TRAJECTORY-20261025-20",
+    "requester": "node-c",
+    "task_id": "DEEPEYE-IMPLEMENTATION-20261014",
+    "task_version": 1,
+    "test_steps": [
+      "Verify H01-H15 identity with docs/competition/deepeye-2026/verify_immutable_scope.py --expected-sha c229834bfc2292f5fe4411fc9f12c68487008f9d1adaf31f0144ee7a98173804. Identity only, no product acceptance.",
+      "Verify all pinned source/evidence with python skills/pynq-z2-single-node/scripts/handoff.py verify --root . --manifest handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/manifest.json.",
+      "Run only the new pure calculation controls from the checkout: python handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/main_review/main_probe.py --root . --controls handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/main_review/analytic-controls.json. Original author commands/raw source snapshots and independent review are preserved; no old FORCE training/inference/suites are required.",
+      "Read competition/deepeye/ai_pc/planning/TRAJECTORY_CANDIDATE.md. Check explicit software_fixture-only assumptions, entire-body continuous enclosure, unknown/free coverage, fixed false authority and bounded budgets before any integration proposal."
+    ]
+  },
+  "request_hash": "cb0611ddcd6c47b4b3c859fe00721ea3942d8af78410c8584915801226e6282b",
+  "schema_version": 1,
+  "stages": {
+    "A_runtime_integration": {
+      "status": "not_run"
+    },
+    "board": {
+      "status": "not_run"
+    },
+    "complete_global_3D_planning": {
+      "status": "not_run"
+    },
+    "formal_acceptance": {
+      "status": "not_run"
+    },
+    "gate_passage": {
+      "status": "not_run"
+    },
+    "human_requirement_identity": {
+      "log": "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/immutable-scope-result.json",
+      "status": "passed"
+    },
+    "implementation": {
+      "status": "not_run"
+    },
+    "independent_geometry_review": {
+      "log": "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/independent_review/phase2/independent.execution.json",
+      "status": "passed"
+    },
+    "new_geometry_author_25_tests": {
+      "log": "competition/deepeye/evidence/ai/trajectory_candidate_20261025/tests-final/stderr.txt",
+      "status": "passed"
+    },
+    "prior_FORCE_heldout_quality": {
+      "log": "competition/deepeye/evidence/ai/force_cpu_training_20261024/heldout_metrics.json",
+      "status": "failed"
+    },
+    "qualified_observed_map": {
+      "status": "not_run"
+    },
+    "root_independent_math_and_boundaries": {
+      "log": "handoffs/c/C-DEEPEYE-3D-TRAJECTORY-20261025-20/main_review/execution-result.json",
+      "status": "passed"
+    },
+    "sim_em_source_data_scales_model": {
+      "status": "blocked"
+    },
+    "simulation": {
+      "status": "not_run"
+    },
+    "synthesis": {
+      "status": "not_run"
+    },
+    "system": {
+      "status": "not_run"
+    }
+  }
+}
