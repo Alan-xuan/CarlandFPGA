@@ -1,0 +1,198 @@
+{
+  "request": {
+    "operation_id": "C-DEEPEYE-CPU-CAUSAL-20261025-19",
+    "task_id": "DEEPEYE-IMPLEMENTATION-20261014",
+    "task_version": 1,
+    "requester": "node-c",
+    "code_commit": "2022e767b1ec8243d0ff7b9a0b1577425a37824b",
+    "test_steps": [
+      "Verify H01-H15 identity: python docs/competition/deepeye-2026/verify_immutable_scope.py --expected-sha c229834bfc2292f5fe4411fc9f12c68487008f9d1adaf31f0144ee7a98173804. This is identity only, never acceptance.",
+      "Verify exact committed evidence: python skills/pynq-z2-single-node/scripts/handoff.py verify --root . --manifest handoffs/c/C-DEEPEYE-CPU-CAUSAL-20261025-19/manifest.json; preserve failed-quality and original RED/GREEN records.",
+      "For an explicitly selected compatible environment, follow competition/deepeye/ai_pc/cpu_package/README.md from any cwd. Use externally delivered model_manifest SHA256 0b76bcd1b21b6b1e254eef0e2e5815a15121fdb8ac48c33710f2b2d85bdf2959, public_input SHA256 d81b29a6200d83133eda22149c70d2a0f6b3db06f9885ae669ddaffc75e99b37, --device cpu --threads 4 and a new output filename. Do not modify A HIP environment or silently select HIP.",
+      "Compare feature/class/prediction fields separately from elapsed timing bytes. Read A_HOST_MAPPING.md before proposing A observation/model_candidate integration; no motion authority is supplied."
+    ],
+    "expected_result": "A finite learned FORCE offline CPU package with exact causal public-input, model and source pins; movement_authorized=false and motion_bytes=null. Author final 20-test suite and one real 128-prefix CPU run exited 0; independent frozen-window control exited 0. Heldout fixed12 Macro-F1 0.1827348057438266 FAILS target0.60 and centroid0.2047004573101128. A has not adopted this offline format. sim_em_v2/scales, online map/planner, runtime/clock/ABI integration, both complete control paths, all29 formal cards and hardware/system acceptance remain incomplete under frozen design1011259415a0916054eb580687612580bc1e5f09, DEEPEYE-HUMAN-LOCK-20261014/revision1 source f5989cd5defce561f9ba98e6b18fc2682945f0a2 requirements SHA256 c229834bfc2292f5fe4411fc9f12c68487008f9d1adaf31f0144ee7a98173804. A alone operates the physical board."
+  },
+  "artifacts": [
+    "competition/deepeye/ai_pc/.gitattributes",
+    "competition/deepeye/ai_pc/cpu_model/force_v1/.gitattributes",
+    "competition/deepeye/ai_pc/cpu_model/force_v1/README.md",
+    "competition/deepeye/ai_pc/cpu_model/force_v1/graph.json",
+    "competition/deepeye/ai_pc/cpu_model/force_v1/model_manifest.json",
+    "competition/deepeye/ai_pc/cpu_model/force_v1/public_input.jsonl",
+    "competition/deepeye/ai_pc/cpu_model/force_v1/requirements-cpu-lock.txt",
+    "competition/deepeye/ai_pc/cpu_model/force_v1/weights.json",
+    "competition/deepeye/ai_pc/cpu_package/.gitattributes",
+    "competition/deepeye/ai_pc/cpu_package/A_HOST_MAPPING.md",
+    "competition/deepeye/ai_pc/cpu_package/README.md",
+    "competition/deepeye/ai_pc/cpu_package/__init__.py",
+    "competition/deepeye/ai_pc/cpu_package/public_observation.schema.json",
+    "competition/deepeye/ai_pc/cpu_package/runner.py",
+    "competition/deepeye/ai_pc/force_training_data.py",
+    "competition/deepeye/ai_pc/model/force_cnn.py",
+    "competition/deepeye/ai_pc/run_cpu.py",
+    "competition/deepeye/ai_pc/train_force_cpu.py",
+    "competition/deepeye/evidence/ai/cpu_package_20261024/.gitattributes",
+    "competition/deepeye/evidence/ai/cpu_package_20261024/README.md",
+    "competition/deepeye/evidence/ai/cpu_package_20261024/affected-suite-final/command.json",
+    "competition/deepeye/evidence/ai/cpu_package_20261024/affected-suite-final/result.json",
+    "competition/deepeye/evidence/ai/cpu_package_20261024/affected-suite-final/stderr.txt",
+    "competition/deepeye/evidence/ai/cpu_package_20261024/affected-suite-final/stdout.txt",
+    "competition/deepeye/evidence/ai/cpu_package_20261024/affected-suite-green/command.json",
+    "competition/deepeye/evidence/ai/cpu_package_20261024/affected-suite-green/result.json",
+    "competition/deepeye/evidence/ai/cpu_package_20261024/affected-suite-green/stderr.txt",
+    "competition/deepeye/evidence/ai/cpu_package_20261024/affected-suite-green/stdout.txt",
+    "competition/deepeye/evidence/ai/cpu_package_20261024/boundary-tests-1/command.json",
+    "competition/deepeye/evidence/ai/cpu_package_20261024/boundary-tests-1/result.json",
+    "competition/deepeye/evidence/ai/cpu_package_20261024/boundary-tests-1/stderr.txt",
+    "competition/deepeye/evidence/ai/cpu_package_20261024/boundary-tests-1/stdout.txt",
+    "competition/deepeye/evidence/ai/cpu_package_20261024/capture_command.py",
+    "competition/deepeye/evidence/ai/cpu_package_20261024/cli-help/command.json",
+    "competition/deepeye/evidence/ai/cpu_package_20261024/cli-help/result.json",
+    "competition/deepeye/evidence/ai/cpu_package_20261024/cli-help/stderr.txt",
+    "competition/deepeye/evidence/ai/cpu_package_20261024/cli-help/stdout.txt",
+    "competition/deepeye/evidence/ai/cpu_package_20261024/cpu-baseline/command.json",
+    "competition/deepeye/evidence/ai/cpu_package_20261024/cpu-baseline/prediction-result.json",
+    "competition/deepeye/evidence/ai/cpu_package_20261024/cpu-baseline/result.json",
+    "competition/deepeye/evidence/ai/cpu_package_20261024/cpu-baseline/stderr.txt",
+    "competition/deepeye/evidence/ai/cpu_package_20261024/cpu-baseline/stdout.txt",
+    "competition/deepeye/evidence/ai/cpu_package_20261024/cpu-baseline/summary.json",
+    "competition/deepeye/evidence/ai/cpu_package_20261024/delivery-manifest.json",
+    "competition/deepeye/evidence/ai/cpu_package_20261024/portable-diagnostic/command.json",
+    "competition/deepeye/evidence/ai/cpu_package_20261024/portable-diagnostic/result.json",
+    "competition/deepeye/evidence/ai/cpu_package_20261024/portable-diagnostic/stderr.txt",
+    "competition/deepeye/evidence/ai/cpu_package_20261024/portable-diagnostic/stdout.txt",
+    "competition/deepeye/evidence/ai/cpu_package_20261024/portable-repair-green/command.json",
+    "competition/deepeye/evidence/ai/cpu_package_20261024/portable-repair-green/result.json",
+    "competition/deepeye/evidence/ai/cpu_package_20261024/portable-repair-green/stderr.txt",
+    "competition/deepeye/evidence/ai/cpu_package_20261024/portable-repair-green/stdout.txt",
+    "competition/deepeye/evidence/ai/cpu_package_20261024/source-review.diff",
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/.gitattributes",
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/README.md",
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/causal-window-equivalence.json",
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/data-preparation-summary.json",
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/environment-copy-manifest.json",
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/environment/authoring-diagnostics.json",
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/environment/dependency-downloads.json",
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/environment/env-check.command.json",
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/environment/env-check.result.json",
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/environment/env-check.stderr.txt",
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/environment/env-check.stdout.txt",
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/environment/new-model-tests-01.command.json",
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/environment/new-model-tests-01.result.json",
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/environment/new-model-tests-01.stderr.txt",
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/environment/new-model-tests-01.stdout.txt",
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/environment/new-model-tests-02.command.json",
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/environment/new-model-tests-02.result.json",
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/environment/new-model-tests-02.stderr.txt",
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/environment/new-model-tests-02.stdout.txt",
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/environment/pip-install.command.json",
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/environment/pip-install.result.json",
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/environment/pip-install.stderr.txt",
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/environment/pip-install.stdout.txt",
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/environment/pip-report.json",
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/environment/pre-train-ready-01.json",
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/environment/pre-train-ready-02.json",
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/environment/pre-train-ready.json",
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/environment/run_capture.py",
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/environment/setup_env.py",
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/environment/venv.command.json",
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/environment/venv.result.json",
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/environment/venv.stderr.txt",
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/environment/venv.stdout.txt",
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/epoch-01.json",
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/epoch-02.json",
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/epoch-03.json",
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/epoch-04.json",
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/epoch-05.json",
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/final_checks/final-evidence-checks.command.json",
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/final_checks/final-evidence-checks.result.json",
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/final_checks/final-evidence-checks.stderr.txt",
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/final_checks/final-evidence-checks.stdout.txt",
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/final_checks/finalize_evidence.py",
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/freeze-before-test.json",
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/graph-freeze-before-optimizer.json",
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/heldout_metrics.json",
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/main-train-launch-decision.json",
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/model-report.json",
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/pre-test-open-journal.json",
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/public_input_evaluator_labels.json",
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/recipe.json",
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/run/train-01.command.json",
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/run/train-01.result.json",
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/run/train-01.stderr.txt",
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/run/train-01.stdout.txt",
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/scalar_baselines.json",
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/source-open-journal.json",
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/training-result.json",
+    "competition/deepeye/tests/ai/cpu/.gitattributes",
+    "competition/deepeye/tests/ai/cpu/test_cpu_package.py",
+    "competition/deepeye/tests/ai/cpu/test_force_model.py",
+    "handoffs/c/C-DEEPEYE-CPU-CAUSAL-20261025-19/.gitattributes",
+    "handoffs/c/C-DEEPEYE-CPU-CAUSAL-20261025-19/immutable-scope-result.json",
+    "handoffs/c/C-DEEPEYE-CPU-CAUSAL-20261025-19/independent_review/capture_review.py",
+    "handoffs/c/C-DEEPEYE-CPU-CAUSAL-20261025-19/independent_review/command.json",
+    "handoffs/c/C-DEEPEYE-CPU-CAUSAL-20261025-19/independent_review/execution-result.json",
+    "handoffs/c/C-DEEPEYE-CPU-CAUSAL-20261025-19/independent_review/manifest.json",
+    "handoffs/c/C-DEEPEYE-CPU-CAUSAL-20261025-19/independent_review/release.json",
+    "handoffs/c/C-DEEPEYE-CPU-CAUSAL-20261025-19/independent_review/report.md",
+    "handoffs/c/C-DEEPEYE-CPU-CAUSAL-20261025-19/independent_review/review-result.json",
+    "handoffs/c/C-DEEPEYE-CPU-CAUSAL-20261025-19/independent_review/review_frozen_artifacts.py",
+    "handoffs/c/C-DEEPEYE-CPU-CAUSAL-20261025-19/independent_review/stderr.txt",
+    "handoffs/c/C-DEEPEYE-CPU-CAUSAL-20261025-19/independent_review/stdout.txt",
+    "handoffs/c/C-DEEPEYE-CPU-CAUSAL-20261025-19/trainer-delivery-manifest.json"
+  ],
+  "stages": {
+    "human_requirement_identity": {
+      "status": "passed",
+      "log": "handoffs/c/C-DEEPEYE-CPU-CAUSAL-20261025-19/immutable-scope-result.json"
+    },
+    "training_process": {
+      "status": "passed",
+      "log": "competition/deepeye/evidence/ai/force_cpu_training_20261024/run/train-01.result.json"
+    },
+    "cpu_runner_final_20_tests": {
+      "status": "passed",
+      "log": "competition/deepeye/evidence/ai/cpu_package_20261024/affected-suite-green/stderr.txt"
+    },
+    "actual_cpu_128_prefix_forward": {
+      "status": "passed",
+      "log": "competition/deepeye/evidence/ai/cpu_package_20261024/cpu-baseline/result.json"
+    },
+    "independent_frozen_control": {
+      "status": "passed",
+      "log": "handoffs/c/C-DEEPEYE-CPU-CAUSAL-20261025-19/independent_review/execution-result.json"
+    },
+    "heldout_quality": {
+      "status": "failed",
+      "log": "competition/deepeye/evidence/ai/force_cpu_training_20261024/heldout_metrics.json"
+    },
+    "sim_em_model": {
+      "status": "blocked"
+    },
+    "online_mapping_planning": {
+      "status": "not_run"
+    },
+    "a_runtime_integration": {
+      "status": "not_run"
+    },
+    "simulation": {
+      "status": "not_run"
+    },
+    "synthesis": {
+      "status": "not_run"
+    },
+    "implementation": {
+      "status": "not_run"
+    },
+    "board": {
+      "status": "not_run"
+    },
+    "system": {
+      "status": "not_run"
+    },
+    "formal_acceptance": {
+      "status": "not_run"
+    }
+  }
+}

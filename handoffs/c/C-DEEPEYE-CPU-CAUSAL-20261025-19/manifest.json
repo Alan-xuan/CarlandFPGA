@@ -1,0 +1,710 @@
+{
+  "artifacts": [
+    "competition/deepeye/ai_pc/.gitattributes",
+    "competition/deepeye/ai_pc/cpu_model/force_v1/.gitattributes",
+    "competition/deepeye/ai_pc/cpu_model/force_v1/README.md",
+    "competition/deepeye/ai_pc/cpu_model/force_v1/graph.json",
+    "competition/deepeye/ai_pc/cpu_model/force_v1/model_manifest.json",
+    "competition/deepeye/ai_pc/cpu_model/force_v1/public_input.jsonl",
+    "competition/deepeye/ai_pc/cpu_model/force_v1/requirements-cpu-lock.txt",
+    "competition/deepeye/ai_pc/cpu_model/force_v1/weights.json",
+    "competition/deepeye/ai_pc/cpu_package/.gitattributes",
+    "competition/deepeye/ai_pc/cpu_package/A_HOST_MAPPING.md",
+    "competition/deepeye/ai_pc/cpu_package/README.md",
+    "competition/deepeye/ai_pc/cpu_package/__init__.py",
+    "competition/deepeye/ai_pc/cpu_package/public_observation.schema.json",
+    "competition/deepeye/ai_pc/cpu_package/runner.py",
+    "competition/deepeye/ai_pc/force_training_data.py",
+    "competition/deepeye/ai_pc/model/force_cnn.py",
+    "competition/deepeye/ai_pc/run_cpu.py",
+    "competition/deepeye/ai_pc/train_force_cpu.py",
+    "competition/deepeye/evidence/ai/cpu_package_20261024/.gitattributes",
+    "competition/deepeye/evidence/ai/cpu_package_20261024/README.md",
+    "competition/deepeye/evidence/ai/cpu_package_20261024/affected-suite-final/command.json",
+    "competition/deepeye/evidence/ai/cpu_package_20261024/affected-suite-final/result.json",
+    "competition/deepeye/evidence/ai/cpu_package_20261024/affected-suite-final/stderr.txt",
+    "competition/deepeye/evidence/ai/cpu_package_20261024/affected-suite-final/stdout.txt",
+    "competition/deepeye/evidence/ai/cpu_package_20261024/affected-suite-green/command.json",
+    "competition/deepeye/evidence/ai/cpu_package_20261024/affected-suite-green/result.json",
+    "competition/deepeye/evidence/ai/cpu_package_20261024/affected-suite-green/stderr.txt",
+    "competition/deepeye/evidence/ai/cpu_package_20261024/affected-suite-green/stdout.txt",
+    "competition/deepeye/evidence/ai/cpu_package_20261024/boundary-tests-1/command.json",
+    "competition/deepeye/evidence/ai/cpu_package_20261024/boundary-tests-1/result.json",
+    "competition/deepeye/evidence/ai/cpu_package_20261024/boundary-tests-1/stderr.txt",
+    "competition/deepeye/evidence/ai/cpu_package_20261024/boundary-tests-1/stdout.txt",
+    "competition/deepeye/evidence/ai/cpu_package_20261024/capture_command.py",
+    "competition/deepeye/evidence/ai/cpu_package_20261024/cli-help/command.json",
+    "competition/deepeye/evidence/ai/cpu_package_20261024/cli-help/result.json",
+    "competition/deepeye/evidence/ai/cpu_package_20261024/cli-help/stderr.txt",
+    "competition/deepeye/evidence/ai/cpu_package_20261024/cli-help/stdout.txt",
+    "competition/deepeye/evidence/ai/cpu_package_20261024/cpu-baseline/command.json",
+    "competition/deepeye/evidence/ai/cpu_package_20261024/cpu-baseline/prediction-result.json",
+    "competition/deepeye/evidence/ai/cpu_package_20261024/cpu-baseline/result.json",
+    "competition/deepeye/evidence/ai/cpu_package_20261024/cpu-baseline/stderr.txt",
+    "competition/deepeye/evidence/ai/cpu_package_20261024/cpu-baseline/stdout.txt",
+    "competition/deepeye/evidence/ai/cpu_package_20261024/cpu-baseline/summary.json",
+    "competition/deepeye/evidence/ai/cpu_package_20261024/delivery-manifest.json",
+    "competition/deepeye/evidence/ai/cpu_package_20261024/portable-diagnostic/command.json",
+    "competition/deepeye/evidence/ai/cpu_package_20261024/portable-diagnostic/result.json",
+    "competition/deepeye/evidence/ai/cpu_package_20261024/portable-diagnostic/stderr.txt",
+    "competition/deepeye/evidence/ai/cpu_package_20261024/portable-diagnostic/stdout.txt",
+    "competition/deepeye/evidence/ai/cpu_package_20261024/portable-repair-green/command.json",
+    "competition/deepeye/evidence/ai/cpu_package_20261024/portable-repair-green/result.json",
+    "competition/deepeye/evidence/ai/cpu_package_20261024/portable-repair-green/stderr.txt",
+    "competition/deepeye/evidence/ai/cpu_package_20261024/portable-repair-green/stdout.txt",
+    "competition/deepeye/evidence/ai/cpu_package_20261024/source-review.diff",
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/.gitattributes",
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/README.md",
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/causal-window-equivalence.json",
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/data-preparation-summary.json",
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/environment-copy-manifest.json",
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/environment/authoring-diagnostics.json",
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/environment/dependency-downloads.json",
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/environment/env-check.command.json",
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/environment/env-check.result.json",
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/environment/env-check.stderr.txt",
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/environment/env-check.stdout.txt",
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/environment/new-model-tests-01.command.json",
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/environment/new-model-tests-01.result.json",
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/environment/new-model-tests-01.stderr.txt",
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/environment/new-model-tests-01.stdout.txt",
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/environment/new-model-tests-02.command.json",
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/environment/new-model-tests-02.result.json",
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/environment/new-model-tests-02.stderr.txt",
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/environment/new-model-tests-02.stdout.txt",
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/environment/pip-install.command.json",
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/environment/pip-install.result.json",
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/environment/pip-install.stderr.txt",
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/environment/pip-install.stdout.txt",
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/environment/pip-report.json",
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/environment/pre-train-ready-01.json",
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/environment/pre-train-ready-02.json",
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/environment/pre-train-ready.json",
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/environment/run_capture.py",
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/environment/setup_env.py",
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/environment/venv.command.json",
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/environment/venv.result.json",
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/environment/venv.stderr.txt",
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/environment/venv.stdout.txt",
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/epoch-01.json",
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/epoch-02.json",
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/epoch-03.json",
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/epoch-04.json",
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/epoch-05.json",
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/final_checks/final-evidence-checks.command.json",
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/final_checks/final-evidence-checks.result.json",
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/final_checks/final-evidence-checks.stderr.txt",
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/final_checks/final-evidence-checks.stdout.txt",
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/final_checks/finalize_evidence.py",
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/freeze-before-test.json",
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/graph-freeze-before-optimizer.json",
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/heldout_metrics.json",
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/main-train-launch-decision.json",
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/model-report.json",
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/pre-test-open-journal.json",
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/public_input_evaluator_labels.json",
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/recipe.json",
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/run/train-01.command.json",
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/run/train-01.result.json",
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/run/train-01.stderr.txt",
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/run/train-01.stdout.txt",
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/scalar_baselines.json",
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/source-open-journal.json",
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/training-result.json",
+    "competition/deepeye/tests/ai/cpu/.gitattributes",
+    "competition/deepeye/tests/ai/cpu/test_cpu_package.py",
+    "competition/deepeye/tests/ai/cpu/test_force_model.py",
+    "handoffs/c/C-DEEPEYE-CPU-CAUSAL-20261025-19/.gitattributes",
+    "handoffs/c/C-DEEPEYE-CPU-CAUSAL-20261025-19/immutable-scope-result.json",
+    "handoffs/c/C-DEEPEYE-CPU-CAUSAL-20261025-19/independent_review/capture_review.py",
+    "handoffs/c/C-DEEPEYE-CPU-CAUSAL-20261025-19/independent_review/command.json",
+    "handoffs/c/C-DEEPEYE-CPU-CAUSAL-20261025-19/independent_review/execution-result.json",
+    "handoffs/c/C-DEEPEYE-CPU-CAUSAL-20261025-19/independent_review/manifest.json",
+    "handoffs/c/C-DEEPEYE-CPU-CAUSAL-20261025-19/independent_review/release.json",
+    "handoffs/c/C-DEEPEYE-CPU-CAUSAL-20261025-19/independent_review/report.md",
+    "handoffs/c/C-DEEPEYE-CPU-CAUSAL-20261025-19/independent_review/review-result.json",
+    "handoffs/c/C-DEEPEYE-CPU-CAUSAL-20261025-19/independent_review/review_frozen_artifacts.py",
+    "handoffs/c/C-DEEPEYE-CPU-CAUSAL-20261025-19/independent_review/stderr.txt",
+    "handoffs/c/C-DEEPEYE-CPU-CAUSAL-20261025-19/independent_review/stdout.txt",
+    "handoffs/c/C-DEEPEYE-CPU-CAUSAL-20261025-19/trainer-delivery-manifest.json"
+  ],
+  "files": {
+    "competition/deepeye/ai_pc/.gitattributes": {
+      "sha256": "173309fe7ed93067438396cf4871a8cf6e7866aa588486c3a4052fa8c3a66772",
+      "size": 96
+    },
+    "competition/deepeye/ai_pc/cpu_model/force_v1/.gitattributes": {
+      "sha256": "85e48d232edc7b02f6cecf8fbbf905f3b126c467b594d8dd16c4f8fa283a8320",
+      "size": 14
+    },
+    "competition/deepeye/ai_pc/cpu_model/force_v1/README.md": {
+      "sha256": "2d198c24d2e15de5aa1e83ca056160ce05065a9c5c2827b6387f447b01051256",
+      "size": 6227
+    },
+    "competition/deepeye/ai_pc/cpu_model/force_v1/graph.json": {
+      "sha256": "6fd93fab7e65b56b1cd9473475c54b071b3e82ff09549ee447675988f07efee2",
+      "size": 1429
+    },
+    "competition/deepeye/ai_pc/cpu_model/force_v1/model_manifest.json": {
+      "sha256": "0b76bcd1b21b6b1e254eef0e2e5815a15121fdb8ac48c33710f2b2d85bdf2959",
+      "size": 3932
+    },
+    "competition/deepeye/ai_pc/cpu_model/force_v1/public_input.jsonl": {
+      "sha256": "d81b29a6200d83133eda22149c70d2a0f6b3db06f9885ae669ddaffc75e99b37",
+      "size": 45266
+    },
+    "competition/deepeye/ai_pc/cpu_model/force_v1/requirements-cpu-lock.txt": {
+      "sha256": "0624a3fae776e0d69e42c20013512bdf119d5f2b9d26a9e75d4ff4cb18278772",
+      "size": 1225
+    },
+    "competition/deepeye/ai_pc/cpu_model/force_v1/weights.json": {
+      "sha256": "8988f4bbcf425d9b48c9a62866ac350e6096ea43fabdd9b1e616b22ba4b6d187",
+      "size": 102250
+    },
+    "competition/deepeye/ai_pc/cpu_package/.gitattributes": {
+      "sha256": "705fd4d6451a31d36b3df7de96f83f30ac976c9b4a6d1e51671d8e2f33e2d0da",
+      "size": 8
+    },
+    "competition/deepeye/ai_pc/cpu_package/A_HOST_MAPPING.md": {
+      "sha256": "ca113434653e4d74a741542070efcfdbb5dc567da02a99e43b920181497e7621",
+      "size": 6363
+    },
+    "competition/deepeye/ai_pc/cpu_package/README.md": {
+      "sha256": "98816f6514c2dcee6c5c6ef7da06a7de19743e79619137b934cd7b4ec254b875",
+      "size": 7237
+    },
+    "competition/deepeye/ai_pc/cpu_package/__init__.py": {
+      "sha256": "bedb21fee166cf80aa42a75adee9199d915f332958c213c97eecbf248f8daa48",
+      "size": 68
+    },
+    "competition/deepeye/ai_pc/cpu_package/public_observation.schema.json": {
+      "sha256": "658b0b4570e6743efdfcef6cd3bc59ac2c080392b2c6b9d225af1c0de6bdd3b3",
+      "size": 1084
+    },
+    "competition/deepeye/ai_pc/cpu_package/runner.py": {
+      "sha256": "92114790259b7e35e8bf7b1a0519f0e3f68da52729d08b5b9862c992deae70af",
+      "size": 21133
+    },
+    "competition/deepeye/ai_pc/force_training_data.py": {
+      "sha256": "9d83465219d84141e56d3fb813e316d87d8ef83744e73a7ad27a6c54d386ae09",
+      "size": 11673
+    },
+    "competition/deepeye/ai_pc/model/force_cnn.py": {
+      "sha256": "5003427e1ac01e50b612d8f4f9c674c7df352b3942a5cc39978e23bdfbdb1260",
+      "size": 10384
+    },
+    "competition/deepeye/ai_pc/run_cpu.py": {
+      "sha256": "d480b84df8c0f64e94bf7545444bbc8b2090f26a1d2a31314be282883cbb26ac",
+      "size": 380
+    },
+    "competition/deepeye/ai_pc/train_force_cpu.py": {
+      "sha256": "4b52ddbfc8afb8a5ae704b0a07c8e77c685b64d1d90950f1693403c1276fa75e",
+      "size": 19015
+    },
+    "competition/deepeye/evidence/ai/cpu_package_20261024/.gitattributes": {
+      "sha256": "85e48d232edc7b02f6cecf8fbbf905f3b126c467b594d8dd16c4f8fa283a8320",
+      "size": 14
+    },
+    "competition/deepeye/evidence/ai/cpu_package_20261024/README.md": {
+      "sha256": "7dc60c60fb028beb974755c25da44ce1073524fb01330876c4d1e3245c781481",
+      "size": 6457
+    },
+    "competition/deepeye/evidence/ai/cpu_package_20261024/affected-suite-final/command.json": {
+      "sha256": "3feadcde461d17b93f9d345cf3368a8b3f5ca3daf1b0f291884b5fa89e7a30b3",
+      "size": 529
+    },
+    "competition/deepeye/evidence/ai/cpu_package_20261024/affected-suite-final/result.json": {
+      "sha256": "49ecd3577602af2cb9685e9b6aa25f373da24ee294aef0307e4e3421ef673695",
+      "size": 250
+    },
+    "competition/deepeye/evidence/ai/cpu_package_20261024/affected-suite-final/stderr.txt": {
+      "sha256": "c700e198f0e5c46e9338ea87b5b1d257b94f5c9ee9620865bdd5f000e63f844f",
+      "size": 4193
+    },
+    "competition/deepeye/evidence/ai/cpu_package_20261024/affected-suite-final/stdout.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0
+    },
+    "competition/deepeye/evidence/ai/cpu_package_20261024/affected-suite-green/command.json": {
+      "sha256": "3ba31db3cba28a1624e237601562e0e0a40234647ab54215435e1d16bb4021ad",
+      "size": 529
+    },
+    "competition/deepeye/evidence/ai/cpu_package_20261024/affected-suite-green/result.json": {
+      "sha256": "6ac82f7d551af28debc3c4b1beae95714bbb95adef049398321bb85d9a1c7033",
+      "size": 250
+    },
+    "competition/deepeye/evidence/ai/cpu_package_20261024/affected-suite-green/stderr.txt": {
+      "sha256": "881cd28cef50f116fec57c3361322e0ab64d6687d3e53fe516db41e384d3c9ba",
+      "size": 3549
+    },
+    "competition/deepeye/evidence/ai/cpu_package_20261024/affected-suite-green/stdout.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0
+    },
+    "competition/deepeye/evidence/ai/cpu_package_20261024/boundary-tests-1/command.json": {
+      "sha256": "b37c40a137813fd4d5f5246ad40e559a61fe852586d406063020a7d34279af07",
+      "size": 458
+    },
+    "competition/deepeye/evidence/ai/cpu_package_20261024/boundary-tests-1/result.json": {
+      "sha256": "6121a6eac07446bd164183310e8892e53e4d3ea65905f6c3353a5d06435fab74",
+      "size": 250
+    },
+    "competition/deepeye/evidence/ai/cpu_package_20261024/boundary-tests-1/stderr.txt": {
+      "sha256": "52cb22046e1128823b84d6f9f6170f23f9914a4cb9510adb23a20ffde6be64b5",
+      "size": 2774
+    },
+    "competition/deepeye/evidence/ai/cpu_package_20261024/boundary-tests-1/stdout.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0
+    },
+    "competition/deepeye/evidence/ai/cpu_package_20261024/capture_command.py": {
+      "sha256": "fd3fbcb3c65cb7c47cac9c804aa6edcce6bd94cc9680b7ac0cfbfc76f35d5359",
+      "size": 1355
+    },
+    "competition/deepeye/evidence/ai/cpu_package_20261024/cli-help/command.json": {
+      "sha256": "136290e091846ae6de2d6b537a849e407602f1ec1335ed8c490a4dcf9b7695be",
+      "size": 405
+    },
+    "competition/deepeye/evidence/ai/cpu_package_20261024/cli-help/result.json": {
+      "sha256": "91c77c253804514f19c0361806976852fa77d7a11309e521034fd102172f7959",
+      "size": 250
+    },
+    "competition/deepeye/evidence/ai/cpu_package_20261024/cli-help/stderr.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0
+    },
+    "competition/deepeye/evidence/ai/cpu_package_20261024/cli-help/stdout.txt": {
+      "sha256": "b967680b8cfa06e6a6f695db79898a624964fd8163d7532dabc7a85c713b3a5d",
+      "size": 1032
+    },
+    "competition/deepeye/evidence/ai/cpu_package_20261024/cpu-baseline/command.json": {
+      "sha256": "82cd7295f5427ef5d7c213ef704c515d3ea8417160e194bfa8914f7c8c51d997",
+      "size": 1471
+    },
+    "competition/deepeye/evidence/ai/cpu_package_20261024/cpu-baseline/prediction-result.json": {
+      "sha256": "e84bdfe850efb8a231f72c98a5fb05cc20c7f6036014f4db77ef3f6cf44b418f",
+      "size": 155616
+    },
+    "competition/deepeye/evidence/ai/cpu_package_20261024/cpu-baseline/result.json": {
+      "sha256": "6dd6d774540ad3670e8d8be281575637ae5e758f9ced4ac9ca9febd7a6c12f4e",
+      "size": 250
+    },
+    "competition/deepeye/evidence/ai/cpu_package_20261024/cpu-baseline/stderr.txt": {
+      "sha256": "920f04b4b9fcac323126516687566ea072b6f5987c3ae90d37ec893c52720a56",
+      "size": 391
+    },
+    "competition/deepeye/evidence/ai/cpu_package_20261024/cpu-baseline/stdout.txt": {
+      "sha256": "e84bdfe850efb8a231f72c98a5fb05cc20c7f6036014f4db77ef3f6cf44b418f",
+      "size": 155616
+    },
+    "competition/deepeye/evidence/ai/cpu_package_20261024/cpu-baseline/summary.json": {
+      "sha256": "c3595ea139580d5280d03738f2b48e62156c6854ae933ca876963d01116f57c7",
+      "size": 2228
+    },
+    "competition/deepeye/evidence/ai/cpu_package_20261024/delivery-manifest.json": {
+      "sha256": "9fc1dfc5c048e379b53da9a3dc9ca1ccf5dac288c6ad3be12dd96e2eace8c6c2",
+      "size": 10228
+    },
+    "competition/deepeye/evidence/ai/cpu_package_20261024/portable-diagnostic/command.json": {
+      "sha256": "70d7f9bd134d6c234e60aed6d914445d18b0403da9f7f2687d04e91fbedc74c0",
+      "size": 630
+    },
+    "competition/deepeye/evidence/ai/cpu_package_20261024/portable-diagnostic/result.json": {
+      "sha256": "debf6c00036ec02e01bcb218ecebf1c4d06f4ad08131713f53f36792aba81138",
+      "size": 250
+    },
+    "competition/deepeye/evidence/ai/cpu_package_20261024/portable-diagnostic/stderr.txt": {
+      "sha256": "1eed754870d362552c6cff4cfdc3f520866ed01dba945999ebb559bec903125f",
+      "size": 1689
+    },
+    "competition/deepeye/evidence/ai/cpu_package_20261024/portable-diagnostic/stdout.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0
+    },
+    "competition/deepeye/evidence/ai/cpu_package_20261024/portable-repair-green/command.json": {
+      "sha256": "7d3c93f130d8a1fc92234c628dce56e3b365690791793ac4423212924345106e",
+      "size": 630
+    },
+    "competition/deepeye/evidence/ai/cpu_package_20261024/portable-repair-green/result.json": {
+      "sha256": "c79ce5fa967770ab0b31f09cd65deb13d74cc968d2ada0c8a66eba8d2b97ce41",
+      "size": 250
+    },
+    "competition/deepeye/evidence/ai/cpu_package_20261024/portable-repair-green/stderr.txt": {
+      "sha256": "e989fcbc3d6424285e785bdae726027990e24558f89106db164fab146798c8d2",
+      "size": 304
+    },
+    "competition/deepeye/evidence/ai/cpu_package_20261024/portable-repair-green/stdout.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0
+    },
+    "competition/deepeye/evidence/ai/cpu_package_20261024/source-review.diff": {
+      "sha256": "beafacf607bc7fbb0412ea28283618cd8110f88372b14f50cd825748509c6f65",
+      "size": 49368
+    },
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/.gitattributes": {
+      "sha256": "85e48d232edc7b02f6cecf8fbbf905f3b126c467b594d8dd16c4f8fa283a8320",
+      "size": 14
+    },
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/README.md": {
+      "sha256": "452b6fefc4a0f8dbed73e575c5fcbcf7752c98cc32ae8dc482a016261193c9fe",
+      "size": 2866
+    },
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/causal-window-equivalence.json": {
+      "sha256": "13d04740539dcf44e63fe61827de6b55baad6c4a4fbe70540cc83bc678e62991",
+      "size": 837
+    },
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/data-preparation-summary.json": {
+      "sha256": "2e76aea17a85116f639de177279c2afaed1b232c097bad89c33e840204a881b2",
+      "size": 63745
+    },
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/environment-copy-manifest.json": {
+      "sha256": "975412ee4655ec47ab182f36ebda4c37e079ecc29e329c0eaef6962efd611854",
+      "size": 4994
+    },
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/environment/authoring-diagnostics.json": {
+      "sha256": "af3e5437d6fb95633d305600a08747fecbd727426b9fd7d8385211eba1058ead",
+      "size": 1114
+    },
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/environment/dependency-downloads.json": {
+      "sha256": "f97a907d08a7fbaca5f92ea7baccf774405770d27b2ffcefc75c183604c8b54f",
+      "size": 4831
+    },
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/environment/env-check.command.json": {
+      "sha256": "ce70589aa3f65d8971a786819d27d8513daca52ac5afe705dce1c7249a790a25",
+      "size": 395
+    },
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/environment/env-check.result.json": {
+      "sha256": "4f14f35e158b6a1a1fc88f248cecb4eb9d21220bf505762c611d021caba9a88c",
+      "size": 713
+    },
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/environment/env-check.stderr.txt": {
+      "sha256": "920f04b4b9fcac323126516687566ea072b6f5987c3ae90d37ec893c52720a56",
+      "size": 391
+    },
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/environment/env-check.stdout.txt": {
+      "sha256": "60359a5d5131291fd56c6596509382e9aa403ed9d954986723ecda2f65091c06",
+      "size": 143
+    },
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/environment/new-model-tests-01.command.json": {
+      "sha256": "3458e457fe4889e9e9e2426875c2959b8c9471ea245ca833fae28531b8ac6ae5",
+      "size": 405
+    },
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/environment/new-model-tests-01.result.json": {
+      "sha256": "1309eba858c3c1203abfd62c178bc1cfa6bb22a9933932763b058311e07cf709",
+      "size": 722
+    },
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/environment/new-model-tests-01.stderr.txt": {
+      "sha256": "51461841ad6ed58be35299b9533ab5e16d875c72c194fa126de2dbff1c8b26f5",
+      "size": 1028
+    },
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/environment/new-model-tests-01.stdout.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0
+    },
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/environment/new-model-tests-02.command.json": {
+      "sha256": "5dc7a3d102d8ba9ee0f9baa919bb62ff1dda6d368385f2e86b24dd15991f18cd",
+      "size": 405
+    },
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/environment/new-model-tests-02.result.json": {
+      "sha256": "359288f6cae422840b70dd3230e639df8a768b0660d22d317e9b3e0490c94c01",
+      "size": 722
+    },
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/environment/new-model-tests-02.stderr.txt": {
+      "sha256": "21b65924aa2f0bcde95acdfdab883dcd95f51a8432bae167991deb519749fec9",
+      "size": 1192
+    },
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/environment/new-model-tests-02.stdout.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0
+    },
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/environment/pip-install.command.json": {
+      "sha256": "9818a89e1ba1f8439e15b3dad9628ee680d37048d1e563d1c1e3f15eb1e78456",
+      "size": 536
+    },
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/environment/pip-install.result.json": {
+      "sha256": "a03edd3c3a5e094520de3a9eed42ba9a52e2ce7fb678630964e55919cecc5997",
+      "size": 853
+    },
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/environment/pip-install.stderr.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0
+    },
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/environment/pip-install.stdout.txt": {
+      "sha256": "76b323e87af6215f3d4aa12c34e9b2f105be3bd1e9c7bfe4d1e04e4c22d83ce3",
+      "size": 3050
+    },
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/environment/pip-report.json": {
+      "sha256": "58452f433b2494561c28e708f89df4ddfc350eff65e72bb512bf335d1f06932f",
+      "size": 98622
+    },
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/environment/pre-train-ready-01.json": {
+      "sha256": "d867d541aeb4d9d3b0e3b08f3d9471f439736d4312dce9e23c3fecc0ae3ebf73",
+      "size": 3131
+    },
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/environment/pre-train-ready-02.json": {
+      "sha256": "09b3f55252705e377d8ff9895f1498d0c54fd7be5322a758039bf1bf2ed25178",
+      "size": 3312
+    },
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/environment/pre-train-ready.json": {
+      "sha256": "6fb6c4576a580777b0831e81fadfa8654e2ba9fe308c9c477523b8eccfde0986",
+      "size": 3456
+    },
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/environment/run_capture.py": {
+      "sha256": "612125bdf2e77c79aef4c4015a69c0af401f23cf4258ffcc23610266cfec0981",
+      "size": 1080
+    },
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/environment/setup_env.py": {
+      "sha256": "bc6966460b0f27fa759ef6c6e8b9c507aee470de5ebf4b51da2be9bbdec0ce3a",
+      "size": 1872
+    },
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/environment/venv.command.json": {
+      "sha256": "0e2e8e71058c0549f4844f577ec61b2c885367d596239f51ae5f6ef2e465cf9f",
+      "size": 308
+    },
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/environment/venv.result.json": {
+      "sha256": "56c845970b4985e9edceedadb092f5baeab5f901cc8c73f64f059b5e008ab426",
+      "size": 622
+    },
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/environment/venv.stderr.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0
+    },
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/environment/venv.stdout.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0
+    },
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/epoch-01.json": {
+      "sha256": "5ce80d233907cd44f40985ba0d5fa02a9e007c29b39d85b9936b2c3dd0e99455",
+      "size": 138593
+    },
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/epoch-02.json": {
+      "sha256": "35997834809e915d3d2d5a56480bc51b31008e905606646eae5afc02a095b3d0",
+      "size": 138959
+    },
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/epoch-03.json": {
+      "sha256": "8ab007ab4d1f51bba681e61cbfb5f328fdfc32f63b3033255e4d12e78257a7aa",
+      "size": 138831
+    },
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/epoch-04.json": {
+      "sha256": "0b612f03cea886138212142c50caf7540d89d91ab6fb2766c9b9cfc14596ebd4",
+      "size": 139514
+    },
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/epoch-05.json": {
+      "sha256": "4ff7c8d390da7edf320c3c1207849578d1f0c28757d67ebea92c2fc38575efea",
+      "size": 141188
+    },
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/final_checks/final-evidence-checks.command.json": {
+      "sha256": "312e1b0fbf517a93626a503f829a656820223475bf350062bdc0178ce721f511",
+      "size": 455
+    },
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/final_checks/final-evidence-checks.result.json": {
+      "sha256": "ef3237431dfbb442b1087206b3010441ad6110dbd456f82f6fc49ae0f2a20e6d",
+      "size": 771
+    },
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/final_checks/final-evidence-checks.stderr.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0
+    },
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/final_checks/final-evidence-checks.stdout.txt": {
+      "sha256": "cfdfdd84a0314dcf61f9d06131c59bd5cc4a86b3e2dd7b0791451b2bae3ee634",
+      "size": 261
+    },
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/final_checks/finalize_evidence.py": {
+      "sha256": "a13ff0dc325e897f1ca9ab826572686940faa6011838ca4701054efccb5abcb4",
+      "size": 7123
+    },
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/freeze-before-test.json": {
+      "sha256": "d30a2ad3bbaa3c08f0080139b018dc898933c70551004c98d31fef4cfd8ffd11",
+      "size": 301
+    },
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/graph-freeze-before-optimizer.json": {
+      "sha256": "05ac6109aa9c65957de47d87971d5eddfd66511efdcc9fee409a8449f07aa33a",
+      "size": 380
+    },
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/heldout_metrics.json": {
+      "sha256": "39ba0e9575511fa202bc7682c3b291ac3e28f729a02412f9dbc121ffbfc8f897",
+      "size": 457698
+    },
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/main-train-launch-decision.json": {
+      "sha256": "6d9afdac1a533a5e48a8ba0c61c9f4027a4b52b2fbaef0de597b10f255e3b31e",
+      "size": 1917
+    },
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/model-report.json": {
+      "sha256": "62df5b81e2c11bbcf1c37e2181944ffa57b3967380746c1f3d3acc428f735db2",
+      "size": 2925
+    },
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/pre-test-open-journal.json": {
+      "sha256": "998d1022d02518901251a5a572d48e963af0907d67a5c40a5eed629978e6ae98",
+      "size": 28207
+    },
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/public_input_evaluator_labels.json": {
+      "sha256": "1e5bd843b115fd09f112de400809ebd131bfd0bf4bb9c0cab390adc990958585",
+      "size": 15789
+    },
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/recipe.json": {
+      "sha256": "a7a49ffbe55436dcfeb7cb7faee2a6d312553c2fcf0837372a2ecf83ffc3a497",
+      "size": 907
+    },
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/run/train-01.command.json": {
+      "sha256": "856f1eb1ccbe87060378cd5117b6c9a003fd6102acb1aaaa14f10ca263b0d31a",
+      "size": 1098
+    },
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/run/train-01.result.json": {
+      "sha256": "89ce26fc865069f89bc261d67b921d0da9a1d14a21f4b6ba969ddc77ef8ca875",
+      "size": 1418
+    },
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/run/train-01.stderr.txt": {
+      "sha256": "920f04b4b9fcac323126516687566ea072b6f5987c3ae90d37ec893c52720a56",
+      "size": 391
+    },
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/run/train-01.stdout.txt": {
+      "sha256": "b485469747839be2a8e50fbd9e34f8620c704a1c6e43f914d98a46e38ad8f1c4",
+      "size": 10886
+    },
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/scalar_baselines.json": {
+      "sha256": "33fad29a6a568441df8dc346de61d4d0915de971e981ff456edcc09e459062c0",
+      "size": 280947
+    },
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/source-open-journal.json": {
+      "sha256": "305ff94ee8f3e05408fc3392cb46c04d0cbc8895b3e4f34386910c4d5ea4dc00",
+      "size": 33591
+    },
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/training-result.json": {
+      "sha256": "c1f4d0f572b2f6a6b2e733bad78a921049ed295870aa76552b2b57f138d25844",
+      "size": 536
+    },
+    "competition/deepeye/tests/ai/cpu/.gitattributes": {
+      "sha256": "e4c45dd42c75f3e1f5793832683d13e0cff16b8c8d52536534b637722543e7bd",
+      "size": 52
+    },
+    "competition/deepeye/tests/ai/cpu/test_cpu_package.py": {
+      "sha256": "ec92f3b0b06bc65facb47c5da3bdb79aaf173036c6dbe41b32eab495230a7708",
+      "size": 17943
+    },
+    "competition/deepeye/tests/ai/cpu/test_force_model.py": {
+      "sha256": "c64f211789c6c5822464fbf9af69df158b16d445dc08bfafbe944b40db292598",
+      "size": 9748
+    },
+    "handoffs/c/C-DEEPEYE-CPU-CAUSAL-20261025-19/.gitattributes": {
+      "sha256": "705fd4d6451a31d36b3df7de96f83f30ac976c9b4a6d1e51671d8e2f33e2d0da",
+      "size": 8
+    },
+    "handoffs/c/C-DEEPEYE-CPU-CAUSAL-20261025-19/immutable-scope-result.json": {
+      "sha256": "e6a0a5722482707d449e03400819ffe28ddb53cb53e43f355e9645f5c9303f1c",
+      "size": 272
+    },
+    "handoffs/c/C-DEEPEYE-CPU-CAUSAL-20261025-19/independent_review/capture_review.py": {
+      "sha256": "4f142269d35db667fa6bf480fec8287bb48b9d7d32050a1ddf04aae202d88734",
+      "size": 1335
+    },
+    "handoffs/c/C-DEEPEYE-CPU-CAUSAL-20261025-19/independent_review/command.json": {
+      "sha256": "69ead10bd3cbf1e90ab18391b8633981a76efc56103647fd29789a70ba4f125e",
+      "size": 493
+    },
+    "handoffs/c/C-DEEPEYE-CPU-CAUSAL-20261025-19/independent_review/execution-result.json": {
+      "sha256": "2b80c7cf78203ac35d9526fc6024becd951e5d7909c07207ea1ba26105980725",
+      "size": 811
+    },
+    "handoffs/c/C-DEEPEYE-CPU-CAUSAL-20261025-19/independent_review/manifest.json": {
+      "sha256": "d207319707eaefb5e4718100602bda870859bea4534b60f654a0f711c5e95c4f",
+      "size": 1342
+    },
+    "handoffs/c/C-DEEPEYE-CPU-CAUSAL-20261025-19/independent_review/release.json": {
+      "sha256": "89e82399ca689f6cc2de0c15c59547911aacb5c729c66e94ff2463440aa2195c",
+      "size": 665
+    },
+    "handoffs/c/C-DEEPEYE-CPU-CAUSAL-20261025-19/independent_review/report.md": {
+      "sha256": "9e2a57f60189708f1e64d7a29ca22d8a3a120fe4836947300376e862b3afc244",
+      "size": 6674
+    },
+    "handoffs/c/C-DEEPEYE-CPU-CAUSAL-20261025-19/independent_review/review-result.json": {
+      "sha256": "af22207212bbb00406cf7bc0565673c846b819e24e1603f92f69dbd37040f759",
+      "size": 5868
+    },
+    "handoffs/c/C-DEEPEYE-CPU-CAUSAL-20261025-19/independent_review/review_frozen_artifacts.py": {
+      "sha256": "b88b0866838014e68ca2d79297f1205336ab35614b8d500ef6c5f36e82c27020",
+      "size": 13457
+    },
+    "handoffs/c/C-DEEPEYE-CPU-CAUSAL-20261025-19/independent_review/stderr.txt": {
+      "sha256": "920f04b4b9fcac323126516687566ea072b6f5987c3ae90d37ec893c52720a56",
+      "size": 391
+    },
+    "handoffs/c/C-DEEPEYE-CPU-CAUSAL-20261025-19/independent_review/stdout.txt": {
+      "sha256": "809e418fa4df30e84a81daa8d9d48f0e347effed61863a74a1ff84866db62f70",
+      "size": 325
+    },
+    "handoffs/c/C-DEEPEYE-CPU-CAUSAL-20261025-19/trainer-delivery-manifest.json": {
+      "sha256": "44e9fa1c3396bcf2f019623ac149dfcb847107f02adc82f5b910709aa8756158",
+      "size": 14419
+    }
+  },
+  "request": {
+    "code_commit": "2022e767b1ec8243d0ff7b9a0b1577425a37824b",
+    "expected_result": "A finite learned FORCE offline CPU package with exact causal public-input, model and source pins; movement_authorized=false and motion_bytes=null. Author final 20-test suite and one real 128-prefix CPU run exited 0; independent frozen-window control exited 0. Heldout fixed12 Macro-F1 0.1827348057438266 FAILS target0.60 and centroid0.2047004573101128. A has not adopted this offline format. sim_em_v2/scales, online map/planner, runtime/clock/ABI integration, both complete control paths, all29 formal cards and hardware/system acceptance remain incomplete under frozen design1011259415a0916054eb580687612580bc1e5f09, DEEPEYE-HUMAN-LOCK-20261014/revision1 source f5989cd5defce561f9ba98e6b18fc2682945f0a2 requirements SHA256 c229834bfc2292f5fe4411fc9f12c68487008f9d1adaf31f0144ee7a98173804. A alone operates the physical board.",
+    "operation_id": "C-DEEPEYE-CPU-CAUSAL-20261025-19",
+    "requester": "node-c",
+    "task_id": "DEEPEYE-IMPLEMENTATION-20261014",
+    "task_version": 1,
+    "test_steps": [
+      "Verify H01-H15 identity: python docs/competition/deepeye-2026/verify_immutable_scope.py --expected-sha c229834bfc2292f5fe4411fc9f12c68487008f9d1adaf31f0144ee7a98173804. This is identity only, never acceptance.",
+      "Verify exact committed evidence: python skills/pynq-z2-single-node/scripts/handoff.py verify --root . --manifest handoffs/c/C-DEEPEYE-CPU-CAUSAL-20261025-19/manifest.json; preserve failed-quality and original RED/GREEN records.",
+      "For an explicitly selected compatible environment, follow competition/deepeye/ai_pc/cpu_package/README.md from any cwd. Use externally delivered model_manifest SHA256 0b76bcd1b21b6b1e254eef0e2e5815a15121fdb8ac48c33710f2b2d85bdf2959, public_input SHA256 d81b29a6200d83133eda22149c70d2a0f6b3db06f9885ae669ddaffc75e99b37, --device cpu --threads 4 and a new output filename. Do not modify A HIP environment or silently select HIP.",
+      "Compare feature/class/prediction fields separately from elapsed timing bytes. Read A_HOST_MAPPING.md before proposing A observation/model_candidate integration; no motion authority is supplied."
+    ]
+  },
+  "request_hash": "d3cb13c511db0717983e98273abdf3bed28713dd9e2ca82643520eb759fb1e77",
+  "schema_version": 1,
+  "stages": {
+    "a_runtime_integration": {
+      "status": "not_run"
+    },
+    "actual_cpu_128_prefix_forward": {
+      "log": "competition/deepeye/evidence/ai/cpu_package_20261024/cpu-baseline/result.json",
+      "status": "passed"
+    },
+    "board": {
+      "status": "not_run"
+    },
+    "cpu_runner_final_20_tests": {
+      "log": "competition/deepeye/evidence/ai/cpu_package_20261024/affected-suite-green/stderr.txt",
+      "status": "passed"
+    },
+    "formal_acceptance": {
+      "status": "not_run"
+    },
+    "heldout_quality": {
+      "log": "competition/deepeye/evidence/ai/force_cpu_training_20261024/heldout_metrics.json",
+      "status": "failed"
+    },
+    "human_requirement_identity": {
+      "log": "handoffs/c/C-DEEPEYE-CPU-CAUSAL-20261025-19/immutable-scope-result.json",
+      "status": "passed"
+    },
+    "implementation": {
+      "status": "not_run"
+    },
+    "independent_frozen_control": {
+      "log": "handoffs/c/C-DEEPEYE-CPU-CAUSAL-20261025-19/independent_review/execution-result.json",
+      "status": "passed"
+    },
+    "online_mapping_planning": {
+      "status": "not_run"
+    },
+    "sim_em_model": {
+      "status": "blocked"
+    },
+    "simulation": {
+      "status": "not_run"
+    },
+    "synthesis": {
+      "status": "not_run"
+    },
+    "system": {
+      "status": "not_run"
+    },
+    "training_process": {
+      "log": "competition/deepeye/evidence/ai/force_cpu_training_20261024/run/train-01.result.json",
+      "status": "passed"
+    }
+  }
+}
