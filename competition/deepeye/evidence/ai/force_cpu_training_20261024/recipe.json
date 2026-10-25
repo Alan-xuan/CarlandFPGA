@@ -1,0 +1,22 @@
+{
+  "work_id": "C-FORCE-CPU-CNN-20261024-v1",
+  "seed": 20261024,
+  "epochs": 5,
+  "batch_size": 256,
+  "training_row_stride": 8,
+  "sampling": "every8th acquisition row of every TRAIN well, retain all positions in histories; no class filtering",
+  "optimizer": "Adam",
+  "learning_rate": 0.001,
+  "class_weighting": "sqrt(total/count), mean normalized over supported TRAIN classes",
+  "validation_selection": "maximum fixed12 macro-F1; first epoch wins ties",
+  "test_selection": "none; source members first opened after frozen manifest",
+  "threads": 4,
+  "interop_threads": 1,
+  "loader_workers": 0,
+  "device": "cpu",
+  "torch": "2.9.0+cpu",
+  "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+  "deterministic_algorithms": true,
+  "source_base_commit": "942fa309ffc8f1d32c816cfa643b009b031d7d0a",
+  "started_utc": "2026-10-24T12:16:55.402709+00:00"
+}

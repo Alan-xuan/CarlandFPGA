@@ -1,0 +1,50 @@
+{
+  "output_stdout_byte_equal": true,
+  "output_sha256": "e84bdfe850efb8a231f72c98a5fb05cc20c7f6036014f4db77ef3f6cf44b418f",
+  "prediction_count": 128,
+  "first_feature_sha256": "8bd61940ded56e13271e13bc0bd6f2c618d3b34c73e671ee6e9710fbb0af962c",
+  "last_feature_sha256": "d21c9ad75718dc2f8bac40d6494fe8c58f3127002388543cc30951fb277939b5",
+  "first_sequence": 7327,
+  "last_sequence": 7454,
+  "run_binding": {
+    "preprocessing_sha256": "cb66fd302165c86344f3b8d1af9d9c4e4e229621cef44cbfa6fb8cd121a63eef",
+    "profile_id": "force_curve_v1",
+    "run_id": "C-FORCE-CPU-20261024-v1",
+    "source_domain": "geo_replay"
+  },
+  "runtime": {
+    "actual_device": "cpu",
+    "deterministic_algorithms": true,
+    "device_name": "Intel64 Family 6 Model 183 Stepping 1, GenuineIntel",
+    "hip_version": null,
+    "python": "3.12.14",
+    "requested_device": "cpu",
+    "threads": 4,
+    "torch": "2.9.0+cpu"
+  },
+  "pins": {
+    "curve_builder_source_sha256": "c017729a2d5717ff2bbf5a6c591320519c415ac10068b4cee19b3136913d848c",
+    "graph": "6fd93fab7e65b56b1cd9473475c54b071b3e82ff09549ee447675988f07efee2",
+    "label_schema": "0913ff5a59085b47802a9902f23a836f4fa1129700de8e6593840416f4d7beed",
+    "model_manifest_sha256": "0b76bcd1b21b6b1e254eef0e2e5815a15121fdb8ac48c33710f2b2d85bdf2959",
+    "preprocessing": "cb66fd302165c86344f3b8d1af9d9c4e4e229621cef44cbfa6fb8cd121a63eef",
+    "public_input_sha256": "d81b29a6200d83133eda22149c70d2a0f6b3db06f9885ae669ddaffc75e99b37",
+    "runner_source_sha256": "92114790259b7e35e8bf7b1a0519f0e3f68da52729d08b5b9862c992deae70af",
+    "weights": "8988f4bbcf425d9b48c9a62866ac350e6096ea43fabdd9b1e616b22ba4b6d187"
+  },
+  "input_validation_ms": 11.813,
+  "preprocessing_total_ms": 50.5441,
+  "model_load_ms": 15.4774,
+  "prefix_forward_total_ms": 64.3935,
+  "prefix_forward_median_ms": 0.45255,
+  "prefix_forward_max_ms": 3.0464,
+  "package_before_benchmark_ms": 2556.9494,
+  "benchmark_repetitions": 10,
+  "benchmark_median_ms": 0.30615,
+  "benchmark_min_ms": 0.2874,
+  "benchmark_max_ms": 0.3373,
+  "package_compute_total_ms": 2560.9894,
+  "movement_authorized": false,
+  "A_format_adoption": "not_adopted",
+  "formal_acceptance": "not_run"
+}

@@ -1,0 +1,11 @@
+{
+  "status": "bounded_training_and_one_frozen_heldout_evaluation_complete",
+  "manifest_sha256": "0b76bcd1b21b6b1e254eef0e2e5815a15121fdb8ac48c33710f2b2d85bdf2959",
+  "public_input_sha256": "d81b29a6200d83133eda22149c70d2a0f6b3db06f9885ae669ddaffc75e99b37",
+  "selected_epoch": 5,
+  "test_fixed12_macro_f1": 0.1827348057438266,
+  "centroid_fixed12_macro_f1": 0.2047004573101128,
+  "majority_fixed12_macro_f1": 0.06762987587142284,
+  "formal_acceptance": "incomplete",
+  "completed_utc": "2026-10-24T12:18:09.472893+00:00"
+}

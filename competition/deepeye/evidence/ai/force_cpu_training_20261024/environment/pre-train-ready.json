@@ -1,0 +1,81 @@
+{
+  "status": "pre-train-ready-await-main-review",
+  "recorded_utc": "2026-10-24T12:13:20.577785+00:00",
+  "files": {
+    "ai_pc/model/force_cnn.py": {
+      "sha256": "5003427e1ac01e50b612d8f4f9c674c7df352b3942a5cc39978e23bdfbdb1260",
+      "bytes": 10384
+    },
+    "ai_pc/force_training_data.py": {
+      "sha256": "9d83465219d84141e56d3fb813e316d87d8ef83744e73a7ad27a6c54d386ae09",
+      "bytes": 11673
+    },
+    "ai_pc/train_force_cpu.py": {
+      "sha256": "4b52ddbfc8afb8a5ae704b0a07c8e77c685b64d1d90950f1693403c1276fa75e",
+      "bytes": 19015
+    },
+    "tests/ai/cpu/test_force_model.py": {
+      "sha256": "c64f211789c6c5822464fbf9af69df158b16d445dc08bfafbe944b40db292598",
+      "bytes": 9748
+    }
+  },
+  "recipe": {
+    "seed": 20261024,
+    "epochs": 5,
+    "batch_size": 256,
+    "train_stride": 8,
+    "optimizer": "Adam",
+    "learning_rate": 0.001,
+    "threads": 4,
+    "interop_threads": 1,
+    "loader_workers": 0,
+    "class_weighting": "sqrt inverse train sampled counts, normalized mean",
+    "selection": "highest fixed12 validation Macro-F1; first tie",
+    "test": "complete19 heldout wells, all labeled rows only after selected graph/weights/manifest frozen",
+    "baseline": "TRAIN-only all-labeled-row current8 normalized features centroid and majority",
+    "architecture": "4916parameter Conv2D8->16 k5,pool4,Conv2D16->24 k5,pool4,Flatten192,Gemm12",
+    "reason": "small fixed supported operators and bounded4-thread CPU recipe; no architecture search",
+    "all_final_gates": "incomplete"
+  },
+  "unit_tests": {
+    "argv": [
+      "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\cpu-model-env-20261024\\Scripts\\python.exe",
+      "-B",
+      "-X",
+      "utf8",
+      "competition/deepeye/tests/ai/cpu/test_force_model.py"
+    ],
+    "cwd": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\deepeye-implementation-c",
+    "started_utc": "2026-10-24T12:11:55.647531+00:00",
+    "exit_code": 0,
+    "finished_utc": "2026-10-24T12:12:00.366578+00:00",
+    "stdout": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "stderr": {
+      "bytes": 1192,
+      "sha256": "21b65924aa2f0bcde95acdfdab883dcd95f51a8432bae167991deb519749fec9"
+    }
+  },
+  "environment": {
+    "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+    "torch": "2.9.0+cpu",
+    "cuda_available": false,
+    "threads": 16
+  },
+  "frozen_source_pins": {
+    "force_wells.json": "ace9a0eb9930f19c6b8125e151d07346fb23029b1455eac04964d15b97461e59",
+    "splits.json": "f10ddb8f37e6bdf7c9663eed45d0f6554ef8992899724013a7e487ad3e3cef91",
+    "preprocessing.json": "cb66fd302165c86344f3b8d1af9d9c4e4e229621cef44cbfa6fb8cd121a63eef",
+    "label_schema.json": "0913ff5a59085b47802a9902f23a836f4fa1129700de8e6593840416f4d7beed"
+  },
+  "test_members_opened": false,
+  "training_started": false,
+  "install": {
+    "pip_exit": 0,
+    "report_sha256": "58452f433b2494561c28e708f89df4ddfc350eff65e72bb512bf335d1f06932f"
+  },
+  "loader_hardening": "bounded JSON read2MiB+1; exact fields/object/integer/graph shapes; controlled malformed/oversize/missing errors; test read instrumentation verifies bound",
+  "graph_freeze": "exact graph JSON/hash and model source SHA written before optimizer construction/first step, asserted unchanged at export"
+}

@@ -1,0 +1,19 @@
+test_bad_manifest_hash_and_profile_fail_before_model_import (competition.deepeye.tests.ai.cpu.test_cpu_package.InputBoundaryTests.test_bad_manifest_hash_and_profile_fail_before_model_import) ... ok
+test_cli_output_alias_rejected_before_model_work (competition.deepeye.tests.ai.cpu.test_cpu_package.InputBoundaryTests.test_cli_output_alias_rejected_before_model_work) ... ok
+test_cold_prefix_and_gap_masks_use_existing_causal_builder (competition.deepeye.tests.ai.cpu.test_cpu_package.InputBoundaryTests.test_cold_prefix_and_gap_masks_use_existing_causal_builder) ... ok
+test_conflicting_duplicate_and_older_sequences_fail_closed (competition.deepeye.tests.ai.cpu.test_cpu_package.InputBoundaryTests.test_conflicting_duplicate_and_older_sequences_fail_closed) ... ok
+test_exact_input_rejects_truth_labels_coordinates_timestamps_and_confidence (competition.deepeye.tests.ai.cpu.test_cpu_package.InputBoundaryTests.test_exact_input_rejects_truth_labels_coordinates_timestamps_and_confidence) ... ok
+test_future_suffix_cannot_mutate_prior_features_and_new_runs_are_cold (competition.deepeye.tests.ai.cpu.test_cpu_package.InputBoundaryTests.test_future_suffix_cannot_mutate_prior_features_and_new_runs_are_cold) ... ok
+test_json_parser_rejects_duplicates_nan_invalid_utf8_and_empty_lines (competition.deepeye.tests.ai.cpu.test_cpu_package.InputBoundaryTests.test_json_parser_rejects_duplicates_nan_invalid_utf8_and_empty_lines) ... ok
+test_line_size_bound (competition.deepeye.tests.ai.cpu.test_cpu_package.InputBoundaryTests.test_line_size_bound) ... ok
+test_missing_model_is_nonzero_blocked_without_output_or_logits (competition.deepeye.tests.ai.cpu.test_cpu_package.InputBoundaryTests.test_missing_model_is_nonzero_blocked_without_output_or_logits) ... ok
+test_output_exclusive_create_and_hardlink_alias_do_not_clobber (competition.deepeye.tests.ai.cpu.test_cpu_package.InputBoundaryTests.test_output_exclusive_create_and_hardlink_alias_do_not_clobber) ... ok
+test_schema_rejects_missing_extra_and_wrong_types (competition.deepeye.tests.ai.cpu.test_cpu_package.InputBoundaryTests.test_schema_rejects_missing_extra_and_wrong_types) ... ok
+test_sim_em_missing_model_is_explicit_and_never_force_remapped (competition.deepeye.tests.ai.cpu.test_cpu_package.InputBoundaryTests.test_sim_em_missing_model_is_explicit_and_never_force_remapped) ... ok
+test_source_and_binding_cannot_switch (competition.deepeye.tests.ai.cpu.test_cpu_package.InputBoundaryTests.test_source_and_binding_cannot_switch) ... ok
+test_wrong_input_pin_fails_before_parsing (competition.deepeye.tests.ai.cpu.test_cpu_package.InputBoundaryTests.test_wrong_input_pin_fails_before_parsing) ... ok
+
+----------------------------------------------------------------------
+Ran 14 tests in 1.523s
+
+OK

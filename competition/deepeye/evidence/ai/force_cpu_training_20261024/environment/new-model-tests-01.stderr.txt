@@ -1,0 +1,11 @@
+C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\cpu-model-env-20261024\Lib\site-packages\torch\_subclasses\functional_tensor.py:279: UserWarning: Failed to initialize NumPy: No module named 'numpy' (Triggered internally at C:\actions-runner\_work\pytorch\pytorch\pytorch\torch\csrc\utils\tensor_numpy.cpp:84.)
+  cpu = _conversion_method_template(device=torch.device("cpu"))
+test_graph_and_safe_json_roundtrip (__main__.ModelTests.test_graph_and_safe_json_roundtrip) ... ok
+test_identity_graph_shape_and_path_rejections (__main__.ModelTests.test_identity_graph_shape_and_path_rejections) ... ok
+test_tampered_nonfinite_boolean_and_duplicate_weights_refused (__main__.ModelTests.test_tampered_nonfinite_boolean_and_duplicate_weights_refused) ... ok
+test_window_buffer_causal_order_padding_and_future_independence (__main__.ModelTests.test_window_buffer_causal_order_padding_and_future_independence) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 1.398s
+
+OK

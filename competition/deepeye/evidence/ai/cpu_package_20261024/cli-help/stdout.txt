@@ -1,0 +1,24 @@
+usage: run_cpu.py [-h] --manifest MANIFEST --expected-manifest-sha256
+                  EXPECTED_MANIFEST_SHA256 --input INPUT
+                  --expected-input-sha256 EXPECTED_INPUT_SHA256 --output
+                  OUTPUT [--profile PROFILE] [--device {cpu,hip}]
+                  [--threads THREADS]
+                  [--benchmark-repetitions BENCHMARK_REPETITIONS]
+
+Pinned, fail-closed offline inference over causal public FORCE observations.
+Each prediction consumes exactly one prefix through the existing bounded
+CurveWindowBuilder. No label, coordinate, confidence, future timestamp or
+world API is part of this interface. Model weights are JSON, never
+pickle/code.
+
+options:
+  -h, --help            show this help message and exit
+  --manifest MANIFEST
+  --expected-manifest-sha256 EXPECTED_MANIFEST_SHA256
+  --input INPUT
+  --expected-input-sha256 EXPECTED_INPUT_SHA256
+  --output OUTPUT
+  --profile PROFILE
+  --device {cpu,hip}
+  --threads THREADS
+  --benchmark-repetitions BENCHMARK_REPETITIONS

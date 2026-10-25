@@ -1,0 +1,125 @@
+{"event": "prepared_well", "split": "train", "well": "16/8-1", "rows": 14586}
+{"event": "prepared_well", "split": "train", "well": "34/7-13", "rows": 16891}
+{"event": "prepared_well", "split": "train", "well": "31/3-1", "rows": 13361}
+{"event": "prepared_well", "split": "train", "well": "35/9-7", "rows": 17166}
+{"event": "prepared_well", "split": "train", "well": "34/3-2 S", "rows": 25699}
+{"event": "prepared_well", "split": "train", "well": "25/5-3", "rows": 18058}
+{"event": "prepared_well", "split": "train", "well": "25/4-5", "rows": 27691}
+{"event": "prepared_well", "split": "train", "well": "35/3-7 S", "rows": 24803}
+{"event": "prepared_well", "split": "train", "well": "34/5-1 A", "rows": 26343}
+{"event": "prepared_well", "split": "train", "well": "34/5-1 S", "rows": 22969}
+{"event": "prepared_well", "split": "train", "well": "25/5-4", "rows": 20021}
+{"event": "prepared_well", "split": "train", "well": "25/3-1", "rows": 24963}
+{"event": "prepared_well", "split": "train", "well": "33/6-3 S", "rows": 26868}
+{"event": "prepared_well", "split": "train", "well": "34/12-1", "rows": 28434}
+{"event": "prepared_well", "split": "train", "well": "16/10-2", "rows": 20131}
+{"event": "prepared_well", "split": "train", "well": "31/5-4 S", "rows": 11467}
+{"event": "prepared_well", "split": "train", "well": "29/3-1", "rows": 28514}
+{"event": "prepared_well", "split": "train", "well": "34/8-7 R", "rows": 35896}
+{"event": "prepared_well", "split": "train", "well": "31/2-8", "rows": 19923}
+{"event": "prepared_well", "split": "train", "well": "25/2-14", "rows": 22963}
+{"event": "prepared_well", "split": "train", "well": "25/11-19 S", "rows": 13783}
+{"event": "prepared_well", "split": "train", "well": "31/3-4", "rows": 11413}
+{"event": "prepared_well", "split": "train", "well": "35/8-4", "rows": 21927}
+{"event": "prepared_well", "split": "train", "well": "15/9-13", "rows": 21441}
+{"event": "prepared_well", "split": "train", "well": "31/4-5", "rows": 18352}
+{"event": "prepared_well", "split": "train", "well": "35/11-15 S", "rows": 18832}
+{"event": "prepared_well", "split": "train", "well": "34/10-33", "rows": 24490}
+{"event": "prepared_well", "split": "train", "well": "33/9-1", "rows": 17606}
+{"event": "prepared_well", "split": "train", "well": "34/6-1 S", "rows": 26090}
+{"event": "prepared_well", "split": "train", "well": "16/10-5", "rows": 18808}
+{"event": "prepared_well", "split": "train", "well": "16/4-1", "rows": 18424}
+{"event": "prepared_well", "split": "train", "well": "35/8-6 S", "rows": 23901}
+{"event": "prepared_well", "split": "train", "well": "25/10-9", "rows": 19639}
+{"event": "prepared_well", "split": "train", "well": "16/5-3", "rows": 12261}
+{"event": "prepared_well", "split": "train", "well": "31/2-19 S", "rows": 24730}
+{"event": "prepared_well", "split": "train", "well": "16/10-3", "rows": 17995}
+{"event": "prepared_well", "split": "train", "well": "35/9-5", "rows": 21206}
+{"event": "prepared_well", "split": "train", "well": "35/11-6", "rows": 23734}
+{"event": "prepared_well", "split": "train", "well": "16/2-6", "rows": 13094}
+{"event": "prepared_well", "split": "train", "well": "17/11-1", "rows": 20533}
+{"event": "prepared_well", "split": "train", "well": "34/2-4", "rows": 24318}
+{"event": "prepared_well", "split": "train", "well": "35/6-2 S", "rows": 21948}
+{"event": "prepared_well", "split": "train", "well": "25/6-1", "rows": 18033}
+{"event": "prepared_well", "split": "train", "well": "31/2-7", "rows": 8647}
+{"event": "prepared_well", "split": "train", "well": "35/11-10", "rows": 16967}
+{"event": "prepared_well", "split": "train", "well": "25/2-13 T4", "rows": 24492}
+{"event": "prepared_well", "split": "train", "well": "31/6-8", "rows": 9727}
+{"event": "prepared_well", "split": "train", "well": "35/11-1", "rows": 19692}
+{"event": "prepared_well", "split": "train", "well": "31/2-21 S", "rows": 18731}
+{"event": "prepared_well", "split": "train", "well": "34/10-16 R", "rows": 25579}
+{"event": "prepared_well", "split": "train", "well": "25/6-3", "rows": 15388}
+{"event": "prepared_well", "split": "train", "well": "35/11-7", "rows": 16547}
+{"event": "prepared_well", "split": "train", "well": "34/3-1 A", "rows": 24513}
+{"event": "prepared_well", "split": "train", "well": "35/4-1", "rows": 29967}
+{"event": "prepared_well", "split": "train", "well": "17/4-1", "rows": 25420}
+{"event": "prepared_well", "split": "train", "well": "35/12-1", "rows": 16777}
+{"event": "prepared_well", "split": "train", "well": "7/1-2 S", "rows": 19586}
+{"event": "prepared_well", "split": "train", "well": "16/11-1 ST3", "rows": 19470}
+{"event": "prepared_well", "split": "train", "well": "15/9-14", "rows": 22875}
+{"event": "prepared_well", "split": "train", "well": "25/5-1", "rows": 21629}
+{"event": "prepared_well", "split": "train", "well": "16/2-16", "rows": 13637}
+{"event": "prepared_well", "split": "train", "well": "35/11-5", "rows": 21963}
+{"event": "prepared_well", "split": "train", "well": "16/7-4", "rows": 17412}
+{"event": "prepared_well", "split": "train", "well": "35/11-12", "rows": 19875}
+{"event": "prepared_well", "split": "train", "well": "31/2-10", "rows": 11934}
+{"event": "prepared_well", "split": "train", "well": "36/7-3", "rows": 16950}
+{"event": "prepared_well", "split": "train", "well": "34/7-20", "rows": 18193}
+{"event": "prepared_well", "split": "train", "well": "31/2-9", "rows": 9402}
+{"event": "prepared_well", "split": "train", "well": "15/9-17", "rows": 19879}
+{"event": "prepared_well", "split": "train", "well": "25/11-24", "rows": 13052}
+{"event": "prepared_well", "split": "train", "well": "35/9-8", "rows": 18842}
+{"event": "prepared_well", "split": "train", "well": "35/9-6 S", "rows": 22105}
+{"event": "prepared_well", "split": "train", "well": "30/6-5", "rows": 22910}
+{"event": "prepared_well", "split": "train", "well": "25/11-5", "rows": 13337}
+{"event": "prepared_well", "split": "train", "well": "7/1-1", "rows": 17982}
+{"event": "prepared_well", "split": "train", "well": "35/9-2", "rows": 16599}
+{"event": "prepared_well", "split": "train", "well": "34/10-35", "rows": 26900}
+{"event": "prepared_well", "split": "train", "well": "25/11-15", "rows": 12402}
+{"event": "prepared_well", "split": "train", "well": "33/5-2", "rows": 27702}
+{"event": "prepared_well", "split": "train", "well": "30/3-3", "rows": 21287}
+{"event": "prepared_well", "split": "train", "well": "25/10-10", "rows": 15346}
+{"event": "prepared_well", "split": "train", "well": "35/9-10 S", "rows": 21271}
+{"event": "prepared_well", "split": "validation", "well": "31/2-1", "rows": 16035}
+{"event": "prepared_well", "split": "validation", "well": "31/3-2", "rows": 11426}
+{"event": "prepared_well", "split": "validation", "well": "16/7-6", "rows": 17304}
+{"event": "prepared_well", "split": "validation", "well": "16/1-2", "rows": 18547}
+{"event": "prepared_well", "split": "validation", "well": "16/10-1", "rows": 20147}
+{"event": "prepared_well", "split": "validation", "well": "34/8-3", "rows": 19230}
+{"event": "prepared_well", "split": "validation", "well": "34/11-2 S", "rows": 29422}
+{"event": "prepared_well", "split": "validation", "well": "34/8-1", "rows": 21558}
+{"event": "prepared_well", "split": "validation", "well": "15/9-23", "rows": 20494}
+{"event": "prepared_well", "split": "validation", "well": "15/9-15", "rows": 20954}
+{"event": "prepared_well", "split": "validation", "well": "25/2-7", "rows": 26059}
+{"event": "prepared_well", "split": "validation", "well": "25/7-2", "rows": 31686}
+{"event": "prepared_well", "split": "validation", "well": "30/3-5 S", "rows": 28123}
+{"event": "prepared_well", "split": "validation", "well": "25/8-7", "rows": 9268}
+{"event": "prepared_well", "split": "validation", "well": "32/2-1", "rows": 6059}
+{"event": "prepared_well", "split": "validation", "well": "31/6-5", "rows": 11597}
+{"event": "prepared_well", "split": "validation", "well": "35/11-13", "rows": 19119}
+{"event": "epoch_complete", "epoch": 1, "training_rows": 122023, "validation_macro_f1_fixed12": 0.14959567885717212, "loss": 1.7749613440032963, "seconds": 6.175082300003851}
+{"event": "epoch_complete", "epoch": 2, "training_rows": 122023, "validation_macro_f1_fixed12": 0.15775284824032018, "loss": 1.5862321200479268, "seconds": 5.999948999990011}
+{"event": "epoch_complete", "epoch": 3, "training_rows": 122023, "validation_macro_f1_fixed12": 0.1635402593389417, "loss": 1.5311022487410562, "seconds": 5.946085400006268}
+{"event": "epoch_complete", "epoch": 4, "training_rows": 122023, "validation_macro_f1_fixed12": 0.19769930075575848, "loss": 1.434156498581096, "seconds": 5.915810300008161}
+{"event": "epoch_complete", "epoch": 5, "training_rows": 122023, "validation_macro_f1_fixed12": 0.21350300898946728, "loss": 1.4115370008417487, "seconds": 6.001978199987207}
+{"event": "model_frozen_before_test", "frozen_utc": "2026-10-24T12:17:59.962714+00:00", "manifest_sha256": "0b76bcd1b21b6b1e254eef0e2e5815a15121fdb8ac48c33710f2b2d85bdf2959", "weights_sha256": "8988f4bbcf425d9b48c9a62866ac350e6096ea43fabdd9b1e616b22ba4b6d187", "test_members_opened": false, "selection_complete": true}
+{"event": "prepared_well", "split": "test", "well": "16/2-11 A", "rows": 14672}
+{"event": "prepared_well", "split": "test", "well": "34/10-21", "rows": 24926}
+{"event": "prepared_well", "split": "test", "well": "16/1-6 A", "rows": 13513}
+{"event": "prepared_well", "split": "test", "well": "26/4-1", "rows": 22742}
+{"event": "prepared_well", "split": "test", "well": "34/11-1", "rows": 29690}
+{"event": "prepared_well", "split": "test", "well": "34/3-3 A", "rows": 30228}
+{"event": "prepared_well", "split": "test", "well": "34/10-19", "rows": 13238}
+{"event": "prepared_well", "split": "test", "well": "16/7-5", "rows": 18488}
+{"event": "prepared_well", "split": "test", "well": "29/6-1", "rows": 30856}
+{"event": "prepared_well", "split": "test", "well": "34/4-10 R", "rows": 25514}
+{"event": "prepared_well", "split": "test", "well": "16/2-7", "rows": 15556}
+{"event": "prepared_well", "split": "test", "well": "25/9-1", "rows": 16132}
+{"event": "prepared_well", "split": "test", "well": "31/4-10", "rows": 13779}
+{"event": "prepared_well", "split": "test", "well": "34/7-21", "rows": 18463}
+{"event": "prepared_well", "split": "test", "well": "33/9-17", "rows": 19771}
+{"event": "prepared_well", "split": "test", "well": "25/6-2", "rows": 14836}
+{"event": "prepared_well", "split": "test", "well": "25/8-5 S", "rows": 20537}
+{"event": "prepared_well", "split": "test", "well": "31/3-3", "rows": 14668}
+{"event": "prepared_well", "split": "test", "well": "35/11-11", "rows": 18710}
+{"event": "training_complete", "manifest_sha256": "0b76bcd1b21b6b1e254eef0e2e5815a15121fdb8ac48c33710f2b2d85bdf2959", "test_fixed12_macro_f1": 0.1827348057438266, "target_met": false}

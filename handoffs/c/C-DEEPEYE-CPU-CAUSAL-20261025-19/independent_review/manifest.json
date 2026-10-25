@@ -1,0 +1,41 @@
+{
+  "work_id": "C-CPU-FROZEN-ARTIFACT-REVIEW-20261024-v1",
+  "artifacts": {
+    "capture_review.py": {
+      "sha256": "4f142269d35db667fa6bf480fec8287bb48b9d7d32050a1ddf04aae202d88734",
+      "bytes": 1335
+    },
+    "command.json": {
+      "sha256": "69ead10bd3cbf1e90ab18391b8633981a76efc56103647fd29789a70ba4f125e",
+      "bytes": 493
+    },
+    "execution-result.json": {
+      "sha256": "2b80c7cf78203ac35d9526fc6024becd951e5d7909c07207ea1ba26105980725",
+      "bytes": 811
+    },
+    "release.json": {
+      "sha256": "89e82399ca689f6cc2de0c15c59547911aacb5c729c66e94ff2463440aa2195c",
+      "bytes": 665
+    },
+    "report.md": {
+      "sha256": "9e2a57f60189708f1e64d7a29ca22d8a3a120fe4836947300376e862b3afc244",
+      "bytes": 6674
+    },
+    "review-result.json": {
+      "sha256": "af22207212bbb00406cf7bc0565673c846b819e24e1603f92f69dbd37040f759",
+      "bytes": 5868
+    },
+    "review_frozen_artifacts.py": {
+      "sha256": "b88b0866838014e68ca2d79297f1205336ab35614b8d500ef6c5f36e82c27020",
+      "bytes": 13457
+    },
+    "stderr.txt": {
+      "sha256": "920f04b4b9fcac323126516687566ea072b6f5987c3ae90d37ec893c52720a56",
+      "bytes": 391
+    },
+    "stdout.txt": {
+      "sha256": "809e418fa4df30e84a81daa8d9d48f0e347effed61863a74a1ff84866db62f70",
+      "bytes": 325
+    }
+  }
+}

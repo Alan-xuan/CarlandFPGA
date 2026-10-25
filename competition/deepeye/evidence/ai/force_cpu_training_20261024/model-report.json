@@ -1,0 +1,63 @@
+{
+  "task_id": "DEEPEYE-IMPLEMENTATION-20261014",
+  "task_version": 1,
+  "work_id": "C-FORCE-CPU-CNN-20261024-v1",
+  "actual_agent_id": "/root/force_cpu_model",
+  "main_thread_id": "01a14025-4dfd-7ec3-aebb-57be48daba59",
+  "contract": {
+    "id": "DEEPEYE-HUMAN-LOCK-20261014/revision1",
+    "source": "f5989cd5defce561f9ba98e6b18fc2682945f0a2",
+    "requirements_sha256": "c229834bfc2292f5fe4411fc9f12c68487008f9d1adaf31f0144ee7a98173804",
+    "design": "1011259415a0916054eb580687612580bc1e5f09"
+  },
+  "model_manifest_sha256": "0b76bcd1b21b6b1e254eef0e2e5815a15121fdb8ac48c33710f2b2d85bdf2959",
+  "public_input_sha256": "d81b29a6200d83133eda22149c70d2a0f6b3db06f9885ae669ddaffc75e99b37",
+  "graph_sha256": "6fd93fab7e65b56b1cd9473475c54b071b3e82ff09549ee447675988f07efee2",
+  "weights_sha256": "8988f4bbcf425d9b48c9a62866ac350e6096ea43fabdd9b1e616b22ba4b6d187",
+  "source_hashes": {
+    "ai_pc/train_force_cpu.py": "4b52ddbfc8afb8a5ae704b0a07c8e77c685b64d1d90950f1693403c1276fa75e",
+    "ai_pc/force_training_data.py": "9d83465219d84141e56d3fb813e316d87d8ef83744e73a7ad27a6c54d386ae09",
+    "ai_pc/model/force_cnn.py": "5003427e1ac01e50b612d8f4f9c674c7df352b3942a5cc39978e23bdfbdb1260",
+    "ai_pc/model/curve_input.py": "c017729a2d5717ff2bbf5a6c591320519c415ac10068b4cee19b3136913d848c",
+    "data/force_inventory.py": "86404425615f7551ce04907c9dbd6d7a40edca76372ad82a1a9655092a186932"
+  },
+  "actual_runs": {
+    "new_training_runs": 1,
+    "train_01_exit": 0,
+    "new_behavior_tests_01_exit": 0,
+    "new_behavior_tests_02_exit": 0,
+    "pip_install_exit": 0,
+    "env_check_exit": 0
+  },
+  "evidence_checks": {
+    "all_source_and_frozen_artifact_bytes_unchanged": true,
+    "selected_weights_equal_epoch05_json": true,
+    "graph_frozen_before_optimizer": true,
+    "raw_log_proves_model_freeze_before_first_test_open": true,
+    "source_journal_99_before_118_after": true,
+    "complete_test_wells": 19,
+    "real_window_builder_exact_comparisons": 18
+  },
+  "quality": {
+    "frozen_book_fixed12_macro_f1_target": 0.6,
+    "test_cnn": 0.1827348057438266,
+    "test_centroid": 0.2047004573101128,
+    "test_majority": 0.06762987587142284,
+    "target_met": false,
+    "cnn_worse_than_centroid": true,
+    "unsupported_test_classes": [
+      70032,
+      88000,
+      93000
+    ],
+    "dolomite_true_positives": 0,
+    "no_useful_core_AI_or_formal_C01_C02_C03_acceptance": true
+  },
+  "limits": [
+    "Offline FORCE only; no sim_em_v2/water/obstacle/core online perception/map/planning model",
+    "No compressed-vs-raw quality comparison, R03/runtime, ROCm/AMD/NPU, physical sensor or board/system acceptance",
+    "No peer messages, commits, controller/SQL/credentials/physical board actions by this worker",
+    "Model and source frozen after test; no test-based tuning or repeat training"
+  ],
+  "finished_utc": "2026-10-24T12:22:07.554032+00:00"
+}

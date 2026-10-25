@@ -1,0 +1,8 @@
+{
+  "graph_sha256": "6fd93fab7e65b56b1cd9473475c54b071b3e82ff09549ee447675988f07efee2",
+  "model_source_sha256": "5003427e1ac01e50b612d8f4f9c674c7df352b3942a5cc39978e23bdfbdb1260",
+  "optimizer_steps": 0,
+  "architecture_selection": "fixed source before first bounded train; no search",
+  "test_members_opened": false,
+  "frozen_utc": "2026-10-24T12:17:28.216966+00:00"
+}

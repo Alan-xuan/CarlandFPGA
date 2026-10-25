@@ -1,0 +1,1 @@
+{"centroid_f1": 0.2047004573101128, "changed_parameters": 4916, "cnn_f1": 0.1827348057438266, "feature_sha256": "d21c9ad75718dc2f8bac40d6494fe8c58f3127002388543cc30951fb277939b5", "forward_calls": 1, "probability_difference": 0.0, "quality_target_failed": true, "runner_files": 41, "test_rows": 244176, "trainer_files": 69}

@@ -1,0 +1,146 @@
+{
+  "files": [
+    {
+      "path": "environment/setup_env.py",
+      "sha256": "bc6966460b0f27fa759ef6c6e8b9c507aee470de5ebf4b51da2be9bbdec0ce3a",
+      "bytes": 1872
+    },
+    {
+      "path": "environment/pip-report.json",
+      "sha256": "58452f433b2494561c28e708f89df4ddfc350eff65e72bb512bf335d1f06932f",
+      "bytes": 98622
+    },
+    {
+      "path": "environment/dependency-downloads.json",
+      "sha256": "f97a907d08a7fbaca5f92ea7baccf774405770d27b2ffcefc75c183604c8b54f",
+      "bytes": 4831
+    },
+    {
+      "path": "environment/venv.command.json",
+      "sha256": "0e2e8e71058c0549f4844f577ec61b2c885367d596239f51ae5f6ef2e465cf9f",
+      "bytes": 308
+    },
+    {
+      "path": "environment/venv.stdout.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "environment/venv.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "environment/venv.result.json",
+      "sha256": "56c845970b4985e9edceedadb092f5baeab5f901cc8c73f64f059b5e008ab426",
+      "bytes": 622
+    },
+    {
+      "path": "environment/pip-install.command.json",
+      "sha256": "9818a89e1ba1f8439e15b3dad9628ee680d37048d1e563d1c1e3f15eb1e78456",
+      "bytes": 536
+    },
+    {
+      "path": "environment/pip-install.stdout.txt",
+      "sha256": "76b323e87af6215f3d4aa12c34e9b2f105be3bd1e9c7bfe4d1e04e4c22d83ce3",
+      "bytes": 3050
+    },
+    {
+      "path": "environment/pip-install.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "environment/pip-install.result.json",
+      "sha256": "a03edd3c3a5e094520de3a9eed42ba9a52e2ce7fb678630964e55919cecc5997",
+      "bytes": 853
+    },
+    {
+      "path": "environment/env-check.command.json",
+      "sha256": "ce70589aa3f65d8971a786819d27d8513daca52ac5afe705dce1c7249a790a25",
+      "bytes": 395
+    },
+    {
+      "path": "environment/env-check.stdout.txt",
+      "sha256": "60359a5d5131291fd56c6596509382e9aa403ed9d954986723ecda2f65091c06",
+      "bytes": 143
+    },
+    {
+      "path": "environment/env-check.stderr.txt",
+      "sha256": "920f04b4b9fcac323126516687566ea072b6f5987c3ae90d37ec893c52720a56",
+      "bytes": 391
+    },
+    {
+      "path": "environment/env-check.result.json",
+      "sha256": "4f14f35e158b6a1a1fc88f248cecb4eb9d21220bf505762c611d021caba9a88c",
+      "bytes": 713
+    },
+    {
+      "path": "environment/new-model-tests-01.command.json",
+      "sha256": "3458e457fe4889e9e9e2426875c2959b8c9471ea245ca833fae28531b8ac6ae5",
+      "bytes": 405
+    },
+    {
+      "path": "environment/new-model-tests-01.stdout.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "environment/new-model-tests-01.stderr.txt",
+      "sha256": "51461841ad6ed58be35299b9533ab5e16d875c72c194fa126de2dbff1c8b26f5",
+      "bytes": 1028
+    },
+    {
+      "path": "environment/new-model-tests-01.result.json",
+      "sha256": "1309eba858c3c1203abfd62c178bc1cfa6bb22a9933932763b058311e07cf709",
+      "bytes": 722
+    },
+    {
+      "path": "environment/new-model-tests-02.command.json",
+      "sha256": "5dc7a3d102d8ba9ee0f9baa919bb62ff1dda6d368385f2e86b24dd15991f18cd",
+      "bytes": 405
+    },
+    {
+      "path": "environment/new-model-tests-02.stdout.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "environment/new-model-tests-02.stderr.txt",
+      "sha256": "21b65924aa2f0bcde95acdfdab883dcd95f51a8432bae167991deb519749fec9",
+      "bytes": 1192
+    },
+    {
+      "path": "environment/new-model-tests-02.result.json",
+      "sha256": "359288f6cae422840b70dd3230e639df8a768b0660d22d317e9b3e0490c94c01",
+      "bytes": 722
+    },
+    {
+      "path": "environment/pre-train-ready-01.json",
+      "sha256": "d867d541aeb4d9d3b0e3b08f3d9471f439736d4312dce9e23c3fecc0ae3ebf73",
+      "bytes": 3131
+    },
+    {
+      "path": "environment/pre-train-ready-02.json",
+      "sha256": "09b3f55252705e377d8ff9895f1498d0c54fd7be5322a758039bf1bf2ed25178",
+      "bytes": 3312
+    },
+    {
+      "path": "environment/pre-train-ready.json",
+      "sha256": "6fb6c4576a580777b0831e81fadfa8654e2ba9fe308c9c477523b8eccfde0986",
+      "bytes": 3456
+    },
+    {
+      "path": "environment/authoring-diagnostics.json",
+      "sha256": "af3e5437d6fb95633d305600a08747fecbd727426b9fd7d8385211eba1058ead",
+      "bytes": 1114
+    },
+    {
+      "path": "environment/run_capture.py",
+      "sha256": "612125bdf2e77c79aef4c4015a69c0af401f23cf4258ffcc23610266cfec0981",
+      "bytes": 1080
+    }
+  ],
+  "byte_exact_copy": true,
+  "scope": "install and new behavior tests only; not trained model accuracy"
+}

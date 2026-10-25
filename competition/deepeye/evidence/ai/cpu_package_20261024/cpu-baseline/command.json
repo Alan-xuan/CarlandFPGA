@@ -1,0 +1,28 @@
+{
+  "argv": [
+    "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\cpu-model-env-20261024\\Scripts\\python.exe",
+    "-B",
+    "-X",
+    "utf8",
+    "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\deepeye-implementation-c\\competition\\deepeye\\ai_pc\\run_cpu.py",
+    "--manifest",
+    "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\deepeye-implementation-c\\competition\\deepeye\\ai_pc\\cpu_model\\force_v1\\model_manifest.json",
+    "--expected-manifest-sha256",
+    "0b76bcd1b21b6b1e254eef0e2e5815a15121fdb8ac48c33710f2b2d85bdf2959",
+    "--input",
+    "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\deepeye-implementation-c\\competition\\deepeye\\ai_pc\\cpu_model\\force_v1\\public_input.jsonl",
+    "--expected-input-sha256",
+    "d81b29a6200d83133eda22149c70d2a0f6b3db06f9885ae669ddaffc75e99b37",
+    "--output",
+    "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\main-20261015-01a14025\\cpu-package-20261024\\cpu_package_runner\\cpu-baseline\\prediction-result.json",
+    "--device",
+    "cpu",
+    "--threads",
+    "4",
+    "--benchmark-repetitions",
+    "10"
+  ],
+  "cwd": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\main-20261015-01a14025\\cpu-package-20261024\\cpu_package_runner",
+  "start_utc": "2026-10-24T12:23:29.498573+00:00",
+  "explicit_test_model_manifest_sha256": null
+}

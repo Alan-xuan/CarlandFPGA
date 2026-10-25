@@ -1,0 +1,4 @@
+run_cpu.py -text
+train_force_cpu.py -text
+force_training_data.py -text
+model/force_cnn.py -text

@@ -1,0 +1,2795 @@
+{
+  "wells": [
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/16_8-1.las",
+      "well_id": "16/8-1",
+      "root_id": "16/8-1",
+      "split": "train",
+      "rows": 14586,
+      "label_counts": {
+        "-1": 7901,
+        "2": 3074,
+        "1": 494,
+        "5": 95,
+        "4": 17,
+        "9": 694,
+        "0": 716,
+        "3": 1161,
+        "6": 434
+      },
+      "confidence_counts": {
+        "-1": 7886,
+        "1": 5484,
+        "2": 308,
+        "3": 908
+      },
+      "missing_targets": 7901
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/34_7-13.las",
+      "well_id": "34/7-13",
+      "root_id": "34/7-13",
+      "split": "train",
+      "rows": 16891,
+      "label_counts": {
+        "-1": 12991,
+        "2": 2392,
+        "3": 31,
+        "1": 871,
+        "0": 606
+      },
+      "confidence_counts": {
+        "-1": 12991,
+        "1": 3900
+      },
+      "missing_targets": 12991
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/31_3-1.las",
+      "well_id": "31/3-1",
+      "root_id": "31/3-1",
+      "split": "train",
+      "rows": 13361,
+      "label_counts": {
+        "-1": 125,
+        "0": 3440,
+        "2": 6418,
+        "1": 1859,
+        "5": 468,
+        "9": 630,
+        "3": 354,
+        "10": 67
+      },
+      "confidence_counts": {
+        "-1": 120,
+        "1": 11869,
+        "3": 669,
+        "2": 703
+      },
+      "missing_targets": 125
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/35_9-7.las",
+      "well_id": "35/9-7",
+      "root_id": "35/9-7",
+      "split": "train",
+      "rows": 17166,
+      "label_counts": {
+        "-1": 6489,
+        "2": 7222,
+        "0": 799,
+        "1": 1676,
+        "4": 72,
+        "5": 372,
+        "3": 503,
+        "10": 33
+      },
+      "confidence_counts": {
+        "-1": 6497,
+        "2": 754,
+        "1": 9915
+      },
+      "missing_targets": 6489
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/34_3-2 S.las",
+      "well_id": "34/3-2 S",
+      "root_id": "34/3-2",
+      "split": "train",
+      "rows": 25699,
+      "label_counts": {
+        "-1": 13470,
+        "2": 9463,
+        "5": 204,
+        "1": 1325,
+        "0": 771,
+        "3": 454,
+        "4": 12
+      },
+      "confidence_counts": {
+        "-1": 12925,
+        "3": 441,
+        "1": 11466,
+        "2": 867
+      },
+      "missing_targets": 13470
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/25_5-3.las",
+      "well_id": "25/5-3",
+      "root_id": "25/5-3",
+      "split": "train",
+      "rows": 18058,
+      "label_counts": {
+        "-1": 6734,
+        "0": 1763,
+        "2": 8243,
+        "1": 624,
+        "5": 399,
+        "9": 166,
+        "3": 50,
+        "10": 79
+      },
+      "confidence_counts": {
+        "-1": 6734,
+        "2": 202,
+        "1": 10914,
+        "3": 208
+      },
+      "missing_targets": 6734
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/25_4-5.las",
+      "well_id": "25/4-5",
+      "root_id": "25/4-5",
+      "split": "train",
+      "rows": 27691,
+      "label_counts": {
+        "-1": 4686,
+        "2": 8934,
+        "1": 2976,
+        "0": 4648,
+        "5": 2215,
+        "9": 194,
+        "3": 4000,
+        "10": 38
+      },
+      "confidence_counts": {
+        "-1": 4689,
+        "1": 22189,
+        "2": 621,
+        "3": 192
+      },
+      "missing_targets": 4686
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/35_3-7 S.las",
+      "well_id": "35/3-7 S",
+      "root_id": "35/3-7",
+      "split": "train",
+      "rows": 24803,
+      "label_counts": {
+        "-1": 19716,
+        "2": 3309,
+        "0": 1382,
+        "1": 396
+      },
+      "confidence_counts": {
+        "-1": 19576,
+        "1": 4584,
+        "2": 643
+      },
+      "missing_targets": 19716
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/34_5-1 A.las",
+      "well_id": "34/5-1 A",
+      "root_id": "34/5-1",
+      "split": "train",
+      "rows": 26343,
+      "label_counts": {
+        "-1": 11751,
+        "2": 12990,
+        "1": 1194,
+        "3": 51,
+        "5": 295,
+        "0": 62
+      },
+      "confidence_counts": {
+        "-1": 11378,
+        "3": 316,
+        "1": 14553,
+        "2": 96
+      },
+      "missing_targets": 11751
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/34_5-1 S.las",
+      "well_id": "34/5-1 S",
+      "root_id": "34/5-1",
+      "split": "train",
+      "rows": 22969,
+      "label_counts": {
+        "-1": 20696,
+        "1": 602,
+        "5": 48,
+        "2": 1404,
+        "0": 212,
+        "10": 7
+      },
+      "confidence_counts": {
+        "-1": 20628,
+        "1": 2224,
+        "2": 117
+      },
+      "missing_targets": 20696
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/25_5-4.las",
+      "well_id": "25/5-4",
+      "root_id": "25/5-4",
+      "split": "train",
+      "rows": 20021,
+      "label_counts": {
+        "-1": 7018,
+        "1": 300,
+        "2": 9129,
+        "0": 1868,
+        "5": 1126,
+        "9": 126,
+        "3": 444,
+        "10": 10
+      },
+      "confidence_counts": {
+        "-1": 7018,
+        "1": 12799,
+        "2": 49,
+        "3": 155
+      },
+      "missing_targets": 7018
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/25_3-1.las",
+      "well_id": "25/3-1",
+      "root_id": "25/3-1",
+      "split": "train",
+      "rows": 24963,
+      "label_counts": {
+        "-1": 3777,
+        "0": 5045,
+        "2": 12461,
+        "10": 157,
+        "1": 884,
+        "4": 28,
+        "5": 1782,
+        "9": 111,
+        "3": 718
+      },
+      "confidence_counts": {
+        "-1": 3759,
+        "2": 348,
+        "1": 20617,
+        "3": 239
+      },
+      "missing_targets": 3777
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/33_6-3 S.las",
+      "well_id": "33/6-3 S",
+      "root_id": "33/6-3",
+      "split": "train",
+      "rows": 26868,
+      "label_counts": {
+        "-1": 14187,
+        "2": 11575,
+        "0": 355,
+        "5": 328,
+        "1": 423
+      },
+      "confidence_counts": {
+        "-1": 14118,
+        "1": 12189,
+        "2": 561
+      },
+      "missing_targets": 14187
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/34_12-1.las",
+      "well_id": "34/12-1",
+      "root_id": "34/12-1",
+      "split": "train",
+      "rows": 28434,
+      "label_counts": {
+        "-1": 19084,
+        "2": 3684,
+        "5": 589,
+        "1": 3358,
+        "0": 1669,
+        "10": 50
+      },
+      "confidence_counts": {
+        "-1": 18395,
+        "3": 457,
+        "1": 5999,
+        "2": 3583
+      },
+      "missing_targets": 19084
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/16_10-2.las",
+      "well_id": "16/10-2",
+      "root_id": "16/10-2",
+      "split": "train",
+      "rows": 20131,
+      "label_counts": {
+        "-1": 17694,
+        "5": 132,
+        "6": 18,
+        "3": 189,
+        "2": 380,
+        "1": 760,
+        "0": 958
+      },
+      "confidence_counts": {
+        "-1": 17693,
+        "2": 1627,
+        "1": 811
+      },
+      "missing_targets": 17694
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/31_5-4 S.las",
+      "well_id": "31/5-4 S",
+      "root_id": "31/5-4",
+      "split": "train",
+      "rows": 11467,
+      "label_counts": {
+        "2": 9454,
+        "0": 698,
+        "1": 321,
+        "9": 528,
+        "5": 250,
+        "3": 64,
+        "-1": 152
+      },
+      "confidence_counts": {
+        "2": 5829,
+        "1": 4955,
+        "3": 530,
+        "-1": 153
+      },
+      "missing_targets": 152
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/29_3-1.las",
+      "well_id": "29/3-1",
+      "root_id": "29/3-1",
+      "split": "train",
+      "rows": 28514,
+      "label_counts": {
+        "-1": 4301,
+        "2": 15695,
+        "1": 2210,
+        "0": 4760,
+        "4": 185,
+        "5": 830,
+        "9": 263,
+        "10": 270
+      },
+      "confidence_counts": {
+        "-1": 3885,
+        "2": 423,
+        "1": 23373,
+        "3": 833
+      },
+      "missing_targets": 4301
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/34_8-7 R.las",
+      "well_id": "34/8-7 R",
+      "root_id": "34/8-7",
+      "split": "train",
+      "rows": 35896,
+      "label_counts": {
+        "-1": 28812,
+        "2": 3528,
+        "5": 27,
+        "0": 879,
+        "3": 61,
+        "1": 2589
+      },
+      "confidence_counts": {
+        "-1": 28826,
+        "1": 6126,
+        "2": 844,
+        "3": 100
+      },
+      "missing_targets": 28812
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/31_2-8.las",
+      "well_id": "31/2-8",
+      "root_id": "31/2-8",
+      "split": "train",
+      "rows": 19923,
+      "label_counts": {
+        "-1": 897,
+        "2": 10275,
+        "0": 3077,
+        "5": 562,
+        "1": 4370,
+        "4": 91,
+        "9": 146,
+        "3": 415,
+        "10": 90
+      },
+      "confidence_counts": {
+        "-1": 844,
+        "1": 17958,
+        "2": 880,
+        "3": 241
+      },
+      "missing_targets": 897
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/25_2-14.las",
+      "well_id": "25/2-14",
+      "root_id": "25/2-14",
+      "split": "train",
+      "rows": 22963,
+      "label_counts": {
+        "-1": 7123,
+        "2": 10171,
+        "1": 487,
+        "0": 2554,
+        "5": 1629,
+        "9": 135,
+        "3": 717,
+        "10": 147
+      },
+      "confidence_counts": {
+        "-1": 7025,
+        "2": 731,
+        "1": 15006,
+        "3": 201
+      },
+      "missing_targets": 7123
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/25_11-19 S.las",
+      "well_id": "25/11-19 S",
+      "root_id": "25/11-19",
+      "split": "train",
+      "rows": 13783,
+      "label_counts": {
+        "-1": 6808,
+        "2": 5569,
+        "0": 802,
+        "5": 191,
+        "9": 376,
+        "1": 37
+      },
+      "confidence_counts": {
+        "-1": 6576,
+        "1": 6749,
+        "3": 458
+      },
+      "missing_targets": 6808
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/31_3-4.las",
+      "well_id": "31/3-4",
+      "root_id": "31/3-4",
+      "split": "train",
+      "rows": 11413,
+      "label_counts": {
+        "-1": 6036,
+        "2": 2385,
+        "0": 1162,
+        "1": 789,
+        "5": 684,
+        "3": 286,
+        "10": 71
+      },
+      "confidence_counts": {
+        "-1": 5972,
+        "1": 5287,
+        "2": 154
+      },
+      "missing_targets": 6036
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/35_8-4.las",
+      "well_id": "35/8-4",
+      "root_id": "35/8-4",
+      "split": "train",
+      "rows": 21927,
+      "label_counts": {
+        "-1": 19218,
+        "2": 2119,
+        "5": 128,
+        "1": 263,
+        "0": 199
+      },
+      "confidence_counts": {
+        "-1": 19220,
+        "2": 593,
+        "1": 2114
+      },
+      "missing_targets": 19218
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/15_9-13.las",
+      "well_id": "15/9-13",
+      "root_id": "15/9-13",
+      "split": "train",
+      "rows": 21441,
+      "label_counts": {
+        "-1": 3171,
+        "2": 12547,
+        "0": 2937,
+        "1": 708,
+        "5": 1418,
+        "9": 173,
+        "3": 429,
+        "8": 17,
+        "4": 41
+      },
+      "confidence_counts": {
+        "-1": 3164,
+        "1": 17917,
+        "3": 360
+      },
+      "missing_targets": 3171
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/31_4-5.las",
+      "well_id": "31/4-5",
+      "root_id": "31/4-5",
+      "split": "train",
+      "rows": 18352,
+      "label_counts": {
+        "-1": 4952,
+        "2": 9005,
+        "5": 394,
+        "4": 91,
+        "9": 385,
+        "3": 58,
+        "0": 2228,
+        "1": 1206,
+        "10": 33
+      },
+      "confidence_counts": {
+        "-1": 4944,
+        "1": 12359,
+        "2": 619,
+        "3": 430
+      },
+      "missing_targets": 4952
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/35_11-15 S.las",
+      "well_id": "35/11-15 S",
+      "root_id": "35/11-15",
+      "split": "train",
+      "rows": 18832,
+      "label_counts": {
+        "-1": 16236,
+        "1": 1225,
+        "2": 152,
+        "0": 1200,
+        "10": 13,
+        "5": 6
+      },
+      "confidence_counts": {
+        "-1": 16234,
+        "2": 427,
+        "1": 2171
+      },
+      "missing_targets": 16236
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/34_10-33.las",
+      "well_id": "34/10-33",
+      "root_id": "34/10-33",
+      "split": "train",
+      "rows": 24490,
+      "label_counts": {
+        "-1": 18444,
+        "2": 3773,
+        "5": 64,
+        "0": 879,
+        "1": 1246,
+        "10": 47,
+        "3": 37
+      },
+      "confidence_counts": {
+        "-1": 18441,
+        "2": 1340,
+        "3": 394,
+        "1": 4315
+      },
+      "missing_targets": 18444
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/33_9-1.las",
+      "well_id": "33/9-1",
+      "root_id": "33/9-1",
+      "split": "train",
+      "rows": 17606,
+      "label_counts": {
+        "-1": 328,
+        "2": 8746,
+        "1": 4510,
+        "0": 3240,
+        "5": 386,
+        "9": 200,
+        "4": 27,
+        "3": 97,
+        "10": 72
+      },
+      "confidence_counts": {
+        "-1": 307,
+        "1": 16081,
+        "2": 935,
+        "3": 283
+      },
+      "missing_targets": 328
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/34_6-1 S.las",
+      "well_id": "34/6-1 S",
+      "root_id": "34/6-1",
+      "split": "train",
+      "rows": 26090,
+      "label_counts": {
+        "-1": 19611,
+        "2": 3230,
+        "5": 146,
+        "3": 54,
+        "1": 1937,
+        "0": 1112
+      },
+      "confidence_counts": {
+        "-1": 19425,
+        "1": 6344,
+        "2": 307,
+        "3": 14
+      },
+      "missing_targets": 19611
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/16_10-5.las",
+      "well_id": "16/10-5",
+      "root_id": "16/10-5",
+      "split": "train",
+      "rows": 18808,
+      "label_counts": {
+        "-1": 16043,
+        "6": 2,
+        "5": 667,
+        "3": 174,
+        "2": 1195,
+        "1": 184,
+        "0": 543
+      },
+      "confidence_counts": {
+        "-1": 16046,
+        "2": 1066,
+        "1": 1696
+      },
+      "missing_targets": 16043
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/16_4-1.las",
+      "well_id": "16/4-1",
+      "root_id": "16/4-1",
+      "split": "train",
+      "rows": 18424,
+      "label_counts": {
+        "-1": 4304,
+        "0": 3812,
+        "2": 8070,
+        "1": 665,
+        "5": 578,
+        "9": 106,
+        "3": 63,
+        "8": 483,
+        "4": 202,
+        "11": 141
+      },
+      "confidence_counts": {
+        "-1": 4292,
+        "1": 10650,
+        "2": 3041,
+        "3": 441
+      },
+      "missing_targets": 4304
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/35_8-6 S.las",
+      "well_id": "35/8-6 S",
+      "root_id": "35/8-6",
+      "split": "train",
+      "rows": 23901,
+      "label_counts": {
+        "-1": 9523,
+        "2": 12585,
+        "5": 617,
+        "1": 845,
+        "0": 331
+      },
+      "confidence_counts": {
+        "-1": 9395,
+        "1": 13444,
+        "2": 1043,
+        "3": 19
+      },
+      "missing_targets": 9523
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/25_10-9.las",
+      "well_id": "25/10-9",
+      "root_id": "25/10-9",
+      "split": "train",
+      "rows": 19639,
+      "label_counts": {
+        "-1": 8851,
+        "2": 6226,
+        "1": 651,
+        "0": 1237,
+        "5": 1950,
+        "9": 322,
+        "3": 397,
+        "10": 5
+      },
+      "confidence_counts": {
+        "-1": 8851,
+        "1": 9350,
+        "2": 1035,
+        "3": 403
+      },
+      "missing_targets": 8851
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/16_5-3.las",
+      "well_id": "16/5-3",
+      "root_id": "16/5-3",
+      "split": "train",
+      "rows": 12261,
+      "label_counts": {
+        "-1": 9240,
+        "5": 1520,
+        "6": 222,
+        "3": 428,
+        "2": 461,
+        "0": 274,
+        "1": 116
+      },
+      "confidence_counts": {
+        "-1": 9235,
+        "1": 2817,
+        "2": 209
+      },
+      "missing_targets": 9240
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/31_2-19 S.las",
+      "well_id": "31/2-19 S",
+      "root_id": "31/2-19",
+      "split": "train",
+      "rows": 24730,
+      "label_counts": {
+        "-1": 8025,
+        "2": 11840,
+        "0": 2183,
+        "1": 1660,
+        "3": 663,
+        "5": 273,
+        "10": 86
+      },
+      "confidence_counts": {
+        "-1": 8025,
+        "2": 2465,
+        "1": 14240
+      },
+      "missing_targets": 8025
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/16_10-3.las",
+      "well_id": "16/10-3",
+      "root_id": "16/10-3",
+      "split": "train",
+      "rows": 17995,
+      "label_counts": {
+        "-1": 2039,
+        "1": 1313,
+        "0": 810,
+        "2": 11242,
+        "5": 1460,
+        "9": 255,
+        "3": 209,
+        "6": 658,
+        "10": 9
+      },
+      "confidence_counts": {
+        "-1": 2031,
+        "2": 3808,
+        "1": 11742,
+        "3": 414
+      },
+      "missing_targets": 2039
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/35_9-5.las",
+      "well_id": "35/9-5",
+      "root_id": "35/9-5",
+      "split": "train",
+      "rows": 21206,
+      "label_counts": {
+        "-1": 16264,
+        "2": 3585,
+        "3": 510,
+        "5": 188,
+        "0": 200,
+        "1": 447,
+        "10": 12
+      },
+      "confidence_counts": {
+        "-1": 16269,
+        "2": 100,
+        "1": 4837
+      },
+      "missing_targets": 16264
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/35_11-6.las",
+      "well_id": "35/11-6",
+      "root_id": "35/11-6",
+      "split": "train",
+      "rows": 23734,
+      "label_counts": {
+        "-1": 60,
+        "1": 4942,
+        "0": 2944,
+        "2": 15402,
+        "5": 282,
+        "9": 42,
+        "4": 32,
+        "10": 30
+      },
+      "confidence_counts": {
+        "-1": 62,
+        "2": 3732,
+        "1": 19900,
+        "3": 40
+      },
+      "missing_targets": 60
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/16_2-6.las",
+      "well_id": "16/2-6",
+      "root_id": "16/2-6",
+      "split": "train",
+      "rows": 13094,
+      "label_counts": {
+        "-1": 3956,
+        "2": 4794,
+        "1": 343,
+        "0": 1429,
+        "5": 1261,
+        "9": 123,
+        "3": 1094,
+        "4": 94
+      },
+      "confidence_counts": {
+        "-1": 3956,
+        "1": 7483,
+        "2": 1304,
+        "3": 351
+      },
+      "missing_targets": 3956
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/17_11-1.las",
+      "well_id": "17/11-1",
+      "root_id": "17/11-1",
+      "split": "train",
+      "rows": 20533,
+      "label_counts": {
+        "-1": 434,
+        "0": 1232,
+        "1": 1809,
+        "2": 9362,
+        "3": 821,
+        "5": 65,
+        "6": 2575,
+        "4": 113,
+        "8": 223,
+        "7": 3899
+      },
+      "confidence_counts": {
+        "-1": 263,
+        "1": 19073,
+        "2": 134,
+        "3": 1063
+      },
+      "missing_targets": 434
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/34_2-4.las",
+      "well_id": "34/2-4",
+      "root_id": "34/2-4",
+      "split": "train",
+      "rows": 24318,
+      "label_counts": {
+        "-1": 914,
+        "0": 2348,
+        "1": 15798,
+        "2": 3838,
+        "5": 262,
+        "4": 4,
+        "9": 198,
+        "3": 956
+      },
+      "confidence_counts": {
+        "-1": 763,
+        "3": 285,
+        "1": 19591,
+        "2": 3679
+      },
+      "missing_targets": 914
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/35_6-2 S.las",
+      "well_id": "35/6-2 S",
+      "root_id": "35/6-2",
+      "split": "train",
+      "rows": 21948,
+      "label_counts": {
+        "-1": 8533,
+        "2": 7760,
+        "5": 192,
+        "4": 59,
+        "3": 1577,
+        "0": 3231,
+        "1": 596
+      },
+      "confidence_counts": {
+        "-1": 8511,
+        "2": 550,
+        "1": 12887
+      },
+      "missing_targets": 8533
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/25_6-1.las",
+      "well_id": "25/6-1",
+      "root_id": "25/6-1",
+      "split": "train",
+      "rows": 18033,
+      "label_counts": {
+        "-1": 11824,
+        "1": 2235,
+        "3": 392,
+        "5": 116,
+        "2": 2934,
+        "0": 532
+      },
+      "confidence_counts": {
+        "-1": 11826,
+        "2": 2186,
+        "1": 4021
+      },
+      "missing_targets": 11824
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/31_2-7.las",
+      "well_id": "31/2-7",
+      "root_id": "31/2-7",
+      "split": "train",
+      "rows": 8647,
+      "label_counts": {
+        "-1": 591,
+        "0": 677,
+        "2": 6798,
+        "5": 199,
+        "9": 293,
+        "3": 25,
+        "1": 64
+      },
+      "confidence_counts": {
+        "-1": 592,
+        "1": 7319,
+        "3": 644,
+        "2": 92
+      },
+      "missing_targets": 591
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/35_11-10.las",
+      "well_id": "35/11-10",
+      "root_id": "35/11-10",
+      "split": "train",
+      "rows": 16967,
+      "label_counts": {
+        "-1": 10761,
+        "2": 3722,
+        "3": 336,
+        "0": 1402,
+        "1": 567,
+        "5": 83,
+        "10": 96
+      },
+      "confidence_counts": {
+        "-1": 10761,
+        "1": 5152,
+        "2": 1054
+      },
+      "missing_targets": 10761
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/25_2-13 T4.las",
+      "well_id": "25/2-13 T4",
+      "root_id": "25/2-13",
+      "split": "train",
+      "rows": 24492,
+      "label_counts": {
+        "-1": 3430,
+        "0": 4797,
+        "1": 1049,
+        "2": 12239,
+        "5": 1516,
+        "3": 1405,
+        "10": 56
+      },
+      "confidence_counts": {
+        "-1": 3432,
+        "1": 18829,
+        "2": 2029,
+        "3": 202
+      },
+      "missing_targets": 3430
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/31_6-8.las",
+      "well_id": "31/6-8",
+      "root_id": "31/6-8",
+      "split": "train",
+      "rows": 9727,
+      "label_counts": {
+        "-1": 194,
+        "2": 4816,
+        "5": 333,
+        "9": 632,
+        "1": 1400,
+        "3": 511,
+        "0": 1832,
+        "10": 9
+      },
+      "confidence_counts": {
+        "-1": 189,
+        "1": 8386,
+        "2": 360,
+        "3": 792
+      },
+      "missing_targets": 194
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/35_11-1.las",
+      "well_id": "35/11-1",
+      "root_id": "35/11-1",
+      "split": "train",
+      "rows": 19692,
+      "label_counts": {
+        "-1": 4060,
+        "2": 8802,
+        "5": 231,
+        "9": 54,
+        "0": 3441,
+        "1": 3033,
+        "10": 71
+      },
+      "confidence_counts": {
+        "-1": 4059,
+        "1": 15157,
+        "2": 424,
+        "3": 52
+      },
+      "missing_targets": 4060
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/31_2-21 S.las",
+      "well_id": "31/2-21 S",
+      "root_id": "31/2-21",
+      "split": "train",
+      "rows": 18731,
+      "label_counts": {
+        "-1": 10891,
+        "5": 370,
+        "3": 55,
+        "2": 5073,
+        "1": 815,
+        "0": 1450,
+        "10": 77
+      },
+      "confidence_counts": {
+        "-1": 10890,
+        "1": 7786,
+        "2": 55
+      },
+      "missing_targets": 10891
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/34_10-16 R.las",
+      "well_id": "34/10-16 R",
+      "root_id": "34/10-16",
+      "split": "train",
+      "rows": 25579,
+      "label_counts": {
+        "-1": 484,
+        "2": 16244,
+        "0": 5031,
+        "1": 2738,
+        "5": 311,
+        "9": 351,
+        "3": 185,
+        "4": 33,
+        "10": 202
+      },
+      "confidence_counts": {
+        "-1": 481,
+        "1": 24199,
+        "2": 398,
+        "3": 501
+      },
+      "missing_targets": 484
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/25_6-3.las",
+      "well_id": "25/6-3",
+      "root_id": "25/6-3",
+      "split": "train",
+      "rows": 15388,
+      "label_counts": {
+        "-1": 3394,
+        "2": 8405,
+        "1": 770,
+        "0": 2342,
+        "5": 218,
+        "9": 218,
+        "3": 41
+      },
+      "confidence_counts": {
+        "-1": 3379,
+        "1": 11526,
+        "2": 226,
+        "3": 257
+      },
+      "missing_targets": 3394
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/35_11-7.las",
+      "well_id": "35/11-7",
+      "root_id": "35/11-7",
+      "split": "train",
+      "rows": 16547,
+      "label_counts": {
+        "-1": 3542,
+        "2": 8000,
+        "1": 881,
+        "5": 563,
+        "0": 3496,
+        "10": 65
+      },
+      "confidence_counts": {
+        "-1": 3429,
+        "2": 1919,
+        "1": 11199
+      },
+      "missing_targets": 3542
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/34_3-1 A.las",
+      "well_id": "34/3-1 A",
+      "root_id": "34/3-1",
+      "split": "train",
+      "rows": 24513,
+      "label_counts": {
+        "-1": 22262,
+        "3": 34,
+        "2": 1239,
+        "5": 32,
+        "1": 637,
+        "10": 11,
+        "0": 298
+      },
+      "confidence_counts": {
+        "-1": 22045,
+        "1": 2380,
+        "2": 88
+      },
+      "missing_targets": 22262
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/35_4-1.las",
+      "well_id": "35/4-1",
+      "root_id": "35/4-1",
+      "split": "train",
+      "rows": 29967,
+      "label_counts": {
+        "-1": 9142,
+        "2": 15176,
+        "0": 2182,
+        "5": 658,
+        "1": 2740,
+        "9": 50,
+        "4": 19
+      },
+      "confidence_counts": {
+        "-1": 6310,
+        "1": 22450,
+        "2": 1143,
+        "3": 64
+      },
+      "missing_targets": 9142
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/17_4-1.las",
+      "well_id": "17/4-1",
+      "root_id": "17/4-1",
+      "split": "train",
+      "rows": 25420,
+      "label_counts": {
+        "-1": 8149,
+        "2": 5124,
+        "3": 141,
+        "6": 1350,
+        "5": 744,
+        "1": 952,
+        "4": 154,
+        "0": 1833,
+        "8": 475,
+        "7": 6498
+      },
+      "confidence_counts": {
+        "-1": 7744,
+        "1": 16713,
+        "2": 963
+      },
+      "missing_targets": 8149
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/35_12-1.las",
+      "well_id": "35/12-1",
+      "root_id": "35/12-1",
+      "split": "train",
+      "rows": 16777,
+      "label_counts": {
+        "-1": 3539,
+        "2": 7830,
+        "1": 3234,
+        "5": 335,
+        "3": 1134,
+        "0": 705
+      },
+      "confidence_counts": {
+        "-1": 3487,
+        "1": 11460,
+        "2": 1830
+      },
+      "missing_targets": 3539
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/7_1-2 S.las",
+      "well_id": "7/1-2 S",
+      "root_id": "7/1-2",
+      "split": "train",
+      "rows": 19586,
+      "label_counts": {
+        "-1": 17545,
+        "2": 452,
+        "0": 1375,
+        "1": 214
+      },
+      "confidence_counts": {
+        "-1": 17546,
+        "2": 653,
+        "1": 1387
+      },
+      "missing_targets": 17545
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/16_11-1 ST3.las",
+      "well_id": "16/11-1 ST3",
+      "root_id": "16/11-1",
+      "split": "train",
+      "rows": 19470,
+      "label_counts": {
+        "-1": 4531,
+        "2": 6351,
+        "5": 80,
+        "9": 207,
+        "3": 673,
+        "6": 2498,
+        "0": 474,
+        "1": 73,
+        "8": 282,
+        "4": 6,
+        "7": 4295
+      },
+      "confidence_counts": {
+        "-1": 4534,
+        "1": 8295,
+        "2": 6191,
+        "3": 450
+      },
+      "missing_targets": 4531
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/15_9-14.las",
+      "well_id": "15/9-14",
+      "root_id": "15/9-14",
+      "split": "train",
+      "rows": 22875,
+      "label_counts": {
+        "-1": 2539,
+        "2": 6178,
+        "0": 4400,
+        "1": 6468,
+        "5": 1699,
+        "9": 233,
+        "3": 649,
+        "6": 625,
+        "10": 84
+      },
+      "confidence_counts": {
+        "-1": 2535,
+        "1": 19266,
+        "3": 338,
+        "2": 736
+      },
+      "missing_targets": 2539
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/25_5-1.las",
+      "well_id": "25/5-1",
+      "root_id": "25/5-1",
+      "split": "train",
+      "rows": 21629,
+      "label_counts": {
+        "-1": 3156,
+        "0": 4704,
+        "1": 2142,
+        "10": 285,
+        "2": 8830,
+        "5": 1315,
+        "4": 107,
+        "9": 428,
+        "3": 662
+      },
+      "confidence_counts": {
+        "-1": 2992,
+        "1": 17719,
+        "2": 477,
+        "3": 441
+      },
+      "missing_targets": 3156
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/16_2-16.las",
+      "well_id": "16/2-16",
+      "root_id": "16/2-16",
+      "split": "train",
+      "rows": 13637,
+      "label_counts": {
+        "-1": 3612,
+        "2": 5810,
+        "0": 1311,
+        "1": 264,
+        "5": 1277,
+        "9": 170,
+        "3": 1118,
+        "8": 75
+      },
+      "confidence_counts": {
+        "-1": 3612,
+        "1": 8974,
+        "2": 853,
+        "3": 198
+      },
+      "missing_targets": 3612
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/35_11-5.las",
+      "well_id": "35/11-5",
+      "root_id": "35/11-5",
+      "split": "train",
+      "rows": 21963,
+      "label_counts": {
+        "-1": 193,
+        "1": 4102,
+        "0": 3645,
+        "2": 13426,
+        "4": 18,
+        "5": 270,
+        "9": 46,
+        "3": 198,
+        "10": 65
+      },
+      "confidence_counts": {
+        "-1": 3,
+        "2": 3866,
+        "1": 18046,
+        "3": 48
+      },
+      "missing_targets": 193
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/16_7-4.las",
+      "well_id": "16/7-4",
+      "root_id": "16/7-4",
+      "split": "train",
+      "rows": 17412,
+      "label_counts": {
+        "-1": 7402,
+        "2": 6533,
+        "1": 1247,
+        "3": 464,
+        "9": 185,
+        "5": 1468,
+        "0": 113
+      },
+      "confidence_counts": {
+        "-1": 7402,
+        "1": 7093,
+        "2": 2917
+      },
+      "missing_targets": 7402
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/35_11-12.las",
+      "well_id": "35/11-12",
+      "root_id": "35/11-12",
+      "split": "train",
+      "rows": 19875,
+      "label_counts": {
+        "-1": 763,
+        "1": 2769,
+        "0": 1060,
+        "2": 14952,
+        "5": 224,
+        "9": 91,
+        "4": 16
+      },
+      "confidence_counts": {
+        "-1": 186,
+        "3": 9075,
+        "2": 7024,
+        "1": 3590
+      },
+      "missing_targets": 763
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/31_2-10.las",
+      "well_id": "31/2-10",
+      "root_id": "31/2-10",
+      "split": "train",
+      "rows": 11934,
+      "label_counts": {
+        "-1": 2901,
+        "0": 966,
+        "1": 292,
+        "2": 7049,
+        "5": 287,
+        "9": 316,
+        "3": 123
+      },
+      "confidence_counts": {
+        "-1": 2900,
+        "1": 7823,
+        "2": 868,
+        "3": 343
+      },
+      "missing_targets": 2901
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/36_7-3.las",
+      "well_id": "36/7-3",
+      "root_id": "36/7-3",
+      "split": "train",
+      "rows": 16950,
+      "label_counts": {
+        "-1": 13316,
+        "2": 2107,
+        "5": 46,
+        "0": 962,
+        "1": 519
+      },
+      "confidence_counts": {
+        "-1": 13278,
+        "1": 3483,
+        "2": 189
+      },
+      "missing_targets": 13316
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/34_7-20.las",
+      "well_id": "34/7-20",
+      "root_id": "34/7-20",
+      "split": "train",
+      "rows": 18193,
+      "label_counts": {
+        "-1": 5036,
+        "2": 10792,
+        "1": 1331,
+        "5": 342,
+        "9": 283,
+        "4": 69,
+        "3": 35,
+        "0": 288,
+        "10": 17
+      },
+      "confidence_counts": {
+        "-1": 4967,
+        "1": 11834,
+        "2": 1102,
+        "3": 290
+      },
+      "missing_targets": 5036
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/31_2-9.las",
+      "well_id": "31/2-9",
+      "root_id": "31/2-9",
+      "split": "train",
+      "rows": 9402,
+      "label_counts": {
+        "-1": 649,
+        "0": 911,
+        "2": 6182,
+        "1": 1201,
+        "5": 199,
+        "9": 260
+      },
+      "confidence_counts": {
+        "-1": 651,
+        "1": 8311,
+        "3": 333,
+        "2": 107
+      },
+      "missing_targets": 649
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/15_9-17.las",
+      "well_id": "15/9-17",
+      "root_id": "15/9-17",
+      "split": "train",
+      "rows": 19879,
+      "label_counts": {
+        "-1": 2528,
+        "2": 12694,
+        "0": 2312,
+        "5": 1481,
+        "1": 301,
+        "9": 320,
+        "4": 18,
+        "3": 225
+      },
+      "confidence_counts": {
+        "-1": 2499,
+        "1": 15746,
+        "2": 857,
+        "3": 777
+      },
+      "missing_targets": 2528
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/25_11-24.las",
+      "well_id": "25/11-24",
+      "root_id": "25/11-24",
+      "split": "train",
+      "rows": 13052,
+      "label_counts": {
+        "-1": 8857,
+        "2": 2703,
+        "5": 303,
+        "0": 914,
+        "9": 146,
+        "1": 25,
+        "3": 87,
+        "10": 17
+      },
+      "confidence_counts": {
+        "-1": 8856,
+        "1": 4025,
+        "2": 26,
+        "3": 145
+      },
+      "missing_targets": 8857
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/35_9-8.las",
+      "well_id": "35/9-8",
+      "root_id": "35/9-8",
+      "split": "train",
+      "rows": 18842,
+      "label_counts": {
+        "-1": 14568,
+        "2": 908,
+        "5": 449,
+        "3": 460,
+        "1": 1808,
+        "0": 619,
+        "10": 30
+      },
+      "confidence_counts": {
+        "-1": 14312,
+        "2": 350,
+        "1": 4180
+      },
+      "missing_targets": 14568
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/35_9-6 S.las",
+      "well_id": "35/9-6 S",
+      "root_id": "35/9-6",
+      "split": "train",
+      "rows": 22105,
+      "label_counts": {
+        "-1": 8950,
+        "2": 8834,
+        "5": 731,
+        "0": 1099,
+        "1": 2461,
+        "10": 30
+      },
+      "confidence_counts": {
+        "-1": 8755,
+        "1": 12104,
+        "2": 1226,
+        "3": 20
+      },
+      "missing_targets": 8950
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/30_6-5.las",
+      "well_id": "30/6-5",
+      "root_id": "30/6-5",
+      "split": "train",
+      "rows": 22910,
+      "label_counts": {
+        "-1": 1274,
+        "2": 14781,
+        "0": 2989,
+        "1": 2584,
+        "5": 436,
+        "9": 443,
+        "3": 360,
+        "10": 24,
+        "4": 19
+      },
+      "confidence_counts": {
+        "-1": 1258,
+        "1": 19914,
+        "3": 670,
+        "2": 1068
+      },
+      "missing_targets": 1274
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/25_11-5.las",
+      "well_id": "25/11-5",
+      "root_id": "25/11-5",
+      "split": "train",
+      "rows": 13337,
+      "label_counts": {
+        "-1": 8277,
+        "2": 3780,
+        "0": 826,
+        "6": 112,
+        "3": 68,
+        "5": 27,
+        "1": 247
+      },
+      "confidence_counts": {
+        "-1": 8278,
+        "2": 2332,
+        "1": 2704,
+        "3": 23
+      },
+      "missing_targets": 8277
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/7_1-1.las",
+      "well_id": "7/1-1",
+      "root_id": "7/1-1",
+      "split": "train",
+      "rows": 17982,
+      "label_counts": {
+        "-1": 1740,
+        "0": 1787,
+        "2": 10895,
+        "1": 529,
+        "5": 736,
+        "9": 71,
+        "3": 183,
+        "6": 2041
+      },
+      "confidence_counts": {
+        "-1": 1741,
+        "1": 15172,
+        "2": 995,
+        "3": 74
+      },
+      "missing_targets": 1740
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/35_9-2.las",
+      "well_id": "35/9-2",
+      "root_id": "35/9-2",
+      "split": "train",
+      "rows": 16599,
+      "label_counts": {
+        "-1": 4269,
+        "2": 8242,
+        "3": 1386,
+        "1": 1280,
+        "0": 1366,
+        "5": 9,
+        "10": 47
+      },
+      "confidence_counts": {
+        "-1": 4269,
+        "3": 2914,
+        "2": 2718,
+        "1": 6698
+      },
+      "missing_targets": 4269
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/34_10-35.las",
+      "well_id": "34/10-35",
+      "root_id": "34/10-35",
+      "split": "train",
+      "rows": 26900,
+      "label_counts": {
+        "-1": 6280,
+        "1": 12986,
+        "2": 3850,
+        "0": 2915,
+        "5": 521,
+        "9": 281,
+        "3": 40,
+        "8": 5,
+        "4": 15,
+        "10": 7
+      },
+      "confidence_counts": {
+        "-1": 5450,
+        "3": 1304,
+        "1": 19724,
+        "2": 422
+      },
+      "missing_targets": 6280
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/25_11-15.las",
+      "well_id": "25/11-15",
+      "root_id": "25/11-15",
+      "split": "train",
+      "rows": 12402,
+      "label_counts": {
+        "-1": 10118,
+        "2": 750,
+        "0": 427,
+        "5": 648,
+        "3": 409,
+        "1": 50
+      },
+      "confidence_counts": {
+        "-1": 10117,
+        "1": 2197,
+        "2": 88
+      },
+      "missing_targets": 10118
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/33_5-2.las",
+      "well_id": "33/5-2",
+      "root_id": "33/5-2",
+      "split": "train",
+      "rows": 27702,
+      "label_counts": {
+        "-1": 23611,
+        "2": 2699,
+        "3": 103,
+        "0": 404,
+        "1": 825,
+        "5": 60
+      },
+      "confidence_counts": {
+        "-1": 23615,
+        "1": 3666,
+        "3": 53,
+        "2": 368
+      },
+      "missing_targets": 23611
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/30_3-3.las",
+      "well_id": "30/3-3",
+      "root_id": "30/3-3",
+      "split": "train",
+      "rows": 21287,
+      "label_counts": {
+        "0": 3089,
+        "2": 13835,
+        "5": 452,
+        "1": 2786,
+        "9": 894,
+        "4": 46,
+        "10": 62,
+        "-1": 123
+      },
+      "confidence_counts": {
+        "2": 4725,
+        "1": 15425,
+        "3": 1080,
+        "-1": 57
+      },
+      "missing_targets": 123
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/25_10-10.las",
+      "well_id": "25/10-10",
+      "root_id": "25/10-10",
+      "split": "train",
+      "rows": 15346,
+      "label_counts": {
+        "-1": 6025,
+        "2": 6713,
+        "0": 1746,
+        "1": 262,
+        "5": 256,
+        "9": 86,
+        "3": 121,
+        "8": 116,
+        "4": 21
+      },
+      "confidence_counts": {
+        "-1": 6026,
+        "1": 8519,
+        "2": 541,
+        "3": 260
+      },
+      "missing_targets": 6025
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/35_9-10 S.las",
+      "well_id": "35/9-10 S",
+      "root_id": "35/9-10",
+      "split": "train",
+      "rows": 21271,
+      "label_counts": {
+        "-1": 16958,
+        "2": 536,
+        "5": 427,
+        "0": 666,
+        "1": 2684
+      },
+      "confidence_counts": {
+        "-1": 16957,
+        "2": 544,
+        "1": 3770
+      },
+      "missing_targets": 16958
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/31_2-1.las",
+      "well_id": "31/2-1",
+      "root_id": "31/2-1",
+      "split": "validation",
+      "rows": 16035,
+      "label_counts": {
+        "-1": 7761,
+        "9": 535,
+        "3": 188,
+        "2": 2515,
+        "5": 234,
+        "0": 2631,
+        "1": 2128,
+        "10": 43
+      },
+      "confidence_counts": {
+        "-1": 7765,
+        "3": 537,
+        "1": 2090,
+        "2": 5643
+      },
+      "missing_targets": 7761
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/31_3-2.las",
+      "well_id": "31/3-2",
+      "root_id": "31/3-2",
+      "split": "validation",
+      "rows": 11426,
+      "label_counts": {
+        "-1": 676,
+        "2": 7316,
+        "0": 2430,
+        "1": 154,
+        "5": 342,
+        "3": 487,
+        "10": 21
+      },
+      "confidence_counts": {
+        "-1": 574,
+        "2": 1027,
+        "1": 9825
+      },
+      "missing_targets": 676
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/16_7-6.las",
+      "well_id": "16/7-6",
+      "root_id": "16/7-6",
+      "split": "validation",
+      "rows": 17304,
+      "label_counts": {
+        "-1": 7082,
+        "2": 6798,
+        "0": 195,
+        "5": 238,
+        "4": 31,
+        "1": 995,
+        "9": 58,
+        "6": 1526,
+        "3": 381
+      },
+      "confidence_counts": {
+        "-1": 6837,
+        "2": 770,
+        "3": 207,
+        "1": 9490
+      },
+      "missing_targets": 7082
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/16_1-2.las",
+      "well_id": "16/1-2",
+      "root_id": "16/1-2",
+      "split": "validation",
+      "rows": 18547,
+      "label_counts": {
+        "-1": 16813,
+        "2": 610,
+        "0": 688,
+        "5": 269,
+        "4": 43,
+        "3": 124
+      },
+      "confidence_counts": {
+        "-1": 16813,
+        "2": 1693,
+        "1": 41
+      },
+      "missing_targets": 16813
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/16_10-1.las",
+      "well_id": "16/10-1",
+      "root_id": "16/10-1",
+      "split": "validation",
+      "rows": 20147,
+      "label_counts": {
+        "-1": 2472,
+        "1": 623,
+        "0": 955,
+        "2": 12245,
+        "5": 2334,
+        "9": 91,
+        "3": 294,
+        "6": 984,
+        "4": 80,
+        "10": 49,
+        "7": 20
+      },
+      "confidence_counts": {
+        "-1": 2270,
+        "2": 5340,
+        "1": 12292,
+        "3": 245
+      },
+      "missing_targets": 2472
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/34_8-3.las",
+      "well_id": "34/8-3",
+      "root_id": "34/8-3",
+      "split": "validation",
+      "rows": 19230,
+      "label_counts": {
+        "-1": 5888,
+        "2": 9011,
+        "1": 2813,
+        "5": 313,
+        "4": 72,
+        "0": 543,
+        "9": 217,
+        "3": 343,
+        "10": 30
+      },
+      "confidence_counts": {
+        "-1": 5813,
+        "1": 12911,
+        "2": 263,
+        "3": 243
+      },
+      "missing_targets": 5888
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/34_11-2 S.las",
+      "well_id": "34/11-2 S",
+      "root_id": "34/11-2",
+      "split": "validation",
+      "rows": 29422,
+      "label_counts": {
+        "-1": 6112,
+        "2": 17774,
+        "1": 2918,
+        "0": 941,
+        "5": 457,
+        "4": 20,
+        "9": 266,
+        "3": 821,
+        "10": 113
+      },
+      "confidence_counts": {
+        "-1": 5876,
+        "1": 22700,
+        "2": 488,
+        "3": 358
+      },
+      "missing_targets": 6112
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/34_8-1.las",
+      "well_id": "34/8-1",
+      "root_id": "34/8-1",
+      "split": "validation",
+      "rows": 21558,
+      "label_counts": {
+        "-1": 3620,
+        "2": 13565,
+        "0": 2387,
+        "1": 1662,
+        "5": 252,
+        "9": 20,
+        "4": 52
+      },
+      "confidence_counts": {
+        "-1": 3629,
+        "2": 789,
+        "1": 17125,
+        "3": 15
+      },
+      "missing_targets": 3620
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/15_9-23.las",
+      "well_id": "15/9-23",
+      "root_id": "15/9-23",
+      "split": "validation",
+      "rows": 20494,
+      "label_counts": {
+        "-1": 9431,
+        "2": 6731,
+        "1": 1060,
+        "5": 1630,
+        "0": 563,
+        "9": 74,
+        "6": 29,
+        "3": 912,
+        "10": 64
+      },
+      "confidence_counts": {
+        "-1": 9348,
+        "3": 191,
+        "1": 10073,
+        "2": 882
+      },
+      "missing_targets": 9431
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/15_9-15.las",
+      "well_id": "15/9-15",
+      "root_id": "15/9-15",
+      "split": "validation",
+      "rows": 20954,
+      "label_counts": {
+        "-1": 3237,
+        "2": 10872,
+        "1": 1729,
+        "0": 2722,
+        "5": 905,
+        "9": 135,
+        "3": 385,
+        "6": 969
+      },
+      "confidence_counts": {
+        "-1": 3096,
+        "3": 820,
+        "1": 16176,
+        "2": 862
+      },
+      "missing_targets": 3237
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/25_2-7.las",
+      "well_id": "25/2-7",
+      "root_id": "25/2-7",
+      "split": "validation",
+      "rows": 26059,
+      "label_counts": {
+        "-1": 928,
+        "1": 2168,
+        "0": 7290,
+        "2": 11566,
+        "5": 1896,
+        "10": 453,
+        "4": 100,
+        "9": 156,
+        "3": 1502
+      },
+      "confidence_counts": {
+        "-1": 442,
+        "2": 1683,
+        "1": 23712,
+        "3": 222
+      },
+      "missing_targets": 928
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/25_7-2.las",
+      "well_id": "25/7-2",
+      "root_id": "25/7-2",
+      "split": "validation",
+      "rows": 31686,
+      "label_counts": {
+        "-1": 7807,
+        "1": 1836,
+        "2": 12709,
+        "5": 3851,
+        "9": 421,
+        "0": 3697,
+        "3": 1191,
+        "10": 174
+      },
+      "confidence_counts": {
+        "-1": 7780,
+        "1": 21793,
+        "2": 1557,
+        "3": 556
+      },
+      "missing_targets": 7807
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/30_3-5 S.las",
+      "well_id": "30/3-5 S",
+      "root_id": "30/3-5",
+      "split": "validation",
+      "rows": 28123,
+      "label_counts": {
+        "-1": 23741,
+        "2": 2792,
+        "5": 97,
+        "1": 419,
+        "0": 1025,
+        "10": 49
+      },
+      "confidence_counts": {
+        "-1": 23720,
+        "2": 474,
+        "1": 3929
+      },
+      "missing_targets": 23741
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/25_8-7.las",
+      "well_id": "25/8-7",
+      "root_id": "25/8-7",
+      "split": "validation",
+      "rows": 9268,
+      "label_counts": {
+        "-1": 269,
+        "1": 408,
+        "2": 6856,
+        "0": 932,
+        "5": 610,
+        "4": 26,
+        "9": 138,
+        "3": 22,
+        "10": 7
+      },
+      "confidence_counts": {
+        "-1": 185,
+        "1": 8164,
+        "2": 764,
+        "3": 155
+      },
+      "missing_targets": 269
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/32_2-1.las",
+      "well_id": "32/2-1",
+      "root_id": "32/2-1",
+      "split": "validation",
+      "rows": 6059,
+      "label_counts": {
+        "-1": 3010,
+        "2": 1659,
+        "1": 339,
+        "0": 1036,
+        "5": 15
+      },
+      "confidence_counts": {
+        "-1": 3007,
+        "1": 2763,
+        "2": 289
+      },
+      "missing_targets": 3010
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/31_6-5.las",
+      "well_id": "31/6-5",
+      "root_id": "31/6-5",
+      "split": "validation",
+      "rows": 11597,
+      "label_counts": {
+        "-1": 499,
+        "2": 6088,
+        "0": 2396,
+        "5": 284,
+        "1": 926,
+        "9": 839,
+        "3": 557,
+        "10": 8
+      },
+      "confidence_counts": {
+        "-1": 503,
+        "1": 9736,
+        "3": 904,
+        "2": 454
+      },
+      "missing_targets": 499
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/35_11-13.las",
+      "well_id": "35/11-13",
+      "root_id": "35/11-13",
+      "split": "validation",
+      "rows": 19119,
+      "label_counts": {
+        "-1": 16689,
+        "2": 1223,
+        "1": 482,
+        "0": 677,
+        "5": 48
+      },
+      "confidence_counts": {
+        "-1": 16694,
+        "1": 2330,
+        "2": 95
+      },
+      "missing_targets": 16689
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/16_2-11 A.las",
+      "well_id": "16/2-11 A",
+      "root_id": "16/2-11",
+      "split": "test",
+      "rows": 14672,
+      "label_counts": {
+        "-1": 3964,
+        "2": 5237,
+        "0": 1808,
+        "1": 572,
+        "5": 1796,
+        "9": 147,
+        "3": 1148
+      },
+      "confidence_counts": {
+        "-1": 3964,
+        "1": 8436,
+        "2": 2047,
+        "3": 225
+      },
+      "missing_targets": 3964
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/34_10-21.las",
+      "well_id": "34/10-21",
+      "root_id": "34/10-21",
+      "split": "test",
+      "rows": 24926,
+      "label_counts": {
+        "-1": 2435,
+        "2": 16624,
+        "1": 1315,
+        "0": 3590,
+        "5": 301,
+        "9": 456,
+        "3": 25,
+        "4": 34,
+        "10": 146
+      },
+      "confidence_counts": {
+        "-1": 2436,
+        "1": 21255,
+        "2": 733,
+        "3": 502
+      },
+      "missing_targets": 2435
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/16_1-6 A.las",
+      "well_id": "16/1-6 A",
+      "root_id": "16/1-6",
+      "split": "test",
+      "rows": 13513,
+      "label_counts": {
+        "-1": 9890,
+        "2": 3208,
+        "0": 276,
+        "1": 46,
+        "5": 93
+      },
+      "confidence_counts": {
+        "-1": 9890,
+        "1": 3323,
+        "2": 300
+      },
+      "missing_targets": 9890
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/26_4-1.las",
+      "well_id": "26/4-1",
+      "root_id": "26/4-1",
+      "split": "test",
+      "rows": 22742,
+      "label_counts": {
+        "-1": 3165,
+        "0": 3444,
+        "2": 14108,
+        "5": 1061,
+        "4": 33,
+        "9": 260,
+        "1": 238,
+        "3": 3,
+        "10": 430
+      },
+      "confidence_counts": {
+        "-1": 3133,
+        "1": 18271,
+        "2": 1006,
+        "3": 332
+      },
+      "missing_targets": 3165
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/34_11-1.las",
+      "well_id": "34/11-1",
+      "root_id": "34/11-1",
+      "split": "test",
+      "rows": 29690,
+      "label_counts": {
+        "-1": 25464,
+        "2": 2710,
+        "1": 759,
+        "0": 653,
+        "10": 92,
+        "3": 12
+      },
+      "confidence_counts": {
+        "-1": 25464,
+        "1": 3670,
+        "2": 556
+      },
+      "missing_targets": 25464
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/34_3-3 A.las",
+      "well_id": "34/3-3 A",
+      "root_id": "34/3-3",
+      "split": "test",
+      "rows": 30228,
+      "label_counts": {
+        "-1": 12038,
+        "2": 16356,
+        "5": 213,
+        "1": 890,
+        "10": 8,
+        "4": 118,
+        "3": 123,
+        "8": 10,
+        "0": 472
+      },
+      "confidence_counts": {
+        "-1": 11986,
+        "3": 355,
+        "2": 739,
+        "1": 17148
+      },
+      "missing_targets": 12038
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/34_10-19.las",
+      "well_id": "34/10-19",
+      "root_id": "34/10-19",
+      "split": "test",
+      "rows": 13238,
+      "label_counts": {
+        "-1": 576,
+        "2": 8189,
+        "0": 2779,
+        "1": 905,
+        "5": 338,
+        "4": 73,
+        "9": 330,
+        "3": 36,
+        "10": 12
+      },
+      "confidence_counts": {
+        "-1": 577,
+        "1": 11893,
+        "2": 396,
+        "3": 372
+      },
+      "missing_targets": 576
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/16_7-5.las",
+      "well_id": "16/7-5",
+      "root_id": "16/7-5",
+      "split": "test",
+      "rows": 18488,
+      "label_counts": {
+        "-1": 2898,
+        "2": 12132,
+        "1": 444,
+        "0": 1791,
+        "5": 905,
+        "9": 180,
+        "3": 138
+      },
+      "confidence_counts": {
+        "-1": 2351,
+        "1": 15532,
+        "2": 224,
+        "3": 381
+      },
+      "missing_targets": 2898
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/29_6-1.las",
+      "well_id": "29/6-1",
+      "root_id": "29/6-1",
+      "split": "test",
+      "rows": 30856,
+      "label_counts": {
+        "-1": 6388,
+        "2": 18746,
+        "1": 1170,
+        "5": 892,
+        "0": 3505,
+        "4": 17,
+        "10": 138
+      },
+      "confidence_counts": {
+        "-1": 6273,
+        "1": 23450,
+        "2": 1133
+      },
+      "missing_targets": 6388
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/34_4-10 R.las",
+      "well_id": "34/4-10 R",
+      "root_id": "34/4-10",
+      "split": "test",
+      "rows": 25514,
+      "label_counts": {
+        "-1": 21634,
+        "1": 806,
+        "4": 38,
+        "0": 169,
+        "2": 2656,
+        "5": 59,
+        "3": 152
+      },
+      "confidence_counts": {
+        "-1": 21442,
+        "3": 449,
+        "1": 3496,
+        "2": 127
+      },
+      "missing_targets": 21634
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/16_2-7.las",
+      "well_id": "16/2-7",
+      "root_id": "16/2-7",
+      "split": "test",
+      "rows": 15556,
+      "label_counts": {
+        "-1": 3873,
+        "2": 4715,
+        "0": 2759,
+        "1": 415,
+        "5": 2315,
+        "9": 125,
+        "3": 1232,
+        "8": 122
+      },
+      "confidence_counts": {
+        "-1": 3826,
+        "1": 9412,
+        "2": 2108,
+        "3": 210
+      },
+      "missing_targets": 3873
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/25_9-1.las",
+      "well_id": "25/9-1",
+      "root_id": "25/9-1",
+      "split": "test",
+      "rows": 16132,
+      "label_counts": {
+        "1": 4383,
+        "0": 3207,
+        "2": 7321,
+        "5": 672,
+        "9": 326,
+        "3": 163,
+        "10": 24,
+        "4": 15,
+        "-1": 21
+      },
+      "confidence_counts": {
+        "1": 15105,
+        "3": 505,
+        "2": 500,
+        "-1": 22
+      },
+      "missing_targets": 21
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/31_4-10.las",
+      "well_id": "31/4-10",
+      "root_id": "31/4-10",
+      "split": "test",
+      "rows": 13779,
+      "label_counts": {
+        "-1": 5097,
+        "2": 6288,
+        "5": 217,
+        "0": 380,
+        "9": 326,
+        "3": 191,
+        "1": 1280
+      },
+      "confidence_counts": {
+        "-1": 5099,
+        "1": 7855,
+        "2": 481,
+        "3": 344
+      },
+      "missing_targets": 5097
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/34_7-21.las",
+      "well_id": "34/7-21",
+      "root_id": "34/7-21",
+      "split": "test",
+      "rows": 18463,
+      "label_counts": {
+        "-1": 6039,
+        "1": 2209,
+        "2": 9224,
+        "5": 350,
+        "9": 228,
+        "4": 9,
+        "3": 66,
+        "0": 268,
+        "10": 70
+      },
+      "confidence_counts": {
+        "-1": 5767,
+        "3": 660,
+        "1": 11775,
+        "2": 261
+      },
+      "missing_targets": 6039
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/33_9-17.las",
+      "well_id": "33/9-17",
+      "root_id": "33/9-17",
+      "split": "test",
+      "rows": 19771,
+      "label_counts": {
+        "-1": 1902,
+        "2": 15484,
+        "0": 1841,
+        "1": 193,
+        "5": 187,
+        "9": 53,
+        "3": 89,
+        "4": 11,
+        "10": 11
+      },
+      "confidence_counts": {
+        "-1": 1894,
+        "2": 1481,
+        "1": 16347,
+        "3": 49
+      },
+      "missing_targets": 1902
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/25_6-2.las",
+      "well_id": "25/6-2",
+      "root_id": "25/6-2",
+      "split": "test",
+      "rows": 14836,
+      "label_counts": {
+        "-1": 11911,
+        "2": 2082,
+        "3": 271,
+        "5": 194,
+        "0": 216,
+        "1": 162
+      },
+      "confidence_counts": {
+        "-1": 11909,
+        "2": 795,
+        "1": 2132
+      },
+      "missing_targets": 11911
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/25_8-5 S.las",
+      "well_id": "25/8-5 S",
+      "root_id": "25/8-5",
+      "split": "test",
+      "rows": 20537,
+      "label_counts": {
+        "-1": 5938,
+        "2": 9371,
+        "0": 3306,
+        "4": 4,
+        "9": 293,
+        "5": 1223,
+        "1": 238,
+        "3": 96,
+        "10": 68
+      },
+      "confidence_counts": {
+        "-1": 5915,
+        "1": 13054,
+        "2": 1232,
+        "3": 336
+      },
+      "missing_targets": 5938
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/31_3-3.las",
+      "well_id": "31/3-3",
+      "root_id": "31/3-3",
+      "split": "test",
+      "rows": 14668,
+      "label_counts": {
+        "-1": 3044,
+        "2": 4783,
+        "9": 526,
+        "5": 876,
+        "1": 2048,
+        "3": 931,
+        "0": 2421,
+        "10": 39
+      },
+      "confidence_counts": {
+        "-1": 2988,
+        "2": 237,
+        "1": 10884,
+        "3": 559
+      },
+      "missing_targets": 3044
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/35_11-11.las",
+      "well_id": "35/11-11",
+      "root_id": "35/11-11",
+      "split": "test",
+      "rows": 18710,
+      "label_counts": {
+        "-1": 5866,
+        "2": 7508,
+        "5": 496,
+        "0": 1730,
+        "1": 2513,
+        "3": 467,
+        "4": 6,
+        "10": 124
+      },
+      "confidence_counts": {
+        "-1": 5756,
+        "3": 20,
+        "1": 11237,
+        "2": 1697
+      },
+      "missing_targets": 5866
+    }
+  ],
+  "public_fixed_input": {
+    "path": "ai_pc/cpu_model/force_v1/public_input.jsonl",
+    "sha256": "d81b29a6200d83133eda22149c70d2a0f6b3db06f9885ae669ddaffc75e99b37",
+    "observations": 128,
+    "member": "Force_2020_all_wells_train_test_blind_hidden_final/15_9-13.las",
+    "member_sha256": "933752fd96b8c286b17d125b28d8a53dcd1d4c69e179a482cfaedfc2ace5fb00",
+    "zero_based_rows": [
+      7327,
+      7454
+    ],
+    "source_split": "train",
+    "not_heldout_accuracy": true,
+    "labels": "separate evidence/ai/force_cpu_training_20261024/public_input_evaluator_labels.json; never model inputs"
+  },
+  "causal_window_checks": [
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/16_8-1.las",
+      "sequences": [
+        0,
+        1,
+        31,
+        127,
+        128,
+        256
+      ],
+      "float32_exact_equal": true,
+      "startup_padding": true,
+      "future_inputs": false
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/34_7-13.las",
+      "sequences": [
+        0,
+        1,
+        31,
+        127,
+        128,
+        256
+      ],
+      "float32_exact_equal": true,
+      "startup_padding": true,
+      "future_inputs": false
+    },
+    {
+      "member": "Force_2020_all_wells_train_test_blind_hidden_final/31_3-1.las",
+      "sequences": [
+        0,
+        1,
+        31,
+        127,
+        128,
+        256
+      ],
+      "float32_exact_equal": true,
+      "startup_padding": true,
+      "future_inputs": false
+    }
+  ]
+}

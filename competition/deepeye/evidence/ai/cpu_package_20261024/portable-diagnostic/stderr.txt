@@ -1,0 +1,16 @@
+C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\cpu-model-env-20261024\Lib\site-packages\torch\_subclasses\functional_tensor.py:279: UserWarning: Failed to initialize NumPy: No module named 'numpy' (Triggered internally at C:\actions-runner\_work\pytorch\pytorch\pytorch\torch\csrc\utils\tensor_numpy.cpp:84.)
+  cpu = _conversion_method_template(device=torch.device("cpu"))
+test_portable_copy_rejects_missing_and_corrupt_graph_weights (competition.deepeye.tests.ai.cpu.test_cpu_package.ModelInferenceTests.test_portable_copy_rejects_missing_and_corrupt_graph_weights) ... FAIL
+
+======================================================================
+FAIL: test_portable_copy_rejects_missing_and_corrupt_graph_weights (competition.deepeye.tests.ai.cpu.test_cpu_package.ModelInferenceTests.test_portable_copy_rejects_missing_and_corrupt_graph_weights)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\deepeye-implementation-c\competition\deepeye\tests\ai\cpu\test_cpu_package.py", line 310, in test_portable_copy_rejects_missing_and_corrupt_graph_weights
+    self.assertEqual(code, 2, result)
+AssertionError: 1 != 2 : {'code': 'model_invalid', 'detail': 'unreadable JSON artifact: C:\\Users\\Alan\\AppData\\Local\\Temp\\tmplmsrxhhi\\portable-product\\ai_pc\\cpu_model\\force_v1\\weights.json', 'formal_acceptance': 'not_run', 'motion_bytes': None, 'movement_authorized': False, 'schema_version': 1, 'status': 'failed'}
+
+----------------------------------------------------------------------
+Ran 1 test in 5.210s
+
+FAILED (failures=1)

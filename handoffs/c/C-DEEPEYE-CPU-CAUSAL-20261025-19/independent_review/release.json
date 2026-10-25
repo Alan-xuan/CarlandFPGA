@@ -1,0 +1,20 @@
+{
+  "task_id": "DEEPEYE-IMPLEMENTATION-20261014",
+  "task_version": 1,
+  "work_id": "C-CPU-FROZEN-ARTIFACT-REVIEW-20261024-v1",
+  "actual_agent_id": "/root/cpu_independent_review",
+  "recorded_utc": "2026-10-24T12:31:12.994025+00:00",
+  "bounded_review_complete": true,
+  "ownership_released": true,
+  "active_jobs": [],
+  "independent_check_exit_code": 0,
+  "training_executed": false,
+  "heldout_evaluation_executed": false,
+  "author_suites_executed": false,
+  "cpu_forward_calls": 1,
+  "raw_archive_opened": false,
+  "product_edits": false,
+  "external_actions": false,
+  "quality_target_failed": true,
+  "formal_acceptance": "incomplete"
+}

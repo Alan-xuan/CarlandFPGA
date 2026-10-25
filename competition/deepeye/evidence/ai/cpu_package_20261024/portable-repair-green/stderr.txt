@@ -1,0 +1,6 @@
+test_portable_copy_rejects_missing_and_corrupt_graph_weights (competition.deepeye.tests.ai.cpu.test_cpu_package.ModelInferenceTests.test_portable_copy_rejects_missing_and_corrupt_graph_weights) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 3.764s
+
+OK

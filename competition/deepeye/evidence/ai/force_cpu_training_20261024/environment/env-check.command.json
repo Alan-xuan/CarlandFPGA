@@ -1,0 +1,8 @@
+{
+  "argv": [
+    "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\cpu-model-env-20261024\\Scripts\\python.exe",
+    "-c",
+    "import torch,sys,json; print(json.dumps({\"python\":sys.version,\"torch\":torch.__version__,\"cuda_available\":torch.cuda.is_available(),\"threads\":torch.get_num_threads()}))"
+  ],
+  "started_utc": "2026-10-24T12:06:22.306795+00:00"
+}

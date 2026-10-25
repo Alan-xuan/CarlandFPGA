@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\cpu-model-env-20261024\\Scripts\\python.exe",
+    "-m",
+    "pip",
+    "install",
+    "--disable-pip-version-check",
+    "--index-url",
+    "https://download.pytorch.org/whl/cpu",
+    "--report",
+    "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\main-20261015-01a14025\\cpu-package-20261024\\force_cpu_model\\pip-report.json",
+    "torch==2.9.0"
+  ],
+  "started_utc": "2026-10-24T12:03:13.221585+00:00"
+}

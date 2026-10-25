@@ -1,0 +1,44 @@
+[
+  {
+    "member": "Force_2020_all_wells_train_test_blind_hidden_final/16_8-1.las",
+    "sequences": [
+      0,
+      1,
+      31,
+      127,
+      128,
+      256
+    ],
+    "float32_exact_equal": true,
+    "startup_padding": true,
+    "future_inputs": false
+  },
+  {
+    "member": "Force_2020_all_wells_train_test_blind_hidden_final/34_7-13.las",
+    "sequences": [
+      0,
+      1,
+      31,
+      127,
+      128,
+      256
+    ],
+    "float32_exact_equal": true,
+    "startup_padding": true,
+    "future_inputs": false
+  },
+  {
+    "member": "Force_2020_all_wells_train_test_blind_hidden_final/31_3-1.las",
+    "sequences": [
+      0,
+      1,
+      31,
+      127,
+      128,
+      256
+    ],
+    "float32_exact_equal": true,
+    "startup_padding": true,
+    "future_inputs": false
+  }
+]

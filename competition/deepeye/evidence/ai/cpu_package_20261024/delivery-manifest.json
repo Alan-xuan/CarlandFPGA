@@ -1,0 +1,253 @@
+{
+  "schema_version": 1,
+  "task_id": "DEEPEYE-IMPLEMENTATION-20261014",
+  "task_version": 1,
+  "work_id": "C-CPU-CAUSAL-RUNNER-20261024-v1",
+  "actual_agent_id": "/root/cpu_package_runner",
+  "main_thread_id": "01a14025-4dfd-7ec3-aebb-57be48daba59",
+  "App_thread_uuid": "not_exposed",
+  "base_commit": "942fa309ffc8f1d32c816cfa643b009b031d7d0a",
+  "contract_id": "DEEPEYE-HUMAN-LOCK-20261014/revision1",
+  "contract_source": "f5989cd5defce561f9ba98e6b18fc2682945f0a2",
+  "requirements_sha256": "c229834bfc2292f5fe4411fc9f12c68487008f9d1adaf31f0144ee7a98173804",
+  "design": "1011259415a0916054eb580687612580bc1e5f09",
+  "recorded_utc": "2026-10-24T12:26:33.593863+00:00",
+  "final_suite": {
+    "methods": 20,
+    "skips": 0,
+    "exit_code": 0
+  },
+  "prior_failure": {
+    "first_full_suite_exit_code": 1,
+    "first_full_suite_failed_methods": 1,
+    "diagnostic_exit_code": 1,
+    "source_snapshot_before_repair": "not_recorded",
+    "affected_repair_exit_code": 0
+  },
+  "baseline": {
+    "exit_code": 0,
+    "real_public_prefixes": 128,
+    "bounded_repetitions": 10,
+    "output_sha256": "e84bdfe850efb8a231f72c98a5fb05cc20c7f6036014f4db77ef3f6cf44b418f",
+    "runtime": {
+      "actual_device": "cpu",
+      "deterministic_algorithms": true,
+      "device_name": "Intel64 Family 6 Model 183 Stepping 1, GenuineIntel",
+      "hip_version": null,
+      "python": "3.12.14",
+      "requested_device": "cpu",
+      "threads": 4,
+      "torch": "2.9.0+cpu"
+    }
+  },
+  "quality": "FAIL: actual CNN heldout F1 .1827348 below centroid .2047005 and target .60",
+  "A_format_adoption": "not_adopted",
+  "formal_acceptance": "incomplete",
+  "artifacts": [
+    {
+      "path": "competition/deepeye/ai_pc/run_cpu.py",
+      "sha256": "d480b84df8c0f64e94bf7545444bbc8b2090f26a1d2a31314be282883cbb26ac",
+      "bytes": 380
+    },
+    {
+      "path": "competition/deepeye/tests/ai/cpu/test_cpu_package.py",
+      "sha256": "ec92f3b0b06bc65facb47c5da3bdb79aaf173036c6dbe41b32eab495230a7708",
+      "bytes": 17943
+    },
+    {
+      "path": "competition/deepeye/ai_pc/cpu_package/.gitattributes",
+      "sha256": "705fd4d6451a31d36b3df7de96f83f30ac976c9b4a6d1e51671d8e2f33e2d0da",
+      "bytes": 8
+    },
+    {
+      "path": "competition/deepeye/ai_pc/cpu_package/__init__.py",
+      "sha256": "bedb21fee166cf80aa42a75adee9199d915f332958c213c97eecbf248f8daa48",
+      "bytes": 68
+    },
+    {
+      "path": "competition/deepeye/ai_pc/cpu_package/public_observation.schema.json",
+      "sha256": "658b0b4570e6743efdfcef6cd3bc59ac2c080392b2c6b9d225af1c0de6bdd3b3",
+      "bytes": 1084
+    },
+    {
+      "path": "competition/deepeye/ai_pc/cpu_package/README.md",
+      "sha256": "98816f6514c2dcee6c5c6ef7da06a7de19743e79619137b934cd7b4ec254b875",
+      "bytes": 7237
+    },
+    {
+      "path": "competition/deepeye/ai_pc/cpu_package/runner.py",
+      "sha256": "92114790259b7e35e8bf7b1a0519f0e3f68da52729d08b5b9862c992deae70af",
+      "bytes": 21133
+    },
+    {
+      "path": "competition/deepeye/evidence/ai/cpu_package_20261024/.gitattributes",
+      "sha256": "85e48d232edc7b02f6cecf8fbbf905f3b126c467b594d8dd16c4f8fa283a8320",
+      "bytes": 14
+    },
+    {
+      "path": "competition/deepeye/evidence/ai/cpu_package_20261024/affected-suite-final/command.json",
+      "sha256": "3feadcde461d17b93f9d345cf3368a8b3f5ca3daf1b0f291884b5fa89e7a30b3",
+      "bytes": 529
+    },
+    {
+      "path": "competition/deepeye/evidence/ai/cpu_package_20261024/affected-suite-final/result.json",
+      "sha256": "49ecd3577602af2cb9685e9b6aa25f373da24ee294aef0307e4e3421ef673695",
+      "bytes": 250
+    },
+    {
+      "path": "competition/deepeye/evidence/ai/cpu_package_20261024/affected-suite-final/stderr.txt",
+      "sha256": "c700e198f0e5c46e9338ea87b5b1d257b94f5c9ee9620865bdd5f000e63f844f",
+      "bytes": 4193
+    },
+    {
+      "path": "competition/deepeye/evidence/ai/cpu_package_20261024/affected-suite-final/stdout.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "competition/deepeye/evidence/ai/cpu_package_20261024/affected-suite-green/command.json",
+      "sha256": "3ba31db3cba28a1624e237601562e0e0a40234647ab54215435e1d16bb4021ad",
+      "bytes": 529
+    },
+    {
+      "path": "competition/deepeye/evidence/ai/cpu_package_20261024/affected-suite-green/result.json",
+      "sha256": "6ac82f7d551af28debc3c4b1beae95714bbb95adef049398321bb85d9a1c7033",
+      "bytes": 250
+    },
+    {
+      "path": "competition/deepeye/evidence/ai/cpu_package_20261024/affected-suite-green/stderr.txt",
+      "sha256": "881cd28cef50f116fec57c3361322e0ab64d6687d3e53fe516db41e384d3c9ba",
+      "bytes": 3549
+    },
+    {
+      "path": "competition/deepeye/evidence/ai/cpu_package_20261024/affected-suite-green/stdout.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "competition/deepeye/evidence/ai/cpu_package_20261024/boundary-tests-1/command.json",
+      "sha256": "b37c40a137813fd4d5f5246ad40e559a61fe852586d406063020a7d34279af07",
+      "bytes": 458
+    },
+    {
+      "path": "competition/deepeye/evidence/ai/cpu_package_20261024/boundary-tests-1/result.json",
+      "sha256": "6121a6eac07446bd164183310e8892e53e4d3ea65905f6c3353a5d06435fab74",
+      "bytes": 250
+    },
+    {
+      "path": "competition/deepeye/evidence/ai/cpu_package_20261024/boundary-tests-1/stderr.txt",
+      "sha256": "52cb22046e1128823b84d6f9f6170f23f9914a4cb9510adb23a20ffde6be64b5",
+      "bytes": 2774
+    },
+    {
+      "path": "competition/deepeye/evidence/ai/cpu_package_20261024/boundary-tests-1/stdout.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "competition/deepeye/evidence/ai/cpu_package_20261024/capture_command.py",
+      "sha256": "fd3fbcb3c65cb7c47cac9c804aa6edcce6bd94cc9680b7ac0cfbfc76f35d5359",
+      "bytes": 1355
+    },
+    {
+      "path": "competition/deepeye/evidence/ai/cpu_package_20261024/cli-help/command.json",
+      "sha256": "136290e091846ae6de2d6b537a849e407602f1ec1335ed8c490a4dcf9b7695be",
+      "bytes": 405
+    },
+    {
+      "path": "competition/deepeye/evidence/ai/cpu_package_20261024/cli-help/result.json",
+      "sha256": "91c77c253804514f19c0361806976852fa77d7a11309e521034fd102172f7959",
+      "bytes": 250
+    },
+    {
+      "path": "competition/deepeye/evidence/ai/cpu_package_20261024/cli-help/stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "competition/deepeye/evidence/ai/cpu_package_20261024/cli-help/stdout.txt",
+      "sha256": "b967680b8cfa06e6a6f695db79898a624964fd8163d7532dabc7a85c713b3a5d",
+      "bytes": 1032
+    },
+    {
+      "path": "competition/deepeye/evidence/ai/cpu_package_20261024/cpu-baseline/command.json",
+      "sha256": "82cd7295f5427ef5d7c213ef704c515d3ea8417160e194bfa8914f7c8c51d997",
+      "bytes": 1471
+    },
+    {
+      "path": "competition/deepeye/evidence/ai/cpu_package_20261024/cpu-baseline/prediction-result.json",
+      "sha256": "e84bdfe850efb8a231f72c98a5fb05cc20c7f6036014f4db77ef3f6cf44b418f",
+      "bytes": 155616
+    },
+    {
+      "path": "competition/deepeye/evidence/ai/cpu_package_20261024/cpu-baseline/result.json",
+      "sha256": "6dd6d774540ad3670e8d8be281575637ae5e758f9ced4ac9ca9febd7a6c12f4e",
+      "bytes": 250
+    },
+    {
+      "path": "competition/deepeye/evidence/ai/cpu_package_20261024/cpu-baseline/stderr.txt",
+      "sha256": "920f04b4b9fcac323126516687566ea072b6f5987c3ae90d37ec893c52720a56",
+      "bytes": 391
+    },
+    {
+      "path": "competition/deepeye/evidence/ai/cpu_package_20261024/cpu-baseline/stdout.txt",
+      "sha256": "e84bdfe850efb8a231f72c98a5fb05cc20c7f6036014f4db77ef3f6cf44b418f",
+      "bytes": 155616
+    },
+    {
+      "path": "competition/deepeye/evidence/ai/cpu_package_20261024/cpu-baseline/summary.json",
+      "sha256": "c3595ea139580d5280d03738f2b48e62156c6854ae933ca876963d01116f57c7",
+      "bytes": 2228
+    },
+    {
+      "path": "competition/deepeye/evidence/ai/cpu_package_20261024/portable-diagnostic/command.json",
+      "sha256": "70d7f9bd134d6c234e60aed6d914445d18b0403da9f7f2687d04e91fbedc74c0",
+      "bytes": 630
+    },
+    {
+      "path": "competition/deepeye/evidence/ai/cpu_package_20261024/portable-diagnostic/result.json",
+      "sha256": "debf6c00036ec02e01bcb218ecebf1c4d06f4ad08131713f53f36792aba81138",
+      "bytes": 250
+    },
+    {
+      "path": "competition/deepeye/evidence/ai/cpu_package_20261024/portable-diagnostic/stderr.txt",
+      "sha256": "1eed754870d362552c6cff4cfdc3f520866ed01dba945999ebb559bec903125f",
+      "bytes": 1689
+    },
+    {
+      "path": "competition/deepeye/evidence/ai/cpu_package_20261024/portable-diagnostic/stdout.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "competition/deepeye/evidence/ai/cpu_package_20261024/portable-repair-green/command.json",
+      "sha256": "7d3c93f130d8a1fc92234c628dce56e3b365690791793ac4423212924345106e",
+      "bytes": 630
+    },
+    {
+      "path": "competition/deepeye/evidence/ai/cpu_package_20261024/portable-repair-green/result.json",
+      "sha256": "c79ce5fa967770ab0b31f09cd65deb13d74cc968d2ada0c8a66eba8d2b97ce41",
+      "bytes": 250
+    },
+    {
+      "path": "competition/deepeye/evidence/ai/cpu_package_20261024/portable-repair-green/stderr.txt",
+      "sha256": "e989fcbc3d6424285e785bdae726027990e24558f89106db164fab146798c8d2",
+      "bytes": 304
+    },
+    {
+      "path": "competition/deepeye/evidence/ai/cpu_package_20261024/portable-repair-green/stdout.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "competition/deepeye/evidence/ai/cpu_package_20261024/README.md",
+      "sha256": "7dc60c60fb028beb974755c25da44ce1073524fb01330876c4d1e3245c781481",
+      "bytes": 6457
+    },
+    {
+      "path": "competition/deepeye/evidence/ai/cpu_package_20261024/source-review.diff",
+      "sha256": "beafacf607bc7fbb0412ea28283618cd8110f88372b14f50cd825748509c6f65",
+      "bytes": 49368
+    }
+  ]
+}

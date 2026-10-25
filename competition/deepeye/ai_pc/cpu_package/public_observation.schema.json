@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:deepeye:c-offline-force-public-observation:v1",
+  "title": "C offline FORCE causal observation, not an A adopted transport format",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["run_id", "source_domain", "profile_id", "preprocessing_sha256", "sequence", "value_0", "value_1", "value_2", "value_3", "valid_0", "valid_1", "valid_2", "valid_3"],
+  "properties": {
+    "run_id": {"type": "string", "minLength": 1},
+    "source_domain": {"const": "geo_replay"},
+    "profile_id": {"const": "force_curve_v1"},
+    "preprocessing_sha256": {"const": "cb66fd302165c86344f3b8d1af9d9c4e4e229621cef44cbfa6fb8cd121a63eef"},
+    "sequence": {"type": "integer", "minimum": 0, "maximum": 18446744073709551615},
+    "value_0": {"type": "number"},
+    "value_1": {"type": "number"},
+    "value_2": {"type": "number"},
+    "value_3": {"type": "number"},
+    "valid_0": {"type": "boolean"},
+    "valid_1": {"type": "boolean"},
+    "valid_2": {"type": "boolean"},
+    "valid_3": {"type": "boolean"}
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "argv": [
+    "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\cpu-model-env-20261024\\Scripts\\python.exe",
+    "-B",
+    "-X",
+    "utf8",
+    "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\main-20261015-01a14025\\cpu-package-20261024\\cpu_independent_review\\final\\review_frozen_artifacts.py"
+  ],
+  "cwd": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c",
+  "started_utc": "2026-10-24T12:30:05.225583+00:00",
+  "exit_code": 0,
+  "finished_utc": "2026-10-24T12:30:08.309015+00:00",
+  "stdout": {
+    "bytes": 325,
+    "sha256": "809e418fa4df30e84a81daa8d9d48f0e347effed61863a74a1ff84866db62f70"
+  },
+  "stderr": {
+    "bytes": 391,
+    "sha256": "920f04b4b9fcac323126516687566ea072b6f5987c3ae90d37ec893c52720a56"
+  }
+}
