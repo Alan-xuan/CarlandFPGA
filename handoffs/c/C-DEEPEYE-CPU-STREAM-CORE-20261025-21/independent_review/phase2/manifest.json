@@ -1,0 +1,108 @@
+{
+  "work_id": "C-CPU-STREAM-INDEPENDENT-REVIEW-20261025-v1",
+  "phase": 2,
+  "finding": "R1 bounded-constructor preflight blocker",
+  "frozen_source_sha256": "0ddbe6710be81df3e428f63809257dea69c35fee1aabd24cd9bb58eb71b41976",
+  "files": [
+    {
+      "path": "assignment.json",
+      "bytes": 1520,
+      "sha256": "445113876990978b5ccfb0df5d6ba9260aa17ab1a32a10265c480d1d220bab72"
+    },
+    {
+      "path": "frozen-STREAM_CORE.md",
+      "bytes": 11846,
+      "sha256": "3950ef879b879d928ba8a3392b9de803f3354d036afa9ed5525d96df36924c1d"
+    },
+    {
+      "path": "frozen-stream_core.py",
+      "bytes": 19495,
+      "sha256": "0ddbe6710be81df3e428f63809257dea69c35fee1aabd24cd9bb58eb71b41976"
+    },
+    {
+      "path": "head.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "head.stdout.txt",
+      "bytes": 41,
+      "sha256": "8c4428bc4547759352f23bd6a7c288b119b92c3dbc84fcfa38dc2fa5f14d48ca"
+    },
+    {
+      "path": "init-bound-red-exit.json",
+      "bytes": 939,
+      "sha256": "0dc46eb27b5e28213e745998dc02264c364a7288e7f8f45ee86192a3acf63ae5"
+    },
+    {
+      "path": "init-bound-red.stderr.txt",
+      "bytes": 1719,
+      "sha256": "e1862c16d8bb3daa848be7a2ba3b2426d53249ecaa0d85c9b15e4d8650eb7e0c"
+    },
+    {
+      "path": "init-bound-red.stdout.txt",
+      "bytes": 200,
+      "sha256": "bddc1caa52440283ff508438a2ec7880116ff89ae277dff92fb25caf397b0744"
+    },
+    {
+      "path": "inspect-exit.json",
+      "bytes": 937,
+      "sha256": "52819d9e19556aeea840900b0099fc34b61e1f17177dcaee0caed0fe2bfd2b21"
+    },
+    {
+      "path": "inspect.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "inspect.stdout.txt",
+      "bytes": 185,
+      "sha256": "c3b30fda3b5510e91d005ed24525ca0e6a77e701ce61caba621244a90403acea"
+    },
+    {
+      "path": "inspect_source.py",
+      "bytes": 3934,
+      "sha256": "2955d9b14aef055a25065aee6abba1563a0f317dcdf24e2ebb6e6d0aa973e9c9"
+    },
+    {
+      "path": "inspection-tool-results.json",
+      "bytes": 55477,
+      "sha256": "27a941254b037c75f03668cd53139fe1276d052371c71b7da4e805adccf32e85"
+    },
+    {
+      "path": "new-source-diff.stderr.txt",
+      "bytes": 233,
+      "sha256": "a94636c03bcd79f3e49de267fdd42eea028c7ffef22cb0b2456cad6c93c4d5e6"
+    },
+    {
+      "path": "new-source-diff.stdout.txt",
+      "bytes": 20454,
+      "sha256": "48d1588259c5606c2a709d1766e57a27980ad1f0212f6d3807e1c29f27a5eab9"
+    },
+    {
+      "path": "report.md",
+      "bytes": 3508,
+      "sha256": "7bac5962abe97d948a95009db374c020b2b95be34280acfe83e7f568e3262d1d"
+    },
+    {
+      "path": "repro_init_bound.py",
+      "bytes": 1699,
+      "sha256": "343dee42fedd2bac2501bb61e87639e52740c2b061c85ed1fcfb1b99a96eb7ec"
+    },
+    {
+      "path": "source-inspection.json",
+      "bytes": 10504,
+      "sha256": "f5c65b91ee43f81820f630896ae844d230a3543018ef1e33f5e884e4beea187d"
+    },
+    {
+      "path": "tracked-diff.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "tracked-diff.stdout.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ]
+}

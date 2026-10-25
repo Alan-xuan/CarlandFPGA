@@ -1,0 +1,196 @@
+{
+  "work_id": "C-CPU-STREAM-INDEPENDENT-REVIEW-20261025-v1",
+  "phase": 1,
+  "created_utc": "2026-10-25T12:04:33.330463+00:00",
+  "kind": "stdlib scalar and saved evidence only; no stream source/model execution",
+  "selected_records": [
+    {
+      "raw_bytes_base64": "eyJydW5faWQiOiJDLUZPUkNFLUNQVS0yMDI2MTAyNC12MSIsInNvdXJjZV9kb21haW4iOiJnZW9fcmVwbGF5IiwicHJvZmlsZV9pZCI6ImZvcmNlX2N1cnZlX3YxIiwicHJlcHJvY2Vzc2luZ19zaGEyNTYiOiJjYjY2ZmQzMDIxNjVjODYzNDRmM2I4ZDFhZjlkOWM0ZTRlMjI5NjIxY2VmNDRjYmZhNmZiOGNkMTIxYTYzZWVmIiwic2VxdWVuY2UiOjczMjcsInZhbHVlXzAiOjU1Ljg5Mjc1NzQxNiwidmFsdWVfMSI6MS43NzQ2MjYwMTY2LCJ2YWx1ZV8yIjowLjc2NTg2Njg3NTYsInZhbHVlXzMiOjEuMDkxNDk4NzMyNiwidmFsaWRfMCI6dHJ1ZSwidmFsaWRfMSI6dHJ1ZSwidmFsaWRfMiI6dHJ1ZSwidmFsaWRfMyI6dHJ1ZX0K",
+      "raw_bytes_sha256": "9c9200453ca7feab036ee9e41b9b78f9b61df5d672792961379d5daa920d1eb8",
+      "raw_bytes_length": 354,
+      "independent_scalar_feature_sha256": "8bd61940ded56e13271e13bc0bd6f2c618d3b34c73e671ee6e9710fbb0af962c",
+      "saved_prediction": {
+        "binding": {
+          "preprocessing_sha256": "cb66fd302165c86344f3b8d1af9d9c4e4e229621cef44cbfa6fb8cd121a63eef",
+          "profile_id": "force_curve_v1",
+          "run_id": "C-FORCE-CPU-20261024-v1",
+          "source_domain": "geo_replay"
+        },
+        "feature_tensor_encoding": "float32-little-endian-C-order-[1,8,128,1]",
+        "feature_tensor_sha256": "8bd61940ded56e13271e13bc0bd6f2c618d3b34c73e671ee6e9710fbb0af962c",
+        "input_prefix_sha256": "9c9200453ca7feab036ee9e41b9b78f9b61df5d672792961379d5daa920d1eb8",
+        "latest_valid_masks": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "model_manifest_sha256": "0b76bcd1b21b6b1e254eef0e2e5815a15121fdb8ac48c33710f2b2d85bdf2959",
+        "movement_authorized": false,
+        "predicted_class_index": 2,
+        "probabilities": [
+          0.10667310655117035,
+          0.19134940207004547,
+          0.21241112053394318,
+          0.19545763731002808,
+          0.030836135149002075,
+          0.10966622084379196,
+          0.021943191066384315,
+          0.003602186916396022,
+          0.018312839791178703,
+          0.05900152772665024,
+          0.04455934837460518,
+          0.0061872415244579315
+        ],
+        "record_index": 0,
+        "window": {
+          "accepted_observations": 1,
+          "dropped_oldest": 0,
+          "filled_slots": 1,
+          "idempotent_repeats": 0,
+          "latest_sequence": 7327,
+          "missing_slots": 127,
+          "preprocessing_sha256": "cb66fd302165c86344f3b8d1af9d9c4e4e229621cef44cbfa6fb8cd121a63eef",
+          "profile_id": "force_curve_v1"
+        }
+      }
+    },
+    {
+      "raw_bytes_base64": "eyJydW5faWQiOiJDLUZPUkNFLUNQVS0yMDI2MTAyNC12MSIsInNvdXJjZV9kb21haW4iOiJnZW9fcmVwbGF5IiwicHJvZmlsZV9pZCI6ImZvcmNlX2N1cnZlX3YxIiwicHJlcHJvY2Vzc2luZ19zaGEyNTYiOiJjYjY2ZmQzMDIxNjVjODYzNDRmM2I4ZDFhZjlkOWM0ZTRlMjI5NjIxY2VmNDRjYmZhNmZiOGNkMTIxYTYzZWVmIiwic2VxdWVuY2UiOjczMjgsInZhbHVlXzAiOjYwLjkyOTEzODE4NCwidmFsdWVfMSI6MS44MDA5ODU5MzI0LCJ2YWx1ZV8yIjowLjgwMDI2MTk3NDMsInZhbHVlXzMiOjEuMTIyNzA2MDU1NiwidmFsaWRfMCI6dHJ1ZSwidmFsaWRfMSI6dHJ1ZSwidmFsaWRfMiI6dHJ1ZSwidmFsaWRfMyI6dHJ1ZX0K",
+      "raw_bytes_sha256": "701668bd025b4ac8b0c7f0f39aefd47ec7b2aa5d87e73e16ee4dee7b569b47df",
+      "raw_bytes_length": 354,
+      "independent_scalar_feature_sha256": "7f188d308f35ec13702e647eee2becff235f6d6361219105b82484919ba76e8e",
+      "saved_prediction": {
+        "binding": {
+          "preprocessing_sha256": "cb66fd302165c86344f3b8d1af9d9c4e4e229621cef44cbfa6fb8cd121a63eef",
+          "profile_id": "force_curve_v1",
+          "run_id": "C-FORCE-CPU-20261024-v1",
+          "source_domain": "geo_replay"
+        },
+        "feature_tensor_encoding": "float32-little-endian-C-order-[1,8,128,1]",
+        "feature_tensor_sha256": "7f188d308f35ec13702e647eee2becff235f6d6361219105b82484919ba76e8e",
+        "input_prefix_sha256": "874aaa3ecfd6314e66459fc9119fe55c96c1c1e311999534652f6760790dc8cb",
+        "latest_valid_masks": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "model_manifest_sha256": "0b76bcd1b21b6b1e254eef0e2e5815a15121fdb8ac48c33710f2b2d85bdf2959",
+        "movement_authorized": false,
+        "predicted_class_index": 2,
+        "probabilities": [
+          0.10086756944656372,
+          0.19603577256202698,
+          0.2283480167388916,
+          0.19083337485790253,
+          0.030475115403532982,
+          0.09901376068592072,
+          0.020822497084736824,
+          0.0032196149695664644,
+          0.01584034599363804,
+          0.05972933769226074,
+          0.049071650952100754,
+          0.0057430448941886425
+        ],
+        "record_index": 1,
+        "window": {
+          "accepted_observations": 2,
+          "dropped_oldest": 0,
+          "filled_slots": 2,
+          "idempotent_repeats": 0,
+          "latest_sequence": 7328,
+          "missing_slots": 126,
+          "preprocessing_sha256": "cb66fd302165c86344f3b8d1af9d9c4e4e229621cef44cbfa6fb8cd121a63eef",
+          "profile_id": "force_curve_v1"
+        }
+      }
+    },
+    {
+      "raw_bytes_base64": "eyJydW5faWQiOiJDLUZPUkNFLUNQVS0yMDI2MTAyNC12MSIsInNvdXJjZV9kb21haW4iOiJnZW9fcmVwbGF5IiwicHJvZmlsZV9pZCI6ImZvcmNlX2N1cnZlX3YxIiwicHJlcHJvY2Vzc2luZ19zaGEyNTYiOiJjYjY2ZmQzMDIxNjVjODYzNDRmM2I4ZDFhZjlkOWM0ZTRlMjI5NjIxY2VmNDRjYmZhNmZiOGNkMTIxYTYzZWVmIiwic2VxdWVuY2UiOjczMjksInZhbHVlXzAiOjYyLjExNzI2Mzc5NCwidmFsdWVfMSI6MS44MTc2OTYwOTQ1LCJ2YWx1ZV8yIjowLjc2NTk1Njg3ODcsInZhbHVlXzMiOjEuMTQ4MTQwNzg4MSwidmFsaWRfMCI6dHJ1ZSwidmFsaWRfMSI6dHJ1ZSwidmFsaWRfMiI6dHJ1ZSwidmFsaWRfMyI6dHJ1ZX0K",
+      "raw_bytes_sha256": "677daf1595b5f16e6ca28b96605ef8d188b93788cbddffad4edb3a46863bc6ca",
+      "raw_bytes_length": 354,
+      "independent_scalar_feature_sha256": "2a4a4f9eb8586e96b4fe830d62c42e3af90e3f88367102368cec5757dffce14c",
+      "saved_prediction": {
+        "binding": {
+          "preprocessing_sha256": "cb66fd302165c86344f3b8d1af9d9c4e4e229621cef44cbfa6fb8cd121a63eef",
+          "profile_id": "force_curve_v1",
+          "run_id": "C-FORCE-CPU-20261024-v1",
+          "source_domain": "geo_replay"
+        },
+        "feature_tensor_encoding": "float32-little-endian-C-order-[1,8,128,1]",
+        "feature_tensor_sha256": "2a4a4f9eb8586e96b4fe830d62c42e3af90e3f88367102368cec5757dffce14c",
+        "input_prefix_sha256": "2c42e8d1ca0b6a729501669b4aa60ffd74701b94a769faa7d77bfb87d7dbecfb",
+        "latest_valid_masks": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "model_manifest_sha256": "0b76bcd1b21b6b1e254eef0e2e5815a15121fdb8ac48c33710f2b2d85bdf2959",
+        "movement_authorized": false,
+        "predicted_class_index": 2,
+        "probabilities": [
+          0.09894329309463501,
+          0.19981767237186432,
+          0.24586105346679688,
+          0.18024787306785583,
+          0.03026527166366577,
+          0.08879216760396957,
+          0.020069608464837074,
+          0.0028398989234119654,
+          0.012979107908904552,
+          0.0617031566798687,
+          0.053513798862695694,
+          0.004967114422470331
+        ],
+        "record_index": 2,
+        "window": {
+          "accepted_observations": 3,
+          "dropped_oldest": 0,
+          "filled_slots": 3,
+          "idempotent_repeats": 0,
+          "latest_sequence": 7329,
+          "missing_slots": 125,
+          "preprocessing_sha256": "cb66fd302165c86344f3b8d1af9d9c4e4e229621cef44cbfa6fb8cd121a63eef",
+          "profile_id": "force_curve_v1"
+        }
+      }
+    }
+  ],
+  "duplicate_prefix_controls": {
+    "first_original": "9c9200453ca7feab036ee9e41b9b78f9b61df5d672792961379d5daa920d1eb8",
+    "original_then_exact_duplicate": "3926c74b3a0c704c488d643675b0da7d48b38982fc0c6f825937e218aa68fbc8",
+    "original_then_reencoded_semantic_duplicate": "7b45ee61dacb41c26ff2363c0a3c334f894e5d1c742ca63c1507876babe33797"
+  },
+  "overflow_control": {
+    "GR_value": 1e+45,
+    "normalized_double": 2.658539264624342e+43,
+    "float32_max": 3.4028234663852886e+38,
+    "expectation": "builder-double valid but tensor conversion/finite check must reject atomically"
+  },
+  "huge_gap_control": {
+    "first_sequence": 0,
+    "next_sequence": 18446744073709551615,
+    "inserted_missing_slots": 127,
+    "history_bound": 128,
+    "filled_slots_after": 1,
+    "missing_slots_after": 127,
+    "sequence_must_not_round_via_float": true
+  },
+  "quality": {
+    "fixed12_test_macro_f1": 0.1827348057438266,
+    "centroid_fixed12_test_macro_f1": 0.2047004573101128,
+    "threshold": 0.6,
+    "status": "FAIL; unchanged; not reevaluated"
+  },
+  "not_executed": [
+    "new stream code/import",
+    "Torch/model forward",
+    "old suites",
+    "train/heldout",
+    "archive",
+    "all128 baseline",
+    "network/board"
+  ]
+}

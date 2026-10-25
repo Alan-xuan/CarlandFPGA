@@ -1,0 +1,125 @@
+{
+  "schema_version": 1,
+  "task_id": "DEEPEYE-IMPLEMENTATION-20261014",
+  "task_version": 1,
+  "work_id": "C-CPU-CAUSAL-STREAM-CORE-20261025-v1",
+  "operation_id": "C-DEEPEYE-CPU-STREAM-CORE-20261025-21",
+  "base_commit": "e3f86f7301abef866c30de2ec851e4a939198381",
+  "contract_id": "DEEPEYE-HUMAN-LOCK-20261014/revision1",
+  "contract_source": "f5989cd5defce561f9ba98e6b18fc2682945f0a2",
+  "requirements_sha256": "c229834bfc2292f5fe4411fc9f12c68487008f9d1adaf31f0144ee7a98173804",
+  "frozen_design": "1011259415a0916054eb580687612580bc1e5f09",
+  "actual_agent_id": "/root/cpu_package_runner",
+  "artifacts": [
+    {
+      "path": "competition/deepeye/ai_pc/cpu_package/stream_core.py",
+      "sha256": "0ddbe6710be81df3e428f63809257dea69c35fee1aabd24cd9bb58eb71b41976",
+      "bytes": 19495
+    },
+    {
+      "path": "competition/deepeye/ai_pc/cpu_package/STREAM_CORE.md",
+      "sha256": "3950ef879b879d928ba8a3392b9de803f3354d036afa9ed5525d96df36924c1d",
+      "bytes": 11846
+    },
+    {
+      "path": "competition/deepeye/tests/ai/cpu/test_stream_core.py",
+      "sha256": "a05d83beebaf2f1bd121ac574e96ba5fb454374c39a1c4188df69e40584973c3",
+      "bytes": 17173
+    },
+    {
+      "path": "competition/deepeye/evidence/ai/cpu_stream_20261025/author/.gitattributes",
+      "sha256": "85e48d232edc7b02f6cecf8fbbf905f3b126c467b594d8dd16c4f8fa283a8320",
+      "bytes": 14
+    },
+    {
+      "path": "competition/deepeye/evidence/ai/cpu_stream_20261025/author/capture.py",
+      "sha256": "a54bd263b6c27f5e90ff2b7fa9e74f20c8a68bb35829250fe54afb74961add44",
+      "bytes": 1593
+    },
+    {
+      "path": "competition/deepeye/evidence/ai/cpu_stream_20261025/author/end-boundary-final/command.json",
+      "sha256": "1269996bb3b0b7a7e554589b305a4d2cbab1c6a3c389654744f2ecdc6fbfd4bf",
+      "bytes": 830
+    },
+    {
+      "path": "competition/deepeye/evidence/ai/cpu_stream_20261025/author/end-boundary-final/result.json",
+      "sha256": "d70f720c593d5c00a8bef6f8898878bec4c4ba8df412fd0d7c167c8933055286",
+      "bytes": 250
+    },
+    {
+      "path": "competition/deepeye/evidence/ai/cpu_stream_20261025/author/end-boundary-final/source-before/competition/deepeye/ai_pc/cpu_package/stream_core.py",
+      "sha256": "0ddbe6710be81df3e428f63809257dea69c35fee1aabd24cd9bb58eb71b41976",
+      "bytes": 19495
+    },
+    {
+      "path": "competition/deepeye/evidence/ai/cpu_stream_20261025/author/end-boundary-final/source-before/competition/deepeye/tests/ai/cpu/test_stream_core.py",
+      "sha256": "a05d83beebaf2f1bd121ac574e96ba5fb454374c39a1c4188df69e40584973c3",
+      "bytes": 17173
+    },
+    {
+      "path": "competition/deepeye/evidence/ai/cpu_stream_20261025/author/end-boundary-final/stderr.txt",
+      "sha256": "845fa8e9030f4680910ac1f7afbb6bfda77327e59ff17959221c7d7b47538e95",
+      "bytes": 673
+    },
+    {
+      "path": "competition/deepeye/evidence/ai/cpu_stream_20261025/author/end-boundary-final/stdout.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "competition/deepeye/evidence/ai/cpu_stream_20261025/author/end-error-normalization.diff",
+      "sha256": "9c560ead9f4e05e57d1937290b2faf91d7151c3056e3fc01e1a44b9d25b71b32",
+      "bytes": 1756
+    },
+    {
+      "path": "competition/deepeye/evidence/ai/cpu_stream_20261025/author/provenance.json",
+      "sha256": "3430ab08cbefd68350150f0a253ed222fd1b077e452eab5a353e6dc0238e63f9",
+      "bytes": 1563
+    },
+    {
+      "path": "competition/deepeye/evidence/ai/cpu_stream_20261025/author/README.md",
+      "sha256": "981b7bb13fcdeaf39da493bf371bac636674a9219cb99ea5aa2f5d4fd9ac18e6",
+      "bytes": 4616
+    },
+    {
+      "path": "competition/deepeye/evidence/ai/cpu_stream_20261025/author/report.json",
+      "sha256": "e10c8ed68fc59d7e856cd0f55bd64c528f9405f9dc6a58d08af11023717656f5",
+      "bytes": 2386
+    },
+    {
+      "path": "competition/deepeye/evidence/ai/cpu_stream_20261025/author/source-review.diff",
+      "sha256": "b8087f199d05ee43ff19c0bd957a6c19b0d883dccbfd82c253c13fcd8ddc34de",
+      "bytes": 49697
+    },
+    {
+      "path": "competition/deepeye/evidence/ai/cpu_stream_20261025/author/tests-01/command.json",
+      "sha256": "b3ac57086cb06bf9df01b3043e2d0a9fc1e02c4191b10bd4326a7721c8234d63",
+      "bytes": 742
+    },
+    {
+      "path": "competition/deepeye/evidence/ai/cpu_stream_20261025/author/tests-01/result.json",
+      "sha256": "7cfdb34c527e4f51131d3a63ddd1267e7a95038e84f61d9fcdf7b3fa794de340",
+      "bytes": 250
+    },
+    {
+      "path": "competition/deepeye/evidence/ai/cpu_stream_20261025/author/tests-01/source-before/competition/deepeye/ai_pc/cpu_package/stream_core.py",
+      "sha256": "fb3dd88e03cddd23e53c168971c8c6b1cb3e66db9f9424fb453c5089f7eb7b94",
+      "bytes": 19265
+    },
+    {
+      "path": "competition/deepeye/evidence/ai/cpu_stream_20261025/author/tests-01/source-before/competition/deepeye/tests/ai/cpu/test_stream_core.py",
+      "sha256": "c8efa15d871f9f7ab64f361e60ee622d9ac1a14013a035dea7ee07e40e91b9f7",
+      "bytes": 17088
+    },
+    {
+      "path": "competition/deepeye/evidence/ai/cpu_stream_20261025/author/tests-01/stderr.txt",
+      "sha256": "9407c176c12508c0bcee14166bb80371bd64212943af96d957b5549c645c45b9",
+      "bytes": 3078
+    },
+    {
+      "path": "competition/deepeye/evidence/ai/cpu_stream_20261025/author/tests-01/stdout.txt",
+      "sha256": "a02d99b0f8b933da69cd2dc5102abc41b96072309f904b9d46b76b72baed5178",
+      "bytes": 1511
+    }
+  ]
+}

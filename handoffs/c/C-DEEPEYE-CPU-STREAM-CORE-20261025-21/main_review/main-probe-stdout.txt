@@ -1,0 +1,25 @@
+{
+  "passed": true,
+  "stream_source_sha256": "0a8c07f34080784f36180951b28873b43de5e3f80ad201325254b274bd01217b",
+  "oracle_sha256": "d51715b564fd09803c69e9995de8b834fdbab0962fe0a6f8135a863fe59e2a44",
+  "actual_model_forwards": 5,
+  "accepted_deliveries": 6,
+  "selected_parity_records": 3,
+  "maximum_selected_probability_abs_difference": 0.0,
+  "runtime": {
+    "python": "3.12.14",
+    "torch": "2.9.0+cpu",
+    "CPU_threads": 4,
+    "device": "cpu"
+  },
+  "checks": [
+    "3 real selected-prefix parity; later2 observations fenced against file reads",
+    "8 bounded nonmutating future/overflow/type/stale rejections",
+    "reencoded semantic duplicate advances exact raw prefix without new acquisition",
+    "valid continuation at previously rejected overflow sequence succeeds",
+    "explicit same-label cold restart with new local IDs; ended token cannot overwrite"
+  ],
+  "old_runner_execute_training_heldout_benchmark": false,
+  "runtime_or_formal_acceptance": false,
+  "movement_authorized": false
+}

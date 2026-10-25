@@ -1,0 +1,28 @@
+{
+  "task_id": "DEEPEYE-IMPLEMENTATION-20261014",
+  "task_version": 1,
+  "work_id": "C-CPU-STREAM-INDEPENDENT-REVIEW-20261025-v1",
+  "phase": 3,
+  "canonical_agent_id": "/root/cpu_independent_review",
+  "main_thread": "01a14025-4dfd-7ec3-aebb-57be48daba59",
+  "exclusive_scope": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\main-20261015-01a14025\\stream-core-20261025\\review\\phase3",
+  "not_alone": true,
+  "input_owner": "main and actual released author; read only",
+  "requirements_sha256": "c229834bfc2292f5fe4411fc9f12c68487008f9d1adaf31f0144ee7a98173804",
+  "frozen_design": "1011259415a0916054eb580687612580bc1e5f09",
+  "H01_H15": "unchanged",
+  "source_sha256": "0a8c07f34080784f36180951b28873b43de5e3f80ad201325254b274bd01217b",
+  "doc_sha256": "81ee766e4dfaa7d5c15ec444ba7ccfa7594c62bcf81b47e57b101c86a96c509b",
+  "repair_manifest_sha256": "8aadc2ef8317f667e4a757e02b1c4d6fce5dc7c374ec1f372658fa5b688f41ff",
+  "prior_stop": "parent verified phase2 actualFINAL release active_jobs=[] and repair author actualFINAL active_subprocesses=[]",
+  "acceptance": "R1 green/all9 finite preflight checks; original17control groups,3actualprefixforwards, explicit privatefault stubs, rawargv/exits and hashmanifest; stop/release",
+  "forbidden": [
+    "product/index writes",
+    "author/old suites",
+    "train/heldout/all128baseline/benchmark",
+    "network/peer messages",
+    "SQL/credentials/services/controller/board"
+  ],
+  "board_operator": "A only",
+  "recorded_utc": "2026-10-25T12:30:36.6230374Z"
+}

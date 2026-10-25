@@ -1,0 +1,19 @@
+{
+  "argv": [
+    "C:\\Users\\Alan\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+    "-I",
+    "-S",
+    "-B",
+    "-X",
+    "utf8",
+    "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\main-20261015-01a14025\\stream-core-20261025\\review\\derive_controls.py"
+  ],
+  "cwd": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\main-20261015-01a14025\\stream-core-20261025\\review",
+  "started_utc": "2026-10-25T12:04:33.165319+00:00",
+  "finished_utc": "2026-10-25T12:04:33.340906+00:00",
+  "exit_code": 0,
+  "script_sha256": "9a8aaa399b6833ee27a6cf056ceff1b84dd36bc98786084c80b045317c258a2c",
+  "stdout_sha256": "0d13654e90c1539f9ac00751034afdc067b5e3c134494609373644f0b55fdd02",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "scope": "stdlib scalar/saved JSON only; no model; no stream source"
+}

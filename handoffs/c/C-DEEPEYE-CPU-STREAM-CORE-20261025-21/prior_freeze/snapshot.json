@@ -1,0 +1,26 @@
+{
+  "reason": "Preserve complete pre-bounded-init source freeze before any reopened author edit",
+  "source_files": [
+    {
+      "original_path": "competition/deepeye/ai_pc/cpu_package/stream_core.py",
+      "snapshot_path": "stream_core.py",
+      "bytes": 19495,
+      "sha256": "0ddbe6710be81df3e428f63809257dea69c35fee1aabd24cd9bb58eb71b41976"
+    },
+    {
+      "original_path": "competition/deepeye/ai_pc/cpu_package/STREAM_CORE.md",
+      "snapshot_path": "STREAM_CORE.md",
+      "bytes": 11846,
+      "sha256": "3950ef879b879d928ba8a3392b9de803f3354d036afa9ed5525d96df36924c1d"
+    },
+    {
+      "original_path": "competition/deepeye/tests/ai/cpu/test_stream_core.py",
+      "snapshot_path": "test_stream_core.py",
+      "bytes": 17173,
+      "sha256": "a05d83beebaf2f1bd121ac574e96ba5fb454374c39a1c4188df69e40584973c3"
+    }
+  ],
+  "original_author_manifest_sha256": "220f3c1bdcfc6722da937be45d9e41da587a09563733e0045894f66471315511",
+  "original_author_release_sha256": "7a6525d9657864a66c4d90f287b4bbe03c26a28701dea5b0a6033df390226115",
+  "old_author_evidence_prefix_remains_immutable": true
+}

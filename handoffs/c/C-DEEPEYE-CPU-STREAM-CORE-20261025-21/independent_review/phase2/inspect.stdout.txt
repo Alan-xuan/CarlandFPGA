@@ -1,0 +1,2 @@
+PASS: source/doc/manifest pins,22artifacts, unchanged tracked tree, original16+1rawexits verified.
+CONFIRMED: unbounded constructor preflight before pinned-loader finite size checks.

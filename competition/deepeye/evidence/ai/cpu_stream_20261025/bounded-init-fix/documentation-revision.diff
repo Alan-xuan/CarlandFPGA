@@ -1,0 +1,49 @@
+--- historical-pre-fix/STREAM_CORE.md
++++ current/competition/deepeye/ai_pc/cpu_package/STREAM_CORE.md
+@@ -45,6 +45,15 @@
+ not repeatedly instantiate or load a model for observations. After construction
+ the public session/observation/read methods perform no file reads.
+ 
++Every new-core preflight has an explicit **2MiB per-read cap**: three source
++files, the already bounded manifest, four referenced assets, and the separate
++direct preprocessing read (nine actual calls, including both preprocessing
++reads). The unchanged helper requests at most `cap+1` bytes and rejects length
++above the cap before hashing or parsing. This bounds rejection of an enlarged
++invalid asset as well as normal valid files. It is not a2MiB whole-process or
++Torch workspace limit and does not modify the old runner, loader, frozen model
++format, scaler or any original artifact.
++
+ Only `force_curve_v1` / `geo_replay` / **CPU** are supported. Explicit HIP or
+ another device is rejected, with no fallback. The core uses four torch CPU
+ threads, deterministic algorithms and inference/eval mode. It does not change
+@@ -180,7 +189,29 @@
+ `StreamError`; only that affected end control was rerun on final source and
+ passed1method/exit0. The entire16-method run belongs to its preserved pre-change
+ snapshot, not a claimed full final-source rerun. Independent final-source review
+-is pending. No actual RED occurred or was fabricated.
++is pending. No actual RED occurred or was fabricated in those author runs.
++
++Subsequent independent Phase2 review found a genuine additional constructor
++boundedness defect in source
++`0ddbe6710be81df3e428f63809257dea69c35fee1aabd24cd9bb58eb71b41976`:
++eight preflights lacked their own finite read caps, so the helper requested an
++unbounded read before rejecting a wrong hash. The independent one-method RED
++recorded `read_size=-1` and actual exit1, without loading a model or allocating a
++large asset. That RED and the original author evidence/manifest remain immutable
++historical evidence; the preceding no-RED statement refers only to the first
++author16/end1 runs, not to this later independent finding.
++
++Repair work `C-CPU-STREAM-BOUNDED-INIT-REPAIR-20261025-v1` supplies the explicit
++2MiB caps described above. Its new constructor-only controls intercept actual
++read requests at all nine positions and exercise each position's oversize,
++short bad-SHA and missing-asset rejection before model loading. The oversize
++control returns a synthetic length-only probe, with no oversized bytes, file
++or model allocation; it verifies `cap+1` request/length rejection, not an actual
++production oversized-file incident. One separate successful initialization and
++one real learned observation cover the changed path. These controls neither
++rerun the original16 nor repeat old suites or benchmarks. New repair evidence
++is in `../../evidence/ai/cpu_stream_20261025/bounded-init-fix/`; it explicitly
++distinguishes current source from historical `author/delivery-manifest.json`.
+ 
+ Controls include8new actual FORCE prefix calls and exact comparison of saved
+ C19 indices0/1/7 for probabilities/tensor/prefix/sequence/masks; the saved raw

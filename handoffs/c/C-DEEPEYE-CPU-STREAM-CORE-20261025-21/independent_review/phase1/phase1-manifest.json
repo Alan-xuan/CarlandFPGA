@@ -1,0 +1,57 @@
+{
+  "work_id": "C-CPU-STREAM-INDEPENDENT-REVIEW-20261025-v1",
+  "phase": 1,
+  "scope": "independent controls from unchanged source/saved evidence, not new stream review",
+  "files": [
+    {
+      "path": "A-source-comment.json",
+      "bytes": 6032,
+      "sha256": "6fe75fcf43dbf290a1065b63fe32747fd0312540714601d58789d6c93d0c009e"
+    },
+    {
+      "path": "derive-exit.json",
+      "bytes": 896,
+      "sha256": "b0a0ed140f8000dbffe4f2a80d9ce42f4f8eef6ab7eb2945d72372b6a0d74725"
+    },
+    {
+      "path": "derive.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "derive.stdout.txt",
+      "bytes": 296,
+      "sha256": "0d13654e90c1539f9ac00751034afdc067b5e3c134494609373644f0b55fdd02"
+    },
+    {
+      "path": "derive_controls.py",
+      "bytes": 7973,
+      "sha256": "9a8aaa399b6833ee27a6cf056ceff1b84dd36bc98786084c80b045317c258a2c"
+    },
+    {
+      "path": "inspection-tool-results.json",
+      "bytes": 151628,
+      "sha256": "3d2ce13dff3e876851b440eb56c9aa4d4d4b92d87f8642679a4902f4a280197b"
+    },
+    {
+      "path": "phase1-assignment.json",
+      "bytes": 1629,
+      "sha256": "0aa914a8c6db9dca08e595f258ab38669f75b09e7eccd6bad6b4bf8f79c30151"
+    },
+    {
+      "path": "phase1-oracles.json",
+      "bytes": 8743,
+      "sha256": "28e420bb4a4cdf7fbedef85c0dac9ccf1323d10791d13cbff3b3aa00b6408b07"
+    },
+    {
+      "path": "phase1-plan.md",
+      "bytes": 7809,
+      "sha256": "74ba70cfbdc552fffce0b14c726c7455d0aa99a2cb2ee09dbc11a819352aad13"
+    },
+    {
+      "path": "source-pins.json",
+      "bytes": 2534,
+      "sha256": "885020a74f13de45d4280b05601a4bab515531b0e36add647722bb0e884d038e"
+    }
+  ]
+}

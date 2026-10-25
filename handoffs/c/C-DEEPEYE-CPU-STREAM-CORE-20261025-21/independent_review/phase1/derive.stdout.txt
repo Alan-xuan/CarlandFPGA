@@ -1,0 +1,4 @@
+PINNED 9 unchanged saved inputs
+PASS: first 3 exact-byte prefix hashes and scalar-only float32 feature hashes match saved C19
+PASS: exact duplicate/reencoded prefix distinction; double-to-float32 overflow; bounded uint64 gap oracle
+NO model import/forward; NO new source read; NO active jobs

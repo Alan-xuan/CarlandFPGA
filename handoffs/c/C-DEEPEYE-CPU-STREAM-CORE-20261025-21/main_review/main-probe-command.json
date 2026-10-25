@@ -1,0 +1,21 @@
+{
+  "argv": [
+    "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\cpu-model-env-20261024\\Scripts\\python.exe",
+    "-B",
+    "-X",
+    "utf8",
+    "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\main-20261015-01a14025\\stream-core-20261025\\main\\main_probe.py",
+    "--root",
+    "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\deepeye-implementation-c",
+    "--oracle",
+    "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\main-20261015-01a14025\\stream-core-20261025\\main\\selected-prefix-oracle.json",
+    "--expected-stream-sha256",
+    "0a8c07f34080784f36180951b28873b43de5e3f80ad201325254b274bd01217b",
+    "--output",
+    "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\main-20261015-01a14025\\stream-core-20261025\\main\\main-probe-result.json"
+  ],
+  "cwd": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\deepeye-implementation-c",
+  "started_utc": "2026-10-25T12:30:29.125339+00:00",
+  "source_sha256": "0a8c07f34080784f36180951b28873b43de5e3f80ad201325254b274bd01217b",
+  "probe_sha256": "d96f0794b402a0352ca5892621350fd6809d378f574245d5cc2d3ac2d9109f1b"
+}

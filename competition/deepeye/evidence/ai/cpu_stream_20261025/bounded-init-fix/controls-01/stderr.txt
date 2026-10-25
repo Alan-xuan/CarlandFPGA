@@ -1,0 +1,11 @@
+test_all_nine_actual_preflight_reads_bounded_and_one_real_observation (__main__.InitBoundTests.test_all_nine_actual_preflight_reads_bounded_and_one_real_observation) ... C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\cpu-model-env-20261024\Lib\site-packages\torch\_subclasses\functional_tensor.py:279: UserWarning: Failed to initialize NumPy: No module named 'numpy' (Triggered internally at C:\actions-runner\_work\pytorch\pytorch\pytorch\torch\csrc\utils\tensor_numpy.cpp:84.)
+  cpu = _conversion_method_template(device=torch.device("cpu"))
+ok
+test_bad_sha_is_failed_at_each_preflight_before_model_load (__main__.InitBoundTests.test_bad_sha_is_failed_at_each_preflight_before_model_load) ... ok
+test_missing_remains_blocked_at_each_preflight_before_model_load (__main__.InitBoundTests.test_missing_remains_blocked_at_each_preflight_before_model_load) ... ok
+test_oversize_rejected_before_hash_or_model_without_large_allocation (__main__.InitBoundTests.test_oversize_rejected_before_hash_or_model_without_large_allocation) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 2.524s
+
+OK

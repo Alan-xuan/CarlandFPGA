@@ -1,0 +1,151 @@
+"""Constructor-only repair controls; no large files or fake model predictions."""
+from contextlib import contextmanager
+import hashlib
+import json
+import math
+from pathlib import Path
+import sys
+import unittest
+from unittest.mock import patch
+
+PRODUCT = Path(__file__).resolve().parents[3]
+sys.path.insert(0, str(PRODUCT))
+from ai_pc.cpu_package import stream_core as module
+from ai_pc.cpu_package.stream_core import FrozenForceStream, StreamError
+
+CAP = 2 * 1024 * 1024
+LABELS = ("runner_source", "curve_source", "model_source", "manifest", "graph", "weights",
+          "preprocessing_reference", "label_schema", "direct_preprocessing")
+
+
+class OversizeLengthProbe:
+    """Synthetic length only; no oversized data allocation or usable model bytes."""
+    def __len__(self):
+        return CAP + 1
+
+
+class InitBoundTests(unittest.TestCase):
+    @contextmanager
+    def intercept(self, target=None, fault=None):
+        original_read = module._runner.read_pinned
+        original_open = Path.open
+        calls, requests = [], []
+        active = [None]
+        test = self
+
+        class GuardedFile:
+            def __init__(self, handle, index):
+                self.handle = handle
+                self.index = index
+
+            def __enter__(self):
+                return self
+
+            def __exit__(self, *args):
+                self.handle.close()
+
+            def read(self, size=-1):
+                test.assertIs(type(size), int)
+                test.assertEqual(size, CAP + 1, "preflight must request one bounded cap+1 read")
+                requests.append((self.index, size))
+                if self.index == target:
+                    if fault == "oversize":
+                        return OversizeLengthProbe()
+                    if fault == "bad_sha":
+                        return b"short wrong bytes"
+                return self.handle.read(size)
+
+        def bounded_read(path, expected, **kwargs):
+            index = len(calls) + 1
+            limit = kwargs.get("limit")
+            test.assertIs(type(limit), int, "every preflight must supply its own finite cap")
+            test.assertEqual(limit, CAP)
+            calls.append((str(Path(path).resolve()), limit))
+            active[0] = index
+            try:
+                return original_read(path, expected, **kwargs)
+            finally:
+                active[0] = None
+
+        def bounded_open(path, *args, **kwargs):
+            if active[0] is None:
+                return original_open(path, *args, **kwargs)
+            if active[0] == target and fault == "missing":
+                raise FileNotFoundError("injected missing preflight asset")
+            return GuardedFile(original_open(path, *args, **kwargs), active[0])
+
+        with patch.object(module._runner, "read_pinned", side_effect=bounded_read):
+            with patch.object(Path, "open", bounded_open):
+                yield calls, requests
+
+    def test_all_nine_actual_preflight_reads_bounded_and_one_real_observation(self):
+        from ai_pc.model import force_cnn
+        original_load = force_cnn.load_frozen_model
+        with self.intercept() as (calls, requests):
+            with patch.object(force_cnn, "load_frozen_model", wraps=original_load) as load:
+                core = FrozenForceStream()
+                self.assertEqual(load.call_count, 1)
+                self.assertEqual(len(calls), 9)
+                self.assertEqual(requests, [(index, CAP + 1) for index in range(1, 10)])
+                manifest = PRODUCT / "ai_pc/cpu_model/force_v1/model_manifest.json"
+                expected = (PRODUCT / "ai_pc/cpu_package/runner.py", PRODUCT / "ai_pc/model/curve_input.py",
+                            PRODUCT / "ai_pc/model/force_cnn.py", manifest,
+                            manifest.parent / "graph.json", manifest.parent / "weights.json",
+                            PRODUCT / "data/preprocessing.json", PRODUCT / "data/label_schema.json",
+                            PRODUCT / "data/preprocessing.json")
+                self.assertEqual([path for path, _ in calls], [str(path.resolve()) for path in expected])
+                token = core.start_session(generation=1, epoch=0, run_id="bounded-init-unit")
+                raw = module._runner.canonical_json({
+                    "run_id": "bounded-init-unit", "source_domain": "geo_replay", "profile_id": "force_curve_v1",
+                    "preprocessing_sha256": module._runner.FIXED_PREPROCESSING_SHA256, "sequence": 0,
+                    "value_0": 80., "value_1": 2.4, "value_2": .2, "value_3": 10.,
+                    "valid_0": True, "valid_1": True, "valid_2": True, "valid_3": True}) + b"\n"
+                result = core.observe(token, raw)
+                self.assertEqual(len(result.probabilities), 12)
+                self.assertTrue(all(math.isfinite(p) for p in result.probabilities))
+                self.assertAlmostEqual(sum(result.probabilities), 1., places=5)
+                self.assertEqual(result.input_prefix_sha256, hashlib.sha256(raw).hexdigest())
+                self.assertEqual(result.metadata.filled_slots, 1)
+                self.assertFalse(result.movement_authorized)
+                self.assertIsNone(result.motion_bytes)
+                self.assertEqual((len(calls), len(requests), load.call_count), (9, 9, 1))
+                core.end_session(token)
+        print(json.dumps({"control": "nine_actual_preflights_and_real_control", "torch": force_cnn.torch.__version__,
+                          "python": sys.version, "read_requests": list(zip(LABELS, [size for _, size in requests])),
+                          "real_model_loads": 1, "real_observations": 1,
+                          "feature_sha256": result.feature_tensor_sha256,
+                          "probabilities": result.probabilities}, sort_keys=True))
+
+    def assert_rejected_at_each_preflight(self, fault, expected_code=None):
+        from ai_pc.model import force_cnn
+        summary = []
+        for target, label in enumerate(LABELS, 1):
+            with self.subTest(target=label):
+                with self.intercept(target, fault) as (calls, requests):
+                    with patch.object(force_cnn, "load_frozen_model", side_effect=AssertionError("invalid asset must not load model")) as load:
+                        with self.assertRaises(StreamError) as caught:
+                            FrozenForceStream()
+                        self.assertEqual(load.call_count, 0)
+                self.assertEqual(len(calls), target)
+                code = expected_code or ("model_missing" if target in (4, 5, 6) else "asset_missing")
+                self.assertEqual(caught.exception.code, code)
+                self.assertEqual(caught.exception.blocked, fault == "missing")
+                expected_reads = target - 1 if fault == "missing" else target
+                self.assertEqual(len(requests), expected_reads)
+                summary.append({"target": label, "code": caught.exception.code,
+                                "blocked": caught.exception.blocked,
+                                "actual_preflight_read_count": len(requests), "model_loads": 0})
+        print(json.dumps({"control": fault + "_all_preflight_positions", "cases": summary}, sort_keys=True))
+
+    def test_oversize_rejected_before_hash_or_model_without_large_allocation(self):
+        self.assert_rejected_at_each_preflight("oversize", "input_limit")
+
+    def test_bad_sha_is_failed_at_each_preflight_before_model_load(self):
+        self.assert_rejected_at_each_preflight("bad_sha", "hash_mismatch")
+
+    def test_missing_remains_blocked_at_each_preflight_before_model_load(self):
+        self.assert_rejected_at_each_preflight("missing")
+
+
+if __name__ == "__main__":
+    unittest.main(verbosity=2)

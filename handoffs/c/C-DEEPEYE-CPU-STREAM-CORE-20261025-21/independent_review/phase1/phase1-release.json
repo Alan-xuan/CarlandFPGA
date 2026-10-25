@@ -1,0 +1,23 @@
+{
+  "work_id": "C-CPU-STREAM-INDEPENDENT-REVIEW-20261025-v1",
+  "task_id": "DEEPEYE-IMPLEMENTATION-20261014",
+  "task_version": 1,
+  "canonical_agent_id": "/root/cpu_independent_review",
+  "main_thread_id": "01a14025-4dfd-7ec3-aebb-57be48daba59",
+  "phase": 1,
+  "released": true,
+  "ownership_released": true,
+  "active_jobs": [],
+  "phase1_complete": true,
+  "phase2_executed": false,
+  "overall_stream_acceptance": "pending frozen-source phase2",
+  "manifest_sha256": "d6caf83d5b10106b65fe5fa2664e6a3a1002f4b562e084f6be6a28944e771df2",
+  "oracle_sha256": "28e420bb4a4cdf7fbedef85c0dac9ccf1323d10791d13cbff3b3aa00b6408b07",
+  "plan_sha256": "74ba70cfbdc552fffce0b14c726c7455d0aa99a2cb2ee09dbc11a819352aad13",
+  "actual_scalar_process_exit_code": 0,
+  "model_forwards": 0,
+  "product_writes": 0,
+  "board_operations": 0,
+  "next_trigger": "parent followup after actual author FINAL/source freeze; no model polling",
+  "released_utc": "2026-10-25T12:07:01.960892+00:00"
+}

@@ -1,0 +1,63 @@
+{
+  "task_id": "DEEPEYE-IMPLEMENTATION-20261014",
+  "task_version": 1,
+  "parent_work_id": "C-LIVE-DECISION-PACKAGE-20261023-v1",
+  "work_id": "C-CPU-CAUSAL-STREAM-CORE-20261025-v1",
+  "operation_id": "C-DEEPEYE-CPU-STREAM-CORE-20261025-21",
+  "actual_agent_id": "/root/cpu_package_runner",
+  "App_thread_uuid": "not_exposed",
+  "main_thread_id": "01a14025-4dfd-7ec3-aebb-57be48daba59",
+  "base_commit": "e3f86f7301abef866c30de2ec851e4a939198381",
+  "contract_id": "DEEPEYE-HUMAN-LOCK-20261014/revision1",
+  "contract_source": "f5989cd5defce561f9ba98e6b18fc2682945f0a2",
+  "requirements_sha256": "c229834bfc2292f5fe4411fc9f12c68487008f9d1adaf31f0144ee7a98173804",
+  "design": "1011259415a0916054eb580687612580bc1e5f09",
+  "source_sha256": {
+    "competition/deepeye/ai_pc/cpu_package/stream_core.py": {
+      "sha256": "0ddbe6710be81df3e428f63809257dea69c35fee1aabd24cd9bb58eb71b41976",
+      "bytes": 19495
+    },
+    "competition/deepeye/ai_pc/cpu_package/STREAM_CORE.md": {
+      "sha256": "3950ef879b879d928ba8a3392b9de803f3354d036afa9ed5525d96df36924c1d",
+      "bytes": 11846
+    },
+    "competition/deepeye/tests/ai/cpu/test_stream_core.py": {
+      "sha256": "a05d83beebaf2f1bd121ac574e96ba5fb454374c39a1c4188df69e40584973c3",
+      "bytes": 17173
+    }
+  },
+  "author_controls": {
+    "first_snapshot_methods": 16,
+    "first_snapshot_skips": 0,
+    "first_exit_code": 0,
+    "final_source_affected_methods": 1,
+    "final_affected_exit_code": 0,
+    "final_full16_rerun": false,
+    "actual_RED": false,
+    "selected_saved_C19_indices": [
+      0,
+      1,
+      7
+    ],
+    "new_public_prefix_calls_for_comparison": 8,
+    "old_execute_suite_training_heldout_benchmark_calls": 0,
+    "runtime": "existing CPython3.12.14/Torch2.9.0+cpu; 4CPUthreads"
+  },
+  "existing_tracked_source_diff_exit_code": 0,
+  "formal_acceptance": "incomplete",
+  "FORCE_quality": "FAIL; unchanged .1827348 vs centroid .2047005 and target .60",
+  "movement_authorized": false,
+  "A_format_adopted": false,
+  "pending": [
+    "independent final-source review",
+    "A runtime/lifecycle/clock integration",
+    "sim_em/model/scales",
+    "qualified map/planner and both complete control chains",
+    "board and formal unmet gates"
+  ],
+  "active_subprocesses": [],
+  "subagents_created": [],
+  "external_messages": [],
+  "commits_created": [],
+  "recorded_utc": "2026-10-25T12:10:34.799111+00:00"
+}

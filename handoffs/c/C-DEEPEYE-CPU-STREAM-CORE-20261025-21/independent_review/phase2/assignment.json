@@ -1,0 +1,28 @@
+{
+  "task_id": "DEEPEYE-IMPLEMENTATION-20261014",
+  "task_version": 1,
+  "work_id": "C-CPU-STREAM-INDEPENDENT-REVIEW-20261025-v1",
+  "phase": 2,
+  "canonical_agent_id": "/root/cpu_independent_review",
+  "main_thread": "01a14025-4dfd-7ec3-aebb-57be48daba59",
+  "exclusive_scope": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\main-20261015-01a14025\\stream-core-20261025\\review\\phase2",
+  "input_owner": "/root and released author; read only",
+  "not_alone": true,
+  "requirements_sha256": "c229834bfc2292f5fe4411fc9f12c68487008f9d1adaf31f0144ee7a98173804",
+  "frozen_design": "1011259415a0916054eb580687612580bc1e5f09",
+  "H01_H15": "unchanged",
+  "source_sha256": "0ddbe6710be81df3e428f63809257dea69c35fee1aabd24cd9bb58eb71b41976",
+  "source_manifest_sha256": "220f3c1bdcfc6722da937be45d9e41da587a09563733e0045894f66471315511",
+  "phase1_manifest_sha256": "d6caf83d5b10106b65fe5fa2664e6a3a1002f4b562e084f6be6a28944e771df2",
+  "prior_stop": "parent verified actual author FINAL/released active_subprocesses=[] and phase1 released active_jobs=[]",
+  "acceptance": "Independent frozen source review and phase1 targeted controls; raw argv/stdout/stderr/exit; precise limitations; stop/release",
+  "forbidden": [
+    "product/index writes",
+    "author/old suites",
+    "train/heldout/all128baseline/benchmarks",
+    "network/peers",
+    "SQL/credentials/services/controller/board"
+  ],
+  "board_operator": "A only",
+  "recorded_utc": "2026-10-25T12:12:08.2334797Z"
+}

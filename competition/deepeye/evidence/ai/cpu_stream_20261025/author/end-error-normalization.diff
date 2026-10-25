@@ -1,0 +1,29 @@
+--- tests-01/competition/deepeye/ai_pc/cpu_package/stream_core.py
++++ final/competition/deepeye/ai_pc/cpu_package/stream_core.py
+@@ -306,7 +306,12 @@
+                        "session_deliveries": active.deliveries, "session_bytes": active.total_bytes,
+                        "input_prefix_sha256": active.prefix.hexdigest(), "movement_authorized": False,
+                        "scope": "C local end receipt; not A lifecycle or stop acknowledgement"}
+-            encoded = _encode(payload, self.__limits.max_output_bytes)
++            try:
++                encoded = _encode(payload, self.__limits.max_output_bytes)
++            except StreamError:
++                raise
++            except (ValueError, TypeError, RuntimeError, OverflowError) as exc:
++                raise StreamError("transaction_failed", str(exc)) from exc
+             receipt = EndReceipt(token.generation, token.epoch, active.deliveries,
+                                  active.total_bytes, active.prefix.hexdigest(), encoded)
+             self.__committed = replace(state, active=None, transitions=state.transitions + 1)
+--- tests-01/competition/deepeye/tests/ai/cpu/test_stream_core.py
++++ final/competition/deepeye/tests/ai/cpu/test_stream_core.py
+@@ -289,8 +289,9 @@
+         token = start(core)
+         before = core.state()
+         with patch.object(module, "_encode", side_effect=ValueError("end failure")):
+-            with self.assertRaises(ValueError):
++            with self.assertRaises(StreamError) as caught:
+                 core.end_session(token)
++            self.assertEqual(caught.exception.code, "transaction_failed")
+         self.assertEqual(core.state(), before)
+         self.assertIsNone(core.latest_result(token))
+         core.end_session(token)

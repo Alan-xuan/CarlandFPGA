@@ -1,0 +1,25 @@
+test_R1_original_read_trap_and_all_nine_limits (__main__.AConstructorBound.test_R1_original_read_trap_and_all_nine_limits) ... ok
+C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\cpu-model-env-20261024\Lib\site-packages\torch\_subclasses\functional_tensor.py:279: UserWarning: Failed to initialize NumPy: No module named 'numpy' (Triggered internally at C:\actions-runner\_work\pytorch\pytorch\pytorch\torch\csrc\utils\tensor_numpy.cpp:84.)
+  cpu = _conversion_method_template(device=torch.device("cpu"))
+test_P01_three_real_prefixes_loadonce_and_postinit_no_file_reads (__main__.BIndependentGroups.test_P01_three_real_prefixes_loadonce_and_postinit_no_file_reads) ... ok
+test_P02_future_rejection_and_valid_continuation (__main__.BIndependentGroups.test_P02_future_rejection_and_valid_continuation) ... ok
+test_P03_exact_raw_bytes_not_canonical_prefix (__main__.BIndependentGroups.test_P03_exact_raw_bytes_not_canonical_prefix) ... ok
+test_P04_duplicate_delivery_not_acquisition (__main__.BIndependentGroups.test_P04_duplicate_delivery_not_acquisition) ... ok
+test_P05_conflicting_masked_duplicate_regression_and_zero (__main__.BIndependentGroups.test_P05_conflicting_masked_duplicate_regression_and_zero) ... ok
+test_P06_malformed_types_schema_binding_and_bounds (__main__.BIndependentGroups.test_P06_malformed_types_schema_binding_and_bounds) ... ok
+test_P07_postbuilder_float32_overflow_atomic_retry (__main__.BIndependentGroups.test_P07_postbuilder_float32_overflow_atomic_retry) ... ok
+test_P08_inference_serialization_and_end_failure_atomicity (__main__.BIndependentGroups.test_P08_inference_serialization_and_end_failure_atomicity) ... ok
+test_P09_duplicate_output_overlimit_atomic (__main__.BIndependentGroups.test_P09_duplicate_output_overlimit_atomic) ... ok
+test_P10_identity_stale_foreign_ended_tokens_and_bindings (__main__.BIndependentGroups.test_P10_identity_stale_foreign_ended_tokens_and_bindings) ... ok
+test_P11_lifecycle_integer_utf8_highwaters_and_start_failure (__main__.BIndependentGroups.test_P11_lifecycle_integer_utf8_highwaters_and_start_failure) ... ok
+test_P12_uint64_huge_gap_and_independent_scalar_features (__main__.BIndependentGroups.test_P12_uint64_huge_gap_and_independent_scalar_features) ... ok
+test_P13_missing_masks_rdep_policy_negative_values (__main__.BIndependentGroups.test_P13_missing_masks_rdep_policy_negative_values) ... ok
+test_P14_limits_lifetime_memory_and_only_reductions (__main__.BIndependentGroups.test_P14_limits_lifetime_memory_and_only_reductions) ... ok
+test_P15_deep_immutable_detached_outputs_and_no_stale_setter (__main__.BIndependentGroups.test_P15_deep_immutable_detached_outputs_and_no_stale_setter) ... ok
+test_P16_reentry_busy_and_no_core_threads (__main__.BIndependentGroups.test_P16_reentry_busy_and_no_core_threads) ... ok
+test_P17_explicit_profile_fixed_model_zero_authority (__main__.BIndependentGroups.test_P17_explicit_profile_fixed_model_zero_authority) ... ok
+
+----------------------------------------------------------------------
+Ran 18 tests in 3.865s
+
+OK

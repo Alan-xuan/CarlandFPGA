@@ -1,0 +1,2 @@
+PASS:26repair artifacts and9original source/model/scaler/baseline pins; tracked tree unchanged.
+PASS: exact delta only2MiB preflight caps; all6call sites/9runtime reads have finite limits.

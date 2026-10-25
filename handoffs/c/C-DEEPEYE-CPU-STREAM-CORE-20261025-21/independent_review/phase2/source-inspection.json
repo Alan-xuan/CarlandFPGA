@@ -1,0 +1,269 @@
+{
+  "input_pins": {
+    "competition\\deepeye\\ai_pc\\cpu_package\\stream_core.py": "0ddbe6710be81df3e428f63809257dea69c35fee1aabd24cd9bb58eb71b41976",
+    "competition\\deepeye\\ai_pc\\cpu_package\\STREAM_CORE.md": "3950ef879b879d928ba8a3392b9de803f3354d036afa9ed5525d96df36924c1d",
+    "competition\\deepeye\\evidence\\ai\\cpu_stream_20261025\\author\\delivery-manifest.json": "220f3c1bdcfc6722da937be45d9e41da587a09563733e0045894f66471315511"
+  },
+  "verified_artifacts": [
+    {
+      "path": "competition/deepeye/ai_pc/cpu_package/stream_core.py",
+      "sha256": "0ddbe6710be81df3e428f63809257dea69c35fee1aabd24cd9bb58eb71b41976",
+      "bytes": 19495
+    },
+    {
+      "path": "competition/deepeye/ai_pc/cpu_package/STREAM_CORE.md",
+      "sha256": "3950ef879b879d928ba8a3392b9de803f3354d036afa9ed5525d96df36924c1d",
+      "bytes": 11846
+    },
+    {
+      "path": "competition/deepeye/tests/ai/cpu/test_stream_core.py",
+      "sha256": "a05d83beebaf2f1bd121ac574e96ba5fb454374c39a1c4188df69e40584973c3",
+      "bytes": 17173
+    },
+    {
+      "path": "competition/deepeye/evidence/ai/cpu_stream_20261025/author/.gitattributes",
+      "sha256": "85e48d232edc7b02f6cecf8fbbf905f3b126c467b594d8dd16c4f8fa283a8320",
+      "bytes": 14
+    },
+    {
+      "path": "competition/deepeye/evidence/ai/cpu_stream_20261025/author/capture.py",
+      "sha256": "a54bd263b6c27f5e90ff2b7fa9e74f20c8a68bb35829250fe54afb74961add44",
+      "bytes": 1593
+    },
+    {
+      "path": "competition/deepeye/evidence/ai/cpu_stream_20261025/author/end-boundary-final/command.json",
+      "sha256": "1269996bb3b0b7a7e554589b305a4d2cbab1c6a3c389654744f2ecdc6fbfd4bf",
+      "bytes": 830
+    },
+    {
+      "path": "competition/deepeye/evidence/ai/cpu_stream_20261025/author/end-boundary-final/result.json",
+      "sha256": "d70f720c593d5c00a8bef6f8898878bec4c4ba8df412fd0d7c167c8933055286",
+      "bytes": 250
+    },
+    {
+      "path": "competition/deepeye/evidence/ai/cpu_stream_20261025/author/end-boundary-final/source-before/competition/deepeye/ai_pc/cpu_package/stream_core.py",
+      "sha256": "0ddbe6710be81df3e428f63809257dea69c35fee1aabd24cd9bb58eb71b41976",
+      "bytes": 19495
+    },
+    {
+      "path": "competition/deepeye/evidence/ai/cpu_stream_20261025/author/end-boundary-final/source-before/competition/deepeye/tests/ai/cpu/test_stream_core.py",
+      "sha256": "a05d83beebaf2f1bd121ac574e96ba5fb454374c39a1c4188df69e40584973c3",
+      "bytes": 17173
+    },
+    {
+      "path": "competition/deepeye/evidence/ai/cpu_stream_20261025/author/end-boundary-final/stderr.txt",
+      "sha256": "845fa8e9030f4680910ac1f7afbb6bfda77327e59ff17959221c7d7b47538e95",
+      "bytes": 673
+    },
+    {
+      "path": "competition/deepeye/evidence/ai/cpu_stream_20261025/author/end-boundary-final/stdout.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "competition/deepeye/evidence/ai/cpu_stream_20261025/author/end-error-normalization.diff",
+      "sha256": "9c560ead9f4e05e57d1937290b2faf91d7151c3056e3fc01e1a44b9d25b71b32",
+      "bytes": 1756
+    },
+    {
+      "path": "competition/deepeye/evidence/ai/cpu_stream_20261025/author/provenance.json",
+      "sha256": "3430ab08cbefd68350150f0a253ed222fd1b077e452eab5a353e6dc0238e63f9",
+      "bytes": 1563
+    },
+    {
+      "path": "competition/deepeye/evidence/ai/cpu_stream_20261025/author/README.md",
+      "sha256": "981b7bb13fcdeaf39da493bf371bac636674a9219cb99ea5aa2f5d4fd9ac18e6",
+      "bytes": 4616
+    },
+    {
+      "path": "competition/deepeye/evidence/ai/cpu_stream_20261025/author/report.json",
+      "sha256": "e10c8ed68fc59d7e856cd0f55bd64c528f9405f9dc6a58d08af11023717656f5",
+      "bytes": 2386
+    },
+    {
+      "path": "competition/deepeye/evidence/ai/cpu_stream_20261025/author/source-review.diff",
+      "sha256": "b8087f199d05ee43ff19c0bd957a6c19b0d883dccbfd82c253c13fcd8ddc34de",
+      "bytes": 49697
+    },
+    {
+      "path": "competition/deepeye/evidence/ai/cpu_stream_20261025/author/tests-01/command.json",
+      "sha256": "b3ac57086cb06bf9df01b3043e2d0a9fc1e02c4191b10bd4326a7721c8234d63",
+      "bytes": 742
+    },
+    {
+      "path": "competition/deepeye/evidence/ai/cpu_stream_20261025/author/tests-01/result.json",
+      "sha256": "7cfdb34c527e4f51131d3a63ddd1267e7a95038e84f61d9fcdf7b3fa794de340",
+      "bytes": 250
+    },
+    {
+      "path": "competition/deepeye/evidence/ai/cpu_stream_20261025/author/tests-01/source-before/competition/deepeye/ai_pc/cpu_package/stream_core.py",
+      "sha256": "fb3dd88e03cddd23e53c168971c8c6b1cb3e66db9f9424fb453c5089f7eb7b94",
+      "bytes": 19265
+    },
+    {
+      "path": "competition/deepeye/evidence/ai/cpu_stream_20261025/author/tests-01/source-before/competition/deepeye/tests/ai/cpu/test_stream_core.py",
+      "sha256": "c8efa15d871f9f7ab64f361e60ee622d9ac1a14013a035dea7ee07e40e91b9f7",
+      "bytes": 17088
+    },
+    {
+      "path": "competition/deepeye/evidence/ai/cpu_stream_20261025/author/tests-01/stderr.txt",
+      "sha256": "9407c176c12508c0bcee14166bb80371bd64212943af96d957b5549c645c45b9",
+      "bytes": 3078
+    },
+    {
+      "path": "competition/deepeye/evidence/ai/cpu_stream_20261025/author/tests-01/stdout.txt",
+      "sha256": "a02d99b0f8b933da69cd2dc5102abc41b96072309f904b9d46b76b72baed5178",
+      "bytes": 1511
+    }
+  ],
+  "commands": [
+    {
+      "label": "head",
+      "argv": [
+        "git",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\deepeye-implementation-c",
+      "exit_code": 0,
+      "stdout_sha256": "8c4428bc4547759352f23bd6a7c288b119b92c3dbc84fcfa38dc2fa5f14d48ca",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "tracked-diff",
+      "argv": [
+        "git",
+        "diff",
+        "--name-only",
+        "HEAD"
+      ],
+      "cwd": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\deepeye-implementation-c",
+      "exit_code": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "new-source-diff",
+      "argv": [
+        "git",
+        "diff",
+        "--no-index",
+        "--",
+        "/dev/null",
+        "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\deepeye-implementation-c\\competition\\deepeye\\ai_pc\\cpu_package\\stream_core.py"
+      ],
+      "cwd": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\deepeye-implementation-c",
+      "exit_code": 1,
+      "stdout_sha256": "48d1588259c5606c2a709d1766e57a27980ad1f0212f6d3807e1c29f27a5eab9",
+      "stderr_sha256": "a94636c03bcd79f3e49de267fdd42eea028c7ffef22cb0b2456cad6c93c4d5e6"
+    }
+  ],
+  "author_raw_exit_evidence": [
+    {
+      "path": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\deepeye-implementation-c\\competition\\deepeye\\evidence\\ai\\cpu_stream_20261025\\author\\tests-01",
+      "exit_code": 0,
+      "methods": 16,
+      "source_sha256": "fb3dd88e03cddd23e53c168971c8c6b1cb3e66db9f9424fb453c5089f7eb7b94",
+      "claim": "original recorded run only; not rerun"
+    },
+    {
+      "path": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\deepeye-implementation-c\\competition\\deepeye\\evidence\\ai\\cpu_stream_20261025\\author\\end-boundary-final",
+      "exit_code": 0,
+      "methods": 1,
+      "source_sha256": "0ddbe6710be81df3e428f63809257dea69c35fee1aabd24cd9bb58eb71b41976",
+      "claim": "original recorded run only; not rerun"
+    }
+  ],
+  "finding": "constructor read_pinned limit omitted; runner reads unbounded before hash",
+  "source_line_evidence": [
+    {
+      "line": 223,
+      "text": "            _runner.read_pinned(Path(_runner.__file__), FIXED_RUNNER_SHA256)"
+    },
+    {
+      "line": 224,
+      "text": "            _runner.read_pinned(product / \"ai_pc/model/curve_input.py\", _runner.FIXED_CURVE_BUILDER_SHA256)"
+    },
+    {
+      "line": 225,
+      "text": "            _runner.read_pinned(product / \"ai_pc/model/force_cnn.py\", FIXED_MODEL_SOURCE_SHA256)"
+    },
+    {
+      "line": 226,
+      "text": "            raw_manifest = _runner.read_pinned(manifest_path, FIXED_MANIFEST_SHA256, missing_code=\"model_missing\", limit=2 * 1024 * 1024)"
+    },
+    {
+      "line": 230,
+      "text": "                _runner.read_pinned(path, manifest[field][\"sha256\"], missing_code=\"model_missing\" if field in (\"graph\", \"weights\") else \"asset_missing\")"
+    },
+    {
+      "line": 231,
+      "text": "            preprocessing = _runner.read_pinned(product / \"data/preprocessing.json\", _runner.FIXED_PREPROCESSING_SHA256)"
+    }
+  ],
+  "runner_line_evidence": [
+    {
+      "line": 83,
+      "text": "def read_pinned(path, expected, *, missing_code=\"asset_missing\", limit=None):"
+    },
+    {
+      "line": 84,
+      "text": "    validate_sha(expected, \"expected SHA256\")"
+    },
+    {
+      "line": 85,
+      "text": "    try:"
+    },
+    {
+      "line": 86,
+      "text": "        with Path(path).open(\"rb\") as stream:"
+    },
+    {
+      "line": 87,
+      "text": "            data = stream.read() if limit is None else stream.read(limit + 1)"
+    },
+    {
+      "line": 88,
+      "text": "    except FileNotFoundError as exc:"
+    },
+    {
+      "line": 89,
+      "text": "        raise PackageError(missing_code, \"%s is absent\" % path, blocked=True) from exc"
+    },
+    {
+      "line": 90,
+      "text": "    except OSError as exc:"
+    },
+    {
+      "line": 91,
+      "text": "        raise PackageError(\"asset_unreadable\", \"%s cannot be read: %s\" % (path, exc)) from exc"
+    },
+    {
+      "line": 92,
+      "text": "    if limit is not None and len(data) > limit:"
+    },
+    {
+      "line": 93,
+      "text": "        raise PackageError(\"input_limit\", \"input exceeds %d bytes\" % limit)"
+    },
+    {
+      "line": 94,
+      "text": "    if sha256(data) != expected:"
+    },
+    {
+      "line": 95,
+      "text": "        raise PackageError(\"hash_mismatch\", \"%s does not match its externally supplied SHA256\" % path)"
+    },
+    {
+      "line": 96,
+      "text": "    return data"
+    }
+  ],
+  "not_executed": [
+    "author/old suites",
+    "Torch/model forward",
+    "17-group targeted controls pending repair",
+    "train/heldout/benchmark"
+  ],
+  "product_writes": 0
+}

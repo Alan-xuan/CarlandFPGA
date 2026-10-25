@@ -1,0 +1,207 @@
+{
+  "repair_manifest_sha256": "8aadc2ef8317f667e4a757e02b1c4d6fce5dc7c374ec1f372658fa5b688f41ff",
+  "verified_repair_artifacts": [
+    {
+      "path": "competition/deepeye/ai_pc/cpu_package/stream_core.py",
+      "sha256": "0a8c07f34080784f36180951b28873b43de5e3f80ad201325254b274bd01217b",
+      "bytes": 19674
+    },
+    {
+      "path": "competition/deepeye/ai_pc/cpu_package/STREAM_CORE.md",
+      "sha256": "81ee766e4dfaa7d5c15ec444ba7ccfa7594c62bcf81b47e57b101c86a96c509b",
+      "bytes": 13942
+    },
+    {
+      "path": "competition/deepeye/tests/ai/cpu/test_stream_core.py",
+      "sha256": "a05d83beebaf2f1bd121ac574e96ba5fb454374c39a1c4188df69e40584973c3",
+      "bytes": 17173
+    },
+    {
+      "path": "competition/deepeye/tests/ai/cpu/test_stream_init_bounds.py",
+      "sha256": "b64a2c36ae3f7ed993d0f2582a5c5882c9e50e4e0ca8c9267b215d1341f5781b",
+      "bytes": 7721
+    },
+    {
+      "path": "competition/deepeye/evidence/ai/cpu_stream_20261025/bounded-init-fix/.gitattributes",
+      "sha256": "85e48d232edc7b02f6cecf8fbbf905f3b126c467b594d8dd16c4f8fa283a8320",
+      "bytes": 14
+    },
+    {
+      "path": "competition/deepeye/evidence/ai/cpu_stream_20261025/bounded-init-fix/capture.py",
+      "sha256": "4c5edb1f5d199fb2a075a12b61ed466e32547c5a4dca8d01dc6c5766117b54c2",
+      "bytes": 1661
+    },
+    {
+      "path": "competition/deepeye/evidence/ai/cpu_stream_20261025/bounded-init-fix/controls-01/command.json",
+      "sha256": "537ea995b5529e7cb2ed0f6224acf8cb3a5a2a4e37718dc6a245e27543623a84",
+      "bytes": 983
+    },
+    {
+      "path": "competition/deepeye/evidence/ai/cpu_stream_20261025/bounded-init-fix/controls-01/result.json",
+      "sha256": "b750782331898ed493d904e46023d83c05ff1514f47ed673e32be58123c8cbb9",
+      "bytes": 250
+    },
+    {
+      "path": "competition/deepeye/evidence/ai/cpu_stream_20261025/bounded-init-fix/controls-01/source-before/competition/deepeye/ai_pc/cpu_package/STREAM_CORE.md",
+      "sha256": "81ee766e4dfaa7d5c15ec444ba7ccfa7594c62bcf81b47e57b101c86a96c509b",
+      "bytes": 13942
+    },
+    {
+      "path": "competition/deepeye/evidence/ai/cpu_stream_20261025/bounded-init-fix/controls-01/source-before/competition/deepeye/ai_pc/cpu_package/stream_core.py",
+      "sha256": "0a8c07f34080784f36180951b28873b43de5e3f80ad201325254b274bd01217b",
+      "bytes": 19674
+    },
+    {
+      "path": "competition/deepeye/evidence/ai/cpu_stream_20261025/bounded-init-fix/controls-01/source-before/competition/deepeye/tests/ai/cpu/test_stream_core.py",
+      "sha256": "a05d83beebaf2f1bd121ac574e96ba5fb454374c39a1c4188df69e40584973c3",
+      "bytes": 17173
+    },
+    {
+      "path": "competition/deepeye/evidence/ai/cpu_stream_20261025/bounded-init-fix/controls-01/source-before/competition/deepeye/tests/ai/cpu/test_stream_init_bounds.py",
+      "sha256": "b64a2c36ae3f7ed993d0f2582a5c5882c9e50e4e0ca8c9267b215d1341f5781b",
+      "bytes": 7721
+    },
+    {
+      "path": "competition/deepeye/evidence/ai/cpu_stream_20261025/bounded-init-fix/controls-01/stderr.txt",
+      "sha256": "5ed2a322d6c07a3adf615585d7f3b1290fead87f840ce0b422b2ebcc03626001",
+      "bytes": 1156
+    },
+    {
+      "path": "competition/deepeye/evidence/ai/cpu_stream_20261025/bounded-init-fix/controls-01/stdout.txt",
+      "sha256": "fb560a47b7512a6814747f574a66ad0a9d3176541510a8872004854560b1f796",
+      "bytes": 4316
+    },
+    {
+      "path": "competition/deepeye/evidence/ai/cpu_stream_20261025/bounded-init-fix/documentation-revision.diff",
+      "sha256": "94816b3e15e6d650fdbef96bdaa907c73256aa950c3e1eb51523250ee5aaed1a",
+      "bytes": 3166
+    },
+    {
+      "path": "competition/deepeye/evidence/ai/cpu_stream_20261025/bounded-init-fix/historical-author-readback.json",
+      "sha256": "b37c38d9ad9dff99168e006bd06a43d7fd1d97678242faca86f2c51e98bdcc5e",
+      "bytes": 4771
+    },
+    {
+      "path": "competition/deepeye/evidence/ai/cpu_stream_20261025/bounded-init-fix/historical-independent-R1/copy-provenance.json",
+      "sha256": "e50af69380c78392f286b2284c0861e5e98dce1dae0cb5ef01e9e53d33c25603",
+      "bytes": 1029
+    },
+    {
+      "path": "competition/deepeye/evidence/ai/cpu_stream_20261025/bounded-init-fix/historical-independent-R1/init-bound-red-exit.json",
+      "sha256": "0dc46eb27b5e28213e745998dc02264c364a7288e7f8f45ee86192a3acf63ae5",
+      "bytes": 939
+    },
+    {
+      "path": "competition/deepeye/evidence/ai/cpu_stream_20261025/bounded-init-fix/historical-independent-R1/init-bound-red.stderr.txt",
+      "sha256": "e1862c16d8bb3daa848be7a2ba3b2426d53249ecaa0d85c9b15e4d8650eb7e0c",
+      "bytes": 1719
+    },
+    {
+      "path": "competition/deepeye/evidence/ai/cpu_stream_20261025/bounded-init-fix/historical-independent-R1/init-bound-red.stdout.txt",
+      "sha256": "bddc1caa52440283ff508438a2ec7880116ff89ae277dff92fb25caf397b0744",
+      "bytes": 200
+    },
+    {
+      "path": "competition/deepeye/evidence/ai/cpu_stream_20261025/bounded-init-fix/historical-independent-R1/report.md",
+      "sha256": "7bac5962abe97d948a95009db374c020b2b95be34280acfe83e7f568e3262d1d",
+      "bytes": 3508
+    },
+    {
+      "path": "competition/deepeye/evidence/ai/cpu_stream_20261025/bounded-init-fix/historical-independent-R1/repro_init_bound.py",
+      "sha256": "343dee42fedd2bac2501bb61e87639e52740c2b061c85ed1fcfb1b99a96eb7ec",
+      "bytes": 1699
+    },
+    {
+      "path": "competition/deepeye/evidence/ai/cpu_stream_20261025/bounded-init-fix/minimal-source-repair.diff",
+      "sha256": "65b83c811b077f2bda2073ded0ae71840c3ad54a41aa68efc3d43ad59785ef63",
+      "bytes": 2482
+    },
+    {
+      "path": "competition/deepeye/evidence/ai/cpu_stream_20261025/bounded-init-fix/new-constructor-test.diff",
+      "sha256": "205e45cc88170758aa3a5a37783f2d19a4105e8fa39b3edc41c593edf0e4e9a8",
+      "bytes": 7970
+    },
+    {
+      "path": "competition/deepeye/evidence/ai/cpu_stream_20261025/bounded-init-fix/README.md",
+      "sha256": "4000c8be444c52b8cadb4786f6f47cbd887a15f803e5701d35cda1275214dd5b",
+      "bytes": 4516
+    },
+    {
+      "path": "competition/deepeye/evidence/ai/cpu_stream_20261025/bounded-init-fix/report.json",
+      "sha256": "eea0bf1b0ad3fe0427365f5e9259d2f2458dc41a8eff8b1b6799f63ad44bc5e0",
+      "bytes": 3154
+    }
+  ],
+  "original_nine_inputs_still_pinned": true,
+  "source_delta_only": "one finite2MiB cap plus eight uncapped read invocations",
+  "static_preflight_call_sites": [
+    {
+      "line": 224,
+      "limit": "_PREFLIGHT_ASSET_CAP",
+      "source": "_runner.read_pinned(Path(_runner.__file__), FIXED_RUNNER_SHA256, limit=_PREFLIGHT_ASSET_CAP)"
+    },
+    {
+      "line": 225,
+      "limit": "_PREFLIGHT_ASSET_CAP",
+      "source": "_runner.read_pinned(product / \"ai_pc/model/curve_input.py\", _runner.FIXED_CURVE_BUILDER_SHA256, limit=_PREFLIGHT_ASSET_CAP)"
+    },
+    {
+      "line": 226,
+      "limit": "_PREFLIGHT_ASSET_CAP",
+      "source": "_runner.read_pinned(product / \"ai_pc/model/force_cnn.py\", FIXED_MODEL_SOURCE_SHA256, limit=_PREFLIGHT_ASSET_CAP)"
+    },
+    {
+      "line": 227,
+      "limit": "2 * 1024 * 1024",
+      "source": "_runner.read_pinned(manifest_path, FIXED_MANIFEST_SHA256, missing_code=\"model_missing\", limit=2 * 1024 * 1024)"
+    },
+    {
+      "line": 232,
+      "limit": "_PREFLIGHT_ASSET_CAP",
+      "source": "_runner.read_pinned(product / \"data/preprocessing.json\", _runner.FIXED_PREPROCESSING_SHA256, limit=_PREFLIGHT_ASSET_CAP)"
+    },
+    {
+      "line": 231,
+      "limit": "_PREFLIGHT_ASSET_CAP",
+      "source": "_runner.read_pinned(path, manifest[field][\"sha256\"], missing_code=\"model_missing\" if field in (\"graph\", \"weights\") else \"asset_missing\", limit=_PREFLIGHT_ASSET_CAP)"
+    }
+  ],
+  "runtime_expansion": 9,
+  "commands": [
+    {
+      "argv": [
+        "git",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\deepeye-implementation-c",
+      "exit_code": 0,
+      "stdout_sha256": "8c4428bc4547759352f23bd6a7c288b119b92c3dbc84fcfa38dc2fa5f14d48ca",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "diff",
+        "--name-only",
+        "HEAD"
+      ],
+      "cwd": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\deepeye-implementation-c",
+      "exit_code": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "original_repair_run_evidence": [
+    {
+      "path": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\deepeye-implementation-c\\competition\\deepeye\\evidence\\ai\\cpu_stream_20261025\\bounded-init-fix\\controls-01\\result.json",
+      "result": {
+        "exit_code": 0,
+        "end_utc": "2026-10-25T12:25:26.861603+00:00",
+        "stdout_sha256": "fb560a47b7512a6814747f574a66ad0a9d3176541510a8872004854560b1f796",
+        "stderr_sha256": "5ed2a322d6c07a3adf615585d7f3b1290fead87f840ce0b422b2ebcc03626001"
+      }
+    }
+  ],
+  "author_or_old_suites_executed": false
+}

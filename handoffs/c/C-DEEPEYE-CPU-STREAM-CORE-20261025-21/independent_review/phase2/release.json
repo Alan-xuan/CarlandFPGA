@@ -1,0 +1,22 @@
+{
+  "work_id": "C-CPU-STREAM-INDEPENDENT-REVIEW-20261025-v1",
+  "task_id": "DEEPEYE-IMPLEMENTATION-20261014",
+  "task_version": 1,
+  "canonical_agent_id": "/root/cpu_independent_review",
+  "main_thread_id": "01a14025-4dfd-7ec3-aebb-57be48daba59",
+  "phase": 2,
+  "released": true,
+  "ownership_released": true,
+  "active_jobs": [],
+  "review_result": "R1 repair required; remaining phase1 controls pending new frozen trigger",
+  "manifest_sha256": "9371297812e474475cc56ead72e58140b1429407dec721ba17f4753a84306dfa",
+  "report_sha256": "7bac5962abe97d948a95009db374c020b2b95be34280acfe83e7f568e3262d1d",
+  "inspection_exit_code": 0,
+  "independent_negative_control_exit_code": 1,
+  "negative_control_status": "genuine RED: unbounded asset read size=-1",
+  "model_loads": 0,
+  "model_forwards": 0,
+  "product_writes": 0,
+  "next_trigger": "parent followup after author repair/freeze and actual release",
+  "released_utc": "2026-10-25T12:16:54.538057+00:00"
+}

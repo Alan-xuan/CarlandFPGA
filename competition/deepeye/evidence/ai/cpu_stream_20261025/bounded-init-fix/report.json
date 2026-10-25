@@ -1,0 +1,77 @@
+{
+  "task_id": "DEEPEYE-IMPLEMENTATION-20261014",
+  "task_version": 1,
+  "work_id": "C-CPU-STREAM-BOUNDED-INIT-REPAIR-20261025-v1",
+  "parent_work_id": "C-CPU-CAUSAL-STREAM-CORE-20261025-v1",
+  "operation_id": "C-DEEPEYE-CPU-STREAM-CORE-20261025-21",
+  "actual_agent_id": "/root/cpu_package_runner",
+  "main_thread_id": "01a14025-4dfd-7ec3-aebb-57be48daba59",
+  "base_commit": "e3f86f7301abef866c30de2ec851e4a939198381",
+  "contract_id": "DEEPEYE-HUMAN-LOCK-20261014/revision1",
+  "contract_source": "f5989cd5defce561f9ba98e6b18fc2682945f0a2",
+  "requirements_sha256": "c229834bfc2292f5fe4411fc9f12c68487008f9d1adaf31f0144ee7a98173804",
+  "design": "1011259415a0916054eb580687612580bc1e5f09",
+  "source_sha256": {
+    "competition/deepeye/ai_pc/cpu_package/stream_core.py": {
+      "sha256": "0a8c07f34080784f36180951b28873b43de5e3f80ad201325254b274bd01217b",
+      "bytes": 19674
+    },
+    "competition/deepeye/ai_pc/cpu_package/STREAM_CORE.md": {
+      "sha256": "81ee766e4dfaa7d5c15ec444ba7ccfa7594c62bcf81b47e57b101c86a96c509b",
+      "bytes": 13942
+    },
+    "competition/deepeye/tests/ai/cpu/test_stream_core.py": {
+      "sha256": "a05d83beebaf2f1bd121ac574e96ba5fb454374c39a1c4188df69e40584973c3",
+      "bytes": 17173
+    },
+    "competition/deepeye/tests/ai/cpu/test_stream_init_bounds.py": {
+      "sha256": "b64a2c36ae3f7ed993d0f2582a5c5882c9e50e4e0ca8c9267b215d1341f5781b",
+      "bytes": 7721
+    }
+  },
+  "R1": {
+    "historical_source_sha256": "0ddbe6710be81df3e428f63809257dea69c35fee1aabd24cd9bb58eb71b41976",
+    "independent_RED_exit_code": 1,
+    "recorded_unbounded_read_size": -1,
+    "author_status": "explicit finite preflight caps repaired; independent Phase3 pending"
+  },
+  "new_controls": {
+    "methods": 4,
+    "skips": 0,
+    "exit_code": 0,
+    "finite_preflight_positions": 9,
+    "requested_read_size_bytes": 2097153,
+    "per_asset_cap_bytes": 2097152,
+    "invalid_position_cases": 27,
+    "large_data_allocated_for_oversize_probe": false,
+    "actual_model_loads_success_control": 1,
+    "actual_learned_forwards_on_unit_observation": 1,
+    "runtime": "existing CPython3.12.14/Torch2.9.0+cpu"
+  },
+  "historical_author_controls": {
+    "first_snapshot_methods": 16,
+    "first_exit_code": 0,
+    "later_end_only_methods": 1,
+    "later_end_exit_code": 0,
+    "not_rerun_on_current_source": true
+  },
+  "historical_author_manifest": {
+    "path": "competition/deepeye/evidence/ai/cpu_stream_20261025/author/delivery-manifest.json",
+    "sha256": "220f3c1bdcfc6722da937be45d9e41da587a09563733e0045894f66471315511",
+    "historical_only_not_current_source_verifier": true
+  },
+  "old_runner_loader_model_scaler_unchanged": true,
+  "original_author_prefix_and_test_unchanged": true,
+  "existing_tracked_diff": {
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  "forbidden_old_suite_train_heldout_benchmark_calls": 0,
+  "formal_acceptance": "incomplete",
+  "FORCE_quality": "FAIL unchanged",
+  "active_subprocesses": [],
+  "commits_created": [],
+  "external_messages": [],
+  "recorded_utc": "2026-10-25T12:28:16.670954+00:00"
+}

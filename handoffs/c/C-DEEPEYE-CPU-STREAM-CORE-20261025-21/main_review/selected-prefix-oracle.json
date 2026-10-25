@@ -1,0 +1,162 @@
+{
+  "baseline_sha256": "e84bdfe850efb8a231f72c98a5fb05cc20c7f6036014f4db77ef3f6cf44b418f",
+  "input_global_pin": "d81b29a6200d83133eda22149c70d2a0f6b3db06f9885ae669ddaffc75e99b37",
+  "raw_records": [
+    "{\"run_id\":\"C-FORCE-CPU-20261024-v1\",\"source_domain\":\"geo_replay\",\"profile_id\":\"force_curve_v1\",\"preprocessing_sha256\":\"cb66fd302165c86344f3b8d1af9d9c4e4e229621cef44cbfa6fb8cd121a63eef\",\"sequence\":7327,\"value_0\":55.892757416,\"value_1\":1.7746260166,\"value_2\":0.7658668756,\"value_3\":1.0914987326,\"valid_0\":true,\"valid_1\":true,\"valid_2\":true,\"valid_3\":true}\n",
+    "{\"run_id\":\"C-FORCE-CPU-20261024-v1\",\"source_domain\":\"geo_replay\",\"profile_id\":\"force_curve_v1\",\"preprocessing_sha256\":\"cb66fd302165c86344f3b8d1af9d9c4e4e229621cef44cbfa6fb8cd121a63eef\",\"sequence\":7328,\"value_0\":60.929138184,\"value_1\":1.8009859324,\"value_2\":0.8002619743,\"value_3\":1.1227060556,\"valid_0\":true,\"valid_1\":true,\"valid_2\":true,\"valid_3\":true}\n",
+    "{\"run_id\":\"C-FORCE-CPU-20261024-v1\",\"source_domain\":\"geo_replay\",\"profile_id\":\"force_curve_v1\",\"preprocessing_sha256\":\"cb66fd302165c86344f3b8d1af9d9c4e4e229621cef44cbfa6fb8cd121a63eef\",\"sequence\":7329,\"value_0\":62.117263794,\"value_1\":1.8176960945,\"value_2\":0.7659568787,\"value_3\":1.1481407881,\"valid_0\":true,\"valid_1\":true,\"valid_2\":true,\"valid_3\":true}\n"
+  ],
+  "expected_predictions": [
+    {
+      "binding": {
+        "preprocessing_sha256": "cb66fd302165c86344f3b8d1af9d9c4e4e229621cef44cbfa6fb8cd121a63eef",
+        "profile_id": "force_curve_v1",
+        "run_id": "C-FORCE-CPU-20261024-v1",
+        "source_domain": "geo_replay"
+      },
+      "feature_tensor_encoding": "float32-little-endian-C-order-[1,8,128,1]",
+      "feature_tensor_sha256": "8bd61940ded56e13271e13bc0bd6f2c618d3b34c73e671ee6e9710fbb0af962c",
+      "input_prefix_sha256": "9c9200453ca7feab036ee9e41b9b78f9b61df5d672792961379d5daa920d1eb8",
+      "latest_valid_masks": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "model_manifest_sha256": "0b76bcd1b21b6b1e254eef0e2e5815a15121fdb8ac48c33710f2b2d85bdf2959",
+      "movement_authorized": false,
+      "predicted_class_index": 2,
+      "probabilities": [
+        0.10667310655117035,
+        0.19134940207004547,
+        0.21241112053394318,
+        0.19545763731002808,
+        0.030836135149002075,
+        0.10966622084379196,
+        0.021943191066384315,
+        0.003602186916396022,
+        0.018312839791178703,
+        0.05900152772665024,
+        0.04455934837460518,
+        0.0061872415244579315
+      ],
+      "record_index": 0,
+      "window": {
+        "accepted_observations": 1,
+        "dropped_oldest": 0,
+        "filled_slots": 1,
+        "idempotent_repeats": 0,
+        "latest_sequence": 7327,
+        "missing_slots": 127,
+        "preprocessing_sha256": "cb66fd302165c86344f3b8d1af9d9c4e4e229621cef44cbfa6fb8cd121a63eef",
+        "profile_id": "force_curve_v1"
+      }
+    },
+    {
+      "binding": {
+        "preprocessing_sha256": "cb66fd302165c86344f3b8d1af9d9c4e4e229621cef44cbfa6fb8cd121a63eef",
+        "profile_id": "force_curve_v1",
+        "run_id": "C-FORCE-CPU-20261024-v1",
+        "source_domain": "geo_replay"
+      },
+      "feature_tensor_encoding": "float32-little-endian-C-order-[1,8,128,1]",
+      "feature_tensor_sha256": "7f188d308f35ec13702e647eee2becff235f6d6361219105b82484919ba76e8e",
+      "input_prefix_sha256": "874aaa3ecfd6314e66459fc9119fe55c96c1c1e311999534652f6760790dc8cb",
+      "latest_valid_masks": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "model_manifest_sha256": "0b76bcd1b21b6b1e254eef0e2e5815a15121fdb8ac48c33710f2b2d85bdf2959",
+      "movement_authorized": false,
+      "predicted_class_index": 2,
+      "probabilities": [
+        0.10086756944656372,
+        0.19603577256202698,
+        0.2283480167388916,
+        0.19083337485790253,
+        0.030475115403532982,
+        0.09901376068592072,
+        0.020822497084736824,
+        0.0032196149695664644,
+        0.01584034599363804,
+        0.05972933769226074,
+        0.049071650952100754,
+        0.0057430448941886425
+      ],
+      "record_index": 1,
+      "window": {
+        "accepted_observations": 2,
+        "dropped_oldest": 0,
+        "filled_slots": 2,
+        "idempotent_repeats": 0,
+        "latest_sequence": 7328,
+        "missing_slots": 126,
+        "preprocessing_sha256": "cb66fd302165c86344f3b8d1af9d9c4e4e229621cef44cbfa6fb8cd121a63eef",
+        "profile_id": "force_curve_v1"
+      }
+    },
+    {
+      "binding": {
+        "preprocessing_sha256": "cb66fd302165c86344f3b8d1af9d9c4e4e229621cef44cbfa6fb8cd121a63eef",
+        "profile_id": "force_curve_v1",
+        "run_id": "C-FORCE-CPU-20261024-v1",
+        "source_domain": "geo_replay"
+      },
+      "feature_tensor_encoding": "float32-little-endian-C-order-[1,8,128,1]",
+      "feature_tensor_sha256": "2a4a4f9eb8586e96b4fe830d62c42e3af90e3f88367102368cec5757dffce14c",
+      "input_prefix_sha256": "2c42e8d1ca0b6a729501669b4aa60ffd74701b94a769faa7d77bfb87d7dbecfb",
+      "latest_valid_masks": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "model_manifest_sha256": "0b76bcd1b21b6b1e254eef0e2e5815a15121fdb8ac48c33710f2b2d85bdf2959",
+      "movement_authorized": false,
+      "predicted_class_index": 2,
+      "probabilities": [
+        0.09894329309463501,
+        0.19981767237186432,
+        0.24586105346679688,
+        0.18024787306785583,
+        0.03026527166366577,
+        0.08879216760396957,
+        0.020069608464837074,
+        0.0028398989234119654,
+        0.012979107908904552,
+        0.0617031566798687,
+        0.053513798862695694,
+        0.004967114422470331
+      ],
+      "record_index": 2,
+      "window": {
+        "accepted_observations": 3,
+        "dropped_oldest": 0,
+        "filled_slots": 3,
+        "idempotent_repeats": 0,
+        "latest_sequence": 7329,
+        "missing_slots": 125,
+        "preprocessing_sha256": "cb66fd302165c86344f3b8d1af9d9c4e4e229621cef44cbfa6fb8cd121a63eef",
+        "profile_id": "force_curve_v1"
+      }
+    }
+  ],
+  "class_order": [
+    30000,
+    65030,
+    65000,
+    80000,
+    74000,
+    70000,
+    70032,
+    88000,
+    86000,
+    99000,
+    90000,
+    93000
+  ],
+  "absolute_probability_tolerance": 1e-06,
+  "comparison_not_rerun": true
+}

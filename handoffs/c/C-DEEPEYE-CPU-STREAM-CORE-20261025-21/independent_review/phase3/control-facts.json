@@ -1,0 +1,210 @@
+{
+  "scope": "independent phase1 controls on repaired source; no old/author suites",
+  "source_sha256": "0a8c07f34080784f36180951b28873b43de5e3f80ad201325254b274bd01217b",
+  "real_model_forwards": 3,
+  "private_stub_predictions": 42,
+  "groups": {
+    "R1": {
+      "first_actual_read_size": 2097153,
+      "preflight_reads": [
+        {
+          "path": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\deepeye-implementation-c\\competition\\deepeye\\ai_pc\\cpu_package\\runner.py",
+          "limit": 2097152
+        },
+        {
+          "path": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\deepeye-implementation-c\\competition\\deepeye\\ai_pc\\model\\curve_input.py",
+          "limit": 2097152
+        },
+        {
+          "path": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\deepeye-implementation-c\\competition\\deepeye\\ai_pc\\model\\force_cnn.py",
+          "limit": 2097152
+        },
+        {
+          "path": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\deepeye-implementation-c\\competition\\deepeye\\ai_pc\\cpu_model\\force_v1\\model_manifest.json",
+          "limit": 2097152
+        },
+        {
+          "path": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\deepeye-implementation-c\\competition\\deepeye\\ai_pc\\cpu_model\\force_v1\\graph.json",
+          "limit": 2097152
+        },
+        {
+          "path": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\deepeye-implementation-c\\competition\\deepeye\\ai_pc\\cpu_model\\force_v1\\weights.json",
+          "limit": 2097152
+        },
+        {
+          "path": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\deepeye-implementation-c\\competition\\deepeye\\ai_pc\\cpu_model\\force_v1\\..\\..\\..\\data\\preprocessing.json",
+          "limit": 2097152
+        },
+        {
+          "path": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\deepeye-implementation-c\\competition\\deepeye\\ai_pc\\cpu_model\\force_v1\\..\\..\\..\\data\\label_schema.json",
+          "limit": 2097152
+        },
+        {
+          "path": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\deepeye-implementation-c\\competition\\deepeye\\data\\preprocessing.json",
+          "limit": 2097152
+        }
+      ],
+      "no_constructor_model_load": true,
+      "status": "GREEN"
+    },
+    "P01": {
+      "real_model_forwards": 3,
+      "parity": [
+        {
+          "index": 0,
+          "max_probability_abs_error": 0.0,
+          "feature_sha256": "8bd61940ded56e13271e13bc0bd6f2c618d3b34c73e671ee6e9710fbb0af962c",
+          "prefix_sha256": "9c9200453ca7feab036ee9e41b9b78f9b61df5d672792961379d5daa920d1eb8",
+          "class": 2,
+          "encoded_bytes": 2008
+        },
+        {
+          "index": 1,
+          "max_probability_abs_error": 0.0,
+          "feature_sha256": "7f188d308f35ec13702e647eee2becff235f6d6361219105b82484919ba76e8e",
+          "prefix_sha256": "874aaa3ecfd6314e66459fc9119fe55c96c1c1e311999534652f6760790dc8cb",
+          "class": 2,
+          "encoded_bytes": 2008
+        },
+        {
+          "index": 2,
+          "max_probability_abs_error": 0.0,
+          "feature_sha256": "2a4a4f9eb8586e96b4fe830d62c42e3af90e3f88367102368cec5757dffce14c",
+          "prefix_sha256": "2c42e8d1ca0b6a729501669b4aa60ffd74701b94a769faa7d77bfb87d7dbecfb",
+          "class": 2,
+          "encoded_bytes": 2008
+        }
+      ],
+      "no_postinit_file_reads": true,
+      "model_loads": 1,
+      "scaler_loads": 1,
+      "cold_restart": true
+    },
+    "P02": {
+      "mode": "private stub predictions",
+      "earlier_result_preserved": true,
+      "continuation_matches_twin": true
+    },
+    "P03": {
+      "mode": "private stub predictions",
+      "distinct_byte_digests": true,
+      "crlf_preserved": true
+    },
+    "P04": {
+      "mode": "private stub predictions",
+      "accepted_deliveries": 3,
+      "acquisitions": 1,
+      "idempotent_repeats": 2,
+      "predict_calls": 1
+    },
+    "P05": {
+      "mode": "private stub predictions",
+      "masked_conflict_rejected": true,
+      "regression_rejected": true,
+      "signed_zero_idempotent": true
+    },
+    "P06": {
+      "negative_cases": 37,
+      "exception_codes": [
+        "binding_invalid",
+        "record_limit",
+        "schema_invalid"
+      ],
+      "all_nonmutating": true
+    },
+    "P07": {
+      "mode": "actual tensor conversion / private prediction stub",
+      "normalized_double": 2.658539264624342e+43,
+      "overflow_code": "feature_invalid",
+      "no_prediction_on_overflow": true,
+      "retry_matches_twin": true
+    },
+    "P08": {
+      "mode": "private failure injections/stub success",
+      "inference_rollback": true,
+      "serialization_rollback": true,
+      "end_rollback": true,
+      "retry_end_transitions": 2
+    },
+    "P09": {
+      "mode": "private valid-JSON whitespace oversize injection/stub success",
+      "duplicate_size_guard": true,
+      "failed_duplicate_rollback": true,
+      "lower_output_cap": 512
+    },
+    "P10": {
+      "strict_identity": true,
+      "copied_foreign_stale_ended_rejected": true,
+      "active_reset_rejected": true
+    },
+    "P11": {
+      "negative_transition_cases": 12,
+      "start_failure_nonmutating": true,
+      "generation_epoch_monotonic": true,
+      "uint32_max_no_wrap": true,
+      "utf8_limits": [
+        126,
+        128
+      ]
+    },
+    "P12": {
+      "mode": "actual tensor/private prediction stub",
+      "uint64_preserved": 18446744073709551615,
+      "huge_gap_filled": 1,
+      "normal_gap_filled": 2,
+      "scalar_hashes_match": true
+    },
+    "P13": {
+      "mode": "actual tensor/private prediction stub",
+      "rdep_nonpositive_missing": true,
+      "negative_identity_channel_preserved": true,
+      "masks_and_scalar_hashes_match": true
+    },
+    "P14": {
+      "mode": "private fixture/stub success",
+      "only_lower_limits": true,
+      "lifetime_caps_survive_restart": true,
+      "sample_deliveries": 12,
+      "bounded_slots": 128,
+      "only_latest_retained": true,
+      "transitions_bound": 2
+    },
+    "P15": {
+      "mode": "private stub success",
+      "deep_immutable": true,
+      "caller_json_copy_detached": true,
+      "stale_caller_copy_cannot_install": true,
+      "old_result_survives_end_restart": true
+    },
+    "P16": {
+      "mode": "private reentry callback/stub success",
+      "busy_rejections": 5,
+      "single_outer_commit": true,
+      "core_thread_constructions": 0
+    },
+    "P17": {
+      "fixed_model_and_profile": true,
+      "sim_em_blocked": true,
+      "no_authority": true,
+      "firstmax_tie": "private synthetic uniform prediction only"
+    }
+  },
+  "private_fixture": "clones share actual fixed loaded model/scaler but create private fresh state/lock/limits; not a public injection API",
+  "runtime": {
+    "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+    "torch": "2.9.0+cpu",
+    "device": "cpu",
+    "threads": 4,
+    "deterministic": true
+  },
+  "actual_constructor_model_loads": 1,
+  "actual_constructor_scaler_loads": 1,
+  "unittest": {
+    "tests": 18,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0,
+    "success": true
+  },
+  "quality": "unchanged FAIL; no heldout/train/oldbaseline/benchmark"
+}

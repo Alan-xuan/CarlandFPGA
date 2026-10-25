@@ -1,0 +1,31 @@
+--- historical-pre-fix/stream_core.py
++++ current/competition/deepeye/ai_pc/cpu_package/stream_core.py
+@@ -22,6 +22,7 @@
+ PROFILE_ID = "force_curve_v1"
+ SOURCE_DOMAIN = "geo_replay"
+ _HARD = (16384, 8192, 128, 65536, 64 * 1024 * 1024, 1024)
++_PREFLIGHT_ASSET_CAP = 2 * 1024 * 1024
+ __all__ = ["FrozenForceStream", "StreamLimits", "StreamError", "SessionToken", "StreamResult",
+            "StreamState", "EndReceipt", "FIXED_MANIFEST_SHA256"]
+ 
+@@ -220,15 +221,15 @@
+         if type(manifest_path) not in (str, type(Path())):
+             raise StreamError("manifest_invalid", "manifest_path must be an exact string or native Path")
+         try:
+-            _runner.read_pinned(Path(_runner.__file__), FIXED_RUNNER_SHA256)
+-            _runner.read_pinned(product / "ai_pc/model/curve_input.py", _runner.FIXED_CURVE_BUILDER_SHA256)
+-            _runner.read_pinned(product / "ai_pc/model/force_cnn.py", FIXED_MODEL_SOURCE_SHA256)
++            _runner.read_pinned(Path(_runner.__file__), FIXED_RUNNER_SHA256, limit=_PREFLIGHT_ASSET_CAP)
++            _runner.read_pinned(product / "ai_pc/model/curve_input.py", _runner.FIXED_CURVE_BUILDER_SHA256, limit=_PREFLIGHT_ASSET_CAP)
++            _runner.read_pinned(product / "ai_pc/model/force_cnn.py", FIXED_MODEL_SOURCE_SHA256, limit=_PREFLIGHT_ASSET_CAP)
+             raw_manifest = _runner.read_pinned(manifest_path, FIXED_MANIFEST_SHA256, missing_code="model_missing", limit=2 * 1024 * 1024)
+             manifest = _runner.strict_json(raw_manifest)
+             for field in ("graph", "weights", "preprocessing", "label_schema"):
+                 path = _runner._reference(manifest_path, manifest, field)
+-                _runner.read_pinned(path, manifest[field]["sha256"], missing_code="model_missing" if field in ("graph", "weights") else "asset_missing")
+-            preprocessing = _runner.read_pinned(product / "data/preprocessing.json", _runner.FIXED_PREPROCESSING_SHA256)
++                _runner.read_pinned(path, manifest[field]["sha256"], missing_code="model_missing" if field in ("graph", "weights") else "asset_missing", limit=_PREFLIGHT_ASSET_CAP)
++            preprocessing = _runner.read_pinned(product / "data/preprocessing.json", _runner.FIXED_PREPROCESSING_SHA256, limit=_PREFLIGHT_ASSET_CAP)
+             self.__scaler = CurveScaler.from_document_bytes(preprocessing, expected_sha256=_runner.FIXED_PREPROCESSING_SHA256)
+             import torch
+             from ai_pc.model.force_cnn import load_frozen_model

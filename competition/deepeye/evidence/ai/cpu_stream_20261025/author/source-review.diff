@@ -1,0 +1,919 @@
+--- /dev/null
++++ b/competition/deepeye/ai_pc/cpu_package/stream_core.py
+@@ -0,0 +1,394 @@
++"""Synchronous bounded transactional FORCE CPU inference, without transport.
++
++Only the fixed learned JSON model/scaler are loaded. Observations arrive as one
++raw record per call. C session/epoch identifiers are local bookkeeping, never
++A BOOT, capture, observation age, clock, grant or control authority.
++"""
++from contextlib import contextmanager
++import copy
++from dataclasses import dataclass, replace
++import hashlib
++from pathlib import Path
++import threading
++from typing import NamedTuple
++
++from ai_pc.cpu_package import runner as _runner
++from ai_pc.model.curve_input import CurveBinding, CurveInputError, CurveObservation, CurveScaler, CurveWindowBuilder
++
++FIXED_MANIFEST_SHA256 = "0b76bcd1b21b6b1e254eef0e2e5815a15121fdb8ac48c33710f2b2d85bdf2959"
++FIXED_RUNNER_SHA256 = "92114790259b7e35e8bf7b1a0519f0e3f68da52729d08b5b9862c992deae70af"
++FIXED_MODEL_SOURCE_SHA256 = "5003427e1ac01e50b612d8f4f9c674c7df352b3942a5cc39978e23bdfbdb1260"
++MAX_IDENTIFIER = (1 << 32) - 1
++PROFILE_ID = "force_curve_v1"
++SOURCE_DOMAIN = "geo_replay"
++_HARD = (16384, 8192, 128, 65536, 64 * 1024 * 1024, 1024)
++__all__ = ["FrozenForceStream", "StreamLimits", "StreamError", "SessionToken", "StreamResult",
++           "StreamState", "EndReceipt", "FIXED_MANIFEST_SHA256"]
++
++
++class StreamError(ValueError):
++    """Bounded rejection; exceptions never imply an accepted observation."""
++    def __init__(self, code, detail, *, blocked=False):
++        self.code = code
++        self.blocked = blocked
++        super().__init__(str(detail)[:256])
++
++
++def _integer(value, name, lower, upper):
++    if type(value) is not int or not lower <= value <= upper:
++        raise StreamError("bounds_invalid", name + " must be an exact bounded integer")
++    return value
++
++
++def _text(value, name, maximum):
++    if type(value) is not str or not value:
++        raise StreamError("binding_invalid", name + " must be a nonempty exact string")
++    try:
++        size = len(value.encode("utf-8"))
++    except UnicodeError as exc:
++        raise StreamError("binding_invalid", name + " is not valid UTF-8") from exc
++    if size > maximum:
++        raise StreamError("binding_invalid", name + " exceeds UTF-8 byte bound")
++    return value
++
++
++@dataclass(frozen=True)
++class StreamLimits:
++    """Only reductions of fixed hard limits; counters/bytes are object lifetime."""
++    max_record_bytes: int = _HARD[0]
++    max_output_bytes: int = _HARD[1]
++    max_binding_bytes: int = _HARD[2]
++    max_deliveries: int = _HARD[3]
++    max_total_bytes: int = _HARD[4]
++    max_sessions: int = _HARD[5]
++
++    def __post_init__(self):
++        for name, maximum in zip(self.__dataclass_fields__, _HARD):
++            _integer(getattr(self, name), name, 512 if name == "max_output_bytes" else 1, maximum)
++
++
++class Binding(NamedTuple):
++    run_id: str
++    source_domain: str
++    profile_id: str
++    preprocessing_sha256: str
++
++
++class SessionToken(NamedTuple):
++    generation: int
++    epoch: int
++    binding: Binding
++
++
++class WindowMetadata(NamedTuple):
++    latest_sequence: int
++    filled_slots: int
++    missing_slots: int
++    dropped_oldest: int
++    accepted_observations: int
++    idempotent_repeats: int
++
++
++class StreamResult(NamedTuple):
++    generation: int
++    epoch: int
++    delivery_index: int
++    sequence: int
++    binding: Binding
++    metadata: WindowMetadata
++    latest_valid_masks: tuple
++    probabilities: tuple
++    predicted_class_index: int
++    predicted_source_code: int
++    class_order: tuple
++    feature_tensor_sha256: str
++    feature_tensor_encoding: str
++    input_prefix_sha256: str
++    session_bytes: int
++    artifact_pins: tuple
++    encoded: bytes
++
++    @property
++    def movement_authorized(self):
++        return False
++
++    @property
++    def motion_bytes(self):
++        return None
++
++
++class StreamState(NamedTuple):
++    active_generation: object
++    active_epoch: object
++    highest_generation: int
++    highest_epoch: int
++    sessions_started: int
++    lifecycle_transitions: int
++    lifetime_deliveries: int
++    lifetime_bytes: int
++    session_deliveries: int
++    session_bytes: int
++    prefix_sha256: object
++    latest_result_sha256: object
++
++
++class EndReceipt(NamedTuple):
++    generation: int
++    epoch: int
++    session_deliveries: int
++    session_bytes: int
++    input_prefix_sha256: str
++    encoded: bytes
++
++    @property
++    def movement_authorized(self):
++        return False
++
++
++@dataclass(frozen=True)
++class _Active:
++    token: SessionToken
++    builder: object
++    prefix: object
++    deliveries: int = 0
++    total_bytes: int = 0
++    latest: object = None
++
++
++@dataclass(frozen=True)
++class _Committed:
++    active: object = None
++    highest_generation: int = 0
++    highest_epoch: int = -1
++    sessions_started: int = 0
++    transitions: int = 0
++    deliveries: int = 0
++    total_bytes: int = 0
++
++
++def _encode(payload, maximum):
++    raw = _runner.canonical_json(payload) + b"\n"
++    if len(raw) > maximum:
++        raise StreamError("output_limit", "bounded result serialization exceeds max_output_bytes")
++    return raw
++
++
++def _result_payload(result):
++    return {"schema_version": 1, "scope": "C synchronous offline FORCE lithology stream; no A format adoption or runtime authority",
++            "generation": result.generation, "epoch": result.epoch,
++            "delivery_index": result.delivery_index, "sequence": result.sequence,
++            "binding": result.binding._asdict(), "window": result.metadata._asdict(),
++            "latest_valid_masks": result.latest_valid_masks, "probabilities": result.probabilities,
++            "predicted_class_index": result.predicted_class_index,
++            "predicted_source_code": result.predicted_source_code, "class_order": result.class_order,
++            "feature_tensor_sha256": result.feature_tensor_sha256,
++            "feature_tensor_encoding": result.feature_tensor_encoding,
++            "input_prefix_sha256": result.input_prefix_sha256, "session_bytes": result.session_bytes,
++            "artifact_pins": dict(result.artifact_pins), "movement_authorized": False,
++            "motion_bytes": None, "formal_acceptance": "incomplete"}
++
++
++class FrozenForceStream:
++    """One fixed model/scaler; transactional bounded active128 history.
++
++    No public method accepts a model, callback, external result, file of
++    observations, clock, output path or transport. The object is synchronous;
++    a local nonblocking lock rejects overlapping/reentrant operations.
++    """
++    __slots__ = ("__lock", "__limits", "__model", "__torch", "__scaler", "__class_order", "__pins", "__committed")
++
++    def __init__(self, manifest_path=None, expected_manifest_sha256=FIXED_MANIFEST_SHA256, *,
++                 profile=PROFILE_ID, device="cpu", limits=None):
++        if type(profile) is not str or profile != PROFILE_ID:
++            if type(profile) is str and profile == "sim_em_v2":
++                raise StreamError("sim_em_model_missing", "trained sim_em_v2 model/scales absent; FORCE is not remapped", blocked=True)
++            raise StreamError("profile_invalid", "only force_curve_v1 is supported")
++        if type(device) is not str or device != "cpu":
++            raise StreamError("device_invalid", "this core is explicit CPU only; no fallback")
++        if type(expected_manifest_sha256) is not str or expected_manifest_sha256 != FIXED_MANIFEST_SHA256:
++            raise StreamError("hash_mismatch", "only the original fixed learned model manifest is allowed")
++        if limits is None:
++            limits = StreamLimits()
++        if type(limits) is not StreamLimits:
++            raise StreamError("bounds_invalid", "limits must be immutable StreamLimits")
++        limits = replace(limits)  # detach even the caller's frozen configuration object
++        self.__lock = threading.Lock()
++        self.__limits = limits
++        product = Path(__file__).resolve().parents[2]
++        if manifest_path is None:
++            manifest_path = product / "ai_pc/cpu_model/force_v1/model_manifest.json"
++        if type(manifest_path) not in (str, type(Path())):
++            raise StreamError("manifest_invalid", "manifest_path must be an exact string or native Path")
++        try:
++            _runner.read_pinned(Path(_runner.__file__), FIXED_RUNNER_SHA256)
++            _runner.read_pinned(product / "ai_pc/model/curve_input.py", _runner.FIXED_CURVE_BUILDER_SHA256)
++            _runner.read_pinned(product / "ai_pc/model/force_cnn.py", FIXED_MODEL_SOURCE_SHA256)
++            raw_manifest = _runner.read_pinned(manifest_path, FIXED_MANIFEST_SHA256, missing_code="model_missing", limit=2 * 1024 * 1024)
++            manifest = _runner.strict_json(raw_manifest)
++            for field in ("graph", "weights", "preprocessing", "label_schema"):
++                path = _runner._reference(manifest_path, manifest, field)
++                _runner.read_pinned(path, manifest[field]["sha256"], missing_code="model_missing" if field in ("graph", "weights") else "asset_missing")
++            preprocessing = _runner.read_pinned(product / "data/preprocessing.json", _runner.FIXED_PREPROCESSING_SHA256)
++            self.__scaler = CurveScaler.from_document_bytes(preprocessing, expected_sha256=_runner.FIXED_PREPROCESSING_SHA256)
++            import torch
++            from ai_pc.model.force_cnn import load_frozen_model
++            torch.set_num_threads(4)
++            torch.use_deterministic_algorithms(True)
++            self.__model, loaded = load_frozen_model(manifest_path, FIXED_MANIFEST_SHA256, device="cpu")
++            if loaded != manifest:
++                raise StreamError("model_invalid", "loader manifest differs from verified snapshot")
++            self.__model.eval()
++            self.__torch = torch
++        except StreamError:
++            raise
++        except _runner.PackageError as exc:
++            raise StreamError(exc.code, str(exc), blocked=exc.blocked) from exc
++        except (ImportError, ModuleNotFoundError, FileNotFoundError) as exc:
++            raise StreamError("model_missing", str(exc), blocked=True) from exc
++        except (OSError, ValueError, TypeError, KeyError, RuntimeError) as exc:
++            raise StreamError("model_invalid", str(exc)) from exc
++        self.__class_order = tuple(manifest["class_order"])
++        self.__pins = tuple(sorted({"model_manifest_sha256": FIXED_MANIFEST_SHA256,
++                                    "runner_source_sha256": FIXED_RUNNER_SHA256,
++                                    "builder_source_sha256": _runner.FIXED_CURVE_BUILDER_SHA256,
++                                    "model_source_sha256": FIXED_MODEL_SOURCE_SHA256,
++                                    **{field: manifest[field]["sha256"] for field in ("graph", "weights", "preprocessing", "label_schema")}}.items()))
++        self.__committed = _Committed()
++
++    @contextmanager
++    def __guard(self):
++        if not self.__lock.acquire(blocking=False):
++            raise StreamError("busy", "synchronous operation already active; reentry/concurrency rejected")
++        try:
++            yield
++        finally:
++            self.__lock.release()
++
++    def __active(self, token):
++        active = self.__committed.active
++        if active is None:
++            raise StreamError("inactive_session", "explicit start_session required")
++        if token is not active.token:
++            raise StreamError("stale_session", "token must be the exact active token returned by this object")
++        return active
++
++    def start_session(self, *, generation, epoch, run_id):
++        with self.__guard():
++            state = self.__committed
++            if state.active is not None:
++                raise StreamError("active_session", "end the active session explicitly before starting another")
++            _integer(generation, "generation", 1, MAX_IDENTIFIER)
++            _integer(epoch, "epoch", 0, MAX_IDENTIFIER)
++            if generation <= state.highest_generation or epoch <= state.highest_epoch:
++                raise StreamError("stale_session", "both generation and epoch must increase strictly; no wrap/reuse")
++            if state.sessions_started >= self.__limits.max_sessions or state.transitions >= 2 * self.__limits.max_sessions:
++                raise StreamError("lifecycle_limit", "object lifetime session/transition limit reached")
++            run_id = _text(run_id, "run_id", self.__limits.max_binding_bytes)
++            binding = Binding(run_id, SOURCE_DOMAIN, PROFILE_ID, _runner.FIXED_PREPROCESSING_SHA256)
++            token = SessionToken(generation, epoch, binding)
++            builder = CurveWindowBuilder(scaler=self.__scaler,
++                                         binding=CurveBinding(run_id=run_id, source_domain=SOURCE_DOMAIN,
++                                                              preprocessing_sha256=_runner.FIXED_PREPROCESSING_SHA256,
++                                                              profile_id=PROFILE_ID))
++            active = _Active(token, builder, hashlib.sha256())
++            self.__committed = replace(state, active=active, highest_generation=generation,
++                                       highest_epoch=epoch, sessions_started=state.sessions_started + 1,
++                                       transitions=state.transitions + 1)
++            return token
++
++    def end_session(self, token):
++        with self.__guard():
++            active = self.__active(token)
++            state = self.__committed
++            if state.transitions >= 2 * self.__limits.max_sessions:
++                raise StreamError("lifecycle_limit", "object lifetime transition limit reached")
++            payload = {"generation": token.generation, "epoch": token.epoch,
++                       "session_deliveries": active.deliveries, "session_bytes": active.total_bytes,
++                       "input_prefix_sha256": active.prefix.hexdigest(), "movement_authorized": False,
++                       "scope": "C local end receipt; not A lifecycle or stop acknowledgement"}
++            try:
++                encoded = _encode(payload, self.__limits.max_output_bytes)
++            except StreamError:
++                raise
++            except (ValueError, TypeError, RuntimeError, OverflowError) as exc:
++                raise StreamError("transaction_failed", str(exc)) from exc
++            receipt = EndReceipt(token.generation, token.epoch, active.deliveries,
++                                 active.total_bytes, active.prefix.hexdigest(), encoded)
++            self.__committed = replace(state, active=None, transitions=state.transitions + 1)
++            return receipt
++
++    def observe(self, token, raw):
++        with self.__guard():
++            active = self.__active(token)
++            state = self.__committed
++            limits = self.__limits
++            if type(raw) is not bytes or not 1 <= len(raw) <= limits.max_record_bytes:
++                raise StreamError("record_limit", "one immutable nonempty bounded raw bytes record required")
++            if state.deliveries >= limits.max_deliveries or state.total_bytes + len(raw) > limits.max_total_bytes:
++                raise StreamError("stream_limit", "object lifetime delivery/raw-byte limit reached")
++            try:
++                observation = CurveObservation.from_mapping(_runner.strict_json(raw))
++                _text(observation.binding.run_id, "run_id", limits.max_binding_bytes)
++                if observation.binding != active.builder.binding:
++                    raise StreamError("binding_invalid", "run/source/profile/preprocessing must match the explicitly active session")
++                # Pinned builder fields other than the bounded deque are frozen
++                # objects, immutable tuples or scalar counters. Never mutate the
++                # committed deque, hash or counter values during trial work.
++                trial = copy.copy(active.builder)
++                trial._slots = active.builder._slots.copy()
++                trial.observe(observation)
++                window = trial.snapshot()
++                duplicate = window.metadata.accepted_observations == active.builder._accepted
++                if duplicate:
++                    if active.latest is None:
++                        raise StreamError("internal_invalid", "duplicate without an earlier committed result")
++                    probabilities = active.latest.probabilities
++                    feature_sha = active.latest.feature_tensor_sha256
++                else:
++                    with self.__torch.inference_mode():
++                        tensor, feature_sha = _runner._tensor(self.__torch, window, "cpu")
++                        probabilities = tuple(_runner._predict(self.__torch, self.__model, tensor))
++                metadata = WindowMetadata(window.metadata.latest_sequence, window.metadata.filled_slots,
++                                          window.metadata.missing_slots, window.metadata.dropped_oldest,
++                                          window.metadata.accepted_observations, window.metadata.idempotent_repeats)
++                prefix = active.prefix.copy()
++                prefix.update(raw)  # exact accepted delivery bytes, including whitespace/newline
++                predicted = max(range(12), key=probabilities.__getitem__)
++                result = StreamResult(token.generation, token.epoch, active.deliveries,
++                                      observation.sequence, token.binding, metadata,
++                                      tuple(channel[-1] for channel in window.features[4:]), probabilities,
++                                      predicted, self.__class_order[predicted], self.__class_order,
++                                      feature_sha, "float32-little-endian-C-order-[1,8,128,1]",
++                                      prefix.hexdigest(), active.total_bytes + len(raw), self.__pins, b"")
++                encoded = _encode(_result_payload(result), limits.max_output_bytes)
++                result = result._replace(encoded=encoded)
++                new_active = _Active(active.token, trial, prefix, active.deliveries + 1,
++                                     active.total_bytes + len(raw), result)
++                committed = replace(state, active=new_active, deliveries=state.deliveries + 1,
++                                    total_bytes=state.total_bytes + len(raw))
++            except StreamError:
++                raise
++            except _runner.PackageError as exc:
++                raise StreamError(exc.code, str(exc), blocked=exc.blocked) from exc
++            except CurveInputError as exc:
++                raise StreamError("schema_invalid", str(exc)) from exc
++            except (RuntimeError, ValueError, TypeError, OverflowError, KeyError) as exc:
++                raise StreamError("transaction_failed", str(exc)) from exc
++            self.__committed = committed  # the sole observation-state commit
++            return result
++
++    def latest_result(self, token):
++        with self.__guard():
++            return self.__active(token).latest
++
++    def state(self):
++        with self.__guard():
++            state = self.__committed
++            active = state.active
++            return StreamState(active.token.generation if active else None,
++                               active.token.epoch if active else None,
++                               state.highest_generation, state.highest_epoch,
++                               state.sessions_started, state.transitions, state.deliveries, state.total_bytes,
++                               active.deliveries if active else 0, active.total_bytes if active else 0,
++                               active.prefix.hexdigest() if active else None,
++                               hashlib.sha256(active.latest.encoded).hexdigest() if active and active.latest else None)
+--- /dev/null
++++ b/competition/deepeye/ai_pc/cpu_package/STREAM_CORE.md
+@@ -0,0 +1,202 @@
++# Synchronous causal FORCE stream core
++
++Task `DEEPEYE-IMPLEMENTATION-20261014/version1`, work
++`C-CPU-CAUSAL-STREAM-CORE-20261025-v1`, operation
++`C-DEEPEYE-CPU-STREAM-CORE-20261025-21`; source base
++`e3f86f7301abef866c30de2ec851e4a939198381`. All H01-H15 remain under
++`DEEPEYE-HUMAN-LOCK-20261014/revision1`, source
++`f5989cd5defce561f9ba98e6b18fc2682945f0a2`, requirements SHA256
++`c229834bfc2292f5fe4411fc9f12c68487008f9d1adaf31f0144ee7a98173804`.
++Frozen design remains `1011259415a0916054eb580687612580bc1e5f09`.
++
++This new core makes the existing real learned FORCE CPU component callable one
++causal observation at a time. It contains no observation-file argument,
++iterator/suffix consumption, output path, transport, IPC/process, executor,
++clock, verifier, broker, map/planner, scene or hardware access. Its C API format
++has not been adopted as an A runtime/transport format. All values remain
++non-authorizing: `movement_authorized` is a fixed false property; emitted result
++JSON also contains `motion_bytes:null` and incomplete formal acceptance.
++
++## Fixed component and call sequence
++
++```python
++from ai_pc.cpu_package.stream_core import FrozenForceStream
++
++core = FrozenForceStream()
++token = core.start_session(generation=1, epoch=0, run_id="my-public-replay")
++result = core.observe(token, one_raw_json_record_bytes)
++assert result.movement_authorized is False
++assert core.latest_result(token) is result
++receipt = core.end_session(token)
++# Both local identifiers must increase; the same opaque label does not reuse state.
++token2 = core.start_session(generation=2, epoch=1, run_id="my-public-replay")
++```
++
++The `ai_pc` import root is the checkout's `competition/deepeye` directory.
++`FrozenForceStream` constructor accepts an optional exact native Path/string
++pointing to the same frozen manifest bytes and an expected hash that must equal
++`0b76bcd1b21b6b1e254eef0e2e5815a15121fdb8ac48c33710f2b2d85bdf2959`.
++It checks the unchanged C19 runner (`92114790259b7e35e8bf7b1a0519f0e3f68da52729d08b5b9862c992deae70af`),
++curve builder (`c017729a2d5717ff2bbf5a6c591320519c415ac10068b4cee19b3136913d848c`),
++model source (`5003427e1ac01e50b612d8f4f9c674c7df352b3942a5cc39978e23bdfbdb1260`),
++all graph/weight/label/scaler pins, and the original finite JSON model loader.
++The model and frozen train-only scaler objects are instantiated once per core.
++Constructor verification may read pinned asset bytes more than once; it does
++not repeatedly instantiate or load a model for observations. After construction
++the public session/observation/read methods perform no file reads.
++
++Only `force_curve_v1` / `geo_replay` / **CPU** are supported. Explicit HIP or
++another device is rejected, with no fallback. The core uses four torch CPU
++threads, deterministic algorithms and inference/eval mode. It does not change
++A's installed environment or establish compatibility with it. C controls used
++existing CPython3.12.14/Torch2.9.0+cpu; no dependency install or NumPy was added.
++Torch's actual NumPy-unavailable warning is preserved in raw evidence.
++
++`sim_em_v2` returns blocked `sim_em_model_missing`. There is no alternate model,
++input-selected code, weights provider, fake-logits mode, callback or result
++injection argument. FORCE remains public lithology; it is not remapped to water,
++obstacles, sensor_live or 3D truth.
++
++## Local lifecycle identifiers
++
++`generation` is an exact built-in integer in1..2^32-1. `epoch` is an exact
++built-in integer in0..2^32-1. Both must increase **strictly** on every successful
++start over this object's lifetime. Initial high-water sentinels are0 and-1.
++There is no wrap or reuse; reaching the maximum cannot be recovered by wrapping.
++Rejected start attempts do not advance high waters or consume transition counts.
++
++A start is allowed only when inactive. An active session must be ended
++explicitly before a new start. The returned `SessionToken` is a deeply immutable
++tuple. Every observe/end/latest call requires **that exact active object by
++identity**, not merely equal fields. Constructed, copied, `_replace`d, old,
++foreign-core and inactive tokens are rejected. A label is an opaque binding,
++never proof of freshness. End discards active window/hash/latest state; next
++start is cold even with the same run label. Object-lifetime counters and high
++waters survive end/start and cannot be reset by label reuse.
++
++These identifiers/token are **only C in-process API bookkeeping**. They are not
++A BOOT/run authorization, CONFIG epoch, observed_seq, capture proof, clock,
++deadline, physical stop, grant, security principal or transport credential.
++An end receipt is not an A STOP acknowledgement. Restarting a Python core does
++not prove a new authorized A session; A/runtime must establish that separately.
++
++## One raw record and bounded state
++
++`observe(token, raw)` requires exact built-in immutable `bytes`, not a subclass,
++bytearray, memoryview, iterator or arbitrary mapping. One JSON object is parsed;
++unknown/duplicate fields, additional objects, invalid UTF-8/nonfinite JSON and
++extra labels/confidence/coordinates/truth/timestamps are rejected. It must have
++the unchanged thirteen `CurveObservation` fields:
++
++`run_id, source_domain, profile_id, preprocessing_sha256, sequence,
++value_0..value_3, valid_0..valid_3`.
++
++The binding must exactly match explicit start and fixed preprocessing
++`cb66fd302165c86344f3b8d1af9d9c4e4e229621cef44cbfa6fb8cd121a63eef`.
++The sequence is the original exact uint64 acquisition index, not a derived wire
++sequence or invented time. The unchanged builder preserves masks, missing
++startup/gap slots, positive-RDEP policy, duplicate/regression rejection and
++bounded huge-gap handling. At the uint64 maximum, an exact duplicate can still
++be accepted within API budgets; a wrapped or regressed sequence cannot.
++
++`StreamLimits` permits only reductions of these hard bounds:
++
++| Limit | Meaning |
++| --- | --- |
++|16,384 bytes|Each supplied raw record|
++|8,192 bytes|Each emitted result/end JSON; configurable minimum512bytes|
++|128 UTF-8 bytes|Each opaque run binding label; other binding strings are fixed|
++|65,536 deliveries|All accepted calls over the core object's lifetime|
++|64MiB raw bytes|All accepted exact raw bytes over the core object's lifetime|
++|1,024 starts /2,048 transitions|Object lifetime; start and end each count once|
++
++Exact integer/bool/subclass checks apply. Limits are defensively copied from
++the caller's frozen configuration. Per-session bytes/deliveries reset at start
++but are bounded by the same surviving lifetime limits. All builder counters are
++therefore bounded by accepted lifetime deliveries; rejected calls consume none.
++Output/record reductions can intentionally block observation acceptance; the
++minimum output size still accommodates the bounded end receipt.
++
++Retained stream state consists of the fixed model/scaler/class/pin constants,
++one bounded128-slot active builder, one incremental SHA object, bounded scalar
++counters, the current token and only the latest result. There is no list of raw
++records, result history or replay of the entire prefix. Model tensors are fixed
++by the declared4916-parameter graph. Temporary trial/tensor/output state is also
++bounded and discarded after the call. Caller retention of old returned values
++does not become internal history.
++
++## Atomic observation transaction and duplicate semantics
++
++Every public session/state/read/observe method uses a local nonblocking lock.
++It creates no thread or background work; a reentrant or concurrent call receives
++`busy` instead of racing lifecycle changes. No user callback is invoked by the
++production API while committing state.
++
++For a candidate observation, the core shallow-copies the **pinned** builder and
++copies its deque independently. All other retained builder fields are immutable
++tuples/frozen objects or scalar counters. It applies the original builder to
++this trial only, builds the tensor through the original C19 float32/shape/finite
++checks, invokes the real stateless learned model, copies the prefix SHA and
++prepares the deeply immutable result and bounded finite JSON. Only then does
++one assignment replace the committed state while holding the lock.
++
++Malformed input, binding conflict, old sequence, conflicting duplicate,
++float32 overflow **after valid float64 normalization**, model/finite-output
++failure, serialization/output bound failure or stale token cannot advance
++window/history/counters/prefix/latest result. End likewise serializes its
++bounded receipt before dropping the active session. Input-derived exception
++detail is bounded to256characters; normal rejections use `StreamError(code,
++detail,blocked=...)`. Public read methods return immutable values, not builder,
++model, hash or mutable state aliases.
++
++An exact current-sequence duplicate with equal values/flags retains original
++builder idempotence: no new acquisition slot or observation is invented. The
++**accepted delivery** still advances zero-based `delivery_index`, raw-byte
++count and SHA of the concatenated accepted raw deliveries, including exact
++whitespace/newline. The builder's idempotent-repeat count increases. The exact
++previous probabilities and feature digest are reused because features did not
++change; output serialization and every limit still happen before commit.
++Rejected duplicate deliveries advance nothing.
++
++Results contain the current original sequence, binding, cold/gap/mask metadata,
++twelve finite probabilities and official class order/source code, actual
++float32 little-endian C-order `[1,8,128,1]` tensor digest/encoding, exact raw
++prefix digest, delivery index/bytes and all fixed model/source artifact pins.
++All nested values are tuples, primitive immutable values or bytes; even
++`object.__setattr__` cannot alter their tuple fields. `encoded` is bounded
++canonical JSON plus one LF. No method accepts externally computed results to
++overwrite latest; copying/replacing a returned result cannot install it.
++
++## Actual scoped controls and remaining gates
++
++Run only the new controls from checkout root:
++
++```text
++python -B -X utf8 competition/deepeye/tests/ai/cpu/test_stream_core.py -v
++```
++
++The first author run passed16new methods, zero skips, exit0. A subsequent narrow
++change normalized unexpected end-receipt serialization exceptions into bounded
++`StreamError`; only that affected end control was rerun on final source and
++passed1method/exit0. The entire16-method run belongs to its preserved pre-change
++snapshot, not a claimed full final-source rerun. Independent final-source review
++is pending. No actual RED occurred or was fabricated.
++
++Controls include8new actual FORCE prefix calls and exact comparison of saved
++C19 indices0/1/7 for probabilities/tensor/prefix/sequence/masks; the saved raw
++baseline SHA is `e84bdfe850efb8a231f72c98a5fb05cc20c7f6036014f4db77ef3f6cf44b418f`.
++They do not call old `execute`, its old suites, all128baseline inference or its
++ten-repeat benchmark. Other controls cover load-once, prohibited observation
++file reads, invalid future suffix independence, float32/model/serialization
++failure atomicity including duplicates, masks/gaps/huge gaps/uint64, lifecycle
++strictness/stale tokens, exact bytes and subclass bounds, immutable results,
++lifetime caps across sessions, reentry and explicit profile/model refusal.
++Private test failure injection only raises or wraps real functions; it adds no
++public fake-model/logit mode and never supplies fake successful predictions.
++
++The existing graph's held-out quality remains **FAIL**: macro-F1 about0.1827348,
++below centroid0.2047005 and target0.60. No training, tuning or held-out evaluation
++was repeated. Missing sim_em/scales, qualified causal sensing/mapping/planning,
++A lifecycle/clock/runtime integration, both control paths, board work and every
++unmet formal H01-H15/product gate remain incomplete. Model presence or this
++software API is not substantive full-system AI benefit or formal acceptance.
+--- /dev/null
++++ b/competition/deepeye/tests/ai/cpu/test_stream_core.py
+@@ -0,0 +1,314 @@
++"""New streaming controls only; real pinned learned model, no old suite calls."""
++import copy
++import hashlib
++import inspect
++import json
++from pathlib import Path
++import sys
++import unittest
++from unittest.mock import patch
++
++PRODUCT = Path(__file__).resolve().parents[3]
++sys.path.insert(0, str(PRODUCT))
++from ai_pc.cpu_package import stream_core as module
++from ai_pc.cpu_package.stream_core import FrozenForceStream, SessionToken, StreamError, StreamLimits
++
++MODEL = PRODUCT / "ai_pc/cpu_model/force_v1/model_manifest.json"
++PUBLIC = PRODUCT / "ai_pc/cpu_model/force_v1/public_input.jsonl"
++SAVED = PRODUCT / "evidence/ai/cpu_package_20261024/cpu-baseline/prediction-result.json"
++
++
++def raw_record(sequence=0, run_id="stream-unit", **changes):
++    # Constructed unit-boundary observations; not public-source/model-quality evidence.
++    record = {"run_id": run_id, "source_domain": "geo_replay", "profile_id": "force_curve_v1",
++              "preprocessing_sha256": module._runner.FIXED_PREPROCESSING_SHA256, "sequence": sequence,
++              "value_0": 80.0, "value_1": 2.4, "value_2": .2, "value_3": 10.0,
++              "valid_0": True, "valid_1": True, "valid_2": True, "valid_3": True}
++    record.update(changes)
++    return module._runner.canonical_json(record) + b"\n"
++
++
++def start(core, generation=1, epoch=0, run_id="stream-unit"):
++    return core.start_session(generation=generation, epoch=epoch, run_id=run_id)
++
++
++class StreamCoreTests(unittest.TestCase):
++    def assertUnchangedFailure(self, core, token, raw, code=None):
++        before = core.state()
++        try:
++            previous = core.latest_result(token)
++            active_token = True
++        except StreamError:
++            active_token = False
++        with self.assertRaises(StreamError) as caught:
++            core.observe(token, raw)
++        if code:
++            self.assertEqual(caught.exception.code, code)
++        self.assertEqual(core.state(), before)
++        if active_token:
++            self.assertIs(core.latest_result(token), previous)
++        return caught.exception
++
++    def test_selected_saved_c19_prefix_parity_without_old_execute_or_all128(self):
++        with PUBLIC.open("rb") as source:
++            records = tuple(source.readline() for _ in range(8))
++        saved_raw = SAVED.read_bytes()
++        self.assertEqual(hashlib.sha256(saved_raw).hexdigest(), "e84bdfe850efb8a231f72c98a5fb05cc20c7f6036014f4db77ef3f6cf44b418f")
++        saved = json.loads(saved_raw)["predictions"]
++        core = FrozenForceStream()
++        token = start(core, run_id="C-FORCE-CPU-20261024-v1")
++        compared = []
++        for index, raw in enumerate(records):
++            actual = core.observe(token, raw)
++            if index in (0, 1, 7):
++                expected = saved[index]
++                self.assertEqual(actual.feature_tensor_sha256, expected["feature_tensor_sha256"])
++                self.assertEqual(actual.input_prefix_sha256, expected["input_prefix_sha256"])
++                self.assertEqual(actual.probabilities, tuple(expected["probabilities"]))
++                self.assertEqual(actual.sequence, expected["window"]["latest_sequence"])
++                self.assertEqual(actual.predicted_class_index, expected["predicted_class_index"])
++                self.assertEqual(actual.latest_valid_masks, tuple(expected["latest_valid_masks"]))
++                compared.append({"index": index, "sequence": actual.sequence,
++                                 "feature_sha256": actual.feature_tensor_sha256,
++                                 "prefix_sha256": actual.input_prefix_sha256,
++                                 "probabilities": actual.probabilities})
++        self.assertEqual(core.state().session_deliveries, 8)
++        self.assertEqual(actual.metadata.filled_slots, 8)
++        self.assertEqual(actual.metadata.missing_slots, 120)
++        print(json.dumps({"control": "selected_C19_parity", "new_prefix_calls": 8, "compared": compared}, sort_keys=True))
++
++    def test_model_scaler_loaded_once_and_no_observe_file_reads(self):
++        from ai_pc.model import force_cnn
++        original_load = force_cnn.load_frozen_model
++        original_scaler = module.CurveScaler.from_document_bytes
++        with patch.object(force_cnn, "load_frozen_model", wraps=original_load) as load:
++            with patch.object(module.CurveScaler, "from_document_bytes", wraps=original_scaler) as scaler:
++                core = FrozenForceStream()
++                token = start(core)
++                with patch("builtins.open", side_effect=AssertionError("post-construction file read")):
++                    core.observe(token, raw_record(0))
++                    core.observe(token, raw_record(1))
++                    core.end_session(token)
++                    token2 = start(core, 2, 1)
++                    core.observe(token2, raw_record(0))
++                self.assertEqual(load.call_count, 1)
++                self.assertEqual(scaler.call_count, 1)
++
++    def test_prefix_returns_before_any_invalid_future_record_is_supplied(self):
++        core = FrozenForceStream()
++        token = start(core)
++        raw = raw_record()
++        first = core.observe(token, raw)
++        self.assertEqual(first.input_prefix_sha256, hashlib.sha256(raw).hexdigest())
++        self.assertIs(core.latest_result(token), first)
++        future_invalid = raw_record(1, future_tick=123, truth="forbidden")
++        self.assertUnchangedFailure(core, token, future_invalid, "schema_invalid")
++        self.assertEqual(first.metadata.accepted_observations, 1)
++
++    def test_exact_duplicates_advance_raw_prefix_delivery_but_not_observation(self):
++        core = FrozenForceStream()
++        token = start(core)
++        raw = raw_record(7)
++        first = core.observe(token, raw)
++        altered_whitespace = b"  " + raw
++        with patch.object(module._runner, "_predict", side_effect=AssertionError("duplicate must reuse actual earlier probabilities")):
++            second = core.observe(token, altered_whitespace)
++        self.assertEqual((second.delivery_index, second.sequence), (1, 7))
++        self.assertEqual((second.metadata.accepted_observations, second.metadata.idempotent_repeats), (1, 1))
++        self.assertEqual(second.feature_tensor_sha256, first.feature_tensor_sha256)
++        self.assertEqual(second.probabilities, first.probabilities)
++        self.assertEqual(second.input_prefix_sha256, hashlib.sha256(raw + altered_whitespace).hexdigest())
++        self.assertEqual(first.delivery_index, 0)
++        self.assertEqual(first.metadata.idempotent_repeats, 0)
++
++    def test_mask_gap_huge_gap_uint64_and_regression_binding_controls(self):
++        core = FrozenForceStream()
++        token = start(core)
++        core.observe(token, raw_record(0))
++        masked = core.observe(token, raw_record(2, valid_1=False, value_3=0))
++        self.assertEqual(masked.latest_valid_masks, (1., 0., 1., 0.))
++        self.assertEqual((masked.metadata.filled_slots, masked.metadata.missing_slots), (2, 126))
++        huge = core.observe(token, raw_record((1 << 64) - 1))
++        self.assertEqual((huge.metadata.filled_slots, huge.metadata.missing_slots), (1, 127))
++        self.assertEqual(huge.sequence, (1 << 64) - 1)
++        self.assertUnchangedFailure(core, token, raw_record(0), "schema_invalid")
++        self.assertUnchangedFailure(core, token, raw_record(1 << 64), "schema_invalid")
++        self.assertUnchangedFailure(core, token, raw_record((1 << 64) - 1, value_0=81), "schema_invalid")
++        self.assertUnchangedFailure(core, token, raw_record((1 << 64) - 1, run_id="different"), "binding_invalid")
++
++    def test_float32_failure_after_trial_build_does_not_change_any_committed_state(self):
++        core = FrozenForceStream()
++        token = start(core)
++        first_raw = raw_record(0)
++        first = core.observe(token, first_raw)
++        self.assertUnchangedFailure(core, token, raw_record(1, value_0=1e300), "feature_invalid")
++        next_raw = raw_record(1)
++        recovered = core.observe(token, next_raw)
++        self.assertEqual((recovered.delivery_index, recovered.metadata.accepted_observations), (1, 2))
++        self.assertEqual(recovered.input_prefix_sha256, hashlib.sha256(first_raw + next_raw).hexdigest())
++        self.assertEqual(first.metadata.accepted_observations, 1)
++
++    def test_model_and_serialization_failures_including_duplicate_are_atomic(self):
++        core = FrozenForceStream()
++        token = start(core)
++        raw = raw_record(0)
++        core.observe(token, raw)
++        with patch.object(module._runner, "_predict", side_effect=RuntimeError("injected failure only; no fake logits")):
++            self.assertUnchangedFailure(core, token, raw_record(1), "transaction_failed")
++        for failure_raw in (raw_record(1), raw):
++            with patch.object(module, "_encode", side_effect=ValueError("injected serialization failure")):
++                self.assertUnchangedFailure(core, token, failure_raw, "transaction_failed")
++        recovered = core.observe(token, raw_record(1))
++        self.assertEqual(recovered.delivery_index, 1)
++        self.assertEqual(recovered.metadata.idempotent_repeats, 0)
++
++    def test_explicit_end_start_strict_monotonic_identifiers_and_stale_tokens(self):
++        core = FrozenForceStream()
++        token = start(core)
++        core.observe(token, raw_record(0))
++        before = core.state()
++        with self.assertRaises(StreamError):
++            start(core, 2, 1)
++        self.assertEqual(core.state(), before)
++        for forged in (SessionToken(*token), token._replace(), copy.copy(token), None, True):
++            self.assertIsNot(forged, token)
++            self.assertUnchangedFailure(core, forged, raw_record(1), "stale_session")
++        receipt = core.end_session(token)
++        self.assertFalse(receipt.movement_authorized)
++        inactive = core.state()
++        self.assertEqual((inactive.active_generation, inactive.session_deliveries, inactive.latest_result_sha256), (None, 0, None))
++        for generation, epoch in ((1, 1), (2, 0), (True, 1), (2, True), (0, 1), (1 << 32, 1)):
++            with self.subTest(generation=generation, epoch=epoch), self.assertRaises(StreamError):
++                start(core, generation, epoch)
++            self.assertEqual(core.state(), inactive)
++        token2 = start(core, 2, 1)  # same opaque run label does not reuse state
++        self.assertUnchangedFailure(core, token, raw_record(0), "stale_session")
++        cold = core.observe(token2, raw_record(0))
++        self.assertEqual((cold.delivery_index, cold.metadata.filled_slots), (0, 1))
++
++    def test_identifier_exhaustion_never_wraps_or_reuses_old_token(self):
++        core = FrozenForceStream()
++        token = start(core, module.MAX_IDENTIFIER, module.MAX_IDENTIFIER)
++        core.end_session(token)
++        before = core.state()
++        for generation, epoch in ((0, 0), (module.MAX_IDENTIFIER, module.MAX_IDENTIFIER),
++                                  (module.MAX_IDENTIFIER + 1, module.MAX_IDENTIFIER + 1)):
++            with self.assertRaises(StreamError):
++                start(core, generation, epoch)
++            self.assertEqual(core.state(), before)
++
++    def test_immutable_nested_output_and_no_external_result_install_method(self):
++        core = FrozenForceStream()
++        token = start(core)
++        result = core.observe(token, raw_record())
++        for target, field, value in ((result, "sequence", 123), (result.binding, "run_id", "changed"),
++                                     (result.metadata, "accepted_observations", 999)):
++            with self.assertRaises((AttributeError, TypeError)):
++                object.__setattr__(target, field, value)
++        with self.assertRaises(TypeError):
++            result.probabilities[0] = 0
++        self.assertLessEqual(len(result.encoded), 8192)
++        decoded = json.loads(result.encoded)
++        self.assertFalse(decoded["movement_authorized"])
++        self.assertIsNone(decoded["motion_bytes"])
++        self.assertEqual(tuple(decoded["probabilities"]), result.probabilities)
++        fake = result._replace(probabilities=(0.,) * 12)
++        self.assertUnchangedFailure(core, token, fake, "record_limit")
++        self.assertIs(core.latest_result(token), result)
++        self.assertNotIn("model", inspect.signature(FrozenForceStream).parameters)
++        self.assertNotIn("result", inspect.signature(core.observe).parameters)
++
++    def test_exact_bytes_int_string_and_error_bounds(self):
++        class LyingBytes(bytes):
++            def __len__(self):
++                return 1
++        class IntSubclass(int):
++            pass
++        core = FrozenForceStream()
++        token = start(core)
++        for raw in (LyingBytes(b"x" * 20000), bytearray(raw_record()), memoryview(raw_record()), iter([raw_record()]), b"x" * 16385):
++            self.assertUnchangedFailure(core, token, raw, "record_limit")
++        for malformed in (b'{"x":1,"x":2}', b'{"x":NaN}', b'\xff', b'{}{}', raw_record(label=1), raw_record(sequence=True)):
++            exc = self.assertUnchangedFailure(core, token, malformed)
++            self.assertLessEqual(len(str(exc)), 256)
++        core.end_session(token)
++        for kwargs in ({"generation": IntSubclass(2), "epoch": 1, "run_id": "stream-unit"},
++                       {"generation": 2, "epoch": 1, "run_id": "x" * 129},
++                       {"generation": 2, "epoch": 1, "run_id": "\ud800"}):
++            with self.assertRaises(StreamError):
++                core.start_session(**kwargs)
++
++    def test_lifetime_delivery_and_byte_caps_cannot_be_reset_by_new_session(self):
++        raw = raw_record()
++        for limits in (StreamLimits(max_deliveries=1), StreamLimits(max_total_bytes=len(raw))):
++            core = FrozenForceStream(limits=limits)
++            token = start(core)
++            core.observe(token, raw)
++            core.end_session(token)
++            token2 = start(core, 2, 1)
++            self.assertUnchangedFailure(core, token2, raw, "stream_limit")
++            self.assertEqual((core.state().lifetime_deliveries, core.state().lifetime_bytes), (1, len(raw)))
++
++    def test_limits_alias_output_and_transition_exhaustion(self):
++        limits = StreamLimits(max_deliveries=1, max_sessions=1)
++        core = FrozenForceStream(limits=limits)
++        object.__setattr__(limits, "max_deliveries", 999)
++        token = start(core)
++        core.observe(token, raw_record())
++        self.assertUnchangedFailure(core, token, raw_record(1), "stream_limit")
++        core.end_session(token)
++        before = core.state()
++        with self.assertRaises(StreamError) as caught:
++            start(core, 2, 1)
++        self.assertEqual(caught.exception.code, "lifecycle_limit")
++        self.assertEqual(core.state(), before)
++        limited = FrozenForceStream(limits=StreamLimits(max_output_bytes=512))
++        token = start(limited)
++        self.assertUnchangedFailure(limited, token, raw_record(), "output_limit")
++        self.assertEqual(limited.state().session_deliveries, 0)
++        limited.end_session(token)
++
++    def test_reentry_reads_and_lifecycle_are_guarded_without_spawning_threads(self):
++        core = FrozenForceStream()
++        token = start(core)
++        original = module._runner._predict
++        def control(torch, model, tensor):
++            for action in (lambda: core.state(), lambda: core.latest_result(token),
++                           lambda: core.end_session(token), lambda: core.observe(token, raw_record(1))):
++                with self.assertRaises(StreamError) as caught:
++                    action()
++                self.assertEqual(caught.exception.code, "busy")
++            return original(torch, model, tensor)
++        with patch.object(module._runner, "_predict", side_effect=control):
++            result = core.observe(token, raw_record())
++        self.assertEqual(result.delivery_index, 0)
++        self.assertEqual(core.state().session_deliveries, 1)
++
++    def test_end_serialization_failure_keeps_active_session(self):
++        core = FrozenForceStream()
++        token = start(core)
++        before = core.state()
++        with patch.object(module, "_encode", side_effect=ValueError("end failure")):
++            with self.assertRaises(StreamError) as caught:
++                core.end_session(token)
++            self.assertEqual(caught.exception.code, "transaction_failed")
++        self.assertEqual(core.state(), before)
++        self.assertIsNone(core.latest_result(token))
++        core.end_session(token)
++
++    def test_wrong_profile_device_manifest_and_public_injection_refused(self):
++        for kwargs, code in (({"profile": "sim_em_v2"}, "sim_em_model_missing"),
++                             ({"device": "hip"}, "device_invalid"),
++                             ({"expected_manifest_sha256": "0" * 64}, "hash_mismatch")):
++            with self.subTest(kwargs=kwargs), self.assertRaises(StreamError) as caught:
++                FrozenForceStream(**kwargs)
++            self.assertEqual(caught.exception.code, code)
++        with self.assertRaises(TypeError):
++            FrozenForceStream(model=lambda x: [0.] * 12)
++        for kwargs in ({"max_record_bytes": 16385}, {"max_deliveries": True}, {"max_output_bytes": 1}):
++            with self.assertRaises(StreamError):
++                StreamLimits(**kwargs)
++
++
++if __name__ == "__main__":
++    unittest.main(verbosity=2)

@@ -1,0 +1,17 @@
+{
+  "argv": [
+    "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\cpu-model-env-20261024\\Scripts\\python.exe",
+    "-B",
+    "-X",
+    "utf8",
+    "competition\\deepeye\\tests\\ai\\cpu\\test_stream_core.py",
+    "-v"
+  ],
+  "cwd": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\deepeye-implementation-c",
+  "capture_python": "3.13.5",
+  "source_sha256_before": {
+    "competition/deepeye/ai_pc/cpu_package/stream_core.py": "fb3dd88e03cddd23e53c168971c8c6b1cb3e66db9f9424fb453c5089f7eb7b94",
+    "competition/deepeye/tests/ai/cpu/test_stream_core.py": "c8efa15d871f9f7ab64f361e60ee622d9ac1a14013a035dea7ee07e40e91b9f7"
+  },
+  "start_utc": "2026-10-25T12:03:29.950397+00:00"
+}

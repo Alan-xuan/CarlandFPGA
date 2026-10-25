@@ -1,0 +1,18 @@
+{
+  "argv": [
+    "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\cpu-model-env-20261024\\Scripts\\python.exe",
+    "-I",
+    "-B",
+    "-X",
+    "utf8",
+    "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\main-20261015-01a14025\\stream-core-20261025\\review\\phase3\\independent_controls.py"
+  ],
+  "cwd": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\main-20261015-01a14025\\stream-core-20261025\\review\\phase3",
+  "started_utc": "2026-10-25T12:36:41.709286+00:00",
+  "finished_utc": "2026-10-25T12:36:46.955388+00:00",
+  "exit_code": 0,
+  "script_sha256": "5db37c24eebdd2a325130f98d0606ccc01178a08d7efd828a60f08408dffe04e",
+  "stdout_sha256": "0d886c960d50925ce3e863ff23cf44bad6f6814ad0de89bfd1717a63a2516f1f",
+  "stderr_sha256": "ac6db90e456917f63d1b615a453e1f5cd11b325f88873a7a60f607517c4f2cad",
+  "source_sha256": "0a8c07f34080784f36180951b28873b43de5e3f80ad201325254b274bd01217b"
+}

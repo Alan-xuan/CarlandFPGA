@@ -1,0 +1,23 @@
+test_end_serialization_failure_keeps_active_session (__main__.StreamCoreTests.test_end_serialization_failure_keeps_active_session) ... C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\cpu-model-env-20261024\Lib\site-packages\torch\_subclasses\functional_tensor.py:279: UserWarning: Failed to initialize NumPy: No module named 'numpy' (Triggered internally at C:\actions-runner\_work\pytorch\pytorch\pytorch\torch\csrc\utils\tensor_numpy.cpp:84.)
+  cpu = _conversion_method_template(device=torch.device("cpu"))
+ok
+test_exact_bytes_int_string_and_error_bounds (__main__.StreamCoreTests.test_exact_bytes_int_string_and_error_bounds) ... ok
+test_exact_duplicates_advance_raw_prefix_delivery_but_not_observation (__main__.StreamCoreTests.test_exact_duplicates_advance_raw_prefix_delivery_but_not_observation) ... ok
+test_explicit_end_start_strict_monotonic_identifiers_and_stale_tokens (__main__.StreamCoreTests.test_explicit_end_start_strict_monotonic_identifiers_and_stale_tokens) ... ok
+test_float32_failure_after_trial_build_does_not_change_any_committed_state (__main__.StreamCoreTests.test_float32_failure_after_trial_build_does_not_change_any_committed_state) ... ok
+test_identifier_exhaustion_never_wraps_or_reuses_old_token (__main__.StreamCoreTests.test_identifier_exhaustion_never_wraps_or_reuses_old_token) ... ok
+test_immutable_nested_output_and_no_external_result_install_method (__main__.StreamCoreTests.test_immutable_nested_output_and_no_external_result_install_method) ... ok
+test_lifetime_delivery_and_byte_caps_cannot_be_reset_by_new_session (__main__.StreamCoreTests.test_lifetime_delivery_and_byte_caps_cannot_be_reset_by_new_session) ... ok
+test_limits_alias_output_and_transition_exhaustion (__main__.StreamCoreTests.test_limits_alias_output_and_transition_exhaustion) ... ok
+test_mask_gap_huge_gap_uint64_and_regression_binding_controls (__main__.StreamCoreTests.test_mask_gap_huge_gap_uint64_and_regression_binding_controls) ... ok
+test_model_and_serialization_failures_including_duplicate_are_atomic (__main__.StreamCoreTests.test_model_and_serialization_failures_including_duplicate_are_atomic) ... ok
+test_model_scaler_loaded_once_and_no_observe_file_reads (__main__.StreamCoreTests.test_model_scaler_loaded_once_and_no_observe_file_reads) ... ok
+test_prefix_returns_before_any_invalid_future_record_is_supplied (__main__.StreamCoreTests.test_prefix_returns_before_any_invalid_future_record_is_supplied) ... ok
+test_reentry_reads_and_lifecycle_are_guarded_without_spawning_threads (__main__.StreamCoreTests.test_reentry_reads_and_lifecycle_are_guarded_without_spawning_threads) ... ok
+test_selected_saved_c19_prefix_parity_without_old_execute_or_all128 (__main__.StreamCoreTests.test_selected_saved_c19_prefix_parity_without_old_execute_or_all128) ... ok
+test_wrong_profile_device_manifest_and_public_injection_refused (__main__.StreamCoreTests.test_wrong_profile_device_manifest_and_public_injection_refused) ... ok
+
+----------------------------------------------------------------------
+Ran 16 tests in 14.682s
+
+OK

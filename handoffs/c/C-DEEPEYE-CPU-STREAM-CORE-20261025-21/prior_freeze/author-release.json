@@ -1,0 +1,43 @@
+{
+  "work_id": "C-CPU-CAUSAL-STREAM-CORE-20261025-v1",
+  "actual_agent_id": "/root/cpu_package_runner",
+  "active_subprocesses": [],
+  "ownership_released": true,
+  "stopped_after_this_command": true,
+  "manifest": "competition/deepeye/evidence/ai/cpu_stream_20261025/author/delivery-manifest.json",
+  "manifest_sha256": "220f3c1bdcfc6722da937be45d9e41da587a09563733e0045894f66471315511",
+  "report_sha256": "e10c8ed68fc59d7e856cd0f55bd64c528f9405f9dc6a58d08af11023717656f5",
+  "artifact_count": 22,
+  "source_sha256": {
+    "competition/deepeye/ai_pc/cpu_package/stream_core.py": {
+      "sha256": "0ddbe6710be81df3e428f63809257dea69c35fee1aabd24cd9bb58eb71b41976",
+      "bytes": 19495
+    },
+    "competition/deepeye/ai_pc/cpu_package/STREAM_CORE.md": {
+      "sha256": "3950ef879b879d928ba8a3392b9de803f3354d036afa9ed5525d96df36924c1d",
+      "bytes": 11846
+    },
+    "competition/deepeye/tests/ai/cpu/test_stream_core.py": {
+      "sha256": "a05d83beebaf2f1bd121ac574e96ba5fb454374c39a1c4188df69e40584973c3",
+      "bytes": 17173
+    }
+  },
+  "controls": {
+    "first_snapshot_methods": 16,
+    "first_snapshot_skips": 0,
+    "first_exit_code": 0,
+    "final_source_affected_methods": 1,
+    "final_affected_exit_code": 0,
+    "final_full16_rerun": false,
+    "actual_RED": false,
+    "selected_saved_C19_indices": [
+      0,
+      1,
+      7
+    ],
+    "new_public_prefix_calls_for_comparison": 8,
+    "old_execute_suite_training_heldout_benchmark_calls": 0,
+    "runtime": "existing CPython3.12.14/Torch2.9.0+cpu; 4CPUthreads"
+  },
+  "recorded_utc": "2026-10-25T12:10:35.209218+00:00"
+}

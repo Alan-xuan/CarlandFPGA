@@ -1,0 +1,18 @@
+{
+  "work_id": "C-CPU-CAUSAL-STREAM-CORE-20261025-v1",
+  "source_of_expectations": "A original task and unchanged pinned CurveWindowBuilder/C19 saved output; frozen before inspecting new author implementation",
+  "selected_prefix_oracle_sha256": "d51715b564fd09803c69e9995de8b834fdbab0962fe0a6f8135a863fe59e2a44",
+  "original_C19_output_sha256": "e84bdfe850efb8a231f72c98a5fb05cc20c7f6036014f4db77ef3f6cf44b418f",
+  "checks": [
+    "Three actual real-model stream observations match saved C19 tensor digest, exact prefix, binding, original sequence, class order and predicted class; abs probability difference <=1e-6. Never invoke old execute or all128prefix baseline.",
+    "Equivalent current payload encoded with different legal whitespace is a builder-idempotent repeat but extends exact raw-byte prefix; prior returned bytes remain unchanged and no extra acquisition is inferred.",
+    "A malformed or forbidden future record leaves previous committed prefix/result/history unchanged; supplying the next legitimate record still succeeds.",
+    "A finite JSON value producing float32-overflow features fails after trial build without committing history/digest/sequence; a corrected record at the same new sequence may be accepted.",
+    "Explicit session end/new monotonic lifecycle token isolates histories even for same opaque run label; old/copied tokens cannot observe or overwrite the new current result. No implicit reset or timing/source claim.",
+    "After construction and the first actual observation, fence model/scaler artifact file reads; subsequent actual observations must not reload assets.",
+    "Exact bytes/type/length controls reject mutable aliases and length-overriding bytes subclasses so hard bounds cannot be bypassed.",
+    "Outputs contain finite12 probabilities, fixed class order/feature encoding, original sequence/binding and explicit zero authority; no A observed_seq, BOOT, acquisition-age, model_candidate or motion_request is manufactured."
+  ],
+  "formal_acceptance": "not_run",
+  "H01_H15_and_fixed_contract": "unchanged"
+}

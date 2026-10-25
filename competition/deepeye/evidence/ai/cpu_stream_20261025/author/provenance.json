@@ -1,0 +1,38 @@
+{
+  "git_head": {
+    "argv": [
+      "git",
+      "rev-parse",
+      "HEAD"
+    ],
+    "cwd": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\deepeye-implementation-c",
+    "exit_code": 0,
+    "stdout": "e3f86f7301abef866c30de2ec851e4a939198381\n",
+    "stderr": ""
+  },
+  "existing_tracked_diff": {
+    "argv": [
+      "git",
+      "--no-pager",
+      "diff",
+      "--no-ext-diff",
+      "--exit-code",
+      "HEAD",
+      "--",
+      "."
+    ],
+    "cwd": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\deepeye-implementation-c",
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  "existing_dependency_sha256": {
+    "competition/deepeye/ai_pc/cpu_package/runner.py": "92114790259b7e35e8bf7b1a0519f0e3f68da52729d08b5b9862c992deae70af",
+    "competition/deepeye/ai_pc/model/curve_input.py": "c017729a2d5717ff2bbf5a6c591320519c415ac10068b4cee19b3136913d848c",
+    "competition/deepeye/ai_pc/model/force_cnn.py": "5003427e1ac01e50b612d8f4f9c674c7df352b3942a5cc39978e23bdfbdb1260",
+    "competition/deepeye/ai_pc/cpu_model/force_v1/model_manifest.json": "0b76bcd1b21b6b1e254eef0e2e5815a15121fdb8ac48c33710f2b2d85bdf2959",
+    "competition/deepeye/data/preprocessing.json": "cb66fd302165c86344f3b8d1af9d9c4e4e229621cef44cbfa6fb8cd121a63eef",
+    "competition/deepeye/evidence/ai/cpu_package_20261024/cpu-baseline/prediction-result.json": "e84bdfe850efb8a231f72c98a5fb05cc20c7f6036014f4db77ef3f6cf44b418f"
+  },
+  "requirements_sha256": "c229834bfc2292f5fe4411fc9f12c68487008f9d1adaf31f0144ee7a98173804"
+}

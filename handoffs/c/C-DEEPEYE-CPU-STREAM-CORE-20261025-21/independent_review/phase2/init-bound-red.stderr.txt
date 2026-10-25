@@ -1,0 +1,21 @@
+test_constructor_asset_preflight_is_size_bounded (__main__.ConstructorReadBound.test_constructor_asset_preflight_is_size_bounded) ... FAIL
+
+======================================================================
+FAIL: test_constructor_asset_preflight_is_size_bounded (__main__.ConstructorReadBound.test_constructor_asset_preflight_is_size_bounded)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\main-20261015-01a14025\stream-core-20261025\review\phase2\repro_init_bound.py", line 36, in test_constructor_asset_preflight_is_size_bounded
+    m.FrozenForceStream()
+  File "C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\deepeye-implementation-c\competition\deepeye\ai_pc\cpu_package\stream_core.py", line 223, in __init__
+    _runner.read_pinned(Path(_runner.__file__), FIXED_RUNNER_SHA256)
+  File "C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\deepeye-implementation-c\competition\deepeye\ai_pc\cpu_package\runner.py", line 87, in read_pinned
+    data = stream.read() if limit is None else stream.read(limit + 1)
+           ^^^^^^^^^^^^^
+  File "C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\main-20261015-01a14025\stream-core-20261025\review\phase2\repro_init_bound.py", line 26, in read
+    self_test.assertGreater(size, 0, "constructor preflight requested unbounded read before hash rejection")
+AssertionError: -1 not greater than 0 : constructor preflight requested unbounded read before hash rejection
+
+----------------------------------------------------------------------
+Ran 1 test in 0.003s
+
+FAILED (failures=1)
