@@ -1,0 +1,11 @@
+{
+  "source_comment_id": 6416227814,
+  "source_url": "https://github.com/carolwjade/CarlandFPGA/pull/25#issuecomment-6416227814",
+  "bytes": 2007,
+  "sha256": "3cbffc7619558619bde6f1b25e53f3cb7225855b79aea45417e2fcf33cd4034b",
+  "includes_original_trailing_LF": true,
+  "JSON_reserialized": false,
+  "method": "exact fenced UTF-8 payload through original final LF before closing Markdown delimiter",
+  "initial_integrity_check": "2006B after incorrectly excluding LF did not match; preserved LF yields exact advertised original pin",
+  "learned_forward_run": false
+}

@@ -1,0 +1,1325 @@
+{
+  "sources/competition/deepeye/integration/cpu_invocation_transcript.py": {
+    "sha256": "444f68e94a9adaaab0406b7402fb8029319bc192052b861f520b8982f89a4266",
+    "definitions": [
+      {
+        "kind": "FunctionDef",
+        "name": "_integer",
+        "line": 22,
+        "end_line": 25
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "_label",
+        "line": 28,
+        "end_line": 30
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "_detached",
+        "line": 33,
+        "end_line": 34
+      },
+      {
+        "kind": "ClassDef",
+        "name": "InvocationIdentity",
+        "line": 38,
+        "end_line": 55
+      },
+      {
+        "kind": "ClassDef",
+        "name": "_NoIOAvailable",
+        "line": 58,
+        "end_line": 59
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "_entry",
+        "line": 62,
+        "end_line": 83
+      },
+      {
+        "kind": "ClassDef",
+        "name": "InvocationTranscript",
+        "line": 86,
+        "end_line": 311
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "__post_init__",
+        "line": 48,
+        "end_line": 55
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "call",
+        "line": 64,
+        "end_line": 82
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "__init__",
+        "line": 92,
+        "end_line": 148
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "clock_domain",
+        "line": 151,
+        "end_line": 152
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "_retire",
+        "line": 154,
+        "end_line": 156
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "_owner",
+        "line": 158,
+        "end_line": 161
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "_continuity",
+        "line": 163,
+        "end_line": 166
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "_checkpoint",
+        "line": 168,
+        "end_line": 171
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "_stamp",
+        "line": 173,
+        "end_line": 179
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "_append",
+        "line": 181,
+        "end_line": 188
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "_record_failure",
+        "line": 190,
+        "end_line": 197
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "dispatch_once",
+        "line": 200,
+        "end_line": 233
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "read_once",
+        "line": 236,
+        "end_line": 275
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "snapshot",
+        "line": 277,
+        "end_line": 293
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "close",
+        "line": 295,
+        "end_line": 311
+      }
+    ]
+  },
+  "sources/competition/deepeye/simulation/authority/actor_composition.py": {
+    "sha256": "dd940de436f441acfd1dcfe5cfeaa0a2a86aac05c513893e1dc19d95410a3a8d",
+    "definitions": [
+      {
+        "kind": "ClassDef",
+        "name": "ActivationUnavailable",
+        "line": 22,
+        "end_line": 23
+      },
+      {
+        "kind": "ClassDef",
+        "name": "CompositionRejected",
+        "line": 26,
+        "end_line": 27
+      },
+      {
+        "kind": "ClassDef",
+        "name": "AuthorityConfig",
+        "line": 31,
+        "end_line": 42
+      },
+      {
+        "kind": "ClassDef",
+        "name": "CompositionStatus",
+        "line": 46,
+        "end_line": 47
+      },
+      {
+        "kind": "ClassDef",
+        "name": "StepOutcome",
+        "line": 51,
+        "end_line": 53
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "_bounded",
+        "line": 62,
+        "end_line": 65
+      },
+      {
+        "kind": "ClassDef",
+        "name": "_BoundProgress",
+        "line": 69,
+        "end_line": 78
+      },
+      {
+        "kind": "ClassDef",
+        "name": "_ProgressGate",
+        "line": 81,
+        "end_line": 162
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "_production_channels",
+        "line": 165,
+        "end_line": 167
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "_entry",
+        "line": 170,
+        "end_line": 218
+      },
+      {
+        "kind": "ClassDef",
+        "name": "_Dependencies",
+        "line": 221,
+        "end_line": 319
+      },
+      {
+        "kind": "ClassDef",
+        "name": "ActorComposition",
+        "line": 322,
+        "end_line": 557
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "create_authority",
+        "line": 560,
+        "end_line": 583
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "__init__",
+        "line": 83,
+        "end_line": 89
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "revoke",
+        "line": 91,
+        "end_line": 93
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "observe_time",
+        "line": 95,
+        "end_line": 107
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "admit",
+        "line": 109,
+        "end_line": 114
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "_admit",
+        "line": 116,
+        "end_line": 155
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "deadline_for",
+        "line": 157,
+        "end_line": 162
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "call",
+        "line": 172,
+        "end_line": 217
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "__init__",
+        "line": 223,
+        "end_line": 223
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "verify_boot",
+        "line": 225,
+        "end_line": 231
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "_verify",
+        "line": 233,
+        "end_line": 244
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "verify_board",
+        "line": 246,
+        "end_line": 247
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "verify_observation",
+        "line": 249,
+        "end_line": 255
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "verify_command",
+        "line": 257,
+        "end_line": 281
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "ai_lease",
+        "line": 283,
+        "end_line": 305
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "prepare_step",
+        "line": 307,
+        "end_line": 314
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "commit_step",
+        "line": 316,
+        "end_line": 319
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "__init__",
+        "line": 328,
+        "end_line": 343
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "_remember",
+        "line": 345,
+        "end_line": 346
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "_checkpoint",
+        "line": 348,
+        "end_line": 350
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "_active",
+        "line": 352,
+        "end_line": 354
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "_dispatch_stop",
+        "line": 356,
+        "end_line": 375
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "_retire",
+        "line": 377,
+        "end_line": 386
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "_cleanup",
+        "line": 388,
+        "end_line": 400
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "_start",
+        "line": 403,
+        "end_line": 415
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "accept_boot",
+        "line": 418,
+        "end_line": 456
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "_channel_health",
+        "line": 458,
+        "end_line": 463
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "_progress_time",
+        "line": 465,
+        "end_line": 469
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "_runtime_active",
+        "line": 471,
+        "end_line": 472
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "accept_board",
+        "line": 475,
+        "end_line": 478
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "accept_observation",
+        "line": 481,
+        "end_line": 490
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "accept_completion",
+        "line": 493,
+        "end_line": 500
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "accept_command",
+        "line": 503,
+        "end_line": 521
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "step",
+        "line": 524,
+        "end_line": 531
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "poll",
+        "line": 534,
+        "end_line": 543
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "stop",
+        "line": 546,
+        "end_line": 548
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "close",
+        "line": 551,
+        "end_line": 553
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "status",
+        "line": 556,
+        "end_line": 557
+      }
+    ]
+  },
+  "sources/competition/deepeye/simulation/isolation/actor_fixture.py": {
+    "sha256": "47946ba137eb61aa9d4d2357487c28210314bd4642ad7b1b4d781d052abab3b6",
+    "definitions": [
+      {
+        "kind": "FunctionDef",
+        "name": "decode_command",
+        "line": 11,
+        "end_line": 14
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "validate_mode",
+        "line": 17,
+        "end_line": 24
+      },
+      {
+        "kind": "ClassDef",
+        "name": "ReadyBuffer",
+        "line": 27,
+        "end_line": 36
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "main",
+        "line": 39,
+        "end_line": 60
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "__init__",
+        "line": 28,
+        "end_line": 28
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "feed",
+        "line": 30,
+        "end_line": 36
+      }
+    ]
+  },
+  "sources/competition/deepeye/simulation/isolation/actor_owner.py": {
+    "sha256": "cb3f8319627fbbf94ce3d250173d97f7e6f1ea09b5bf5fd530c741d4e5f857b9",
+    "definitions": [
+      {
+        "kind": "FunctionDef",
+        "name": "_native_api",
+        "line": 29,
+        "end_line": 31
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "_integer",
+        "line": 34,
+        "end_line": 37
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "_relative",
+        "line": 40,
+        "end_line": 51
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "_no_alias",
+        "line": 54,
+        "end_line": 57
+      },
+      {
+        "kind": "ClassDef",
+        "name": "ActorPolicy",
+        "line": 61,
+        "end_line": 112
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "_persist",
+        "line": 115,
+        "end_line": 136
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "_entry",
+        "line": 139,
+        "end_line": 166
+      },
+      {
+        "kind": "ClassDef",
+        "name": "ActorRegistry",
+        "line": 169,
+        "end_line": 199
+      },
+      {
+        "kind": "ClassDef",
+        "name": "ActorOwner",
+        "line": 202,
+        "end_line": 440
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "_validate",
+        "line": 78,
+        "end_line": 112
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "call",
+        "line": 141,
+        "end_line": 165
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "__init__",
+        "line": 171,
+        "end_line": 177
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "_contains",
+        "line": 179,
+        "end_line": 179
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "launch",
+        "line": 181,
+        "end_line": 199
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "__init__",
+        "line": 208,
+        "end_line": 229
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "instance_id",
+        "line": 232,
+        "end_line": 232
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "state",
+        "line": 235,
+        "end_line": 235
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "_checkpoint",
+        "line": 237,
+        "end_line": 240
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "_time",
+        "line": 242,
+        "end_line": 248
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "_report",
+        "line": 250,
+        "end_line": 254
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "_revoke",
+        "line": 256,
+        "end_line": 279
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "_stage_files",
+        "line": 281,
+        "end_line": 297
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "_launch",
+        "line": 300,
+        "end_line": 362
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "bind_verified_boot",
+        "line": 365,
+        "end_line": 393
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "ai_lease",
+        "line": 396,
+        "end_line": 398
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "poll",
+        "line": 401,
+        "end_line": 403
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "_close_internal",
+        "line": 405,
+        "end_line": 429
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "close",
+        "line": 432,
+        "end_line": 434
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "diagnostics",
+        "line": 437,
+        "end_line": 440
+      }
+    ]
+  },
+  "sources/competition/deepeye/simulation/isolation/ipc_framing.py": {
+    "sha256": "a134af7e8ade69a4624abf780575785dff76612454cf83f0ec92ff8b1da0ee09",
+    "definitions": [
+      {
+        "kind": "FunctionDef",
+        "name": "encode_frame",
+        "line": 12,
+        "end_line": 16
+      },
+      {
+        "kind": "ClassDef",
+        "name": "FrameDecoder",
+        "line": 19,
+        "end_line": 84
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "__init__",
+        "line": 29,
+        "end_line": 32
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "_require_open",
+        "line": 34,
+        "end_line": 36
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "_retire",
+        "line": 38,
+        "end_line": 41
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "_refuse",
+        "line": 43,
+        "end_line": 45
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "feed",
+        "line": 47,
+        "end_line": 77
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "finish",
+        "line": 79,
+        "end_line": 84
+      }
+    ]
+  },
+  "sources_C/competition/deepeye/ai_pc/cpu_package/runner.py": {
+    "sha256": "92114790259b7e35e8bf7b1a0519f0e3f68da52729d08b5b9862c992deae70af",
+    "definitions": [
+      {
+        "kind": "ClassDef",
+        "name": "PackageError",
+        "line": 39,
+        "end_line": 45
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "sha256",
+        "line": 48,
+        "end_line": 49
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "canonical_json",
+        "line": 52,
+        "end_line": 53
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "_unique_object",
+        "line": 56,
+        "end_line": 62
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "_invalid_constant",
+        "line": 65,
+        "end_line": 66
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "strict_json",
+        "line": 69,
+        "end_line": 74
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "validate_sha",
+        "line": 77,
+        "end_line": 80
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "read_pinned",
+        "line": 83,
+        "end_line": 96
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "load_public_input",
+        "line": 99,
+        "end_line": 132
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "causal_windows",
+        "line": 135,
+        "end_line": 145
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "_reference",
+        "line": 148,
+        "end_line": 157
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "_select_device",
+        "line": 160,
+        "end_line": 167
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "_tensor",
+        "line": 170,
+        "end_line": 176
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "_predict",
+        "line": 179,
+        "end_line": 188
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "execute",
+        "line": 191,
+        "end_line": 346
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "_output_is_fresh",
+        "line": 349,
+        "end_line": 355
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "write_exclusive",
+        "line": 358,
+        "end_line": 365
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "main",
+        "line": 368,
+        "end_line": 398
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "__init__",
+        "line": 42,
+        "end_line": 45
+      }
+    ]
+  },
+  "sources_C/competition/deepeye/ai_pc/cpu_package/stream_core.py": {
+    "sha256": "0a8c07f34080784f36180951b28873b43de5e3f80ad201325254b274bd01217b",
+    "definitions": [
+      {
+        "kind": "ClassDef",
+        "name": "StreamError",
+        "line": 30,
+        "end_line": 35
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "_integer",
+        "line": 38,
+        "end_line": 41
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "_text",
+        "line": 44,
+        "end_line": 53
+      },
+      {
+        "kind": "ClassDef",
+        "name": "StreamLimits",
+        "line": 57,
+        "end_line": 68
+      },
+      {
+        "kind": "ClassDef",
+        "name": "Binding",
+        "line": 71,
+        "end_line": 75
+      },
+      {
+        "kind": "ClassDef",
+        "name": "SessionToken",
+        "line": 78,
+        "end_line": 81
+      },
+      {
+        "kind": "ClassDef",
+        "name": "WindowMetadata",
+        "line": 84,
+        "end_line": 90
+      },
+      {
+        "kind": "ClassDef",
+        "name": "StreamResult",
+        "line": 93,
+        "end_line": 118
+      },
+      {
+        "kind": "ClassDef",
+        "name": "StreamState",
+        "line": 121,
+        "end_line": 133
+      },
+      {
+        "kind": "ClassDef",
+        "name": "EndReceipt",
+        "line": 136,
+        "end_line": 146
+      },
+      {
+        "kind": "ClassDef",
+        "name": "_Active",
+        "line": 150,
+        "end_line": 156
+      },
+      {
+        "kind": "ClassDef",
+        "name": "_Committed",
+        "line": 160,
+        "end_line": 167
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "_encode",
+        "line": 170,
+        "end_line": 174
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "_result_payload",
+        "line": 177,
+        "end_line": 189
+      },
+      {
+        "kind": "ClassDef",
+        "name": "FrozenForceStream",
+        "line": 192,
+        "end_line": 395
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "__init__",
+        "line": 32,
+        "end_line": 35
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "__post_init__",
+        "line": 66,
+        "end_line": 68
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "movement_authorized",
+        "line": 113,
+        "end_line": 114
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "motion_bytes",
+        "line": 117,
+        "end_line": 118
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "movement_authorized",
+        "line": 145,
+        "end_line": 146
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "__init__",
+        "line": 201,
+        "end_line": 257
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "__guard",
+        "line": 260,
+        "end_line": 266
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "__active",
+        "line": 268,
+        "end_line": 274
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "start_session",
+        "line": 276,
+        "end_line": 298
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "end_session",
+        "line": 300,
+        "end_line": 319
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "observe",
+        "line": 321,
+        "end_line": 379
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "latest_result",
+        "line": 381,
+        "end_line": 383
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "state",
+        "line": 385,
+        "end_line": 395
+      }
+    ]
+  },
+  "sources_C/competition/deepeye/ai_pc/model/curve_input.py": {
+    "sha256": "c017729a2d5717ff2bbf5a6c591320519c415ac10068b4cee19b3136913d848c",
+    "definitions": [
+      {
+        "kind": "ClassDef",
+        "name": "CurveInputError",
+        "line": 141,
+        "end_line": 142
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "_forbidden_field",
+        "line": 145,
+        "end_line": 147
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "_sha256_hex",
+        "line": 150,
+        "end_line": 155
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "_finite_number",
+        "line": 158,
+        "end_line": 175
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "_exact_bool",
+        "line": 178,
+        "end_line": 181
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "_four_number_sequence",
+        "line": 184,
+        "end_line": 192
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "_four_bool_sequence",
+        "line": 195,
+        "end_line": 203
+      },
+      {
+        "kind": "ClassDef",
+        "name": "CurveSchema",
+        "line": 207,
+        "end_line": 306
+      },
+      {
+        "kind": "ClassDef",
+        "name": "CurveBinding",
+        "line": 309,
+        "end_line": 334
+      },
+      {
+        "kind": "ClassDef",
+        "name": "CurveObservation",
+        "line": 338,
+        "end_line": 371
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "observation_from_mapping",
+        "line": 374,
+        "end_line": 415
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "_channel_statistics",
+        "line": 417,
+        "end_line": 456
+      },
+      {
+        "kind": "ClassDef",
+        "name": "CurveChannelStatistics",
+        "line": 460,
+        "end_line": 514
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "_parse_preprocessing_document",
+        "line": 517,
+        "end_line": 576
+      },
+      {
+        "kind": "ClassDef",
+        "name": "CurveScaler",
+        "line": 580,
+        "end_line": 646
+      },
+      {
+        "kind": "ClassDef",
+        "name": "CurveWindowMetadata",
+        "line": 649,
+        "end_line": 686
+      },
+      {
+        "kind": "ClassDef",
+        "name": "CurveWindow",
+        "line": 690,
+        "end_line": 716
+      },
+      {
+        "kind": "ClassDef",
+        "name": "CurveWindowBuilder",
+        "line": 719,
+        "end_line": 845
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "__post_init__",
+        "line": 230,
+        "end_line": 272
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "field_names",
+        "line": 274,
+        "end_line": 290
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "allowed",
+        "line": 292,
+        "end_line": 293
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "validate",
+        "line": 295,
+        "end_line": 306
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "__post_init__",
+        "line": 325,
+        "end_line": 334
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "__post_init__",
+        "line": 354,
+        "end_line": 366
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "from_mapping",
+        "line": 369,
+        "end_line": 371
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "__post_init__",
+        "line": 479,
+        "end_line": 514
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "__init__",
+        "line": 600,
+        "end_line": 603
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "from_document_bytes",
+        "line": 606,
+        "end_line": 608
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "normalize",
+        "line": 610,
+        "end_line": 646
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "__post_init__",
+        "line": 669,
+        "end_line": 686
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "__post_init__",
+        "line": 703,
+        "end_line": 711
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "to_model_input",
+        "line": 713,
+        "end_line": 716
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "__init__",
+        "line": 729,
+        "end_line": 750
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "binding",
+        "line": 753,
+        "end_line": 754
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "scaler",
+        "line": 757,
+        "end_line": 758
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "latest_sequence",
+        "line": 761,
+        "end_line": 762
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "observe",
+        "line": 764,
+        "end_line": 815
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "snapshot",
+        "line": 817,
+        "end_line": 845
+      }
+    ]
+  },
+  "sources_C/competition/deepeye/ai_pc/model/force_cnn.py": {
+    "sha256": "5003427e1ac01e50b612d8f4f9c674c7df352b3942a5cc39978e23bdfbdb1260",
+    "definitions": [
+      {
+        "kind": "ClassDef",
+        "name": "FrozenModelError",
+        "line": 36,
+        "end_line": 37
+      },
+      {
+        "kind": "ClassDef",
+        "name": "ForceCNN",
+        "line": 40,
+        "end_line": 57
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "build_model",
+        "line": 60,
+        "end_line": 62
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "sha256_file",
+        "line": 65,
+        "end_line": 70
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "_hex",
+        "line": 73,
+        "end_line": 74
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "_typed_equal",
+        "line": 77,
+        "end_line": 85
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "_pairs",
+        "line": 88,
+        "end_line": 94
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "_json",
+        "line": 97,
+        "end_line": 110
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "_reference",
+        "line": 113,
+        "end_line": 127
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "load_frozen_model",
+        "line": 130,
+        "end_line": 192
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "export_weights",
+        "line": 195,
+        "end_line": 204
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "__init__",
+        "line": 41,
+        "end_line": 50
+      },
+      {
+        "kind": "FunctionDef",
+        "name": "forward",
+        "line": 52,
+        "end_line": 57
+      }
+    ]
+  }
+}

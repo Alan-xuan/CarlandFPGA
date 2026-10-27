@@ -1,0 +1,35 @@
+{
+  "task_id": "DEEPEYE-IMPLEMENTATION-20261014",
+  "task_version": 1,
+  "operation_id": "C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22",
+  "status": "proposal for A source review; endpoint experiment not run or admitted",
+  "current_C22_execution_counts": {"learned_model_constructors": 0, "learned_forwards": 0, "endpoint_process_launches": 0},
+  "gates_in_order": [
+    {
+      "gate": "exact source and byte controls",
+      "owner": "A review of published exact C22 source/request/canonical manifest",
+      "scope": "Verify artifact bytes and unchanged C21 dependencies. Inspect private frame limits, original record binding, one lazy constructor, full-frame versus operation hashes, strict current-frame reads, one response write attempt, EOF/error retirement and explicit unimplemented runtime/factory boundary. Pure control fixtures are fake/recorded, never actual endpoint transport."
+    },
+    {
+      "gate": "trusted runtime and channel plan",
+      "owner": "A original trusted owner",
+      "scope": "Choose approved interpreter/stdlib/Torch/native DLL/environment closure and enumerate hashes within actual stage policy; preserve C relative paths. Decide Win32 HANDLE-to-FD ownership adapter or another explicitly reviewed launch path, cancellation/deadline/finite read budgets, actor ownership and actual wait/exit/Job/handle cleanup. Current READY/X launcher and closed factory do not automatically support this proposal. If these inputs are missing, keep this gate incomplete."
+    },
+    {
+      "gate": "optional new bounded diagnostic process experiment after A review",
+      "owner": "A only; not run by C",
+      "scope": "If A explicitly adopts a diagnostic launch/test plan, use one fresh process and immutable first original FORCE record plus END; one outstanding frame and distinct original identity/journal per dispatch. Whole input must fit16384 and complete response framing6160 maximum must fit selected read/output budgets. Two replies can exceed a chosen cumulative actor output limit; compute the finite experiment budget before dispatch, never silently widen it. No new BOOT/auth/clock/completion/motion permission is implied."
+    },
+    {
+      "gate": "independent actual readback",
+      "owner": "A original evidence owner, with C read-only review of exact returned evidence",
+      "scope": "Retain original full request frame bytes/hash, original13field payload/hash, exact returned full frame and unchanged payload including LF, per-dispatch identity, each OS write/read return or unknown state, original wait/exit/resource closure. Cross-check frozen input prefix/tensor/class/binding and any explicitly chosen diagnostic probability tolerance without rewriting outputs. Successful C21 API or128B fixture evidence does not satisfy this gate. New process result hash is observed, not assumed equal to the recorded A fixture."
+    }
+  ],
+  "on_error": "No repeat of failed/unknown dispatch, write remainder, process restart, model reload or protocol resynchronization. Retire and preserve raw evidence; A decides a separately identified future operation if needed.",
+  "production_factory_adopted": false,
+  "formal_acceptance": "not_run",
+  "H01_H15": "unchanged and unmet final gates remain incomplete",
+  "requirements_sha256": "c229834bfc2292f5fe4411fc9f12c68487008f9d1adaf31f0144ee7a98173804",
+  "physical_board_owner": "A only; this plan requires no board action"
+}

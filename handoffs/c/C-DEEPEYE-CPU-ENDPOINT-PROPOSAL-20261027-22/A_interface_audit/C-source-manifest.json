@@ -1,0 +1,162 @@
+[
+  {
+    "source_commit": "b898e90c7248dec5a6dd0ee850c8a07e097e83aa",
+    "path": "competition/deepeye/ai_pc/cpu_package/stream_core.py",
+    "bytes": 19674,
+    "sha256": "0a8c07f34080784f36180951b28873b43de5e3f80ad201325254b274bd01217b",
+    "git_blob": "6da5d28f81b242e04d03e371b6d5db33b6fb901d",
+    "args": [
+      "git",
+      "show",
+      "b898e90c7248dec5a6dd0ee850c8a07e097e83aa:competition/deepeye/ai_pc/cpu_package/stream_core.py"
+    ],
+    "exit_code": 0,
+    "stderr": "",
+    "working_file_matches_exact_blob": true,
+    "role": "source interface and closure identity only; not loaded/executed"
+  },
+  {
+    "source_commit": "b898e90c7248dec5a6dd0ee850c8a07e097e83aa",
+    "path": "competition/deepeye/ai_pc/cpu_package/runner.py",
+    "bytes": 21133,
+    "sha256": "92114790259b7e35e8bf7b1a0519f0e3f68da52729d08b5b9862c992deae70af",
+    "git_blob": "ffe3a32637fe90855d029c654d6803dcba4efe30",
+    "args": [
+      "git",
+      "show",
+      "b898e90c7248dec5a6dd0ee850c8a07e097e83aa:competition/deepeye/ai_pc/cpu_package/runner.py"
+    ],
+    "exit_code": 0,
+    "stderr": "",
+    "working_file_matches_exact_blob": true,
+    "role": "source interface and closure identity only; not loaded/executed"
+  },
+  {
+    "source_commit": "b898e90c7248dec5a6dd0ee850c8a07e097e83aa",
+    "path": "competition/deepeye/ai_pc/model/curve_input.py",
+    "bytes": 39152,
+    "sha256": "c017729a2d5717ff2bbf5a6c591320519c415ac10068b4cee19b3136913d848c",
+    "git_blob": "71590634e676557e84cded606b2ef95b284fe435",
+    "args": [
+      "git",
+      "show",
+      "b898e90c7248dec5a6dd0ee850c8a07e097e83aa:competition/deepeye/ai_pc/model/curve_input.py"
+    ],
+    "exit_code": 0,
+    "stderr": "",
+    "working_file_matches_exact_blob": true,
+    "role": "source interface and closure identity only; not loaded/executed"
+  },
+  {
+    "source_commit": "b898e90c7248dec5a6dd0ee850c8a07e097e83aa",
+    "path": "competition/deepeye/ai_pc/model/force_cnn.py",
+    "bytes": 10384,
+    "sha256": "5003427e1ac01e50b612d8f4f9c674c7df352b3942a5cc39978e23bdfbdb1260",
+    "git_blob": "3f4ea1bb5cfbafc629845593236a39a2c26051c5",
+    "args": [
+      "git",
+      "show",
+      "b898e90c7248dec5a6dd0ee850c8a07e097e83aa:competition/deepeye/ai_pc/model/force_cnn.py"
+    ],
+    "exit_code": 0,
+    "stderr": "",
+    "working_file_matches_exact_blob": true,
+    "role": "source interface and closure identity only; not loaded/executed"
+  },
+  {
+    "source_commit": "b898e90c7248dec5a6dd0ee850c8a07e097e83aa",
+    "path": "competition/deepeye/ai_pc/cpu_model/force_v1/model_manifest.json",
+    "bytes": 3932,
+    "sha256": "0b76bcd1b21b6b1e254eef0e2e5815a15121fdb8ac48c33710f2b2d85bdf2959",
+    "git_blob": "15bf57096e56cc749cdbf49e79d40397b966fbae",
+    "args": [
+      "git",
+      "show",
+      "b898e90c7248dec5a6dd0ee850c8a07e097e83aa:competition/deepeye/ai_pc/cpu_model/force_v1/model_manifest.json"
+    ],
+    "exit_code": 0,
+    "stderr": "",
+    "working_file_matches_exact_blob": true,
+    "role": "source interface and closure identity only; not loaded/executed"
+  },
+  {
+    "source_commit": "b898e90c7248dec5a6dd0ee850c8a07e097e83aa",
+    "path": "competition/deepeye/ai_pc/cpu_model/force_v1/graph.json",
+    "bytes": 1429,
+    "sha256": "6fd93fab7e65b56b1cd9473475c54b071b3e82ff09549ee447675988f07efee2",
+    "git_blob": "bf4cd3a3ff33df98c9f5e2dbf473564c6e829f72",
+    "args": [
+      "git",
+      "show",
+      "b898e90c7248dec5a6dd0ee850c8a07e097e83aa:competition/deepeye/ai_pc/cpu_model/force_v1/graph.json"
+    ],
+    "exit_code": 0,
+    "stderr": "",
+    "working_file_matches_exact_blob": true,
+    "role": "source interface and closure identity only; not loaded/executed"
+  },
+  {
+    "source_commit": "b898e90c7248dec5a6dd0ee850c8a07e097e83aa",
+    "path": "competition/deepeye/ai_pc/cpu_model/force_v1/weights.json",
+    "bytes": 102250,
+    "sha256": "8988f4bbcf425d9b48c9a62866ac350e6096ea43fabdd9b1e616b22ba4b6d187",
+    "git_blob": "2c404ed8eed31a7c9bc4445efa9d3ceaac1171a8",
+    "args": [
+      "git",
+      "show",
+      "b898e90c7248dec5a6dd0ee850c8a07e097e83aa:competition/deepeye/ai_pc/cpu_model/force_v1/weights.json"
+    ],
+    "exit_code": 0,
+    "stderr": "",
+    "working_file_matches_exact_blob": true,
+    "role": "source interface and closure identity only; not loaded/executed"
+  },
+  {
+    "source_commit": "b898e90c7248dec5a6dd0ee850c8a07e097e83aa",
+    "path": "competition/deepeye/data/preprocessing.json",
+    "bytes": 29849,
+    "sha256": "cb66fd302165c86344f3b8d1af9d9c4e4e229621cef44cbfa6fb8cd121a63eef",
+    "git_blob": "40d9bbf668d64db6f67de238f05646e87baddd5d",
+    "args": [
+      "git",
+      "show",
+      "b898e90c7248dec5a6dd0ee850c8a07e097e83aa:competition/deepeye/data/preprocessing.json"
+    ],
+    "exit_code": 0,
+    "stderr": "",
+    "working_file_matches_exact_blob": true,
+    "role": "source interface and closure identity only; not loaded/executed"
+  },
+  {
+    "source_commit": "b898e90c7248dec5a6dd0ee850c8a07e097e83aa",
+    "path": "competition/deepeye/data/label_schema.json",
+    "bytes": 3594,
+    "sha256": "0913ff5a59085b47802a9902f23a836f4fa1129700de8e6593840416f4d7beed",
+    "git_blob": "916a3365809e787f6023a5388a6986aacf0ba75f",
+    "args": [
+      "git",
+      "show",
+      "b898e90c7248dec5a6dd0ee850c8a07e097e83aa:competition/deepeye/data/label_schema.json"
+    ],
+    "exit_code": 0,
+    "stderr": "",
+    "working_file_matches_exact_blob": true,
+    "role": "source interface and closure identity only; not loaded/executed"
+  },
+  {
+    "source_commit": "b898e90c7248dec5a6dd0ee850c8a07e097e83aa",
+    "path": "competition/deepeye/ai_pc/cpu_package/A_HOST_MAPPING.md",
+    "bytes": 6363,
+    "sha256": "ca113434653e4d74a741542070efcfdbb5dc567da02a99e43b920181497e7621",
+    "git_blob": "736ab4250168029d69aad1e70a49275e24c982a3",
+    "args": [
+      "git",
+      "show",
+      "b898e90c7248dec5a6dd0ee850c8a07e097e83aa:competition/deepeye/ai_pc/cpu_package/A_HOST_MAPPING.md"
+    ],
+    "exit_code": 0,
+    "stderr": "",
+    "working_file_matches_exact_blob": true,
+    "role": "source interface and closure identity only; not loaded/executed"
+  }
+]

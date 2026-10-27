@@ -1,0 +1,1 @@
+warning: in the working copy of 'C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\deepeye-implementation-c\competition\deepeye\ai_pc\cpu_package\process_endpoint.py', LF will be replaced by CRLF the next time Git touches it

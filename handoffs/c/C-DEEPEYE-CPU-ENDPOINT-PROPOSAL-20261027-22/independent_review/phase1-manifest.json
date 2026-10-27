@@ -1,0 +1,92 @@
+{
+  "work_id": "C-ENDPOINT-INDEPENDENT-REVIEW-20261027-v1",
+  "phase": 1,
+  "scope": "exact byte proof and preimplementation design-independent controls; concrete wire oracle pending main design",
+  "files": [
+    {
+      "path": "A-recorded-reply.exact.bin",
+      "bytes": 2007,
+      "sha256": "3cbffc7619558619bde6f1b25e53f3cb7225855b79aea45417e2fcf33cd4034b"
+    },
+    {
+      "path": "byte-proof-exit.json",
+      "bytes": 907,
+      "sha256": "3df37ac28beba107d5f73351f331c3f93a8c48583a84c3c1ebc8e2b71fb45c4b"
+    },
+    {
+      "path": "byte-proof.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "byte-proof.stdout.txt",
+      "bytes": 471,
+      "sha256": "bb046f60d90624a2d3889ce97d1f1be43cc3b866dccd78464f75889a840413db"
+    },
+    {
+      "path": "inspection-tool-results.json",
+      "bytes": 41910,
+      "sha256": "13a4b53888817eba4422bde7d1116ca384f7060f7e4724ac597e8062d29b326b"
+    },
+    {
+      "path": "original-first-record.raw",
+      "bytes": 354,
+      "sha256": "9c9200453ca7feab036ee9e41b9b78f9b61df5d672792961379d5daa920d1eb8"
+    },
+    {
+      "path": "phase1-assignment.json",
+      "bytes": 1592,
+      "sha256": "9743ced846e0e255d105f46355746b4ddda9c259f6d5d3e2061487566d8e6a53"
+    },
+    {
+      "path": "phase1-byte-oracles.json",
+      "bytes": 4853,
+      "sha256": "55be5bab54ab65b61dae915673d2b03c43e213aece65d0ade01eec483f1cf964"
+    },
+    {
+      "path": "phase1-controls.md",
+      "bytes": 7302,
+      "sha256": "be3bc65bc8ae0caa391113dd8d947b8226371b91c25b7f6c543bbb511c445131"
+    },
+    {
+      "path": "phase1-report.md",
+      "bytes": 3533,
+      "sha256": "14a7b896a71a3b0eb6f747b8863b9c0e9d2c4c83dd1ff3d44ea5da0f4c3e9d52"
+    },
+    {
+      "path": "prove_exact_bytes.py",
+      "bytes": 6404,
+      "sha256": "57ce56d8373e21fcc3d79079ffcb5b629e5f021eb8ce2c14364fdc438dcbf6e8"
+    },
+    {
+      "path": "synthetic-record-16383.raw",
+      "bytes": 16383,
+      "sha256": "3d42aaae9c988e14ff934278788f5454539311e6fc10e802806150fd39cb09fa"
+    },
+    {
+      "path": "synthetic-record-16384.raw",
+      "bytes": 16384,
+      "sha256": "fd421d63ac28b64cc08ec96319a3d9b656d00f77ff118f859223627336ca6833"
+    },
+    {
+      "path": "synthetic-record-16385.raw",
+      "bytes": 16385,
+      "sha256": "ac8b4f1634b2684b058494d80ef57ad12db0df495d11f476a47d28fa73e24e05"
+    },
+    {
+      "path": "synthetic-reply-4095.bin",
+      "bytes": 4095,
+      "sha256": "dbc4393832488120b2c1167bb08b9fb4bdebe2d871938b2fa5f5a062b1f98b40"
+    },
+    {
+      "path": "synthetic-reply-4096.bin",
+      "bytes": 4096,
+      "sha256": "68d1a67a0d0b46acba155ee4bf86a7382710b9e06ca739d4fbb8edbe3fa3de63"
+    },
+    {
+      "path": "synthetic-reply-4097.bin",
+      "bytes": 4097,
+      "sha256": "79d8f3301cdf1fa35840887b4faa426554e81d7e7b3c2da062d6d08583647df9"
+    }
+  ]
+}

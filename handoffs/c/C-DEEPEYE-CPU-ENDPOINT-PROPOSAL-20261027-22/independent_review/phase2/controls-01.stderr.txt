@@ -1,0 +1,22 @@
+test_E01_exact_frozen_frames_and_full_reply (__main__.IndependentEndpoint.test_E01_exact_frozen_frames_and_full_reply) ... ok
+test_E02_total_meta_reply_caps (__main__.IndependentEndpoint.test_E02_total_meta_reply_caps) ... ok
+test_E03_fixed_invalid_frames_and_truncation (__main__.IndependentEndpoint.test_E03_fixed_invalid_frames_and_truncation) ... ok
+test_E04_partial_reads_and_invalid_completions (__main__.IndependentEndpoint.test_E04_partial_reads_and_invalid_completions) ... ok
+test_E05_single_write_short_unknown_and_error (__main__.IndependentEndpoint.test_E05_single_write_short_unknown_and_error) ... ok
+test_E06_retirement_counts_end_eof_failures (__main__.IndependentEndpoint.test_E06_retirement_counts_end_eof_failures) ... ok
+test_E07_actual_lazy_fixed_constructor_seam_no_model (__main__.IndependentEndpoint.test_E07_actual_lazy_fixed_constructor_seam_no_model) ... ok
+test_E08_real_first_parser_negatives_and_binding_freeze (__main__.IndependentEndpoint.test_E08_real_first_parser_negatives_and_binding_freeze) ... ok
+test_E09_identity_index_highwaters_and_immutable_shape (__main__.IndependentEndpoint.test_E09_identity_index_highwaters_and_immutable_shape) ... ok
+test_E10_retired_object_and_end_tail_isolation (__main__.IndependentEndpoint.test_E10_retired_object_and_end_tail_isolation) ... ok
+test_E11_future_poison_preserves_first_reply (__main__.IndependentEndpoint.test_E11_future_poison_preserves_first_reply) ... ok
+test_E12_original_metadata_and_distinct_hash_semantics (__main__.IndependentEndpoint.test_E12_original_metadata_and_distinct_hash_semantics) ... ok
+test_E13_lifetime_budgets_before_core_or_write (__main__.IndependentEndpoint.test_E13_lifetime_budgets_before_core_or_write) ... ok
+test_E14_strict_json_diagnostics_no_private_echo (__main__.IndependentEndpoint.test_E14_strict_json_diagnostics_no_private_echo) ... ok
+test_E15_static_cli_and_no_runtime_authority_imports (__main__.IndependentEndpoint.test_E15_static_cli_and_no_runtime_authority_imports) ... ok
+test_E16_fixture_coverage_and_no_model_imports (__main__.IndependentEndpoint.test_E16_fixture_coverage_and_no_model_imports) ... ok
+test_E17_fixed_scope_and_source_sha (__main__.IndependentEndpoint.test_E17_fixed_scope_and_source_sha) ... ok
+
+----------------------------------------------------------------------
+Ran 17 tests in 0.266s
+
+OK

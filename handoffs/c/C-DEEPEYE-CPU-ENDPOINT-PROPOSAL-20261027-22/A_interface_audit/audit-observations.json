@@ -1,0 +1,24 @@
+{
+  "API_read_only": true,
+  "recorded_GET_count": 6,
+  "all_recorded_GET_exit_codes": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "initial_encoded_reply_extraction": {
+    "observed_tool_exit_code": 1,
+    "error": "RuntimeError: A original encoded payload mismatch",
+    "cause": "Excluded the original final LF and obtained 2006B; no product code or model was run",
+    "resolution": "Retained original LF, exact2007B SHA matched without JSON reserialization"
+  },
+  "main_design_v1_sha256": "e4c4cde80852c60a647f0893f89f33de5b8437bc125ba3f5dd388a709e789a0b",
+  "main_design_v1_binding_conflict": "derived localrunid differs from strict original FORCE record binding",
+  "main_design_v2_sha256": "437aedcf1f09f11109632f4f101a6851c07a2ba2a6f65939fe35cbf92540d07f",
+  "main_design_v2_conflict_resolved_by_source_read": true,
+  "implementation_or_endpoint_tested": false,
+  "old_128B_fixture_does_not_cover_2007B_output": true
+}

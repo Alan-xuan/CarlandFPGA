@@ -1,0 +1,2 @@
+PASS:31artifacts/fiveexactfrozen snapshots,9originalpins, unchanged prior tracked tree, original raw author exits.
+New-source diff exits1 expected; no product writes or endpoint/model/CLI execution.

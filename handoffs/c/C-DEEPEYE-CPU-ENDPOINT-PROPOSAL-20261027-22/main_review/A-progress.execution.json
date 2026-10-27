@@ -1,0 +1,9 @@
+{
+  "argv": [
+    "gh",
+    "api",
+    "repos/carolwjade/CarlandFPGA/issues/comments/6412880990"
+  ],
+  "exit_code": 0,
+  "observed_utc": "2026-10-27T02:41:33.038443+00:00"
+}

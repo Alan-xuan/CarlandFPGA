@@ -1,0 +1,18 @@
+{
+  "task_id": "DEEPEYE-IMPLEMENTATION-20261014",
+  "task_version": 1,
+  "work_id": "C-CPU-PROCESS-ENDPOINT-PROPOSAL-20261027-v1",
+  "main_thread_id": "01a14025-4dfd-7ec3-aebb-57be48daba59",
+  "design_sha256": "437aedcf1f09f11109632f4f101a6851c07a2ba2a6f65939fe35cbf92540d07f",
+  "frozen_before_new_source_inspection": true,
+  "controls": [
+    "Build private frame manually with struct >4sBBHII, noncanonical but strict valid metadata and original354B raw record. Deliberately use different original record run_id and synthetic A identity.run_id. Private fake core must receive original record run_id at start, exact same token and raw bytes at observe. Decode response independently and compare unchanged2007B A fixture includingLF, full original request frameSHA, recordSHA and unchanged operation request_hash.",
+    "Feed valid first frame then poisoned future header; independent I/O event trace must prove first reply write precedes reading any poison. Prior exact reply stays delivered despite next-frame retirement. A single write returning None/short/raising after consuming an unknown prefix must produce no remainder/errorframe and no future input read; cleanup exactly once.",
+    "Independently compute wholeframe16384 boundary with metadata/header included and reject16385 before core; reply payload4096 includingLF has exactpayloadhash and explicit nonzero envelope overhead;4097 fails beforewrite. No productionmodel invocation is used to fabricate these synthetic capfixtures.",
+    "Inspect actual CLI raw fd source and static dependency list: no bufferedprefetch, subprocess/handleadoption/factorybypass, publicfake mode, Aauth/clock/motionbytes; exact frozen source pins verified before original lazyparsing imports and coreconstructor. Existing1334 treeentries and frozenrequirements remain identical."
+  ],
+  "allowed_model_loads": 0,
+  "allowed_learned_forwards": 0,
+  "allowed_endpoint_process_launches": 0,
+  "scope": "pure byte/error/lifecycle driver and source review only; no A process transport or formal acceptance"
+}

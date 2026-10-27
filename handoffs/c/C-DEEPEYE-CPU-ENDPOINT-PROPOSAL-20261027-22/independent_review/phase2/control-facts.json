@@ -1,0 +1,146 @@
+{
+  "scope": "frozen-source pure-byte controls with private fake core only",
+  "model_loads": 0,
+  "learned_forwards": 0,
+  "endpoint_process_launches": 0,
+  "private_factory_calls": 45,
+  "groups": {
+    "E01": {
+      "exact_A_reply_bytes": 2007,
+      "full_result_frame": 2665,
+      "byte_match": true,
+      "tail_unread": true
+    },
+    "E02": {
+      "input_total_edge": 16384,
+      "dynamic_raw_edge": 15908,
+      "reply_4096_accepted": true,
+      "reply_4097_no_write": true,
+      "geometry6160": "synthetic only"
+    },
+    "E03": {
+      "negative_frozen_frames": 9,
+      "truncation_positions": 11,
+      "overlimit_body_not_read": true
+    },
+    "E04": {
+      "positive_fragment_patterns": 4,
+      "invalid_read_completions": 6,
+      "no_retry": true
+    },
+    "E05": {
+      "unknown_write_cases": 8,
+      "single_attempt": true,
+      "no_remainder_errorframe_or_future_read": true
+    },
+    "E06": {
+      "normal_counts": [
+        1,
+        1,
+        1,
+        1,
+        2
+      ],
+      "boundary_eof_abnormal": true,
+      "failed_explicit_end_not_retried": true,
+      "cleanup_failure_no_extra_write": true
+    },
+    "E07": {
+      "actual_fixed_new_core_source_pin": true,
+      "actual_StreamLimits_output4096": true,
+      "constructor_privately_replaced": true,
+      "original_record_run_id_preserved": true
+    },
+    "E08": {
+      "real_original_parser_unpatched": true,
+      "first_binding_negatives": 13,
+      "changed_later_record_before_fake_observe": true
+    },
+    "E09": {
+      "six_frozen_fields": true,
+      "index_exact_next": true,
+      "invocation_strict_increase_allows_jump": true,
+      "no_identity_authentication_claim": true
+    },
+    "E10": {
+      "used_driver_no_reactivation": true,
+      "no_end_tail_read": true,
+      "distinct_initial_A_labels_diagnostic_only": true
+    },
+    "E11": {
+      "first_success_before_future_read": true,
+      "earlier_reply_unchanged": true,
+      "future_error_no_resync": true
+    },
+    "E12": {
+      "noncanonical_metadata_raw_hash": true,
+      "operation_frame_record_reply_hashes_distinct": true,
+      "LF_preserved": true
+    },
+    "E13": {
+      "exact_whole_wire_budget": true,
+      "input_before_factory": true,
+      "output_before_write": true,
+      "final_END_slot_reserved": true,
+      "limits_detached_only_lower": true
+    },
+    "E14": {
+      "json_negatives": 7,
+      "bounded_ascii_diagnostic": true,
+      "no_error_banner_or_raw_exception": true
+    },
+    "E15": {
+      "static_raw_stdio_binary_mode": true,
+      "no_CLI_execution": true,
+      "no_A_authority_model_or_process_import": true
+    },
+    "E16": {
+      "all_reference_frames_used": 24,
+      "Torch_imported": false,
+      "model_loads": 0,
+      "learned_forwards": 0,
+      "endpoint_process_launches": 0
+    },
+    "E17": {
+      "fixed_source_pins": true,
+      "FORCE_nonmotion_only": true,
+      "production_adoption": false,
+      "model_quality_runtime_and_formal_acceptance": "unchanged incomplete"
+    }
+  },
+  "blocked_model_import_attempts": [],
+  "unittest": {
+    "tests": 17,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0,
+    "success": true
+  },
+  "reference_frames_used": [
+    "bad-bool-index.frame",
+    "bad-bool-invocation.frame",
+    "bad-extra-key.frame",
+    "bad-first-index.frame",
+    "bad-flags.frame",
+    "bad-kind.frame",
+    "bad-magic.frame",
+    "bad-payload-hash.frame",
+    "bad-version.frame",
+    "end-2.frame",
+    "ended-2.frame",
+    "input-meta-2048.frame",
+    "input-meta-2049.frame",
+    "input-total-16384.frame",
+    "input-total-16385.frame",
+    "observe-1.frame",
+    "observe-meta-variant.frame",
+    "raw16384-total-bad.frame",
+    "reply-4095.frame",
+    "reply-4096.frame",
+    "reply-4097.frame",
+    "response-6160.geometry",
+    "result-1.frame",
+    "result-meta-variant.frame"
+  ],
+  "Torch_imported": false
+}

@@ -1,0 +1,15 @@
+{
+  "author_actual_release_verified": true,
+  "source_and_artifact_files_verified": 31,
+  "manifest_sha256": "250f7a2662ecd41baf359701d404d74c58590081440e25337598850485908996",
+  "source_hashes": {
+    "competition/deepeye/ai_pc/cpu_package/endpoint_protocol.py": "1654f857a6cb17af734aa66e8f96f028551b15f4a7767f196e511104783de998",
+    "competition/deepeye/ai_pc/cpu_package/process_endpoint.py": "46b792911fecdc211d3895f8747ee745498eadf10c1fac3b53477e058a08a2e4",
+    "competition/deepeye/ai_pc/cpu_package/ENDPOINT_PROPOSAL.md": "564f7add7c4de3181c48b797bc047278db9661723c56196a9602474e69a83b96",
+    "competition/deepeye/tests/ai/cpu/test_endpoint_protocol.py": "de0332f9432459d3036beafc0368d011d595b84966d033577b972087d8b1ccaf",
+    "competition/deepeye/tests/ai/cpu/test_endpoint_driver.py": "357d1793e9f6c8029ff565dfff50335c9fe6046f9091bfac735f2775ba9d5a2c"
+  },
+  "frozen_utc": "2026-10-27T03:08:00.127385+00:00",
+  "independent_phase2_may_start": true,
+  "ownership": "root retains index/publication; reviewer private read-only source test ownership"
+}

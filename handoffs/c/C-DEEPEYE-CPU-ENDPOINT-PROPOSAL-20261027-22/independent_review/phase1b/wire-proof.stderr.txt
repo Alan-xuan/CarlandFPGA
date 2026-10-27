@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\main-20261015-01a14025\endpoint-20261027\review\phase1b\build_wire_oracles.py", line 105, in <module>
+    max_frame,_,_=response(129,obs,obs_md,max_payload,metadata_raw=max_md)
+                  ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\main-20261015-01a14025\endpoint-20261027\review\phase1b\build_wire_oracles.py", line 48, in response
+    assert json.loads(metadata)==md
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

@@ -1,0 +1,23 @@
+{
+  "argv": [
+    "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\cpu-model-env-20261024\\Scripts\\python.exe",
+    "-I",
+    "-S",
+    "-B",
+    "-X",
+    "utf8",
+    "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\main-20261015-01a14025\\endpoint-20261027\\review\\phase2\\inspect_source.py"
+  ],
+  "cwd": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\main-20261015-01a14025\\endpoint-20261027\\review\\phase2",
+  "started_utc": "2026-10-27T03:17:40.097418+00:00",
+  "finished_utc": "2026-10-27T03:17:40.370593+00:00",
+  "exit_code": 1,
+  "script_sha256": "c6168581f67e543c3b257c6dbd1def16124fa66455ef77335cda3c7a03394fad",
+  "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stderr_sha256": "68c67c7fdd9c535ba92b3e06172ed57f652248cb1bd2c0e07b562217c96d54c8",
+  "protocol_sha256": "1654f857a6cb17af734aa66e8f96f028551b15f4a7767f196e511104783de998",
+  "driver_sha256": "46b792911fecdc211d3895f8747ee745498eadf10c1fac3b53477e058a08a2e4",
+  "model_loads": 0,
+  "learned_forwards": 0,
+  "endpoint_process_launches": 0
+}

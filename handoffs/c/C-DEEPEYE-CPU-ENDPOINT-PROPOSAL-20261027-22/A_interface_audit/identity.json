@@ -1,0 +1,34 @@
+{
+  "task_id": "DEEPEYE-IMPLEMENTATION-20261014",
+  "task_version": 1,
+  "work_id": "C-ENDPOINT-A-INTERFACE-AUDIT-20261027-v1",
+  "actual_canonical_agent_id": "/root/sim_em_contract_audit",
+  "actual_main_thread_id": "01a14025-4dfd-7ec3-aebb-57be48daba59",
+  "contract_id": "DEEPEYE-HUMAN-LOCK-20261014/revision1",
+  "contract_source": "f5989cd5defce561f9ba98e6b18fc2682945f0a2",
+  "requirements_sha256": "c229834bfc2292f5fe4411fc9f12c68487008f9d1adaf31f0144ee7a98173804",
+  "requirements": [
+    "H01",
+    "H02",
+    "H03",
+    "H04",
+    "H05",
+    "H06",
+    "H07",
+    "H08",
+    "H09",
+    "H10",
+    "H11",
+    "H12",
+    "H13",
+    "H14",
+    "H15"
+  ],
+  "frozen_design_commit": "1011259415a0916054eb580687612580bc1e5f09",
+  "exclusive_files": [
+    ".local/main-20261015-01a14025/endpoint-20261027/interface-audit/**"
+  ],
+  "product_write_ownership": false,
+  "board_operator": "A",
+  "utc": "2026-10-27T02:40:58.659964+00:00"
+}

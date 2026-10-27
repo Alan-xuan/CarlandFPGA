@@ -1,0 +1,301 @@
+{
+  "freeze": {
+    "author_actual_release_verified": true,
+    "source_and_artifact_files_verified": 31,
+    "manifest_sha256": "250f7a2662ecd41baf359701d404d74c58590081440e25337598850485908996",
+    "source_hashes": {
+      "competition/deepeye/ai_pc/cpu_package/endpoint_protocol.py": "1654f857a6cb17af734aa66e8f96f028551b15f4a7767f196e511104783de998",
+      "competition/deepeye/ai_pc/cpu_package/process_endpoint.py": "46b792911fecdc211d3895f8747ee745498eadf10c1fac3b53477e058a08a2e4",
+      "competition/deepeye/ai_pc/cpu_package/ENDPOINT_PROPOSAL.md": "564f7add7c4de3181c48b797bc047278db9661723c56196a9602474e69a83b96",
+      "competition/deepeye/tests/ai/cpu/test_endpoint_protocol.py": "de0332f9432459d3036beafc0368d011d595b84966d033577b972087d8b1ccaf",
+      "competition/deepeye/tests/ai/cpu/test_endpoint_driver.py": "357d1793e9f6c8029ff565dfff50335c9fe6046f9091bfac735f2775ba9d5a2c"
+    },
+    "frozen_utc": "2026-10-27T03:08:00.127385+00:00",
+    "independent_phase2_may_start": true,
+    "ownership": "root retains index/publication; reviewer private read-only source test ownership"
+  },
+  "verified_artifacts": [
+    {
+      "path": "competition/deepeye/ai_pc/cpu_package/endpoint_protocol.py",
+      "bytes": 6910,
+      "sha256": "1654f857a6cb17af734aa66e8f96f028551b15f4a7767f196e511104783de998"
+    },
+    {
+      "path": "competition/deepeye/ai_pc/cpu_package/process_endpoint.py",
+      "bytes": 9998,
+      "sha256": "46b792911fecdc211d3895f8747ee745498eadf10c1fac3b53477e058a08a2e4"
+    },
+    {
+      "path": "competition/deepeye/ai_pc/cpu_package/ENDPOINT_PROPOSAL.md",
+      "bytes": 12634,
+      "sha256": "564f7add7c4de3181c48b797bc047278db9661723c56196a9602474e69a83b96"
+    },
+    {
+      "path": "competition/deepeye/tests/ai/cpu/test_endpoint_protocol.py",
+      "bytes": 8485,
+      "sha256": "de0332f9432459d3036beafc0368d011d595b84966d033577b972087d8b1ccaf"
+    },
+    {
+      "path": "competition/deepeye/tests/ai/cpu/test_endpoint_driver.py",
+      "bytes": 16294,
+      "sha256": "357d1793e9f6c8029ff565dfff50335c9fe6046f9091bfac735f2775ba9d5a2c"
+    },
+    {
+      "path": "competition/deepeye/evidence/ai/cpu_endpoint_20261027/author/.gitattributes",
+      "bytes": 8,
+      "sha256": "705fd4d6451a31d36b3df7de96f83f30ac976c9b4a6d1e51671d8e2f33e2d0da"
+    },
+    {
+      "path": "competition/deepeye/evidence/ai/cpu_endpoint_20261027/author/base-tree-verification.json",
+      "bytes": 186,
+      "sha256": "c16f8465a94151e1109c453d84fdd7ae2e947b7f3b8460bc81e0ac53c944dd91"
+    },
+    {
+      "path": "competition/deepeye/evidence/ai/cpu_endpoint_20261027/author/base-tree1334.json",
+      "bytes": 266471,
+      "sha256": "d74f9280577ea354d236d43296d7a8a35496e844b7576b5af7799ad1a9b0d819"
+    },
+    {
+      "path": "competition/deepeye/evidence/ai/cpu_endpoint_20261027/author/design-v2.md",
+      "bytes": 9014,
+      "sha256": "437aedcf1f09f11109632f4f101a6851c07a2ba2a6f65939fe35cbf92540d07f"
+    },
+    {
+      "path": "competition/deepeye/evidence/ai/cpu_endpoint_20261027/author/existing-closure-pins.json",
+      "bytes": 2028,
+      "sha256": "aa2547ea8bf69f1031ad4d53afcb202962b2540fd33a7a7124d1e69326766f5e"
+    },
+    {
+      "path": "competition/deepeye/evidence/ai/cpu_endpoint_20261027/author/first-controls/command.json",
+      "bytes": 1267,
+      "sha256": "6e0191517dcaa9745bf3bec3203499e2007f53d5affa9c1185a6c69acbc384ac"
+    },
+    {
+      "path": "competition/deepeye/evidence/ai/cpu_endpoint_20261027/author/first-controls/result.json",
+      "bytes": 520,
+      "sha256": "8e1c7c4365d8a79001dffdf3a62896a72b195a0b49007472ff1bc2e5507650d3"
+    },
+    {
+      "path": "competition/deepeye/evidence/ai/cpu_endpoint_20261027/author/first-controls/source-before/competition/deepeye/ai_pc/cpu_package/ENDPOINT_PROPOSAL.md",
+      "bytes": 12323,
+      "sha256": "347812130a595a098148af78e8a3a99361bea79b8981de494d8cfd63976e3816"
+    },
+    {
+      "path": "competition/deepeye/evidence/ai/cpu_endpoint_20261027/author/first-controls/source-before/competition/deepeye/ai_pc/cpu_package/endpoint_protocol.py",
+      "bytes": 6910,
+      "sha256": "1654f857a6cb17af734aa66e8f96f028551b15f4a7767f196e511104783de998"
+    },
+    {
+      "path": "competition/deepeye/evidence/ai/cpu_endpoint_20261027/author/first-controls/source-before/competition/deepeye/ai_pc/cpu_package/process_endpoint.py",
+      "bytes": 9998,
+      "sha256": "46b792911fecdc211d3895f8747ee745498eadf10c1fac3b53477e058a08a2e4"
+    },
+    {
+      "path": "competition/deepeye/evidence/ai/cpu_endpoint_20261027/author/first-controls/source-before/competition/deepeye/tests/ai/cpu/test_endpoint_driver.py",
+      "bytes": 16294,
+      "sha256": "357d1793e9f6c8029ff565dfff50335c9fe6046f9091bfac735f2775ba9d5a2c"
+    },
+    {
+      "path": "competition/deepeye/evidence/ai/cpu_endpoint_20261027/author/first-controls/source-before/competition/deepeye/tests/ai/cpu/test_endpoint_protocol.py",
+      "bytes": 8485,
+      "sha256": "de0332f9432459d3036beafc0368d011d595b84966d033577b972087d8b1ccaf"
+    },
+    {
+      "path": "competition/deepeye/evidence/ai/cpu_endpoint_20261027/author/first-controls/stderr.txt",
+      "bytes": 3218,
+      "sha256": "3699cf22649eaf854535fc5d894d0e2b530a16d5a934e096a4f39e5914ec13d1"
+    },
+    {
+      "path": "competition/deepeye/evidence/ai/cpu_endpoint_20261027/author/first-controls/stdout.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "competition/deepeye/evidence/ai/cpu_endpoint_20261027/author/fixtures/A-C21-first-result.exact.json",
+      "bytes": 2007,
+      "sha256": "3cbffc7619558619bde6f1b25e53f3cb7225855b79aea45417e2fcf33cd4034b"
+    },
+    {
+      "path": "competition/deepeye/evidence/ai/cpu_endpoint_20261027/author/fixtures/original-first-record.jsonl",
+      "bytes": 354,
+      "sha256": "9c9200453ca7feab036ee9e41b9b78f9b61df5d672792961379d5daa920d1eb8"
+    },
+    {
+      "path": "competition/deepeye/evidence/ai/cpu_endpoint_20261027/author/pure-codec-example/request.bin",
+      "bytes": 840,
+      "sha256": "9bbf7edf23a5625c0d5145f7f4131c480fc2557a3b8ae0cf5d36bee822267e5f"
+    },
+    {
+      "path": "competition/deepeye/evidence/ai/cpu_endpoint_20261027/author/pure-codec-example/response.bin",
+      "bytes": 2675,
+      "sha256": "abd9d3dcf9eb1ea9a17b08ae8f9ae551399bf610c82f35add52cd092b1cd9d52"
+    },
+    {
+      "path": "competition/deepeye/evidence/ai/cpu_endpoint_20261027/author/pure-codec-example/summary.json",
+      "bytes": 1700,
+      "sha256": "dae177b2c53afeba908be7aee33a069f155658180f5ea25e21e013da23a2028e"
+    },
+    {
+      "path": "competition/deepeye/evidence/ai/cpu_endpoint_20261027/author/report.md",
+      "bytes": 3745,
+      "sha256": "2891e9a7d5672442b2ac82a085a17caeee19815eb670e42e98bcafd69a57511f"
+    },
+    {
+      "path": "competition/deepeye/evidence/ai/cpu_endpoint_20261027/author/source-final/competition/deepeye/ai_pc/cpu_package/ENDPOINT_PROPOSAL.md",
+      "bytes": 12634,
+      "sha256": "564f7add7c4de3181c48b797bc047278db9661723c56196a9602474e69a83b96"
+    },
+    {
+      "path": "competition/deepeye/evidence/ai/cpu_endpoint_20261027/author/source-final/competition/deepeye/ai_pc/cpu_package/endpoint_protocol.py",
+      "bytes": 6910,
+      "sha256": "1654f857a6cb17af734aa66e8f96f028551b15f4a7767f196e511104783de998"
+    },
+    {
+      "path": "competition/deepeye/evidence/ai/cpu_endpoint_20261027/author/source-final/competition/deepeye/ai_pc/cpu_package/process_endpoint.py",
+      "bytes": 9998,
+      "sha256": "46b792911fecdc211d3895f8747ee745498eadf10c1fac3b53477e058a08a2e4"
+    },
+    {
+      "path": "competition/deepeye/evidence/ai/cpu_endpoint_20261027/author/source-final/competition/deepeye/tests/ai/cpu/test_endpoint_driver.py",
+      "bytes": 16294,
+      "sha256": "357d1793e9f6c8029ff565dfff50335c9fe6046f9091bfac735f2775ba9d5a2c"
+    },
+    {
+      "path": "competition/deepeye/evidence/ai/cpu_endpoint_20261027/author/source-final/competition/deepeye/tests/ai/cpu/test_endpoint_protocol.py",
+      "bytes": 8485,
+      "sha256": "de0332f9432459d3036beafc0368d011d595b84966d033577b972087d8b1ccaf"
+    },
+    {
+      "path": "competition/deepeye/evidence/ai/cpu_endpoint_20261027/author/source-freeze.json",
+      "bytes": 1223,
+      "sha256": "cdd94101800e96aa27a6520066c7b5a0cf4bcfce0d7ebdb6793eb82df3e05c17"
+    }
+  ],
+  "five_source_snapshot_pins": [
+    {
+      "path": "competition/deepeye/ai_pc/cpu_package/endpoint_protocol.py",
+      "bytes": 6910,
+      "sha256": "1654f857a6cb17af734aa66e8f96f028551b15f4a7767f196e511104783de998",
+      "main_snapshot": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\main-20261015-01a14025\\endpoint-20261027\\main\\frozen-source-r1\\endpoint_protocol.py"
+    },
+    {
+      "path": "competition/deepeye/ai_pc/cpu_package/process_endpoint.py",
+      "bytes": 9998,
+      "sha256": "46b792911fecdc211d3895f8747ee745498eadf10c1fac3b53477e058a08a2e4",
+      "main_snapshot": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\main-20261015-01a14025\\endpoint-20261027\\main\\frozen-source-r1\\process_endpoint.py"
+    },
+    {
+      "path": "competition/deepeye/ai_pc/cpu_package/ENDPOINT_PROPOSAL.md",
+      "bytes": 12634,
+      "sha256": "564f7add7c4de3181c48b797bc047278db9661723c56196a9602474e69a83b96",
+      "main_snapshot": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\main-20261015-01a14025\\endpoint-20261027\\main\\frozen-source-r1\\ENDPOINT_PROPOSAL.md"
+    },
+    {
+      "path": "competition/deepeye/tests/ai/cpu/test_endpoint_protocol.py",
+      "bytes": 8485,
+      "sha256": "de0332f9432459d3036beafc0368d011d595b84966d033577b972087d8b1ccaf",
+      "main_snapshot": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\main-20261015-01a14025\\endpoint-20261027\\main\\frozen-source-r1\\test_endpoint_protocol.py"
+    },
+    {
+      "path": "competition/deepeye/tests/ai/cpu/test_endpoint_driver.py",
+      "bytes": 16294,
+      "sha256": "357d1793e9f6c8029ff565dfff50335c9fe6046f9091bfac735f2775ba9d5a2c",
+      "main_snapshot": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\main-20261015-01a14025\\endpoint-20261027\\main\\frozen-source-r1\\test_endpoint_driver.py"
+    }
+  ],
+  "original_nine_pins_unchanged": true,
+  "prior_tree_entries": 1334,
+  "prior_tree_tracked_changes": [],
+  "commands": [
+    {
+      "argv": [
+        "git",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\deepeye-implementation-c",
+      "exit_code": 0,
+      "expected": "success",
+      "stdout_sha256": "9c2cea9928590b464d495dbd8460209c0eb8202f111fb5320815fe1157b89ca5",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-r",
+        "--name-only",
+        "HEAD"
+      ],
+      "cwd": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\deepeye-implementation-c",
+      "exit_code": 0,
+      "expected": "success",
+      "stdout_sha256": "28f3370870997903d44af3e2ff221ff47b376dd6e2979a2ce9da394d0f5cfe3d",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "diff",
+        "--name-only",
+        "HEAD"
+      ],
+      "cwd": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\deepeye-implementation-c",
+      "exit_code": 0,
+      "expected": "success",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "diff",
+        "--no-index",
+        "--",
+        "/dev/null",
+        "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\deepeye-implementation-c\\competition\\deepeye\\ai_pc\\cpu_package\\endpoint_protocol.py"
+      ],
+      "cwd": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\deepeye-implementation-c",
+      "exit_code": 1,
+      "expected": "new-file diff exists",
+      "stdout_sha256": "3384146f2789854ff6b32b96a46de9d84717a1ec28e57cdebbb63b4fca8d6656",
+      "stderr_sha256": "164d41c0ed4b8a0bb9cb610f1911d42a45b277f045e58868d4504a1754752aa5"
+    },
+    {
+      "argv": [
+        "git",
+        "diff",
+        "--no-index",
+        "--",
+        "/dev/null",
+        "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\deepeye-implementation-c\\competition\\deepeye\\ai_pc\\cpu_package\\process_endpoint.py"
+      ],
+      "cwd": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\deepeye-implementation-c",
+      "exit_code": 1,
+      "expected": "new-file diff exists",
+      "stdout_sha256": "f07c5ac24b60731532576783ab09e47b98ef0d2314e51567ba33e7e4b0eca1ec",
+      "stderr_sha256": "824389c2b852a518cf0f3e94cc5add05af229e3e9811a9d246aa5beb052a2c6d"
+    }
+  ],
+  "author_raw_runs": [
+    {
+      "path": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\deepeye-implementation-c\\competition\\deepeye\\evidence\\ai\\cpu_endpoint_20261027\\author\\first-controls\\result.json",
+      "data": {
+        "exit_code": 0,
+        "stdout_bytes": 0,
+        "stderr_bytes": 3218,
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr_sha256": "3699cf22649eaf854535fc5d894d0e2b530a16d5a934e096a4f39e5914ec13d1",
+        "interpreter_version": "3.13.5 (tags/v3.13.5:6cb20a2, Jun 11 2025, 16:15:46) [MSC v.1943 64 bit (AMD64)]",
+        "real_model_constructors": 0,
+        "learned_forwards": 0,
+        "endpoint_process_launches": 0,
+        "private_fake_core_controls": true,
+        "active_subprocesses": []
+      },
+      "scope": "original author recorded run only; not executed here"
+    }
+  ],
+  "author_test_contents_read_for_controls": false,
+  "author_or_old_suite_executed": false
+}

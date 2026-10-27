@@ -1,0 +1,18 @@
+{"byte_match": true, "exact_A_reply_bytes": 2007, "full_result_frame": 2665, "group": "E01", "tail_unread": true}
+{"dynamic_raw_edge": 15908, "geometry6160": "synthetic only", "group": "E02", "input_total_edge": 16384, "reply_4096_accepted": true, "reply_4097_no_write": true}
+{"group": "E03", "negative_frozen_frames": 9, "overlimit_body_not_read": true, "truncation_positions": 11}
+{"group": "E04", "invalid_read_completions": 6, "no_retry": true, "positive_fragment_patterns": 4}
+{"group": "E05", "no_remainder_errorframe_or_future_read": true, "single_attempt": true, "unknown_write_cases": 8}
+{"boundary_eof_abnormal": true, "cleanup_failure_no_extra_write": true, "failed_explicit_end_not_retried": true, "group": "E06", "normal_counts": [1, 1, 1, 1, 2]}
+{"actual_StreamLimits_output4096": true, "actual_fixed_new_core_source_pin": true, "constructor_privately_replaced": true, "group": "E07", "original_record_run_id_preserved": true}
+{"changed_later_record_before_fake_observe": true, "first_binding_negatives": 13, "group": "E08", "real_original_parser_unpatched": true}
+{"group": "E09", "index_exact_next": true, "invocation_strict_increase_allows_jump": true, "no_identity_authentication_claim": true, "six_frozen_fields": true}
+{"distinct_initial_A_labels_diagnostic_only": true, "group": "E10", "no_end_tail_read": true, "used_driver_no_reactivation": true}
+{"earlier_reply_unchanged": true, "first_success_before_future_read": true, "future_error_no_resync": true, "group": "E11"}
+{"LF_preserved": true, "group": "E12", "noncanonical_metadata_raw_hash": true, "operation_frame_record_reply_hashes_distinct": true}
+{"exact_whole_wire_budget": true, "final_END_slot_reserved": true, "group": "E13", "input_before_factory": true, "limits_detached_only_lower": true, "output_before_write": true}
+{"bounded_ascii_diagnostic": true, "group": "E14", "json_negatives": 7, "no_error_banner_or_raw_exception": true}
+{"group": "E15", "no_A_authority_model_or_process_import": true, "no_CLI_execution": true, "static_raw_stdio_binary_mode": true}
+{"Torch_imported": false, "all_reference_frames_used": 24, "endpoint_process_launches": 0, "group": "E16", "learned_forwards": 0, "model_loads": 0}
+{"FORCE_nonmotion_only": true, "fixed_source_pins": true, "group": "E17", "model_quality_runtime_and_formal_acceptance": "unchanged incomplete", "production_adoption": false}
+{"Torch_imported": false, "model_import_attempts": [], "private_factories": 45, "summary": {"errors": 0, "failures": 0, "skips": 0, "success": true, "tests": 17}}

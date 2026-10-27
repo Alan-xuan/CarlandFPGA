@@ -1,0 +1,33 @@
+{
+  "task_id": "DEEPEYE-IMPLEMENTATION-20261014",
+  "task_version": 1,
+  "work_id": "C-ENDPOINT-INDEPENDENT-REVIEW-20261027-v1",
+  "phase": 2,
+  "canonical_agent_id": "/root/cpu_independent_review",
+  "main_thread": "01a14025-4dfd-7ec3-aebb-57be48daba59",
+  "exclusive_scope": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\main-20261015-01a14025\\endpoint-20261027\\review\\phase2",
+  "not_alone": true,
+  "input_owner": "main/actually released author; read only",
+  "design_sha256": "437aedcf1f09f11109632f4f101a6851c07a2ba2a6f65939fe35cbf92540d07f",
+  "protocol_sha256": "1654f857a6cb17af734aa66e8f96f028551b15f4a7767f196e511104783de998",
+  "driver_sha256": "46b792911fecdc211d3895f8747ee745498eadf10c1fac3b53477e058a08a2e4",
+  "author_manifest_sha256": "250f7a2662ecd41baf359701d404d74c58590081440e25337598850485908996",
+  "requirements_sha256": "c229834bfc2292f5fe4411fc9f12c68487008f9d1adaf31f0144ee7a98173804",
+  "contract_source": "f5989cd5defce561f9ba98e6b18fc2682945f0a2",
+  "frozen_design": "1011259415a0916054eb580687612580bc1e5f09",
+  "H01_H15": "unchanged",
+  "prior_stop": "main verified actual author release ownership_released=true active_subprocesses=[] and31deliverybytes; phase1b actualreleased",
+  "acceptance": "Frozen-source independent17controlgroups/24oracleframes, actual oldstdlib parsing with privatefakeconstructor only, rawargv/exits/sourcepins; blocker minimalRED then stop or scoped report/release",
+  "forbidden": [
+    "product/index writes",
+    "author/old suites",
+    "model/scaler construction/learnedforward",
+    "endpoint subprocess/CLI launch",
+    "Aauthoritymodule import",
+    "remote/peer messages",
+    "SQL/credentials/services/controller/board",
+    "subagents"
+  ],
+  "board_operator": "A only",
+  "recorded_utc": "2026-10-27T03:08:37.2849967Z"
+}

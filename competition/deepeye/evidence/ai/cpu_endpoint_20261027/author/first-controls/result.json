@@ -1,0 +1,13 @@
+{
+  "exit_code": 0,
+  "stdout_bytes": 0,
+  "stderr_bytes": 3218,
+  "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stderr_sha256": "3699cf22649eaf854535fc5d894d0e2b530a16d5a934e096a4f39e5914ec13d1",
+  "interpreter_version": "3.13.5 (tags/v3.13.5:6cb20a2, Jun 11 2025, 16:15:46) [MSC v.1943 64 bit (AMD64)]",
+  "real_model_constructors": 0,
+  "learned_forwards": 0,
+  "endpoint_process_launches": 0,
+  "private_fake_core_controls": true,
+  "active_subprocesses": []
+}

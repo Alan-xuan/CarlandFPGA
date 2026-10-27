@@ -1,0 +1,21 @@
+{
+  "argv": [
+    "C:\\Users\\Alan\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+    "-I",
+    "-S",
+    "-B",
+    "-X",
+    "utf8",
+    "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\main-20261015-01a14025\\endpoint-20261027\\review\\prove_exact_bytes.py"
+  ],
+  "cwd": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\main-20261015-01a14025\\endpoint-20261027\\review",
+  "started_utc": "2026-10-27T02:42:53.573396+00:00",
+  "finished_utc": "2026-10-27T02:42:53.778905+00:00",
+  "exit_code": 0,
+  "script_sha256": "57ce56d8373e21fcc3d79079ffcb5b629e5f021eb8ce2c14364fdc438dcbf6e8",
+  "stdout_sha256": "bb046f60d90624a2d3889ce97d1f1be43cc3b866dccd78464f75889a840413db",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "learned_model_loads": 0,
+  "learned_forwards": 0,
+  "endpoint_process_launches": 0
+}

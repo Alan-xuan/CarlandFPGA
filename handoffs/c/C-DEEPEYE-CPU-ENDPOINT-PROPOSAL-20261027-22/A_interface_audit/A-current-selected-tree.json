@@ -1,0 +1,73 @@
+{
+  "head_commit": "5c192f34bad064b14e238747c2c569347257a62c",
+  "head_repo": "carolwjade/CarlandFPGA",
+  "head_ref": "codex/a/deepeye-implementation-20261014",
+  "tree_origin": "same exact A head; prior raw nontruncated tree reused",
+  "tree_sha": "5c192f34bad064b14e238747c2c569347257a62c",
+  "files": [
+    {
+      "path": "competition/deepeye/docs/actor_composition.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0084a9079c1ece1bbf04c2c5a07bebf132d8d3a1",
+      "size": 17868,
+      "url": "https://api.github.com/repos/carolwjade/CarlandFPGA/git/blobs/0084a9079c1ece1bbf04c2c5a07bebf132d8d3a1"
+    },
+    {
+      "path": "competition/deepeye/docs/actor_composition_native_checkpoint_20261019.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2ace19207980dde75b1ccd23f7a15f188ed80a50",
+      "size": 5189,
+      "url": "https://api.github.com/repos/carolwjade/CarlandFPGA/git/blobs/2ace19207980dde75b1ccd23f7a15f188ed80a50"
+    },
+    {
+      "path": "competition/deepeye/docs/actor_ipc_framing.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6cd963d68105a2ba2dbace303a57fc9b1d57c376",
+      "size": 2800,
+      "url": "https://api.github.com/repos/carolwjade/CarlandFPGA/git/blobs/6cd963d68105a2ba2dbace303a57fc9b1d57c376"
+    },
+    {
+      "path": "competition/deepeye/docs/cpu_invocation_transcript.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "75a1ec0bb1372b27960d7720e5b638a5887cbdd0",
+      "size": 7361,
+      "url": "https://api.github.com/repos/carolwjade/CarlandFPGA/git/blobs/75a1ec0bb1372b27960d7720e5b638a5887cbdd0"
+    },
+    {
+      "path": "competition/deepeye/integration/cpu_invocation_transcript.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a96888d9d4b11c4e674c5061ef6023e6d10f66c9",
+      "size": 14840,
+      "url": "https://api.github.com/repos/carolwjade/CarlandFPGA/git/blobs/a96888d9d4b11c4e674c5061ef6023e6d10f66c9"
+    },
+    {
+      "path": "competition/deepeye/integration/test_cpu_invocation_transcript.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8ee11481fd3aafa713e4d385b8b8049d6c41e965",
+      "size": 15767,
+      "url": "https://api.github.com/repos/carolwjade/CarlandFPGA/git/blobs/8ee11481fd3aafa713e4d385b8b8049d6c41e965"
+    },
+    {
+      "path": "competition/deepeye/simulation/authority/actor_composition.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "aee9d678ed4a970c45c77d27c8df974bfbe4dab4",
+      "size": 26158,
+      "url": "https://api.github.com/repos/carolwjade/CarlandFPGA/git/blobs/aee9d678ed4a970c45c77d27c8df974bfbe4dab4"
+    },
+    {
+      "path": "competition/deepeye/simulation/isolation/ipc_framing.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "cd4c1cec73319dc176ed75fdc6c441c6b368e188",
+      "size": 3145,
+      "url": "https://api.github.com/repos/carolwjade/CarlandFPGA/git/blobs/cd4c1cec73319dc176ed75fdc6c441c6b368e188"
+    }
+  ]
+}

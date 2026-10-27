@@ -1,0 +1,30 @@
+{
+  "task_id": "DEEPEYE-IMPLEMENTATION-20261014",
+  "task_version": 1,
+  "work_id": "C-ENDPOINT-INDEPENDENT-REVIEW-20261027-v1",
+  "phase": "1b",
+  "canonical_agent_id": "/root/cpu_independent_review",
+  "main_thread": "01a14025-4dfd-7ec3-aebb-57be48daba59",
+  "exclusive_scope": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\main-20261015-01a14025\\endpoint-20261027\\review\\phase1b",
+  "not_alone": true,
+  "input_owner": "main/author/interfaceauditor; read only",
+  "design_path": ".local/main-20261015-01a14025/endpoint-20261027/main/design-v1.md",
+  "initial_design_sha256": "e4c4cde80852c60a647f0893f89f33de5b8437bc125ba3f5dd388a709e789a0b",
+  "requirements_sha256": "c229834bfc2292f5fe4411fc9f12c68487008f9d1adaf31f0144ee7a98173804",
+  "contract_source": "f5989cd5defce561f9ba98e6b18fc2682945f0a2",
+  "frozen_design": "1011259415a0916054eb580687612580bc1e5f09",
+  "H01_H15": "unchanged",
+  "prior_stop": "parent verified phase1 released active_jobs=[]",
+  "acceptance": "Freeze independent pure-byte oracle for16B C22E header, identity/fullframe/payloadhashes, totalcaps, single-write terminal semantics; report any concrete design flaw before freeze",
+  "forbidden": [
+    "evolving endpoint source/tests reads",
+    "product/index writes",
+    "learned/core construction/forward",
+    "endpoint process launch",
+    "remote writes/messages",
+    "SQL/credentials/services/controller/board",
+    "subagents"
+  ],
+  "board_operator": "A only",
+  "recorded_utc": "2026-10-27T02:52:54.4731494Z"
+}

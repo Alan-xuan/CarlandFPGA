@@ -1,0 +1,22 @@
+{
+  "argv": [
+    "C:\\Users\\Alan\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+    "-I",
+    "-S",
+    "-B",
+    "-X",
+    "utf8",
+    "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\main-20261015-01a14025\\endpoint-20261027\\review\\phase1b\\build_wire_oracles.py"
+  ],
+  "cwd": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\main-20261015-01a14025\\endpoint-20261027\\review\\phase1b",
+  "started_utc": "2026-10-27T02:58:56.846918+00:00",
+  "finished_utc": "2026-10-27T02:58:57.368399+00:00",
+  "exit_code": 0,
+  "script_sha256": "502b2089d3ec6a33e1ac25a1dfc6ae6bc93ba9b850230f5063d0068a14cd1b13",
+  "stdout_sha256": "98a20c3f160d6cb34f5d2cb0efc6b7d015dd7008e97eff493fceffe3efd83f41",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "model_loads": 0,
+  "learned_forwards": 0,
+  "endpoint_process_launches": 0,
+  "scope": "corrected private reference generator; all fresh artifacts in r2, first RED+script kept unchanged; no endpoint import"
+}

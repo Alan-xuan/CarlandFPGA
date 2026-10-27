@@ -1,0 +1,22 @@
+{
+  "argv": [
+    "C:\\Users\\Alan\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+    "-I",
+    "-S",
+    "-B",
+    "-X",
+    "utf8",
+    "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\main-20261015-01a14025\\endpoint-20261027\\review\\phase1b\\build_wire_oracles.py"
+  ],
+  "cwd": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\main-20261015-01a14025\\endpoint-20261027\\review\\phase1b",
+  "started_utc": "2026-10-27T02:58:09.096372+00:00",
+  "finished_utc": "2026-10-27T02:58:09.342618+00:00",
+  "exit_code": 1,
+  "script_sha256": "25c088da04a1f65af0700d20e78e233aefa377f4f75b1ccd4210f11ad26e559f",
+  "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stderr_sha256": "e1f343e01268067305418744597d5c2b5590f6d4fdabff5f6e66b0df59cc3c67",
+  "model_loads": 0,
+  "learned_forwards": 0,
+  "endpoint_process_launches": 0,
+  "scope": "reference wire fixtures + pinned actual stdlib first-binding parse + private fake lifecycle only; no endpoint implementation import"
+}

@@ -1,0 +1,232 @@
+"""One C22 diagnostic stdio lifetime; no A factory, handles or authority.
+
+Proposed CLI: python -B -m ai_pc.cpu_package.process_endpoint (product cwd).
+Source review only: no public fake-core mode, model path or wire configuration.
+"""
+from dataclasses import dataclass, replace
+import hashlib
+import importlib
+import os
+from pathlib import Path
+import sys
+from typing import NamedTuple
+
+from ai_pc.cpu_package import endpoint_protocol as wire
+
+STREAM_CORE_SHA256 = '0a8c07f34080784f36180951b28873b43de5e3f80ad201325254b274bd01217b'
+RUNNER_SHA256 = '92114790259b7e35e8bf7b1a0519f0e3f68da52729d08b5b9862c992deae70af'
+CURVE_INPUT_SHA256 = 'c017729a2d5717ff2bbf5a6c591320519c415ac10068b4cee19b3136913d848c'
+PREPROCESSING_SHA256 = 'cb66fd302165c86344f3b8d1af9d9c4e4e229621cef44cbfa6fb8cd121a63eef'
+_SOURCE_CAP = 2 * 1024 * 1024
+
+
+def _source_pin(path, expected):
+    with path.open('rb') as source:
+        raw = source.read(_SOURCE_CAP + 1)
+    if len(raw) > _SOURCE_CAP or hashlib.sha256(raw).hexdigest() != expected:
+        raise wire.ProtocolError('source_pin_failed')
+
+
+def _import_at(name, path):
+    module = importlib.import_module(name)
+    if Path(module.__file__).resolve() != path.resolve():
+        raise wire.ProtocolError('module_path_invalid')
+    return module
+
+
+def _load_parser():
+    # Verify both sources BEFORE runner can import curve_input. No Torch import.
+    product = Path(__file__).resolve().parents[2]
+    runner = product / 'ai_pc/cpu_package/runner.py'
+    curve = product / 'ai_pc/model/curve_input.py'
+    _source_pin(runner, RUNNER_SHA256)
+    _source_pin(curve, CURVE_INPUT_SHA256)
+    module = _import_at('ai_pc.cpu_package.runner', runner)
+    builder = _import_at('ai_pc.model.curve_input', curve)
+    return module.strict_json, builder.CurveObservation.from_mapping
+
+
+def _new_core():
+    # Fixed production construction only. Controls privately monkeypatch this
+    # function; that is neither a public parameter nor an alternate CLI mode.
+    path = Path(__file__).resolve().with_name('stream_core.py')
+    _source_pin(path, STREAM_CORE_SHA256)
+    module = _import_at('ai_pc.cpu_package.stream_core', path)
+    return module.FrozenForceStream(limits=module.StreamLimits(max_output_bytes=4096))
+
+
+@dataclass(frozen=True, slots=True)
+class EndpointLimits:
+    """Lifetime wire/call caps; only reductions for bounded pure controls."""
+    max_frames: int = 65536
+    max_observations: int = 65535
+    max_input_bytes: int = 64 * 1024 * 1024
+    max_output_bytes: int = 64 * 1024 * 1024
+
+    def __post_init__(self):
+        for name, maximum in (('max_frames', 65536), ('max_observations', 65535),
+                              ('max_input_bytes', 64 * 1024 * 1024),
+                              ('max_output_bytes', 64 * 1024 * 1024)):
+            wire._integer(getattr(self, name), 1, maximum)
+
+
+class RunOutcome(NamedTuple):
+    exit_code: int
+    diagnostic: str
+    observations_called: int
+    responses_emitted: int
+    input_bytes: int
+    output_bytes: int
+    cleanup_failed: bool
+
+
+class EndpointDriver:
+    """Borrowed synchronous read(size)/write(bytes); run exactly once.
+
+    No callback on the wire, no concurrency/background I/O, no stream closing.
+    Trusted caller owns exclusive synchronous access to these local callbacks.
+    """
+    def __init__(self, read, write, *, limits=None):
+        if not callable(read) or not callable(write):
+            raise wire.ProtocolError('io_invalid')
+        if limits is None:
+            limits = EndpointLimits()
+        if type(limits) is not EndpointLimits:
+            raise wire.ProtocolError('limits_invalid')
+        self._limits = replace(limits)
+        self._read, self._write = read, write
+        self._used = False
+        self._core = self._token = self._binding = self._parser = None
+        self._end_attempted = False
+        self._wire_in = self._wire_out = self._observations = self._responses = 0
+        self._last_identity = None
+        self._next_index = 1
+
+    def _exact(self, size):
+        chunks = []
+        remaining = size
+        while remaining:
+            chunk = self._read(remaining)
+            if type(chunk) is not bytes or not 1 <= len(chunk) <= remaining:
+                raise wire.ProtocolError('read_invalid_or_eof')
+            chunks.append(chunk)
+            remaining -= len(chunk)
+            self._wire_in += len(chunk)
+        return b''.join(chunks)
+
+    def _request(self):
+        if self._next_index > self._limits.max_frames:
+            raise wire.ProtocolError('frame_budget')
+        if self._wire_in + wire.HEADER.size > self._limits.max_input_bytes:
+            raise wire.ProtocolError('input_budget')
+        header = self._exact(wire.HEADER.size)
+        _kind, meta_size, payload_size = wire.request_lengths(header)
+        if self._wire_in + meta_size + payload_size > self._limits.max_input_bytes:
+            raise wire.ProtocolError('input_budget')
+        raw = header + self._exact(meta_size) + self._exact(payload_size)
+        request = wire.decode_request(raw)
+        if request.frame_index != self._next_index:
+            raise wire.ProtocolError('frame_order_invalid')
+        old = self._last_identity
+        if old is not None:
+            if request.identity.frozen_fields() != old.frozen_fields():
+                raise wire.ProtocolError('identity_changed')
+            if request.identity.invocation_id <= old.invocation_id:
+                raise wire.ProtocolError('invocation_regressed')
+        elif request.kind != wire.OBSERVE:
+            raise wire.ProtocolError('first_frame_not_observe')
+        return request
+
+    def _observation_binding(self, raw):
+        if self._parser is None:
+            self._parser = _load_parser()
+        strict_json, from_mapping = self._parser
+        observation = from_mapping(strict_json(raw))
+        binding = observation.binding
+        if (binding.source_domain != 'geo_replay' or binding.profile_id != 'force_curve_v1'
+                or binding.preprocessing_sha256 != PREPROCESSING_SHA256
+                or type(binding.run_id) is not str or not binding.run_id
+                or len(binding.run_id.encode('utf-8')) > 128):
+            raise wire.ProtocolError('record_binding_invalid')
+        if self._binding is not None and binding != self._binding:
+            raise wire.ProtocolError('record_binding_changed')
+        return binding
+
+    def _reply(self, request):
+        if request.kind == wire.OBSERVE:
+            if self._observations >= min(self._limits.max_observations, self._limits.max_frames - 1):
+                raise wire.ProtocolError('observation_budget')
+            binding = self._observation_binding(request.payload)
+            if self._core is None:
+                self._core = _new_core()
+                self._token = self._core.start_session(generation=1, epoch=0, run_id=binding.run_id)
+                self._binding = binding
+            self._observations += 1
+            result = self._core.observe(self._token, request.payload)
+        else:
+            self._end_attempted = True  # reserve before call, including failures
+            result = self._core.end_session(self._token)
+        return wire.encode_response(request, result.encoded)
+
+    def run(self):
+        if self._used:
+            return RunOutcome(1, 'driver_retired', self._observations, self._responses,
+                              self._wire_in, self._wire_out, False)
+        self._used = True  # no retry/reactivation, including callback reentry
+        diagnostic, cleanup_failed, completed = 'endpoint_failed', False, False
+        try:
+            while True:
+                request = self._request()
+                reply = self._reply(request)
+                if self._wire_out + len(reply) > self._limits.max_output_bytes:
+                    raise wire.ProtocolError('output_budget')
+                count = self._write(reply)  # exactly ONE call; never remainder/retry
+                if type(count) is not int or count != len(reply):
+                    raise wire.ProtocolError('write_unknown_or_partial')
+                self._wire_out += count
+                self._responses += 1
+                self._last_identity = request.identity
+                self._next_index += 1
+                if request.kind == wire.END:
+                    completed, diagnostic = True, 'ended'
+                    break  # no read of any tail, not even a header
+        except wire.ProtocolError as error:
+            diagnostic = error.code
+        except BaseException:
+            diagnostic = 'endpoint_failed'  # never expose raw exception/payload
+        finally:
+            if self._token is not None and not self._end_attempted:
+                self._end_attempted = True
+                try:
+                    self._core.end_session(self._token)  # discarded local cleanup
+                except BaseException:
+                    cleanup_failed = True
+        return RunOutcome(0 if completed and not cleanup_failed else 1, diagnostic,
+                          self._observations, self._responses, self._wire_in,
+                          self._wire_out, cleanup_failed)
+
+
+def main():
+    """Raw ordinary fd0/fd1 only. No argv, buffered prefetch or inherited HANDLEs."""
+    try:
+        if len(sys.argv) != 1:
+            raise wire.ProtocolError('arguments_forbidden')
+        if os.name == 'nt':
+            import msvcrt
+            msvcrt.setmode(0, os.O_BINARY)
+            msvcrt.setmode(1, os.O_BINARY)
+        outcome = EndpointDriver(lambda size: os.read(0, size),
+                                 lambda raw: os.write(1, raw)).run()
+        code, diagnostic = outcome.exit_code, outcome.diagnostic
+    except BaseException:
+        code, diagnostic = 1, 'endpoint_setup_failed'
+    if code:
+        try:
+            os.write(2, ('C22:' + diagnostic + '\n').encode('ascii'))
+        except BaseException:
+            pass  # no retry or fallback stream
+    return code
+
+
+if __name__ == '__main__':
+    raise SystemExit(main())

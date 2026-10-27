@@ -1,0 +1,183 @@
+{
+  "schema": 1,
+  "task_id": "DEEPEYE-IMPLEMENTATION-20261014",
+  "task_version": 1,
+  "work_id": "C-ENDPOINT-AUTHOR-20261027-v1",
+  "operation_id": "C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22",
+  "base_commit": "b898e90c7248dec5a6dd0ee850c8a07e097e83aa",
+  "sources": [
+    {
+      "path": "competition/deepeye/ai_pc/cpu_package/endpoint_protocol.py",
+      "bytes": 6910,
+      "sha256": "1654f857a6cb17af734aa66e8f96f028551b15f4a7767f196e511104783de998"
+    },
+    {
+      "path": "competition/deepeye/ai_pc/cpu_package/process_endpoint.py",
+      "bytes": 9998,
+      "sha256": "46b792911fecdc211d3895f8747ee745498eadf10c1fac3b53477e058a08a2e4"
+    },
+    {
+      "path": "competition/deepeye/ai_pc/cpu_package/ENDPOINT_PROPOSAL.md",
+      "bytes": 12634,
+      "sha256": "564f7add7c4de3181c48b797bc047278db9661723c56196a9602474e69a83b96"
+    },
+    {
+      "path": "competition/deepeye/tests/ai/cpu/test_endpoint_protocol.py",
+      "bytes": 8485,
+      "sha256": "de0332f9432459d3036beafc0368d011d595b84966d033577b972087d8b1ccaf"
+    },
+    {
+      "path": "competition/deepeye/tests/ai/cpu/test_endpoint_driver.py",
+      "bytes": 16294,
+      "sha256": "357d1793e9f6c8029ff565dfff50335c9fe6046f9091bfac735f2775ba9d5a2c"
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "competition/deepeye/evidence/ai/cpu_endpoint_20261027/author/.gitattributes",
+      "bytes": 8,
+      "sha256": "705fd4d6451a31d36b3df7de96f83f30ac976c9b4a6d1e51671d8e2f33e2d0da"
+    },
+    {
+      "path": "competition/deepeye/evidence/ai/cpu_endpoint_20261027/author/base-tree-verification.json",
+      "bytes": 186,
+      "sha256": "c16f8465a94151e1109c453d84fdd7ae2e947b7f3b8460bc81e0ac53c944dd91"
+    },
+    {
+      "path": "competition/deepeye/evidence/ai/cpu_endpoint_20261027/author/base-tree1334.json",
+      "bytes": 266471,
+      "sha256": "d74f9280577ea354d236d43296d7a8a35496e844b7576b5af7799ad1a9b0d819"
+    },
+    {
+      "path": "competition/deepeye/evidence/ai/cpu_endpoint_20261027/author/design-v2.md",
+      "bytes": 9014,
+      "sha256": "437aedcf1f09f11109632f4f101a6851c07a2ba2a6f65939fe35cbf92540d07f"
+    },
+    {
+      "path": "competition/deepeye/evidence/ai/cpu_endpoint_20261027/author/existing-closure-pins.json",
+      "bytes": 2028,
+      "sha256": "aa2547ea8bf69f1031ad4d53afcb202962b2540fd33a7a7124d1e69326766f5e"
+    },
+    {
+      "path": "competition/deepeye/evidence/ai/cpu_endpoint_20261027/author/first-controls/command.json",
+      "bytes": 1267,
+      "sha256": "6e0191517dcaa9745bf3bec3203499e2007f53d5affa9c1185a6c69acbc384ac"
+    },
+    {
+      "path": "competition/deepeye/evidence/ai/cpu_endpoint_20261027/author/first-controls/result.json",
+      "bytes": 520,
+      "sha256": "8e1c7c4365d8a79001dffdf3a62896a72b195a0b49007472ff1bc2e5507650d3"
+    },
+    {
+      "path": "competition/deepeye/evidence/ai/cpu_endpoint_20261027/author/first-controls/source-before/competition/deepeye/ai_pc/cpu_package/ENDPOINT_PROPOSAL.md",
+      "bytes": 12323,
+      "sha256": "347812130a595a098148af78e8a3a99361bea79b8981de494d8cfd63976e3816"
+    },
+    {
+      "path": "competition/deepeye/evidence/ai/cpu_endpoint_20261027/author/first-controls/source-before/competition/deepeye/ai_pc/cpu_package/endpoint_protocol.py",
+      "bytes": 6910,
+      "sha256": "1654f857a6cb17af734aa66e8f96f028551b15f4a7767f196e511104783de998"
+    },
+    {
+      "path": "competition/deepeye/evidence/ai/cpu_endpoint_20261027/author/first-controls/source-before/competition/deepeye/ai_pc/cpu_package/process_endpoint.py",
+      "bytes": 9998,
+      "sha256": "46b792911fecdc211d3895f8747ee745498eadf10c1fac3b53477e058a08a2e4"
+    },
+    {
+      "path": "competition/deepeye/evidence/ai/cpu_endpoint_20261027/author/first-controls/source-before/competition/deepeye/tests/ai/cpu/test_endpoint_driver.py",
+      "bytes": 16294,
+      "sha256": "357d1793e9f6c8029ff565dfff50335c9fe6046f9091bfac735f2775ba9d5a2c"
+    },
+    {
+      "path": "competition/deepeye/evidence/ai/cpu_endpoint_20261027/author/first-controls/source-before/competition/deepeye/tests/ai/cpu/test_endpoint_protocol.py",
+      "bytes": 8485,
+      "sha256": "de0332f9432459d3036beafc0368d011d595b84966d033577b972087d8b1ccaf"
+    },
+    {
+      "path": "competition/deepeye/evidence/ai/cpu_endpoint_20261027/author/first-controls/stderr.txt",
+      "bytes": 3218,
+      "sha256": "3699cf22649eaf854535fc5d894d0e2b530a16d5a934e096a4f39e5914ec13d1"
+    },
+    {
+      "path": "competition/deepeye/evidence/ai/cpu_endpoint_20261027/author/first-controls/stdout.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "competition/deepeye/evidence/ai/cpu_endpoint_20261027/author/fixtures/A-C21-first-result.exact.json",
+      "bytes": 2007,
+      "sha256": "3cbffc7619558619bde6f1b25e53f3cb7225855b79aea45417e2fcf33cd4034b"
+    },
+    {
+      "path": "competition/deepeye/evidence/ai/cpu_endpoint_20261027/author/fixtures/original-first-record.jsonl",
+      "bytes": 354,
+      "sha256": "9c9200453ca7feab036ee9e41b9b78f9b61df5d672792961379d5daa920d1eb8"
+    },
+    {
+      "path": "competition/deepeye/evidence/ai/cpu_endpoint_20261027/author/pure-codec-example/request.bin",
+      "bytes": 840,
+      "sha256": "9bbf7edf23a5625c0d5145f7f4131c480fc2557a3b8ae0cf5d36bee822267e5f"
+    },
+    {
+      "path": "competition/deepeye/evidence/ai/cpu_endpoint_20261027/author/pure-codec-example/response.bin",
+      "bytes": 2675,
+      "sha256": "abd9d3dcf9eb1ea9a17b08ae8f9ae551399bf610c82f35add52cd092b1cd9d52"
+    },
+    {
+      "path": "competition/deepeye/evidence/ai/cpu_endpoint_20261027/author/pure-codec-example/summary.json",
+      "bytes": 1700,
+      "sha256": "dae177b2c53afeba908be7aee33a069f155658180f5ea25e21e013da23a2028e"
+    },
+    {
+      "path": "competition/deepeye/evidence/ai/cpu_endpoint_20261027/author/report.md",
+      "bytes": 3745,
+      "sha256": "2891e9a7d5672442b2ac82a085a17caeee19815eb670e42e98bcafd69a57511f"
+    },
+    {
+      "path": "competition/deepeye/evidence/ai/cpu_endpoint_20261027/author/source-final/competition/deepeye/ai_pc/cpu_package/ENDPOINT_PROPOSAL.md",
+      "bytes": 12634,
+      "sha256": "564f7add7c4de3181c48b797bc047278db9661723c56196a9602474e69a83b96"
+    },
+    {
+      "path": "competition/deepeye/evidence/ai/cpu_endpoint_20261027/author/source-final/competition/deepeye/ai_pc/cpu_package/endpoint_protocol.py",
+      "bytes": 6910,
+      "sha256": "1654f857a6cb17af734aa66e8f96f028551b15f4a7767f196e511104783de998"
+    },
+    {
+      "path": "competition/deepeye/evidence/ai/cpu_endpoint_20261027/author/source-final/competition/deepeye/ai_pc/cpu_package/process_endpoint.py",
+      "bytes": 9998,
+      "sha256": "46b792911fecdc211d3895f8747ee745498eadf10c1fac3b53477e058a08a2e4"
+    },
+    {
+      "path": "competition/deepeye/evidence/ai/cpu_endpoint_20261027/author/source-final/competition/deepeye/tests/ai/cpu/test_endpoint_driver.py",
+      "bytes": 16294,
+      "sha256": "357d1793e9f6c8029ff565dfff50335c9fe6046f9091bfac735f2775ba9d5a2c"
+    },
+    {
+      "path": "competition/deepeye/evidence/ai/cpu_endpoint_20261027/author/source-final/competition/deepeye/tests/ai/cpu/test_endpoint_protocol.py",
+      "bytes": 8485,
+      "sha256": "de0332f9432459d3036beafc0368d011d595b84966d033577b972087d8b1ccaf"
+    },
+    {
+      "path": "competition/deepeye/evidence/ai/cpu_endpoint_20261027/author/source-freeze.json",
+      "bytes": 1223,
+      "sha256": "cdd94101800e96aa27a6520066c7b5a0cf4bcfce0d7ebdb6793eb82df3e05c17"
+    }
+  ],
+  "controls": {
+    "test_methods": 18,
+    "protocol_methods": 6,
+    "private_fake_driver_control_methods": 12,
+    "skipped": 0,
+    "failures": 0,
+    "errors": 0,
+    "exit_code": 0,
+    "real_learned_constructors": 0,
+    "learned_forwards": 0,
+    "endpoint_process_launches": 0,
+    "per_call_fake_counts": "not instrumented"
+  },
+  "production_wire_factory_adopted": false,
+  "complete_runtime_staged": false,
+  "formal_acceptance": "not_run"
+}

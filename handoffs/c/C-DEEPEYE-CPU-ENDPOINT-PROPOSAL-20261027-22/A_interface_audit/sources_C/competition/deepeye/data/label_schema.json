@@ -1,0 +1,123 @@
+{
+  "schema": 1,
+  "task_id": "DEEPEYE-IMPLEMENTATION-20261014",
+  "task_version": 1,
+  "contract": {
+    "id": "DEEPEYE-HUMAN-LOCK-20261014",
+    "revision": 1,
+    "source_commit": "f5989cd5defce561f9ba98e6b18fc2682945f0a2",
+    "requirements_sha256": "c229834bfc2292f5fe4411fc9f12c68487008f9d1adaf31f0144ee7a98173804"
+  },
+  "design_commit": "1011259415a0916054eb580687612580bc1e5f09",
+  "scope": "Offline public-well lithology labels only; not simulation risk or real water-hazard truth",
+  "source": {
+    "repository": "https://github.com/bolgebrygg/Force-2020-Machine-Learning-competition",
+    "commit": "c8d01ee92c1c8e1ecba36f96cca6ea7b689338a1",
+    "path": "lithology_competition/data/starter_notebook.ipynb",
+    "git_blob_sha1": "de4c9a735465ebeea669bfa94e04625071cc6765",
+    "sha256": "89c3bafc720fd83d39ea4510e04d82fd23e0511f8ba65053f5475b1b1514d9fa",
+    "method": "AST literal extraction of two constant mappings; notebook never executed"
+  },
+  "target_curve": "FORCE_2020_LITHOFACIES_LITHOLOGY",
+  "classes": [
+    {
+      "index": 0,
+      "source_code": 30000,
+      "name": "Sandstone"
+    },
+    {
+      "index": 1,
+      "source_code": 65030,
+      "name": "Sandstone/Shale"
+    },
+    {
+      "index": 2,
+      "source_code": 65000,
+      "name": "Shale"
+    },
+    {
+      "index": 3,
+      "source_code": 80000,
+      "name": "Marl"
+    },
+    {
+      "index": 4,
+      "source_code": 74000,
+      "name": "Dolomite"
+    },
+    {
+      "index": 5,
+      "source_code": 70000,
+      "name": "Limestone"
+    },
+    {
+      "index": 6,
+      "source_code": 70032,
+      "name": "Chalk"
+    },
+    {
+      "index": 7,
+      "source_code": 88000,
+      "name": "Halite"
+    },
+    {
+      "index": 8,
+      "source_code": 86000,
+      "name": "Anhydrite"
+    },
+    {
+      "index": 9,
+      "source_code": 99000,
+      "name": "Tuff"
+    },
+    {
+      "index": 10,
+      "source_code": 90000,
+      "name": "Coal"
+    },
+    {
+      "index": 11,
+      "source_code": 93000,
+      "name": "Basement"
+    }
+  ],
+  "confidence_curve": "FORCE_2020_LITHOFACIES_CONFIDENCE",
+  "confidence_codes": {
+    "1": "high",
+    "2": "medium",
+    "3": "low"
+  },
+  "label_handling": {
+    "missing_label": "no supervised target; retain its position and legal sensor history; report missing-target count",
+    "unknown_nonmissing_code": "reject dataset preparation with evidence; do not map to nearest class",
+    "confidence": "report all levels separately; do not discard low confidence to inflate reported scores",
+    "online_features": "Neither lithology labels nor confidence labels are online model inputs",
+    "target_alignment": "current selected point only; input window ends at that point, never future labels or values"
+  },
+  "input_curve_order": [
+    "GR",
+    "RHOB",
+    "NPHI",
+    "RDEP"
+  ],
+  "curve_input_shape": [
+    1,
+    8,
+    128,
+    1
+  ],
+  "summary_input_shape": [
+    1,
+    13,
+    32,
+    1
+  ],
+  "metrics": {
+    "primary_macro_f1": "unweighted mean over fixed12 classes; undefined class F1 is zero with support reported",
+    "secondary_supported_macro_f1": "report separately over classes with test support; never substitute for primary target",
+    "per_class_recall": "null when test support is0, otherwise TP/support; include counts and confusion matrix",
+    "evaluation_unit": "complete held-out wells and grouped bootstrap confidence intervals; no window-random split",
+    "source_modes": "public lithology, physical proxy sensing and synthetic 3D risk reported separately"
+  },
+  "status": "schema_pinned_no_model_or_C01_acceptance"
+}

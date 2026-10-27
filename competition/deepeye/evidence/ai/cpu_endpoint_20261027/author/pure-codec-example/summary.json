@@ -1,0 +1,32 @@
+{
+  "scope": "pure codec over recorded fixture; not endpoint/A transport or fresh inference",
+  "request_bytes": 840,
+  "request_frame_sha256": "9bbf7edf23a5625c0d5145f7f4131c480fc2557a3b8ae0cf5d36bee822267e5f",
+  "request_header_hex": "4332324501010000000001d600000162",
+  "request_payload_bytes": 354,
+  "request_payload_sha256": "9c9200453ca7feab036ee9e41b9b78f9b61df5d672792961379d5daa920d1eb8",
+  "operation_request_hash": "1111111111111111111111111111111111111111111111111111111111111111",
+  "response_bytes": 2675,
+  "response_frame_sha256": "abd9d3dcf9eb1ea9a17b08ae8f9ae551399bf610c82f35add52cd092b1cd9d52",
+  "response_header_hex": "43323245018100000000028c000007d7",
+  "response_metadata": {
+    "frame_index": 1,
+    "identity": {
+      "actor_instance_id": "A-actor:source-review",
+      "invocation_id": 1,
+      "operation_id": "A-C22-DIAGNOSTIC",
+      "package_manifest_sha256": "2222222222222222222222222222222222222222222222222222222222222222",
+      "request_hash": "1111111111111111111111111111111111111111111111111111111111111111",
+      "run_id": "A-envelope-run",
+      "tested_commit": "b898e90c7248dec5a6dd0ee850c8a07e097e83aa"
+    },
+    "payload_sha256": "3cbffc7619558619bde6f1b25e53f3cb7225855b79aea45417e2fcf33cd4034b",
+    "request_frame_sha256": "9bbf7edf23a5625c0d5145f7f4131c480fc2557a3b8ae0cf5d36bee822267e5f",
+    "request_payload_sha256": "9c9200453ca7feab036ee9e41b9b78f9b61df5d672792961379d5daa920d1eb8"
+  },
+  "original_reply_bytes": 2007,
+  "original_reply_sha256": "3cbffc7619558619bde6f1b25e53f3cb7225855b79aea45417e2fcf33cd4034b",
+  "real_model_constructors": 0,
+  "learned_forwards": 0,
+  "endpoint_process_launches": 0
+}

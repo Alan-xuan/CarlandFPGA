@@ -1,0 +1,26 @@
+{
+  "argv": [
+    "C:\\Users\\Alan\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+    "-B",
+    "-X",
+    "utf8",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "tests/ai/cpu",
+    "-p",
+    "test_endpoint*.py",
+    "-v"
+  ],
+  "cwd": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\deepeye-implementation-c\\competition\\deepeye",
+  "utc": "2026-10-27T03:02:31.643873+00:00",
+  "source_hashes": {
+    "competition/deepeye/ai_pc/cpu_package/endpoint_protocol.py": "1654f857a6cb17af734aa66e8f96f028551b15f4a7767f196e511104783de998",
+    "competition/deepeye/ai_pc/cpu_package/process_endpoint.py": "46b792911fecdc211d3895f8747ee745498eadf10c1fac3b53477e058a08a2e4",
+    "competition/deepeye/ai_pc/cpu_package/ENDPOINT_PROPOSAL.md": "347812130a595a098148af78e8a3a99361bea79b8981de494d8cfd63976e3816",
+    "competition/deepeye/tests/ai/cpu/test_endpoint_protocol.py": "de0332f9432459d3036beafc0368d011d595b84966d033577b972087d8b1ccaf",
+    "competition/deepeye/tests/ai/cpu/test_endpoint_driver.py": "357d1793e9f6c8029ff565dfff50335c9fe6046f9091bfac735f2775ba9d5a2c"
+  },
+  "test_scope": "pure C22 protocol/driver with private labelled FakeCore; no real learned core, forward or endpoint process"
+}

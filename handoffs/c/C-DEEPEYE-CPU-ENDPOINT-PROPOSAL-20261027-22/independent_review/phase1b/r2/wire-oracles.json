@@ -1,0 +1,403 @@
+{
+  "work_id": "C-ENDPOINT-INDEPENDENT-REVIEW-20261027-v1",
+  "phase": "1b",
+  "created_utc": "2026-10-27T02:58:57.353228+00:00",
+  "design_sha256": "437aedcf1f09f11109632f4f101a6851c07a2ba2a6f65939fe35cbf92540d07f",
+  "header_format": ">4sBBHII",
+  "header_bytes": 16,
+  "observe_header_hex": "4332324501010000000001cc00000162",
+  "observe_metadata_bytes": 460,
+  "observe_frame_bytes": 830,
+  "result_frame_bytes": 2665,
+  "raw_capacity_at_this_identity": 15908,
+  "max_response_geometry_bytes": 6160,
+  "synthetic_identity": {
+    "operation_id": "SYNTH-C22-BYTE-ONLY",
+    "request_hash": "1111111111111111111111111111111111111111111111111111111111111111",
+    "tested_commit": "2222222222222222222222222222222222222222",
+    "package_manifest_sha256": "3333333333333333333333333333333333333333333333333333333333333333",
+    "run_id": "SYNTH-A-RUN",
+    "invocation_id": 1,
+    "actor_instance_id": "SYNTH-ACTOR"
+  },
+  "identity_claim": "test-only labels, no A authentication/provenance/authority",
+  "hash_semantics": {
+    "operation_request_hash": "1111111111111111111111111111111111111111111111111111111111111111",
+    "request_frame_sha256": "6f74a0d657acfea456ced67a0a0e7fd25674c7a2dfcae09be71bb0beb8010221",
+    "request_payload_sha256": "9c9200453ca7feab036ee9e41b9b78f9b61df5d672792961379d5daa920d1eb8",
+    "unchanged_reply_payload_sha256": "3cbffc7619558619bde6f1b25e53f3cb7225855b79aea45417e2fcf33cd4034b"
+  },
+  "alternate_metadata_request_sha256": "c4097cf538b9c3fb5e1c4533b8c2750affebbe533a8627ff0ab2c75605c5a197",
+  "response_metadata": {
+    "identity": {
+      "operation_id": "SYNTH-C22-BYTE-ONLY",
+      "request_hash": "1111111111111111111111111111111111111111111111111111111111111111",
+      "tested_commit": "2222222222222222222222222222222222222222",
+      "package_manifest_sha256": "3333333333333333333333333333333333333333333333333333333333333333",
+      "run_id": "SYNTH-A-RUN",
+      "invocation_id": 1,
+      "actor_instance_id": "SYNTH-ACTOR"
+    },
+    "frame_index": 1,
+    "request_frame_sha256": "6f74a0d657acfea456ced67a0a0e7fd25674c7a2dfcae09be71bb0beb8010221",
+    "request_payload_sha256": "9c9200453ca7feab036ee9e41b9b78f9b61df5d672792961379d5daa920d1eb8",
+    "payload_sha256": "3cbffc7619558619bde6f1b25e53f3cb7225855b79aea45417e2fcf33cd4034b"
+  },
+  "end_request_metadata": {
+    "identity": {
+      "operation_id": "SYNTH-C22-BYTE-ONLY",
+      "request_hash": "1111111111111111111111111111111111111111111111111111111111111111",
+      "tested_commit": "2222222222222222222222222222222222222222",
+      "package_manifest_sha256": "3333333333333333333333333333333333333333333333333333333333333333",
+      "run_id": "SYNTH-A-RUN",
+      "invocation_id": 2,
+      "actor_instance_id": "SYNTH-ACTOR"
+    },
+    "frame_index": 2,
+    "payload_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "fixtures": [
+    {
+      "path": "observe-1.frame",
+      "bytes": 830,
+      "sha256": "6f74a0d657acfea456ced67a0a0e7fd25674c7a2dfcae09be71bb0beb8010221",
+      "kind": "synthetic envelope around original354B record",
+      "expectation": "accept first OBSERVE"
+    },
+    {
+      "path": "result-1.frame",
+      "bytes": 2665,
+      "sha256": "42e04cf0b64775d0b60bbfa6a20a5b281110b942933062f8e18df934759c2008",
+      "kind": "synthetic correlation metadata + unchanged actual2007B A payload",
+      "expectation": "one write must equal these bytes exactly"
+    },
+    {
+      "path": "end-2.frame",
+      "bytes": 476,
+      "sha256": "d1c315706d1b9b5ddd17f7b7b578b9e725ee75284af6de5b9cc9fb31635f8595",
+      "kind": "synthetic END identity/index with empty payload",
+      "expectation": "accept after OBSERVE; return without tail read"
+    },
+    {
+      "path": "ended-2.frame",
+      "bytes": 697,
+      "sha256": "b970afb09339ec5791fb04777cec56e6719afabf91f1e8dc2d50b41c98d3dd5c",
+      "kind": "synthetic END receipt and synthetic envelope",
+      "expectation": "byte/framing oracle only, not actual A receipt"
+    },
+    {
+      "path": "observe-meta-variant.frame",
+      "bytes": 848,
+      "sha256": "c4097cf538b9c3fb5e1c4533b8c2750affebbe533a8627ff0ab2c75605c5a197",
+      "kind": "noncanonical equivalent request metadata",
+      "expectation": "accept; full raw frame hash differs"
+    },
+    {
+      "path": "result-meta-variant.frame",
+      "bytes": 2665,
+      "sha256": "ed361687f606b4c937131574785f7ee89aba85274cd5ba49006f7a8081dfcfa5",
+      "kind": "same payload/identity but different request_frame_sha256",
+      "expectation": "must not substitute canonical-request digest"
+    },
+    {
+      "path": "input-total-16384.frame",
+      "bytes": 16384,
+      "sha256": "304fc4331f6ecfb7e7efd556bbdb0c21d0743105032dedbb666fb4922cdd434a",
+      "kind": "synthetic whitespace-padded13field record",
+      "expectation": "accept framing/total-bound"
+    },
+    {
+      "path": "input-total-16385.frame",
+      "bytes": 16385,
+      "sha256": "e36767e7484501b3a0366a6021e9bb8cf5530ab0a379afa49ba87335a51b6348",
+      "kind": "synthetic total exceeds cap though payload below16384",
+      "expectation": "reject before core"
+    },
+    {
+      "path": "raw16384-total-bad.frame",
+      "bytes": 16860,
+      "sha256": "3d191a9d63df66bd15c5eef7f390d513c593a60ba9f648e6477d30c24e202846",
+      "kind": "synthetic raw payload16384 plus metadata/header",
+      "expectation": "reject total cap before core"
+    },
+    {
+      "path": "input-meta-2048.frame",
+      "bytes": 2418,
+      "sha256": "00f241c43476c0f26e250c4eeae9a227090f08ceaac5992d737cb7213e7231cf",
+      "kind": "synthetic valid noncanonical metadata2048",
+      "expectation": "accept framing/meta bound"
+    },
+    {
+      "path": "input-meta-2049.frame",
+      "bytes": 2419,
+      "sha256": "0452e56f3afc466f348f74a6d37b5d2b03edb62806aa54c968e86bb7b540348b",
+      "kind": "synthetic valid metadata2049",
+      "expectation": "reject before core"
+    },
+    {
+      "path": "reply-4095.frame",
+      "bytes": 4753,
+      "sha256": "33ceb600436a327215f697f5f01ca10e55a23bcd6995fe20e4c586e1e60c0bcd",
+      "kind": "synthetic padded reply; never learned output",
+      "expectation": "accept payload bound"
+    },
+    {
+      "path": "reply-4096.frame",
+      "bytes": 4754,
+      "sha256": "deb1443dea580a0650f50917de4814711aeb64e33ebb8526965f0e516ba4b010",
+      "kind": "synthetic padded reply; never learned output",
+      "expectation": "accept payload bound"
+    },
+    {
+      "path": "reply-4097.frame",
+      "bytes": 4755,
+      "sha256": "7c80592596dac10f5d14a68caac09bb2d4763064166d120e811da713daaabc36",
+      "kind": "synthetic padded reply; never learned output",
+      "expectation": "reject before write"
+    },
+    {
+      "path": "response-6160.geometry",
+      "bytes": 6160,
+      "sha256": "451fd964481e166113f2a5e298e36af37e39687e43306a94bc0747d7384d7f39",
+      "kind": "synthetic padded metadata+payload geometry, not actual canonical encoder emission",
+      "expectation": "total geometry bound16+2048+4096; no transport/adoption claim"
+    },
+    {
+      "path": "bad-payload-hash.frame",
+      "bytes": 830,
+      "sha256": "e15e91480e7bd65d6c76c6d6941288b769b603f5a6a673449aa59bdf077659e3",
+      "kind": "synthetic tamper",
+      "expectation": "reject payload hash before core"
+    },
+    {
+      "path": "bad-magic.frame",
+      "bytes": 830,
+      "sha256": "bd6ba8e3264d5306079a8196bad7072e9f4ed31f7a2ea4053ee51071705e2d04",
+      "kind": "synthetic invalid header",
+      "expectation": "reject before core"
+    },
+    {
+      "path": "bad-version.frame",
+      "bytes": 830,
+      "sha256": "72a162127d0f5b698159241d303955f450869a6b690e24e38cb14816cd091168",
+      "kind": "synthetic invalid header",
+      "expectation": "reject before core"
+    },
+    {
+      "path": "bad-flags.frame",
+      "bytes": 830,
+      "sha256": "8ed8aa39331c841741eb2d31901a7cc5bcdfd3e4dcdcd68331f0d24ffb714650",
+      "kind": "synthetic invalid header",
+      "expectation": "reject before core"
+    },
+    {
+      "path": "bad-kind.frame",
+      "bytes": 830,
+      "sha256": "51ad0e12f281c9757c8facc4d526a293ea00bc5317b9bc4ea55898ecd6ae584c",
+      "kind": "synthetic invalid header",
+      "expectation": "reject before core"
+    },
+    {
+      "path": "bad-first-index.frame",
+      "bytes": 830,
+      "sha256": "084e2adb78778a24d83e2d762a48c50002eb84d61828ea5b2e506e8c9f3318d4",
+      "kind": "synthetic invalid metadata",
+      "expectation": "reject before core"
+    },
+    {
+      "path": "bad-bool-index.frame",
+      "bytes": 833,
+      "sha256": "3174593b8d7ce37f40935875b26995a3792b2714d8066663e521a8661543cdb6",
+      "kind": "synthetic invalid metadata",
+      "expectation": "reject before core"
+    },
+    {
+      "path": "bad-bool-invocation.frame",
+      "bytes": 833,
+      "sha256": "30ebf181dca0d597f1a72e540449be0aa7de480d8685e0a5d78686418974d1c7",
+      "kind": "synthetic invalid metadata",
+      "expectation": "reject before core"
+    },
+    {
+      "path": "bad-extra-key.frame",
+      "bytes": 849,
+      "sha256": "77d551e124a5bb22d0d2ae2186c3e8fe28c333486538abff7ccb3cc2e5475ce1",
+      "kind": "synthetic invalid metadata",
+      "expectation": "reject before core"
+    }
+  ],
+  "actual_parser_pins": [
+    {
+      "path": "competition/deepeye/ai_pc/cpu_package/runner.py",
+      "sha256": "92114790259b7e35e8bf7b1a0519f0e3f68da52729d08b5b9862c992deae70af"
+    },
+    {
+      "path": "competition/deepeye/ai_pc/model/curve_input.py",
+      "sha256": "c017729a2d5717ff2bbf5a6c591320519c415ac10068b4cee19b3136913d848c"
+    }
+  ],
+  "binding_control": {
+    "record_run_id": "C-FORCE-CPU-20261024-v1",
+    "A_envelope_run_id": "SYNTH-A-RUN",
+    "must_stay_distinct": true,
+    "private_fake_events": [
+      {
+        "event": "private_fake_construct"
+      },
+      {
+        "event": "private_fake_start",
+        "generation": 1,
+        "epoch": 0,
+        "run_id": "C-FORCE-CPU-20261024-v1"
+      },
+      {
+        "event": "private_fake_observe",
+        "raw_sha256": "9c9200453ca7feab036ee9e41b9b78f9b61df5d672792961379d5daa920d1eb8",
+        "raw_bytes": 354
+      },
+      {
+        "event": "private_fake_end"
+      }
+    ],
+    "preconstructor_binding_negatives": [
+      "wrong-domain",
+      "wrong-profile",
+      "wrong-scaler",
+      "oversize-original-run",
+      "extra-field"
+    ],
+    "torch_imported": false
+  },
+  "retirement_expectations": [
+    {
+      "scenario": "valid OBSERVE then valid END",
+      "construct": 1,
+      "start": 1,
+      "observe": 1,
+      "end_attempt": 1,
+      "write_attempts": 2,
+      "tail_reads": 0,
+      "exit": 0
+    },
+    {
+      "scenario": "malformed first frame",
+      "construct": 0,
+      "start": 0,
+      "observe": 0,
+      "end_attempt": 0,
+      "write_attempts": 0,
+      "exit": "nonzero"
+    },
+    {
+      "scenario": "boundary EOF after OBSERVE",
+      "construct": 1,
+      "start": 1,
+      "observe": 1,
+      "end_attempt": 1,
+      "write_attempts": 1,
+      "exit": "nonzero"
+    },
+    {
+      "scenario": "malformed later/read error after OBSERVE",
+      "construct": 1,
+      "start": 1,
+      "observe": 1,
+      "end_attempt": 1,
+      "write_attempts": 1,
+      "exit": "nonzero"
+    },
+    {
+      "scenario": "constructor raises",
+      "construct": 1,
+      "start": 0,
+      "observe": 0,
+      "end_attempt": 0,
+      "write_attempts": 0,
+      "exit": "nonzero"
+    },
+    {
+      "scenario": "start raises before success",
+      "construct": 1,
+      "start": 1,
+      "observe": 0,
+      "end_attempt": 0,
+      "write_attempts": 0,
+      "exit": "nonzero"
+    },
+    {
+      "scenario": "first observe raises",
+      "construct": 1,
+      "start": 1,
+      "observe": 1,
+      "end_attempt": 1,
+      "write_attempts": 0,
+      "exit": "nonzero"
+    },
+    {
+      "scenario": "first RESULT short/None/zero/invalid/exception write",
+      "construct": 1,
+      "start": 1,
+      "observe": 1,
+      "end_attempt": 1,
+      "write_attempts": 1,
+      "future_reads": 0,
+      "exit": "nonzero"
+    },
+    {
+      "scenario": "END end_session raises",
+      "construct": 1,
+      "start": 1,
+      "observe": 1,
+      "end_attempt": 1,
+      "write_attempts": 1,
+      "cleanup_end_retry": 0,
+      "exit": "nonzero"
+    },
+    {
+      "scenario": "ENDED write fails",
+      "construct": 1,
+      "start": 1,
+      "observe": 1,
+      "end_attempt": 1,
+      "write_attempts": 2,
+      "tail_reads": 0,
+      "cleanup_end_retry": 0,
+      "exit": "nonzero"
+    }
+  ],
+  "truncation_positions": [
+    0,
+    1,
+    3,
+    4,
+    7,
+    8,
+    15,
+    16,
+    475,
+    476,
+    829
+  ],
+  "partial_read_pattern_examples": [
+    [
+      1
+    ],
+    [
+      3
+    ],
+    [
+      15,
+      1
+    ],
+    [
+      16,
+      17,
+      31
+    ]
+  ],
+  "no_partial_write_completion": true,
+  "model_loads": 0,
+  "learned_forwards": 0,
+  "endpoint_process_launches": 0,
+  "status": "independent reference fixtures/control expectations only; no evolving endpoint execution"
+}

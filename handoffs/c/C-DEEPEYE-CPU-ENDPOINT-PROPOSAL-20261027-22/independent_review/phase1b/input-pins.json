@@ -1,0 +1,27 @@
+[
+  {
+    "path": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\main-20261015-01a14025\\endpoint-20261027\\main\\design-v1.md",
+    "bytes": 8023,
+    "sha256": "e4c4cde80852c60a647f0893f89f33de5b8437bc125ba3f5dd388a709e789a0b"
+  },
+  {
+    "path": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\main-20261015-01a14025\\endpoint-20261027\\main\\design-v2.md",
+    "bytes": 9014,
+    "sha256": "437aedcf1f09f11109632f4f101a6851c07a2ba2a6f65939fe35cbf92540d07f"
+  },
+  {
+    "path": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\main-20261015-01a14025\\endpoint-20261027\\interface-audit\\report.md",
+    "bytes": 25126,
+    "sha256": "efb18ed9143fd8ca417e7be0eb5709fe3a7ba2f0a4fb0da77f0713e484eb428d"
+  },
+  {
+    "path": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\main-20261015-01a14025\\endpoint-20261027\\review\\phase1-manifest.json",
+    "bytes": 2899,
+    "sha256": "e5bd36de1a54a3e6e1d7e2c2248c06e0e0dc6651376451699f614e9acd094931"
+  },
+  {
+    "path": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\main-20261015-01a14025\\endpoint-20261027\\review\\phase1-byte-oracles.json",
+    "bytes": 4853,
+    "sha256": "55be5bab54ab65b61dae915673d2b03c43e213aece65d0ade01eec483f1cf964"
+  }
+]

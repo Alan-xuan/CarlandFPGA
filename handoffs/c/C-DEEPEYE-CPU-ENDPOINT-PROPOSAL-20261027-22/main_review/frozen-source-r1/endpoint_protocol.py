@@ -1,0 +1,175 @@
+"""C22E v1 private diagnostic bytes; correlation never grants authority.
+
+This codec imports no A authority, core, model or transport module. Payloads
+are immutable original bytes, never JSON-decoded or re-encoded here.
+"""
+from dataclasses import asdict, dataclass
+import hashlib
+import json
+import re
+import struct
+
+HEADER = struct.Struct('>4sBBHII')
+MAGIC, VERSION = b'C22E', 1
+OBSERVE, END, RESULT, ENDED = 1, 2, 129, 130
+MAX_METADATA = 2048
+MAX_REQUEST = 16384
+MAX_REPLY_PAYLOAD = 4096  # including the core's original LF
+MAX_RESPONSE = 6160
+MAX_FRAME_INDEX = 65536
+MAX_INVOCATION = (1 << 63) - 1
+_IDENTITY_FIELDS = frozenset(('operation_id', 'request_hash', 'tested_commit',
+                              'package_manifest_sha256', 'run_id', 'invocation_id',
+                              'actor_instance_id'))
+
+
+class ProtocolError(ValueError):
+    """Only fixed bounded diagnostic codes; no input is echoed."""
+    def __init__(self, code):
+        self.code = code
+        super().__init__(code)
+
+
+def _integer(value, lower, upper):
+    if type(value) is not int or not lower <= value <= upper:
+        raise ProtocolError('integer_invalid')
+    return value
+
+
+def _digest(value, size=64):
+    if type(value) is not str or re.fullmatch('[0-9a-f]{%d}' % size, value) is None:
+        raise ProtocolError('digest_invalid')
+    return value
+
+
+@dataclass(frozen=True, slots=True)
+class InvocationIdentity:
+    """Exact current A field/validation shapes, copied without importing A."""
+    operation_id: str
+    request_hash: str
+    tested_commit: str
+    package_manifest_sha256: str
+    run_id: str
+    invocation_id: int
+    actor_instance_id: str
+
+    def __post_init__(self):
+        for value in (self.operation_id, self.run_id, self.actor_instance_id):
+            if type(value) is not str or re.fullmatch(r'[A-Za-z0-9][A-Za-z0-9._:/-]{0,191}', value) is None:
+                raise ProtocolError('label_invalid')
+        _digest(self.request_hash)
+        _digest(self.tested_commit, 40)
+        _digest(self.package_manifest_sha256)
+        _integer(self.invocation_id, 1, MAX_INVOCATION)
+
+    def frozen_fields(self):
+        return (self.operation_id, self.request_hash, self.tested_commit,
+                self.package_manifest_sha256, self.run_id, self.actor_instance_id)
+
+
+@dataclass(frozen=True, slots=True)
+class Request:
+    kind: int
+    identity: InvocationIdentity
+    frame_index: int
+    payload: bytes
+    payload_sha256: str
+    frame_sha256: str
+    raw: bytes
+
+
+def _unique(pairs):
+    result = {}
+    for key, value in pairs:
+        if key in result:
+            raise ProtocolError('duplicate_key')
+        result[key] = value
+    return result
+
+
+def _nonfinite(_value):
+    raise ProtocolError('nonfinite_json')
+
+
+def _json(raw):
+    try:
+        return json.loads(raw.decode('utf-8'), object_pairs_hook=_unique, parse_constant=_nonfinite)
+    except ProtocolError:
+        raise
+    except (ValueError, UnicodeError, RecursionError):
+        raise ProtocolError('metadata_json_invalid') from None
+
+
+def _canonical(value):
+    return json.dumps(value, ensure_ascii=True, allow_nan=False, sort_keys=True,
+                      separators=(',', ':')).encode('ascii')
+
+
+def request_lengths(header):
+    """Validate header before allocating/reading any declared body."""
+    if type(header) is not bytes or len(header) != HEADER.size:
+        raise ProtocolError('header_invalid')
+    magic, version, kind, flags, meta_size, payload_size = HEADER.unpack(header)
+    if magic != MAGIC or version != VERSION or flags != 0 or kind not in (OBSERVE, END):
+        raise ProtocolError('header_invalid')
+    if not 1 <= meta_size <= MAX_METADATA or payload_size > MAX_REQUEST:
+        raise ProtocolError('request_limit')
+    if HEADER.size + meta_size + payload_size > MAX_REQUEST:
+        raise ProtocolError('request_limit')
+    if (kind == END and payload_size != 0) or (kind == OBSERVE and payload_size == 0):
+        raise ProtocolError('payload_length_invalid')
+    return kind, meta_size, payload_size
+
+
+def decode_request(raw):
+    if type(raw) is not bytes or not HEADER.size <= len(raw) <= MAX_REQUEST:
+        raise ProtocolError('request_limit')
+    kind, meta_size, payload_size = request_lengths(raw[:HEADER.size])
+    if len(raw) != HEADER.size + meta_size + payload_size:
+        raise ProtocolError('frame_length_invalid')
+    meta = _json(raw[HEADER.size:HEADER.size + meta_size])
+    if type(meta) is not dict or meta.keys() != {'identity', 'frame_index', 'payload_sha256'}:
+        raise ProtocolError('metadata_fields_invalid')
+    identity = meta['identity']
+    if type(identity) is not dict or identity.keys() != _IDENTITY_FIELDS:
+        raise ProtocolError('identity_fields_invalid')
+    identity = InvocationIdentity(**identity)
+    index = _integer(meta['frame_index'], 1, MAX_FRAME_INDEX)
+    digest = _digest(meta['payload_sha256'])
+    payload = raw[HEADER.size + meta_size:]
+    if hashlib.sha256(payload).hexdigest() != digest:
+        raise ProtocolError('payload_hash_mismatch')
+    return Request(kind, identity, index, payload, digest, hashlib.sha256(raw).hexdigest(), raw)
+
+
+def encode_request(identity, frame_index, payload, *, kind=OBSERVE):
+    """Private proposed request construction; not an adopted A codec."""
+    if type(identity) is not InvocationIdentity or type(payload) is not bytes:
+        raise ProtocolError('request_type_invalid')
+    _integer(frame_index, 1, MAX_FRAME_INDEX)
+    if type(kind) is not int or kind not in (OBSERVE, END) or len(payload) > MAX_REQUEST:
+        raise ProtocolError('request_limit')
+    meta = _canonical(dict(identity=asdict(identity), frame_index=frame_index,
+                           payload_sha256=hashlib.sha256(payload).hexdigest()))
+    header = HEADER.pack(MAGIC, VERSION, kind, 0, len(meta), len(payload))
+    request_lengths(header)
+    return header + meta + payload
+
+
+def encode_response(request, payload):
+    """Wrap unchanged .encoded bytes, including LF; never inspect model JSON."""
+    if type(request) is not Request or type(payload) is not bytes:
+        raise ProtocolError('response_type_invalid')
+    if not 1 <= len(payload) <= MAX_REPLY_PAYLOAD or not payload.endswith(b'\n'):
+        raise ProtocolError('reply_payload_limit')
+    meta = _canonical(dict(identity=asdict(request.identity), frame_index=request.frame_index,
+                           request_frame_sha256=request.frame_sha256,
+                           request_payload_sha256=request.payload_sha256,
+                           payload_sha256=hashlib.sha256(payload).hexdigest()))
+    if len(meta) > MAX_METADATA:
+        raise ProtocolError('response_metadata_limit')
+    kind = RESULT if request.kind == OBSERVE else ENDED
+    raw = HEADER.pack(MAGIC, VERSION, kind, 0, len(meta), len(payload)) + meta + payload
+    if len(raw) > MAX_RESPONSE:
+        raise ProtocolError('response_limit')
+    return raw

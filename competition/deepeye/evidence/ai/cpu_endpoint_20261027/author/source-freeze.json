@@ -1,0 +1,33 @@
+{
+  "sources": [
+    {
+      "path": "competition/deepeye/ai_pc/cpu_package/endpoint_protocol.py",
+      "bytes": 6910,
+      "sha256": "1654f857a6cb17af734aa66e8f96f028551b15f4a7767f196e511104783de998"
+    },
+    {
+      "path": "competition/deepeye/ai_pc/cpu_package/process_endpoint.py",
+      "bytes": 9998,
+      "sha256": "46b792911fecdc211d3895f8747ee745498eadf10c1fac3b53477e058a08a2e4"
+    },
+    {
+      "path": "competition/deepeye/ai_pc/cpu_package/ENDPOINT_PROPOSAL.md",
+      "bytes": 12634,
+      "sha256": "564f7add7c4de3181c48b797bc047278db9661723c56196a9602474e69a83b96"
+    },
+    {
+      "path": "competition/deepeye/tests/ai/cpu/test_endpoint_protocol.py",
+      "bytes": 8485,
+      "sha256": "de0332f9432459d3036beafc0368d011d595b84966d033577b972087d8b1ccaf"
+    },
+    {
+      "path": "competition/deepeye/tests/ai/cpu/test_endpoint_driver.py",
+      "bytes": 16294,
+      "sha256": "357d1793e9f6c8029ff565dfff50335c9fe6046f9091bfac735f2775ba9d5a2c"
+    }
+  ],
+  "prior_tested_python_sources_unchanged": true,
+  "post_test_doc_revision": "A cumulative8192B budget distinction only; no code/test revision",
+  "active_subprocesses": [],
+  "ownership_released": true
+}

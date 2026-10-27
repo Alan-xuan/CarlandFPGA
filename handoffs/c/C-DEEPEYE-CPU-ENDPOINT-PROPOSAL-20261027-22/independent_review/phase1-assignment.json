@@ -1,0 +1,31 @@
+{
+  "task_id": "DEEPEYE-IMPLEMENTATION-20261014",
+  "task_version": 1,
+  "work_id": "C-ENDPOINT-INDEPENDENT-REVIEW-20261027-v1",
+  "phase": 1,
+  "canonical_agent_id": "/root/cpu_independent_review",
+  "main_thread": "01a14025-4dfd-7ec3-aebb-57be48daba59",
+  "exclusive_scope": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\main-20261015-01a14025\\endpoint-20261027\\review",
+  "input_owner": "main/author/interfaceauditor; read only",
+  "not_alone": true,
+  "requirements_sha256": "c229834bfc2292f5fe4411fc9f12c68487008f9d1adaf31f0144ee7a98173804",
+  "contract_source": "f5989cd5defce561f9ba98e6b18fc2682945f0a2",
+  "contract_id": "DEEPEYE-HUMAN-LOCK-20261014/revision1",
+  "frozen_design": "1011259415a0916054eb580687612580bc1e5f09",
+  "H01_H15": "preserved",
+  "base_commit": "b898e90c7248dec5a6dd0ee850c8a07e097e83aa",
+  "prior_execution_stop": "parent verified C21 Phase3 FINAL/release active_jobs=[] before reuse",
+  "acceptance": "Exact original A fenced2007B fixture proof; independent byte/framing/error/lifecycle control plan before evolving source; await concrete main framing design; no-forward report/rawexit/manifest/release",
+  "forbidden": [
+    "evolving endpoint source/tests reads",
+    "product/index writes",
+    "learnedmodel load/forward",
+    "author/old suites/train/heldout/128baseline/benchmark",
+    "endpoint process launch",
+    "remote writes/messages",
+    "SQL/credentials/services/controller/board",
+    "subagents"
+  ],
+  "board_operator": "A only",
+  "recorded_utc": "2026-10-27T02:40:16.8507920Z"
+}

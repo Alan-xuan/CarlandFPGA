@@ -1,0 +1,66 @@
+[
+  {
+    "source_commit": "5c192f34bad064b14e238747c2c569347257a62c",
+    "path": "competition/deepeye/integration/cpu_invocation_transcript.py",
+    "git_blob": "a96888d9d4b11c4e674c5061ef6023e6d10f66c9",
+    "sha256": "444f68e94a9adaaab0406b7402fb8029319bc192052b861f520b8982f89a4266",
+    "bytes": 14840,
+    "origin": "reused exact prior raw source at same current A head"
+  },
+  {
+    "source_commit": "5c192f34bad064b14e238747c2c569347257a62c",
+    "path": "competition/deepeye/docs/cpu_invocation_transcript.md",
+    "git_blob": "75a1ec0bb1372b27960d7720e5b638a5887cbdd0",
+    "sha256": "42fca58970a140c4b59423387231a7001837cf1236597df7413a0edde6478cfb",
+    "bytes": 7361,
+    "origin": "reused exact prior raw source at same current A head"
+  },
+  {
+    "source_commit": "5c192f34bad064b14e238747c2c569347257a62c",
+    "path": "competition/deepeye/docs/actor_ipc_framing.md",
+    "git_blob": "6cd963d68105a2ba2dbace303a57fc9b1d57c376",
+    "sha256": "02c115882bac7dfbe2a42553a33a2b4896b439e72217a41ca5a0b08d795c3922",
+    "bytes": 2800,
+    "origin": "reused exact prior raw source at same current A head"
+  },
+  {
+    "source_commit": "5c192f34bad064b14e238747c2c569347257a62c",
+    "path": "competition/deepeye/simulation/isolation/ipc_framing.py",
+    "git_blob": "cd4c1cec73319dc176ed75fdc6c441c6b368e188",
+    "sha256": "a134af7e8ade69a4624abf780575785dff76612454cf83f0ec92ff8b1da0ee09",
+    "bytes": 3145,
+    "origin": "fresh exact current tree blob GET"
+  },
+  {
+    "source_commit": "5c192f34bad064b14e238747c2c569347257a62c",
+    "path": "competition/deepeye/simulation/authority/actor_composition.py",
+    "git_blob": "aee9d678ed4a970c45c77d27c8df974bfbe4dab4",
+    "sha256": "dd940de436f441acfd1dcfe5cfeaa0a2a86aac05c513893e1dc19d95410a3a8d",
+    "bytes": 26158,
+    "origin": "fresh exact current tree blob GET"
+  },
+  {
+    "source_commit": "5c192f34bad064b14e238747c2c569347257a62c",
+    "path": "competition/deepeye/docs/actor_composition.md",
+    "git_blob": "0084a9079c1ece1bbf04c2c5a07bebf132d8d3a1",
+    "sha256": "7cf201a1d333bffa81bd87a72376919e8739a07edb06941e07b2879e9cc5494b",
+    "bytes": 17868,
+    "origin": "reused exact prior raw source at same current A head"
+  },
+  {
+    "source_commit": "5c192f34bad064b14e238747c2c569347257a62c",
+    "path": "competition/deepeye/simulation/isolation/actor_owner.py",
+    "git_blob": "da1d57ee2097d32152df7eec8c94bb032e240083",
+    "sha256": "cb3f8319627fbbf94ce3d250173d97f7e6f1ea09b5bf5fd530c741d4e5f857b9",
+    "bytes": 22799,
+    "origin": "fresh exact current A process interface source GET"
+  },
+  {
+    "source_commit": "5c192f34bad064b14e238747c2c569347257a62c",
+    "path": "competition/deepeye/simulation/isolation/actor_fixture.py",
+    "git_blob": "34653742aa281ef14cd6bc760a21dc83fbb2cc26",
+    "sha256": "47946ba137eb61aa9d4d2357487c28210314bd4642ad7b1b4d781d052abab3b6",
+    "bytes": 2271,
+    "origin": "fresh exact current A process interface source GET"
+  }
+]

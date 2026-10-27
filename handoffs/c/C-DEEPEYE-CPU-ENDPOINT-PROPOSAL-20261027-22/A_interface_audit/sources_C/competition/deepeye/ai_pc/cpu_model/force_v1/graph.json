@@ -1,0 +1,91 @@
+{
+  "format": "fixed-force-cnn-graph-v1",
+  "input_shape": [
+    "N",
+    8,
+    128,
+    1
+  ],
+  "output_shape": [
+    "N",
+    12
+  ],
+  "layers": [
+    {
+      "name": "conv1",
+      "op": "Conv2D",
+      "in_channels": 8,
+      "out_channels": 16,
+      "kernel": [
+        5,
+        1
+      ],
+      "padding": [
+        2,
+        0
+      ]
+    },
+    {
+      "name": "relu1",
+      "op": "ReLU"
+    },
+    {
+      "name": "pool1",
+      "op": "AvgPool2D",
+      "kernel": [
+        4,
+        1
+      ],
+      "stride": [
+        4,
+        1
+      ]
+    },
+    {
+      "name": "conv2",
+      "op": "Conv2D",
+      "in_channels": 16,
+      "out_channels": 24,
+      "kernel": [
+        5,
+        1
+      ],
+      "padding": [
+        2,
+        0
+      ]
+    },
+    {
+      "name": "relu2",
+      "op": "ReLU"
+    },
+    {
+      "name": "pool2",
+      "op": "AvgPool2D",
+      "kernel": [
+        4,
+        1
+      ],
+      "stride": [
+        4,
+        1
+      ]
+    },
+    {
+      "name": "flatten",
+      "op": "Flatten",
+      "start_dim": 1
+    },
+    {
+      "name": "head",
+      "op": "Gemm",
+      "in_features": 192,
+      "out_features": 12
+    }
+  ],
+  "parameters": 4916,
+  "source": {
+    "path": "../../model/force_cnn.py",
+    "sha256": "5003427e1ac01e50b612d8f4f9c674c7df352b3942a5cc39978e23bdfbdb1260"
+  }
+}

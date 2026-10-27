@@ -1,0 +1,110 @@
+{
+  "work_id": "C-ENDPOINT-INDEPENDENT-REVIEW-20261027-v1",
+  "phase": 1,
+  "created_utc": "2026-10-27T02:42:53.766431+00:00",
+  "source_comment": {
+    "id": 6416227814,
+    "url": "https://github.com/carolwjade/CarlandFPGA/pull/25#issuecomment-6416227814",
+    "author": "carolwjade",
+    "created_at": "2026-10-26T12:40:29Z",
+    "updated_at": "2026-10-26T12:40:29Z",
+    "body_utf8_sha256": "88129dd30798c3112826e21b16a69fa35c36cd007bd610c68d3a77a5a2586205"
+  },
+  "proof": "cached original GitHub public-comment body fence UTF8 bytes exactly equal supplied fixture; no live refresh or JSON reply reserialization",
+  "source_pins": [
+    {
+      "path": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\channel-followup-01a15a24\\endpoint-next-20261027\\A-endpoint-request.json",
+      "bytes": 6824,
+      "sha256": "a37826c863b4133c3787e0081e99cab2ca7349de797a0303e27f0bf7ab131d3b"
+    },
+    {
+      "path": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\channel-followup-01a15a24\\endpoint-next-20261027\\A-C21-first-result.exact.json",
+      "bytes": 2007,
+      "sha256": "3cbffc7619558619bde6f1b25e53f3cb7225855b79aea45417e2fcf33cd4034b"
+    },
+    {
+      "path": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\channel-followup-01a15a24\\endpoint-next-20261027\\fixture-readback.json",
+      "bytes": 773,
+      "sha256": "954a5f12678a8bbe11751cc71670ec2c356d520ead2fd4ae64ad4e24f34cf591"
+    },
+    {
+      "path": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\channel-followup-01a15a24\\endpoint-next-20261027\\metadata-readback.json",
+      "bytes": 1299,
+      "sha256": "cc88a2ae025704d46738afbbffa51512d06fd4f1f714e7330561ab867d3e0897"
+    },
+    {
+      "path": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\deepeye-implementation-c\\docs\\competition\\deepeye-2026\\immutable_scope.json",
+      "bytes": 6684,
+      "sha256": "6a86000e97d1571c0b7b89b9d3cf7facb11d2b6a06455eb1d53e0637676b6bc4"
+    }
+  ],
+  "fixtures": [
+    {
+      "path": "A-recorded-reply.exact.bin",
+      "kind": "actual recorded A result; byte proof only",
+      "bytes": 2007,
+      "sha256": "3cbffc7619558619bde6f1b25e53f3cb7225855b79aea45417e2fcf33cd4034b"
+    },
+    {
+      "path": "original-first-record.raw",
+      "kind": "first original13field record; not executed",
+      "bytes": 354,
+      "sha256": "9c9200453ca7feab036ee9e41b9b78f9b61df5d672792961379d5daa920d1eb8"
+    },
+    {
+      "path": "synthetic-reply-4095.bin",
+      "kind": "synthetic private fake-core byte-limit fixture, not learned output",
+      "bytes": 4095,
+      "sha256": "dbc4393832488120b2c1167bb08b9fb4bdebe2d871938b2fa5f5a062b1f98b40"
+    },
+    {
+      "path": "synthetic-reply-4096.bin",
+      "kind": "synthetic private fake-core byte-limit fixture, not learned output",
+      "bytes": 4096,
+      "sha256": "68d1a67a0d0b46acba155ee4bf86a7382710b9e06ca739d4fbb8edbe3fa3de63"
+    },
+    {
+      "path": "synthetic-reply-4097.bin",
+      "kind": "synthetic private fake-core byte-limit fixture, not learned output",
+      "bytes": 4097,
+      "sha256": "79d8f3301cdf1fa35840887b4faa426554e81d7e7b3c2da062d6d08583647df9"
+    },
+    {
+      "path": "synthetic-record-16383.raw",
+      "kind": "synthetic whitespace-padded13field byte-limit record; not executed",
+      "bytes": 16383,
+      "sha256": "3d42aaae9c988e14ff934278788f5454539311e6fc10e802806150fd39cb09fa"
+    },
+    {
+      "path": "synthetic-record-16384.raw",
+      "kind": "synthetic whitespace-padded13field byte-limit record; not executed",
+      "bytes": 16384,
+      "sha256": "fd421d63ac28b64cc08ec96319a3d9b656d00f77ff118f859223627336ca6833"
+    },
+    {
+      "path": "synthetic-record-16385.raw",
+      "kind": "synthetic whitespace-padded13field byte-limit record; not executed",
+      "bytes": 16385,
+      "sha256": "ac8b4f1634b2684b058494d80ef57ad12db0df495d11f476a47d28fa73e24e05"
+    }
+  ],
+  "real_reply_bytes": 2007,
+  "real_reply_json_bytes_without_LF": 2006,
+  "real_reply_sha256": "3cbffc7619558619bde6f1b25e53f3cb7225855b79aea45417e2fcf33cd4034b",
+  "first_record_bytes": 354,
+  "first_record_sha256": "9c9200453ca7feab036ee9e41b9b78f9b61df5d672792961379d5daa920d1eb8",
+  "reply_cap": 4096,
+  "record_cap": 16384,
+  "native_128B_gap": {
+    "actual_reply_exceeds128": true,
+    "actual_reply_minus128": 1879,
+    "status": "128B native fixture alone cannot demonstrate2007B/4096B transport correctness"
+  },
+  "contract_requirements_sha256": "c229834bfc2292f5fe4411fc9f12c68487008f9d1adaf31f0144ee7a98173804",
+  "H01_H15_verified_identity_only": true,
+  "learned_model_loads": 0,
+  "learned_forwards": 0,
+  "endpoint_process_launches": 0,
+  "wire_specific_controls": "pending main concrete framing design",
+  "formal_acceptance": "incomplete; no new authority"
+}

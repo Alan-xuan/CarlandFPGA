@@ -1,0 +1,17 @@
+[
+  {
+    "manifest": ".local\\main-20261015-01a14025\\endpoint-20261027\\interface-audit\\manifest.json",
+    "manifest_sha256": "0c03624043de50fee01c3d4a24bdbed8919da01a2eb87c82e238bc291452c810",
+    "verified_files": 49
+  },
+  {
+    "manifest": ".local\\main-20261015-01a14025\\endpoint-20261027\\review\\phase1-manifest.json",
+    "manifest_sha256": "e5bd36de1a54a3e6e1d7e2c2248c06e0e0dc6651376451699f614e9acd094931",
+    "verified_files": 17
+  },
+  {
+    "manifest": ".local\\main-20261015-01a14025\\endpoint-20261027\\review\\phase1b\\manifest.json",
+    "manifest_sha256": "a07ead972757d0a1924863790514f201ffd04ff65f4253b4358d4c757403e57e",
+    "verified_files": 52
+  }
+]

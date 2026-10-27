@@ -1,0 +1,122 @@
+{
+  "schema_version": 1,
+  "model_id": "force-cnn-cpu-v1-20261024",
+  "profile_id": "force_curve_v1",
+  "source_domain": "geo_replay",
+  "input_shape": [
+    "N",
+    8,
+    128,
+    1
+  ],
+  "class_order": [
+    30000,
+    65030,
+    65000,
+    80000,
+    74000,
+    70000,
+    70032,
+    88000,
+    86000,
+    99000,
+    90000,
+    93000
+  ],
+  "graph": {
+    "path": "graph.json",
+    "sha256": "6fd93fab7e65b56b1cd9473475c54b071b3e82ff09549ee447675988f07efee2"
+  },
+  "weights": {
+    "path": "weights.json",
+    "sha256": "8988f4bbcf425d9b48c9a62866ac350e6096ea43fabdd9b1e616b22ba4b6d187"
+  },
+  "preprocessing": {
+    "path": "../../../data/preprocessing.json",
+    "sha256": "cb66fd302165c86344f3b8d1af9d9c4e4e229621cef44cbfa6fb8cd121a63eef"
+  },
+  "label_schema": {
+    "path": "../../../data/label_schema.json",
+    "sha256": "0913ff5a59085b47802a9902f23a836f4fa1129700de8e6593840416f4d7beed"
+  },
+  "training": {
+    "recipe": {
+      "work_id": "C-FORCE-CPU-CNN-20261024-v1",
+      "seed": 20261024,
+      "epochs": 5,
+      "batch_size": 256,
+      "training_row_stride": 8,
+      "sampling": "every8th acquisition row of every TRAIN well, retain all positions in histories; no class filtering",
+      "optimizer": "Adam",
+      "learning_rate": 0.001,
+      "class_weighting": "sqrt(total/count), mean normalized over supported TRAIN classes",
+      "validation_selection": "maximum fixed12 macro-F1; first epoch wins ties",
+      "test_selection": "none; source members first opened after frozen manifest",
+      "threads": 4,
+      "interop_threads": 1,
+      "loader_workers": 0,
+      "device": "cpu",
+      "torch": "2.9.0+cpu",
+      "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+      "deterministic_algorithms": true,
+      "source_base_commit": "942fa309ffc8f1d32c816cfa643b009b031d7d0a",
+      "started_utc": "2026-10-24T12:16:55.402709+00:00"
+    },
+    "sampled_class_counts": [
+      17734,
+      17468,
+      72448,
+      3620,
+      209,
+      5450,
+      1309,
+      1836,
+      210,
+      1390,
+      331,
+      18
+    ],
+    "class_weights": [
+      0.16218633949756622,
+      0.1634165346622467,
+      0.08024248480796814,
+      0.35897427797317505,
+      1.4939788579940796,
+      0.29256296157836914,
+      0.5969635248184204,
+      0.5040588974952698,
+      1.49041748046875,
+      0.5793089270591736,
+      1.1871445178985596,
+      5.090744972229004
+    ],
+    "selected_epoch": 5,
+    "selected_validation_macro_f1_fixed12": 0.21350300898946728,
+    "learned_tensor_changed_elements_from_seeded_initialization": {
+      "conv1.weight": 640,
+      "conv1.bias": 16,
+      "conv2.weight": 1920,
+      "conv2.bias": 24,
+      "head.weight": 2304,
+      "head.bias": 12
+    },
+    "sources": {
+      "ai_pc/train_force_cpu.py": "4b52ddbfc8afb8a5ae704b0a07c8e77c685b64d1d90950f1693403c1276fa75e",
+      "ai_pc/force_training_data.py": "9d83465219d84141e56d3fb813e316d87d8ef83744e73a7ad27a6c54d386ae09",
+      "ai_pc/model/force_cnn.py": "5003427e1ac01e50b612d8f4f9c674c7df352b3942a5cc39978e23bdfbdb1260",
+      "ai_pc/model/curve_input.py": "c017729a2d5717ff2bbf5a6c591320519c415ac10068b4cee19b3136913d848c",
+      "data/force_inventory.py": "86404425615f7551ce04907c9dbd6d7a40edca76372ad82a1a9655092a186932"
+    },
+    "archive_sha256": "042ef1d473100dc12768cae7107a8cead071a394f137af3bc1ddaf8a5d1b8dda",
+    "inventory_sha256": "ace9a0eb9930f19c6b8125e151d07346fb23029b1455eac04964d15b97461e59",
+    "splits_sha256": "f10ddb8f37e6bdf7c9663eed45d0f6554ef8992899724013a7e487ad3e3cef91",
+    "test_opened_before_freeze": false
+  },
+  "scope": {
+    "status": "learned_offline_FORCE_baseline_only",
+    "not_sim_em_v2": true,
+    "not_water_or_obstacle_model": true,
+    "no_motion_authority": true,
+    "all_formal_cards_incomplete": true
+  }
+}

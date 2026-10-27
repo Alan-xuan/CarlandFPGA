@@ -1,0 +1,89 @@
+{
+  "task_id": "DEEPEYE-IMPLEMENTATION-20261014",
+  "task_version": 1,
+  "parent_work_id": "C-LIVE-DECISION-PACKAGE-20261023-v1",
+  "work_id": "C-CPU-PROCESS-ENDPOINT-PROPOSAL-20261027-v1",
+  "operation_id": "C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22",
+  "actual_main_thread_id": "01a14025-4dfd-7ec3-aebb-57be48daba59",
+  "actual_main_agent_id": "/root",
+  "source_A_operation": "A-C-C21-API-RESULT-AND-ENDPOINT-PROPOSAL-20261026-v1",
+  "source_A_comment": "https://github.com/carolwjade/CarlandFPGA/pull/25#issuecomment-6416227814",
+  "base_commit": "b898e90c7248dec5a6dd0ee850c8a07e097e83aa",
+  "frozen_design_commit": "1011259415a0916054eb580687612580bc1e5f09",
+  "contract_id": "DEEPEYE-HUMAN-LOCK-20261014/revision1",
+  "contract_source": "f5989cd5defce561f9ba98e6b18fc2682945f0a2",
+  "requirements_sha256": "c229834bfc2292f5fe4411fc9f12c68487008f9d1adaf31f0144ee7a98173804",
+  "duplicate_scope_check": "main active_native_work empty, clean product/index, local and current PR25 head b898e90c; no endpoint product module found; collaboration lists prior author/reviewer/audit completed",
+  "old_stop_checks": {
+    "author": "C21 bounded-init actual FINAL completed; worker/bounded-init/release.json active_subprocesses empty",
+    "reviewer": "C21 actual Phase3 FINAL completed; review/phase3/release.json active_jobs empty",
+    "interface_auditor": "prior sim_em audit completed/released, no product ownership"
+  },
+  "assignments": [
+    {
+      "actual_agent_id": "/root/sim_em_contract_audit",
+      "work_id": "C-ENDPOINT-A-INTERFACE-AUDIT-20261027-v1",
+      "ownership": [
+        ".local/main-20261015-01a14025/endpoint-20261027/interface-audit/**"
+      ],
+      "scope": "read-only narrow exact-current A InvocationIdentity/request-byte hash/transcript/process endpoint contracts and staging constraints; report precise source pins and gaps; no model/endpoint execution"
+    },
+    {
+      "actual_agent_id": "/root/cpu_package_runner",
+      "ownership_after_main_design_trigger": [
+        "competition/deepeye/ai_pc/cpu_package/endpoint_protocol.py",
+        "competition/deepeye/ai_pc/cpu_package/process_endpoint.py",
+        "competition/deepeye/ai_pc/cpu_package/ENDPOINT_PROPOSAL.md",
+        "competition/deepeye/tests/ai/cpu/test_endpoint_protocol.py",
+        "competition/deepeye/tests/ai/cpu/test_endpoint_driver.py",
+        "competition/deepeye/evidence/ai/cpu_endpoint_20261027/author/**",
+        ".local/main-20261015-01a14025/endpoint-20261027/worker/**"
+      ],
+      "work_id": "C-ENDPOINT-AUTHOR-20261027-v1",
+      "status": "authorized_after_main_design",
+      "old_actual_stop_verified": "stream-core-20261025/worker/bounded-init/release.json ownership_released true and active_subprocesses []"
+    },
+    {
+      "actual_agent_id": "/root/cpu_independent_review",
+      "work_id": "C-ENDPOINT-INDEPENDENT-REVIEW-20261027-v1",
+      "ownership": [
+        ".local/main-20261015-01a14025/endpoint-20261027/review/**"
+      ],
+      "scope": "independent pure-byte/error/lifecycle controls and exact2007B A fixture, then frozen source review; no learned forward/old suites or endpoint launch",
+      "next_phase": "phase1b wire controls; no source inspection",
+      "old_actual_stop_verified": "review/phase1-release.json ownership_released true active_jobs [] actual byte-proof exit0"
+    },
+    {
+      "actual_agent_id": "/root",
+      "ownership": [
+        ".local/main-20261015-01a14025/endpoint-20261027/main/**",
+        ".local/main-20261015-01a14025/endpoint-20261027/assignment.json",
+        ".local/main-20261015-01a14025/status.json",
+        ".local/main-20261015-01a14025/endpoint-publication-20261027/**",
+        "new canonical operation22 metadata and Git publication after actual worker stops and independent acceptance"
+      ]
+    }
+  ],
+  "acceptance": [
+    "Read original A comment and recover exact2007B result SHA3cbffc7619558619bde6f1b25e53f3cb7225855b79aea45417e2fcf33cd4034b without JSON reserialization or probability edits",
+    "Concrete private diagnostic process/byte-envelope proposal tied to exact C21 core, one fixed model/scaler lifetime, raw original13fields <=16384B and unchanged encoded reply <=4096B",
+    "Precise byte/length/hash/InvocationIdentity correlation and immutable request staging without inventing A BOOT/auth/QPC/verifier/motion admission or claiming factory adoption",
+    "Explicit end/EOF/error retirement and no retries; no future pre-read or invalid-later record retroactively changing prior replies",
+    "Exact source/dependency closure and targeted pure byte/error/lifecycle controls using clearly private fake core; no model change/learned forward/training/old group/endpoint process launch before A source review",
+    "Original C19-C21 and C20 geometry bytes remain unchanged, exact new commit/request/manifest and original PR25 ACK/delivery readback",
+    "All H01-H15, both H12 paths and all unmet29formal gates preserved; A-only physical board"
+  ],
+  "production_wire_protocol_factory_adopted": false,
+  "formal_acceptance": "not_run",
+  "main_design": {
+    "path": ".local\\main-20261015-01a14025\\endpoint-20261027\\main\\design-v2.md",
+    "sha256": "437aedcf1f09f11109632f4f101a6851c07a2ba2a6f65939fe35cbf92540d07f",
+    "locked_utc": "2026-10-27T02:53:31.086136+00:00",
+    "reason": "independent dual review found derived run_id would violate original record binding"
+  },
+  "main_design_v1_superseded": {
+    "path": ".local\\main-20261015-01a14025\\endpoint-20261027\\main\\design-v1.md",
+    "sha256": "e4c4cde80852c60a647f0893f89f33de5b8437bc125ba3f5dd388a709e789a0b",
+    "locked_utc": "2026-10-27T02:51:15.684573+00:00"
+  }
+}
