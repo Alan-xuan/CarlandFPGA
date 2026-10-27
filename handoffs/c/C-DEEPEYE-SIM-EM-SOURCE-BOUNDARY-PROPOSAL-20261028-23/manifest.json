@@ -12,12 +12,12 @@
       "size": 4740
     },
     "handoffs/c/C-DEEPEYE-SIM-EM-SOURCE-BOUNDARY-PROPOSAL-20261028-23/SOURCE-PINS.json": {
-      "sha256": "3385c9b1ae0ff7b3a259ba7ffbfb0405d3b187b3ba54b820210f69eb55cad0cc",
-      "size": 10777
+      "sha256": "526c550fef09ed6d58bd92db37e38fa6991ac89e19fd99d7329639b2e3183835",
+      "size": 11057
     },
     "handoffs/c/C-DEEPEYE-SIM-EM-SOURCE-BOUNDARY-PROPOSAL-20261028-23/TASK-RECEIPT.json": {
-      "sha256": "8affccbbba121b4fc84bbb3162ca65dce58078cf586abf7ac191bf6cd68e91b3",
-      "size": 6686
+      "sha256": "898867e7dcce67fcb755c5c3f90f9a202a12bb8b5774b0f66b5c3bbeb1350d82",
+      "size": 6966
     },
     "handoffs/c/C-DEEPEYE-SIM-EM-SOURCE-BOUNDARY-PROPOSAL-20261028-23/compatibility-matrix.json": {
       "sha256": "68b337bd3088ba767c52985e15947475ad1fbb5a3494b82c8c27211b2e41beb3",
@@ -29,7 +29,7 @@
     }
   },
   "request": {
-    "code_commit": "93dc3f7e6c19e01f3e560442741ddb2199c41b21",
+    "code_commit": "cef572fcc3c56e0ea8143cec26b4044ed2a66727",
     "expected_result": "Source-only review/proposal and at most4 A decisions; no runtime, model, test, fixture, PDE, endpoint or board execution. H01-H15, both fullH12, all29,100ms,strict<1%,G03/G09 unchanged.",
     "operation_id": "C-DEEPEYE-SIM-EM-SOURCE-BOUNDARY-PROPOSAL-20261028-23",
     "requester": "C original main 01a14025-4dfd-7ec3-aebb-57be48daba59; A current Gen3 01a16988-bdcb-70e1-ae10-1304b5cf7875",
@@ -42,7 +42,7 @@
       "Independent frozen document semantic review before publication; future negative controls PLAN ONLY, not executed."
     ]
   },
-  "request_hash": "baa9dff2535b2ede7b02067daa6b74e5bbe182c78021d5d6b06ca8536bb24561",
+  "request_hash": "633376ddb3244709e3acef2af1966fa063d348412fc8c0a2d509c5217a7a1293",
   "schema_version": 1,
   "stages": {
     "A_new_profile_input_decisions": {
