@@ -1,0 +1,222 @@
+{
+  "document_kind": "deepeye-C23-exact-source-pins",
+  "document_version": 1,
+  "task_id": "DEEPEYE-IMPLEMENTATION-20261014",
+  "task_version": 1,
+  "operation_id": "C-DEEPEYE-SIM-EM-SOURCE-BOUNDARY-PROPOSAL-20261028-23",
+  "owner": "C original main",
+  "actual_main_thread_id": "01a14025-4dfd-7ec3-aebb-57be48daba59",
+  "requirements_sha256": "c229834bfc2292f5fe4411fc9f12c68487008f9d1adaf31f0144ee7a98173804",
+  "evidence_level": "pinned_source_and_metadata_only; proposal_not_adopted",
+  "source_pin_registry": "SOURCE-PINS.json; refs use pin id and inclusive one-based source lines",
+  "A_baseline_commit": "66913fa61270b4e61d453c245d927824548bc267",
+  "C22_source_commit": "ebf447827293f553dd5cc385b72aa4deefcd0b73",
+  "C22_head_commit": "9a71c0f21ac952b32f783b5ca52310aa28150002",
+  "baseline_separation": "C22 objects were obtained separately from local Git; not claimed to be part of A66913 or W. Exact original Git blob bytes, not expanded LF/CRLF worktree equivalence.",
+  "pins": [
+    {
+      "path": "competition/deepeye/docs/sensor_source_contract.json",
+      "git_blob_sha1": "ae5a19dc2ccce9c039274f04e50e252fe2e1f01e",
+      "sha256": "a382894a5c3117b7f2c4c473af7f2ebc8cda446fbb0ec79a666bcec41e56d434",
+      "bytes": 6413,
+      "lines": 77,
+      "baseline_commit": "66913fa61270b4e61d453c245d927824548bc267",
+      "acquisition": "official GitHub Gitblob base64 original bytes",
+      "id": "A.contract"
+    },
+    {
+      "path": "competition/deepeye/docs/sensor_source_boundary.md",
+      "git_blob_sha1": "eb81671fce2730cd553aa1a803701cb14cdfb0d6",
+      "sha256": "901c06ddc1ba981dbec740819a77ca858c15ddff7a95cfaef19d1411ac39804b",
+      "bytes": 10077,
+      "lines": 159,
+      "baseline_commit": "66913fa61270b4e61d453c245d927824548bc267",
+      "acquisition": "official GitHub Gitblob base64 original bytes",
+      "id": "A.boundary"
+    },
+    {
+      "path": "competition/deepeye/integration/sensor_source.py",
+      "git_blob_sha1": "ecccd7b15c3754740d8cc4f57f88bfce8b5ab8ac",
+      "sha256": "dd817b25cbec4423ab7ef788b2801f9edb8b66aaf19254511d6590b390f6fc57",
+      "bytes": 11285,
+      "lines": 262,
+      "baseline_commit": "66913fa61270b4e61d453c245d927824548bc267",
+      "acquisition": "official GitHub Gitblob base64 original bytes",
+      "id": "A.ledger"
+    },
+    {
+      "path": "competition/deepeye/simulation/sensors/forward_profile.py",
+      "git_blob_sha1": "c468d43d1a6e58f6962423de4bf806d1e45109fb",
+      "sha256": "6a5f70a6acdaa6de52fc72d678d452956861370e1d143b70219ced107c5a04c9",
+      "bytes": 28252,
+      "lines": 655,
+      "baseline_commit": "66913fa61270b4e61d453c245d927824548bc267",
+      "acquisition": "official GitHub Gitblob base64 original bytes",
+      "id": "A.producer"
+    },
+    {
+      "path": "competition/deepeye/ai_pc/cpu_package/endpoint_protocol.py",
+      "git_blob_sha1": "7d821d9ac0ffbb002d745073d9c8ea2dc2af41ef",
+      "sha256": "1654f857a6cb17af734aa66e8f96f028551b15f4a7767f196e511104783de998",
+      "bytes": 6910,
+      "lines": 175,
+      "source_commit": "ebf447827293f553dd5cc385b72aa4deefcd0b73",
+      "head_commit": "9a71c0f21ac952b32f783b5ca52310aa28150002",
+      "same_blob_at_both_C_commits": true,
+      "acquisition": "local Git cat-file raw exact object; working bytes also match",
+      "id": "C.endpoint_protocol"
+    },
+    {
+      "path": "competition/deepeye/ai_pc/cpu_package/process_endpoint.py",
+      "git_blob_sha1": "d10702bd84de791468873884d549ba0e960a88ba",
+      "sha256": "46b792911fecdc211d3895f8747ee745498eadf10c1fac3b53477e058a08a2e4",
+      "bytes": 9998,
+      "lines": 232,
+      "source_commit": "ebf447827293f553dd5cc385b72aa4deefcd0b73",
+      "head_commit": "9a71c0f21ac952b32f783b5ca52310aa28150002",
+      "same_blob_at_both_C_commits": true,
+      "acquisition": "local Git cat-file raw exact object; working bytes also match",
+      "id": "C.process_endpoint"
+    },
+    {
+      "path": "competition/deepeye/ai_pc/cpu_package/stream_core.py",
+      "git_blob_sha1": "6da5d28f81b242e04d03e371b6d5db33b6fb901d",
+      "sha256": "0a8c07f34080784f36180951b28873b43de5e3f80ad201325254b274bd01217b",
+      "bytes": 19674,
+      "lines": 395,
+      "source_commit": "ebf447827293f553dd5cc385b72aa4deefcd0b73",
+      "head_commit": "9a71c0f21ac952b32f783b5ca52310aa28150002",
+      "same_blob_at_both_C_commits": true,
+      "acquisition": "local Git cat-file raw exact object; working bytes also match",
+      "id": "C.stream_core"
+    },
+    {
+      "path": "competition/deepeye/ai_pc/cpu_package/runner.py",
+      "git_blob_sha1": "ffe3a32637fe90855d029c654d6803dcba4efe30",
+      "sha256": "92114790259b7e35e8bf7b1a0519f0e3f68da52729d08b5b9862c992deae70af",
+      "bytes": 21133,
+      "lines": 398,
+      "source_commit": "ebf447827293f553dd5cc385b72aa4deefcd0b73",
+      "head_commit": "9a71c0f21ac952b32f783b5ca52310aa28150002",
+      "same_blob_at_both_C_commits": true,
+      "acquisition": "local Git cat-file raw exact object; working bytes also match",
+      "id": "C.runner"
+    },
+    {
+      "path": "competition/deepeye/ai_pc/model/curve_input.py",
+      "git_blob_sha1": "71590634e676557e84cded606b2ef95b284fe435",
+      "sha256": "c017729a2d5717ff2bbf5a6c591320519c415ac10068b4cee19b3136913d848c",
+      "bytes": 39152,
+      "lines": 845,
+      "source_commit": "ebf447827293f553dd5cc385b72aa4deefcd0b73",
+      "head_commit": "9a71c0f21ac952b32f783b5ca52310aa28150002",
+      "same_blob_at_both_C_commits": true,
+      "acquisition": "local Git cat-file raw exact object; working bytes also match",
+      "id": "C.curve"
+    },
+    {
+      "path": "competition/deepeye/ai_pc/model/force_cnn.py",
+      "git_blob_sha1": "3f4ea1bb5cfbafc629845593236a39a2c26051c5",
+      "sha256": "5003427e1ac01e50b612d8f4f9c674c7df352b3942a5cc39978e23bdfbdb1260",
+      "bytes": 10384,
+      "lines": 204,
+      "source_commit": "ebf447827293f553dd5cc385b72aa4deefcd0b73",
+      "head_commit": "9a71c0f21ac952b32f783b5ca52310aa28150002",
+      "same_blob_at_both_C_commits": true,
+      "acquisition": "local Git cat-file raw exact object; working bytes also match",
+      "id": "C.force_cnn"
+    },
+    {
+      "path": "competition/deepeye/ai_pc/cpu_model/force_v1/model_manifest.json",
+      "git_blob_sha1": "15bf57096e56cc749cdbf49e79d40397b966fbae",
+      "sha256": "0b76bcd1b21b6b1e254eef0e2e5815a15121fdb8ac48c33710f2b2d85bdf2959",
+      "bytes": 3932,
+      "lines": 122,
+      "source_commit": "ebf447827293f553dd5cc385b72aa4deefcd0b73",
+      "head_commit": "9a71c0f21ac952b32f783b5ca52310aa28150002",
+      "same_blob_at_both_C_commits": true,
+      "acquisition": "local Git cat-file raw exact object; working bytes also match",
+      "id": "C.model_manifest"
+    },
+    {
+      "path": "competition/deepeye/ai_pc/cpu_model/force_v1/graph.json",
+      "git_blob_sha1": "bf4cd3a3ff33df98c9f5e2dbf473564c6e829f72",
+      "sha256": "6fd93fab7e65b56b1cd9473475c54b071b3e82ff09549ee447675988f07efee2",
+      "bytes": 1429,
+      "lines": 91,
+      "source_commit": "ebf447827293f553dd5cc385b72aa4deefcd0b73",
+      "head_commit": "9a71c0f21ac952b32f783b5ca52310aa28150002",
+      "same_blob_at_both_C_commits": true,
+      "acquisition": "local Git cat-file raw exact object; working bytes also match",
+      "id": "C.graph"
+    },
+    {
+      "path": "competition/deepeye/data/preprocessing.json",
+      "git_blob_sha1": "40d9bbf668d64db6f67de238f05646e87baddd5d",
+      "sha256": "cb66fd302165c86344f3b8d1af9d9c4e4e229621cef44cbfa6fb8cd121a63eef",
+      "bytes": 29849,
+      "lines": 836,
+      "source_commit": "ebf447827293f553dd5cc385b72aa4deefcd0b73",
+      "head_commit": "9a71c0f21ac952b32f783b5ca52310aa28150002",
+      "same_blob_at_both_C_commits": true,
+      "acquisition": "local Git cat-file raw exact object; working bytes also match",
+      "id": "C.preprocessing"
+    },
+    {
+      "path": "competition/deepeye/data/label_schema.json",
+      "git_blob_sha1": "916a3365809e787f6023a5388a6986aacf0ba75f",
+      "sha256": "0913ff5a59085b47802a9902f23a836f4fa1129700de8e6593840416f4d7beed",
+      "bytes": 3594,
+      "lines": 123,
+      "source_commit": "ebf447827293f553dd5cc385b72aa4deefcd0b73",
+      "head_commit": "9a71c0f21ac952b32f783b5ca52310aa28150002",
+      "same_blob_at_both_C_commits": true,
+      "acquisition": "local Git cat-file raw exact object; working bytes also match",
+      "id": "C.labels"
+    },
+    {
+      "path": "competition/deepeye/ai_pc/cpu_model/force_v1/weights.json",
+      "git_blob_sha1": "2c404ed8eed31a7c9bc4445efa9d3ceaac1171a8",
+      "sha256": "8988f4bbcf425d9b48c9a62866ac350e6096ea43fabdd9b1e616b22ba4b6d187",
+      "bytes": 102250,
+      "source_commit": "ebf447827293f553dd5cc385b72aa4deefcd0b73",
+      "head_commit": "9a71c0f21ac952b32f783b5ca52310aa28150002",
+      "acquisition": "raw bytes hash only; no model parsing/import/loading",
+      "id": "C.weights"
+    },
+    {
+      "path": "competition/deepeye/ai_pc/model/causal_input.py",
+      "source_commit": "ebf447827293f553dd5cc385b72aa4deefcd0b73",
+      "head_commit": "9a71c0f21ac952b32f783b5ca52310aa28150002",
+      "git_blob_sha1": "d687549e178e30467ce4b3b6ff012bb642b59906",
+      "same_blob_at_both_C_commits": true,
+      "sha256": "f0e924878d2e4e4236c32d45119b518ed6eafc91e2ef3c1b2ffe78ea65637083",
+      "bytes": 35573,
+      "lines": 864,
+      "acquisition": "local git ls-tree exact CS/CH and cat-file blob original bytes; never imported/executed",
+      "id": "C.summary"
+    }
+  ],
+  "reported_only_not_substituted": {
+    "W_commit": "9f2c53d66e1ef861b756c00c4164e9e3a07d60c2",
+    "W_four_file_equivalence_independently_verified": null,
+    "W_reason": "A reported identical four blobs/raw bytes; C did not acquire W.",
+    "A_original_TASK_reported_sha256": "02ddf9574e6fb5c5200605ce27600c9a7193a05a9c17f6a63472fe84173c98e3",
+    "A_original_TASK_verified_raw_sha256": null,
+    "TASK_reason": "Original TASK bytes are held by A and were not obtained; published comment was not reserialized as TASK."
+  },
+  "activation_comment": {
+    "url": "https://github.com/carolwjade/CarlandFPGA/pull/25#issuecomment-6452826210",
+    "id": 6452826210,
+    "author": "carolwjade",
+    "created_utc": "2026-10-27T20:30:37Z",
+    "body_UTF8_sha256": "3d5b8d754258c1703f5b279bf8c8911debb139e939ee68fe68d5c7f536abf78b",
+    "API_stdout_raw_sha256": "956381d996f69bd7f86e9d5e22715da115730fbd66a8cffa0432fc7b31b6f59a",
+    "separate_from_TASK_raw_hash": true
+  },
+  "capture_methods": [
+    "A official GitHub Git commit/tree/blob API; base64 decode original blob and recompute GitblobSHA1+SHA256+size",
+    "C local Git ls-tree and cat-file blob at exact two commits; raw bytes hash only, no project imports",
+    "C weights raw hash only; never parsed as model or loaded; reviewer checked tree membership only"
+  ]
+}

@@ -1,0 +1,81 @@
+{
+  "document_kind": "deepeye-C23-A-minimal-decisions",
+  "document_version": 1,
+  "task_id": "DEEPEYE-IMPLEMENTATION-20261014",
+  "task_version": 1,
+  "operation_id": "C-DEEPEYE-SIM-EM-SOURCE-BOUNDARY-PROPOSAL-20261028-23",
+  "owner": "C original main",
+  "actual_main_thread_id": "01a14025-4dfd-7ec3-aebb-57be48daba59",
+  "requirements_sha256": "c229834bfc2292f5fe4411fc9f12c68487008f9d1adaf31f0144ee7a98173804",
+  "evidence_level": "pinned_source_and_metadata_only; proposal_not_adopted",
+  "source_pin_registry": "SOURCE-PINS.json; refs use pin id and inclusive one-based source lines",
+  "status": "review findings delivered now; decisions pending and no runtime/train permission inferred",
+  "decisions": [
+    {
+      "id": "D1",
+      "owner": "A physical/profile authority",
+      "decision": "Choose actual observable physical quantities, units, reference/axes and calibration.",
+      "minimum_return": [
+        "pinned chosen producer/observation definition and channel order",
+        "unit/reference/axis signs and calibrated transfer to board/summary",
+        "if twoRx Born derivativeV: pinned response/reference/geometry/frequency/units and any justified inversion, or keep a distinct voltage-domain profile"
+      ],
+      "current_answer": null,
+      "reason": "Candidate conductivity-logrho/vibration and normalized counts are not calibrated instruments; V-to-logrho conversion absent.",
+      "unblocks": "physical compatibility assessment, not hardware acceptance or model training"
+    },
+    {
+      "id": "D2",
+      "owner": "A source/summary profile owner",
+      "decision": "Approve a distinct new profile and explicit validity, native/held, missing, saturation and summary aggregation rules.",
+      "minimum_return": [
+        "profile/schema version with unchanged current candidate labels",
+        "lawful mean/range acquisition support; held versus native EM and duplicate policy",
+        "null/missing representation versus finite raw16 fields; EM sourcefault versus vibration/global summary fault policy"
+      ],
+      "current_answer": null,
+      "reason": "No accepted mapping; current raw9/strict13 cannot gain sidebands or zero-filled new features.",
+      "unblocks": "a separately assigned new adapter proposal/implementation; no C22 interface mutation inferred"
+    },
+    {
+      "id": "D3",
+      "owner": "A trusted runtime/timing/odometry interface owner",
+      "decision": "Fix the lawful trusted run/clock and historical own-odometry interface outside current payloads.",
+      "minimum_return": [
+        "actual source/run/session/epoch/BOOT owner and single-writer lifecycle contract",
+        "source/receiver/board clock domains, measured mapping/error/validity interval and native acquisition history",
+        "historical executed/estimated own odometry frame/uncertainty/causal interval association and safe gap/restart handling"
+      ],
+      "current_answer": null,
+      "reason": "Caller-origin arithmetic and opaque labels do not authenticate acquisition or provide clock-error/pose history; private authority Pose is ineligible.",
+      "unblocks": "source-only causal boundary implementation when explicitly assigned; source100ms is not full control100ms"
+    },
+    {
+      "id": "D4",
+      "owner": "A data/target approval, C future separately authorized new-domain work",
+      "decision": "Provide lawful causal samples and fix new-domain targets/data/split/scaler boundaries before a model task.",
+      "minimum_return": [
+        "at least one original lawful causal observation + independent provenance/history; no accepted fixture invented by C",
+        "whole-scene/event data inventory and supervision semantics/time alignment",
+        "whole-scene split and train-only8scale/target/model/quality criteria; explicit later execution authorization"
+      ],
+      "current_answer": null,
+      "reason": "No qualified sample or new-domain training/scaler/model supplied; FORCE12lithology/F1 FAIL cannot serve as newEM/water/obstacle model.",
+      "unblocks": "new-domain data/scale/model task only after later explicit scope; no old FORCE retraining requested"
+    }
+  ],
+  "unchanged_gates": {
+    "H01_H15": "unchanged",
+    "both_complete_H12_control_chains": "incomplete",
+    "formal_cards_completed": 0,
+    "formal_cards_remaining": 29,
+    "100ms": "not_promoted_or_measured_by_C23",
+    "strict_less_than_1_percent": "not_proven",
+    "G03_G09": "incomplete",
+    "physical_board_operator": "A only",
+    "FORCE_macro_F1": 0.1827348057438266,
+    "FORCE_target_macro_F1": 0.6,
+    "FORCE_quality_status": "FAIL, retained from A task/prior evidence; not re-evaluated",
+    "sim_em_v2_model_and_scaler": "missing_not_authorized_not_trained"
+  }
+}

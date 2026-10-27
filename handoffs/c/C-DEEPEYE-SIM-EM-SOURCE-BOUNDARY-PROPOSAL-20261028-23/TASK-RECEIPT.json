@@ -1,0 +1,117 @@
+{
+  "document_kind": "deepeye-C23-task-receipt",
+  "document_version": 1,
+  "task_id": "DEEPEYE-IMPLEMENTATION-20261014",
+  "task_version": 1,
+  "operation_id": "C-DEEPEYE-SIM-EM-SOURCE-BOUNDARY-PROPOSAL-20261028-23",
+  "owner": "C original main",
+  "actual_main_thread_id": "01a14025-4dfd-7ec3-aebb-57be48daba59",
+  "requirements_sha256": "c229834bfc2292f5fe4411fc9f12c68487008f9d1adaf31f0144ee7a98173804",
+  "evidence_level": "pinned_source_and_metadata_only; proposal_not_adopted",
+  "source_pin_registry": "SOURCE-PINS.json; refs use pin id and inclusive one-based source lines",
+  "work_id": "C23-SOURCE-BOUNDARY-REVIEW-20261028-v1",
+  "source_only_status": "six-file source review/proposal handoff; adoption/runtime/training/board/formal acceptance not granted",
+  "activation": {
+    "url": "https://github.com/carolwjade/CarlandFPGA/pull/25#issuecomment-6452826210",
+    "id": 6452826210,
+    "author": "carolwjade",
+    "created_utc": "2026-10-27T20:30:37Z",
+    "body_UTF8_sha256": "3d5b8d754258c1703f5b279bf8c8911debb139e939ee68fe68d5c7f536abf78b",
+    "API_stdout_raw_sha256": "956381d996f69bd7f86e9d5e22715da115730fbd66a8cffa0432fc7b31b6f59a",
+    "separate_from_TASK_raw_hash": true
+  },
+  "A_original_TASK": {
+    "reported_sha256": "02ddf9574e6fb5c5200605ce27600c9a7193a05a9c17f6a63472fe84173c98e3",
+    "raw_bytes_obtained": false,
+    "verified_raw_sha256": null,
+    "reason": "A retains original TASK; published comment activates bounded source-only review. Comment hash/API bytes are distinct and not reconstructed as TASK."
+  },
+  "ownership": {
+    "unique_C_main_thread": "01a14025-4dfd-7ec3-aebb-57be48daba59",
+    "actual_root_agent": "/root",
+    "current_A_Gen3_main": "01a16988-bdcb-70e1-ae10-1304b5cf7875",
+    "A_Gen2_in_old_docs": "historical only; not owner transfer",
+    "root_exclusive_product_directory": "handoffs/c/C-DEEPEYE-SIM-EM-SOURCE-BOUNDARY-PROPOSAL-20261028-23",
+    "physical_board": "A only",
+    "old_writers_actual_release_checked_before_new_assignment": true,
+    "native_fact_reviewers": [
+      {
+        "id": "/root/sim_em_contract_audit",
+        "work_id": "C23-A-SOURCE-FACTS-20261028-v1",
+        "status": "FINAL/release active_jobs=[] received; private A-only source facts",
+        "facts_sha256": "c568bb90dfee42ab4b951b0514895031ea5f34332bcd7f7acd8255eb67cdf10b",
+        "manifest_sha256": "846e4b246d3cb945190c2f7ebf690455f605819edd523c4bea87104992328dff"
+      },
+      {
+        "id": "/root/cpu_independent_review",
+        "work_id": "C23-INDEPENDENT-SOURCE-REVIEW-20261028-v1",
+        "status": "phase1 FINAL/release active_jobs=[] received; C-only source facts frozen before product content",
+        "facts_sha256": "c5aa0c4efb69402dae870bd28cf57c80dc4591ad2585db73c4ec69ba06fbc13b",
+        "manifest_sha256": "018a4e43173874cbfd1b5c229b10fd37b457670e5d8e8d9020c6bc8c1cca003f"
+      }
+    ],
+    "native_identity_limit": "Canonical native agent IDs are actual exposed identities; no independent App thread UUID fabricated."
+  },
+  "product_inventory_and_caps_bytes": {
+    "compatibility-matrix.json": 65536,
+    "sim_em_v2-profile-schema.proposal.json": 65536,
+    "A-decisions.json": 16384,
+    "SOURCE-PINS.json": 65536,
+    "TASK-RECEIPT.json": 16384,
+    "manifest.json": 16384
+  },
+  "exact_baselines": {
+    "A_four_files": "66913fa61270b4e61d453c245d927824548bc267",
+    "C22_source": "ebf447827293f553dd5cc385b72aa4deefcd0b73",
+    "C22_head": "9a71c0f21ac952b32f783b5ca52310aa28150002",
+    "original_C_tree_entries_preserved": 1558
+  },
+  "read_only_review_results": [
+    "A four source blobs/SHA recomputed; C22 relevant blobs at both commits re-pinned including distinct summary source",
+    "producer9 -> SourceLedger source-compatible only with external trust/full history; no actual integration",
+    "hardware4ch lacks calibration/legal observation bridge; FORCE raw13 is incompatible; summary raw16/tensor13 target remains unadopted",
+    "missing units/transfer/time/run/history/sample/data/model inputs delivered as null+reason and at most4Adecisions",
+    "future negative controls are plans only; no accepted sample invented"
+  ],
+  "independent_document_review_record": "Final frozen-six-file source-only semantic review is required before external publication. Its actual raw private report/hash and release are read back and recorded in the exact PR25 publication receipt; this static task receipt does not preclaim an unseen verdict.",
+  "execution_accounting": {
+    "project_imports": 0,
+    "model_constructor_load_forward_training": 0,
+    "tests_or_fixtures_or_future_counterexamples": 0,
+    "PDE_or_NumPy_leaf": 0,
+    "endpoint_or_owner_launch": 0,
+    "runtime_factory_HANDLE_stage_changes": 0,
+    "board_operations": 0,
+    "metadata_commands": "Git/API raw acquisition, JSON text writing, hashing, canonical manifest create/verify and diff inspection only; their exit codes are metadata validation, never software/model/board test PASS."
+  },
+  "unchanged": {
+    "contract_id": "DEEPEYE-HUMAN-LOCK-20261014/revision1",
+    "contract_source": "f5989cd5defce561f9ba98e6b18fc2682945f0a2",
+    "frozen_design_commit": "1011259415a0916054eb580687612580bc1e5f09",
+    "candidate_metadata": {
+      "profile_id": "deepeye_forward_profile_candidate_v1",
+      "profile_status": "candidate_only",
+      "profile_note": "not_calibrated;not_em_surrogate_v2;not_formally_frozen",
+      "source_mode": "twin_fixture"
+    },
+    "C22_interfaces_and_all_prior_blobs": true,
+    "credentials_locks_SQL_owner_and_sole_collector": true,
+    "current_main_preserved_not_archived_or_replaced": true
+  },
+  "gates": {
+    "H01_H15": "unchanged",
+    "both_complete_H12_control_chains": "incomplete",
+    "formal_cards_completed": 0,
+    "formal_cards_remaining": 29,
+    "100ms": "not_promoted_or_measured_by_C23",
+    "strict_less_than_1_percent": "not_proven",
+    "G03_G09": "incomplete",
+    "physical_board_operator": "A only",
+    "FORCE_macro_F1": 0.1827348057438266,
+    "FORCE_target_macro_F1": 0.6,
+    "FORCE_quality_status": "FAIL, retained from A task/prior evidence; not re-evaluated",
+    "sim_em_v2_model_and_scaler": "missing_not_authorized_not_trained"
+  },
+  "publication_identity": "manifest.json.request.code_commit is the exact five-document source commit; manifest.json.request_hash is canonical request identity. Final head/manifest raw SHA and actual remote blob readback are supplied in original PR25, not guessed into circular self-hashes.",
+  "transport_completion_vs_acceptance": "GitHub readback or a model/transport ACK is not A review, board test, runtime integration or formal acceptance. A requested source-only review of this proposal remains separate."
+}

@@ -1,0 +1,538 @@
+{
+  "document_kind": "deepeye-C23-sim_em_v2-profile-schema-proposal",
+  "document_version": 1,
+  "task_id": "DEEPEYE-IMPLEMENTATION-20261014",
+  "task_version": 1,
+  "operation_id": "C-DEEPEYE-SIM-EM-SOURCE-BOUNDARY-PROPOSAL-20261028-23",
+  "owner": "C original main",
+  "actual_main_thread_id": "01a14025-4dfd-7ec3-aebb-57be48daba59",
+  "requirements_sha256": "c229834bfc2292f5fe4411fc9f12c68487008f9d1adaf31f0144ee7a98173804",
+  "evidence_level": "pinned_source_and_metadata_only; proposal_not_adopted",
+  "source_pin_registry": "SOURCE-PINS.json; refs use pin id and inclusive one-based source lines",
+  "adoption_status": "unadopted_design_only; not accepted source/model/schema/runtime",
+  "current_candidate_metadata_preserved": {
+    "profile_id": "deepeye_forward_profile_candidate_v1",
+    "profile_status": "candidate_only",
+    "profile_note": "not_calibrated;not_em_surrogate_v2;not_formally_frozen",
+    "source_mode": "twin_fixture"
+  },
+  "proposed_profile": {
+    "proposal_identifier": "sim_em_v2-source-boundary-proposal-v1",
+    "adopted_profile_id": {
+      "value": null,
+      "reason": "A has not approved a new physical observation profile; do not add this proposal identifier to current known_profiles."
+    },
+    "observation_kind": {
+      "value": null,
+      "reason": "Decide calibrated log-resistivity/differences versus two-Rx Born derivative volts or another justified quantity before training/interface changes."
+    },
+    "channel_units_and_axis_contract": {
+      "value": null,
+      "reason": "Current candidate names/ranges are source facts, not new instrument calibration or yaw/azimuth/pitch/elevation equivalence."
+    },
+    "voltage_derivative_to_logrho": {
+      "value": null,
+      "reason": "No baseline/transfer/geometry-frequency/reference/units/calibrated inversion provided; V is not log10(ohm.m)."
+    },
+    "calibration_id": {
+      "value": null,
+      "reason": "No approved physical transfer/calibration artifact acquired."
+    },
+    "aggregation_window_and_ranges": {
+      "value": null,
+      "reason": "Four instantaneous/held source values do not specify lawful summary mean/range windows or native-acquisition support."
+    },
+    "quality_mapping": {
+      "value": null,
+      "reason": "Resolve missing null versus finite summary inputs; A EM-only source_fault versus global summary mask; held/saturation/stale treatment before adapter adoption."
+    },
+    "scales_8": {
+      "value": null,
+      "reason": "Require exactly8positive finite scales fitted only on an approved new-domain training split; frozen FORCE preprocessing is ineligible."
+    },
+    "age_limit_ms": {
+      "value": null,
+      "reason": "Caller-supplied summary freshness parameter has no approved profile/clock uncertainty policy; do not assume source100ms is identical to summary freshness/control TTL."
+    },
+    "model_manifest_sha256": {
+      "value": null,
+      "reason": "No approved new-domain model/targets/data/scaler; C22 core explicitly blocks sim_em_v2."
+    },
+    "accepted_sample": {
+      "value": null,
+      "reason": "No lawful accepted sample supplied; no examples or synthetic accepted records generated in this task."
+    },
+    "owners": {
+      "physical_profile": "A",
+      "future_new_domain_data_scaler_model": "C only after separately authorized inputs/task",
+      "physical_board": "A only"
+    }
+  },
+  "existing_summary_target_source_only": {
+    "raw_keys": [
+      "run_id",
+      "session_id",
+      "profile",
+      "epoch",
+      "seq",
+      "tick_ms",
+      "source_mode",
+      "mean_0",
+      "mean_1",
+      "mean_2",
+      "mean_3",
+      "range_0",
+      "range_1",
+      "range_2",
+      "range_3",
+      "quality_flags"
+    ],
+    "raw_key_count": 16,
+    "tensor_shape": [
+      1,
+      13,
+      32,
+      1
+    ],
+    "feature_rows": [
+      {
+        "row": 0,
+        "source_channel_name": "log10_rho_apparent",
+        "group": "normalized_means",
+        "formula": "mean_0/scales[0]",
+        "declared_physical_unit": null,
+        "reason": "module gives channel names and numerical scales only; physical reference/calibration/unit contract is not supplied",
+        "normalized_unit_claim": null,
+        "normalized_unit_reason": "division is numerical; dimensionless physical validity requires same-unit calibrated caller scale, not established here"
+      },
+      {
+        "row": 1,
+        "source_channel_name": "azimuth_log10_rho_difference",
+        "group": "normalized_means",
+        "formula": "mean_1/scales[1]",
+        "declared_physical_unit": null,
+        "reason": "module gives channel names and numerical scales only; physical reference/calibration/unit contract is not supplied",
+        "normalized_unit_claim": null,
+        "normalized_unit_reason": "division is numerical; dimensionless physical validity requires same-unit calibrated caller scale, not established here"
+      },
+      {
+        "row": 2,
+        "source_channel_name": "elevation_log10_rho_difference",
+        "group": "normalized_means",
+        "formula": "mean_2/scales[2]",
+        "declared_physical_unit": null,
+        "reason": "module gives channel names and numerical scales only; physical reference/calibration/unit contract is not supplied",
+        "normalized_unit_claim": null,
+        "normalized_unit_reason": "division is numerical; dimensionless physical validity requires same-unit calibrated caller scale, not established here"
+      },
+      {
+        "row": 3,
+        "source_channel_name": "near_bit_vibration_rms_g",
+        "group": "normalized_means",
+        "formula": "mean_3/scales[3]",
+        "declared_physical_unit": null,
+        "reason": "module gives channel names and numerical scales only; physical reference/calibration/unit contract is not supplied",
+        "normalized_unit_claim": null,
+        "normalized_unit_reason": "division is numerical; dimensionless physical validity requires same-unit calibrated caller scale, not established here"
+      },
+      {
+        "row": 4,
+        "source_channel_name": "log10_rho_apparent",
+        "group": "normalized_ranges",
+        "formula": "range_0/scales[4]",
+        "declared_physical_unit": null,
+        "reason": "module gives channel names and numerical scales only; physical reference/calibration/unit contract is not supplied",
+        "normalized_unit_claim": null,
+        "normalized_unit_reason": "division is numerical; dimensionless physical validity requires same-unit calibrated caller scale, not established here"
+      },
+      {
+        "row": 5,
+        "source_channel_name": "azimuth_log10_rho_difference",
+        "group": "normalized_ranges",
+        "formula": "range_1/scales[5]",
+        "declared_physical_unit": null,
+        "reason": "module gives channel names and numerical scales only; physical reference/calibration/unit contract is not supplied",
+        "normalized_unit_claim": null,
+        "normalized_unit_reason": "division is numerical; dimensionless physical validity requires same-unit calibrated caller scale, not established here"
+      },
+      {
+        "row": 6,
+        "source_channel_name": "elevation_log10_rho_difference",
+        "group": "normalized_ranges",
+        "formula": "range_2/scales[6]",
+        "declared_physical_unit": null,
+        "reason": "module gives channel names and numerical scales only; physical reference/calibration/unit contract is not supplied",
+        "normalized_unit_claim": null,
+        "normalized_unit_reason": "division is numerical; dimensionless physical validity requires same-unit calibrated caller scale, not established here"
+      },
+      {
+        "row": 7,
+        "source_channel_name": "near_bit_vibration_rms_g",
+        "group": "normalized_ranges",
+        "formula": "range_3/scales[7]",
+        "declared_physical_unit": null,
+        "reason": "module gives channel names and numerical scales only; physical reference/calibration/unit contract is not supplied",
+        "normalized_unit_claim": null,
+        "normalized_unit_reason": "division is numerical; dimensionless physical validity requires same-unit calibrated caller scale, not established here"
+      },
+      {
+        "row": 8,
+        "source_channel_name": "log10_rho_apparent",
+        "group": "fresh_valid_mask",
+        "formula": "valid && !saturated && !held && !source_fault && !stale",
+        "unit": "dimensionless binary0/1"
+      },
+      {
+        "row": 9,
+        "source_channel_name": "azimuth_log10_rho_difference",
+        "group": "fresh_valid_mask",
+        "formula": "valid && !saturated && !held && !source_fault && !stale",
+        "unit": "dimensionless binary0/1"
+      },
+      {
+        "row": 10,
+        "source_channel_name": "elevation_log10_rho_difference",
+        "group": "fresh_valid_mask",
+        "formula": "valid && !saturated && !held && !source_fault && !stale",
+        "unit": "dimensionless binary0/1"
+      },
+      {
+        "row": 11,
+        "source_channel_name": "near_bit_vibration_rms_g",
+        "group": "fresh_valid_mask",
+        "formula": "valid && !saturated && !held && !source_fault && !stale",
+        "unit": "dimensionless binary0/1"
+      },
+      {
+        "row": 12,
+        "group": "normalized_age",
+        "formula": "min((decision_cutoff_ms-tick_ms)/age_limit_ms,1.0)",
+        "unit": "dimensionless ms/ms"
+      }
+    ],
+    "scales_and_age": "caller responsibilities; no fitting performed by builder, known_profiles also supplied by caller",
+    "mask0_numeric_policy": "actual nonpadding rows retain scaled means/ranges even when mask0; only startup padded columns numeric0/mask0. Do not describe as unconditional zero imputation.",
+    "history": "transportseq content dedup then one column/distinct acquisition tick; per-tick equal mean/range payload; validAND, saturation/held/faultOR; sort oldest first, retain newest32; source modes cannot mix in retained candidates",
+    "native_time": "source_native_tick_ms=None even for real summary columns; one tick is not proof of per-channel acquisition time or historical odometry",
+    "source_refs": [
+      {
+        "pin": "C.summary",
+        "lines": [
+          67,
+          76
+        ]
+      },
+      {
+        "pin": "C.summary",
+        "lines": [
+          304,
+          346
+        ]
+      },
+      {
+        "pin": "C.summary",
+        "lines": [
+          476,
+          555
+        ]
+      },
+      {
+        "pin": "C.summary",
+        "lines": [
+          236,
+          284
+        ]
+      },
+      {
+        "pin": "C.summary",
+        "lines": [
+          749,
+          794
+        ]
+      },
+      {
+        "pin": "C.summary",
+        "lines": [
+          795,
+          829
+        ]
+      }
+    ]
+  },
+  "proposed_summary_record_schema": {
+    "status": "syntax_target_for_future_review_only; cannot authorize conversion/admission",
+    "schema_dialect": "JSON Schema 2020-12; supplementary strict JSON/semantic requirements below",
+    "schema": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "run_id",
+        "session_id",
+        "profile",
+        "epoch",
+        "seq",
+        "tick_ms",
+        "source_mode",
+        "mean_0",
+        "mean_1",
+        "mean_2",
+        "mean_3",
+        "range_0",
+        "range_1",
+        "range_2",
+        "range_3",
+        "quality_flags"
+      ],
+      "properties": {
+        "run_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "session_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "profile": {
+          "type": "string",
+          "minLength": 1
+        },
+        "epoch": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "seq": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "tick_ms": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "source_mode": {
+          "type": "string",
+          "enum": [
+            "sensor_live",
+            "geo_replay",
+            "twin_fixture",
+            "software_fixture"
+          ]
+        },
+        "quality_flags": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 65535
+        },
+        "mean_0": {
+          "type": "number"
+        },
+        "range_0": {
+          "type": "number",
+          "minimum": 0
+        },
+        "mean_1": {
+          "type": "number"
+        },
+        "range_1": {
+          "type": "number",
+          "minimum": 0
+        },
+        "mean_2": {
+          "type": "number"
+        },
+        "range_2": {
+          "type": "number",
+          "minimum": 0
+        },
+        "mean_3": {
+          "type": "number"
+        },
+        "range_3": {
+          "type": "number",
+          "minimum": 0
+        }
+      }
+    },
+    "strict_JSON_rules": [
+      "UTF8; unique object keys; finite numbers only, no NaN/Infinity",
+      "reject bool as numeric/integer; no type coercion",
+      "require exact bound run/session/profile/epoch and approved source mode; strings are labels, not authentication",
+      "reject derived overflow and unknown profile/scaler/model; syntax alone never confers permission"
+    ],
+    "missing_policy": "Existing target requires finite summaries even for mask0. Raw missing/null cannot be translated until A chooses a reviewed new profile/missing representation; omit no fields, fabricate no zeros/ranges/masks.",
+    "causal_rules": [
+      "summary tick is last-included acquisition, never transmit/receipt time",
+      "future records excluded only after complete validation; duplicates merge per exact source policy",
+      "one transportseq is not one nativeEM acquisition; hold never creates independent fresh evidence",
+      "do not use current pose, geometry, future outcomes or privileged source callbacks as acquired features"
+    ],
+    "profile_admission": "blocked pending D1-D4; this document changes neither TelemetrySchema nor current strict9/strict13 nor C22 factory/API",
+    "refs": [
+      {
+        "pin": "C.summary",
+        "lines": [
+          588,
+          620
+        ]
+      },
+      {
+        "pin": "C.summary",
+        "lines": [
+          622,
+          682
+        ]
+      },
+      {
+        "pin": "C.summary",
+        "lines": [
+          476,
+          555
+        ]
+      }
+    ]
+  },
+  "proposed_separate_sidecar_schema": {
+    "status": "unadopted proposal, out-of-band; no sidecar/sample instantiated",
+    "location": "separate reviewed envelope/store with an explicit authenticated association; never extra strict9/strict13 keys and never privileged truth",
+    "association": {
+      "raw_record_sha256": "hash of original record bytes, correlation only; not sender/run authentication",
+      "summary_record_sha256": "hash of eventual exact summary bytes when legally supplied; no fabricated record",
+      "acquisition_interval_ref": "reviewed native acquisition support, not merely arrival sequence"
+    },
+    "field_specifications": [
+      {
+        "name": "schema_id/version",
+        "type": "new reviewed sidecar identifier/version",
+        "current_value": null,
+        "reason": "No adopted sidecar interface."
+      },
+      {
+        "name": "trusted_run_session_epoch_source_binding",
+        "type": "authenticated source/owner identity plus run/session/epoch references",
+        "current_value": null,
+        "reason": "Strict9 and current labels supply no actual authenticated acquisition binding."
+      },
+      {
+        "name": "source_clock_domain/receiver_clock_domain",
+        "type": "trusted clock identity and origin mapping references",
+        "current_value": null,
+        "reason": "No qualified physical clock-domain provider/BOOT mapping obtained."
+      },
+      {
+        "name": "clock_mapping_and_error_interval",
+        "type": "measured offset/rate/drift/uncertainty/validity interval with evidence reference",
+        "current_value": null,
+        "reason": "Candidate exact arithmetic has no measured bounds; receipt does not substitute for source time."
+      },
+      {
+        "name": "per_channel_acquisition_support",
+        "type": "nativeEM tick/interval, ADC tick, held state and aggregation history per channel",
+        "current_value": null,
+        "reason": "Raw9 only separates originalEM from ADC time; raw16 loses per-channel originalEM; lawful hardware window not supplied."
+      },
+      {
+        "name": "receiver_admission_provenance",
+        "type": "actual receive monotonic time plus ledger decision/owner/chain references",
+        "current_value": null,
+        "reason": "No actual integrated SourceLedger hardware/AI admission evidence."
+      },
+      {
+        "name": "historical_own_odometry",
+        "type": "opaque lawful executed/estimated own-pose history reference with frame, uncertainty and acquisition-time interval association",
+        "current_value": null,
+        "reason": "No legal history provider; authority-private Pose or latest pose cannot replace it."
+      },
+      {
+        "name": "profile_calibration_scaler_binding",
+        "type": "approved physical profile/calibration/preprocessing manifests with exact hashes",
+        "current_value": null,
+        "reason": "New profile/calibration/scaler/model not adopted."
+      }
+    ],
+    "structural_rules": [
+      "fixed version/allowlist; bound sizes and numeric encodings to be decided before implementation",
+      "every unresolved actual value remains null with a nonempty reason; no unknown as0/false/empty calibrated value",
+      "provenance is transport and timing metadata, never world labels/coordinates/layout/seed/object IDs/future pose or a reverse query interface",
+      "hash equality is byte correlation; authenticate producer/owner and single-run lifetime separately"
+    ],
+    "actual_clock_provider": {
+      "value": null,
+      "reason": "A must choose lawful owner/clock/history interface; no provider invented by C23."
+    },
+    "authenticated_history_binding": {
+      "value": null,
+      "reason": "A decision and original evidence absent; no runtime adoption or endpoint owner launch."
+    },
+    "refs": [
+      {
+        "pin": "A.ledger",
+        "lines": [
+          167,
+          204
+        ]
+      },
+      {
+        "pin": "A.boundary",
+        "lines": [
+          54,
+          77
+        ]
+      },
+      {
+        "pin": "C.summary",
+        "lines": [
+          795,
+          829
+        ]
+      }
+    ]
+  },
+  "future_counterexample_controls": {
+    "status": "PLAN_ONLY_NOT_EXECUTED",
+    "items": [
+      {
+        "id": "N01",
+        "plan": "Inject extra sidecar keys into strict9/strict13 or confuse raw13/raw16/tensor13; retain exact allowlist/type rejection.",
+        "executed": false
+      },
+      {
+        "id": "N02",
+        "plan": "Relabel FORCE curves, derivativeV or candidate log-rho with identical numbers; attempt4to13 zero fill/range0. Require physical/profile proof and reject invented equivalence.",
+        "executed": false
+      },
+      {
+        "id": "N03",
+        "plan": "Hold/repeat/out-of-order/conflicting acquisition content, lostADC/RMS, sourcefault-vibration and null-to-finite conflicts. Preserve original deadlines/history/masks without declaring numeric mask0 rows zero.",
+        "executed": false
+      },
+      {
+        "id": "N04",
+        "plan": "Future/backward/stale/wrapped clocks, missing nativeEM support or substituted latest/truth pose. Require trusted mapping and causal history; no receipt rejuvenation.",
+        "executed": false
+      },
+      {
+        "id": "N05",
+        "plan": "Change hidden world labels/seed/layout with identical lawful observations and own history. Future controller output must not gain privileged information from scalar/sidecar/authority access.",
+        "executed": false
+      },
+      {
+        "id": "N06",
+        "plan": "Use FORCE/test-fitted scales or leaked future labels; arbitrary8scales, fake model or grant-derived permission. Keep training-only split/profile/model boundary and no motion authority.",
+        "executed": false
+      }
+    ]
+  },
+  "unchanged_gates": {
+    "H01_H15": "unchanged",
+    "both_complete_H12_control_chains": "incomplete",
+    "formal_cards_completed": 0,
+    "formal_cards_remaining": 29,
+    "100ms": "not_promoted_or_measured_by_C23",
+    "strict_less_than_1_percent": "not_proven",
+    "G03_G09": "incomplete",
+    "physical_board_operator": "A only",
+    "FORCE_macro_F1": 0.1827348057438266,
+    "FORCE_target_macro_F1": 0.6,
+    "FORCE_quality_status": "FAIL, retained from A task/prior evidence; not re-evaluated",
+    "sim_em_v2_model_and_scaler": "missing_not_authorized_not_trained"
+  }
+}
