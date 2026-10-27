@@ -1,0 +1,1288 @@
+{
+  "artifacts": [
+    "competition/deepeye/ai_pc/cpu_model/force_v1/graph.json",
+    "competition/deepeye/ai_pc/cpu_model/force_v1/model_manifest.json",
+    "competition/deepeye/ai_pc/cpu_model/force_v1/weights.json",
+    "competition/deepeye/ai_pc/cpu_package/ENDPOINT_PROPOSAL.md",
+    "competition/deepeye/ai_pc/cpu_package/__init__.py",
+    "competition/deepeye/ai_pc/cpu_package/endpoint_protocol.py",
+    "competition/deepeye/ai_pc/cpu_package/process_endpoint.py",
+    "competition/deepeye/ai_pc/cpu_package/runner.py",
+    "competition/deepeye/ai_pc/cpu_package/stream_core.py",
+    "competition/deepeye/ai_pc/model/curve_input.py",
+    "competition/deepeye/ai_pc/model/force_cnn.py",
+    "competition/deepeye/data/label_schema.json",
+    "competition/deepeye/data/preprocessing.json",
+    "competition/deepeye/evidence/ai/cpu_endpoint_20261027/.gitattributes",
+    "competition/deepeye/evidence/ai/cpu_endpoint_20261027/author/.gitattributes",
+    "competition/deepeye/evidence/ai/cpu_endpoint_20261027/author/base-tree-verification.json",
+    "competition/deepeye/evidence/ai/cpu_endpoint_20261027/author/base-tree1334.json",
+    "competition/deepeye/evidence/ai/cpu_endpoint_20261027/author/design-v2.md",
+    "competition/deepeye/evidence/ai/cpu_endpoint_20261027/author/existing-closure-pins.json",
+    "competition/deepeye/evidence/ai/cpu_endpoint_20261027/author/first-controls/command.json",
+    "competition/deepeye/evidence/ai/cpu_endpoint_20261027/author/first-controls/result.json",
+    "competition/deepeye/evidence/ai/cpu_endpoint_20261027/author/first-controls/source-before/competition/deepeye/ai_pc/cpu_package/ENDPOINT_PROPOSAL.md",
+    "competition/deepeye/evidence/ai/cpu_endpoint_20261027/author/first-controls/source-before/competition/deepeye/ai_pc/cpu_package/endpoint_protocol.py",
+    "competition/deepeye/evidence/ai/cpu_endpoint_20261027/author/first-controls/source-before/competition/deepeye/ai_pc/cpu_package/process_endpoint.py",
+    "competition/deepeye/evidence/ai/cpu_endpoint_20261027/author/first-controls/source-before/competition/deepeye/tests/ai/cpu/test_endpoint_driver.py",
+    "competition/deepeye/evidence/ai/cpu_endpoint_20261027/author/first-controls/source-before/competition/deepeye/tests/ai/cpu/test_endpoint_protocol.py",
+    "competition/deepeye/evidence/ai/cpu_endpoint_20261027/author/first-controls/stderr.txt",
+    "competition/deepeye/evidence/ai/cpu_endpoint_20261027/author/first-controls/stdout.txt",
+    "competition/deepeye/evidence/ai/cpu_endpoint_20261027/author/fixtures/A-C21-first-result.exact.json",
+    "competition/deepeye/evidence/ai/cpu_endpoint_20261027/author/fixtures/original-first-record.jsonl",
+    "competition/deepeye/evidence/ai/cpu_endpoint_20261027/author/manifest.json",
+    "competition/deepeye/evidence/ai/cpu_endpoint_20261027/author/pure-codec-example/request.bin",
+    "competition/deepeye/evidence/ai/cpu_endpoint_20261027/author/pure-codec-example/response.bin",
+    "competition/deepeye/evidence/ai/cpu_endpoint_20261027/author/pure-codec-example/summary.json",
+    "competition/deepeye/evidence/ai/cpu_endpoint_20261027/author/report.md",
+    "competition/deepeye/evidence/ai/cpu_endpoint_20261027/author/source-final/competition/deepeye/ai_pc/cpu_package/ENDPOINT_PROPOSAL.md",
+    "competition/deepeye/evidence/ai/cpu_endpoint_20261027/author/source-final/competition/deepeye/ai_pc/cpu_package/endpoint_protocol.py",
+    "competition/deepeye/evidence/ai/cpu_endpoint_20261027/author/source-final/competition/deepeye/ai_pc/cpu_package/process_endpoint.py",
+    "competition/deepeye/evidence/ai/cpu_endpoint_20261027/author/source-final/competition/deepeye/tests/ai/cpu/test_endpoint_driver.py",
+    "competition/deepeye/evidence/ai/cpu_endpoint_20261027/author/source-final/competition/deepeye/tests/ai/cpu/test_endpoint_protocol.py",
+    "competition/deepeye/evidence/ai/cpu_endpoint_20261027/author/source-freeze.json",
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/heldout_metrics.json",
+    "competition/deepeye/tests/ai/cpu/test_endpoint_driver.py",
+    "competition/deepeye/tests/ai/cpu/test_endpoint_protocol.py",
+    "docs/competition/deepeye-2026/immutable_scope.json",
+    "docs/competition/deepeye-2026/immutable_scope.md",
+    "docs/competition/deepeye-2026/taskbook_final.md",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/.gitattributes",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/A_interface_audit/A-current-selected-tree.json",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/A_interface_audit/A-original-encoded-reply-2007.bin",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/A_interface_audit/A-original-reply-byte-pin.json",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/A_interface_audit/A-source-manifest.json",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/A_interface_audit/C-source-manifest.json",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/A_interface_audit/GET/A-original-C21-request-6416227814.command.json",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/A_interface_audit/GET/A-original-C21-request-6416227814.stderr.txt",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/A_interface_audit/GET/A-original-C21-request-6416227814.stdout.json",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/A_interface_audit/GET/A-pr24-current.command.json",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/A_interface_audit/GET/A-pr24-current.stderr.txt",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/A_interface_audit/GET/A-pr24-current.stdout.json",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/A_interface_audit/GET/competition__deepeye__simulation__authority__actor_composition.py.command.json",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/A_interface_audit/GET/competition__deepeye__simulation__authority__actor_composition.py.stderr.txt",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/A_interface_audit/GET/competition__deepeye__simulation__authority__actor_composition.py.stdout.json",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/A_interface_audit/GET/competition__deepeye__simulation__isolation__actor_fixture.py.command.json",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/A_interface_audit/GET/competition__deepeye__simulation__isolation__actor_fixture.py.stderr.txt",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/A_interface_audit/GET/competition__deepeye__simulation__isolation__actor_fixture.py.stdout.json",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/A_interface_audit/GET/competition__deepeye__simulation__isolation__actor_owner.py.command.json",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/A_interface_audit/GET/competition__deepeye__simulation__isolation__actor_owner.py.stderr.txt",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/A_interface_audit/GET/competition__deepeye__simulation__isolation__actor_owner.py.stdout.json",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/A_interface_audit/GET/competition__deepeye__simulation__isolation__ipc_framing.py.command.json",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/A_interface_audit/GET/competition__deepeye__simulation__isolation__ipc_framing.py.stderr.txt",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/A_interface_audit/GET/competition__deepeye__simulation__isolation__ipc_framing.py.stdout.json",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/A_interface_audit/audit-observations.json",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/A_interface_audit/capture.py",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/A_interface_audit/identity.json",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/A_interface_audit/main-design-readback.md",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/A_interface_audit/main-design-v2-readback.md",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/A_interface_audit/manifest.json",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/A_interface_audit/release.json",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/A_interface_audit/report.md",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/A_interface_audit/source-line-index.json",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/A_interface_audit/sources/competition/deepeye/docs/actor_composition.md",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/A_interface_audit/sources/competition/deepeye/docs/actor_ipc_framing.md",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/A_interface_audit/sources/competition/deepeye/docs/cpu_invocation_transcript.md",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/A_interface_audit/sources/competition/deepeye/integration/cpu_invocation_transcript.py",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/A_interface_audit/sources/competition/deepeye/simulation/authority/actor_composition.py",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/A_interface_audit/sources/competition/deepeye/simulation/isolation/actor_fixture.py",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/A_interface_audit/sources/competition/deepeye/simulation/isolation/actor_owner.py",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/A_interface_audit/sources/competition/deepeye/simulation/isolation/ipc_framing.py",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/A_interface_audit/sources_C/competition/deepeye/ai_pc/cpu_model/force_v1/graph.json",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/A_interface_audit/sources_C/competition/deepeye/ai_pc/cpu_model/force_v1/model_manifest.json",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/A_interface_audit/sources_C/competition/deepeye/ai_pc/cpu_model/force_v1/weights.json",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/A_interface_audit/sources_C/competition/deepeye/ai_pc/cpu_package/A_HOST_MAPPING.md",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/A_interface_audit/sources_C/competition/deepeye/ai_pc/cpu_package/runner.py",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/A_interface_audit/sources_C/competition/deepeye/ai_pc/cpu_package/stream_core.py",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/A_interface_audit/sources_C/competition/deepeye/ai_pc/model/curve_input.py",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/A_interface_audit/sources_C/competition/deepeye/ai_pc/model/force_cnn.py",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/A_interface_audit/sources_C/competition/deepeye/data/label_schema.json",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/A_interface_audit/sources_C/competition/deepeye/data/preprocessing.json",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/assignment.json",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/author-release.json",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/immutable-scope-result.json",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/A-recorded-reply.exact.bin",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/byte-proof-exit.json",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/byte-proof.stderr.txt",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/byte-proof.stdout.txt",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/inspection-tool-results.json",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/original-first-record.raw",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase1-assignment.json",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase1-byte-oracles.json",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase1-controls.md",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase1-manifest.json",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase1-release.json",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase1-report.md",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase1b/assignment.json",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase1b/build-wire-r1.py",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase1b/build_wire_oracles.py",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase1b/end-2.frame",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase1b/ended-2.frame",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase1b/input-meta-2048.frame",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase1b/input-meta-2049.frame",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase1b/input-pins.json",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase1b/input-total-16384.frame",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase1b/input-total-16385.frame",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase1b/inspection-tool-results.json",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase1b/manifest.json",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase1b/observe-1.frame",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase1b/observe-meta-variant.frame",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase1b/r2/bad-bool-index.frame",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase1b/r2/bad-bool-invocation.frame",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase1b/r2/bad-extra-key.frame",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase1b/r2/bad-first-index.frame",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase1b/r2/bad-flags.frame",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase1b/r2/bad-kind.frame",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase1b/r2/bad-magic.frame",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase1b/r2/bad-payload-hash.frame",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase1b/r2/bad-version.frame",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase1b/r2/end-2.frame",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase1b/r2/ended-2.frame",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase1b/r2/input-meta-2048.frame",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase1b/r2/input-meta-2049.frame",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase1b/r2/input-total-16384.frame",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase1b/r2/input-total-16385.frame",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase1b/r2/observe-1.frame",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase1b/r2/observe-meta-variant.frame",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase1b/r2/raw16384-total-bad.frame",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase1b/r2/reply-4095.frame",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase1b/r2/reply-4096.frame",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase1b/r2/reply-4097.frame",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase1b/r2/response-6160.geometry",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase1b/r2/result-1.frame",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase1b/r2/result-meta-variant.frame",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase1b/r2/wire-oracles.json",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase1b/raw16384-total-bad.frame",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase1b/release.json",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase1b/reply-4095.frame",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase1b/reply-4096.frame",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase1b/reply-4097.frame",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase1b/report.md",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase1b/result-1.frame",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase1b/result-meta-variant.frame",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase1b/wire-controls.md",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase1b/wire-proof-exit.json",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase1b/wire-proof-r2-exit.json",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase1b/wire-proof-r2.stderr.txt",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase1b/wire-proof-r2.stdout.txt",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase1b/wire-proof.stderr.txt",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase1b/wire-proof.stdout.txt",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase2/assignment.json",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase2/changed.stderr.txt",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase2/changed.stdout.txt",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase2/control-facts.json",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase2/controls-01-exit.json",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase2/controls-01.stderr.txt",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase2/controls-01.stdout.txt",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase2/driver-diff.stderr.txt",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase2/driver-diff.stdout.txt",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase2/frozen-ENDPOINT_PROPOSAL.md",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase2/frozen-endpoint_protocol.py",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase2/frozen-process_endpoint.py",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase2/frozen-test_endpoint_protocol.py",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase2/head.stderr.txt",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase2/head.stdout.txt",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase2/independent_controls.py",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase2/inspect-exit.json",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase2/inspect-r2-exit.json",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase2/inspect-r2.stderr.txt",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase2/inspect-r2.stdout.txt",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase2/inspect-source-r1.py",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase2/inspect.stderr.txt",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase2/inspect.stdout.txt",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase2/inspect_source.py",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase2/inspection-tool-results.json",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase2/manifest.json",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase2/protocol-diff.stderr.txt",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase2/protocol-diff.stdout.txt",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase2/release.json",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase2/report.md",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase2/source-inspection.json",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase2/tree.stderr.txt",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase2/tree.stdout.txt",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/prove_exact_bytes.py",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/synthetic-record-16383.raw",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/synthetic-record-16384.raw",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/synthetic-record-16385.raw",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/synthetic-reply-4095.bin",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/synthetic-reply-4096.bin",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/synthetic-reply-4097.bin",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/main_review/A-progress.execution.json",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/main_review/A-progress.stderr",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/main_review/A-progress.stdout",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/main_review/A-source-review-test-plan.json",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/main_review/A-task.execution.json",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/main_review/A-task.stderr",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/main_review/A-task.stdout",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/main_review/design-v1.md",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/main_review/design-v2.md",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/main_review/fixture-verified.json",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/main_review/fixtures/A-C21-first-result.exact.json",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/main_review/fixtures/original-first-record.jsonl",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/main_review/frozen-source-r1/ENDPOINT_PROPOSAL.md",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/main_review/frozen-source-r1/endpoint_protocol.py",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/main_review/frozen-source-r1/process_endpoint.py",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/main_review/frozen-source-r1/test_endpoint_driver.py",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/main_review/frozen-source-r1/test_endpoint_protocol.py",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/main_review/immutable-scope-readback.json",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/main_review/main-review-r1.md",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/main_review/pre-source-review-manifests-verified.json",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/main_review/probe-run1/execution.json",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/main_review/probe-run1/result.json",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/main_review/probe-run1/stderr.txt",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/main_review/probe-run1/stdout.txt",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/main_review/root-controls-frozen.json",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/main_review/root_probe.py",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/main_review/runtime-source-layout.json",
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/main_review/source-freeze-r1.json"
+  ],
+  "files": {
+    "competition/deepeye/ai_pc/cpu_model/force_v1/graph.json": {
+      "sha256": "6fd93fab7e65b56b1cd9473475c54b071b3e82ff09549ee447675988f07efee2",
+      "size": 1429
+    },
+    "competition/deepeye/ai_pc/cpu_model/force_v1/model_manifest.json": {
+      "sha256": "0b76bcd1b21b6b1e254eef0e2e5815a15121fdb8ac48c33710f2b2d85bdf2959",
+      "size": 3932
+    },
+    "competition/deepeye/ai_pc/cpu_model/force_v1/weights.json": {
+      "sha256": "8988f4bbcf425d9b48c9a62866ac350e6096ea43fabdd9b1e616b22ba4b6d187",
+      "size": 102250
+    },
+    "competition/deepeye/ai_pc/cpu_package/ENDPOINT_PROPOSAL.md": {
+      "sha256": "564f7add7c4de3181c48b797bc047278db9661723c56196a9602474e69a83b96",
+      "size": 12634
+    },
+    "competition/deepeye/ai_pc/cpu_package/__init__.py": {
+      "sha256": "bedb21fee166cf80aa42a75adee9199d915f332958c213c97eecbf248f8daa48",
+      "size": 68
+    },
+    "competition/deepeye/ai_pc/cpu_package/endpoint_protocol.py": {
+      "sha256": "1654f857a6cb17af734aa66e8f96f028551b15f4a7767f196e511104783de998",
+      "size": 6910
+    },
+    "competition/deepeye/ai_pc/cpu_package/process_endpoint.py": {
+      "sha256": "46b792911fecdc211d3895f8747ee745498eadf10c1fac3b53477e058a08a2e4",
+      "size": 9998
+    },
+    "competition/deepeye/ai_pc/cpu_package/runner.py": {
+      "sha256": "92114790259b7e35e8bf7b1a0519f0e3f68da52729d08b5b9862c992deae70af",
+      "size": 21133
+    },
+    "competition/deepeye/ai_pc/cpu_package/stream_core.py": {
+      "sha256": "0a8c07f34080784f36180951b28873b43de5e3f80ad201325254b274bd01217b",
+      "size": 19674
+    },
+    "competition/deepeye/ai_pc/model/curve_input.py": {
+      "sha256": "c017729a2d5717ff2bbf5a6c591320519c415ac10068b4cee19b3136913d848c",
+      "size": 39152
+    },
+    "competition/deepeye/ai_pc/model/force_cnn.py": {
+      "sha256": "5003427e1ac01e50b612d8f4f9c674c7df352b3942a5cc39978e23bdfbdb1260",
+      "size": 10384
+    },
+    "competition/deepeye/data/label_schema.json": {
+      "sha256": "0913ff5a59085b47802a9902f23a836f4fa1129700de8e6593840416f4d7beed",
+      "size": 3594
+    },
+    "competition/deepeye/data/preprocessing.json": {
+      "sha256": "cb66fd302165c86344f3b8d1af9d9c4e4e229621cef44cbfa6fb8cd121a63eef",
+      "size": 29849
+    },
+    "competition/deepeye/evidence/ai/cpu_endpoint_20261027/.gitattributes": {
+      "sha256": "5c714141c2e542ac61db8d72f9a90d1cc74591efc9d1a57a321852a51b5ae2bf",
+      "size": 41
+    },
+    "competition/deepeye/evidence/ai/cpu_endpoint_20261027/author/.gitattributes": {
+      "sha256": "705fd4d6451a31d36b3df7de96f83f30ac976c9b4a6d1e51671d8e2f33e2d0da",
+      "size": 8
+    },
+    "competition/deepeye/evidence/ai/cpu_endpoint_20261027/author/base-tree-verification.json": {
+      "sha256": "c16f8465a94151e1109c453d84fdd7ae2e947b7f3b8460bc81e0ac53c944dd91",
+      "size": 186
+    },
+    "competition/deepeye/evidence/ai/cpu_endpoint_20261027/author/base-tree1334.json": {
+      "sha256": "d74f9280577ea354d236d43296d7a8a35496e844b7576b5af7799ad1a9b0d819",
+      "size": 266471
+    },
+    "competition/deepeye/evidence/ai/cpu_endpoint_20261027/author/design-v2.md": {
+      "sha256": "437aedcf1f09f11109632f4f101a6851c07a2ba2a6f65939fe35cbf92540d07f",
+      "size": 9014
+    },
+    "competition/deepeye/evidence/ai/cpu_endpoint_20261027/author/existing-closure-pins.json": {
+      "sha256": "aa2547ea8bf69f1031ad4d53afcb202962b2540fd33a7a7124d1e69326766f5e",
+      "size": 2028
+    },
+    "competition/deepeye/evidence/ai/cpu_endpoint_20261027/author/first-controls/command.json": {
+      "sha256": "6e0191517dcaa9745bf3bec3203499e2007f53d5affa9c1185a6c69acbc384ac",
+      "size": 1267
+    },
+    "competition/deepeye/evidence/ai/cpu_endpoint_20261027/author/first-controls/result.json": {
+      "sha256": "8e1c7c4365d8a79001dffdf3a62896a72b195a0b49007472ff1bc2e5507650d3",
+      "size": 520
+    },
+    "competition/deepeye/evidence/ai/cpu_endpoint_20261027/author/first-controls/source-before/competition/deepeye/ai_pc/cpu_package/ENDPOINT_PROPOSAL.md": {
+      "sha256": "347812130a595a098148af78e8a3a99361bea79b8981de494d8cfd63976e3816",
+      "size": 12323
+    },
+    "competition/deepeye/evidence/ai/cpu_endpoint_20261027/author/first-controls/source-before/competition/deepeye/ai_pc/cpu_package/endpoint_protocol.py": {
+      "sha256": "1654f857a6cb17af734aa66e8f96f028551b15f4a7767f196e511104783de998",
+      "size": 6910
+    },
+    "competition/deepeye/evidence/ai/cpu_endpoint_20261027/author/first-controls/source-before/competition/deepeye/ai_pc/cpu_package/process_endpoint.py": {
+      "sha256": "46b792911fecdc211d3895f8747ee745498eadf10c1fac3b53477e058a08a2e4",
+      "size": 9998
+    },
+    "competition/deepeye/evidence/ai/cpu_endpoint_20261027/author/first-controls/source-before/competition/deepeye/tests/ai/cpu/test_endpoint_driver.py": {
+      "sha256": "357d1793e9f6c8029ff565dfff50335c9fe6046f9091bfac735f2775ba9d5a2c",
+      "size": 16294
+    },
+    "competition/deepeye/evidence/ai/cpu_endpoint_20261027/author/first-controls/source-before/competition/deepeye/tests/ai/cpu/test_endpoint_protocol.py": {
+      "sha256": "de0332f9432459d3036beafc0368d011d595b84966d033577b972087d8b1ccaf",
+      "size": 8485
+    },
+    "competition/deepeye/evidence/ai/cpu_endpoint_20261027/author/first-controls/stderr.txt": {
+      "sha256": "3699cf22649eaf854535fc5d894d0e2b530a16d5a934e096a4f39e5914ec13d1",
+      "size": 3218
+    },
+    "competition/deepeye/evidence/ai/cpu_endpoint_20261027/author/first-controls/stdout.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0
+    },
+    "competition/deepeye/evidence/ai/cpu_endpoint_20261027/author/fixtures/A-C21-first-result.exact.json": {
+      "sha256": "3cbffc7619558619bde6f1b25e53f3cb7225855b79aea45417e2fcf33cd4034b",
+      "size": 2007
+    },
+    "competition/deepeye/evidence/ai/cpu_endpoint_20261027/author/fixtures/original-first-record.jsonl": {
+      "sha256": "9c9200453ca7feab036ee9e41b9b78f9b61df5d672792961379d5daa920d1eb8",
+      "size": 354
+    },
+    "competition/deepeye/evidence/ai/cpu_endpoint_20261027/author/manifest.json": {
+      "sha256": "250f7a2662ecd41baf359701d404d74c58590081440e25337598850485908996",
+      "size": 8168
+    },
+    "competition/deepeye/evidence/ai/cpu_endpoint_20261027/author/pure-codec-example/request.bin": {
+      "sha256": "9bbf7edf23a5625c0d5145f7f4131c480fc2557a3b8ae0cf5d36bee822267e5f",
+      "size": 840
+    },
+    "competition/deepeye/evidence/ai/cpu_endpoint_20261027/author/pure-codec-example/response.bin": {
+      "sha256": "abd9d3dcf9eb1ea9a17b08ae8f9ae551399bf610c82f35add52cd092b1cd9d52",
+      "size": 2675
+    },
+    "competition/deepeye/evidence/ai/cpu_endpoint_20261027/author/pure-codec-example/summary.json": {
+      "sha256": "dae177b2c53afeba908be7aee33a069f155658180f5ea25e21e013da23a2028e",
+      "size": 1700
+    },
+    "competition/deepeye/evidence/ai/cpu_endpoint_20261027/author/report.md": {
+      "sha256": "2891e9a7d5672442b2ac82a085a17caeee19815eb670e42e98bcafd69a57511f",
+      "size": 3745
+    },
+    "competition/deepeye/evidence/ai/cpu_endpoint_20261027/author/source-final/competition/deepeye/ai_pc/cpu_package/ENDPOINT_PROPOSAL.md": {
+      "sha256": "564f7add7c4de3181c48b797bc047278db9661723c56196a9602474e69a83b96",
+      "size": 12634
+    },
+    "competition/deepeye/evidence/ai/cpu_endpoint_20261027/author/source-final/competition/deepeye/ai_pc/cpu_package/endpoint_protocol.py": {
+      "sha256": "1654f857a6cb17af734aa66e8f96f028551b15f4a7767f196e511104783de998",
+      "size": 6910
+    },
+    "competition/deepeye/evidence/ai/cpu_endpoint_20261027/author/source-final/competition/deepeye/ai_pc/cpu_package/process_endpoint.py": {
+      "sha256": "46b792911fecdc211d3895f8747ee745498eadf10c1fac3b53477e058a08a2e4",
+      "size": 9998
+    },
+    "competition/deepeye/evidence/ai/cpu_endpoint_20261027/author/source-final/competition/deepeye/tests/ai/cpu/test_endpoint_driver.py": {
+      "sha256": "357d1793e9f6c8029ff565dfff50335c9fe6046f9091bfac735f2775ba9d5a2c",
+      "size": 16294
+    },
+    "competition/deepeye/evidence/ai/cpu_endpoint_20261027/author/source-final/competition/deepeye/tests/ai/cpu/test_endpoint_protocol.py": {
+      "sha256": "de0332f9432459d3036beafc0368d011d595b84966d033577b972087d8b1ccaf",
+      "size": 8485
+    },
+    "competition/deepeye/evidence/ai/cpu_endpoint_20261027/author/source-freeze.json": {
+      "sha256": "cdd94101800e96aa27a6520066c7b5a0cf4bcfce0d7ebdb6793eb82df3e05c17",
+      "size": 1223
+    },
+    "competition/deepeye/evidence/ai/force_cpu_training_20261024/heldout_metrics.json": {
+      "sha256": "39ba0e9575511fa202bc7682c3b291ac3e28f729a02412f9dbc121ffbfc8f897",
+      "size": 457698
+    },
+    "competition/deepeye/tests/ai/cpu/test_endpoint_driver.py": {
+      "sha256": "357d1793e9f6c8029ff565dfff50335c9fe6046f9091bfac735f2775ba9d5a2c",
+      "size": 16294
+    },
+    "competition/deepeye/tests/ai/cpu/test_endpoint_protocol.py": {
+      "sha256": "de0332f9432459d3036beafc0368d011d595b84966d033577b972087d8b1ccaf",
+      "size": 8485
+    },
+    "docs/competition/deepeye-2026/immutable_scope.json": {
+      "sha256": "6a86000e97d1571c0b7b89b9d3cf7facb11d2b6a06455eb1d53e0637676b6bc4",
+      "size": 6684
+    },
+    "docs/competition/deepeye-2026/immutable_scope.md": {
+      "sha256": "27c5bf0b194036cf4300dbec371b6abba42bc5fda604da0e6e06284e4c5a2ddd",
+      "size": 6139
+    },
+    "docs/competition/deepeye-2026/taskbook_final.md": {
+      "sha256": "7f5c94f7fc73698236be954ae7818266d6dfe8b4949d1752dd045d76f4b71f18",
+      "size": 109430
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/.gitattributes": {
+      "sha256": "5c714141c2e542ac61db8d72f9a90d1cc74591efc9d1a57a321852a51b5ae2bf",
+      "size": 41
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/A_interface_audit/A-current-selected-tree.json": {
+      "sha256": "0ea1c65accfd3eed4e9d3e1ec4b9541395c695fd0e7f7ae1069a3ba02c02719c",
+      "size": 3020
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/A_interface_audit/A-original-encoded-reply-2007.bin": {
+      "sha256": "3cbffc7619558619bde6f1b25e53f3cb7225855b79aea45417e2fcf33cd4034b",
+      "size": 2007
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/A_interface_audit/A-original-reply-byte-pin.json": {
+      "sha256": "18ad3168a0a5b0fc4911a765b143f009dc504fb21d0015f07c3b44b1e77ce1b3",
+      "size": 578
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/A_interface_audit/A-source-manifest.json": {
+      "sha256": "e197ed6f945d2d2d683f3b03192e3361150f5d505ae603251b2dfb2b89ea4ecb",
+      "size": 3022
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/A_interface_audit/C-source-manifest.json": {
+      "sha256": "5a63e81b67254613b53c8e24b89e05950aac96c692468939b3c623803175f1fb",
+      "size": 6282
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/A_interface_audit/GET/A-original-C21-request-6416227814.command.json": {
+      "sha256": "014a201d4d4a04018c56e0a460723a3cd82cab8fdefcae9d7dafa0950768c424",
+      "size": 394
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/A_interface_audit/GET/A-original-C21-request-6416227814.stderr.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/A_interface_audit/GET/A-original-C21-request-6416227814.stdout.json": {
+      "sha256": "7a5a1508d2bfb070842a58d58097246722f1256dcaea7df638baf27aa391cfe8",
+      "size": 6539
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/A_interface_audit/GET/A-pr24-current.command.json": {
+      "sha256": "741961f3960b76fba4071216e35fce1c1e7466818e09fe89cba75efe37c5dbf2",
+      "size": 376
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/A_interface_audit/GET/A-pr24-current.stderr.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/A_interface_audit/GET/A-pr24-current.stdout.json": {
+      "sha256": "ae871297bbf782a1669da22707f87d75dc9d42d7833b4caba3d957c46aa55049",
+      "size": 19575
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/A_interface_audit/GET/competition__deepeye__simulation__authority__actor_composition.py.command.json": {
+      "sha256": "9f55fdb175b44daf22bb558519ef297f5cbfaee4b0504f3f8a8e32502bcd3726",
+      "size": 329
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/A_interface_audit/GET/competition__deepeye__simulation__authority__actor_composition.py.stderr.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/A_interface_audit/GET/competition__deepeye__simulation__authority__actor_composition.py.stdout.json": {
+      "sha256": "a3079b864028274da40bde5d920d821d11b497f7d087c3d3e9024c2284034957",
+      "size": 36333
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/A_interface_audit/GET/competition__deepeye__simulation__isolation__actor_fixture.py.command.json": {
+      "sha256": "c62f27b35fc26b8ad9a959c2c751f5ce3abc5aafd25df52d4d2486d0bb92fb16",
+      "size": 375
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/A_interface_audit/GET/competition__deepeye__simulation__isolation__actor_fixture.py.stderr.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/A_interface_audit/GET/competition__deepeye__simulation__isolation__actor_fixture.py.stdout.json": {
+      "sha256": "ab4a5d784136f5544f7a8de554e37da1338e59ea4135fe1b795454c1061aaef7",
+      "size": 3418
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/A_interface_audit/GET/competition__deepeye__simulation__isolation__actor_owner.py.command.json": {
+      "sha256": "81ca708569498db419b61931dd99a53db936fca8afaf9ddac939b4bb9b542b41",
+      "size": 375
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/A_interface_audit/GET/competition__deepeye__simulation__isolation__actor_owner.py.stderr.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/A_interface_audit/GET/competition__deepeye__simulation__isolation__actor_owner.py.stdout.json": {
+      "sha256": "110a5d276471e34d89155da343a8ac02d29f1c552a0cda79a9873ff88c0028fa",
+      "size": 31703
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/A_interface_audit/GET/competition__deepeye__simulation__isolation__ipc_framing.py.command.json": {
+      "sha256": "15d10b61332520206ae30b50d170a398b7cdaed2eaf05cd00b26cb945ef4318a",
+      "size": 329
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/A_interface_audit/GET/competition__deepeye__simulation__isolation__ipc_framing.py.stderr.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/A_interface_audit/GET/competition__deepeye__simulation__isolation__ipc_framing.py.stdout.json": {
+      "sha256": "c512d3c332403f47175f0822a718dfbc87816845f3c0d3a96a4ee682dcc6c49e",
+      "size": 4624
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/A_interface_audit/audit-observations.json": {
+      "sha256": "654c9ed3d92f17a0fbd2957a6570afb2fe7913899431a8bf61124a683cb0efff",
+      "size": 959
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/A_interface_audit/capture.py": {
+      "sha256": "e45932d961a0ae2c77b0c3bcaf1cf169a6fc5305e542f715700f1b76c1d9f90d",
+      "size": 4514
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/A_interface_audit/identity.json": {
+      "sha256": "e48501c080f77a64e4af0d03ab81dbb16086d9503db1175493b76136ea97aedf",
+      "size": 974
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/A_interface_audit/main-design-readback.md": {
+      "sha256": "e4c4cde80852c60a647f0893f89f33de5b8437bc125ba3f5dd388a709e789a0b",
+      "size": 8023
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/A_interface_audit/main-design-v2-readback.md": {
+      "sha256": "437aedcf1f09f11109632f4f101a6851c07a2ba2a6f65939fe35cbf92540d07f",
+      "size": 9014
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/A_interface_audit/manifest.json": {
+      "sha256": "0c03624043de50fee01c3d4a24bdbed8919da01a2eb87c82e238bc291452c810",
+      "size": 9344
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/A_interface_audit/release.json": {
+      "sha256": "03970e08c95c8412e9ec61f9f686bfa5420afa3e307c3c9381047cf5fed3f7d3",
+      "size": 1305
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/A_interface_audit/report.md": {
+      "sha256": "efb18ed9143fd8ca417e7be0eb5709fe3a7ba2f0a4fb0da77f0713e484eb428d",
+      "size": 25126
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/A_interface_audit/source-line-index.json": {
+      "sha256": "db1ef08afbcd71940c3d342cb7b8cf45a0fe4c2bc4fa7269291cfd1da1b7c0e5",
+      "size": 29099
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/A_interface_audit/sources/competition/deepeye/docs/actor_composition.md": {
+      "sha256": "7cf201a1d333bffa81bd87a72376919e8739a07edb06941e07b2879e9cc5494b",
+      "size": 17868
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/A_interface_audit/sources/competition/deepeye/docs/actor_ipc_framing.md": {
+      "sha256": "02c115882bac7dfbe2a42553a33a2b4896b439e72217a41ca5a0b08d795c3922",
+      "size": 2800
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/A_interface_audit/sources/competition/deepeye/docs/cpu_invocation_transcript.md": {
+      "sha256": "42fca58970a140c4b59423387231a7001837cf1236597df7413a0edde6478cfb",
+      "size": 7361
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/A_interface_audit/sources/competition/deepeye/integration/cpu_invocation_transcript.py": {
+      "sha256": "444f68e94a9adaaab0406b7402fb8029319bc192052b861f520b8982f89a4266",
+      "size": 14840
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/A_interface_audit/sources/competition/deepeye/simulation/authority/actor_composition.py": {
+      "sha256": "dd940de436f441acfd1dcfe5cfeaa0a2a86aac05c513893e1dc19d95410a3a8d",
+      "size": 26158
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/A_interface_audit/sources/competition/deepeye/simulation/isolation/actor_fixture.py": {
+      "sha256": "47946ba137eb61aa9d4d2357487c28210314bd4642ad7b1b4d781d052abab3b6",
+      "size": 2271
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/A_interface_audit/sources/competition/deepeye/simulation/isolation/actor_owner.py": {
+      "sha256": "cb3f8319627fbbf94ce3d250173d97f7e6f1ea09b5bf5fd530c741d4e5f857b9",
+      "size": 22799
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/A_interface_audit/sources/competition/deepeye/simulation/isolation/ipc_framing.py": {
+      "sha256": "a134af7e8ade69a4624abf780575785dff76612454cf83f0ec92ff8b1da0ee09",
+      "size": 3145
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/A_interface_audit/sources_C/competition/deepeye/ai_pc/cpu_model/force_v1/graph.json": {
+      "sha256": "6fd93fab7e65b56b1cd9473475c54b071b3e82ff09549ee447675988f07efee2",
+      "size": 1429
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/A_interface_audit/sources_C/competition/deepeye/ai_pc/cpu_model/force_v1/model_manifest.json": {
+      "sha256": "0b76bcd1b21b6b1e254eef0e2e5815a15121fdb8ac48c33710f2b2d85bdf2959",
+      "size": 3932
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/A_interface_audit/sources_C/competition/deepeye/ai_pc/cpu_model/force_v1/weights.json": {
+      "sha256": "8988f4bbcf425d9b48c9a62866ac350e6096ea43fabdd9b1e616b22ba4b6d187",
+      "size": 102250
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/A_interface_audit/sources_C/competition/deepeye/ai_pc/cpu_package/A_HOST_MAPPING.md": {
+      "sha256": "ca113434653e4d74a741542070efcfdbb5dc567da02a99e43b920181497e7621",
+      "size": 6363
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/A_interface_audit/sources_C/competition/deepeye/ai_pc/cpu_package/runner.py": {
+      "sha256": "92114790259b7e35e8bf7b1a0519f0e3f68da52729d08b5b9862c992deae70af",
+      "size": 21133
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/A_interface_audit/sources_C/competition/deepeye/ai_pc/cpu_package/stream_core.py": {
+      "sha256": "0a8c07f34080784f36180951b28873b43de5e3f80ad201325254b274bd01217b",
+      "size": 19674
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/A_interface_audit/sources_C/competition/deepeye/ai_pc/model/curve_input.py": {
+      "sha256": "c017729a2d5717ff2bbf5a6c591320519c415ac10068b4cee19b3136913d848c",
+      "size": 39152
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/A_interface_audit/sources_C/competition/deepeye/ai_pc/model/force_cnn.py": {
+      "sha256": "5003427e1ac01e50b612d8f4f9c674c7df352b3942a5cc39978e23bdfbdb1260",
+      "size": 10384
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/A_interface_audit/sources_C/competition/deepeye/data/label_schema.json": {
+      "sha256": "0913ff5a59085b47802a9902f23a836f4fa1129700de8e6593840416f4d7beed",
+      "size": 3594
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/A_interface_audit/sources_C/competition/deepeye/data/preprocessing.json": {
+      "sha256": "cb66fd302165c86344f3b8d1af9d9c4e4e229621cef44cbfa6fb8cd121a63eef",
+      "size": 29849
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/assignment.json": {
+      "sha256": "874b791f13d425a5ece1fe2274557ddb2ab24f1ac79c82daf570dfba49a1ceee",
+      "size": 5744
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/author-release.json": {
+      "sha256": "44ef887acfdb35e7b3bce2ba9e1dd13ed81a121ef7b05189b8a308c923f5c547",
+      "size": 1228
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/immutable-scope-result.json": {
+      "sha256": "e6a0a5722482707d449e03400819ffe28ddb53cb53e43f355e9645f5c9303f1c",
+      "size": 272
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/A-recorded-reply.exact.bin": {
+      "sha256": "3cbffc7619558619bde6f1b25e53f3cb7225855b79aea45417e2fcf33cd4034b",
+      "size": 2007
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/byte-proof-exit.json": {
+      "sha256": "3df37ac28beba107d5f73351f331c3f93a8c48583a84c3c1ebc8e2b71fb45c4b",
+      "size": 907
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/byte-proof.stderr.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/byte-proof.stdout.txt": {
+      "sha256": "bb046f60d90624a2d3889ce97d1f1be43cc3b866dccd78464f75889a840413db",
+      "size": 471
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/inspection-tool-results.json": {
+      "sha256": "13a4b53888817eba4422bde7d1116ca384f7060f7e4724ac597e8062d29b326b",
+      "size": 41910
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/original-first-record.raw": {
+      "sha256": "9c9200453ca7feab036ee9e41b9b78f9b61df5d672792961379d5daa920d1eb8",
+      "size": 354
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase1-assignment.json": {
+      "sha256": "9743ced846e0e255d105f46355746b4ddda9c259f6d5d3e2061487566d8e6a53",
+      "size": 1592
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase1-byte-oracles.json": {
+      "sha256": "55be5bab54ab65b61dae915673d2b03c43e213aece65d0ade01eec483f1cf964",
+      "size": 4853
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase1-controls.md": {
+      "sha256": "be3bc65bc8ae0caa391113dd8d947b8226371b91c25b7f6c543bbb511c445131",
+      "size": 7302
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase1-manifest.json": {
+      "sha256": "e5bd36de1a54a3e6e1d7e2c2248c06e0e0dc6651376451699f614e9acd094931",
+      "size": 2899
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase1-release.json": {
+      "sha256": "504af931a7e710cfa0689854ad705c2932b00f3d1c5929ff81b7660da662b890",
+      "size": 1196
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase1-report.md": {
+      "sha256": "14a7b896a71a3b0eb6f747b8863b9c0e9d2c4c83dd1ff3d44ea5da0f4c3e9d52",
+      "size": 3533
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase1b/assignment.json": {
+      "sha256": "9141dfb76d1778e31edf31ef34a3979588573c3c2d4c1a3d54e0d10d090baf24",
+      "size": 1559
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase1b/build-wire-r1.py": {
+      "sha256": "25c088da04a1f65af0700d20e78e233aefa377f4f75b1ccd4210f11ad26e559f",
+      "size": 13952
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase1b/build_wire_oracles.py": {
+      "sha256": "502b2089d3ec6a33e1ac25a1dfc6ae6bc93ba9b850230f5063d0068a14cd1b13",
+      "size": 14060
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase1b/end-2.frame": {
+      "sha256": "d1c315706d1b9b5ddd17f7b7b578b9e725ee75284af6de5b9cc9fb31635f8595",
+      "size": 476
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase1b/ended-2.frame": {
+      "sha256": "b970afb09339ec5791fb04777cec56e6719afabf91f1e8dc2d50b41c98d3dd5c",
+      "size": 697
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase1b/input-meta-2048.frame": {
+      "sha256": "00f241c43476c0f26e250c4eeae9a227090f08ceaac5992d737cb7213e7231cf",
+      "size": 2418
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase1b/input-meta-2049.frame": {
+      "sha256": "0452e56f3afc466f348f74a6d37b5d2b03edb62806aa54c968e86bb7b540348b",
+      "size": 2419
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase1b/input-pins.json": {
+      "sha256": "ee54ee6fd81a2ddacc425b9ff89d6d464e0580f087f703a16d0ff291937dcb09",
+      "size": 1321
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase1b/input-total-16384.frame": {
+      "sha256": "304fc4331f6ecfb7e7efd556bbdb0c21d0743105032dedbb666fb4922cdd434a",
+      "size": 16384
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase1b/input-total-16385.frame": {
+      "sha256": "e36767e7484501b3a0366a6021e9bb8cf5530ab0a379afa49ba87335a51b6348",
+      "size": 16385
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase1b/inspection-tool-results.json": {
+      "sha256": "2c31f55d9058aa2d35981a2d4e604a57632832bd2eae26f6c190c1cfba06fdee",
+      "size": 32080
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase1b/manifest.json": {
+      "sha256": "a07ead972757d0a1924863790514f201ffd04ff65f4253b4358d4c757403e57e",
+      "size": 8459
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase1b/observe-1.frame": {
+      "sha256": "6f74a0d657acfea456ced67a0a0e7fd25674c7a2dfcae09be71bb0beb8010221",
+      "size": 830
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase1b/observe-meta-variant.frame": {
+      "sha256": "c4097cf538b9c3fb5e1c4533b8c2750affebbe533a8627ff0ab2c75605c5a197",
+      "size": 848
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase1b/r2/bad-bool-index.frame": {
+      "sha256": "3174593b8d7ce37f40935875b26995a3792b2714d8066663e521a8661543cdb6",
+      "size": 833
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase1b/r2/bad-bool-invocation.frame": {
+      "sha256": "30ebf181dca0d597f1a72e540449be0aa7de480d8685e0a5d78686418974d1c7",
+      "size": 833
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase1b/r2/bad-extra-key.frame": {
+      "sha256": "77d551e124a5bb22d0d2ae2186c3e8fe28c333486538abff7ccb3cc2e5475ce1",
+      "size": 849
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase1b/r2/bad-first-index.frame": {
+      "sha256": "084e2adb78778a24d83e2d762a48c50002eb84d61828ea5b2e506e8c9f3318d4",
+      "size": 830
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase1b/r2/bad-flags.frame": {
+      "sha256": "8ed8aa39331c841741eb2d31901a7cc5bcdfd3e4dcdcd68331f0d24ffb714650",
+      "size": 830
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase1b/r2/bad-kind.frame": {
+      "sha256": "51ad0e12f281c9757c8facc4d526a293ea00bc5317b9bc4ea55898ecd6ae584c",
+      "size": 830
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase1b/r2/bad-magic.frame": {
+      "sha256": "bd6ba8e3264d5306079a8196bad7072e9f4ed31f7a2ea4053ee51071705e2d04",
+      "size": 830
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase1b/r2/bad-payload-hash.frame": {
+      "sha256": "e15e91480e7bd65d6c76c6d6941288b769b603f5a6a673449aa59bdf077659e3",
+      "size": 830
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase1b/r2/bad-version.frame": {
+      "sha256": "72a162127d0f5b698159241d303955f450869a6b690e24e38cb14816cd091168",
+      "size": 830
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase1b/r2/end-2.frame": {
+      "sha256": "d1c315706d1b9b5ddd17f7b7b578b9e725ee75284af6de5b9cc9fb31635f8595",
+      "size": 476
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase1b/r2/ended-2.frame": {
+      "sha256": "b970afb09339ec5791fb04777cec56e6719afabf91f1e8dc2d50b41c98d3dd5c",
+      "size": 697
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase1b/r2/input-meta-2048.frame": {
+      "sha256": "00f241c43476c0f26e250c4eeae9a227090f08ceaac5992d737cb7213e7231cf",
+      "size": 2418
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase1b/r2/input-meta-2049.frame": {
+      "sha256": "0452e56f3afc466f348f74a6d37b5d2b03edb62806aa54c968e86bb7b540348b",
+      "size": 2419
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase1b/r2/input-total-16384.frame": {
+      "sha256": "304fc4331f6ecfb7e7efd556bbdb0c21d0743105032dedbb666fb4922cdd434a",
+      "size": 16384
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase1b/r2/input-total-16385.frame": {
+      "sha256": "e36767e7484501b3a0366a6021e9bb8cf5530ab0a379afa49ba87335a51b6348",
+      "size": 16385
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase1b/r2/observe-1.frame": {
+      "sha256": "6f74a0d657acfea456ced67a0a0e7fd25674c7a2dfcae09be71bb0beb8010221",
+      "size": 830
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase1b/r2/observe-meta-variant.frame": {
+      "sha256": "c4097cf538b9c3fb5e1c4533b8c2750affebbe533a8627ff0ab2c75605c5a197",
+      "size": 848
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase1b/r2/raw16384-total-bad.frame": {
+      "sha256": "3d191a9d63df66bd15c5eef7f390d513c593a60ba9f648e6477d30c24e202846",
+      "size": 16860
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase1b/r2/reply-4095.frame": {
+      "sha256": "33ceb600436a327215f697f5f01ca10e55a23bcd6995fe20e4c586e1e60c0bcd",
+      "size": 4753
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase1b/r2/reply-4096.frame": {
+      "sha256": "deb1443dea580a0650f50917de4814711aeb64e33ebb8526965f0e516ba4b010",
+      "size": 4754
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase1b/r2/reply-4097.frame": {
+      "sha256": "7c80592596dac10f5d14a68caac09bb2d4763064166d120e811da713daaabc36",
+      "size": 4755
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase1b/r2/response-6160.geometry": {
+      "sha256": "451fd964481e166113f2a5e298e36af37e39687e43306a94bc0747d7384d7f39",
+      "size": 6160
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase1b/r2/result-1.frame": {
+      "sha256": "42e04cf0b64775d0b60bbfa6a20a5b281110b942933062f8e18df934759c2008",
+      "size": 2665
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase1b/r2/result-meta-variant.frame": {
+      "sha256": "ed361687f606b4c937131574785f7ee89aba85274cd5ba49006f7a8081dfcfa5",
+      "size": 2665
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase1b/r2/wire-oracles.json": {
+      "sha256": "7b706e4170c3ed005ee24cd33edcd16187663bc3e9b9e860753a56379086cb83",
+      "size": 12962
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase1b/raw16384-total-bad.frame": {
+      "sha256": "3d191a9d63df66bd15c5eef7f390d513c593a60ba9f648e6477d30c24e202846",
+      "size": 16860
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase1b/release.json": {
+      "sha256": "fbb43fdee0bfbe027cf8f47168722e796fd2cd7aa5bf8d70694134365cde352e",
+      "size": 1410
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase1b/reply-4095.frame": {
+      "sha256": "33ceb600436a327215f697f5f01ca10e55a23bcd6995fe20e4c586e1e60c0bcd",
+      "size": 4753
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase1b/reply-4096.frame": {
+      "sha256": "deb1443dea580a0650f50917de4814711aeb64e33ebb8526965f0e516ba4b010",
+      "size": 4754
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase1b/reply-4097.frame": {
+      "sha256": "7c80592596dac10f5d14a68caac09bb2d4763064166d120e811da713daaabc36",
+      "size": 4755
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase1b/report.md": {
+      "sha256": "f77a0d03403b2e459211de3115087711babcb1a02a24e3addfd3f99718e435e1",
+      "size": 2764
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase1b/result-1.frame": {
+      "sha256": "42e04cf0b64775d0b60bbfa6a20a5b281110b942933062f8e18df934759c2008",
+      "size": 2665
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase1b/result-meta-variant.frame": {
+      "sha256": "ed361687f606b4c937131574785f7ee89aba85274cd5ba49006f7a8081dfcfa5",
+      "size": 2665
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase1b/wire-controls.md": {
+      "sha256": "f5dc02d30be74d6afc8115a687eb832c9198e0957ab1bc324c0b062afe8f3ebc",
+      "size": 8738
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase1b/wire-proof-exit.json": {
+      "sha256": "b23769d169b59dcb00617d1d893c67e04e870b52a1e90c946996835fe2df0c90",
+      "size": 1064
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase1b/wire-proof-r2-exit.json": {
+      "sha256": "4cd70bdaec46ca26c67c6e7294f870673f07f2e3d869ecd6a381e4fc8c436f96",
+      "size": 1050
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase1b/wire-proof-r2.stderr.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase1b/wire-proof-r2.stdout.txt": {
+      "sha256": "98a20c3f160d6cb34f5d2cb0efc6b7d015dd7008e97eff493fceffe3efd83f41",
+      "size": 496
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase1b/wire-proof.stderr.txt": {
+      "sha256": "e1f343e01268067305418744597d5c2b5590f6d4fdabff5f6e66b0df59cc3c67",
+      "size": 625
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase1b/wire-proof.stdout.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase2/assignment.json": {
+      "sha256": "f07892b4a803c54df187930ca588eed4bf4a3a8393d568fd08a62dd93c65ea77",
+      "size": 1856
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase2/changed.stderr.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase2/changed.stdout.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase2/control-facts.json": {
+      "sha256": "426ce3366baee4a36e3cef90f91debbbcb190f4675cfd1e0518143d08108b31e",
+      "size": 3887
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase2/controls-01-exit.json": {
+      "sha256": "a387b98f6df51d11a3fe4df31356f95d04b73f6c2aa47bf0c1a20a5e43f75636",
+      "size": 1136
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase2/controls-01.stderr.txt": {
+      "sha256": "a1e5f1b07d0eb57ef5974b35b5cc5f80e3327e641987ea13d3e86ea41243e06d",
+      "size": 2367
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase2/controls-01.stdout.txt": {
+      "sha256": "1894334e3d7aa8c0e9a23269fafd61ea24008a686dc1518c95e11db4550eb472",
+      "size": 2553
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase2/driver-diff.stderr.txt": {
+      "sha256": "824389c2b852a518cf0f3e94cc5add05af229e3e9811a9d246aa5beb052a2c6d",
+      "size": 238
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase2/driver-diff.stdout.txt": {
+      "sha256": "f07c5ac24b60731532576783ab09e47b98ef0d2314e51567ba33e7e4b0eca1ec",
+      "size": 10810
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase2/frozen-ENDPOINT_PROPOSAL.md": {
+      "sha256": "564f7add7c4de3181c48b797bc047278db9661723c56196a9602474e69a83b96",
+      "size": 12634
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase2/frozen-endpoint_protocol.py": {
+      "sha256": "1654f857a6cb17af734aa66e8f96f028551b15f4a7767f196e511104783de998",
+      "size": 6910
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase2/frozen-process_endpoint.py": {
+      "sha256": "46b792911fecdc211d3895f8747ee745498eadf10c1fac3b53477e058a08a2e4",
+      "size": 9998
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase2/frozen-test_endpoint_protocol.py": {
+      "sha256": "de0332f9432459d3036beafc0368d011d595b84966d033577b972087d8b1ccaf",
+      "size": 8485
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase2/head.stderr.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase2/head.stdout.txt": {
+      "sha256": "9c2cea9928590b464d495dbd8460209c0eb8202f111fb5320815fe1157b89ca5",
+      "size": 41
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase2/independent_controls.py": {
+      "sha256": "618effaf3ba0bdfb7526d3ace7f099848a4fc06603065c56fe471d108f115343",
+      "size": 25436
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase2/inspect-exit.json": {
+      "sha256": "2c302bd7cb4b0b5ca6424e84c60f1c9158c254c24b2084a09835a00c6a24dcc7",
+      "size": 1130
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase2/inspect-r2-exit.json": {
+      "sha256": "06ce523fb144ef6959690545afee0cbbd157060c18ed1cb60507507e3fef3efe",
+      "size": 1130
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase2/inspect-r2.stderr.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase2/inspect-r2.stdout.txt": {
+      "sha256": "5079b8c9aadd0b0545929e928b511ac6e0750cf3f1a18fe72bd58931f8a96a5b",
+      "size": 201
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase2/inspect-source-r1.py": {
+      "sha256": "c6168581f67e543c3b257c6dbd1def16124fa66455ef77335cda3c7a03394fad",
+      "size": 4078
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase2/inspect.stderr.txt": {
+      "sha256": "68c67c7fdd9c535ba92b3e06172ed57f652248cb1bd2c0e07b562217c96d54c8",
+      "size": 966
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase2/inspect.stdout.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase2/inspect_source.py": {
+      "sha256": "e50d76d80fe9fe3b84baf3b7b747ad5fe4dc7159b6ebe868a0812304e9913363",
+      "size": 4101
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase2/inspection-tool-results.json": {
+      "sha256": "20c531b07547994e34524fd125a56b53723c6ff03ee4da8a43135d2d86661df5",
+      "size": 31986
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase2/manifest.json": {
+      "sha256": "f470a93216a94e1282c59ce2a6b3ac024b4defafb5401f947cb9dfd9323e9adb",
+      "size": 5515
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase2/protocol-diff.stderr.txt": {
+      "sha256": "164d41c0ed4b8a0bb9cb610f1911d42a45b277f045e58868d4504a1754752aa5",
+      "size": 239
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase2/protocol-diff.stdout.txt": {
+      "sha256": "3384146f2789854ff6b32b96a46de9d84717a1ec28e57cdebbb63b4fca8d6656",
+      "size": 7668
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase2/release.json": {
+      "sha256": "1b7bfb5121897c209e5b79dad07fb744804b80cbe37e90a086343288370ad544",
+      "size": 1585
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase2/report.md": {
+      "sha256": "ad4d6ef26a63fec6b669a3c686bb794f3ff600de3c75ed79015d29207bc632db",
+      "size": 5959
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase2/source-inspection.json": {
+      "sha256": "2a8a16144244e43c33c8aff7f1107aca3f5e17b69b166f9630fc1a0366ec772f",
+      "size": 14089
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase2/tree.stderr.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase2/tree.stdout.txt": {
+      "sha256": "28f3370870997903d44af3e2ff221ff47b376dd6e2979a2ce9da394d0f5cfe3d",
+      "size": 94792
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/prove_exact_bytes.py": {
+      "sha256": "57ce56d8373e21fcc3d79079ffcb5b629e5f021eb8ce2c14364fdc438dcbf6e8",
+      "size": 6404
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/synthetic-record-16383.raw": {
+      "sha256": "3d42aaae9c988e14ff934278788f5454539311e6fc10e802806150fd39cb09fa",
+      "size": 16383
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/synthetic-record-16384.raw": {
+      "sha256": "fd421d63ac28b64cc08ec96319a3d9b656d00f77ff118f859223627336ca6833",
+      "size": 16384
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/synthetic-record-16385.raw": {
+      "sha256": "ac8b4f1634b2684b058494d80ef57ad12db0df495d11f476a47d28fa73e24e05",
+      "size": 16385
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/synthetic-reply-4095.bin": {
+      "sha256": "dbc4393832488120b2c1167bb08b9fb4bdebe2d871938b2fa5f5a062b1f98b40",
+      "size": 4095
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/synthetic-reply-4096.bin": {
+      "sha256": "68d1a67a0d0b46acba155ee4bf86a7382710b9e06ca739d4fbb8edbe3fa3de63",
+      "size": 4096
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/synthetic-reply-4097.bin": {
+      "sha256": "79d8f3301cdf1fa35840887b4faa426554e81d7e7b3c2da062d6d08583647df9",
+      "size": 4097
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/main_review/A-progress.execution.json": {
+      "sha256": "65e93079e738b581a2a18e87731f224a1cbd5db8cb36a3805d6016a83d8202f3",
+      "size": 175
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/main_review/A-progress.stderr": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/main_review/A-progress.stdout": {
+      "sha256": "27b41e5e6b75ea4a802f9bc2e6c2a28b6e2e43074df6673e70e82f0050846dd3",
+      "size": 3097
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/main_review/A-source-review-test-plan.json": {
+      "sha256": "8eac0a5caf433baf5590b792e754e2fda83c2ae18c7042f9859658caa0b20bbc",
+      "size": 3415
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/main_review/A-task.execution.json": {
+      "sha256": "fea1ef8d448ca5b1ad7a2621bdc293cbe57fd1f4088af2c05350733ccc17a90a",
+      "size": 175
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/main_review/A-task.stderr": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/main_review/A-task.stdout": {
+      "sha256": "7a5a1508d2bfb070842a58d58097246722f1256dcaea7df638baf27aa391cfe8",
+      "size": 6539
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/main_review/design-v1.md": {
+      "sha256": "e4c4cde80852c60a647f0893f89f33de5b8437bc125ba3f5dd388a709e789a0b",
+      "size": 8023
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/main_review/design-v2.md": {
+      "sha256": "437aedcf1f09f11109632f4f101a6851c07a2ba2a6f65939fe35cbf92540d07f",
+      "size": 9014
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/main_review/fixture-verified.json": {
+      "sha256": "78f7ddf73d46b39021238b392316b08bf2e0f91ff06948768b51455f0be0bb8d",
+      "size": 485
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/main_review/fixtures/A-C21-first-result.exact.json": {
+      "sha256": "3cbffc7619558619bde6f1b25e53f3cb7225855b79aea45417e2fcf33cd4034b",
+      "size": 2007
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/main_review/fixtures/original-first-record.jsonl": {
+      "sha256": "9c9200453ca7feab036ee9e41b9b78f9b61df5d672792961379d5daa920d1eb8",
+      "size": 354
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/main_review/frozen-source-r1/ENDPOINT_PROPOSAL.md": {
+      "sha256": "564f7add7c4de3181c48b797bc047278db9661723c56196a9602474e69a83b96",
+      "size": 12634
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/main_review/frozen-source-r1/endpoint_protocol.py": {
+      "sha256": "1654f857a6cb17af734aa66e8f96f028551b15f4a7767f196e511104783de998",
+      "size": 6910
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/main_review/frozen-source-r1/process_endpoint.py": {
+      "sha256": "46b792911fecdc211d3895f8747ee745498eadf10c1fac3b53477e058a08a2e4",
+      "size": 9998
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/main_review/frozen-source-r1/test_endpoint_driver.py": {
+      "sha256": "357d1793e9f6c8029ff565dfff50335c9fe6046f9091bfac735f2775ba9d5a2c",
+      "size": 16294
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/main_review/frozen-source-r1/test_endpoint_protocol.py": {
+      "sha256": "de0332f9432459d3036beafc0368d011d595b84966d033577b972087d8b1ccaf",
+      "size": 8485
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/main_review/immutable-scope-readback.json": {
+      "sha256": "b4b1fb533f8e96afcb071dfc1b849c2c6b2201dc35b1f53f4d48c7a37552a0a5",
+      "size": 6042
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/main_review/main-review-r1.md": {
+      "sha256": "66efdd313ec5fb43054ebc0e20db9347488f878b5fdb5041db4f8b9697985916",
+      "size": 4310
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/main_review/pre-source-review-manifests-verified.json": {
+      "sha256": "3d4fd4550a34faae8428e80cd167b5d171bb9c286426d06c0f85dedd7b4edde9",
+      "size": 694
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/main_review/probe-run1/execution.json": {
+      "sha256": "1542eebf44ec3d4987b5042f9d239a5e2a8ecb279e5ecf0e0a1b06034625b6c5",
+      "size": 1071
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/main_review/probe-run1/result.json": {
+      "sha256": "d5d681265de1e9ff7d8974fe56065e8dd39c613ed2dd75a7ee5050a07020b10e",
+      "size": 1199
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/main_review/probe-run1/stderr.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/main_review/probe-run1/stdout.txt": {
+      "sha256": "f9b7b08538c774e21378b61b695bb4b93c3ecc28a261ae48ab749be46cbc83fc",
+      "size": 1101
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/main_review/root-controls-frozen.json": {
+      "sha256": "75dbe7951400d9c24fa50d138b28c2cd6a848faad476342d13ae4e2d087d574d",
+      "size": 2049
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/main_review/root_probe.py": {
+      "sha256": "da32507c2c5bdb3432bbe225361ee5c722309e06988b6bc791a6654d32f2cd52",
+      "size": 8186
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/main_review/runtime-source-layout.json": {
+      "sha256": "c4e1abe5b6e10cc1238af96f17d5186b77a09e7fded3b9acadc08919a5af8337",
+      "size": 2655
+    },
+    "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/main_review/source-freeze-r1.json": {
+      "sha256": "37c4ba6bb198ce3dfe5436a15ce31bc5e05112847e29c5241c0f640550da2e9a",
+      "size": 1074
+    }
+  },
+  "request": {
+    "code_commit": "ebf447827293f553dd5cc385b72aa4deefcd0b73",
+    "expected_result": "Private diagnostic C22E endpoint proposal around unchanged fixed C21; serial current-frame-only reads, one response write attempt, original13field record binding separate from A identity, distinct operation/fullframe/payload hashes, whole request<=16384, original encoded payload<=4096 includingLF and full response<=6160, one lazy fixed core lifetime, explicit END/EOF/error retirement and no retries. Pure private-fake byte controls only; zero learned constructors/forwards and endpoint process launches for this slice. All1334 prior entries unchanged. A source review, trusted persistent owner/HANDLE adaptation, complete interpreter/Torch/native dependency stage and production factory remain incomplete. FORCE quality FAIL, sim_em/live/history-clock/map/globalplanner/runtime/bothH12/all unmet29formal requirements remain incomplete. H01-H15/DEEPEYE-HUMAN-LOCK-20261014/revision1/sourcef5989cd5defce561f9ba98e6b18fc2682945f0a2/requirementsSHA256c229834bfc2292f5fe4411fc9f12c68487008f9d1adaf31f0144ee7a98173804 and design1011259415a0916054eb580687612580bc1e5f09 unchanged. A alone operates physical board.",
+    "operation_id": "C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22",
+    "requester": "node-c",
+    "task_id": "DEEPEYE-IMPLEMENTATION-20261014",
+    "task_version": 1,
+    "test_steps": [
+      "Verify immutable identity with python docs/competition/deepeye-2026/verify_immutable_scope.py --expected-sha c229834bfc2292f5fe4411fc9f12c68487008f9d1adaf31f0144ee7a98173804. Identity only, never product acceptance.",
+      "Verify exact source/dependency/raw evidence using python skills/pynq-z2-single-node/scripts/handoff.py verify --root . --manifest handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/manifest.json.",
+      "Read competition/deepeye/ai_pc/cpu_package/ENDPOINT_PROPOSAL.md and this handoff README for the private endpoint framing, bounded single-session lifecycle and exact non-authority boundary.",
+      "After exact manifest verification, optional pure C22 controls only: python -B -m unittest discover -s competition/deepeye/tests/ai/cpu -p test_endpoint_*.py -v . These use private fake cores/recorded bytes, no Torch model or endpoint CLI launch. Do not run old suites/training/heldout/benchmarks.",
+      "Optional portable root pure probe: python -B -X utf8 handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/main_review/root_probe.py --root <checkout> --record <checkout>/handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/main_review/fixtures/original-first-record.jsonl --reply <checkout>/handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/main_review/fixtures/A-C21-first-result.exact.json --output <new-output.json> . No endpoint process or learned forward.",
+      "A must source-review this exact proposal before any endpoint experiment; see handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/main_review/A-source-review-test-plan.json. Missing A runtime stage/owner/adapter remains a blocker, not permission to execute or bypass its factory."
+    ]
+  },
+  "request_hash": "538fa84373328ef486b8a1d8d8e0b3bf41788cd966114b2040191cbdde2497cb",
+  "schema_version": 1,
+  "stages": {
+    "A_complete_executable_stage": {
+      "status": "not_run"
+    },
+    "A_process_owner_HANDLE_adapter": {
+      "status": "not_run"
+    },
+    "A_source_review_acceptance": {
+      "status": "not_run"
+    },
+    "C22_endpoint_process_experiment": {
+      "status": "not_run"
+    },
+    "C22_real_model_constructor_or_forward": {
+      "status": "not_run"
+    },
+    "author_new_pure_byte_and_driver18": {
+      "log": "competition/deepeye/evidence/ai/cpu_endpoint_20261027/author/first-controls/result.json",
+      "status": "passed"
+    },
+    "board": {
+      "status": "not_run"
+    },
+    "both_full_control_paths": {
+      "status": "not_run"
+    },
+    "causal_observed_map": {
+      "status": "not_run"
+    },
+    "complete_global_3D_planning": {
+      "status": "not_run"
+    },
+    "formal_acceptance": {
+      "status": "not_run"
+    },
+    "immutable_human_requirement_identity": {
+      "log": "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/immutable-scope-result.json",
+      "status": "passed"
+    },
+    "implementation": {
+      "status": "not_run"
+    },
+    "independent_frozen_source_byte_lifecycle_review": {
+      "log": "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase2/report.md",
+      "status": "passed"
+    },
+    "independent_wire_generator_corrected": {
+      "log": "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase1b/wire-proof-r2-exit.json",
+      "status": "passed"
+    },
+    "independent_wire_generator_original_selfcheck": {
+      "log": "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/independent_review/phase1b/wire-proof-exit.json",
+      "status": "failed"
+    },
+    "main_design_v1_binding_conflict": {
+      "log": "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/A_interface_audit/report.md",
+      "status": "failed"
+    },
+    "main_design_v2_binding_correction": {
+      "log": "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/main_review/design-v2.md",
+      "status": "passed"
+    },
+    "main_independent_pure_byte9": {
+      "log": "handoffs/c/C-DEEPEYE-CPU-ENDPOINT-PROPOSAL-20261027-22/main_review/probe-run1/execution.json",
+      "status": "passed"
+    },
+    "prior_FORCE_heldout_quality": {
+      "log": "competition/deepeye/evidence/ai/force_cpu_training_20261024/heldout_metrics.json",
+      "status": "failed"
+    },
+    "production_wire_factory_adoption": {
+      "status": "not_run"
+    },
+    "qualified_live_observations_history_clock": {
+      "status": "blocked"
+    },
+    "sim_em_qualified_source_data_targets_scales_model": {
+      "status": "blocked"
+    },
+    "simulation": {
+      "status": "not_run"
+    },
+    "synthesis": {
+      "status": "not_run"
+    },
+    "system": {
+      "status": "not_run"
+    }
+  }
+}
