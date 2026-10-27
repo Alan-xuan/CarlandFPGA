@@ -210,9 +210,11 @@
     "id": 6452826210,
     "author": "carolwjade",
     "created_utc": "2026-10-27T20:30:37Z",
-    "body_UTF8_sha256": "3d5b8d754258c1703f5b279bf8c8911debb139e939ee68fe68d5c7f536abf78b",
+    "body_UTF8_sha256": "89a790d1e44266911e8f425b16552ca3ce5c7f72eff981f33096b7e45553c8b3",
     "API_stdout_raw_sha256": "956381d996f69bd7f86e9d5e22715da115730fbd66a8cffa0432fc7b31b6f59a",
-    "separate_from_TASK_raw_hash": true
+    "separate_from_TASK_raw_hash": true,
+    "body_capture_file_sha256": "3d5b8d754258c1703f5b279bf8c8911debb139e939ee68fe68d5c7f536abf78b",
+    "body_capture_representation": "UTF8 local capture with22 CRLF line endings; distinct from original GitHub body string UTF8 bytes (LF). API response bytes separately hashed."
   },
   "capture_methods": [
     "A official GitHub Git commit/tree/blob API; base64 decode original blob and recompute GitblobSHA1+SHA256+size",
