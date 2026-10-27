@@ -1,0 +1,71 @@
+{
+  "artifacts": [
+    "handoffs/c/C-DEEPEYE-SIM-EM-SOURCE-BOUNDARY-PROPOSAL-20261028-23/compatibility-matrix.json",
+    "handoffs/c/C-DEEPEYE-SIM-EM-SOURCE-BOUNDARY-PROPOSAL-20261028-23/sim_em_v2-profile-schema.proposal.json",
+    "handoffs/c/C-DEEPEYE-SIM-EM-SOURCE-BOUNDARY-PROPOSAL-20261028-23/A-decisions.json",
+    "handoffs/c/C-DEEPEYE-SIM-EM-SOURCE-BOUNDARY-PROPOSAL-20261028-23/SOURCE-PINS.json",
+    "handoffs/c/C-DEEPEYE-SIM-EM-SOURCE-BOUNDARY-PROPOSAL-20261028-23/TASK-RECEIPT.json"
+  ],
+  "files": {
+    "handoffs/c/C-DEEPEYE-SIM-EM-SOURCE-BOUNDARY-PROPOSAL-20261028-23/A-decisions.json": {
+      "sha256": "959ff1ec8ce358db2d32b5af67b30a537e844054b8315b81e64b4861309f73a7",
+      "size": 4740
+    },
+    "handoffs/c/C-DEEPEYE-SIM-EM-SOURCE-BOUNDARY-PROPOSAL-20261028-23/SOURCE-PINS.json": {
+      "sha256": "3385c9b1ae0ff7b3a259ba7ffbfb0405d3b187b3ba54b820210f69eb55cad0cc",
+      "size": 10777
+    },
+    "handoffs/c/C-DEEPEYE-SIM-EM-SOURCE-BOUNDARY-PROPOSAL-20261028-23/TASK-RECEIPT.json": {
+      "sha256": "8affccbbba121b4fc84bbb3162ca65dce58078cf586abf7ac191bf6cd68e91b3",
+      "size": 6686
+    },
+    "handoffs/c/C-DEEPEYE-SIM-EM-SOURCE-BOUNDARY-PROPOSAL-20261028-23/compatibility-matrix.json": {
+      "sha256": "68b337bd3088ba767c52985e15947475ad1fbb5a3494b82c8c27211b2e41beb3",
+      "size": 22468
+    },
+    "handoffs/c/C-DEEPEYE-SIM-EM-SOURCE-BOUNDARY-PROPOSAL-20261028-23/sim_em_v2-profile-schema.proposal.json": {
+      "sha256": "60844936ee2ccb07c7c8d7e81b00d1f02a27c649bd8508c05744d6e8ac88da7d",
+      "size": 20705
+    }
+  },
+  "request": {
+    "code_commit": "93dc3f7e6c19e01f3e560442741ddb2199c41b21",
+    "expected_result": "Source-only review/proposal and at most4 A decisions; no runtime, model, test, fixture, PDE, endpoint or board execution. H01-H15, both fullH12, all29,100ms,strict<1%,G03/G09 unchanged.",
+    "operation_id": "C-DEEPEYE-SIM-EM-SOURCE-BOUNDARY-PROPOSAL-20261028-23",
+    "requester": "C original main 01a14025-4dfd-7ec3-aebb-57be48daba59; A current Gen3 01a16988-bdcb-70e1-ae10-1304b5cf7875",
+    "task_id": "DEEPEYE-IMPLEMENTATION-20261014",
+    "task_version": 1,
+    "test_steps": [
+      "Read exact pinned A4 and C22 source bytes as text/JSON/hash/line references only.",
+      "Review shape/unit/quality/clock/history compatibility and unadopted profile/sidecar; unresolved inputs stay null with reason.",
+      "Verify only six bounded new JSON files and preserve all1558 prior Git entries; canonical manifest hashing is metadata validation.",
+      "Independent frozen document semantic review before publication; future negative controls PLAN ONLY, not executed."
+    ]
+  },
+  "request_hash": "baa9dff2535b2ede7b02067daa6b74e5bbe182c78021d5d6b06ca8536bb24561",
+  "schema_version": 1,
+  "stages": {
+    "A_new_profile_input_decisions": {
+      "log": "handoffs/c/C-DEEPEYE-SIM-EM-SOURCE-BOUNDARY-PROPOSAL-20261028-23/A-decisions.json",
+      "status": "blocked"
+    },
+    "all_product_tests_fixtures_models_PDE_endpoint_board": {
+      "status": "not_run"
+    },
+    "exact_source_pin_review": {
+      "log": "handoffs/c/C-DEEPEYE-SIM-EM-SOURCE-BOUNDARY-PROPOSAL-20261028-23/SOURCE-PINS.json",
+      "status": "passed"
+    },
+    "formal_acceptance": {
+      "status": "not_run"
+    },
+    "lawful_causal_samples_and_new_domain_model": {
+      "log": "handoffs/c/C-DEEPEYE-SIM-EM-SOURCE-BOUNDARY-PROPOSAL-20261028-23/sim_em_v2-profile-schema.proposal.json",
+      "status": "blocked"
+    },
+    "source_boundary_proposal": {
+      "log": "handoffs/c/C-DEEPEYE-SIM-EM-SOURCE-BOUNDARY-PROPOSAL-20261028-23/compatibility-matrix.json",
+      "status": "passed"
+    }
+  }
+}
