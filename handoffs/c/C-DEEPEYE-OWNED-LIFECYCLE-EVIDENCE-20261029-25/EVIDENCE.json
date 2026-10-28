@@ -1,0 +1,423 @@
+{
+  "schema_version": 1,
+  "task_id": "DEEPEYE-IMPLEMENTATION-20261014",
+  "task_version": 1,
+  "operation_id": "C-DEEPEYE-OWNED-LIFECYCLE-EVIDENCE-20261029-25",
+  "actual_main_thread_id": "01a14025-4dfd-7ec3-aebb-57be48daba59",
+  "actual_new_batches": 1,
+  "original_case_attempts": 1,
+  "case_retries": 0,
+  "original_runtime_outputs": [
+    {
+      "path": "original-popen-created.json",
+      "bytes": 193,
+      "sha256": "bd494d5cb568d2565ce63b76cc9f1d8e40ad444f448cd3c99ca56bfa71a99253",
+      "original_UTF8_text": "{\n  \"original_Popen_pid\": 51340,\n  \"original_Popen_handle\": 468,\n  \"pid_used_as_annotation_only\": true,\n  \"no_OpenProcess_or_PID_scan\": true,\n  \"create_elapsed_seconds\": 0.015000000013969839\n}\n"
+    },
+    {
+      "path": "raw/driver-intent.json",
+      "bytes": 2015,
+      "sha256": "0f9dc13133f2f4fdd6d8831839d0cc71e952a3203ca4d81e2a548d510c7c3940",
+      "original_UTF8_text": "{\"cases_started\":0,\"configuration\":{\"base_python\":\"C:\\\\Users\\\\Alan\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\python\\\\python.exe\",\"base_sha256\":\"4623dc531b0883c3e714da5cb30e9b73e12aa5145f0d92c7b191ab1dcf699dfe\",\"cases\":[\"normal_primary_to_Job0\",\"owned_residual_rejected_and_cleaned\"],\"guard\":\"C:\\\\Users\\\\Alan\\\\Documents\\\\ChatGPT\\\\FPGA\\\\CarlandFPGA-node-c\\\\.local\\\\main-20261015-01a14025\\\\C25-owned-lifecycle-20261029\\\\main\\\\C25-two-new-cases-v1.intent.json\",\"limits\":{\"aggregate_wall_seconds\":30,\"attempts_per_case\":1,\"job_commit_bytes\":1073741824,\"max_cases\":2,\"observer_budget_seconds\":24,\"process_commit_bytes\":536870912,\"total_output_bytes\":1048576},\"operation_id\":\"C-DEEPEYE-OWNED-LIFECYCLE-EVIDENCE-20261029-25\",\"output\":\"C:\\\\Users\\\\Alan\\\\Documents\\\\ChatGPT\\\\FPGA\\\\CarlandFPGA-node-c\\\\.local\\\\main-20261015-01a14025\\\\C25-owned-lifecycle-20261029\\\\main\\\\control-run-v1\\\\raw\",\"source_pins\":{\"README.md\":{\"bytes\":14356,\"sha256\":\"49fcaba52ea95f10f802138c0d18c200029f07e567d9d894d24023277fadb8b5\"},\"case_actor.py\":{\"bytes\":487,\"sha256\":\"17682adb9a79c029da231c2cc0faf2346154a49edad3ddd79890954f4e9e3c78\"},\"owned_lifecycle.py\":{\"bytes\":49610,\"sha256\":\"c7063da8cecea366f2f0cced2f1e99357d779b927e3302464a0dc140e6a06b00\"},\"run_once.py\":{\"bytes\":7199,\"sha256\":\"791bc253963a3b9bdde737d4696b0340f3681f1274b2f8402c1620e277f129e3\"}},\"task_id\":\"DEEPEYE-IMPLEMENTATION-20261014\",\"task_version\":1},\"configuration_sha256\":\"c0eb1c5037b58336ecd94c8b42b9de58a2c39063b1ac3c050abd64ae2c2ba305\",\"operation_id\":\"C-DEEPEYE-OWNED-LIFECYCLE-EVIDENCE-20261029-25\",\"original_argv\":[\"C:\\\\Users\\\\Alan\\\\Documents\\\\ChatGPT\\\\FPGA\\\\CarlandFPGA-node-c\\\\.local\\\\deepeye-implementation-c\\\\handoffs\\\\c\\\\C-DEEPEYE-OWNED-LIFECYCLE-EVIDENCE-20261029-25\\\\run_once.py\",\"--configuration\",\"C:\\\\Users\\\\Alan\\\\Documents\\\\ChatGPT\\\\FPGA\\\\CarlandFPGA-node-c\\\\.local\\\\main-20261015-01a14025\\\\C25-owned-lifecycle-20261029\\\\main\\\\configuration-v2.json\",\"--configuration-sha256\",\"c0eb1c5037b58336ecd94c8b42b9de58a2c39063b1ac3c050abd64ae2c2ba305\"]}\n"
+    },
+    {
+      "path": "raw/driver-result.json",
+      "bytes": 714,
+      "sha256": "7828d39ae83f48462925fb4fc061d2ecf3b5173b74cd5363b96c52366507f356",
+      "original_UTF8_text": "{\"all_cases_passed\":false,\"configuration_sha256\":\"c0eb1c5037b58336ecd94c8b42b9de58a2c39063b1ac3c050abd64ae2c2ba305\",\"elapsed_scope\":\"driver entry through observer result/hash check; external original Popen measures complete command\",\"elapsed_through_driver_checkpoint_seconds\":0.125,\"formal_acceptance\":false,\"observer_result_sha256\":\"aacf82a99e17868a7af342a9044e1762ccaa86e3d6b7f3737aa4e2a811567191\",\"operation_id\":\"C-DEEPEYE-OWNED-LIFECYCLE-EVIDENCE-20261029-25\",\"original_C24_unchanged_and_unaccepted\":true,\"output_scope\":\"raw directory through this checkpoint; supervisor later measures all final raw outputs\",\"raw_output_bytes_through_driver_checkpoint\":18749,\"source_bytes_unchanged\":true,\"status\":\"failed\"}\n"
+    },
+    {
+      "path": "raw/observer-raw/normal/primary.combined.bin",
+      "bytes": 12,
+      "sha256": "4f98f6605087f40f612ee287941302fc165e79c4d99d53842c6815752f2aba10",
+      "original_UTF8_text": "C25_PRIMARY\n"
+    },
+    {
+      "path": "raw/observer-result.json",
+      "bytes": 16722,
+      "sha256": "aacf82a99e17868a7af342a9044e1762ccaa86e3d6b7f3737aa4e2a811567191",
+      "original_UTF8_text": "{\"C24_validation_upgraded\":false,\"all_cases_passed\":false,\"budgets\":{\"actor_job_active_process_limit\":2,\"actor_job_commit_bytes\":1073741824,\"actor_job_user_cpu_seconds\":20,\"actor_process_commit_bytes\":536870912,\"cleanup_reserve_seconds\":4,\"combined_output_limit_bytes\":1048576,\"event_limit\":256,\"observer_wall_seconds\":24,\"outer_wall_seconds\":30,\"owner_JSON_limit_bytes\":65536,\"stream_capture_limit_bytes\":4096},\"cases\":[{\"after_deadline\":null,\"all_closes_succeeded\":true,\"all_original_handles_signaled\":true,\"attempted\":true,\"before_deadline\":null,\"cleanup_elapsed_within_observer_budget\":true,\"closes\":[{\"handle\":476,\"label\":\"primary:write\",\"last_error\":0,\"returned\":1,\"succeeded\":true},{\"handle\":468,\"label\":\"primary:stdin\",\"last_error\":0,\"returned\":1,\"succeeded\":true},{\"handle\":384,\"label\":\"primary:thread\",\"last_error\":0,\"returned\":1,\"succeeded\":true},{\"handle\":368,\"label\":\"primary:process\",\"last_error\":0,\"returned\":1,\"succeeded\":true},{\"handle\":356,\"label\":\"primary:read\",\"last_error\":0,\"returned\":1,\"succeeded\":true},{\"handle\":480,\"label\":\"original_job\",\"last_error\":0,\"returned\":1,\"succeeded\":true}],\"control_passed\":false,\"exit_to_job0_deadline_elapsed_ns\":1000000000,\"expected_rejection\":false,\"final_job_snapshot\":{\"accounting\":{\"active\":0,\"kernel_time_100ns\":156250,\"terminated_cumulative\":0,\"total_processes_cumulative\":2,\"user_time_100ns\":0},\"calls\":[{\"buffer_bytes\":48,\"info_class\":1,\"last_error\":0,\"returned\":1,\"returned_length\":48},{\"buffer_bytes\":24,\"info_class\":3,\"last_error\":0,\"returned\":1,\"returned_length\":8},{\"buffer_bytes\":144,\"info_class\":9,\"last_error\":0,\"returned\":1,\"returned_length\":144}],\"extended\":{\"active_limit\":2,\"job_commit_limit\":1073741824,\"job_user_time_limit_100ns\":200000000,\"limit_flags\":8972,\"peak_job_commit_bytes\":6967296,\"peak_process_commit_bytes\":5689344,\"process_commit_limit\":536870912},\"job_handle\":480,\"label\":\"cleanup_job0:0\",\"pid_list\":{\"assigned\":0,\"complete\":true,\"count\":0,\"pids\":[]},\"sample_completed_monotonic\":582054.468,\"sample_started_monotonic\":582054.468},\"final_job_zero\":true,\"lifecycle_gate_passed\":false,\"name\":\"normal\",\"output\":{\"captured_bytes\":12,\"exact_total_known\":true,\"stream_scope\":\"combined stdout+stderr from each created actor pipe\",\"streams\":[{\"bytes\":12,\"eof\":true,\"exact_expected_line\":true,\"path\":\"C:\\\\Users\\\\Alan\\\\Documents\\\\ChatGPT\\\\FPGA\\\\CarlandFPGA-node-c\\\\.local\\\\main-20261015-01a14025\\\\C25-owned-lifecycle-20261029\\\\main\\\\control-run-v1\\\\raw\\\\observer-raw\\\\normal\\\\primary.combined.bin\",\"role\":\"primary\",\"sha256\":\"4f98f6605087f40f612ee287941302fc165e79c4d99d53842c6815752f2aba10\"}],\"total_output_bytes\":12},\"owned_members\":[{\"assigned_before_resume\":true,\"exit_code\":0,\"original_handle_signaled\":true,\"parentage\":\"direct child of observer\",\"pid\":33716,\"process_handle\":368,\"resumed\":true,\"role\":\"primary\",\"thread_handle\":384}],\"peak_job_commit_bytes\":6967296,\"peak_process_commit_bytes\":5689344,\"primary_exit_code\":0,\"reason\":\"job_membership_unknown\",\"terminate_job_returned\":true},{\"attempted\":false,\"control_passed\":false,\"expected_rejection\":false,\"lifecycle_gate_passed\":false,\"name\":\"owned-residual\",\"reason\":\"prior_gate_or_budget_blocked\"}],\"cleanup\":{\"all_cases_final_job_zero\":false,\"all_closes_succeeded\":false,\"all_original_handles_signaled\":false,\"stopped_before_next_case\":false},\"evidence\":{\"actual_output_bytes\":null,\"conservative_peak_sum_within_job_limit\":true,\"conservative_sum_peak_bytes\":86429696,\"event_loss_or_overflow\":false,\"events\":[{\"api\":\"ABI_sizes\",\"case\":\"observer\",\"elapsed_ns\":31000000,\"index\":0,\"sizes\":{\"ACCOUNT\":48,\"BASIC\":64,\"EXT\":144,\"MEMORY\":80,\"PI\":24,\"PIDS\":24,\"SA\":24,\"SIX\":112}},{\"api\":\"K32GetProcessMemoryInfo\",\"case\":\"observer\",\"current_private_commit_bytes\":12705792,\"elapsed_ns\":31000000,\"index\":1,\"last_error\":0,\"peak_private_commit_bytes\":79462400,\"phase\":\"before_cases\",\"pseudo_handle\":18446744073709551615,\"returned\":1,\"scope\":\"current observer lifetime peak committed private memory sampled now; not later serialization/driver lifetime\"},{\"api\":\"fixed_case_configuration_before_Create\",\"attempts\":1,\"case\":\"normal\",\"cleanup_reserve_seconds\":4.0,\"elapsed_ns\":31000000,\"hard_deadline_monotonic\":582078.359,\"index\":2,\"negative_after_primary0_seconds\":0.25,\"normal_exit_to_job0_seconds\":1.0,\"primary_wait_seconds\":5.0,\"residual_ready_seconds\":2.0,\"work_deadline_monotonic\":582074.359},{\"api\":\"CreateJobObjectW\",\"case\":\"normal\",\"elapsed_ns\":31000000,\"index\":3,\"inputs\":{\"inherit\":false,\"unnamed\":true},\"last_error\":0,\"returned\":480},{\"api\":\"SetInformationJobObject\",\"case\":\"normal\",\"elapsed_ns\":31000000,\"index\":4,\"inputs\":{\"active_limit\":2,\"flags\":8972,\"info_class\":9,\"job_commit\":1073741824,\"job_handle\":480,\"process_commit\":536870912,\"user_cpu_100ns\":200000000},\"last_error\":0,\"returned\":1},{\"accounting\":{\"active\":0,\"kernel_time_100ns\":0,\"terminated_cumulative\":0,\"total_processes_cumulative\":0,\"user_time_100ns\":0},\"api\":\"QueryInformationJobObject\",\"calls\":[{\"buffer_bytes\":48,\"info_class\":1,\"last_error\":0,\"returned\":1,\"returned_length\":48},{\"buffer_bytes\":24,\"info_class\":3,\"last_error\":0,\"returned\":1,\"returned_length\":8},{\"buffer_bytes\":144,\"info_class\":9,\"last_error\":0,\"returned\":1,\"returned_length\":144}],\"case\":\"normal\",\"elapsed_ns\":31000000,\"extended\":{\"active_limit\":2,\"job_commit_limit\":1073741824,\"job_user_time_limit_100ns\":200000000,\"limit_flags\":8972,\"peak_job_commit_bytes\":0,\"peak_process_commit_bytes\":0,\"process_commit_limit\":536870912},\"index\":5,\"job_handle\":480,\"label\":\"initial_job0\",\"pid_list\":{\"assigned\":0,\"complete\":true,\"count\":0,\"pids\":[]},\"sample_completed_monotonic\":582054.39,\"sample_started_monotonic\":582054.39},{\"api\":\"CreatePipe\",\"case\":\"normal\",\"elapsed_ns\":31000000,\"index\":6,\"inputs\":{\"role\":\"primary\",\"size\":4096},\"last_error\":0,\"returned\":1},{\"api\":\"original_pipe_handles\",\"case\":\"normal\",\"elapsed_ns\":31000000,\"index\":7,\"read\":356,\"role\":\"primary\",\"write\":476},{\"api\":\"SetHandleInformation\",\"case\":\"normal\",\"elapsed_ns\":31000000,\"index\":8,\"inputs\":{\"flags\":0,\"handle\":356,\"mask\":1},\"last_error\":0,\"returned\":1},{\"api\":\"CreateFileW\",\"case\":\"normal\",\"elapsed_ns\":31000000,\"index\":9,\"inputs\":{\"desired_access\":2147483648,\"name\":\"NUL\",\"role\":\"primary\"},\"last_error\":0,\"returned\":468},{\"api\":\"InitializeProcThreadAttributeList\",\"case\":\"normal\",\"elapsed_ns\":31000000,\"index\":10,\"inputs\":{\"count\":1,\"sizing\":true},\"last_error\":122,\"returned\":0},{\"api\":\"attribute_buffer_required\",\"bytes\":48,\"case\":\"normal\",\"elapsed_ns\":31000000,\"index\":11},{\"api\":\"InitializeProcThreadAttributeList\",\"buffer_bytes\":48,\"case\":\"normal\",\"elapsed_ns\":31000000,\"index\":12,\"last_error\":0,\"returned\":true},{\"api\":\"UpdateProcThreadAttribute\",\"case\":\"normal\",\"elapsed_ns\":31000000,\"index\":13,\"inputs\":{\"attribute\":\"HANDLE_LIST\",\"handles\":[476,468]},\"last_error\":0,\"returned\":1},{\"api\":\"CreateProcessW\",\"argv\":[\"C:\\\\Users\\\\Alan\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\python\\\\python.exe\",\"-I\",\"-S\",\"-B\",\"-X\",\"utf8\",\"C:\\\\Users\\\\Alan\\\\Documents\\\\ChatGPT\\\\FPGA\\\\CarlandFPGA-node-c\\\\.local\\\\deepeye-implementation-c\\\\handoffs\\\\c\\\\C-DEEPEYE-OWNED-LIFECYCLE-EVIDENCE-20261029-25\\\\case_actor.py\",\"primary\"],\"case\":\"normal\",\"elapsed_ns\":62000000,\"flags\":134742020,\"index\":14,\"last_error\":0,\"parentage\":\"direct child of observer; not a child of primary\",\"pid\":33716,\"process_handle\":368,\"returned\":1,\"thread_handle\":384,\"tid\":38968},{\"api\":\"DeleteProcThreadAttributeList\",\"case\":\"normal\",\"elapsed_ns\":62000000,\"index\":15,\"returned\":null,\"success_contract\":\"void; returned without exception\"},{\"api\":\"AssignProcessToJobObject\",\"case\":\"normal\",\"elapsed_ns\":62000000,\"index\":16,\"inputs\":{\"before_resume\":true,\"job_handle\":480,\"pid\":33716,\"process_handle\":368},\"last_error\":0,\"returned\":1},{\"api\":\"CloseHandle\",\"case\":\"normal\",\"elapsed_ns\":62000000,\"index\":17,\"inputs\":{\"handle\":476,\"label\":\"primary:write\"},\"last_error\":0,\"returned\":1},{\"api\":\"CloseHandle\",\"case\":\"normal\",\"elapsed_ns\":62000000,\"index\":18,\"inputs\":{\"handle\":468,\"label\":\"primary:stdin\"},\"last_error\":0,\"returned\":1},{\"accounting\":{\"active\":1,\"kernel_time_100ns\":0,\"terminated_cumulative\":0,\"total_processes_cumulative\":1,\"user_time_100ns\":0},\"api\":\"QueryInformationJobObject\",\"calls\":[{\"buffer_bytes\":48,\"info_class\":1,\"last_error\":0,\"returned\":1,\"returned_length\":48},{\"buffer_bytes\":24,\"info_class\":3,\"last_error\":0,\"returned\":1,\"returned_length\":16},{\"buffer_bytes\":144,\"info_class\":9,\"last_error\":0,\"returned\":1,\"returned_length\":144}],\"case\":\"normal\",\"elapsed_ns\":62000000,\"extended\":{\"active_limit\":2,\"job_commit_limit\":1073741824,\"job_user_time_limit_100ns\":200000000,\"limit_flags\":8972,\"peak_job_commit_bytes\":389120,\"peak_process_commit_bytes\":389120,\"process_commit_limit\":536870912},\"index\":19,\"job_handle\":480,\"label\":\"all_assigned_before_resume\",\"pid_list\":{\"assigned\":1,\"complete\":true,\"count\":1,\"pids\":[33716]},\"sample_completed_monotonic\":582054.421,\"sample_started_monotonic\":582054.421},{\"api\":\"ResumeThread\",\"case\":\"normal\",\"elapsed_ns\":62000000,\"index\":20,\"inputs\":{\"role\":\"primary\",\"thread_handle\":384},\"last_error\":0,\"returned\":1},{\"absolute_monotonic\":582059.421,\"api\":\"primary_wait_deadline\",\"case\":\"normal\",\"elapsed_ns\":62000000,\"index\":21,\"requested_ms\":5000},{\"api\":\"WaitForSingleObject\",\"case\":\"normal\",\"elapsed_ns\":109000000,\"index\":22,\"inputs\":{\"handle\":368,\"milliseconds\":5000,\"role\":\"primary\"},\"last_error\":0,\"returned\":0},{\"api\":\"GetExitCodeProcess\",\"case\":\"normal\",\"elapsed_ns\":109000000,\"index\":23,\"inputs\":{\"handle\":368},\"last_error\":0,\"returned\":1},{\"api\":\"original_exit_code\",\"case\":\"normal\",\"elapsed_ns\":109000000,\"exit_code\":0,\"handle\":368,\"index\":24,\"succeeded\":true},{\"api\":\"PeekNamedPipe\",\"case\":\"normal\",\"elapsed_ns\":109000000,\"index\":25,\"inputs\":{\"read_handle\":356,\"role\":\"primary\"},\"last_error\":0,\"returned\":1},{\"api\":\"pipe_available\",\"bytes\":12,\"case\":\"normal\",\"elapsed_ns\":109000000,\"index\":26,\"role\":\"primary\"},{\"api\":\"ReadFile\",\"case\":\"normal\",\"elapsed_ns\":109000000,\"index\":27,\"inputs\":{\"read_handle\":356,\"requested\":12,\"role\":\"primary\"},\"last_error\":0,\"returned\":1},{\"api\":\"pipe_read_count\",\"case\":\"normal\",\"elapsed_ns\":109000000,\"index\":28,\"returned_bytes\":12,\"role\":\"primary\"},{\"api\":\"raw_file_write\",\"case\":\"normal\",\"elapsed_ns\":109000000,\"index\":29,\"requested\":12,\"returned\":12,\"role\":\"primary\",\"sha256\":\"4f98f6605087f40f612ee287941302fc165e79c4d99d53842c6815752f2aba10\"},{\"api\":\"PeekNamedPipe\",\"case\":\"normal\",\"elapsed_ns\":109000000,\"index\":30,\"inputs\":{\"read_handle\":356,\"role\":\"primary\"},\"last_error\":109,\"returned\":0},{\"api\":\"pipe_available\",\"bytes\":0,\"case\":\"normal\",\"elapsed_ns\":109000000,\"index\":31,\"role\":\"primary\"},{\"absolute_monotonic\":582055.468,\"api\":\"normal_gate_deadline\",\"case\":\"normal\",\"elapsed_ns\":109000000,\"index\":32,\"primary_exit_observed_monotonic\":582054.468,\"relative_seconds\":1.0},{\"accounting\":{\"active\":1,\"kernel_time_100ns\":156250,\"terminated_cumulative\":0,\"total_processes_cumulative\":2,\"user_time_100ns\":0},\"api\":\"QueryInformationJobObject\",\"calls\":[{\"buffer_bytes\":48,\"info_class\":1,\"last_error\":0,\"returned\":1,\"returned_length\":48},{\"buffer_bytes\":24,\"info_class\":3,\"last_error\":0,\"returned\":1,\"returned_length\":16},{\"buffer_bytes\":144,\"info_class\":9,\"last_error\":0,\"returned\":1,\"returned_length\":144}],\"case\":\"normal\",\"elapsed_ns\":109000000,\"extended\":{\"active_limit\":2,\"job_commit_limit\":1073741824,\"job_user_time_limit_100ns\":200000000,\"limit_flags\":8972,\"peak_job_commit_bytes\":6967296,\"peak_process_commit_bytes\":5689344,\"process_commit_limit\":536870912},\"index\":33,\"job_handle\":480,\"label\":\"normal_exit_to_job0:0\",\"pid_list\":{\"assigned\":1,\"complete\":true,\"count\":1,\"pids\":[5356]},\"sample_completed_monotonic\":582054.468,\"sample_started_monotonic\":582054.468},{\"api\":\"case_exception\",\"case\":\"normal\",\"elapsed_ns\":109000000,\"exception_type\":\"ObservationError\",\"index\":34,\"reason\":\"job_membership_unknown\"},{\"api\":\"TerminateJobObject\",\"case\":\"normal\",\"elapsed_ns\":109000000,\"index\":35,\"inputs\":{\"exit_code\":49744,\"job_handle\":480},\"last_error\":0,\"returned\":1},{\"api\":\"WaitForSingleObject\",\"case\":\"normal\",\"elapsed_ns\":109000000,\"index\":36,\"inputs\":{\"handle\":368,\"milliseconds\":0,\"role\":\"primary\"},\"last_error\":0,\"returned\":0},{\"api\":\"GetExitCodeProcess\",\"case\":\"normal\",\"elapsed_ns\":109000000,\"index\":37,\"inputs\":{\"handle\":368},\"last_error\":0,\"returned\":1},{\"api\":\"original_exit_code\",\"case\":\"normal\",\"elapsed_ns\":109000000,\"exit_code\":0,\"handle\":368,\"index\":38,\"succeeded\":true},{\"accounting\":{\"active\":0,\"kernel_time_100ns\":156250,\"terminated_cumulative\":0,\"total_processes_cumulative\":2,\"user_time_100ns\":0},\"api\":\"QueryInformationJobObject\",\"calls\":[{\"buffer_bytes\":48,\"info_class\":1,\"last_error\":0,\"returned\":1,\"returned_length\":48},{\"buffer_bytes\":24,\"info_class\":3,\"last_error\":0,\"returned\":1,\"returned_length\":8},{\"buffer_bytes\":144,\"info_class\":9,\"last_error\":0,\"returned\":1,\"returned_length\":144}],\"case\":\"normal\",\"elapsed_ns\":109000000,\"extended\":{\"active_limit\":2,\"job_commit_limit\":1073741824,\"job_user_time_limit_100ns\":200000000,\"limit_flags\":8972,\"peak_job_commit_bytes\":6967296,\"peak_process_commit_bytes\":5689344,\"process_commit_limit\":536870912},\"index\":39,\"job_handle\":480,\"label\":\"cleanup_job0:0\",\"pid_list\":{\"assigned\":0,\"complete\":true,\"count\":0,\"pids\":[]},\"sample_completed_monotonic\":582054.468,\"sample_started_monotonic\":582054.468},{\"api\":\"CloseHandle\",\"case\":\"normal\",\"elapsed_ns\":109000000,\"index\":40,\"inputs\":{\"handle\":384,\"label\":\"primary:thread\"},\"last_error\":0,\"returned\":1},{\"api\":\"CloseHandle\",\"case\":\"normal\",\"elapsed_ns\":109000000,\"index\":41,\"inputs\":{\"handle\":368,\"label\":\"primary:process\"},\"last_error\":0,\"returned\":1},{\"api\":\"CloseHandle\",\"case\":\"normal\",\"elapsed_ns\":109000000,\"index\":42,\"inputs\":{\"handle\":356,\"label\":\"primary:read\"},\"last_error\":0,\"returned\":1},{\"api\":\"raw_file_close\",\"case\":\"normal\",\"elapsed_ns\":109000000,\"index\":43,\"role\":\"primary\",\"succeeded\":true},{\"api\":\"CloseHandle\",\"case\":\"normal\",\"elapsed_ns\":109000000,\"index\":44,\"inputs\":{\"handle\":480,\"label\":\"original_job\"},\"last_error\":0,\"returned\":1},{\"api\":\"K32GetProcessMemoryInfo\",\"case\":\"observer\",\"current_private_commit_bytes\":12705792,\"elapsed_ns\":109000000,\"index\":45,\"last_error\":0,\"peak_private_commit_bytes\":79462400,\"phase\":\"after_normal_cleanup_and_Close\",\"pseudo_handle\":18446744073709551615,\"returned\":1,\"scope\":\"current observer lifetime peak committed private memory sampled now; not later serialization/driver lifetime\"},{\"api\":\"K32GetProcessMemoryInfo\",\"case\":\"observer\",\"current_private_commit_bytes\":12705792,\"elapsed_ns\":109000000,\"index\":46,\"last_error\":0,\"peak_private_commit_bytes\":79462400,\"phase\":\"after_cases_and_initial_report_materialization\",\"pseudo_handle\":18446744073709551615,\"returned\":1,\"scope\":\"current observer lifetime peak committed private memory sampled now; not later serialization/driver lifetime\"}],\"events_recorded\":47,\"max_actor_job_peak_commit_bytes\":6967296,\"memory_scope\":\"actor Job peaks plus current observer PSAPI sample; observer not governed by child Job limits\",\"observer_elapsed_ns\":109000000,\"output_exact_known\":false,\"owner_memory_samples\":[{\"current_private_commit_bytes\":12705792,\"last_error\":0,\"peak_private_commit_bytes\":79462400,\"phase\":\"before_cases\",\"pseudo_handle\":18446744073709551615,\"returned\":1,\"scope\":\"current observer lifetime peak committed private memory sampled now; not later serialization/driver lifetime\"},{\"current_private_commit_bytes\":12705792,\"last_error\":0,\"peak_private_commit_bytes\":79462400,\"phase\":\"after_normal_cleanup_and_Close\",\"pseudo_handle\":18446744073709551615,\"returned\":1,\"scope\":\"current observer lifetime peak committed private memory sampled now; not later serialization/driver lifetime\"},{\"current_private_commit_bytes\":12705792,\"last_error\":0,\"peak_private_commit_bytes\":79462400,\"phase\":\"after_cases_and_initial_report_materialization\",\"pseudo_handle\":18446744073709551615,\"returned\":1,\"scope\":\"current observer lifetime peak committed private memory sampled now; not later serialization/driver lifetime\"}],\"owner_peak_commit_bytes\":79462400,\"owner_peak_within_process_limit\":true,\"source_pins\":{\"base_bytes\":107312,\"base_path\":\"C:\\\\Users\\\\Alan\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\python\\\\python.exe\",\"base_sha256\":\"4623dc531b0883c3e714da5cb30e9b73e12aa5145f0d92c7b191ab1dcf699dfe\",\"sources\":{\"README.md\":{\"bytes\":14356,\"sha256\":\"49fcaba52ea95f10f802138c0d18c200029f07e567d9d894d24023277fadb8b5\"},\"case_actor.py\":{\"bytes\":487,\"sha256\":\"17682adb9a79c029da231c2cc0faf2346154a49edad3ddd79890954f4e9e3c78\"},\"owned_lifecycle.py\":{\"bytes\":49610,\"sha256\":\"c7063da8cecea366f2f0cced2f1e99357d779b927e3302464a0dc140e6a06b00\"},\"run_once.py\":{\"bytes\":7199,\"sha256\":\"791bc253963a3b9bdde737d4696b0340f3681f1274b2f8402c1620e277f129e3\"}}}},\"formal_acceptance\":\"not_run\",\"operation_id\":\"C-DEEPEYE-OWNED-LIFECYCLE-EVIDENCE-20261029-25\",\"schema_version\":1,\"status\":\"control_failed\"}\n"
+    },
+    {
+      "path": "stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "original_UTF8_text": ""
+    },
+    {
+      "path": "stdout.txt",
+      "bytes": 738,
+      "sha256": "e359048fc25dd28ffe568c577970fc0d81566796bdf95b44cf36c44f4b7f6e74",
+      "original_UTF8_text": "{\"operation_id\": \"C-DEEPEYE-OWNED-LIFECYCLE-EVIDENCE-20261029-25\", \"all_cases_passed\": false, \"observer_result_sha256\": \"aacf82a99e17868a7af342a9044e1762ccaa86e3d6b7f3737aa4e2a811567191\", \"source_bytes_unchanged\": true, \"configuration_sha256\": \"c0eb1c5037b58336ecd94c8b42b9de58a2c39063b1ac3c050abd64ae2c2ba305\", \"elapsed_through_driver_checkpoint_seconds\": 0.125, \"elapsed_scope\": \"driver entry through observer result/hash check; external original Popen measures complete command\", \"raw_output_bytes_through_driver_checkpoint\": 18749, \"output_scope\": \"raw directory through this checkpoint; supervisor later measures all final raw outputs\", \"original_C24_unchanged_and_unaccepted\": true, \"formal_acceptance\": false, \"status\": \"failed\"}\r\n"
+    },
+    {
+      "path": "supervisor-intent.json",
+      "bytes": 2085,
+      "sha256": "055ba82c7f677addc9cfbd9ead77bd5825814d58f2b359b8b7a5333147ce906f",
+      "original_UTF8_text": "{\n  \"operation_id\": \"C-DEEPEYE-OWNED-LIFECYCLE-EVIDENCE-20261029-25\",\n  \"argv\": [\n    \"C:\\\\Users\\\\Alan\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\python\\\\python.exe\",\n    \"-I\",\n    \"-S\",\n    \"-B\",\n    \"-X\",\n    \"utf8\",\n    \"C:\\\\Users\\\\Alan\\\\Documents\\\\ChatGPT\\\\FPGA\\\\CarlandFPGA-node-c\\\\.local\\\\deepeye-implementation-c\\\\handoffs\\\\c\\\\C-DEEPEYE-OWNED-LIFECYCLE-EVIDENCE-20261029-25\\\\run_once.py\",\n    \"--configuration\",\n    \"C:\\\\Users\\\\Alan\\\\Documents\\\\ChatGPT\\\\FPGA\\\\CarlandFPGA-node-c\\\\.local\\\\main-20261015-01a14025\\\\C25-owned-lifecycle-20261029\\\\main\\\\configuration-v2.json\",\n    \"--configuration-sha256\",\n    \"c0eb1c5037b58336ecd94c8b42b9de58a2c39063b1ac3c050abd64ae2c2ba305\"\n  ],\n  \"cwd\": \"C:\\\\Users\\\\Alan\\\\Documents\\\\ChatGPT\\\\FPGA\\\\CarlandFPGA-node-c\",\n  \"configuration_sha256\": \"c0eb1c5037b58336ecd94c8b42b9de58a2c39063b1ac3c050abd64ae2c2ba305\",\n  \"source_pins\": {\n    \"owned_lifecycle.py\": {\n      \"bytes\": 49610,\n      \"sha256\": \"c7063da8cecea366f2f0cced2f1e99357d779b927e3302464a0dc140e6a06b00\"\n    },\n    \"case_actor.py\": {\n      \"bytes\": 487,\n      \"sha256\": \"17682adb9a79c029da231c2cc0faf2346154a49edad3ddd79890954f4e9e3c78\"\n    },\n    \"README.md\": {\n      \"bytes\": 14356,\n      \"sha256\": \"49fcaba52ea95f10f802138c0d18c200029f07e567d9d894d24023277fadb8b5\"\n    },\n    \"run_once.py\": {\n      \"bytes\": 7199,\n      \"sha256\": \"791bc253963a3b9bdde737d4696b0340f3681f1274b2f8402c1620e277f129e3\"\n    }\n  },\n  \"fixed_guard\": \"C:\\\\Users\\\\Alan\\\\Documents\\\\ChatGPT\\\\FPGA\\\\CarlandFPGA-node-c\\\\.local\\\\main-20261015-01a14025\\\\C25-owned-lifecycle-20261029\\\\main\\\\C25-two-new-cases-v1.intent.json\",\n  \"launch_source_sha256\": \"4b0bd164b955e93c7a81881690850572a62edef3dc296db299755c6b06b4103d\",\n  \"deadline_seconds\": 30,\n  \"original_wait_cutoff_seconds\": 26,\n  \"cleanup_wait_cutoff_seconds\": 29,\n  \"one_batch_only\": true,\n  \"no_retry\": true,\n  \"original_wait_implementation\": \"local Python subprocess Windows _wait uses retained _handle, WaitForSingleObject/GetExitCodeProcess; terminate uses same original _handle\",\n  \"created_utc\": \"2026-10-28T20:37:57.536640+00:00\"\n}\n"
+    },
+    {
+      "path": "supervisor-result.json",
+      "bytes": 3130,
+      "sha256": "df9d7b710fe1ab9ad9c0cfd94252121a565cc1f15ad745b72a82b98474babd6e",
+      "original_UTF8_text": "{\n  \"operation_id\": \"C-DEEPEYE-OWNED-LIFECYCLE-EVIDENCE-20261029-25\",\n  \"argv\": [\n    \"C:\\\\Users\\\\Alan\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\python\\\\python.exe\",\n    \"-I\",\n    \"-S\",\n    \"-B\",\n    \"-X\",\n    \"utf8\",\n    \"C:\\\\Users\\\\Alan\\\\Documents\\\\ChatGPT\\\\FPGA\\\\CarlandFPGA-node-c\\\\.local\\\\deepeye-implementation-c\\\\handoffs\\\\c\\\\C-DEEPEYE-OWNED-LIFECYCLE-EVIDENCE-20261029-25\\\\run_once.py\",\n    \"--configuration\",\n    \"C:\\\\Users\\\\Alan\\\\Documents\\\\ChatGPT\\\\FPGA\\\\CarlandFPGA-node-c\\\\.local\\\\main-20261015-01a14025\\\\C25-owned-lifecycle-20261029\\\\main\\\\configuration-v2.json\",\n    \"--configuration-sha256\",\n    \"c0eb1c5037b58336ecd94c8b42b9de58a2c39063b1ac3c050abd64ae2c2ba305\"\n  ],\n  \"cwd\": \"C:\\\\Users\\\\Alan\\\\Documents\\\\ChatGPT\\\\FPGA\\\\CarlandFPGA-node-c\",\n  \"original_Popen_pid\": 51340,\n  \"original_Popen_handle\": 468,\n  \"original_process_wait_returned\": true,\n  \"original_process_exit_code\": 1,\n  \"original_handle_close\": {\n    \"handle\": 468,\n    \"after_original_wait_returned\": true,\n    \"returned_without_exception\": true,\n    \"python_handle_closed_flag\": true\n  },\n  \"termination_request\": null,\n  \"timeout\": false,\n  \"execution_error\": null,\n  \"cleanup_error\": null,\n  \"cleanup_unknown\": false,\n  \"complete_original_command_wall_seconds\": 0.2970000000204891,\n  \"wall_scope\": \"from before original Popen to original process exit and raw streams close; final supervisor metadata serialization excluded\",\n  \"raw_output_bytes_through_supervisor_checkpoint\": 22479,\n  \"output_scope\": \"files under fixed RUN before supervisor-result.json and small terminal summary; those bounded tails must be counted by root before full output PASS\",\n  \"output_files\": [\n    {\n      \"path\": \"original-popen-created.json\",\n      \"bytes\": 193,\n      \"sha256\": \"bd494d5cb568d2565ce63b76cc9f1d8e40ad444f448cd3c99ca56bfa71a99253\"\n    },\n    {\n      \"path\": \"raw/driver-intent.json\",\n      \"bytes\": 2015,\n      \"sha256\": \"0f9dc13133f2f4fdd6d8831839d0cc71e952a3203ca4d81e2a548d510c7c3940\"\n    },\n    {\n      \"path\": \"raw/driver-result.json\",\n      \"bytes\": 714,\n      \"sha256\": \"7828d39ae83f48462925fb4fc061d2ecf3b5173b74cd5363b96c52366507f356\"\n    },\n    {\n      \"path\": \"raw/observer-raw/normal/primary.combined.bin\",\n      \"bytes\": 12,\n      \"sha256\": \"4f98f6605087f40f612ee287941302fc165e79c4d99d53842c6815752f2aba10\"\n    },\n    {\n      \"path\": \"raw/observer-result.json\",\n      \"bytes\": 16722,\n      \"sha256\": \"aacf82a99e17868a7af342a9044e1762ccaa86e3d6b7f3737aa4e2a811567191\"\n    },\n    {\n      \"path\": \"stderr.txt\",\n      \"bytes\": 0,\n      \"sha256\": \"e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855\"\n    },\n    {\n      \"path\": \"stdout.txt\",\n      \"bytes\": 738,\n      \"sha256\": \"e359048fc25dd28ffe568c577970fc0d81566796bdf95b44cf36c44f4b7f6e74\"\n    },\n    {\n      \"path\": \"supervisor-intent.json\",\n      \"bytes\": 2085,\n      \"sha256\": \"055ba82c7f677addc9cfbd9ead77bd5825814d58f2b359b8b7a5333147ce906f\"\n    }\n  ],\n  \"guard_consumed\": true,\n  \"status\": \"failed_or_evidence_unknown\",\n  \"no_retry\": true,\n  \"independent_raw_evidence_review_required\": true,\n  \"finished_utc\": \"2026-10-28T20:37:57.948353+00:00\"\n}\n"
+    }
+  ],
+  "saved_RUNTIME_file_bytes": 25609,
+  "terminal_UTF8_output_bytes": 1155,
+  "combined_captured_output_bytes": 26764,
+  "output_scope": "Captured fixed RUN files plus original terminal output; structured return storage is separately pinned. This is not exact output of an unidentified Job member or proof for the unrun negative case.",
+  "conservative_captured_plus_structured_storage_bytes": 28266,
+  "original_exec_command_structured_return": {
+    "raw_pin": {
+      "bytes": 1502,
+      "sha256": "2392f031b6668cc5b03fc49b41534a1980bd3439a8d94b964f71c8321b234766"
+    },
+    "original_UTF8_text": "{\n  \"provenance\": \"structured actual exec_command return saved at original call; not a reconstructed raw OS envelope\",\n  \"result\": {\n    \"chunk_id\": \"e00969\",\n    \"wall_time_seconds\": 1.0133492,\n    \"exit_code\": 1,\n    \"original_token_count\": 289,\n    \"output\": \"{\\\"operation_id\\\": \\\"C-DEEPEYE-OWNED-LIFECYCLE-EVIDENCE-20261029-25\\\", \\\"cwd\\\": \\\"C:\\\\\\\\Users\\\\\\\\Alan\\\\\\\\Documents\\\\\\\\ChatGPT\\\\\\\\FPGA\\\\\\\\CarlandFPGA-node-c\\\", \\\"original_Popen_pid\\\": 51340, \\\"original_Popen_handle\\\": 468, \\\"original_process_wait_returned\\\": true, \\\"original_process_exit_code\\\": 1, \\\"original_handle_close\\\": {\\\"handle\\\": 468, \\\"after_original_wait_returned\\\": true, \\\"returned_without_exception\\\": true, \\\"python_handle_closed_flag\\\": true}, \\\"termination_request\\\": null, \\\"timeout\\\": false, \\\"execution_error\\\": null, \\\"cleanup_error\\\": null, \\\"cleanup_unknown\\\": false, \\\"complete_original_command_wall_seconds\\\": 0.2970000000204891, \\\"wall_scope\\\": \\\"from before original Popen to original process exit and raw streams close; final supervisor metadata serialization excluded\\\", \\\"raw_output_bytes_through_supervisor_checkpoint\\\": 22479, \\\"output_scope\\\": \\\"files under fixed RUN before supervisor-result.json and small terminal summary; those bounded tails must be counted by root before full output PASS\\\", \\\"guard_consumed\\\": true, \\\"status\\\": \\\"failed_or_evidence_unknown\\\", \\\"no_retry\\\": true, \\\"independent_raw_evidence_review_required\\\": true, \\\"finished_utc\\\": \\\"2026-10-28T20:37:57.948353+00:00\\\"}\\r\\n\"\n  }\n}\n"
+  },
+  "spent_fixed_guard": {
+    "raw_pin": {
+      "bytes": 279,
+      "sha256": "0898ce40c801bf03072f35b71cab1220932313829b185e1354f166553a779dbb"
+    },
+    "original_UTF8_text": "{\"configuration_sha256\":\"c0eb1c5037b58336ecd94c8b42b9de58a2c39063b1ac3c050abd64ae2c2ba305\",\"created_utc\":\"2026-10-28T20:37:57.684964+00:00\",\"operation_id\":\"C-DEEPEYE-OWNED-LIFECYCLE-EVIDENCE-20261029-25\",\"state\":\"consumed; no automatic retry or alternate guard for these cases\"}\n"
+  },
+  "configuration_original_UTF8_text": "{\n  \"operation_id\": \"C-DEEPEYE-OWNED-LIFECYCLE-EVIDENCE-20261029-25\",\n  \"task_id\": \"DEEPEYE-IMPLEMENTATION-20261014\",\n  \"task_version\": 1,\n  \"base_python\": \"C:\\\\Users\\\\Alan\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\python\\\\python.exe\",\n  \"base_sha256\": \"4623dc531b0883c3e714da5cb30e9b73e12aa5145f0d92c7b191ab1dcf699dfe\",\n  \"source_pins\": {\n    \"owned_lifecycle.py\": {\n      \"bytes\": 49610,\n      \"sha256\": \"c7063da8cecea366f2f0cced2f1e99357d779b927e3302464a0dc140e6a06b00\"\n    },\n    \"case_actor.py\": {\n      \"bytes\": 487,\n      \"sha256\": \"17682adb9a79c029da231c2cc0faf2346154a49edad3ddd79890954f4e9e3c78\"\n    },\n    \"README.md\": {\n      \"bytes\": 14356,\n      \"sha256\": \"49fcaba52ea95f10f802138c0d18c200029f07e567d9d894d24023277fadb8b5\"\n    },\n    \"run_once.py\": {\n      \"bytes\": 7199,\n      \"sha256\": \"791bc253963a3b9bdde737d4696b0340f3681f1274b2f8402c1620e277f129e3\"\n    }\n  },\n  \"cases\": [\n    \"normal_primary_to_Job0\",\n    \"owned_residual_rejected_and_cleaned\"\n  ],\n  \"limits\": {\n    \"aggregate_wall_seconds\": 30,\n    \"observer_budget_seconds\": 24,\n    \"process_commit_bytes\": 536870912,\n    \"job_commit_bytes\": 1073741824,\n    \"total_output_bytes\": 1048576,\n    \"max_cases\": 2,\n    \"attempts_per_case\": 1\n  },\n  \"guard\": \"C:\\\\Users\\\\Alan\\\\Documents\\\\ChatGPT\\\\FPGA\\\\CarlandFPGA-node-c\\\\.local\\\\main-20261015-01a14025\\\\C25-owned-lifecycle-20261029\\\\main\\\\C25-two-new-cases-v1.intent.json\",\n  \"output\": \"C:\\\\Users\\\\Alan\\\\Documents\\\\ChatGPT\\\\FPGA\\\\CarlandFPGA-node-c\\\\.local\\\\main-20261015-01a14025\\\\C25-owned-lifecycle-20261029\\\\main\\\\control-run-v1\\\\raw\"\n}\n",
+  "configuration_raw_pin": {
+    "bytes": 1580,
+    "sha256": "c0eb1c5037b58336ecd94c8b42b9de58a2c39063b1ac3c050abd64ae2c2ba305"
+  },
+  "private_original_Popen_supervisor_source": {
+    "bytes": 6221,
+    "sha256": "4b0bd164b955e93c7a81881690850572a62edef3dc296db299755c6b06b4103d",
+    "original_UTF8_source": "\"\"\"Ordinary root supervisor of the fixed new C25 batch; not a polling model.\"\"\"\nfrom pathlib import Path\nimport datetime as dt,hashlib,json,subprocess,time\nROOT=Path(r'C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c')\nWORK=ROOT/'.local/main-20261015-01a14025/C25-owned-lifecycle-20261029'\nMAIN=WORK/'main';PRODUCT=ROOT/'.local/deepeye-implementation-c/handoffs/c/C-DEEPEYE-OWNED-LIFECYCLE-EVIDENCE-20261029-25'\nRUN=MAIN/'control-run-v1';CONFIG=MAIN/'configuration-v2.json'\ndef sha(raw):return hashlib.sha256(raw).hexdigest()\ndef save(path,obj):\n    with path.open('xb') as f:f.write((json.dumps(obj,ensure_ascii=False,indent=2)+'\\n').encode())\nassert not RUN.exists(),'No automatic replay; inspect original single-batch evidence'\nconfig_raw=CONFIG.read_bytes();config=json.loads(config_raw)\napproval=json.loads((MAIN/'prelaunch-static-approval.json').read_bytes())\nassert approval['actual_FINAL_received'] and approval['active_jobs']==[] and approval['material_blockers']==[]\nassert approval['configuration_sha256']==sha(config_raw)\nfor name,pin in config['source_pins'].items():\n    raw=(PRODUCT/name).read_bytes();assert len(raw)==pin['bytes'] and sha(raw)==pin['sha256']\nassert not Path(config['guard']).exists() and not Path(config['output']).exists()\nassert sha(Path(config['base_python']).read_bytes())==config['base_sha256']\nRUN.mkdir()\nargv=[config['base_python'],'-I','-S','-B','-X','utf8',str(PRODUCT/'run_once.py'),\n      '--configuration',str(CONFIG),'--configuration-sha256',sha(config_raw)]\nsave(RUN/'supervisor-intent.json',{'operation_id':config['operation_id'],'argv':argv,'cwd':str(ROOT),\n 'configuration_sha256':sha(config_raw),'source_pins':config['source_pins'],\n 'fixed_guard':config['guard'],'launch_source_sha256':sha(Path(__file__).read_bytes()),\n 'deadline_seconds':30,'original_wait_cutoff_seconds':26,'cleanup_wait_cutoff_seconds':29,\n 'one_batch_only':True,'no_retry':True,\n 'original_wait_implementation':'local Python subprocess Windows _wait uses retained _handle, WaitForSingleObject/GetExitCodeProcess; terminate uses same original _handle',\n 'created_utc':dt.datetime.now(dt.timezone.utc).isoformat()})\nstarted=time.monotonic();timed_out=False;termination=None\nproc=None;original_handle=None;code=None;execution_error=None;cleanup_error=None\ntry:\n    with (RUN/'stdout.txt').open('xb') as out,(RUN/'stderr.txt').open('xb') as err:\n        proc=subprocess.Popen(argv,cwd=ROOT,stdout=out,stderr=err,stdin=subprocess.DEVNULL,\n                              creationflags=subprocess.CREATE_NO_WINDOW,close_fds=True)\n        original_handle=int(proc._handle)\n        save(RUN/'original-popen-created.json',{'original_Popen_pid':proc.pid,'original_Popen_handle':original_handle,\n             'pid_used_as_annotation_only':True,'no_OpenProcess_or_PID_scan':True,'create_elapsed_seconds':time.monotonic()-started})\n        code=proc.wait(timeout=max(.001,26-(time.monotonic()-started)))\nexcept BaseException as exc:\n    timed_out=isinstance(exc,subprocess.TimeoutExpired)\n    execution_error={'type':type(exc).__name__,'message':str(exc)[:400]}\nfinally:\n    if proc is not None:\n        try:\n            if proc.poll() is None:\n                proc.terminate();termination={'requested_on_original_handle':original_handle,'returned_without_exception':True}\n            code=proc.wait(timeout=max(0,min(3,29-(time.monotonic()-started))))\n        except BaseException as exc:\n            cleanup_error={'type':type(exc).__name__,'message':str(exc)[:400]}\nelapsed=time.monotonic()-started\nclose_record={'handle':original_handle,'after_original_wait_returned':code is not None}\ntry:\n    if proc is not None and code is not None:\n        proc._handle.Close();close_record['returned_without_exception']=True\n        close_record['python_handle_closed_flag']=proc._handle.closed\n    elif proc is not None:\n        close_record['explicit_close_skipped']=True\n        close_record['reason']='Original wait/exit not confirmed; cleanup_unknown. Retain original handle until this supervisor ends; later OS/finalizer disposal is not stopped evidence.'\n    else:\n        close_record['reason']='Popen constructor did not return an original process handle; execution status remains unknown'\nexcept BaseException as exc:\n    close_record['error']=type(exc).__name__+':'+str(exc)[:300]\nfiles=[]\nfor path in RUN.rglob('*'):\n    if path.is_file():\n        size=path.stat().st_size\n        files.append({'path':path.relative_to(RUN).as_posix(),'bytes':size,\n                      'sha256':sha(path.read_bytes()) if size<=1048576 else None})\nmeasured_output_bytes=sum(row['bytes'] for row in files)\ngood=(code==0 and execution_error is None and cleanup_error is None and not timed_out and elapsed<=30 and measured_output_bytes<=1000000\n      and close_record.get('returned_without_exception') is True and close_record.get('python_handle_closed_flag') is True)\nresult={'operation_id':config['operation_id'],'argv':argv,'cwd':str(ROOT),'original_Popen_pid':proc.pid if proc is not None else None,\n 'original_Popen_handle':original_handle,'original_process_wait_returned':code is not None,'original_process_exit_code':code,\n 'original_handle_close':close_record,'termination_request':termination,'timeout':timed_out,\n 'execution_error':execution_error,'cleanup_error':cleanup_error,\n 'cleanup_unknown':code is None,\n 'complete_original_command_wall_seconds':elapsed,\n 'wall_scope':'from before original Popen to original process exit and raw streams close; final supervisor metadata serialization excluded',\n 'raw_output_bytes_through_supervisor_checkpoint':measured_output_bytes,'output_scope':'files under fixed RUN before supervisor-result.json and small terminal summary; those bounded tails must be counted by root before full output PASS',\n 'output_files':sorted(files,key=lambda row:row['path']),'guard_consumed':Path(config['guard']).exists(),\n 'status':'process_passed' if good else 'failed_or_evidence_unknown','no_retry':True,\n 'independent_raw_evidence_review_required':True,'finished_utc':dt.datetime.now(dt.timezone.utc).isoformat()}\nsave(RUN/'supervisor-result.json',result)\nprint(json.dumps({k:v for k,v in result.items() if k not in ('output_files','argv')}))\nraise SystemExit(0 if good else 1)\n"
+  },
+  "observer_summary": {
+    "all_cases_passed": false,
+    "cases": [
+      {
+        "name": "normal",
+        "attempted": true,
+        "reason": "job_membership_unknown",
+        "control_passed": false,
+        "lifecycle_gate_passed": false,
+        "expected_rejection": false
+      },
+      {
+        "name": "owned-residual",
+        "attempted": false,
+        "reason": "prior_gate_or_budget_blocked",
+        "control_passed": false,
+        "lifecycle_gate_passed": false,
+        "expected_rejection": false
+      }
+    ],
+    "full_original_JSON": "raw/observer-result.json in original_runtime_outputs; exact raw bytes retained"
+  },
+  "parsed_driver_result": {
+    "all_cases_passed": false,
+    "configuration_sha256": "c0eb1c5037b58336ecd94c8b42b9de58a2c39063b1ac3c050abd64ae2c2ba305",
+    "elapsed_scope": "driver entry through observer result/hash check; external original Popen measures complete command",
+    "elapsed_through_driver_checkpoint_seconds": 0.125,
+    "formal_acceptance": false,
+    "observer_result_sha256": "aacf82a99e17868a7af342a9044e1762ccaa86e3d6b7f3737aa4e2a811567191",
+    "operation_id": "C-DEEPEYE-OWNED-LIFECYCLE-EVIDENCE-20261029-25",
+    "original_C24_unchanged_and_unaccepted": true,
+    "output_scope": "raw directory through this checkpoint; supervisor later measures all final raw outputs",
+    "raw_output_bytes_through_driver_checkpoint": 18749,
+    "source_bytes_unchanged": true,
+    "status": "failed"
+  },
+  "parsed_outer_supervisor_result": {
+    "operation_id": "C-DEEPEYE-OWNED-LIFECYCLE-EVIDENCE-20261029-25",
+    "argv": [
+      "C:\\Users\\Alan\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+      "-I",
+      "-S",
+      "-B",
+      "-X",
+      "utf8",
+      "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\deepeye-implementation-c\\handoffs\\c\\C-DEEPEYE-OWNED-LIFECYCLE-EVIDENCE-20261029-25\\run_once.py",
+      "--configuration",
+      "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\main-20261015-01a14025\\C25-owned-lifecycle-20261029\\main\\configuration-v2.json",
+      "--configuration-sha256",
+      "c0eb1c5037b58336ecd94c8b42b9de58a2c39063b1ac3c050abd64ae2c2ba305"
+    ],
+    "cwd": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c",
+    "original_Popen_pid": 51340,
+    "original_Popen_handle": 468,
+    "original_process_wait_returned": true,
+    "original_process_exit_code": 1,
+    "original_handle_close": {
+      "handle": 468,
+      "after_original_wait_returned": true,
+      "returned_without_exception": true,
+      "python_handle_closed_flag": true
+    },
+    "termination_request": null,
+    "timeout": false,
+    "execution_error": null,
+    "cleanup_error": null,
+    "cleanup_unknown": false,
+    "complete_original_command_wall_seconds": 0.2970000000204891,
+    "wall_scope": "from before original Popen to original process exit and raw streams close; final supervisor metadata serialization excluded",
+    "raw_output_bytes_through_supervisor_checkpoint": 22479,
+    "output_scope": "files under fixed RUN before supervisor-result.json and small terminal summary; those bounded tails must be counted by root before full output PASS",
+    "output_files": [
+      {
+        "path": "original-popen-created.json",
+        "bytes": 193,
+        "sha256": "bd494d5cb568d2565ce63b76cc9f1d8e40ad444f448cd3c99ca56bfa71a99253"
+      },
+      {
+        "path": "raw/driver-intent.json",
+        "bytes": 2015,
+        "sha256": "0f9dc13133f2f4fdd6d8831839d0cc71e952a3203ca4d81e2a548d510c7c3940"
+      },
+      {
+        "path": "raw/driver-result.json",
+        "bytes": 714,
+        "sha256": "7828d39ae83f48462925fb4fc061d2ecf3b5173b74cd5363b96c52366507f356"
+      },
+      {
+        "path": "raw/observer-raw/normal/primary.combined.bin",
+        "bytes": 12,
+        "sha256": "4f98f6605087f40f612ee287941302fc165e79c4d99d53842c6815752f2aba10"
+      },
+      {
+        "path": "raw/observer-result.json",
+        "bytes": 16722,
+        "sha256": "aacf82a99e17868a7af342a9044e1762ccaa86e3d6b7f3737aa4e2a811567191"
+      },
+      {
+        "path": "stderr.txt",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "stdout.txt",
+        "bytes": 738,
+        "sha256": "e359048fc25dd28ffe568c577970fc0d81566796bdf95b44cf36c44f4b7f6e74"
+      },
+      {
+        "path": "supervisor-intent.json",
+        "bytes": 2085,
+        "sha256": "055ba82c7f677addc9cfbd9ead77bd5825814d58f2b359b8b7a5333147ce906f"
+      }
+    ],
+    "guard_consumed": true,
+    "status": "failed_or_evidence_unknown",
+    "no_retry": true,
+    "independent_raw_evidence_review_required": true,
+    "finished_utc": "2026-10-28T20:37:57.948353+00:00"
+  },
+  "source_pins": {
+    "owned_lifecycle.py": {
+      "bytes": 49610,
+      "sha256": "c7063da8cecea366f2f0cced2f1e99357d779b927e3302464a0dc140e6a06b00"
+    },
+    "case_actor.py": {
+      "bytes": 487,
+      "sha256": "17682adb9a79c029da231c2cc0faf2346154a49edad3ddd79890954f4e9e3c78"
+    },
+    "README.md": {
+      "bytes": 14356,
+      "sha256": "49fcaba52ea95f10f802138c0d18c200029f07e567d9d894d24023277fadb8b5"
+    },
+    "run_once.py": {
+      "bytes": 7199,
+      "sha256": "791bc253963a3b9bdde737d4696b0340f3681f1274b2f8402c1620e277f129e3"
+    }
+  },
+  "independent_evidence_review": {
+    "task_id": "DEEPEYE-IMPLEMENTATION-20261014",
+    "task_version": 1,
+    "operation_id": "C-DEEPEYE-OWNED-LIFECYCLE-EVIDENCE-20261029-25",
+    "actual_main_thread_id": "01a14025-4dfd-7ec3-aebb-57be48daba59",
+    "actual_FINAL_received": true,
+    "active_jobs": [],
+    "active_subprocesses": [],
+    "review_acceptance_scope": "Original RED record integrity and accurate handoff only; intended lifecycle acceptance FAILED/incomplete. Static source admission is separate.",
+    "material_evidence_defects": [
+      {
+        "id": "unknown_original_Job_member",
+        "references": [
+          "C25-R1-UNKNOWN-JOB-MEMBER",
+          "ME01-normal-natural-gate-unestablished"
+        ],
+        "identity": null
+      },
+      {
+        "id": "normal_natural_Job0_not_proved",
+        "references": [
+          "C25-R2-NATURAL-JOB0-NOT-PROVED",
+          "ME01-normal-natural-gate-unestablished"
+        ]
+      },
+      {
+        "id": "negative_not_run_no_rejection_deadline_cleanup_proof",
+        "references": [
+          "C25-R3-NEGATIVE-NOT-RUN",
+          "ME02-negative-oracle-not-exercised"
+        ]
+      }
+    ],
+    "evidence_integrity_defects": [],
+    "original_case_attempts": 1,
+    "original_batches": 1,
+    "negative_case_attempts": 0,
+    "retries": 0,
+    "C25_controls_passed": false,
+    "normal": "FAILED job_membership_unknown",
+    "negative": "NOT RUN prior gate failed",
+    "driver_exit": 1,
+    "supervisor_actual_exec_exit": 1,
+    "actual_tool_chunk_id": "e00969",
+    "first_historical_original_Job_cleanup0_and_recorded_Close": true,
+    "normal_natural_Job0_proved": false,
+    "remaining_PID_annotation": 5356,
+    "remaining_member_identity": null,
+    "C24_member_or_cause_attribution": null,
+    "source_config_launcher_raw_guard_unchanged": true,
+    "no_more_cases_or_retry": true,
+    "reviews": [
+      {
+        "actual_agent_id": "/root/cpu_independent_review",
+        "actual_FINAL_received": true,
+        "active_jobs": [],
+        "active_subprocesses": [],
+        "ownership_released": true,
+        "manifest": {
+          "path": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\main-20261015-01a14025\\C25-owned-lifecycle-20261029\\review\\phase4\\manifest.json",
+          "bytes": 16097,
+          "sha256": "009d288d90515edf2f236601f96f86fea86d3f345750175da5d2aa3f9a35f36c"
+        },
+        "release": {
+          "path": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\main-20261015-01a14025\\C25-owned-lifecycle-20261029\\review\\phase4\\release.json",
+          "bytes": 1205,
+          "sha256": "0821e33ee3903975dbe4b9d10db82ed38629fa83fe3c0bab602125b1624ca1c2"
+        },
+        "report_md": {
+          "path": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\main-20261015-01a14025\\C25-owned-lifecycle-20261029\\review\\phase4\\report.md",
+          "bytes": 3381,
+          "sha256": "f4f7616792630f33d19117fcc214c5bf9d4bdf6d33013dda97a76ee6b4e5e459"
+        },
+        "report_facts": {
+          "path": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\main-20261015-01a14025\\C25-owned-lifecycle-20261029\\review\\phase4\\report.json",
+          "bytes": 29919,
+          "sha256": "f3a80b16852ebcb8f178d38b087717afd0d80c379284a09f955a7ac7736d1796"
+        },
+        "all_manifest_input_artifacts_byte_verified": true,
+        "verified_manifest_rows": 43,
+        "original_material_evidence_defects": [
+          {
+            "id": "ME01-normal-natural-gate-unestablished",
+            "kind": "material acceptance evidence gap, correctly recorded RED",
+            "finding": "Original primary HANDLE exit0 is recorded, but sameJob lists annotation5356 rather than own Create33716. Identity/source unknown. Directed cleanup0 is not natural primary0-to-Job0 success."
+          },
+          {
+            "id": "ME02-negative-oracle-not-exercised",
+            "kind": "material acceptance evidence absent, correctly not_run",
+            "finding": "Negative attempted=false; no owned-residual Create/HANDLE/member proof, no before/after gate snapshots or expected-rejection+cleanup control proof. Static deadline repair has no runtime demonstration here."
+          }
+        ],
+        "evidence_integrity_defects": []
+      },
+      {
+        "actual_agent_id": "/root/sim_em_contract_audit",
+        "actual_FINAL_received": true,
+        "active_jobs": [],
+        "active_subprocesses": [],
+        "ownership_released": true,
+        "manifest": {
+          "path": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\main-20261015-01a14025\\C25-owned-lifecycle-20261029\\resource-review\\phase4\\manifest.json",
+          "bytes": 7502,
+          "sha256": "ca75b09f672350424e99c9ca0bfd3d2a7f8653bf47e72f00f5f2334466bbdf3f"
+        },
+        "release": {
+          "path": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\main-20261015-01a14025\\C25-owned-lifecycle-20261029\\resource-review\\phase4\\release.json",
+          "bytes": 1792,
+          "sha256": "5412f39eddd78014ec5854de550a170c59893534a0233f46986ded65a6e1baa7"
+        },
+        "report_md": {
+          "path": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\main-20261015-01a14025\\C25-owned-lifecycle-20261029\\resource-review\\phase4\\report.md",
+          "bytes": 7181,
+          "sha256": "92a02b54a3ec6452efbc1cda32c6d45f10cd81b9eeade34e0e2ebfa4b06a72a7"
+        },
+        "report_facts": {
+          "path": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\main-20261015-01a14025\\C25-owned-lifecycle-20261029\\resource-review\\phase4\\facts.json",
+          "bytes": 26341,
+          "sha256": "398b80fc16dcc3d3ba4071c42c6e0fde843413f0304e58e2a4f5cf9a29e1b8d5"
+        },
+        "all_manifest_input_artifacts_byte_verified": true,
+        "verified_manifest_rows": 24,
+        "original_material_evidence_defects": [
+          {
+            "id": "C25-R1-UNKNOWN-JOB-MEMBER",
+            "kind": "material_acceptance_evidence_gap",
+            "evidence": "Observer event33 on original Job480 reports active1/complete PIDList[5356] after retained original primary33716 exit0.",
+            "unknowns": {
+              "image": null,
+              "ancestry": null,
+              "original_creation_handle_for_5356": null,
+              "individual_exit_code_for_5356": null
+            },
+            "reason": "not captured in the original owned evidence; no PID reopen or attribution authorized",
+            "effect": "Cannot establish that only the intended retained primary occupied the original Job; source correctly aborts membership unknown."
+          },
+          {
+            "id": "C25-R2-NATURAL-JOB0-NOT-PROVED",
+            "kind": "failed_acceptance_gate",
+            "evidence": "normal attempt=true, reason job_membership_unknown, lifecycle_gate_passed=false, control_passed=false; first natural query precedes its 1s deadline.",
+            "effect": "No natural primary0-to-Job0 success was observed. Later targeted cleanupJob0 cannot replace it; no evidence of exhausting the full1s natural deadline."
+          },
+          {
+            "id": "C25-R3-NEGATIVE-NOT-RUN",
+            "kind": "missing_runtime_acceptance_evidence",
+            "evidence": "owned-residual attempted=false, expected_rejection=false, lifecycle_gate_passed=false, reason prior_gate_or_budget_blocked.",
+            "effect": "No negative Create/live member/pre-post250ms rejection/cleanup oracle was run or proved. No retry or skipped-case launch is authorized."
+          }
+        ],
+        "evidence_integrity_defects": []
+      }
+    ],
+    "root_actual_review": {
+      "path": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\main-20261015-01a14025\\C25-owned-lifecycle-20261029\\main\\root-actual-evidence-review.json",
+      "bytes": 3139,
+      "sha256": "ec1cd7838fbc95c1b6b258dcfd4ae06bd0991d2b03ea3e0a0ccd87883387558c"
+    },
+    "root_early_empty_defects_field_scope": "The early root record checked byte/exit consistency. Its explicit failed gate/unknown member/unrun negative are retained as the material intended-acceptance gaps listed above, not dismissed.",
+    "reviewer_metadata_only_exits": [
+      1,
+      1,
+      0
+    ],
+    "reviewer_metadata_control_attempts": 0,
+    "reviewer_metadata_history": "Two read-only byte-summing helper errors retained, then corrected with explicit summation; not product/control retries.",
+    "C24_feedback_qualification": "A accepted offline candidate source semantics only and did not rerun. Reviewer references to C24 unaccepted mean resource/full validation; those remain FAILED.",
+    "author_release": {
+      "path": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\main-20261015-01a14025\\C25-owned-lifecycle-20261029\\author\\release.json",
+      "bytes": 1355,
+      "sha256": "920691080e6e011fc2cf31ac13a938b90774742e4a48ef6059e1541ece10d9a7"
+    },
+    "prelaunch_static_approval": {
+      "path": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\main-20261015-01a14025\\C25-owned-lifecycle-20261029\\main\\prelaunch-static-approval.json",
+      "bytes": 1735,
+      "sha256": "fa884ec401cd4f9c1ffb8c70debceae49f397ba7a3183d5fdcc5c42d920199fe"
+    },
+    "requirements_sha256": "c229834bfc2292f5fe4411fc9f12c68487008f9d1adaf31f0144ee7a98173804",
+    "formal_acceptance_promoted": false,
+    "created_utc": "2026-10-28T21:02:01.721774+00:00"
+  },
+  "frozen_README_scope": "Pre-execution source/design documentation. Actual FAILED normal and NOT RUN negative outcomes are recorded in the original runtime evidence and this review; source admission never grants runtime PASS.",
+  "interpretation": [
+    "Exactly one normal case was attempted once and FAILED job_membership_unknown. The negative case was NOT RUN because the prior gate failed. No retry, skipped-negative launch or C24 replay.",
+    "Create recorded primary33716; same original Job later returned5356. The latter is a membership annotation only: image, ancestry and original creation HANDLE are unknown. No C24 attribution.",
+    "Original Job termination returned success and a later same-Job query was0; original retained handles were signaled and closed. This proves the recorded cleanup only, not natural Job0 or which member termination stopped.",
+    "Negative expected-rejection and before/after deadline proof are absent because that case was not attempted; no negative PASS is claimed.",
+    "Original PIDs are annotations and original-Job membership comparisons; no whole-host/session scanning, OpenProcess, PID reopen or unknown-process termination.",
+    "Reported parent memory and wall measurements have explicit sampling/serialization scopes; no generic sandbox/permanent real-time guarantee.",
+    "New C25 outcome never identifies C24 unknown member or retroactively upgrades C24 resource F1, model/data/profile/endpoint/P95/fullH12/formal acceptance."
+  ],
+  "formal_acceptance": false
+}

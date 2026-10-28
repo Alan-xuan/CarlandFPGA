@@ -1,0 +1,321 @@
+{
+  "schema_version": 1,
+  "operation_id": "C-DEEPEYE-OWNED-LIFECYCLE-EVIDENCE-20261029-25",
+  "base_commit": "3e38757db74cdfe5a00a1868af8f93194e2b65d3",
+  "original_baseline_entries": 1572,
+  "A_activation": {
+    "id": 6478717675,
+    "URL": "https://github.com/carolwjade/CarlandFPGA/pull/25#issuecomment-6478717675",
+    "author": "carolwjade",
+    "original_API_body_UTF8": {
+      "bytes": 3293,
+      "sha256": "6c43d4c38d3c99f25956e1b63fd5bd9a49798b330b77e2f4046eeb96a4c1d671"
+    },
+    "raw_API_response": {
+      "bytes": 4965,
+      "sha256": "93cc00bf886d2aca50af598f360cc6b51c9732a09daa02ff2f5c85927077c2bd"
+    },
+    "hash_semantics": "original API body encoded UTF8 without newline conversion; raw JSON response is a distinct pin"
+  },
+  "original_C24_files": [
+    {
+      "commit": "3e38757db74cdfe5a00a1868af8f93194e2b65d3",
+      "path": "handoffs/c/C-DEEPEYE-CAUSAL-DATA-PREPARATION-20261028-24/CONTROL-EVIDENCE.json",
+      "git_blob_sha1": "057db90c0af7c6421bb1400b3fd66f3fe7b4873a",
+      "bytes": 27385,
+      "sha256": "da9146535896eeb60b59ed8e29ccf572d6dc3f7c4718f49f5bd4d16c76141e62"
+    },
+    {
+      "commit": "3e38757db74cdfe5a00a1868af8f93194e2b65d3",
+      "path": "handoffs/c/C-DEEPEYE-CAUSAL-DATA-PREPARATION-20261028-24/SCHEMA.md",
+      "git_blob_sha1": "3d88ab1e260bc43e47519928f6dfc860affe1fa5",
+      "bytes": 19566,
+      "sha256": "8179528b29c0ea948d9d20f04b5394eb8ba6f3c063b37e6715e600c9606866e0"
+    },
+    {
+      "commit": "3e38757db74cdfe5a00a1868af8f93194e2b65d3",
+      "path": "handoffs/c/C-DEEPEYE-CAUSAL-DATA-PREPARATION-20261028-24/SOURCE-PINS.json",
+      "git_blob_sha1": "d448b0a721f0549f7e140c550045e65c8d2f8186",
+      "bytes": 5292,
+      "sha256": "40b8f5c2258e9c23545c3064ba094c2a69932ddea7f8cfddbe1ea5044dd890d3"
+    },
+    {
+      "commit": "3e38757db74cdfe5a00a1868af8f93194e2b65d3",
+      "path": "handoffs/c/C-DEEPEYE-CAUSAL-DATA-PREPARATION-20261028-24/TASK-RECEIPT.json",
+      "git_blob_sha1": "709e518bfb2c4b3e8f14f9080320a4e6de9b01c7",
+      "bytes": 6696,
+      "sha256": "3b737eda232e8bd6c84c56705c16c020a4297007664ad87d30a3b98475a74cd8"
+    },
+    {
+      "commit": "3e38757db74cdfe5a00a1868af8f93194e2b65d3",
+      "path": "handoffs/c/C-DEEPEYE-CAUSAL-DATA-PREPARATION-20261028-24/causal_data.py",
+      "git_blob_sha1": "6ca7988ec8236c45826ff58ba2bbd90615971c1f",
+      "bytes": 33297,
+      "sha256": "121de187ffeaced0a21007ffe54602b5dfef9ecf2c91f01281819aad2c54f219"
+    },
+    {
+      "commit": "3e38757db74cdfe5a00a1868af8f93194e2b65d3",
+      "path": "handoffs/c/C-DEEPEYE-CAUSAL-DATA-PREPARATION-20261028-24/manifest.json",
+      "git_blob_sha1": "bb3e0cb63f2892e2dc883cdd663843e68582e1f9",
+      "bytes": 4224,
+      "sha256": "7fd422809baa145d36eecd4c71d67690e30d3eb56aa38e3dd2bdeafa529928ee"
+    },
+    {
+      "commit": "3e38757db74cdfe5a00a1868af8f93194e2b65d3",
+      "path": "handoffs/c/C-DEEPEYE-CAUSAL-DATA-PREPARATION-20261028-24/run_controls.py",
+      "git_blob_sha1": "c96f869f2436df356ccde3bcdea813c5716cb4dc",
+      "bytes": 24257,
+      "sha256": "a6f72603cec8ae9dda18b19d868d8a844ce75c9af38b55f052bbce5b07b64e43"
+    },
+    {
+      "commit": "3e38757db74cdfe5a00a1868af8f93194e2b65d3",
+      "path": "handoffs/c/C-DEEPEYE-CAUSAL-DATA-PREPARATION-20261028-24/test_causal_data.py",
+      "git_blob_sha1": "27cc11f1aad2478e4774a3d55233fe2329414d5c",
+      "bytes": 34677,
+      "sha256": "fac3eb02f10ccb0124ea65d1987cb42ea109cb368c733d0169c5e0d3839195eb"
+    }
+  ],
+  "new_tested_source_pins": {
+    "owned_lifecycle.py": {
+      "bytes": 49610,
+      "sha256": "c7063da8cecea366f2f0cced2f1e99357d779b927e3302464a0dc140e6a06b00"
+    },
+    "case_actor.py": {
+      "bytes": 487,
+      "sha256": "17682adb9a79c029da231c2cc0faf2346154a49edad3ddd79890954f4e9e3c78"
+    },
+    "README.md": {
+      "bytes": 14356,
+      "sha256": "49fcaba52ea95f10f802138c0d18c200029f07e567d9d894d24023277fadb8b5"
+    },
+    "run_once.py": {
+      "bytes": 7199,
+      "sha256": "791bc253963a3b9bdde737d4696b0340f3681f1274b2f8402c1620e277f129e3"
+    }
+  },
+  "existing_CPU_provider": {
+    "interpreter": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\venv\\Scripts\\python.exe",
+    "base_interpreter": "C:\\Users\\Alan\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+    "version": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+    "platform": "win32",
+    "launcher_sha256": "34588325b101a5f1e0c7ed27a717d8b5ced009ff7b8e4995d27c05eae0340487",
+    "base_interpreter_sha256": "4623dc531b0883c3e714da5cb30e9b73e12aa5145f0d92c7b191ab1dcf699dfe",
+    "provider_kind": "existing real local CPU Python process, stdlib only; not a model provider or fake model"
+  },
+  "configuration": {
+    "bytes": 1580,
+    "sha256": "c0eb1c5037b58336ecd94c8b42b9de58a2c39063b1ac3c050abd64ae2c2ba305"
+  },
+  "prelaunch_static_approval": {
+    "bytes": 1735,
+    "sha256": "fa884ec401cd4f9c1ffb8c70debceae49f397ba7a3183d5fdcc5c42d920199fe"
+  },
+  "independent_preimplementation_oracle": {
+    "bytes": 8568,
+    "sha256": "c17894172614d5a5042385968bd3ac6e3b927e5911e8100da46d3efb1c17fb07"
+  },
+  "actual_evidence_review": {
+    "task_id": "DEEPEYE-IMPLEMENTATION-20261014",
+    "task_version": 1,
+    "operation_id": "C-DEEPEYE-OWNED-LIFECYCLE-EVIDENCE-20261029-25",
+    "actual_main_thread_id": "01a14025-4dfd-7ec3-aebb-57be48daba59",
+    "actual_FINAL_received": true,
+    "active_jobs": [],
+    "active_subprocesses": [],
+    "review_acceptance_scope": "Original RED record integrity and accurate handoff only; intended lifecycle acceptance FAILED/incomplete. Static source admission is separate.",
+    "material_evidence_defects": [
+      {
+        "id": "unknown_original_Job_member",
+        "references": [
+          "C25-R1-UNKNOWN-JOB-MEMBER",
+          "ME01-normal-natural-gate-unestablished"
+        ],
+        "identity": null
+      },
+      {
+        "id": "normal_natural_Job0_not_proved",
+        "references": [
+          "C25-R2-NATURAL-JOB0-NOT-PROVED",
+          "ME01-normal-natural-gate-unestablished"
+        ]
+      },
+      {
+        "id": "negative_not_run_no_rejection_deadline_cleanup_proof",
+        "references": [
+          "C25-R3-NEGATIVE-NOT-RUN",
+          "ME02-negative-oracle-not-exercised"
+        ]
+      }
+    ],
+    "evidence_integrity_defects": [],
+    "original_case_attempts": 1,
+    "original_batches": 1,
+    "negative_case_attempts": 0,
+    "retries": 0,
+    "C25_controls_passed": false,
+    "normal": "FAILED job_membership_unknown",
+    "negative": "NOT RUN prior gate failed",
+    "driver_exit": 1,
+    "supervisor_actual_exec_exit": 1,
+    "actual_tool_chunk_id": "e00969",
+    "first_historical_original_Job_cleanup0_and_recorded_Close": true,
+    "normal_natural_Job0_proved": false,
+    "remaining_PID_annotation": 5356,
+    "remaining_member_identity": null,
+    "C24_member_or_cause_attribution": null,
+    "source_config_launcher_raw_guard_unchanged": true,
+    "no_more_cases_or_retry": true,
+    "reviews": [
+      {
+        "actual_agent_id": "/root/cpu_independent_review",
+        "actual_FINAL_received": true,
+        "active_jobs": [],
+        "active_subprocesses": [],
+        "ownership_released": true,
+        "manifest": {
+          "path": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\main-20261015-01a14025\\C25-owned-lifecycle-20261029\\review\\phase4\\manifest.json",
+          "bytes": 16097,
+          "sha256": "009d288d90515edf2f236601f96f86fea86d3f345750175da5d2aa3f9a35f36c"
+        },
+        "release": {
+          "path": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\main-20261015-01a14025\\C25-owned-lifecycle-20261029\\review\\phase4\\release.json",
+          "bytes": 1205,
+          "sha256": "0821e33ee3903975dbe4b9d10db82ed38629fa83fe3c0bab602125b1624ca1c2"
+        },
+        "report_md": {
+          "path": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\main-20261015-01a14025\\C25-owned-lifecycle-20261029\\review\\phase4\\report.md",
+          "bytes": 3381,
+          "sha256": "f4f7616792630f33d19117fcc214c5bf9d4bdf6d33013dda97a76ee6b4e5e459"
+        },
+        "report_facts": {
+          "path": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\main-20261015-01a14025\\C25-owned-lifecycle-20261029\\review\\phase4\\report.json",
+          "bytes": 29919,
+          "sha256": "f3a80b16852ebcb8f178d38b087717afd0d80c379284a09f955a7ac7736d1796"
+        },
+        "all_manifest_input_artifacts_byte_verified": true,
+        "verified_manifest_rows": 43,
+        "original_material_evidence_defects": [
+          {
+            "id": "ME01-normal-natural-gate-unestablished",
+            "kind": "material acceptance evidence gap, correctly recorded RED",
+            "finding": "Original primary HANDLE exit0 is recorded, but sameJob lists annotation5356 rather than own Create33716. Identity/source unknown. Directed cleanup0 is not natural primary0-to-Job0 success."
+          },
+          {
+            "id": "ME02-negative-oracle-not-exercised",
+            "kind": "material acceptance evidence absent, correctly not_run",
+            "finding": "Negative attempted=false; no owned-residual Create/HANDLE/member proof, no before/after gate snapshots or expected-rejection+cleanup control proof. Static deadline repair has no runtime demonstration here."
+          }
+        ],
+        "evidence_integrity_defects": []
+      },
+      {
+        "actual_agent_id": "/root/sim_em_contract_audit",
+        "actual_FINAL_received": true,
+        "active_jobs": [],
+        "active_subprocesses": [],
+        "ownership_released": true,
+        "manifest": {
+          "path": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\main-20261015-01a14025\\C25-owned-lifecycle-20261029\\resource-review\\phase4\\manifest.json",
+          "bytes": 7502,
+          "sha256": "ca75b09f672350424e99c9ca0bfd3d2a7f8653bf47e72f00f5f2334466bbdf3f"
+        },
+        "release": {
+          "path": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\main-20261015-01a14025\\C25-owned-lifecycle-20261029\\resource-review\\phase4\\release.json",
+          "bytes": 1792,
+          "sha256": "5412f39eddd78014ec5854de550a170c59893534a0233f46986ded65a6e1baa7"
+        },
+        "report_md": {
+          "path": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\main-20261015-01a14025\\C25-owned-lifecycle-20261029\\resource-review\\phase4\\report.md",
+          "bytes": 7181,
+          "sha256": "92a02b54a3ec6452efbc1cda32c6d45f10cd81b9eeade34e0e2ebfa4b06a72a7"
+        },
+        "report_facts": {
+          "path": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\main-20261015-01a14025\\C25-owned-lifecycle-20261029\\resource-review\\phase4\\facts.json",
+          "bytes": 26341,
+          "sha256": "398b80fc16dcc3d3ba4071c42c6e0fde843413f0304e58e2a4f5cf9a29e1b8d5"
+        },
+        "all_manifest_input_artifacts_byte_verified": true,
+        "verified_manifest_rows": 24,
+        "original_material_evidence_defects": [
+          {
+            "id": "C25-R1-UNKNOWN-JOB-MEMBER",
+            "kind": "material_acceptance_evidence_gap",
+            "evidence": "Observer event33 on original Job480 reports active1/complete PIDList[5356] after retained original primary33716 exit0.",
+            "unknowns": {
+              "image": null,
+              "ancestry": null,
+              "original_creation_handle_for_5356": null,
+              "individual_exit_code_for_5356": null
+            },
+            "reason": "not captured in the original owned evidence; no PID reopen or attribution authorized",
+            "effect": "Cannot establish that only the intended retained primary occupied the original Job; source correctly aborts membership unknown."
+          },
+          {
+            "id": "C25-R2-NATURAL-JOB0-NOT-PROVED",
+            "kind": "failed_acceptance_gate",
+            "evidence": "normal attempt=true, reason job_membership_unknown, lifecycle_gate_passed=false, control_passed=false; first natural query precedes its 1s deadline.",
+            "effect": "No natural primary0-to-Job0 success was observed. Later targeted cleanupJob0 cannot replace it; no evidence of exhausting the full1s natural deadline."
+          },
+          {
+            "id": "C25-R3-NEGATIVE-NOT-RUN",
+            "kind": "missing_runtime_acceptance_evidence",
+            "evidence": "owned-residual attempted=false, expected_rejection=false, lifecycle_gate_passed=false, reason prior_gate_or_budget_blocked.",
+            "effect": "No negative Create/live member/pre-post250ms rejection/cleanup oracle was run or proved. No retry or skipped-case launch is authorized."
+          }
+        ],
+        "evidence_integrity_defects": []
+      }
+    ],
+    "root_actual_review": {
+      "path": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\main-20261015-01a14025\\C25-owned-lifecycle-20261029\\main\\root-actual-evidence-review.json",
+      "bytes": 3139,
+      "sha256": "ec1cd7838fbc95c1b6b258dcfd4ae06bd0991d2b03ea3e0a0ccd87883387558c"
+    },
+    "root_early_empty_defects_field_scope": "The early root record checked byte/exit consistency. Its explicit failed gate/unknown member/unrun negative are retained as the material intended-acceptance gaps listed above, not dismissed.",
+    "reviewer_metadata_only_exits": [
+      1,
+      1,
+      0
+    ],
+    "reviewer_metadata_control_attempts": 0,
+    "reviewer_metadata_history": "Two read-only byte-summing helper errors retained, then corrected with explicit summation; not product/control retries.",
+    "C24_feedback_qualification": "A accepted offline candidate source semantics only and did not rerun. Reviewer references to C24 unaccepted mean resource/full validation; those remain FAILED.",
+    "author_release": {
+      "path": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\main-20261015-01a14025\\C25-owned-lifecycle-20261029\\author\\release.json",
+      "bytes": 1355,
+      "sha256": "920691080e6e011fc2cf31ac13a938b90774742e4a48ef6059e1541ece10d9a7"
+    },
+    "prelaunch_static_approval": {
+      "path": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\main-20261015-01a14025\\C25-owned-lifecycle-20261029\\main\\prelaunch-static-approval.json",
+      "bytes": 1735,
+      "sha256": "fa884ec401cd4f9c1ffb8c70debceae49f397ba7a3183d5fdcc5c42d920199fe"
+    },
+    "requirements_sha256": "c229834bfc2292f5fe4411fc9f12c68487008f9d1adaf31f0144ee7a98173804",
+    "formal_acceptance_promoted": false,
+    "created_utc": "2026-10-28T21:02:01.721774+00:00"
+  },
+  "original_Popen_supervisor_source": {
+    "bytes": 6221,
+    "sha256": "4b0bd164b955e93c7a81881690850572a62edef3dc296db299755c6b06b4103d"
+  },
+  "original_exec_command_structured_return": {
+    "bytes": 1502,
+    "sha256": "2392f031b6668cc5b03fc49b41534a1980bd3439a8d94b964f71c8321b234766"
+  },
+  "spent_fixed_guard": {
+    "bytes": 279,
+    "sha256": "0898ce40c801bf03072f35b71cab1220932313829b185e1354f166553a779dbb"
+  },
+  "evidence": {
+    "bytes": 58114,
+    "sha256": "00375e6288b9c3c082a6b5b4876db1ab37de450f0f46791dc5b80ba631007cc0"
+  },
+  "immutable_contract": {
+    "id": "DEEPEYE-HUMAN-LOCK-20261014",
+    "revision": 1,
+    "source_commit": "f5989cd5defce561f9ba98e6b18fc2682945f0a2",
+    "requirements_sha256": "c229834bfc2292f5fe4411fc9f12c68487008f9d1adaf31f0144ee7a98173804",
+    "frozen_design": "1011259415a0916054eb580687612580bc1e5f09",
+    "H01_H15_both_full_H12_preserved": true
+  }
+}
