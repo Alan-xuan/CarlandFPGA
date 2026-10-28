@@ -1,0 +1,498 @@
+{
+  "schema_version": 1,
+  "task_id": "DEEPEYE-IMPLEMENTATION-20261014",
+  "task_version": 1,
+  "operation_id": "C-DEEPEYE-CAUSAL-DATA-PREPARATION-20261028-24",
+  "actual_main_thread_id": "01a14025-4dfd-7ec3-aebb-57be48daba59",
+  "control_scope": "one actually executed new tiny synthetic-definition tool control batch; no physical/model acceptance",
+  "batch_attempts": 1,
+  "fixed_guard_consumed": true,
+  "raw_control_outputs": {
+    "stdout.txt": {
+      "bytes": 4363,
+      "sha256": "458bc36556ecfaa5e15ff6e2356453f8224c791dc130990c90f5468b121a1770",
+      "original_UTF8_text": "{\"CLI_invocations\":1,\"CLI_records\":[{\"argv\":[\"C:\\\\Users\\\\Alan\\\\Documents\\\\ChatGPT\\\\FPGA\\\\CarlandFPGA-node-c\\\\.local\\\\venv\\\\Scripts\\\\python.exe\",\"-I\",\"-S\",\"-B\",\"-X\",\"utf8\",\"C:\\\\Users\\\\Alan\\\\Documents\\\\ChatGPT\\\\FPGA\\\\CarlandFPGA-node-c\\\\.local\\\\deepeye-implementation-c\\\\handoffs\\\\c\\\\C-DEEPEYE-CAUSAL-DATA-PREPARATION-20261028-24\\\\causal_data.py\",\"validate\",\"C:\\\\Users\\\\Alan\\\\Documents\\\\ChatGPT\\\\FPGA\\\\CarlandFPGA-node-c\\\\.local\\\\main-20261015-01a14025\\\\C24-causal-data-20261028\\\\main\\\\control-run-v1\\\\raw\\\\synthetic-work\\\\p12-cli\",\"1368cbf92dbce47369e7995457a7ff5017bb36db292b1cbead280713690e76d3\"],\"exit_code\":0,\"stderr_file\":\"CLI-validate.stderr.bin\",\"stderr_sha256\":\"e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855\",\"stdout_file\":\"CLI-validate.stdout.bin\",\"stdout_sha256\":\"c8d8430e267c18f84d09118a3c388073c5cb746a3752fb4facb9793943082df0\"}],\"cases\":[{\"case_id\":\"test_P01_whole_scene_crosssplit\",\"status\":\"passed\",\"subcases\":[]},{\"case_id\":\"test_P02_event_and_transitive_crosssplit\",\"status\":\"passed\",\"subcases\":[]},{\"case_id\":\"test_P03_native_duplicate_cannot_escape_groups\",\"status\":\"passed\",\"subcases\":[]},{\"case_id\":\"test_P04_future_window_and_prefix\",\"status\":\"passed\",\"subcases\":[]},{\"case_id\":\"test_P05_held_original_native_hash\",\"status\":\"passed\",\"subcases\":[{\"case_id\":\"test_P05_held_original_native_hash (__main__.IndependentC24.test_P05_held_original_native_hash) (changed='native_time_ns')\",\"status\":\"passed\"},{\"case_id\":\"test_P05_held_original_native_hash (__main__.IndependentC24.test_P05_held_original_native_hash) (changed='value')\",\"status\":\"passed\"},{\"case_id\":\"test_P05_held_original_native_hash (__main__.IndependentC24.test_P05_held_original_native_hash) (changed='calibration_id')\",\"status\":\"passed\"}]},{\"case_id\":\"test_P06_uncalibrated_code_is_not_voltage\",\"status\":\"passed\",\"subcases\":[]},{\"case_id\":\"test_P07_unknown_missing_real_zero\",\"status\":\"passed\",\"subcases\":[]},{\"case_id\":\"test_P08_mask0_age_and_duplicates\",\"status\":\"passed\",\"subcases\":[]},{\"case_id\":\"test_P09_train_only_scaler_and_recomputation\",\"status\":\"passed\",\"subcases\":[{\"case_id\":\"test_P09_train_only_scaler_and_recomputation (__main__.IndependentC24.test_P09_train_only_scaler_and_recomputation) (tamper='mean')\",\"status\":\"passed\"},{\"case_id\":\"test_P09_train_only_scaler_and_recomputation (__main__.IndependentC24.test_P09_train_only_scaler_and_recomputation) (tamper='scale')\",\"status\":\"passed\"},{\"case_id\":\"test_P09_train_only_scaler_and_recomputation (__main__.IndependentC24.test_P09_train_only_scaler_and_recomputation) (tamper='count')\",\"status\":\"passed\"}]},{\"case_id\":\"test_P10_complex_and_native_binding\",\"status\":\"passed\",\"subcases\":[{\"case_id\":\"test_P10_complex_and_native_binding (__main__.IndependentC24.test_P10_complex_and_native_binding) (mutation='imaginary-missing')\",\"status\":\"passed\"},{\"case_id\":\"test_P10_complex_and_native_binding (__main__.IndependentC24.test_P10_complex_and_native_binding) (mutation='bool')\",\"status\":\"passed\"},{\"case_id\":\"test_P10_complex_and_native_binding (__main__.IndependentC24.test_P10_complex_and_native_binding) (mutation='unit')\",\"status\":\"passed\"}]},{\"case_id\":\"test_P11_self_accepted_is_not_authority\",\"status\":\"passed\",\"subcases\":[{\"case_id\":\"test_P11_self_accepted_is_not_authority (__main__.IndependentC24.test_P11_self_accepted_is_not_authority) (field='accepted')\",\"status\":\"passed\"},{\"case_id\":\"test_P11_self_accepted_is_not_authority (__main__.IndependentC24.test_P11_self_accepted_is_not_authority) (field='approved_training_data')\",\"status\":\"passed\"}]},{\"case_id\":\"test_P12_raw_hash_paths_caps_and_cli\",\"status\":\"passed\",\"subcases\":[{\"case_id\":\"test_P12_raw_hash_paths_caps_and_cli (__main__.IndependentC24.test_P12_raw_hash_paths_caps_and_cli) (path='traversal')\",\"status\":\"passed\"},{\"case_id\":\"test_P12_raw_hash_paths_caps_and_cli (__main__.IndependentC24.test_P12_raw_hash_paths_caps_and_cli) (path='absolute')\",\"status\":\"passed\"}]},{\"case_id\":\"test_P13_labels_groups_not_features_and_snapshot\",\"status\":\"passed\",\"subcases\":[]},{\"case_id\":\"test_P14_empty_support_and_exact_manifest\",\"status\":\"passed\",\"subcases\":[]}],\"error_events\":0,\"errors\":0,\"failed\":0,\"failure_events\":0,\"kind\":\"new synthetic-definition C24 controls only\",\"model_or_training_runs\":0,\"old_suites_or_fixtures\":0,\"passed\":14,\"qualified_physical_samples\":0,\"skipped\":0,\"subcases_run\":13,\"success\":true,\"tests_run\":14}\r\n"
+    },
+    "stderr.txt": {
+      "bytes": 1678,
+      "sha256": "888a1869c92ac63e5865f3f54097d327b4db690099587be24f464af05a19229a",
+      "original_UTF8_text": "test_P01_whole_scene_crosssplit (__main__.IndependentC24.test_P01_whole_scene_crosssplit) ... ok\r\ntest_P02_event_and_transitive_crosssplit (__main__.IndependentC24.test_P02_event_and_transitive_crosssplit) ... ok\r\ntest_P03_native_duplicate_cannot_escape_groups (__main__.IndependentC24.test_P03_native_duplicate_cannot_escape_groups) ... ok\r\ntest_P04_future_window_and_prefix (__main__.IndependentC24.test_P04_future_window_and_prefix) ... ok\r\ntest_P05_held_original_native_hash (__main__.IndependentC24.test_P05_held_original_native_hash) ... ok\r\ntest_P06_uncalibrated_code_is_not_voltage (__main__.IndependentC24.test_P06_uncalibrated_code_is_not_voltage) ... ok\r\ntest_P07_unknown_missing_real_zero (__main__.IndependentC24.test_P07_unknown_missing_real_zero) ... ok\r\ntest_P08_mask0_age_and_duplicates (__main__.IndependentC24.test_P08_mask0_age_and_duplicates) ... ok\r\ntest_P09_train_only_scaler_and_recomputation (__main__.IndependentC24.test_P09_train_only_scaler_and_recomputation) ... ok\r\ntest_P10_complex_and_native_binding (__main__.IndependentC24.test_P10_complex_and_native_binding) ... ok\r\ntest_P11_self_accepted_is_not_authority (__main__.IndependentC24.test_P11_self_accepted_is_not_authority) ... ok\r\ntest_P12_raw_hash_paths_caps_and_cli (__main__.IndependentC24.test_P12_raw_hash_paths_caps_and_cli) ... ok\r\ntest_P13_labels_groups_not_features_and_snapshot (__main__.IndependentC24.test_P13_labels_groups_not_features_and_snapshot) ... ok\r\ntest_P14_empty_support_and_exact_manifest (__main__.IndependentC24.test_P14_empty_support_and_exact_manifest) ... ok\r\n\r\n----------------------------------------------------------------------\r\nRan 14 tests in 3.323s\r\n\r\nOK\r\n"
+    }
+  },
+  "overall_resource_supervision_passed": false,
+  "resource_failure": "post-child Job query saw 1 remaining member; wrapper and supervisor exit1; cleanup TerminateJobObject succeeded and final active0. Remaining member identity/cause unproven. No rerun.",
+  "parsed_control_result": {
+    "CLI_invocations": 1,
+    "CLI_records": [
+      {
+        "argv": [
+          "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\venv\\Scripts\\python.exe",
+          "-I",
+          "-S",
+          "-B",
+          "-X",
+          "utf8",
+          "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\deepeye-implementation-c\\handoffs\\c\\C-DEEPEYE-CAUSAL-DATA-PREPARATION-20261028-24\\causal_data.py",
+          "validate",
+          "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\main-20261015-01a14025\\C24-causal-data-20261028\\main\\control-run-v1\\raw\\synthetic-work\\p12-cli",
+          "1368cbf92dbce47369e7995457a7ff5017bb36db292b1cbead280713690e76d3"
+        ],
+        "exit_code": 0,
+        "stderr_file": "CLI-validate.stderr.bin",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_file": "CLI-validate.stdout.bin",
+        "stdout_sha256": "c8d8430e267c18f84d09118a3c388073c5cb746a3752fb4facb9793943082df0"
+      }
+    ],
+    "cases": [
+      {
+        "case_id": "test_P01_whole_scene_crosssplit",
+        "status": "passed",
+        "subcases": []
+      },
+      {
+        "case_id": "test_P02_event_and_transitive_crosssplit",
+        "status": "passed",
+        "subcases": []
+      },
+      {
+        "case_id": "test_P03_native_duplicate_cannot_escape_groups",
+        "status": "passed",
+        "subcases": []
+      },
+      {
+        "case_id": "test_P04_future_window_and_prefix",
+        "status": "passed",
+        "subcases": []
+      },
+      {
+        "case_id": "test_P05_held_original_native_hash",
+        "status": "passed",
+        "subcases": [
+          {
+            "case_id": "test_P05_held_original_native_hash (__main__.IndependentC24.test_P05_held_original_native_hash) (changed='native_time_ns')",
+            "status": "passed"
+          },
+          {
+            "case_id": "test_P05_held_original_native_hash (__main__.IndependentC24.test_P05_held_original_native_hash) (changed='value')",
+            "status": "passed"
+          },
+          {
+            "case_id": "test_P05_held_original_native_hash (__main__.IndependentC24.test_P05_held_original_native_hash) (changed='calibration_id')",
+            "status": "passed"
+          }
+        ]
+      },
+      {
+        "case_id": "test_P06_uncalibrated_code_is_not_voltage",
+        "status": "passed",
+        "subcases": []
+      },
+      {
+        "case_id": "test_P07_unknown_missing_real_zero",
+        "status": "passed",
+        "subcases": []
+      },
+      {
+        "case_id": "test_P08_mask0_age_and_duplicates",
+        "status": "passed",
+        "subcases": []
+      },
+      {
+        "case_id": "test_P09_train_only_scaler_and_recomputation",
+        "status": "passed",
+        "subcases": [
+          {
+            "case_id": "test_P09_train_only_scaler_and_recomputation (__main__.IndependentC24.test_P09_train_only_scaler_and_recomputation) (tamper='mean')",
+            "status": "passed"
+          },
+          {
+            "case_id": "test_P09_train_only_scaler_and_recomputation (__main__.IndependentC24.test_P09_train_only_scaler_and_recomputation) (tamper='scale')",
+            "status": "passed"
+          },
+          {
+            "case_id": "test_P09_train_only_scaler_and_recomputation (__main__.IndependentC24.test_P09_train_only_scaler_and_recomputation) (tamper='count')",
+            "status": "passed"
+          }
+        ]
+      },
+      {
+        "case_id": "test_P10_complex_and_native_binding",
+        "status": "passed",
+        "subcases": [
+          {
+            "case_id": "test_P10_complex_and_native_binding (__main__.IndependentC24.test_P10_complex_and_native_binding) (mutation='imaginary-missing')",
+            "status": "passed"
+          },
+          {
+            "case_id": "test_P10_complex_and_native_binding (__main__.IndependentC24.test_P10_complex_and_native_binding) (mutation='bool')",
+            "status": "passed"
+          },
+          {
+            "case_id": "test_P10_complex_and_native_binding (__main__.IndependentC24.test_P10_complex_and_native_binding) (mutation='unit')",
+            "status": "passed"
+          }
+        ]
+      },
+      {
+        "case_id": "test_P11_self_accepted_is_not_authority",
+        "status": "passed",
+        "subcases": [
+          {
+            "case_id": "test_P11_self_accepted_is_not_authority (__main__.IndependentC24.test_P11_self_accepted_is_not_authority) (field='accepted')",
+            "status": "passed"
+          },
+          {
+            "case_id": "test_P11_self_accepted_is_not_authority (__main__.IndependentC24.test_P11_self_accepted_is_not_authority) (field='approved_training_data')",
+            "status": "passed"
+          }
+        ]
+      },
+      {
+        "case_id": "test_P12_raw_hash_paths_caps_and_cli",
+        "status": "passed",
+        "subcases": [
+          {
+            "case_id": "test_P12_raw_hash_paths_caps_and_cli (__main__.IndependentC24.test_P12_raw_hash_paths_caps_and_cli) (path='traversal')",
+            "status": "passed"
+          },
+          {
+            "case_id": "test_P12_raw_hash_paths_caps_and_cli (__main__.IndependentC24.test_P12_raw_hash_paths_caps_and_cli) (path='absolute')",
+            "status": "passed"
+          }
+        ]
+      },
+      {
+        "case_id": "test_P13_labels_groups_not_features_and_snapshot",
+        "status": "passed",
+        "subcases": []
+      },
+      {
+        "case_id": "test_P14_empty_support_and_exact_manifest",
+        "status": "passed",
+        "subcases": []
+      }
+    ],
+    "error_events": 0,
+    "errors": 0,
+    "failed": 0,
+    "failure_events": 0,
+    "kind": "new synthetic-definition C24 controls only",
+    "model_or_training_runs": 0,
+    "old_suites_or_fixtures": 0,
+    "passed": 14,
+    "qualified_physical_samples": 0,
+    "skipped": 0,
+    "subcases_run": 13,
+    "success": true,
+    "tests_run": 14
+  },
+  "raw_serial_CLI_outputs": {
+    "stdout_file": {
+      "bytes": 292,
+      "sha256": "c8d8430e267c18f84d09118a3c388073c5cb746a3752fb4facb9793943082df0",
+      "original_UTF8_text": "{\"approved_training_data\":false,\"candidate_only\":true,\"component_count\":1,\"entry_count\":1,\"format_valid\":true,\"full_catalog_sha256\":\"1368cbf92dbce47369e7995457a7ff5017bb36db292b1cbead280713690e76d3\",\"schema_version\":1,\"split_counts\":{\"test\":0,\"train\":1,\"validation\":0},\"status\":\"candidate\"}\r\n"
+    },
+    "stderr_file": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "original_UTF8_text": ""
+    }
+  },
+  "wrapper_result": {
+    "scope": "one new tiny synthetic-definition CPU control batch, not physical/model acceptance",
+    "argv": [
+      "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\venv\\Scripts\\python.exe",
+      "-I",
+      "-S",
+      "-B",
+      "-X",
+      "utf8",
+      "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\deepeye-implementation-c\\handoffs\\c\\C-DEEPEYE-CAUSAL-DATA-PREPARATION-20261028-24\\test_causal_data.py",
+      "--module",
+      "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\deepeye-implementation-c\\handoffs\\c\\C-DEEPEYE-CAUSAL-DATA-PREPARATION-20261028-24\\causal_data.py",
+      "--work-dir",
+      "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\main-20261015-01a14025\\C24-causal-data-20261028\\main\\control-run-v1\\raw\\synthetic-work"
+    ],
+    "cwd": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\deepeye-implementation-c\\handoffs\\c\\C-DEEPEYE-CAUSAL-DATA-PREPARATION-20261028-24",
+    "source_pins": {
+      "causal_data.py": {
+        "sha256": "121de187ffeaced0a21007ffe54602b5dfef9ecf2c91f01281819aad2c54f219",
+        "bytes": 33297
+      },
+      "test_causal_data.py": {
+        "sha256": "fac3eb02f10ccb0124ea65d1987cb42ea109cb368c733d0169c5e0d3839195eb",
+        "bytes": 34677
+      },
+      "run_controls.py": {
+        "sha256": "a6f72603cec8ae9dda18b19d868d8a844ce75c9af38b55f052bbce5b07b64e43",
+        "bytes": 24257
+      }
+    },
+    "python_sha256": "34588325b101a5f1e0c7ed27a717d8b5ced009ff7b8e4995d27c05eae0340487",
+    "started_utc": "2026-10-28T16:36:45.254165+00:00",
+    "base_python": "C:\\Users\\Alan\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+    "base_python_sha256": "4623dc531b0883c3e714da5cb30e9b73e12aa5145f0d92c7b191ab1dcf699dfe",
+    "batch_guard": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\main-20261015-01a14025\\C24-causal-data-20261028\\main\\C24-controls-v1.intent.json",
+    "parent_wrapper_outside_new_job": true,
+    "resource_scope": "queried limits cover assigned control child/descendants; wrapper parent separately measured; committed memory, not RSS or a generic sandbox",
+    "requested_limits": {
+      "wall_seconds": 30,
+      "job_user_cpu_seconds": 30,
+      "per_process_commit_bytes": 536870912,
+      "job_commit_bytes": 1073741824,
+      "active_processes": 4,
+      "breakaway": false
+    },
+    "output_cap_bytes_per_stream": 65536,
+    "output_cap_scope": "100ms size polling and bounded digest reads; detection cap, not a hard disk quota",
+    "cleanup_reserve_seconds": 2,
+    "status": "failed",
+    "child_created": true,
+    "child_assigned_before_resume": true,
+    "child_resumed": true,
+    "timeout": false,
+    "child_exit_code": 0,
+    "all_old_tests_models_training_PDE_endpoint_owner_board_executions": 0,
+    "queried_limits": {
+      "flags": 8972,
+      "process_commit_bytes": 536870912,
+      "job_commit_bytes": 1073741824,
+      "job_user_time_100ns": 300000000,
+      "active_processes": 4
+    },
+    "child_pid": 40444,
+    "previous_suspend_count": 1,
+    "measured": {
+      "elapsed_wall_seconds": 3.577999999979511,
+      "peak_process_commit_bytes": 18518016,
+      "peak_job_commit_bytes": 29663232,
+      "job_user_cpu_100ns": 3281250,
+      "job_kernel_cpu_100ns": 4062500,
+      "total_processes": 5,
+      "active_processes_after_child": 1
+    },
+    "error": {
+      "type": "RuntimeError",
+      "message": "Unexpected control descendants remained; reconcile own job"
+    },
+    "cleanup": {
+      "termination_requests": [
+        {
+          "method": "TerminateJobObject",
+          "ok": true,
+          "winerror_if_failed": null
+        }
+      ],
+      "original_process_signaled": true,
+      "original_process_id": 40444,
+      "active_job_members": 0,
+      "cleanup_unknown": false,
+      "initial_process_wait": 0,
+      "final_process_wait": 0,
+      "original_process_exit_code": 0,
+      "job_accounting_query_ok": true
+    },
+    "cleanup_elapsed_wall_seconds": 0.0,
+    "parent_memory_query_ok": true,
+    "parent_peak_commit_bytes": 12500992,
+    "parent_memory_scope": "wrapper peak commit through post-digest/source-check query; excludes final result serialization and exit; parent outside test Job",
+    "handle_closes": [
+      {
+        "ok": true,
+        "winerror_if_failed": null
+      },
+      {
+        "ok": true,
+        "winerror_if_failed": null
+      },
+      {
+        "ok": true,
+        "winerror_if_failed": null
+      }
+    ],
+    "raw_outputs": {
+      "stdout.txt": {
+        "sha256": "458bc36556ecfaa5e15ff6e2356453f8224c791dc130990c90f5468b121a1770",
+        "bytes": 4363,
+        "within_cap": true
+      },
+      "stderr.txt": {
+        "sha256": "888a1869c92ac63e5865f3f54097d327b4db690099587be24f464af05a19229a",
+        "bytes": 1678,
+        "within_cap": true
+      }
+    },
+    "source_bytes_unchanged_after_batch": true,
+    "combined_peak_commit_through_parent_query": 42164224,
+    "evidence_checkpoint_utc": "2026-10-28T16:36:48.877241+00:00",
+    "elapsed_through_evidence_checkpoint_seconds": 3.625,
+    "elapsed_scope": "through bounded log digests, source rehash and parent memory query; excludes final serialization/exit; external supervisor must measure complete original command"
+  },
+  "outer_supervisor_result": {
+    "operation_id": "C-DEEPEYE-CAUSAL-DATA-PREPARATION-20261028-24",
+    "batch_version": 1,
+    "argv": [
+      "C:\\Users\\Alan\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+      "-I",
+      "-S",
+      "-B",
+      "-X",
+      "utf8",
+      "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\deepeye-implementation-c\\handoffs\\c\\C-DEEPEYE-CAUSAL-DATA-PREPARATION-20261028-24\\run_controls.py",
+      "--python",
+      "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\venv\\Scripts\\python.exe",
+      "--expected-python-sha256",
+      "34588325b101a5f1e0c7ed27a717d8b5ced009ff7b8e4995d27c05eae0340487",
+      "--base-python",
+      "C:\\Users\\Alan\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+      "--expected-base-python-sha256",
+      "4623dc531b0883c3e714da5cb30e9b73e12aa5145f0d92c7b191ab1dcf699dfe",
+      "--output",
+      "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\main-20261015-01a14025\\C24-causal-data-20261028\\main\\control-run-v1\\raw",
+      "--guard",
+      "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\main-20261015-01a14025\\C24-causal-data-20261028\\main\\C24-controls-v1.intent.json"
+    ],
+    "cwd": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c",
+    "original_wrapper_pid": 38780,
+    "original_wrapper_exit_code": 1,
+    "original_wrapper_wait_completed": true,
+    "complete_original_command_wall_seconds": 3.7820000000065193,
+    "complete_original_command_scope": "from immediately before original Popen through final process exit/stdout/stderr collection; outer evidence serialization excluded",
+    "timeout": false,
+    "fixed_guard_consumed": true,
+    "original_raw_outputs": {
+      "supervisor-stdout.txt": {
+        "bytes": 4601,
+        "sha256": "013dc2581946c321811b781f8ae0aba0fdce6e4706cf717ef6f4ab5bca6d9400"
+      },
+      "supervisor-stderr.txt": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    "status": "failed_or_execution_evidence_unknown",
+    "independent_semantic_review_still_required": true,
+    "no_retry": true,
+    "finished_utc": "2026-10-28T16:36:48.890590+00:00"
+  },
+  "wrapper_raw_stdout_pin": {
+    "bytes": 4601,
+    "sha256": "013dc2581946c321811b781f8ae0aba0fdce6e4706cf717ef6f4ab5bca6d9400"
+  },
+  "wrapper_raw_stderr": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "original_UTF8_text": ""
+  },
+  "static_worker_checks": {
+    "author": {
+      "exit_code": 0,
+      "stdout_sha256": "3573a576191bc09b4626b7d1a0edd4c4953a3c0beabf1a59e3cadeaa5ddddc87",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "interpreter_version": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+      "product_imports": 0,
+      "product_executions": 0,
+      "test_executions": 0,
+      "active_jobs": [],
+      "active_subprocesses": []
+    },
+    "reviewer": {
+      "argv": [
+        "C:\\Users\\Alan\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe",
+        "-NoLogo",
+        "-NoProfile",
+        "-NonInteractive",
+        "-File",
+        "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\main-20261015-01a14025\\C24-causal-data-20261028\\review\\phase2\\inspect-source.ps1"
+      ],
+      "cwd": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c",
+      "actual_exit_code": 0,
+      "started_utc": "2026-10-28T15:20:12.3762659Z",
+      "finished_utc": "2026-10-28T15:20:13.7399325Z",
+      "script_sha256": "70ed66afb17cd42b345fd4c339d52c0d2881771e399b84b2080f7574c202ad65",
+      "stdout_sha256": "3326e4d4fd0e1a6781eb28c93474781187842f28f49635acf4a55c558ee3bbb5",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "scope": "PowerShell text/hash/Git metadata only; final JSON subcase error-count source revision; no test/tool execution"
+    }
+  },
+  "independent_review": {
+    "task_id": "DEEPEYE-IMPLEMENTATION-20261014",
+    "task_version": 1,
+    "operation_id": "C-DEEPEYE-CAUSAL-DATA-PREPARATION-20261028-24",
+    "actual_FINAL_received": true,
+    "active_jobs": [],
+    "material_defects": [],
+    "material_defects_scope": "tool semantics within independent pinned source/oracle/raw evidence review only; resource lifecycle failure remains explicitly unresolved",
+    "resource_supervision_status": "failed_disclosed_no_retry",
+    "overall_C24_PASS": false,
+    "reports": [
+      {
+        "actual_agent_id": "/root/cpu_independent_review",
+        "actual_FINAL_received": true,
+        "active_jobs": [],
+        "report_sha256": "f8fa76172808b677ee8154acbd91354b239db2d26adb4484f0e64a7cf2862f05",
+        "manifest_sha256": "353e0df3a5d7d25b964fceaec9e8bf66d2bc910bec14990445c6a157777b93f2",
+        "release_sha256": "b16f9e6bb23d0344384bd24cc3337ea5f5ec67d43ec05ab9b063dd25d0cb051d",
+        "artifact_entries_verified": 8
+      },
+      {
+        "actual_agent_id": "/root/sim_em_contract_audit",
+        "actual_FINAL_received": true,
+        "active_jobs": [],
+        "report_sha256": "be4c7e6bd75cd542eb10b0ed5a165d0da31cdee597ab86d0b51a3d5883efeeab",
+        "manifest_sha256": "4b1649fa17abb11e8ae53a8cc0dd5a20c5faacdeb46fe945032c7145d0ea2e2e",
+        "release_sha256": "8d30bcbdc210580211e5c5557724c6e64e1731d80daf4cfda2a8a6235c9d3356",
+        "artifact_entries_verified": 5
+      }
+    ],
+    "original_groups_passed": 14,
+    "original_subcases_passed": 13,
+    "original_child_and_CLI_exit": 0,
+    "wrapper_and_supervisor_exit": 1,
+    "remaining_member_identity": null,
+    "remaining_member_reason": "not captured in original frozen evidence",
+    "outer_supervisor_exit_source": "root observed exec_command actual exit1, chunk986f8b; independent reviewers inspected root freeze, not a separately captured OS-exit envelope",
+    "root_selected_source_and_raw_input_review_sha256": "e1896a5a7f6835cbd37e468975652dc551edfb2a052120027afb5886ff3172d7",
+    "original_job_cleanup_record_verified": true,
+    "test_batch_replayed": false,
+    "formal_acceptance_promoted": false,
+    "created_utc": "2026-10-28T16:59:49.152606+00:00"
+  },
+  "source_pins": {
+    "causal_data.py": {
+      "bytes": 33297,
+      "sha256": "121de187ffeaced0a21007ffe54602b5dfef9ecf2c91f01281819aad2c54f219"
+    },
+    "test_causal_data.py": {
+      "bytes": 34677,
+      "sha256": "fac3eb02f10ccb0124ea65d1987cb42ea109cb368c733d0169c5e0d3839195eb"
+    },
+    "run_controls.py": {
+      "bytes": 24257,
+      "sha256": "a6f72603cec8ae9dda18b19d868d8a844ce75c9af38b55f052bbce5b07b64e43"
+    },
+    "SCHEMA.md": {
+      "bytes": 19566,
+      "sha256": "8179528b29c0ea948d9d20f04b5394eb8ba6f3c063b37e6715e600c9606866e0"
+    }
+  },
+  "resource_limits_interpretation": {
+    "assigned_controls": "queried hard Windows Job commit/CPU/process-count limits; no breakaway",
+    "wall": "outer ordinary supervisor complete original command measured through exit/pipe collection; deadline30s",
+    "parent": "wrapper outside child Job; separate peak committed-memory queries with exact cutoff, no whole-host/RSS claim",
+    "logs": "100ms size polling and capped digest reads are detection limits, not a hard disk quota"
+  },
+  "qualification": {
+    "format_valid": true,
+    "candidate_only": true,
+    "approved_training_data": false,
+    "real_physical_samples": 0,
+    "model_train_or_forward": 0,
+    "old_tests": 0,
+    "PDE_NumPy_leaf": 0,
+    "endpoint_owner_board": 0
+  },
+  "requirements_sha256": "c229834bfc2292f5fe4411fc9f12c68487008f9d1adaf31f0144ee7a98173804",
+  "formal_acceptance_promoted": false
+}

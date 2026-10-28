@@ -1,0 +1,109 @@
+{
+  "schema_version": 1,
+  "operation_id": "C-DEEPEYE-CAUSAL-DATA-PREPARATION-20261028-24",
+  "base_commit": "c4722d8252e0b5e22cfdadcf71905b92d45f811b",
+  "prior_git_entries_preserved": 1564,
+  "A_activation": {
+    "URL": "https://github.com/carolwjade/CarlandFPGA/pull/25#issuecomment-6469933721",
+    "id": 6469933721,
+    "author": "carolwjade",
+    "original_API_body_UTF8": {
+      "bytes": 4534,
+      "sha256": "fd42e1d92cc49cdc1a0acd7f106f697c3344d65af63b6dfb90499be934dab46f"
+    },
+    "raw_API_response": {
+      "bytes": 6198,
+      "sha256": "991d7abe6a837778c0d1f2c8c4e8f1f94c25e1d7a30292c870f1e692de9e3fd5"
+    },
+    "hash_semantics": "body is original API string encoded UTF8, no CRLF conversion; raw JSON response hash is a separate artifact"
+  },
+  "C23_baseline_files": [
+    {
+      "path": "handoffs/c/C-DEEPEYE-SIM-EM-SOURCE-BOUNDARY-PROPOSAL-20261028-23/A-decisions.json",
+      "commit": "c4722d8252e0b5e22cfdadcf71905b92d45f811b",
+      "git_blob_sha1": "9e903929c66668ccd961c81dd361845f69d01c40",
+      "bytes": 4740,
+      "sha256": "959ff1ec8ce358db2d32b5af67b30a537e844054b8315b81e64b4861309f73a7"
+    },
+    {
+      "path": "handoffs/c/C-DEEPEYE-SIM-EM-SOURCE-BOUNDARY-PROPOSAL-20261028-23/SOURCE-PINS.json",
+      "commit": "c4722d8252e0b5e22cfdadcf71905b92d45f811b",
+      "git_blob_sha1": "4057e8062c870e6e818b796d1094154f57ac211d",
+      "bytes": 11057,
+      "sha256": "526c550fef09ed6d58bd92db37e38fa6991ac89e19fd99d7329639b2e3183835"
+    },
+    {
+      "path": "handoffs/c/C-DEEPEYE-SIM-EM-SOURCE-BOUNDARY-PROPOSAL-20261028-23/TASK-RECEIPT.json",
+      "commit": "c4722d8252e0b5e22cfdadcf71905b92d45f811b",
+      "git_blob_sha1": "042c7b4cc5fa0a134dc0958c5102ff2d3f725480",
+      "bytes": 6966,
+      "sha256": "898867e7dcce67fcb755c5c3f90f9a202a12bb8b5774b0f66b5c3bbeb1350d82"
+    },
+    {
+      "path": "handoffs/c/C-DEEPEYE-SIM-EM-SOURCE-BOUNDARY-PROPOSAL-20261028-23/compatibility-matrix.json",
+      "commit": "c4722d8252e0b5e22cfdadcf71905b92d45f811b",
+      "git_blob_sha1": "16862dc3ff577548564ec73a3935f7462094c812",
+      "bytes": 22468,
+      "sha256": "68b337bd3088ba767c52985e15947475ad1fbb5a3494b82c8c27211b2e41beb3"
+    },
+    {
+      "path": "handoffs/c/C-DEEPEYE-SIM-EM-SOURCE-BOUNDARY-PROPOSAL-20261028-23/manifest.json",
+      "commit": "c4722d8252e0b5e22cfdadcf71905b92d45f811b",
+      "git_blob_sha1": "332d06bbada1893c07c255ab8c6a4e88b83b43e1",
+      "bytes": 3635,
+      "sha256": "595cf4fd3fff5a3ececd8ac304aef382462020cfb897ceaaf1cafb76849792c1"
+    },
+    {
+      "path": "handoffs/c/C-DEEPEYE-SIM-EM-SOURCE-BOUNDARY-PROPOSAL-20261028-23/sim_em_v2-profile-schema.proposal.json",
+      "commit": "c4722d8252e0b5e22cfdadcf71905b92d45f811b",
+      "git_blob_sha1": "248d9eadfa377d4edd2cc41a4013b28c7748febe",
+      "bytes": 20705,
+      "sha256": "60844936ee2ccb07c7c8d7e81b00d1f02a27c649bd8508c05744d6e8ac88da7d"
+    }
+  ],
+  "tested_new_sources": {
+    "causal_data.py": {
+      "bytes": 33297,
+      "sha256": "121de187ffeaced0a21007ffe54602b5dfef9ecf2c91f01281819aad2c54f219"
+    },
+    "test_causal_data.py": {
+      "bytes": 34677,
+      "sha256": "fac3eb02f10ccb0124ea65d1987cb42ea109cb368c733d0169c5e0d3839195eb"
+    },
+    "run_controls.py": {
+      "bytes": 24257,
+      "sha256": "a6f72603cec8ae9dda18b19d868d8a844ce75c9af38b55f052bbce5b07b64e43"
+    },
+    "SCHEMA.md": {
+      "bytes": 19566,
+      "sha256": "8179528b29c0ea948d9d20f04b5394eb8ba6f3c063b37e6715e600c9606866e0"
+    }
+  },
+  "CPU_provider": {
+    "interpreter": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\venv\\Scripts\\python.exe",
+    "base_interpreter": "C:\\Users\\Alan\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+    "version": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+    "platform": "win32",
+    "launcher_sha256": "34588325b101a5f1e0c7ed27a717d8b5ced009ff7b8e4995d27c05eae0340487",
+    "base_interpreter_sha256": "4623dc531b0883c3e714da5cb30e9b73e12aa5145f0d92c7b191ab1dcf699dfe",
+    "provider_kind": "existing real local CPU Python process, stdlib only; not a model provider or fake model"
+  },
+  "frozen_interface_sha256": "2ec7e7ae1407232abba7f21c68528d6345445f5af48b8610f9303b2dff2c806b",
+  "independent_preimplementation_plan_sha256": "36b1d367b94ea4ffd52036f2d21e8f5d1751f63cd4c6b1f2d651d00fdcd5e972",
+  "author_source_freeze_sha256": "3bc5fbd89c47fb74bc527b00b3bd14c02ea04394c05e44ab66f088b731269e0c",
+  "independent_control_source_manifest_sha256": "cf985a7b6810c4fc8eb82becf41cf7701c33fca8ee38b6bc74b53a027d307d9b",
+  "resource_review_v3_manifest_sha256": "5b4c07d3b08ce1f667ddbcda1b2cacce208a51cfdaa7379376828d11e7181afc",
+  "actual_resource_evidence_review_manifest_sha256": "4b1649fa17abb11e8ae53a8cc0dd5a20c5faacdeb46fe945032c7145d0ea2e2e",
+  "control_evidence": {
+    "bytes": 27385,
+    "sha256": "da9146535896eeb60b59ed8e29ccf572d6dc3f7c4718f49f5bd4d16c76141e62"
+  },
+  "immutable_contract": {
+    "id": "DEEPEYE-HUMAN-LOCK-20261014",
+    "revision": 1,
+    "source_commit": "f5989cd5defce561f9ba98e6b18fc2682945f0a2",
+    "requirements_sha256": "c229834bfc2292f5fe4411fc9f12c68487008f9d1adaf31f0144ee7a98173804",
+    "frozen_design": "1011259415a0916054eb580687612580bc1e5f09",
+    "all_H01_H15_and_both_H12_preserved": true
+  }
+}

@@ -1,0 +1,157 @@
+{
+  "schema_version": 1,
+  "task_id": "DEEPEYE-IMPLEMENTATION-20261014",
+  "task_version": 1,
+  "operation_id": "C-DEEPEYE-CAUSAL-DATA-PREPARATION-20261028-24",
+  "work_id": "C24-CAUSAL-DATA-PREPARATION-20261028-v1",
+  "actual_root_agent": "/root",
+  "actual_main_thread_id": "01a14025-4dfd-7ec3-aebb-57be48daba59",
+  "A_Gen3": "01a16988-bdcb-70e1-ae10-1304b5cf7875",
+  "activation_URL": "https://github.com/carolwjade/CarlandFPGA/pull/25#issuecomment-6469933721",
+  "activation_original_body_UTF8_sha256": "fd42e1d92cc49cdc1a0acd7f106f697c3344d65af63b6dfb90499be934dab46f",
+  "base_commit": "c4722d8252e0b5e22cfdadcf71905b92d45f811b",
+  "source_commit_binding": "canonical manifest request.code_commit; manifest committed separately",
+  "delivered_scope": [
+    "executable offline candidate catalog schema and raw-byte hash binding",
+    "whole-scene/event/native-record transitive disjoint splits",
+    "train-only distinct fresh-native scaler with complete recomputation",
+    "causal raw windows and original held timestamp/age with preserved mask0 values",
+    "one new bounded synthetic-definition CPU control batch"
+  ],
+  "candidate_profiles": "C24 schema discriminants only, not adopted hardware/EM profile or calibration",
+  "admission": {
+    "format_valid": true,
+    "candidate_only": true,
+    "approved_training_data": false,
+    "self_reported_accepted_not_authority": true
+  },
+  "actual_new_control_result": {
+    "tests_run": 14,
+    "passed": 14,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0,
+    "subcases_run": 13,
+    "CLI_invocations": 1,
+    "success": true
+  },
+  "actual_exit_codes": {
+    "outer_supervisor_command": 1,
+    "original_wrapper": 1,
+    "original_control_child": 0,
+    "serial_CLI": 0
+  },
+  "resource_supervision_status": "FAILED; original Job post-child active1, successful own-Job cleanup active0; cause/identity of remaining member not established; no replay",
+  "C24_full_validation_passed": false,
+  "complete_original_command_wall_seconds": 3.7820000000065193,
+  "measured_child_Job": {
+    "elapsed_wall_seconds": 3.577999999979511,
+    "peak_process_commit_bytes": 18518016,
+    "peak_job_commit_bytes": 29663232,
+    "job_user_cpu_100ns": 3281250,
+    "job_kernel_cpu_100ns": 4062500,
+    "total_processes": 5,
+    "active_processes_after_child": 1
+  },
+  "cleanup": {
+    "termination_requests": [
+      {
+        "method": "TerminateJobObject",
+        "ok": true,
+        "winerror_if_failed": null
+      }
+    ],
+    "original_process_signaled": true,
+    "original_process_id": 40444,
+    "active_job_members": 0,
+    "cleanup_unknown": false,
+    "initial_process_wait": 0,
+    "final_process_wait": 0,
+    "original_process_exit_code": 0,
+    "job_accounting_query_ok": true
+  },
+  "independent_review": {
+    "task_id": "DEEPEYE-IMPLEMENTATION-20261014",
+    "task_version": 1,
+    "operation_id": "C-DEEPEYE-CAUSAL-DATA-PREPARATION-20261028-24",
+    "actual_FINAL_received": true,
+    "active_jobs": [],
+    "material_defects": [],
+    "material_defects_scope": "tool semantics within independent pinned source/oracle/raw evidence review only; resource lifecycle failure remains explicitly unresolved",
+    "resource_supervision_status": "failed_disclosed_no_retry",
+    "overall_C24_PASS": false,
+    "reports": [
+      {
+        "actual_agent_id": "/root/cpu_independent_review",
+        "actual_FINAL_received": true,
+        "active_jobs": [],
+        "report_sha256": "f8fa76172808b677ee8154acbd91354b239db2d26adb4484f0e64a7cf2862f05",
+        "manifest_sha256": "353e0df3a5d7d25b964fceaec9e8bf66d2bc910bec14990445c6a157777b93f2",
+        "release_sha256": "b16f9e6bb23d0344384bd24cc3337ea5f5ec67d43ec05ab9b063dd25d0cb051d",
+        "artifact_entries_verified": 8
+      },
+      {
+        "actual_agent_id": "/root/sim_em_contract_audit",
+        "actual_FINAL_received": true,
+        "active_jobs": [],
+        "report_sha256": "be4c7e6bd75cd542eb10b0ed5a165d0da31cdee597ab86d0b51a3d5883efeeab",
+        "manifest_sha256": "4b1649fa17abb11e8ae53a8cc0dd5a20c5faacdeb46fe945032c7145d0ea2e2e",
+        "release_sha256": "8d30bcbdc210580211e5c5557724c6e64e1731d80daf4cfda2a8a6235c9d3356",
+        "artifact_entries_verified": 5
+      }
+    ],
+    "original_groups_passed": 14,
+    "original_subcases_passed": 13,
+    "original_child_and_CLI_exit": 0,
+    "wrapper_and_supervisor_exit": 1,
+    "remaining_member_identity": null,
+    "remaining_member_reason": "not captured in original frozen evidence",
+    "outer_supervisor_exit_source": "root observed exec_command actual exit1, chunk986f8b; independent reviewers inspected root freeze, not a separately captured OS-exit envelope",
+    "root_selected_source_and_raw_input_review_sha256": "e1896a5a7f6835cbd37e468975652dc551edfb2a052120027afb5886ff3172d7",
+    "original_job_cleanup_record_verified": true,
+    "test_batch_replayed": false,
+    "formal_acceptance_promoted": false,
+    "created_utc": "2026-10-28T16:59:49.152606+00:00"
+  },
+  "known_missing": [
+    "resource-supervisor PASS (actual wrapper/supervisor exit1 remains failed)",
+    "qualified whole-scene/event dataset and independent native physical measurements",
+    "hardware4ch-to-EM calibration and approved quantity/profile",
+    "real BOOT/clock mapping error bounds and causal historical own-odometry provider",
+    "new-domain model approval/training/independent evaluation"
+  ],
+  "unchanged_acceptance": {
+    "H01_H15_and_two_full_H12": "preserved; all unmet formal cards stay incomplete",
+    "G03_G09_R03_all29": "not promoted",
+    "FORCE_Macro_F1": 0.1827348057438266,
+    "FORCE_quality": "FAIL",
+    "target_Macro_F1": 0.6,
+    "old_centroid_Macro_F1": 0.2047004573101128
+  },
+  "A_reported_context": {
+    "C23_limited_source_review_accepted": true,
+    "review_SHA256": "a0bb3358f50654cc8e5041cf2dabd94cbc483abc5aaffa22cdb6fe6cedcb3a32",
+    "A_private_review_raw_opened_by_C": false,
+    "new_A_physical_or_NumPy_claims_independently_verified_by_C": false
+  },
+  "forbidden_executions_actually_run": {
+    "old_FORCE_models_training_forward": 0,
+    "old_suites_fixtures": 0,
+    "PDE_NumPy_leaf": 0,
+    "full_dataset": 0,
+    "endpoint_persistent_owner": 0,
+    "A_factory_HANDLE_256MiB_stage": 0,
+    "board": 0,
+    "credentials_locks_SQL": 0
+  },
+  "contract": {
+    "id": "DEEPEYE-HUMAN-LOCK-20261014",
+    "revision": 1,
+    "source_commit": "f5989cd5defce561f9ba98e6b18fc2682945f0a2",
+    "requirements_sha256": "c229834bfc2292f5fe4411fc9f12c68487008f9d1adaf31f0144ee7a98173804",
+    "frozen_design": "1011259415a0916054eb580687612580bc1e5f09",
+    "all_H01_H15_and_both_H12_preserved": true
+  },
+  "physical_board_operator": "A only",
+  "runtime_or_formal_acceptance": false
+}
