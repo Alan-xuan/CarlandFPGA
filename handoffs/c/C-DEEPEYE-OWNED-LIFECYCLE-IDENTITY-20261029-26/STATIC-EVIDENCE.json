@@ -1,0 +1,765 @@
+{
+  "schema_version": 1,
+  "task_id": "DEEPEYE-IMPLEMENTATION-20261014",
+  "task_version": 1,
+  "operation_id": "C-DEEPEYE-OWNED-LIFECYCLE-IDENTITY-20261029-26",
+  "actual_main_thread_id": "01a14025-4dfd-7ec3-aebb-57be48daba59",
+  "source_only": true,
+  "ROOT_template": {
+    "schema_version": 1,
+    "operation_id": "C-DEEPEYE-OWNED-LIFECYCLE-IDENTITY-20261029-26",
+    "source_only": true,
+    "enabled": false,
+    "execution_authorized": false,
+    "nonce": null,
+    "fresh_operation_id": null,
+    "fresh_guard": null,
+    "independent_A_authorization_ref": null,
+    "owner_hard_limit_closure": false,
+    "future_source_directory": null,
+    "future_work_directory": null,
+    "future_raw_directory": null,
+    "future_configuration": null,
+    "blockers": [
+      "C26 permits source review only; zero candidate imports, probes or cases",
+      "New independent A execution authorization and a fresh operation/guard do not exist",
+      "Current observer and outer supervisor are outside the actor Job hard limits",
+      "No complete hard memory/whole-command resource closure has been established",
+      "Future staging, source/config pins and entry authorization require another reviewed source revision"
+    ],
+    "future_plan_only": {
+      "whole_command_seconds": 30,
+      "process_bytes": 536870912,
+      "actor_job_bytes": 1073741824,
+      "actor_job_active_limit": 2,
+      "output_bytes": 1048576,
+      "case_attempts": 1
+    },
+    "movement_authorized": false,
+    "formal_acceptance": false
+  },
+  "ROOT_template_raw_pin": {
+    "bytes": 1190,
+    "sha256": "5629c14977f35448bf2e64c49173957aa74a316f288d1413bd9c50936f566d86"
+  },
+  "execution_authorized": false,
+  "candidate_imports": 0,
+  "candidate_executions": 0,
+  "native_identity_API_calls": 0,
+  "identity_collectors_actors_Jobs_cases": 0,
+  "new_control_batches": 0,
+  "old_controls_models_board_runs": 0,
+  "final_exact_text_static_freeze": {
+    "operation_id": "C-DEEPEYE-OWNED-LIFECYCLE-IDENTITY-20261029-26",
+    "source_only": true,
+    "actual_main_thread_id": "01a14025-4dfd-7ec3-aebb-57be48daba59",
+    "prior_worker_FINAL_releases_verified": true,
+    "revision_author": "/root",
+    "source_revision": 2,
+    "authored_source_files": [
+      {
+        "name": "identity_capture.py",
+        "bytes": 18275,
+        "sha256": "5e838785110c1428251a5a3e2e75c753637e7f501e1c4b5eec09fc4c8a3c654d"
+      },
+      {
+        "name": "C25-identity.patch",
+        "bytes": 21927,
+        "sha256": "6eb644c2f5cdd6846a5ec7d94dc029b1dc30e8289856a2da0b083fd86d508561"
+      },
+      {
+        "name": "ROOT.false.json",
+        "bytes": 1190,
+        "sha256": "5629c14977f35448bf2e64c49173957aa74a316f288d1413bd9c50936f566d86"
+      },
+      {
+        "name": "README.md",
+        "bytes": 14261,
+        "sha256": "8ef7c9bb71d9e3f2b18186fb1f306f4fbdfb7dcb16f7c7ce4d1394cba0fb629f"
+      }
+    ],
+    "exact_original_baselines": {
+      "owned_lifecycle.py": {
+        "bytes": 49610,
+        "sha256": "c7063da8cecea366f2f0cced2f1e99357d779b927e3302464a0dc140e6a06b00"
+      },
+      "case_actor.py": {
+        "bytes": 487,
+        "sha256": "17682adb9a79c029da231c2cc0faf2346154a49edad3ddd79890954f4e9e3c78"
+      },
+      "run_once.py": {
+        "bytes": 7199,
+        "sha256": "791bc253963a3b9bdde737d4696b0340f3681f1274b2f8402c1620e277f129e3"
+      },
+      "launch_once.py": {
+        "bytes": 6221,
+        "sha256": "4b0bd164b955e93c7a81881690850572a62edef3dc296db299755c6b06b4103d"
+      }
+    },
+    "strict_patch_hunks": [
+      {
+        "target": "owned_lifecycle.py",
+        "hunks": 11
+      },
+      {
+        "target": "case_actor.py",
+        "hunks": 1
+      },
+      {
+        "target": "run_once.py",
+        "hunks": 5
+      },
+      {
+        "target": "launch_once.py",
+        "hunks": 4
+      }
+    ],
+    "derived_and_helper_static_checks": [
+      {
+        "name": "owned_lifecycle.py",
+        "bytes": 52743,
+        "sha256": "26793ba8c79fc5e434c52f58f934088b1c57c7ee7747ed994f8e36df05063b18",
+        "AST_parsed": true,
+        "static_compile_only": true,
+        "code_object_executed": false,
+        "candidate_imported": false
+      },
+      {
+        "name": "case_actor.py",
+        "bytes": 2223,
+        "sha256": "c5c39608e3aec893b12759c65dfe582f02625b449bcade7d41b3e0ea7a4bcf6e",
+        "AST_parsed": true,
+        "static_compile_only": true,
+        "code_object_executed": false,
+        "candidate_imported": false
+      },
+      {
+        "name": "run_once.py",
+        "bytes": 8895,
+        "sha256": "ccf253dbe094b9301902e62e1c8c45ab20f2c3c47d3a94339e5bf2f857e052a4",
+        "AST_parsed": true,
+        "static_compile_only": true,
+        "code_object_executed": false,
+        "candidate_imported": false
+      },
+      {
+        "name": "launch_once.py",
+        "bytes": 8567,
+        "sha256": "4d739708b6a1dbccd12cc31f6d2be0e616bd07b1b37e1d4bb4eca8c30fe0c2e2",
+        "AST_parsed": true,
+        "static_compile_only": true,
+        "code_object_executed": false,
+        "candidate_imported": false
+      },
+      {
+        "name": "identity_capture.py",
+        "bytes": 18275,
+        "sha256": "5e838785110c1428251a5a3e2e75c753637e7f501e1c4b5eec09fc4c8a3c654d",
+        "AST_parsed": true,
+        "static_compile_only": true,
+        "code_object_executed": false,
+        "candidate_imported": false
+      }
+    ],
+    "Root_enabled": false,
+    "Root_execution_authorized": false,
+    "candidate_imports": 0,
+    "candidate_executions": 0,
+    "native_identity_API_calls": 0,
+    "collectors_actors_Jobs_controls": 0,
+    "check_scope": "Exact byte-context diff reconstruction, AST and code-object compilation only. No candidate expression, import or runtime function evaluated. No original file changed.",
+    "execution_blockers": [
+      "A authorized source preparation only; future separate operation and explicit authorization absent.",
+      "Owner hard-limit/complete resource closure must be independently established; no proof from static compilation or old peak samples."
+    ],
+    "created_utc": "2026-10-28T22:32:44.629435+00:00"
+  },
+  "final_static_metadata_tool_return": {
+    "raw_pin": {
+      "bytes": 339,
+      "sha256": "3c964c4ae62544ac2d70a65b430f32d0bf54aeca2de88ce7624ef5ad74e81286"
+    },
+    "original_UTF8_text": "{\n  \"chunk_id\": \"6f89ef\",\n  \"wall_time_seconds\": 0.6833926,\n  \"exit_code\": 0,\n  \"original_token_count\": 50,\n  \"output\": \"{\\\"strict_patch_targets\\\": 4, \\\"AST_static_compile_files\\\": 5, \\\"Root_enabled\\\": false, \\\"execution_authorized\\\": false, \\\"candidate_imports_executions_native_identity_calls\\\": 0, \\\"source_bytes_total\\\": 55653}\\r\\n\"\n}\n"
+  },
+  "final_static_reconstruction_program": {
+    "raw_pin": {
+      "bytes": 5806,
+      "sha256": "d05a034b5f008660be2f049c3a59d105ddae09748ad7969948bd6e88f8bb0079"
+    },
+    "original_UTF8_source": "\"\"\"Reconstruct exact diff as TEXT, AST/compile code objects only, never execute/import.\"\"\"\nfrom pathlib import Path\nimport ast,datetime as dt,hashlib,json,re\nROOT=Path(r'C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c')\nMAIN=ROOT/'.local/main-20261015-01a14025';WT=ROOT/'.local/deepeye-implementation-c'\nW=MAIN/'C26-lifecycle-identity-20261029';M=W/'main';OP='C-DEEPEYE-OWNED-LIFECYCLE-IDENTITY-20261029-26'\nP=WT/'handoffs/c'/OP;OLD=WT/'handoffs/c/C-DEEPEYE-OWNED-LIFECYCLE-EVIDENCE-20261029-25'\ndef load(p):return json.loads(p.read_bytes())\ndef pinraw(b):return {'bytes':len(b),'sha256':hashlib.sha256(b).hexdigest()}\ndef pin(p):return pinraw(p.read_bytes())\ndef save(p,b):\n with p.open('xb') as f:f.write(b)\ndef jsave(p,o):save(p,(json.dumps(o,ensure_ascii=False,indent=2)+'\\n').encode())\nproof=load(M/'root-delta-v2-source-pin.json');assert proof['prior_worker_FINAL_releases_verified'] and proof['source_revision_writes_complete'] and proof['active_jobs']==[]\nfor r in proof['source_files']:\n assert pin(P/r['name'])=={'bytes':r['bytes'],'sha256':r['sha256']}\nOUT=M/'root-static-v2';OUT.mkdir(exist_ok=False)\nbases={n:(OLD/n).read_bytes() for n in ['owned_lifecycle.py','case_actor.py','run_once.py']}\nembedded=load(OLD/'EVIDENCE.json')['private_original_Popen_supervisor_source']\nbases['launch_once.py']=embedded['original_UTF8_source'].encode('utf-8')\nassert pinraw(bases['launch_once.py'])=={'bytes':6221,'sha256':'4b0bd164b955e93c7a81881690850572a62edef3dc296db299755c6b06b4103d'}\nassert bases['launch_once.py']==(MAIN/'C25-owned-lifecycle-20261029/main/launch_once.py').read_bytes()\nexpected={'owned_lifecycle.py':'c7063da8cecea366f2f0cced2f1e99357d779b927e3302464a0dc140e6a06b00',\n 'case_actor.py':'17682adb9a79c029da231c2cc0faf2346154a49edad3ddd79890954f4e9e3c78',\n 'run_once.py':'791bc253963a3b9bdde737d4696b0340f3681f1274b2f8402c1620e277f129e3',\n 'launch_once.py':'4b0bd164b955e93c7a81881690850572a62edef3dc296db299755c6b06b4103d'}\nassert all(pinraw(b)['sha256']==expected[n] for n,b in bases.items())\nlines=(P/'C25-identity.patch').read_bytes().splitlines(keepends=True);i=0;derived={};hunks=[]\nwhile i<len(lines):\n line=lines[i]\n if not line.startswith(b'--- '):\n  assert line.startswith((b'diff --git ',b'index ')) or not line.strip(),('unexpected patch metadata',i)\n  i+=1;continue\n old=Path(line[4:].split(b'\\t',1)[0].strip().decode()).name;i+=1\n assert i<len(lines) and lines[i].startswith(b'+++ ')\n new=Path(lines[i][4:].split(b'\\t',1)[0].strip().decode()).name;i+=1\n assert old==new and old in bases and old not in derived,('unexpected patch target',old,new)\n original=bases[old].splitlines(keepends=True);pos=0;result=[];hcount=0\n while i<len(lines) and lines[i].startswith(b'@@ '):\n  header=lines[i].decode().rstrip('\\r\\n');match=re.fullmatch(r'@@ -(\\d+)(?:,(\\d+))? \\+(\\d+)(?:,(\\d+))? @@.*',header);assert match,header\n  os_,oc,ns,nc=match.groups();oc=int(oc or 1);nc=int(nc or 1)\n  start=int(os_)-(1 if oc else 0);nstart=int(ns)-(1 if nc else 0)\n  assert pos<=start<=len(original),(old,pos,start)\n  result.extend(original[pos:start]);pos=start;assert len(result)==nstart,(old,len(result),nstart)\n  used=added=0;i+=1\n  while used<oc or added<nc:\n   assert i<len(lines);raw=lines[i];prefix=raw[:1];content=raw[1:]\n   assert prefix in (b' ',b'-',b'+'),('unsupported hunk line',old,i,raw[:80])\n   if prefix in (b' ',b'-'):\n    assert used<oc and pos<len(original) and original[pos]==content,('baseline context mismatch',old,i,pos)\n    used+=1;pos+=1\n   if prefix in (b' ',b'+'):\n    assert added<nc;result.append(content);added+=1\n   i+=1\n  hcount+=1\n result.extend(original[pos:]);derived[old]=b''.join(result);hunks.append({'target':old,'hunks':hcount})\nassert set(derived)==set(bases),'Patch must identify the four exact original source targets'\nchecks=[]\nfor name,raw in {**derived,'identity_capture.py':(P/'identity_capture.py').read_bytes()}.items():\n text=raw.decode('utf-8');tree=ast.parse(text,filename=name)\n compiled=compile(tree,name,'exec',dont_inherit=True,optimize=0)\n assert compiled is not None\n save(OUT/(name+'.txt'),raw)\n checks.append({'name':name,**pinraw(raw),'AST_parsed':True,'static_compile_only':True,\n  'code_object_executed':False,'candidate_imported':False})\nr=load(P/'ROOT.false.json');assert r['enabled'] is False and r['execution_authorized'] is False\nauthored=[dict(name=n,**pin(P/n)) for n in ['identity_capture.py','C25-identity.patch','ROOT.false.json','README.md']]\ndoc={'operation_id':OP,'source_only':True,'actual_main_thread_id':'01a14025-4dfd-7ec3-aebb-57be48daba59',\n 'prior_worker_FINAL_releases_verified':True,'revision_author':'/root','source_revision':2,'authored_source_files':authored,\n 'exact_original_baselines':{n:pinraw(b) for n,b in bases.items()},'strict_patch_hunks':hunks,\n 'derived_and_helper_static_checks':checks,'Root_enabled':False,'Root_execution_authorized':False,\n 'candidate_imports':0,'candidate_executions':0,'native_identity_API_calls':0,'collectors_actors_Jobs_controls':0,\n 'check_scope':'Exact byte-context diff reconstruction, AST and code-object compilation only. No candidate expression, import or runtime function evaluated. No original file changed.',\n 'execution_blockers':['A authorized source preparation only; future separate operation and explicit authorization absent.',\n 'Owner hard-limit/complete resource closure must be independently established; no proof from static compilation or old peak samples.'],\n 'created_utc':dt.datetime.now(dt.timezone.utc).isoformat()}\njsave(OUT/'result.json',doc);jsave(M/'source-freeze-v2.json',doc)\nprint(json.dumps({'strict_patch_targets':len(derived),'AST_static_compile_files':len(checks),\n 'Root_enabled':False,'execution_authorized':False,'candidate_imports_executions_native_identity_calls':0,\n 'source_bytes_total':sum(x['bytes'] for x in authored)}))\n"
+  },
+  "source_review": {
+    "task_id": "DEEPEYE-IMPLEMENTATION-20261014",
+    "task_version": 1,
+    "operation_id": "C-DEEPEYE-OWNED-LIFECYCLE-IDENTITY-20261029-26",
+    "source_revision": 2,
+    "source_only": true,
+    "source_approved": true,
+    "source_approval_scope": "Source-only v2 proposal. MS01/C26-S1 repaired and independently statically reviewed. Unchanged v1 patch/source gates rely on prior exact phase2 review. No executable-package, native/API, identity, normal/negative, resource or formal acceptance.",
+    "all_actual_FINAL_received": true,
+    "active_jobs": [],
+    "active_subprocesses": [],
+    "all_product_writers_stopped": true,
+    "author_version1_original_release_verified": {
+      "record": {
+        "bytes": 17290,
+        "sha256": "a6df70e580dd230b7bd85cea2d537a55f45b87396b1284d575215808a4d5578a"
+      },
+      "source_freeze": {
+        "bytes": 12983,
+        "sha256": "9eaac7401c9c954680bf91fdac378e8ef490be102d5374ea7f6e87cbb4d6392d"
+      },
+      "release": {
+        "bytes": 1147,
+        "sha256": "404be110548b759b649834beccfa0c3c0af0cf86c359b7f18c6abbc23967d492"
+      },
+      "verified_rows": 82
+    },
+    "phase1_independent_design_reviews_verified": {
+      "bytes": 1612,
+      "sha256": "eae81c75c41f3e366cbe45849333778a68a0839eb165df5670aa22d7075fa061"
+    },
+    "phase2_original_blocked_source_reviews_verified_before_delta": {
+      "bytes": 3513,
+      "sha256": "c780154d9a4813032b3259891dee540da3783a7bbe3d076ec27d4005f1be5f8a"
+    },
+    "historical_v1_source_blockers": [
+      "MS01-nested-native-raw-call-schema",
+      "C26-S1-NESTED-SELF-API-SCHEMA-SCOPE"
+    ],
+    "closed_by_v2_source_delta": [
+      "MS01-nested-native-raw-call-schema",
+      "C26-S1-NESTED-SELF-API-SCHEMA-SCOPE"
+    ],
+    "material_source_blockers": [],
+    "final_released_reviews": [
+      {
+        "actual_agent_id": "/root/cpu_independent_review",
+        "directory": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\main-20261015-01a14025\\C26-lifecycle-identity-20261029\\review\\phase3",
+        "actual_FINAL_received": true,
+        "manifest": {
+          "bytes": 25379,
+          "sha256": "0ed4ea6e8ef1a1b1fe5df47cd64ab742e3cb1d97617b74cb220ecf79389d8b7d"
+        },
+        "release": {
+          "bytes": 2480,
+          "sha256": "07b4508cc3540f046052fc88d2aabf156c3e4804e91dfa0721e1935feb52362d"
+        },
+        "report_md": {
+          "bytes": 2122,
+          "sha256": "64bd380303a6ba14a214ace159ab5a3e62ce8916868869d408b09e39d54ef0a6"
+        },
+        "report_json": {
+          "bytes": 7030,
+          "sha256": "ad6a8ecc7ef2c926b4762af987e3680d26d7ccd4afe64d2e0ade04474aff8c54"
+        },
+        "all_input_and_artifact_rows_verified": 51,
+        "row_groups": {
+          "original_inputs": 40,
+          "own_artifacts": 11
+        },
+        "ownership_released": true,
+        "active_jobs": [],
+        "active_subprocesses": [],
+        "source_approved": true,
+        "material_source_blockers": [],
+        "declared_zero_counters": {
+          "candidate_imports": 0,
+          "candidate_functions_evaluated": 0,
+          "native_identity_API_calls": 0,
+          "actors_Jobs_cases": 0,
+          "product_writes": 0
+        },
+        "approval_scope": "Static v2 delta and MS01/C26-S1 closure with unchanged prior-source review; no runtime/executable-bundle acceptance."
+      },
+      {
+        "actual_agent_id": "/root/sim_em_contract_audit",
+        "directory": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\main-20261015-01a14025\\C26-lifecycle-identity-20261029\\resource-review\\phase3",
+        "actual_FINAL_received": true,
+        "manifest": {
+          "bytes": 12616,
+          "sha256": "7f606ba909c6142524012fc6100d2b3bc4b96c3823c6715d7f247f6f7b63f76a"
+        },
+        "release": {
+          "bytes": 3210,
+          "sha256": "248d4c472b74ab2625bae7aaa077fc10bbf5c39f71ad4289785818c0cff52acb"
+        },
+        "report_md": {
+          "bytes": 3394,
+          "sha256": "7f3c4676fd9f6769f12c3c6b32a4570178f5dbc45a2e48736fa072c2e3e0311e"
+        },
+        "report_json": null,
+        "all_input_and_artifact_rows_verified": 39,
+        "row_groups": {
+          "artifacts": 6,
+          "input_pins": 33
+        },
+        "ownership_released": true,
+        "active_jobs": [],
+        "active_subprocesses": [],
+        "source_approved": true,
+        "material_source_blockers": [],
+        "declared_zero_counters": {
+          "candidate_imports": 0,
+          "candidate_function_evaluations": 0,
+          "native_API_calls": 0,
+          "cases": 0,
+          "product_writes": 0
+        },
+        "approval_scope": "Static v2 delta and MS01/C26-S1 closure with unchanged prior-source review; no runtime/executable-bundle acceptance."
+      }
+    ],
+    "main_independent_critical_review": {
+      "path": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\main-20261015-01a14025\\C26-lifecycle-identity-20261029\\main\\root-critical-delta-review.json",
+      "bytes": 3679,
+      "sha256": "168eca4ae07ea8279d0a2c3c37b8b9b86f8b88d4cdf40af6cb0ae31b88210819",
+      "critical_checks": [
+        "New nested rawcall validator is called after original HANDLE tuple consistency and before the sole matched=True return.",
+        "Four rawcall rows enforce exact keys and ordered API names; input keysets are exact and every HANDLE/PID integer rejects bool and is range-bounded.",
+        "Pseudo HANDLE return and all input HANDLEs agree with the selected self HANDLE, GetProcessId return agrees with selected PID. BOOL success is nonzero and LastError stays independent.",
+        "Image capacity/flags/returned UTF16 code-unit length/raw string and selected image agree. All creation/exit/kernel/user FILETIME words and uint64 values are range/lossless checked. Raw creation equals the selected creation tuple; live exit is explicitly undefined.",
+        "JSON strict decoding retains duplicate/nonfinite rejection and bounded original channel grammar; native calls remain only self-reported data, never ownership or physical writer authentication.",
+        "Original 4-source patch and ROOT false file SHA256 and projected bytes are unchanged from v1. Original source APIs and cleanup reviewed in phase2 remain frozen.",
+        "Permanent require_root and four local identity refusal fences have no success branch. No current execution authorization validator/staging is implemented."
+      ]
+    },
+    "execution_blockers": [
+      "No A execution authorization, fresh operation/guard or executable authorization source revision exists. Unconditional refusal remains even after flag changes.",
+      "Owner/driver/outer per-process hard limits and complete command lifetime resource/output budget closure are absent; sampling is not hard enforcement and active2 cannot silently expand.",
+      "Native identity API behavior, channel handshake/size adequacy, runtime binding and original normal/negative gates remain unexecuted.",
+      "Unchanged patch deliberately retains the v1 helper pin af187ba1d700e0a6f15ff06a5d852d6a08092fb21e0330e4c7a32367ce90dc6a while reviewed helper v2 is 5e838785110c1428251a5a3e2e75c753637e7f501e1c4b5eec09fc4c8a3c654d. All current paths refuse before that pin/import. Future source revision must close the entire staging/pin set as well as owner limits; this proposal is not runnable."
+    ],
+    "candidate_execution_count": 0,
+    "candidate_imports": 0,
+    "native_identity_API_calls": 0,
+    "collectors_actors_Jobs_controls": 0,
+    "execution_authorized": false,
+    "root_static_tool_return_path": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\main-20261015-01a14025\\C26-lifecycle-identity-20261029\\main\\root-projection-static-v2.actual-tool-return.json",
+    "root_static_program_path": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\main-20261015-01a14025\\C26-lifecycle-identity-20261029\\main\\root_project_static_v2.py",
+    "final_source_freeze_raw_pin": {
+      "bytes": 3931,
+      "sha256": "02a4d68e35f6f84831525a2d10f91497a941b5db797daf2aa30ae75d5202cd37"
+    },
+    "original_main_preserved": true,
+    "H01_H15_both_full_H12_preserved": true,
+    "C25": "FAILED; negative NOT RUN",
+    "C24_resource": "FAILED",
+    "formal_acceptance": false,
+    "created_utc": "2026-10-28T22:42:35.264685+00:00"
+  },
+  "author_prior_version_static_logs": [
+    {
+      "label": "finish-guard-02",
+      "exit": {
+        "active_subprocesses": [],
+        "exit_code": 0
+      },
+      "exit_raw_pin": {
+        "bytes": 54,
+        "sha256": "08ac490312fb601920adaa56a0baacbccbd9bc7b47091700a26698dff2968b22"
+      },
+      "scope": "administrative text/AST/static work only; not a candidate/control attempt",
+      "argv.json": {
+        "raw_pin": {
+          "bytes": 425,
+          "sha256": "ddbc02f1980951a4c620f66c33b6db272a4775ee092d45658b2e2ffd1ab5f6fb"
+        },
+        "original_UTF8_text": "{\r\n  \"executable\": \"C:\\\\Users\\\\Alan\\\\Documents\\\\ChatGPT\\\\FPGA\\\\CarlandFPGA-node-c\\\\.local\\\\venv\\\\Scripts\\\\python.exe\",\r\n  \"scope\": \"Idempotent administrative text recovery only\",\r\n  \"arguments\": [\r\n    \"-I\",\r\n    \"-S\",\r\n    \"-B\",\r\n    \"-X\",\r\n    \"utf8\",\r\n    \"C:\\\\Users\\\\Alan\\\\Documents\\\\ChatGPT\\\\FPGA\\\\CarlandFPGA-node-c\\\\.local\\\\main-20261015-01a14025\\\\C26-lifecycle-identity-20261029\\\\author\\\\finish_guard_02.py\"\r\n  ]\r\n}\r\n"
+      },
+      "stdout.raw": {
+        "raw_pin": {
+          "bytes": 659,
+          "sha256": "0f57ef3277c79271d8b4ca5624be09ea0b99685e352370bc2a72a9dff6c258a7"
+        },
+        "original_UTF8_text": "{\r\n  \"kind\": \"static source guard correction only\",\r\n  \"retained_administrative_failure\": \"guard exit1 wrong textual signature; finish-guard exit1 expected uniform old pins after partial administrative updates; retained both; no candidate execution\",\r\n  \"changes\": [\r\n    \"close direct private runtime metadata collector\",\r\n    \"close direct private owner-memory API helper\",\r\n    \"update four helper pins\"\r\n  ],\r\n  \"helper_sha256\": \"af187ba1d700e0a6f15ff06a5d852d6a08092fb21e0330e4c7a32367ce90dc6a\",\r\n  \"patch_sha256\": \"6eb644c2f5cdd6846a5ec7d94dc029b1dc30e8289856a2da0b083fd86d508561\",\r\n  \"candidate_imports\": 0,\r\n  \"native_API_calls\": 0,\r\n  \"cases\": 0\r\n}\r\n"
+      },
+      "stderr.raw": {
+        "raw_pin": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "original_UTF8_text": ""
+      }
+    },
+    {
+      "label": "finish-guard",
+      "exit": {
+        "exit_code": 1,
+        "active_subprocesses": []
+      },
+      "exit_raw_pin": {
+        "bytes": 54,
+        "sha256": "776db20e106af4aa33aff1ae2ffcf6e4d940bfb23987f8699e597c4b5399c42f"
+      },
+      "scope": "administrative text/AST/static work only; not a candidate/control attempt",
+      "argv.json": {
+        "raw_pin": {
+          "bytes": 411,
+          "sha256": "833ed7e7eb221c65adc34c62c663d27b768137d851bade269be4a3bf5c3ce48f"
+        },
+        "original_UTF8_text": "{\r\n  \"scope\": \"Administrative text recovery only\",\r\n  \"executable\": \"C:\\\\Users\\\\Alan\\\\Documents\\\\ChatGPT\\\\FPGA\\\\CarlandFPGA-node-c\\\\.local\\\\venv\\\\Scripts\\\\python.exe\",\r\n  \"arguments\": [\r\n    \"-I\",\r\n    \"-S\",\r\n    \"-B\",\r\n    \"-X\",\r\n    \"utf8\",\r\n    \"C:\\\\Users\\\\Alan\\\\Documents\\\\ChatGPT\\\\FPGA\\\\CarlandFPGA-node-c\\\\.local\\\\main-20261015-01a14025\\\\C26-lifecycle-identity-20261029\\\\author\\\\finish_guard.py\"\r\n  ]\r\n}\r\n"
+      },
+      "stdout.raw": {
+        "raw_pin": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "original_UTF8_text": ""
+      },
+      "stderr.raw": {
+        "raw_pin": {
+          "bytes": 299,
+          "sha256": "4f2d2fe312d8098c69a538c44fa605d6ae7163970dec04d5d2aca45ecee57580"
+        },
+        "original_UTF8_text": "Traceback (most recent call last):\r\n  File \"C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\main-20261015-01a14025\\C26-lifecycle-identity-20261029\\author\\finish_guard.py\", line 16, in <module>\r\n    assert text.count(old_sha) == 1\r\n           ^^^^^^^^^^^^^^^^^^^^^^^^\r\nAssertionError\r\n"
+      }
+    },
+    {
+      "label": "fix",
+      "exit": {
+        "exit_code": 0,
+        "active_subprocesses": []
+      },
+      "exit_raw_pin": {
+        "bytes": 54,
+        "sha256": "8cc36319a4b95b9eb176660475629a680e19fcf21c0ac8bfa57282f9d7985124"
+      },
+      "scope": "administrative text/AST/static work only; not a candidate/control attempt",
+      "argv.json": {
+        "raw_pin": {
+          "bytes": 411,
+          "sha256": "fba9ccebb14277474b843ae4da0aa7efdef9f837c31a5963b87a6ee5922f4909"
+        },
+        "original_UTF8_text": "{\r\n  \"arguments\": [\r\n    \"-I\",\r\n    \"-S\",\r\n    \"-B\",\r\n    \"-X\",\r\n    \"utf8\",\r\n    \"C:\\\\Users\\\\Alan\\\\Documents\\\\ChatGPT\\\\FPGA\\\\CarlandFPGA-node-c\\\\.local\\\\main-20261015-01a14025\\\\C26-lifecycle-identity-20261029\\\\author\\\\fix_static.py\"\r\n  ],\r\n  \"scope\": \"Administrative text correction only\",\r\n  \"executable\": \"C:\\\\Users\\\\Alan\\\\Documents\\\\ChatGPT\\\\FPGA\\\\CarlandFPGA-node-c\\\\.local\\\\venv\\\\Scripts\\\\python.exe\"\r\n}\r\n"
+      },
+      "stdout.raw": {
+        "raw_pin": {
+          "bytes": 820,
+          "sha256": "ecf701ead9e6025cd8da2ad266f9ef1e1774aaef0665e75e874cf637ed14e990"
+        },
+        "original_UTF8_text": "{\r\n  \"kind\": \"source-only corrections after retained static syntax RED\",\r\n  \"changes\": [\r\n    \"launch inserted block indentation 2/3 spaces -> 8/12 matching original with block\",\r\n    \"identity-binding exception retained separately instead of replacing original execution_error\",\r\n    \"sys.version raw characters retained, bounded and JSON escaped; no newline normalization\",\r\n    \"four unreachable helper pins and unified diff updated to final helper bytes\"\r\n  ],\r\n  \"original_helper_sha256\": \"59d6db5e066cc246c95b4bab75b5606f024a770016e9dc7317ed05e320a4c896\",\r\n  \"final_helper_sha256\": \"935432243a6841961896524ec60f3107b8350b114d0662d2f71c7ee1c12490a7\",\r\n  \"final_patch_sha256\": \"37c0db2359f5fbd886b874cf6c4c432fc777f1a49b48c4e872210232878bce70\",\r\n  \"candidate_imports\": 0,\r\n  \"native_API_calls\": 0,\r\n  \"cases\": 0\r\n}\r\n"
+      },
+      "stderr.raw": {
+        "raw_pin": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "original_UTF8_text": ""
+      }
+    },
+    {
+      "label": "guard",
+      "exit": {
+        "active_subprocesses": [],
+        "exit_code": 1
+      },
+      "exit_raw_pin": {
+        "bytes": 54,
+        "sha256": "f4400d5a931c04cb44819de616f6faaf4529cd99102962ace5991b15ef418364"
+      },
+      "scope": "administrative text/AST/static work only; not a candidate/control attempt",
+      "argv.json": {
+        "raw_pin": {
+          "bytes": 421,
+          "sha256": "68d78a60c92e6b28551f7d8ec287529392238b5179336cac4f307c5964a18add"
+        },
+        "original_UTF8_text": "{\r\n  \"executable\": \"C:\\\\Users\\\\Alan\\\\Documents\\\\ChatGPT\\\\FPGA\\\\CarlandFPGA-node-c\\\\.local\\\\venv\\\\Scripts\\\\python.exe\",\r\n  \"arguments\": [\r\n    \"-I\",\r\n    \"-S\",\r\n    \"-B\",\r\n    \"-X\",\r\n    \"utf8\",\r\n    \"C:\\\\Users\\\\Alan\\\\Documents\\\\ChatGPT\\\\FPGA\\\\CarlandFPGA-node-c\\\\.local\\\\main-20261015-01a14025\\\\C26-lifecycle-identity-20261029\\\\author\\\\guard_static.py\"\r\n  ],\r\n  \"scope\": \"Administrative source guard correction only\"\r\n}\r\n"
+      },
+      "stdout.raw": {
+        "raw_pin": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "original_UTF8_text": ""
+      },
+      "stderr.raw": {
+        "raw_pin": {
+          "bytes": 297,
+          "sha256": "d9b67197d63c3365c05a790cae821d668f029bfe0aa5bd19e8c0f1279a9ca83b"
+        },
+        "original_UTF8_text": "Traceback (most recent call last):\r\n  File \"C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\main-20261015-01a14025\\C26-lifecycle-identity-20261029\\author\\guard_static.py\", line 31, in <module>\r\n    assert text.count(before) == 1\r\n           ^^^^^^^^^^^^^^^^^^^^^^^\r\nAssertionError\r\n"
+      }
+    },
+    {
+      "label": "prepare",
+      "exit": {
+        "active_subprocesses": [],
+        "exit_code": 0
+      },
+      "exit_raw_pin": {
+        "bytes": 54,
+        "sha256": "08ac490312fb601920adaa56a0baacbccbd9bc7b47091700a26698dff2968b22"
+      },
+      "scope": "administrative text/AST/static work only; not a candidate/control attempt",
+      "argv.json": {
+        "raw_pin": {
+          "bytes": 568,
+          "sha256": "180558d192b38909938dde399c9dd3ed1c6eb7571871c72a7bf54a40ce6940e6"
+        },
+        "original_UTF8_text": "{\r\n  \"command_as_sent\": \"Start-Process -WindowStyle Hidden -Wait -PassThru with original stdout/stderr file redirection\",\r\n  \"purpose\": \"Administrative text projection only; no candidate import/execution\",\r\n  \"executable\": \"C:\\\\Users\\\\Alan\\\\Documents\\\\ChatGPT\\\\FPGA\\\\CarlandFPGA-node-c\\\\.local\\\\venv\\\\Scripts\\\\python.exe\",\r\n  \"arguments\": [\r\n    \"-I\",\r\n    \"-S\",\r\n    \"-B\",\r\n    \"-X\",\r\n    \"utf8\",\r\n    \"C:\\\\Users\\\\Alan\\\\Documents\\\\ChatGPT\\\\FPGA\\\\CarlandFPGA-node-c\\\\.local\\\\main-20261015-01a14025\\\\C26-lifecycle-identity-20261029\\\\author\\\\prepare_static.py\"\r\n  ]\r\n}\r\n"
+      },
+      "stdout.raw": {
+        "raw_pin": {
+          "bytes": 1519,
+          "sha256": "92c9d31e356dd8729eb68f433c8def2d67620d63f19c987ecdd5ab122d9f5419"
+        },
+        "original_UTF8_text": "{\r\n  \"kind\": \"administrative text projection, no candidate execution\",\r\n  \"helper_sha256\": \"59d6db5e066cc246c95b4bab75b5606f024a770016e9dc7317ed05e320a4c896\",\r\n  \"baseline\": {\r\n    \"owned_lifecycle.py\": {\r\n      \"bytes\": 49610,\r\n      \"sha256\": \"c7063da8cecea366f2f0cced2f1e99357d779b927e3302464a0dc140e6a06b00\"\r\n    },\r\n    \"case_actor.py\": {\r\n      \"bytes\": 487,\r\n      \"sha256\": \"17682adb9a79c029da231c2cc0faf2346154a49edad3ddd79890954f4e9e3c78\"\r\n    },\r\n    \"run_once.py\": {\r\n      \"bytes\": 7199,\r\n      \"sha256\": \"791bc253963a3b9bdde737d4696b0340f3681f1274b2f8402c1620e277f129e3\"\r\n    },\r\n    \"launch_once.py\": {\r\n      \"bytes\": 6221,\r\n      \"sha256\": \"4b0bd164b955e93c7a81881690850572a62edef3dc296db299755c6b06b4103d\"\r\n    }\r\n  },\r\n  \"derived\": {\r\n    \"owned_lifecycle.py\": {\r\n      \"bytes\": 52678,\r\n      \"sha256\": \"a694696a2e2d52a5de03017831eb62b39e8aa3ed1f40c5512937c2ab40cacc37\"\r\n    },\r\n    \"case_actor.py\": {\r\n      \"bytes\": 2223,\r\n      \"sha256\": \"648f508e2974ed172bc3dcee8f9857f34d645f881b3bdb3cdd08336c9e39ea93\"\r\n    },\r\n    \"run_once.py\": {\r\n      \"bytes\": 8895,\r\n      \"sha256\": \"512e6a9ed8d4ece1610d1f83ca7473faf8281524dc203aadf7e5fa57c6e1674d\"\r\n    },\r\n    \"launch_once.py\": {\r\n      \"bytes\": 8404,\r\n      \"sha256\": \"87ae733724a622ee4bebad946aec388e65efc1cc03cd9600b6dd5cc7944bf060\"\r\n    }\r\n  },\r\n  \"patch\": {\r\n    \"bytes\": 21038,\r\n    \"sha256\": \"23cd4c89b60c2a558d3ddd9243d8a23c6b97abacec07b4a13f7e0d4cb201f167\"\r\n  },\r\n  \"candidate_imports\": 0,\r\n  \"native_API_calls\": 0,\r\n  \"actor_Job_cases\": 0\r\n}\r\n"
+      },
+      "stderr.raw": {
+        "raw_pin": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "original_UTF8_text": ""
+      }
+    },
+    {
+      "label": "seal",
+      "exit": {
+        "exit_code": 0,
+        "active_subprocesses": []
+      },
+      "exit_raw_pin": {
+        "bytes": 54,
+        "sha256": "8cc36319a4b95b9eb176660475629a680e19fcf21c0ac8bfa57282f9d7985124"
+      },
+      "scope": "administrative text/AST/static work only; not a candidate/control attempt",
+      "argv.json": {
+        "raw_pin": {
+          "bytes": 426,
+          "sha256": "4cea0bdce1147d67ae54933e91fa04625e9bbb51d95a7089c0b2cd897d27c265"
+        },
+        "original_UTF8_text": "{\r\n  \"arguments\": [\r\n    \"-I\",\r\n    \"-S\",\r\n    \"-B\",\r\n    \"-X\",\r\n    \"utf8\",\r\n    \"C:\\\\Users\\\\Alan\\\\Documents\\\\ChatGPT\\\\FPGA\\\\CarlandFPGA-node-c\\\\.local\\\\main-20261015-01a14025\\\\C26-lifecycle-identity-20261029\\\\author\\\\seal_static.py\"\r\n  ],\r\n  \"scope\": \"Final administrative AST parity and metadata only\",\r\n  \"executable\": \"C:\\\\Users\\\\Alan\\\\Documents\\\\ChatGPT\\\\FPGA\\\\CarlandFPGA-node-c\\\\.local\\\\venv\\\\Scripts\\\\python.exe\"\r\n}\r\n"
+      },
+      "stdout.raw": {
+        "raw_pin": {
+          "bytes": 3824,
+          "sha256": "021b050b0e338b9bebe20a714c235e7b07038a5a9b9ee5b266de276d195a6751"
+        },
+        "original_UTF8_text": "{\r\n  \"task_id\": \"DEEPEYE-IMPLEMENTATION-20261014\",\r\n  \"task_version\": 1,\r\n  \"work_id\": \"C26-IDENTITY-SOURCE-AUTHOR-20261029-v1\",\r\n  \"canonical_agent_id\": \"/root/cpu_package_runner\",\r\n  \"main_thread_id\": \"01a14025-4dfd-7ec3-aebb-57be48daba59\",\r\n  \"operation_id\": \"C-DEEPEYE-OWNED-LIFECYCLE-IDENTITY-20261029-26\",\r\n  \"status\": \"source_only_frozen_for_independent_review\",\r\n  \"public_sources\": {\r\n    \"identity_capture.py\": {\r\n      \"bytes\": 14528,\r\n      \"sha256\": \"af187ba1d700e0a6f15ff06a5d852d6a08092fb21e0330e4c7a32367ce90dc6a\"\r\n    },\r\n    \"C25-identity.patch\": {\r\n      \"bytes\": 21927,\r\n      \"sha256\": \"6eb644c2f5cdd6846a5ec7d94dc029b1dc30e8289856a2da0b083fd86d508561\"\r\n    },\r\n    \"ROOT.false.json\": {\r\n      \"bytes\": 1190,\r\n      \"sha256\": \"5629c14977f35448bf2e64c49173957aa74a316f288d1413bd9c50936f566d86\"\r\n    },\r\n    \"README.md\": {\r\n      \"bytes\": 13630,\r\n      \"sha256\": \"c0ebcab635618e41e2d6b2f3de615db5c56ec8cd6e59445a0416008a03553556\"\r\n    }\r\n  },\r\n  \"author_public_files\": 4,\r\n  \"author_public_bytes\": 51275,\r\n  \"public_metadata_other_three_owned_by_root\": true,\r\n  \"contract\": {\r\n    \"id\": \"DEEPEYE-HUMAN-LOCK-20261014\",\r\n    \"revision\": 1,\r\n    \"source\": \"f5989cd5defce561f9ba98e6b18fc2682945f0a2\",\r\n    \"requirements_sha256\": \"c229834bfc2292f5fe4411fc9f12c68487008f9d1adaf31f0144ee7a98173804\",\r\n    \"design\": \"1011259415a0916054eb580687612580bc1e5f09\",\r\n    \"H01_H15_and_both_full_H12_unchanged\": true\r\n  },\r\n  \"critical_static_parity\": {\r\n    \"unchanged_original_case_methods\": [\r\n      \"_call\",\r\n      \"_close\",\r\n      \"_zero\",\r\n      \"_snapshot\",\r\n      \"_job_zero_by\",\r\n      \"_wait\",\r\n      \"_resume\",\r\n      \"_drain\",\r\n      \"run\"\r\n    ],\r\n    \"original_native_cleanup_prefix_unchanged\": true,\r\n    \"original_C25_bases_and_README_unchanged\": true,\r\n    \"guarded_identity_entries\": [\r\n      \"capture_original_handle\",\r\n      \"capture_current\",\r\n      \"emit_current\",\r\n      \"_match_line\",\r\n      \"actor_stream\",\r\n      \"observer_channel\",\r\n      \"_runtime\"\r\n    ],\r\n    \"four_unconditional_false_gates_before_helper_exec\": true\r\n  },\r\n  \"checks\": {\r\n    \"static_01_exit\": 1,\r\n    \"static_01\": \"launcher indentation error retained with original source snapshot\",\r\n    \"static_02_exit\": 0,\r\n    \"static_02\": \"9 AST/code-object controls only; final helper and projections\",\r\n    \"guard_admin_exit\": 1,\r\n    \"finish_guard_admin_exit\": 1,\r\n    \"administrative_failures\": \"text helper signature and mixed intermediate pins assumptions; original stderr preserved, completed by finish-guard-02 exit0\",\r\n    \"syntax_failure_is_not_runtime_RED\": true,\r\n    \"runtime_gate_checked_by_execution\": false\r\n  },\r\n  \"blockers\": [\r\n    \"owner/driver/outer outside actor Job hard memory enforcement\",\r\n    \"observer plus two actors would be active3 in one enclosing Job; active2 not widened\",\r\n    \"new A authorization/operation/guard/staging and runtime gate source absent\",\r\n    \"native ABI/results/handshake length/counterexamples remain unexecuted\",\r\n    \"complete resource/output/serialization-tail closure absent\"\r\n  ],\r\n  \"old_results\": {\r\n    \"C25_normal\": \"FAILED\",\r\n    \"C25_negative\": \"NOT_RUN\",\r\n    \"C24\": \"unchanged failure\",\r\n    \"unknown_5356\": \"unknown; no attribution\"\r\n  },\r\n  \"counts\": {\r\n    \"candidate_imports\": 0,\r\n    \"candidate_executions\": 0,\r\n    \"candidate_native_API_calls\": 0,\r\n    \"identity_collectors\": 0,\r\n    \"actors\": 0,\r\n    \"Jobs\": 0,\r\n    \"cases\": 0,\r\n    \"old_tests\": 0,\r\n    \"models\": 0,\r\n    \"board\": 0\r\n  },\r\n  \"count_scope\": \"Candidate/control identity work only; ordinary administrative Python source processing used OS internals\",\r\n  \"no_patch_applied_to_old_paths\": true,\r\n  \"no_commits_or_index_changes\": true,\r\n  \"no_external_or_thread_messages\": true,\r\n  \"movement_authorized\": false,\r\n  \"formal_acceptance\": false,\r\n  \"active_jobs\": [],\r\n  \"active_subprocesses\": []\r\n}\r\n"
+      },
+      "stderr.raw": {
+        "raw_pin": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "original_UTF8_text": ""
+      }
+    },
+    {
+      "label": "static-01",
+      "exit": {
+        "exit_code": 1,
+        "active_subprocesses": []
+      },
+      "exit_raw_pin": {
+        "bytes": 54,
+        "sha256": "776db20e106af4aa33aff1ae2ffcf6e4d940bfb23987f8699e597c4b5399c42f"
+      },
+      "scope": "administrative text/AST/static work only; not a candidate/control attempt",
+      "argv.json": {
+        "raw_pin": {
+          "bytes": 442,
+          "sha256": "969f716a8b873492d74a4efc72c95bdf5e0d00fd880a40aca3a2ed259c210c37"
+        },
+        "original_UTF8_text": "{\r\n  \"scope\": \"AST/code-object only; no exec/import candidate\",\r\n  \"arguments\": [\r\n    \"-I\",\r\n    \"-S\",\r\n    \"-B\",\r\n    \"-X\",\r\n    \"utf8\",\r\n    \"C:\\\\Users\\\\Alan\\\\Documents\\\\ChatGPT\\\\FPGA\\\\CarlandFPGA-node-c\\\\.local\\\\main-20261015-01a14025\\\\C26-lifecycle-identity-20261029\\\\author\\\\check_static.py\",\r\n    \"static-01\"\r\n  ],\r\n  \"executable\": \"C:\\\\Users\\\\Alan\\\\Documents\\\\ChatGPT\\\\FPGA\\\\CarlandFPGA-node-c\\\\.local\\\\venv\\\\Scripts\\\\python.exe\"\r\n}\r\n"
+      },
+      "stdout.raw": {
+        "raw_pin": {
+          "bytes": 3508,
+          "sha256": "9fb4af0beeaf7bb18ac32db5749daa743b98fda29c96baabcd356ecc90c3f85c"
+        },
+        "original_UTF8_text": "{\r\n  \"kind\": \"source-only administrative static check\",\r\n  \"administrative_python\": \"3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]\",\r\n  \"administrative_python_argv\": [\r\n    \"C:\\\\Users\\\\Alan\\\\Documents\\\\ChatGPT\\\\FPGA\\\\CarlandFPGA-node-c\\\\.local\\\\main-20261015-01a14025\\\\C26-lifecycle-identity-20261029\\\\author\\\\check_static.py\",\r\n    \"static-01\"\r\n  ],\r\n  \"patch_restored_exact\": true,\r\n  \"AST_and_compile_passed\": false,\r\n  \"files\": [\r\n    {\r\n      \"path\": \"base/case_actor.py\",\r\n      \"bytes\": 487,\r\n      \"sha256\": \"17682adb9a79c029da231c2cc0faf2346154a49edad3ddd79890954f4e9e3c78\",\r\n      \"AST\": true,\r\n      \"code_object_compiled\": true,\r\n      \"code_executed\": false,\r\n      \"candidate_imported\": false\r\n    },\r\n    {\r\n      \"path\": \"base/launch_once.py\",\r\n      \"bytes\": 6221,\r\n      \"sha256\": \"4b0bd164b955e93c7a81881690850572a62edef3dc296db299755c6b06b4103d\",\r\n      \"AST\": true,\r\n      \"code_object_compiled\": true,\r\n      \"code_executed\": false,\r\n      \"candidate_imported\": false\r\n    },\r\n    {\r\n      \"path\": \"base/owned_lifecycle.py\",\r\n      \"bytes\": 49610,\r\n      \"sha256\": \"c7063da8cecea366f2f0cced2f1e99357d779b927e3302464a0dc140e6a06b00\",\r\n      \"AST\": true,\r\n      \"code_object_compiled\": true,\r\n      \"code_executed\": false,\r\n      \"candidate_imported\": false\r\n    },\r\n    {\r\n      \"path\": \"base/run_once.py\",\r\n      \"bytes\": 7199,\r\n      \"sha256\": \"791bc253963a3b9bdde737d4696b0340f3681f1274b2f8402c1620e277f129e3\",\r\n      \"AST\": true,\r\n      \"code_object_compiled\": true,\r\n      \"code_executed\": false,\r\n      \"candidate_imported\": false\r\n    },\r\n    {\r\n      \"path\": \"derived/case_actor.py\",\r\n      \"bytes\": 2223,\r\n      \"sha256\": \"648f508e2974ed172bc3dcee8f9857f34d645f881b3bdb3cdd08336c9e39ea93\",\r\n      \"AST\": true,\r\n      \"code_object_compiled\": true,\r\n      \"code_executed\": false,\r\n      \"candidate_imported\": false\r\n    },\r\n    {\r\n      \"path\": \"derived/launch_once.py\",\r\n      \"bytes\": 8404,\r\n      \"sha256\": \"87ae733724a622ee4bebad946aec388e65efc1cc03cd9600b6dd5cc7944bf060\",\r\n      \"AST\": false,\r\n      \"code_object_compiled\": false,\r\n      \"code_executed\": false,\r\n      \"candidate_imported\": false,\r\n      \"error\": {\r\n        \"type\": \"IndentationError\",\r\n        \"line\": 67,\r\n        \"message\": \"unindent does not match any outer indentation level\"\r\n      }\r\n    },\r\n    {\r\n      \"path\": \"derived/owned_lifecycle.py\",\r\n      \"bytes\": 52678,\r\n      \"sha256\": \"a694696a2e2d52a5de03017831eb62b39e8aa3ed1f40c5512937c2ab40cacc37\",\r\n      \"AST\": true,\r\n      \"code_object_compiled\": true,\r\n      \"code_executed\": false,\r\n      \"candidate_imported\": false\r\n    },\r\n    {\r\n      \"path\": \"derived/run_once.py\",\r\n      \"bytes\": 8895,\r\n      \"sha256\": \"512e6a9ed8d4ece1610d1f83ca7473faf8281524dc203aadf7e5fa57c6e1674d\",\r\n      \"AST\": true,\r\n      \"code_object_compiled\": true,\r\n      \"code_executed\": false,\r\n      \"candidate_imported\": false\r\n    },\r\n    {\r\n      \"path\": \"public/identity_capture.py\",\r\n      \"bytes\": 14245,\r\n      \"sha256\": \"59d6db5e066cc246c95b4bab75b5606f024a770016e9dc7317ed05e320a4c896\",\r\n      \"AST\": true,\r\n      \"code_object_compiled\": true,\r\n      \"code_executed\": false,\r\n      \"candidate_imported\": false\r\n    }\r\n  ],\r\n  \"false_ROOT\": true,\r\n  \"runtime_gate_proved_by_execution\": false,\r\n  \"candidate_imports\": 0,\r\n  \"candidate_executions\": 0,\r\n  \"identity_collectors\": 0,\r\n  \"native_API_calls\": 0,\r\n  \"actors\": 0,\r\n  \"Jobs\": 0,\r\n  \"cases\": 0,\r\n  \"active_jobs\": [],\r\n  \"active_subprocesses\": [],\r\n  \"status\": \"static_syntax_failure\"\r\n}\r\n"
+      },
+      "stderr.raw": {
+        "raw_pin": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "original_UTF8_text": ""
+      }
+    },
+    {
+      "label": "static-02",
+      "exit": {
+        "active_subprocesses": [],
+        "exit_code": 0
+      },
+      "exit_raw_pin": {
+        "bytes": 54,
+        "sha256": "08ac490312fb601920adaa56a0baacbccbd9bc7b47091700a26698dff2968b22"
+      },
+      "scope": "administrative text/AST/static work only; not a candidate/control attempt",
+      "argv.json": {
+        "raw_pin": {
+          "bytes": 455,
+          "sha256": "ab5169846d3a944f3f4d86ecad0c3c94e1bfe587d4b44d79b7f29cee9e7743a2"
+        },
+        "original_UTF8_text": "{\r\n  \"executable\": \"C:\\\\Users\\\\Alan\\\\Documents\\\\ChatGPT\\\\FPGA\\\\CarlandFPGA-node-c\\\\.local\\\\venv\\\\Scripts\\\\python.exe\",\r\n  \"arguments\": [\r\n    \"-I\",\r\n    \"-S\",\r\n    \"-B\",\r\n    \"-X\",\r\n    \"utf8\",\r\n    \"C:\\\\Users\\\\Alan\\\\Documents\\\\ChatGPT\\\\FPGA\\\\CarlandFPGA-node-c\\\\.local\\\\main-20261015-01a14025\\\\C26-lifecycle-identity-20261029\\\\author\\\\check_static.py\",\r\n    \"static-02\"\r\n  ],\r\n  \"scope\": \"Final-source AST/code-object only; no exec/import candidate\"\r\n}\r\n"
+      },
+      "stdout.raw": {
+        "raw_pin": {
+          "bytes": 3340,
+          "sha256": "8c364d842dc7cd45b6c17d94c1ae2f5215cb668a4fafadfb0b69b8a2174749df"
+        },
+        "original_UTF8_text": "{\r\n  \"kind\": \"source-only administrative static check\",\r\n  \"administrative_python\": \"3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]\",\r\n  \"administrative_python_argv\": [\r\n    \"C:\\\\Users\\\\Alan\\\\Documents\\\\ChatGPT\\\\FPGA\\\\CarlandFPGA-node-c\\\\.local\\\\main-20261015-01a14025\\\\C26-lifecycle-identity-20261029\\\\author\\\\check_static.py\",\r\n    \"static-02\"\r\n  ],\r\n  \"patch_restored_exact\": true,\r\n  \"AST_and_compile_passed\": true,\r\n  \"files\": [\r\n    {\r\n      \"path\": \"base/case_actor.py\",\r\n      \"bytes\": 487,\r\n      \"sha256\": \"17682adb9a79c029da231c2cc0faf2346154a49edad3ddd79890954f4e9e3c78\",\r\n      \"AST\": true,\r\n      \"code_object_compiled\": true,\r\n      \"code_executed\": false,\r\n      \"candidate_imported\": false\r\n    },\r\n    {\r\n      \"path\": \"base/launch_once.py\",\r\n      \"bytes\": 6221,\r\n      \"sha256\": \"4b0bd164b955e93c7a81881690850572a62edef3dc296db299755c6b06b4103d\",\r\n      \"AST\": true,\r\n      \"code_object_compiled\": true,\r\n      \"code_executed\": false,\r\n      \"candidate_imported\": false\r\n    },\r\n    {\r\n      \"path\": \"base/owned_lifecycle.py\",\r\n      \"bytes\": 49610,\r\n      \"sha256\": \"c7063da8cecea366f2f0cced2f1e99357d779b927e3302464a0dc140e6a06b00\",\r\n      \"AST\": true,\r\n      \"code_object_compiled\": true,\r\n      \"code_executed\": false,\r\n      \"candidate_imported\": false\r\n    },\r\n    {\r\n      \"path\": \"base/run_once.py\",\r\n      \"bytes\": 7199,\r\n      \"sha256\": \"791bc253963a3b9bdde737d4696b0340f3681f1274b2f8402c1620e277f129e3\",\r\n      \"AST\": true,\r\n      \"code_object_compiled\": true,\r\n      \"code_executed\": false,\r\n      \"candidate_imported\": false\r\n    },\r\n    {\r\n      \"path\": \"derived/case_actor.py\",\r\n      \"bytes\": 2223,\r\n      \"sha256\": \"c5c39608e3aec893b12759c65dfe582f02625b449bcade7d41b3e0ea7a4bcf6e\",\r\n      \"AST\": true,\r\n      \"code_object_compiled\": true,\r\n      \"code_executed\": false,\r\n      \"candidate_imported\": false\r\n    },\r\n    {\r\n      \"path\": \"derived/launch_once.py\",\r\n      \"bytes\": 8567,\r\n      \"sha256\": \"4d739708b6a1dbccd12cc31f6d2be0e616bd07b1b37e1d4bb4eca8c30fe0c2e2\",\r\n      \"AST\": true,\r\n      \"code_object_compiled\": true,\r\n      \"code_executed\": false,\r\n      \"candidate_imported\": false\r\n    },\r\n    {\r\n      \"path\": \"derived/owned_lifecycle.py\",\r\n      \"bytes\": 52743,\r\n      \"sha256\": \"26793ba8c79fc5e434c52f58f934088b1c57c7ee7747ed994f8e36df05063b18\",\r\n      \"AST\": true,\r\n      \"code_object_compiled\": true,\r\n      \"code_executed\": false,\r\n      \"candidate_imported\": false\r\n    },\r\n    {\r\n      \"path\": \"derived/run_once.py\",\r\n      \"bytes\": 8895,\r\n      \"sha256\": \"ccf253dbe094b9301902e62e1c8c45ab20f2c3c47d3a94339e5bf2f857e052a4\",\r\n      \"AST\": true,\r\n      \"code_object_compiled\": true,\r\n      \"code_executed\": false,\r\n      \"candidate_imported\": false\r\n    },\r\n    {\r\n      \"path\": \"public/identity_capture.py\",\r\n      \"bytes\": 14528,\r\n      \"sha256\": \"af187ba1d700e0a6f15ff06a5d852d6a08092fb21e0330e4c7a32367ce90dc6a\",\r\n      \"AST\": true,\r\n      \"code_object_compiled\": true,\r\n      \"code_executed\": false,\r\n      \"candidate_imported\": false\r\n    }\r\n  ],\r\n  \"false_ROOT\": true,\r\n  \"runtime_gate_proved_by_execution\": false,\r\n  \"candidate_imports\": 0,\r\n  \"candidate_executions\": 0,\r\n  \"identity_collectors\": 0,\r\n  \"native_API_calls\": 0,\r\n  \"actors\": 0,\r\n  \"Jobs\": 0,\r\n  \"cases\": 0,\r\n  \"active_jobs\": [],\r\n  \"active_subprocesses\": [],\r\n  \"status\": \"static_pass_only\"\r\n}\r\n"
+      },
+      "stderr.raw": {
+        "raw_pin": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "original_UTF8_text": ""
+      }
+    }
+  ],
+  "main_administrative_release_verification_attempts": [
+    {
+      "name": "phase3-root-verification.actual-tool-return.json",
+      "raw_pin": {
+        "bytes": 636,
+        "sha256": "6650cdb85b430a332d53b8edfc901c344b43165bb3e4c03c8c96600b916a7de3"
+      },
+      "original_UTF8_text": "{\n  \"chunk_id\": \"09f724\",\n  \"wall_time_seconds\": 0.6414465,\n  \"exit_code\": 1,\n  \"original_token_count\": 122,\n  \"output\": \"Traceback (most recent call last):\\r\\n  File \\\"C:\\\\Users\\\\Alan\\\\Documents\\\\ChatGPT\\\\FPGA\\\\CarlandFPGA-node-c\\\\.local\\\\main-20261015-01a14025\\\\C26-lifecycle-identity-20261029\\\\main\\\\verify_phase3_and_accept_static.py\\\", line 21, in <module>\\r\\n    assert m['source_approved'] is True and m['material_source_blockers']==[] and m['execution_authorized'] is False\\r\\n                                                                                  ~^^^^^^^^^^^^^^^^^^^^^^^^\\r\\nKeyError: 'execution_authorized'\\r\\n\"\n}\n",
+      "scope": "Release-manifest metadata verification only. The first two adapter versions failed on differing reviewer report formats (missing optional execution_authorized manifest field; absent report.json where report.md/manifest carry findings), each exit1 before any state/product write. Authoritative releases explicitly deny execution. Final adapter exit is retained separately. No attempt imported/executed candidate or ran control."
+    },
+    {
+      "name": "phase3-root-verification-v2.actual-tool-return.json",
+      "raw_pin": {
+        "bytes": 1634,
+        "sha256": "5ff40881f9391f2a8c503420b15c42f2b88abb31d76c42c22f7f7c51cb23a608"
+      },
+      "original_UTF8_text": "{\n  \"chunk_id\": \"4022d4\",\n  \"wall_time_seconds\": 0.6292264,\n  \"exit_code\": 1,\n  \"original_token_count\": 352,\n  \"output\": \"Traceback (most recent call last):\\r\\n  File \\\"C:\\\\Users\\\\Alan\\\\Documents\\\\ChatGPT\\\\FPGA\\\\CarlandFPGA-node-c\\\\.local\\\\main-20261015-01a14025\\\\C26-lifecycle-identity-20261029\\\\main\\\\verify_phase3_and_accept_static.py\\\", line 35, in <module>\\r\\n    'release':pin(b/'release.json'),'report_md':pin(b/'report.md'),'report_json':pin(b/'report.json'),\\r\\n                                                                                 ^^^^^^^^^^^^^^^^^^^^\\r\\n  File \\\"C:\\\\Users\\\\Alan\\\\Documents\\\\ChatGPT\\\\FPGA\\\\CarlandFPGA-node-c\\\\.local\\\\main-20261015-01a14025\\\\C26-lifecycle-identity-20261029\\\\main\\\\verify_phase3_and_accept_static.py\\\", line 9, in pin\\r\\n    b=p.read_bytes();return {'bytes':len(b),'sha256':hashlib.sha256(b).hexdigest()}\\r\\n      ^^^^^^^^^^^^^^\\r\\n  File \\\"C:\\\\Users\\\\Alan\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\python\\\\Lib\\\\pathlib.py\\\", line 1019, in read_bytes\\r\\n    with self.open(mode='rb') as f:\\r\\n         ^^^^^^^^^^^^^^^^^^^^\\r\\n  File \\\"C:\\\\Users\\\\Alan\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\python\\\\Lib\\\\pathlib.py\\\", line 1013, in open\\r\\n    return io.open(self, mode, buffering, encoding, errors, newline)\\r\\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\r\\nFileNotFoundError: [Errno 2] No such file or directory: 'C:\\\\\\\\Users\\\\\\\\Alan\\\\\\\\Documents\\\\\\\\ChatGPT\\\\\\\\FPGA\\\\\\\\CarlandFPGA-node-c\\\\\\\\.local\\\\\\\\main-20261015-01a14025\\\\\\\\C26-lifecycle-identity-20261029\\\\\\\\resource-review\\\\\\\\phase3\\\\\\\\report.json'\\r\\n\"\n}\n",
+      "scope": "Release-manifest metadata verification only. The first two adapter versions failed on differing reviewer report formats (missing optional execution_authorized manifest field; absent report.json where report.md/manifest carry findings), each exit1 before any state/product write. Authoritative releases explicitly deny execution. Final adapter exit is retained separately. No attempt imported/executed candidate or ran control."
+    },
+    {
+      "name": "phase3-root-verification-v3.actual-tool-return.json",
+      "raw_pin": {
+        "bytes": 416,
+        "sha256": "efc4ed710ee7c3d111cd44ff226722da5e3aa2ab56d58cab85bd4df2e8f8d370"
+      },
+      "original_UTF8_text": "{\n  \"chunk_id\": \"eabeeb\",\n  \"wall_time_seconds\": 0.5867081,\n  \"exit_code\": 0,\n  \"original_token_count\": 68,\n  \"output\": \"{\\\"actual_FINAL_releases_verified\\\": 2, \\\"input_and_artifact_rows\\\": [51, 39], \\\"row_groups\\\": [{\\\"original_inputs\\\": 40, \\\"own_artifacts\\\": 11}, {\\\"artifacts\\\": 6, \\\"input_pins\\\": 33}], \\\"source_approved_static_only\\\": true, \\\"candidate_executions\\\": 0, \\\"execution_authorized\\\": false}\\r\\n\"\n}\n",
+      "scope": "Release-manifest metadata verification only. The first two adapter versions failed on differing reviewer report formats (missing optional execution_authorized manifest field; absent report.json where report.md/manifest carry findings), each exit1 before any state/product write. Authoritative releases explicitly deny execution. Final adapter exit is retained separately. No attempt imported/executed candidate or ran control."
+    }
+  ],
+  "author_version1_freeze": {
+    "bytes": 12983,
+    "sha256": "9eaac7401c9c954680bf91fdac378e8ef490be102d5374ea7f6e87cbb4d6392d"
+  },
+  "author_version1_release": {
+    "bytes": 1147,
+    "sha256": "404be110548b759b649834beccfa0c3c0af0cf86c359b7f18c6abbc23967d492"
+  },
+  "version_scope": "Author v1 static failures/fixes and blocked source review remain original evidence; final source pins and final reviewed delta are distinct. No candidate was imported or executed in any version.",
+  "readonly_file_metadata": {
+    "operation_id": "C-DEEPEYE-OWNED-LIFECYCLE-IDENTITY-20261029-26",
+    "source_only": true,
+    "source_configuration": {
+      "path": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\main-20261015-01a14025\\C25-owned-lifecycle-20261029\\main\\configuration-v2.json",
+      "sha256": "c0eb1c5037b58336ecd94c8b42b9de58a2c39063b1ac3c050abd64ae2c2ba305"
+    },
+    "explicit_files": [
+      {
+        "label": "configured_target_PE",
+        "path": "C:\\Users\\Alan\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+        "discovery": "explicit fixed path; no directory or process scan",
+        "exists": true,
+        "bytes": 107312,
+        "sha256": "4623dc531b0883c3e714da5cb30e9b73e12aa5145f0d92c7b191ab1dcf699dfe",
+        "MZ": true,
+        "e_lfanew": 248,
+        "PE_signature": true,
+        "COFF_machine_hex": "0x8664",
+        "section_count": 6
+      },
+      {
+        "label": "target_sibling_pyvenv_cfg",
+        "path": "C:\\Users\\Alan\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\pyvenv.cfg",
+        "discovery": "explicit fixed path; no directory or process scan",
+        "exists": false,
+        "sha256": null,
+        "reason": "missing at this explicit path; no fallback or replacement selected"
+      },
+      {
+        "label": "target_parent_pyvenv_cfg",
+        "path": "C:\\Users\\Alan\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\pyvenv.cfg",
+        "discovery": "explicit fixed path; no directory or process scan",
+        "exists": false,
+        "sha256": null,
+        "reason": "missing at this explicit path; no fallback or replacement selected"
+      },
+      {
+        "label": "explicit_adjacent_python_DLL",
+        "path": "C:\\Users\\Alan\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python312.dll",
+        "discovery": "explicit fixed path; no directory or process scan",
+        "exists": true,
+        "bytes": 6985520,
+        "sha256": "9930d881ee11a91f7fd43ab28d5305194fbd2f88ea4a07661453c6885f409afd",
+        "MZ": true,
+        "e_lfanew": 256,
+        "PE_signature": true,
+        "COFF_machine_hex": "0x8664",
+        "section_count": 7
+      },
+      {
+        "label": "historical_venv_cfg",
+        "path": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\venv\\pyvenv.cfg",
+        "discovery": "explicit fixed path; no directory or process scan",
+        "exists": true,
+        "bytes": 422,
+        "sha256": "d045df60bb46a15631da8a7f6b8626ecad385091c141bcc5a049a1f9a41ed20c"
+      }
+    ],
+    "candidate_imports": 0,
+    "native_API_calls": 0,
+    "actor_Job_cases": 0,
+    "target_behavior_probes": 0,
+    "interpretation": "File paths, MZ/PE headers, SHA256, DLL names, config home/version and import tables cannot independently establish runtime launch behavior, original process identity/ancestry or the old unknown Job member. No import table behavior inference is made.",
+    "header_reference": "https://learn.microsoft.com/en-us/windows/win32/debug/pe-format",
+    "observed_utc": "2026-10-28T21:55:52.084589+00:00"
+  },
+  "readonly_file_metadata_original_pin": {
+    "bytes": 3515,
+    "sha256": "799075501fa8b51fcdefaaa16ffc3a61f1ea90c27efbed67bdf47482c18e031f"
+  },
+  "outer_channel_design_addendum": {
+    "source": "C25 original private launch_once.py byte read, also embedded in original EVIDENCE",
+    "original_supervisor_source_sha256": "4b0bd164b955e93c7a81881690850572a62edef3dc296db299755c6b06b4103d",
+    "outer_channel": "stdout and stderr are original opened file handles, not PIPE. Actor alone uses CreatePipe.",
+    "binding_scope": "Preserve exact original file channel + nonce + original Popen HANDLE/self matching. Matching is not independent every-byte physical-writer or ancestry proof. Any future change to PIPE must be explicit new source delta, never asserted as old evidence.",
+    "new_execution_authorized": false
+  },
+  "source_only_limitations": [
+    "No A execution authorization, fresh operation/guard or executable authorization source revision exists. Unconditional refusal remains even after flag changes.",
+    "Owner/driver/outer per-process hard limits and complete command lifetime resource/output budget closure are absent; sampling is not hard enforcement and active2 cannot silently expand.",
+    "Native identity API behavior, channel handshake/size adequacy, runtime binding and original normal/negative gates remain unexecuted.",
+    "Unchanged patch deliberately retains the v1 helper pin af187ba1d700e0a6f15ff06a5d852d6a08092fb21e0330e4c7a32367ce90dc6a while reviewed helper v2 is 5e838785110c1428251a5a3e2e75c753637e7f501e1c4b5eec09fc4c8a3c654d. All current paths refuse before that pin/import. Future source revision must close the entire staging/pin set as well as owner limits; this proposal is not runnable."
+  ],
+  "runtime_results": {
+    "current_self_native_identity": "not_run",
+    "original_Create_HANDLE_identity": "not_run",
+    "Popen_observer_match": "not_run",
+    "actor_handshake": "not_run",
+    "normal_natural_Job0": "not_run",
+    "owned_residual_negative": "not_run",
+    "whole_owner_hard_limits": "blocked",
+    "P95_both_full_H12_and_formal_acceptance": "not_run/incomplete"
+  },
+  "historical_C25": {
+    "source": "f38d5e0878c5330854a1b2f3299034fe5cc25679",
+    "head": "49891be026a0b51e201b79fd67e488c48930a45d",
+    "request": "489992f19956450b36b9efad1488ba7653235f3751936f79330af563d2a41f2b",
+    "manifest_raw_SHA256": "1bce2af165f1e7d17b56f7bd70666c240d80875f8163dfe58f1a084f334dee12",
+    "normal": "FAILED job_membership_unknown",
+    "negative": "NOT RUN",
+    "original_driver_and_actual_tool_exit": 1,
+    "remaining_member_identity": null,
+    "remaining_PID_annotation": 5356,
+    "C24_cause_or_process_attribution": null,
+    "A_acceptance": "failed-handoff identity/evidence only; no runtime or C24 resource upgrade",
+    "A_private_review_SHA256_reported": "bdcf7387f9da616e6f1f0f762c0079d777af3ed60f8c2cbb1a06551c6fe8cf4b",
+    "A_private_raw_report_opened_by_C": false
+  },
+  "old_C24_resource_and_full_validation": "FAILED remains",
+  "formal_acceptance": false
+}

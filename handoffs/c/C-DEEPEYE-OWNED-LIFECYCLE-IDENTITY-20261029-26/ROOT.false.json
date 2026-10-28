@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "operation_id": "C-DEEPEYE-OWNED-LIFECYCLE-IDENTITY-20261029-26",
+  "source_only": true,
+  "enabled": false,
+  "execution_authorized": false,
+  "nonce": null,
+  "fresh_operation_id": null,
+  "fresh_guard": null,
+  "independent_A_authorization_ref": null,
+  "owner_hard_limit_closure": false,
+  "future_source_directory": null,
+  "future_work_directory": null,
+  "future_raw_directory": null,
+  "future_configuration": null,
+  "blockers": [
+    "C26 permits source review only; zero candidate imports, probes or cases",
+    "New independent A execution authorization and a fresh operation/guard do not exist",
+    "Current observer and outer supervisor are outside the actor Job hard limits",
+    "No complete hard memory/whole-command resource closure has been established",
+    "Future staging, source/config pins and entry authorization require another reviewed source revision"
+  ],
+  "future_plan_only": {
+    "whole_command_seconds": 30,
+    "process_bytes": 536870912,
+    "actor_job_bytes": 1073741824,
+    "actor_job_active_limit": 2,
+    "output_bytes": 1048576,
+    "case_attempts": 1
+  },
+  "movement_authorized": false,
+  "formal_acceptance": false
+}

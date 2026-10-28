@@ -1,0 +1,394 @@
+--- a/owned_lifecycle.py
++++ b/owned_lifecycle.py
+@@ -26,6 +26,34 @@
+ _USED = False
+ 
+ 
++def _identity():
++    import importlib.util
++    import sys
++    root_path = Path(__file__).with_name('ROOT.false.json')
++    with root_path.open('rb') as stream:
++        root_raw = stream.read(8193)
++    if len(root_raw) > 8192:
++        raise RuntimeError('C26_ROOT_bound')
++    root = json.loads(root_raw)
++    if type(root) is not dict or root.get('enabled') is not True or root.get('execution_authorized') is not True:
++        raise RuntimeError('C26_SOURCE_ONLY_execution_forbidden')
++    # No future authorization/owner-hard-limit validator exists in this release.
++    raise RuntimeError('C26_SOURCE_ONLY_requires_new_reviewed_source_revision')
++    # Unreachable future proposal; included for exact-source review only.
++    helper = Path(__file__).with_name('identity_capture.py')
++    with helper.open('rb') as stream:
++        raw = stream.read(32769)
++    if len(raw) > 32768 or hashlib.sha256(raw).hexdigest() != 'af187ba1d700e0a6f15ff06a5d852d6a08092fb21e0330e4c7a32367ce90dc6a':
++        raise RuntimeError('C26_helper_source_pin')
++    spec = importlib.util.spec_from_file_location('c26_identity_capture', helper)
++    if spec is None:
++        raise RuntimeError('C26_helper_spec')
++    module = importlib.util.module_from_spec(spec)
++    exec(compile(raw, str(helper), 'exec'), module.__dict__)
++    module.require_root()
++    return module
++
++
+ class ObservationError(ValueError):
+     pass
+ 
+@@ -75,6 +103,7 @@
+ class _API:
+     """Fixed Win64 ABI, loaded only inside the authorized invocation."""
+     def __init__(self):
++        _identity()  # before any native library/API setup
+         import ctypes as c
+         self.c = c
+         if c.sizeof(c.c_void_p) != 8:
+@@ -151,6 +180,7 @@
+ 
+ class _Case:
+     def __init__(self, api, events, name, directory, base, actor, work_deadline, hard_deadline):
++        _identity()  # direct case construction is also disabled
+         self.a, self.c, self.log = api, api.c, events
+         self.name, self.directory, self.base, self.actor = name, directory, base, actor
+         self.work_deadline, self.hard_deadline = work_deadline, hard_deadline
+@@ -326,7 +356,7 @@
+             startup.StartupInfo.hStdInput = member['stdin']
+             startup.StartupInfo.hStdOutput = startup.StartupInfo.hStdError = member['write'].value
+             startup.lpAttributeList = self.c.cast(buffer, self.c.c_void_p)
+-            argv = [str(self.base), '-I', '-S', '-B', '-X', 'utf8', str(self.actor), role]
++            argv = [str(self.base), '-I', '-S', '-B', '-X', 'utf8', str(self.actor), role, self.name]
+             command_line = self.c.create_unicode_buffer(' '.join('"' + item + '"' for item in argv))
+             # PI is already in self.actors; do not gate cleanup on returned/created.
+             self.c.set_last_error(0)
+@@ -339,6 +369,13 @@
+                          parentage='direct child of observer; not a child of primary')
+             if not returned or not member['pi'].hProcess or not member['pi'].hThread:
+                 raise ObservationError('create_process')
++            member['original_identity'] = _identity().capture_original_handle(
++                member['pi'].hProcess, 'original_CreateProcessW')
++            self.log.add(self.name, 'original_Create_HANDLE_identity_before_Assign_and_Resume',
++                         role=role, identity=member['original_identity'])
++            if (not member['original_identity']['complete']
++                    or member['original_identity']['pid'] != member['pi'].dwProcessId):
++                raise ObservationError('original_Create_HANDLE_identity_unknown_or_mismatch')
+         finally:
+             if initialized and not delete_attempted:
+                 delete_attempted = True
+@@ -415,12 +452,23 @@
+         for _index in range(21):
+             self._budget()
+             self._drain(member)
+-            if bytes(member['data']) == EXPECTED_LINES['owned-residual']:
++            if _identity().actor_ready(bytes(member['data']), member['original_identity'],
++                                       role=member['role'], case=self.name):
+                 return
+             if time.monotonic() >= deadline:
+                 break
+             time.sleep(min(0.1, max(0, deadline - time.monotonic())))
+         raise ObservationError('residual_line_deadline')
++
++    def _actor_identity(self, member):
++        try:
++            matched = _identity().actor_stream(bytes(member['data']), member['original_identity'],
++                                              role=member['role'], case=self.name)
++            member['handshake'] = matched
++            return True
++        except BaseException as exc:
++            member['handshake'] = dict(matched=False, error_type=type(exc).__name__)
++            return False
+ 
+     def _cleanup(self):
+         # Cleanup never depends on created/assigned Python flags: original PI
+@@ -513,13 +561,15 @@
+                                     exact_total_known=exact_output,
+                                     streams=[dict(role=member['role'], path=str(member['sink_path']),
+                                                   bytes=len(member['data']), sha256=hashlib.sha256(member['data']).hexdigest(),
+-                                                  eof=member['eof'], exact_expected_line=bytes(member['data']) == EXPECTED_LINES[member['role']])
++                                                  eof=member['eof'], exact_expected_line=self._actor_identity(member))
+                                              for member in self.actors])
+         self.result['owned_members'] = [dict(role=member['role'], pid=member['pi'].dwProcessId,
+                                               process_handle=member['pi'].hProcess, thread_handle=member['pi'].hThread,
+                                               assigned_before_resume=member['assigned'], resumed=member['resumed'],
+                                               original_handle_signaled=member['signaled'], exit_code=member['exit_code'],
+-                                              parentage='direct child of observer') for member in self.actors]
++                                              parentage='direct child of observer',
++                                              original_identity=member.get('original_identity'),
++                                              actor_handshake=member.get('handshake')) for member in self.actors]
+ 
+     def run(self):
+         gate = rejected = False
+@@ -625,6 +675,7 @@
+ 
+ 
+ def _owner_memory(api, log, phase):
++    _identity()  # close direct current-self native helper entry
+     c = api.c
+     handle = api.GetCurrentProcess()  # this process pseudo HANDLE only, never OpenProcess/PID
+     counters = api.MEMORY()
+@@ -649,7 +700,7 @@
+     base_bytes, base_sha, magic = _hash_file(base, 64 * 1024 * 1024)
+     if base_sha != expected_base_sha256 or magic != b'MZ' or base.suffix.lower() != '.exe':
+         raise ObservationError('base_PE_pin')
+-    names = {'owned_lifecycle.py', 'case_actor.py', 'README.md', 'run_once.py'}
++    names = {'owned_lifecycle.py', 'case_actor.py', 'README.md', 'run_once.py', 'identity_capture.py', 'ROOT.false.json'}
+     if type(expected_source_pins) is not dict or expected_source_pins.keys() != names:
+         raise ObservationError('source_pin_fields')
+     package = _plain_path(Path(__file__)).parent
+@@ -670,12 +721,15 @@
+                                                base_sha256=base_sha, sources=sources)
+ 
+ 
+-def run_batch(*, base_python: Path, expected_base_sha256: str, output: Path, expected_source_pins: dict) -> dict:
++def run_batch(*, base_python: Path, expected_base_sha256: str, output: Path, expected_source_pins: dict, observer_identity_context=None) -> dict:
+     """Root-only single invocation: two new cases, at most one attempt each."""
++    identity = _identity()  # first action: rejects before identity/Job/native APIs
++    if type(observer_identity_context) is not dict:
++        raise ObservationError('observer_identity_context_missing')
+     global _USED
+     started_ns, started = time.monotonic_ns(), time.monotonic()
+     log = _Events(started_ns)
+-    result = dict(schema_version=1, operation_id='C-DEEPEYE-OWNED-LIFECYCLE-EVIDENCE-20261029-25',
++    result = dict(schema_version=1, operation_id='C26_FUTURE_OPERATION_NOT_AUTHORIZED',
+                   all_cases_passed=False, status='blocked', cases=[],
+                   budgets=dict(observer_wall_seconds=24, outer_wall_seconds=30, cleanup_reserve_seconds=4,
+                                actor_process_commit_bytes=PROCESS_LIMIT, actor_job_commit_bytes=JOB_LIMIT,
+@@ -704,6 +758,7 @@
+         work_deadline = hard_deadline - CLEANUP_RESERVE_SECONDS
+         if time.monotonic() >= work_deadline:
+             raise ObservationError('preflight_deadline')
++        result['evidence']['observer_self'] = observer_identity_context
+         api = _API()
+         log.add('observer', 'ABI_sizes', sizes=api.sizes)
+         initial_memory = _owner_memory(api, log, 'before_cases')
+--- a/case_actor.py
++++ b/case_actor.py
+@@ -1,14 +1,53 @@
+ """Two fixed C25 actors, no child creation or product imports."""
+ import sys
+ import time
++import hashlib
++import json
++from pathlib import Path
++
++def _identity():
++    import importlib.util
++    import sys
++    root_path = Path(__file__).with_name('ROOT.false.json')
++    with root_path.open('rb') as stream:
++        root_raw = stream.read(8193)
++    if len(root_raw) > 8192:
++        raise RuntimeError('C26_ROOT_bound')
++    root = json.loads(root_raw)
++    if type(root) is not dict or root.get('enabled') is not True or root.get('execution_authorized') is not True:
++        raise RuntimeError('C26_SOURCE_ONLY_execution_forbidden')
++    # No future authorization/owner-hard-limit validator exists in this release.
++    raise RuntimeError('C26_SOURCE_ONLY_requires_new_reviewed_source_revision')
++    # Unreachable future proposal; included for exact-source review only.
++    helper = Path(__file__).with_name('identity_capture.py')
++    with helper.open('rb') as stream:
++        raw = stream.read(32769)
++    if len(raw) > 32768 or hashlib.sha256(raw).hexdigest() != 'af187ba1d700e0a6f15ff06a5d852d6a08092fb21e0330e4c7a32367ce90dc6a':
++        raise RuntimeError('C26_helper_source_pin')
++    spec = importlib.util.spec_from_file_location('c26_identity_capture', helper)
++    if spec is None:
++        raise RuntimeError('C26_helper_spec')
++    module = importlib.util.module_from_spec(spec)
++    exec(compile(raw, str(helper), 'exec'), module.__dict__)
++    module.require_root()
++    return module
++
++
+ 
+ 
+ def main():
+-    if sys.argv[1:] == ['primary']:
++    identity = _identity()  # no self probe/output/sleep before disabled gate
++    if len(sys.argv) != 3 or sys.argv[2] not in ('normal', 'owned-residual'):
++        return 2
++    role, case = sys.argv[1:]
++    if role not in ('primary', 'owned-residual') or (role == 'owned-residual' and case != role):
++        return 2
++    identity.emit_current(role=role, case=case)
++    if role == 'primary':
+         sys.stdout.buffer.write(b'C25_PRIMARY\n')
+         sys.stdout.buffer.flush()
+         return 0
+-    if sys.argv[1:] == ['owned-residual']:
++    if role == 'owned-residual':
+         sys.stdout.buffer.write(b'C25_OWNED_RESIDUAL\n')
+         sys.stdout.buffer.flush()
+         time.sleep(15.0)
+--- a/run_once.py
++++ b/run_once.py
+@@ -10,9 +10,38 @@
+ import sys
+ import time
+ 
+-OPERATION = 'C-DEEPEYE-OWNED-LIFECYCLE-EVIDENCE-20261029-25'
++OPERATION = 'C26_FUTURE_OPERATION_NOT_AUTHORIZED'
++
++def _identity():
++    import importlib.util
++    import sys
++    root_path = Path(__file__).with_name('ROOT.false.json')
++    with root_path.open('rb') as stream:
++        root_raw = stream.read(8193)
++    if len(root_raw) > 8192:
++        raise RuntimeError('C26_ROOT_bound')
++    root = json.loads(root_raw)
++    if type(root) is not dict or root.get('enabled') is not True or root.get('execution_authorized') is not True:
++        raise RuntimeError('C26_SOURCE_ONLY_execution_forbidden')
++    # No future authorization/owner-hard-limit validator exists in this release.
++    raise RuntimeError('C26_SOURCE_ONLY_requires_new_reviewed_source_revision')
++    # Unreachable future proposal; included for exact-source review only.
++    helper = Path(__file__).with_name('identity_capture.py')
++    with helper.open('rb') as stream:
++        raw = stream.read(32769)
++    if len(raw) > 32768 or hashlib.sha256(raw).hexdigest() != 'af187ba1d700e0a6f15ff06a5d852d6a08092fb21e0330e4c7a32367ce90dc6a':
++        raise RuntimeError('C26_helper_source_pin')
++    spec = importlib.util.spec_from_file_location('c26_identity_capture', helper)
++    if spec is None:
++        raise RuntimeError('C26_helper_spec')
++    module = importlib.util.module_from_spec(spec)
++    exec(compile(raw, str(helper), 'exec'), module.__dict__)
++    module.require_root()
++    return module
++
++
+ CASES = ['normal_primary_to_Job0', 'owned_residual_rejected_and_cleaned']
+-SOURCES = {'owned_lifecycle.py', 'case_actor.py', 'README.md', 'run_once.py'}
++SOURCES = {'owned_lifecycle.py', 'case_actor.py', 'README.md', 'run_once.py', 'identity_capture.py', 'ROOT.false.json'}
+ LIMITS = {'aggregate_wall_seconds': 30, 'observer_budget_seconds': 24,
+           'process_commit_bytes': 536870912, 'job_commit_bytes': 1073741824,
+           'total_output_bytes': 1048576, 'max_cases': 2, 'attempts_per_case': 1}
+@@ -41,7 +70,7 @@
+ 
+ def source_identity(here: Path, expected: dict) -> dict:
+     if set(expected) != SOURCES:
+-        raise ValueError('Exactly four new C25 source pins are required')
++        raise ValueError('Exactly six future staging source/config pins are required')
+     observed = {}
+     for name in sorted(SOURCES):
+         raw = read_bounded(here/name, 98304)
+@@ -52,6 +81,7 @@
+ 
+ 
+ def main() -> int:
++    identity = _identity()  # before candidate observer import, self probe or Job
+     parser = argparse.ArgumentParser(description=__doc__)
+     parser.add_argument('--configuration', type=Path, required=True)
+     parser.add_argument('--configuration-sha256', required=True)
+@@ -90,7 +120,9 @@
+         write_json(output/'driver-intent.json', {'operation_id': OPERATION, 'configuration': config,
+                                               'configuration_sha256': args.configuration_sha256,
+                                               'original_argv': sys.argv, 'cases_started': 0})
+-        spec = importlib.util.spec_from_file_location('c25_owned_lifecycle', here/'owned_lifecycle.py')
++        observer_self = identity.emit_current(role='observer', case='batch')
++        write_json(output/'observer-self-identity.json', observer_self)
++        spec = importlib.util.spec_from_file_location('c26_future_owned_lifecycle', here/'owned_lifecycle.py')
+         if spec is None or spec.loader is None:
+             raise RuntimeError('Cannot load the pinned new observer source')
+         module = importlib.util.module_from_spec(spec)
+@@ -99,7 +131,8 @@
+         observer_output = output/'observer-raw'
+         observer_output.mkdir(exist_ok=False)
+         report = module.run_batch(base_python=base, expected_base_sha256=config['base_sha256'],
+-                                  output=observer_output, expected_source_pins=config['source_pins'])
++                                  output=observer_output, expected_source_pins=config['source_pins'],
++                                  observer_identity_context=observer_self)
+         write_json(output/'observer-result.json', report)
+         source_identity(here, config['source_pins'])
+         files = [p for p in output.rglob('*') if p.is_file()]
+--- a/launch_once.py
++++ b/launch_once.py
+@@ -1,10 +1,40 @@
+ """Ordinary root supervisor of the fixed new C25 batch; not a polling model."""
+ from pathlib import Path
+ import datetime as dt,hashlib,json,subprocess,time
++
++def _identity():
++    import importlib.util
++    import sys
++    root_path = Path(__file__).with_name('ROOT.false.json')
++    with root_path.open('rb') as stream:
++        root_raw = stream.read(8193)
++    if len(root_raw) > 8192:
++        raise RuntimeError('C26_ROOT_bound')
++    root = json.loads(root_raw)
++    if type(root) is not dict or root.get('enabled') is not True or root.get('execution_authorized') is not True:
++        raise RuntimeError('C26_SOURCE_ONLY_execution_forbidden')
++    # No future authorization/owner-hard-limit validator exists in this release.
++    raise RuntimeError('C26_SOURCE_ONLY_requires_new_reviewed_source_revision')
++    # Unreachable future proposal; included for exact-source review only.
++    helper = Path(__file__).with_name('identity_capture.py')
++    with helper.open('rb') as stream:
++        raw = stream.read(32769)
++    if len(raw) > 32768 or hashlib.sha256(raw).hexdigest() != 'af187ba1d700e0a6f15ff06a5d852d6a08092fb21e0330e4c7a32367ce90dc6a':
++        raise RuntimeError('C26_helper_source_pin')
++    spec = importlib.util.spec_from_file_location('c26_identity_capture', helper)
++    if spec is None:
++        raise RuntimeError('C26_helper_spec')
++    module = importlib.util.module_from_spec(spec)
++    exec(compile(raw, str(helper), 'exec'), module.__dict__)
++    module.require_root()
++    return module
++
++
++identity = _identity()  # before config/raw writes, Popen, native collector
+ ROOT=Path(r'C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c')
+-WORK=ROOT/'.local/main-20261015-01a14025/C25-owned-lifecycle-20261029'
+-MAIN=WORK/'main';PRODUCT=ROOT/'.local/deepeye-implementation-c/handoffs/c/C-DEEPEYE-OWNED-LIFECYCLE-EVIDENCE-20261029-25'
+-RUN=MAIN/'control-run-v1';CONFIG=MAIN/'configuration-v2.json'
++WORK=Path(identity.require_root()['future_work_directory'])
++MAIN=WORK/'main';PRODUCT=Path(identity.require_root()['future_source_directory'])
++RUN=Path(identity.require_root()['future_raw_directory']);CONFIG=Path(identity.require_root()['future_configuration'])
+ def sha(raw):return hashlib.sha256(raw).hexdigest()
+ def save(path,obj):
+     with path.open('xb') as f:f.write((json.dumps(obj,ensure_ascii=False,indent=2)+'\n').encode())
+@@ -28,12 +58,16 @@
+  'original_wait_implementation':'local Python subprocess Windows _wait uses retained _handle, WaitForSingleObject/GetExitCodeProcess; terminate uses same original _handle',
+  'created_utc':dt.datetime.now(dt.timezone.utc).isoformat()})
+ started=time.monotonic();timed_out=False;termination=None
+-proc=None;original_handle=None;code=None;execution_error=None;cleanup_error=None
++proc=None;original_handle=None; original_identity=None; observer_binding=None; code=None;execution_error=None;cleanup_error=None
+ try:
+     with (RUN/'stdout.txt').open('xb') as out,(RUN/'stderr.txt').open('xb') as err:
+         proc=subprocess.Popen(argv,cwd=ROOT,stdout=out,stderr=err,stdin=subprocess.DEVNULL,
+                               creationflags=subprocess.CREATE_NO_WINDOW,close_fds=True)
+         original_handle=int(proc._handle)
++        original_identity=identity.capture_original_handle(original_handle, 'original_Popen')
++        save(RUN/'original-popen-native-identity.json',original_identity)
++        if not original_identity['complete'] or original_identity['pid'] != proc.pid:
++            raise RuntimeError('original_Popen_HANDLE_identity_unknown_or_mismatch')
+         save(RUN/'original-popen-created.json',{'original_Popen_pid':proc.pid,'original_Popen_handle':original_handle,
+              'pid_used_as_annotation_only':True,'no_OpenProcess_or_PID_scan':True,'create_elapsed_seconds':time.monotonic()-started})
+         code=proc.wait(timeout=max(.001,26-(time.monotonic()-started)))
+@@ -48,6 +82,13 @@
+             code=proc.wait(timeout=max(0,min(3,29-(time.monotonic()-started))))
+         except BaseException as exc:
+             cleanup_error={'type':type(exc).__name__,'message':str(exc)[:400]}
++identity_binding_error=None
++try:
++    if proc is not None and code is not None and original_identity is not None:
++        observer_binding=identity.observer_channel(RUN/'stdout.txt',original_identity)
++        save(RUN/'observer-original-file-binding.json',observer_binding)
++except BaseException as exc:
++    identity_binding_error={'type':type(exc).__name__,'message':str(exc)[:400]}
+ elapsed=time.monotonic()-started
+ close_record={'handle':original_handle,'after_original_wait_returned':code is not None}
+ try:
+@@ -68,12 +109,12 @@
+         files.append({'path':path.relative_to(RUN).as_posix(),'bytes':size,
+                       'sha256':sha(path.read_bytes()) if size<=1048576 else None})
+ measured_output_bytes=sum(row['bytes'] for row in files)
+-good=(code==0 and execution_error is None and cleanup_error is None and not timed_out and elapsed<=30 and measured_output_bytes<=1000000
++good=(observer_binding is not None and observer_binding['matched'] is True and identity_binding_error is None and code==0 and execution_error is None and cleanup_error is None and not timed_out and elapsed<=30 and measured_output_bytes<=1000000
+       and close_record.get('returned_without_exception') is True and close_record.get('python_handle_closed_flag') is True)
+ result={'operation_id':config['operation_id'],'argv':argv,'cwd':str(ROOT),'original_Popen_pid':proc.pid if proc is not None else None,
+  'original_Popen_handle':original_handle,'original_process_wait_returned':code is not None,'original_process_exit_code':code,
+  'original_handle_close':close_record,'termination_request':termination,'timeout':timed_out,
+- 'execution_error':execution_error,'cleanup_error':cleanup_error,
++ 'execution_error':execution_error,'identity_binding_error':identity_binding_error,'cleanup_error':cleanup_error,
+  'cleanup_unknown':code is None,
+  'complete_original_command_wall_seconds':elapsed,
+  'wall_scope':'from before original Popen to original process exit and raw streams close; final supervisor metadata serialization excluded',
