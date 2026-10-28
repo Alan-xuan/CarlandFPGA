@@ -1,0 +1,89 @@
+{
+  "artifacts": [
+    "handoffs/c/C-DEEPEYE-OWNED-LIFECYCLE-EVIDENCE-20261029-25/case_actor.py",
+    "handoffs/c/C-DEEPEYE-OWNED-LIFECYCLE-EVIDENCE-20261029-25/EVIDENCE.json",
+    "handoffs/c/C-DEEPEYE-OWNED-LIFECYCLE-EVIDENCE-20261029-25/owned_lifecycle.py",
+    "handoffs/c/C-DEEPEYE-OWNED-LIFECYCLE-EVIDENCE-20261029-25/README.md",
+    "handoffs/c/C-DEEPEYE-OWNED-LIFECYCLE-EVIDENCE-20261029-25/run_once.py",
+    "handoffs/c/C-DEEPEYE-OWNED-LIFECYCLE-EVIDENCE-20261029-25/SOURCE-PINS.json",
+    "handoffs/c/C-DEEPEYE-OWNED-LIFECYCLE-EVIDENCE-20261029-25/TASK-RECEIPT.json"
+  ],
+  "files": {
+    "handoffs/c/C-DEEPEYE-OWNED-LIFECYCLE-EVIDENCE-20261029-25/EVIDENCE.json": {
+      "sha256": "00375e6288b9c3c082a6b5b4876db1ab37de450f0f46791dc5b80ba631007cc0",
+      "size": 58114
+    },
+    "handoffs/c/C-DEEPEYE-OWNED-LIFECYCLE-EVIDENCE-20261029-25/README.md": {
+      "sha256": "49fcaba52ea95f10f802138c0d18c200029f07e567d9d894d24023277fadb8b5",
+      "size": 14356
+    },
+    "handoffs/c/C-DEEPEYE-OWNED-LIFECYCLE-EVIDENCE-20261029-25/SOURCE-PINS.json": {
+      "sha256": "07622d7416b5ae4296a556b1fc257b5790d4953acf901e48eb8f14d7834eebb8",
+      "size": 15619
+    },
+    "handoffs/c/C-DEEPEYE-OWNED-LIFECYCLE-EVIDENCE-20261029-25/TASK-RECEIPT.json": {
+      "sha256": "f2087fc6ad7113768bb5414b793c564b815e3cade9ce948936aabfbf47adeda5",
+      "size": 13310
+    },
+    "handoffs/c/C-DEEPEYE-OWNED-LIFECYCLE-EVIDENCE-20261029-25/case_actor.py": {
+      "sha256": "17682adb9a79c029da231c2cc0faf2346154a49edad3ddd79890954f4e9e3c78",
+      "size": 487
+    },
+    "handoffs/c/C-DEEPEYE-OWNED-LIFECYCLE-EVIDENCE-20261029-25/owned_lifecycle.py": {
+      "sha256": "c7063da8cecea366f2f0cced2f1e99357d779b927e3302464a0dc140e6a06b00",
+      "size": 49610
+    },
+    "handoffs/c/C-DEEPEYE-OWNED-LIFECYCLE-EVIDENCE-20261029-25/run_once.py": {
+      "sha256": "791bc253963a3b9bdde737d4696b0340f3681f1274b2f8402c1620e277f129e3",
+      "size": 7199
+    }
+  },
+  "request": {
+    "code_commit": "f38d5e0878c5330854a1b2f3299034fe5cc25679",
+    "expected_result": "Reviewable original RED evidence: exactly one normal attempt FAILED job_membership_unknown; negative NOT RUN; driver/Popen/supervisor/actual exec_command exit1; no retry. Required normal natural Job0 and deliberate owned-residual negative rejection remain unfulfilled. Cleanup0/Close and sampled budgets are separate limited observations. Exactly8files/<=256KiB and all1572 prior entries preserved. No old replay, new persistent owner, host PID scan, PID reopen/unknown-process attribution, board or formal acceptance.",
+    "operation_id": "C-DEEPEYE-OWNED-LIFECYCLE-EVIDENCE-20261029-25",
+    "requester": "node-c",
+    "task_id": "DEEPEYE-IMPLEMENTATION-20261014",
+    "task_version": 1,
+    "test_steps": [
+      "Read the original A comment6478717675, SOURCE-PINS and TASK-RECEIPT. Verify exact source/CPU/config and fixed contract hashes.",
+      "Read the original normal case failure: original Create primary33716 assigned before Resume, primary HANDLE wait/exit0, then original Job member5356 unknown to the creation record. Retain FAILED job_membership_unknown; do not infer identity, parentage, C24 cause or natural Job0. Negative was NOT RUN after prior-gate failure and has no before/after-deadline or expected-rejection proof.",
+      "Check recorded cleanup separately: original Job termination success, original retained HANDLE wait/exit, final same-Job0 and Close. This does not prove which member termination stopped and does not reverse the failed normal gate.",
+      "Verify original Popen command/handle/wait/exit, precise wall/memory/output measurement scopes, actual raw returns/hashes, independent source/raw reviews and exact remote blobs. Do not rerun old C24 or new C25 controls without a new explicit bounded assignment.",
+      "Retain C24 original wrapper/supervisor exit1, unknown historical member identity and all original files. No C24 reversal or physical/model/data/endpoint/P95/fullH12 admission."
+    ]
+  },
+  "request_hash": "489992f19956450b36b9efad1488ba7653235f3751936f79330af563d2a41f2b",
+  "schema_version": 1,
+  "stages": {
+    "formal_acceptance": {
+      "status": "not_run"
+    },
+    "implementation": {
+      "status": "not_run"
+    },
+    "model_train_forward": {
+      "status": "not_run"
+    },
+    "new_C25_owned_lifecycle_controls": {
+      "log": "handoffs/c/C-DEEPEYE-OWNED-LIFECYCLE-EVIDENCE-20261029-25/EVIDENCE.json",
+      "status": "failed"
+    },
+    "owned_residual_negative": {
+      "log": "handoffs/c/C-DEEPEYE-OWNED-LIFECYCLE-EVIDENCE-20261029-25/TASK-RECEIPT.json",
+      "status": "not_run"
+    },
+    "physical_board": {
+      "status": "not_run"
+    },
+    "qualified_training_data": {
+      "status": "not_run"
+    },
+    "simulation": {
+      "status": "not_run"
+    },
+    "synthesis": {
+      "status": "not_run"
+    }
+  }
+}
