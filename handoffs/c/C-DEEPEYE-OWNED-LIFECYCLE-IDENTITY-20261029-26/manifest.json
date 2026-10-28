@@ -1,0 +1,90 @@
+{
+  "artifacts": [
+    "handoffs/c/C-DEEPEYE-OWNED-LIFECYCLE-IDENTITY-20261029-26/C25-identity.patch",
+    "handoffs/c/C-DEEPEYE-OWNED-LIFECYCLE-IDENTITY-20261029-26/identity_capture.py",
+    "handoffs/c/C-DEEPEYE-OWNED-LIFECYCLE-IDENTITY-20261029-26/README.md",
+    "handoffs/c/C-DEEPEYE-OWNED-LIFECYCLE-IDENTITY-20261029-26/ROOT.false.json",
+    "handoffs/c/C-DEEPEYE-OWNED-LIFECYCLE-IDENTITY-20261029-26/SOURCE-PINS.json",
+    "handoffs/c/C-DEEPEYE-OWNED-LIFECYCLE-IDENTITY-20261029-26/STATIC-EVIDENCE.json"
+  ],
+  "files": {
+    "handoffs/c/C-DEEPEYE-OWNED-LIFECYCLE-IDENTITY-20261029-26/C25-identity.patch": {
+      "sha256": "6eb644c2f5cdd6846a5ec7d94dc029b1dc30e8289856a2da0b083fd86d508561",
+      "size": 21927
+    },
+    "handoffs/c/C-DEEPEYE-OWNED-LIFECYCLE-IDENTITY-20261029-26/README.md": {
+      "sha256": "8ef7c9bb71d9e3f2b18186fb1f306f4fbdfb7dcb16f7c7ce4d1394cba0fb629f",
+      "size": 14261
+    },
+    "handoffs/c/C-DEEPEYE-OWNED-LIFECYCLE-IDENTITY-20261029-26/ROOT.false.json": {
+      "sha256": "5629c14977f35448bf2e64c49173957aa74a316f288d1413bd9c50936f566d86",
+      "size": 1190
+    },
+    "handoffs/c/C-DEEPEYE-OWNED-LIFECYCLE-IDENTITY-20261029-26/SOURCE-PINS.json": {
+      "sha256": "aa21adc9902215010847cf71c1b38a3e958bf61baee2772642c061a8867dc96e",
+      "size": 18667
+    },
+    "handoffs/c/C-DEEPEYE-OWNED-LIFECYCLE-IDENTITY-20261029-26/STATIC-EVIDENCE.json": {
+      "sha256": "9899a28da8022f8a6a2af034477adc2fe261b13a54f377d441ca7cbfd6c4c6f4",
+      "size": 61123
+    },
+    "handoffs/c/C-DEEPEYE-OWNED-LIFECYCLE-IDENTITY-20261029-26/identity_capture.py": {
+      "sha256": "5e838785110c1428251a5a3e2e75c753637e7f501e1c4b5eec09fc4c8a3c654d",
+      "size": 18275
+    }
+  },
+  "request": {
+    "code_commit": "0c6973d38f8a2860f9e1bfd0859c77eb662cc899",
+    "expected_result": "A reviewable default-disabled SOURCE-ONLY identity proposal with truthful static evidence and explicit blockers; candidate imports/native calls/collectors/actors/Jobs/controls=0. ROOT enabled=false and execution_authorized=false. No runtime identity/causal attribution/resource acceptance claimed. C25 remains FAILED/negative NOT RUN and C24 resource FAILED. <=8 files/256KiB, old1580 entries unchanged. No model/endpoint/board/P95/fullH12 or formal promotion.",
+    "operation_id": "C-DEEPEYE-OWNED-LIFECYCLE-IDENTITY-20261029-26",
+    "requester": "node-c",
+    "task_id": "DEEPEYE-IMPLEMENTATION-20261014",
+    "task_version": 1,
+    "test_steps": [
+      "Read original A6481254925 and source pins. Reconstruct only private text projections from the exact four retained C25 source baselines and C25-identity.patch; inspect AST/static compile only. Do not import or execute any candidate.",
+      "Inspect default false ROOT gates before identity API/Popen/Job. Review self/runtime, original Create HANDLE identity queries before Resume, original external Popen HANDLE and original output-file/nonce binding, and bounded actor pipe handshake with retained fixed line. PIDList/selfreport cannot create ownership or ancestry.",
+      "Review unchanged unknown-member and self-mismatch failure, original Wait/Close and both original normal/negative acceptance gates. Keep prospective30s/process512MiB/Job1GiB/active2/output1MiB plan and all explicit owner hard-limit/transport/ABI uncertainties source-only blocked.",
+      "Verify exact source/head/request/manifest and remote bytes; all1580 original entries and original C24/C25 raw/config/launcher/spent guard remain unchanged. New runtime operation and A execution authorization are separate future requirements."
+    ]
+  },
+  "request_hash": "422275a5803d41bddf2852ec64d9c239ccb9064eab61a5554e83e846d9b8691f",
+  "schema_version": 1,
+  "stages": {
+    "formal_acceptance": {
+      "status": "not_run"
+    },
+    "identity_runtime": {
+      "log": "handoffs/c/C-DEEPEYE-OWNED-LIFECYCLE-IDENTITY-20261029-26/README.md",
+      "status": "blocked"
+    },
+    "implementation": {
+      "status": "not_run"
+    },
+    "model_train_forward": {
+      "status": "not_run"
+    },
+    "normal_natural_Job0": {
+      "status": "not_run"
+    },
+    "owned_residual_negative": {
+      "status": "not_run"
+    },
+    "physical_board": {
+      "status": "not_run"
+    },
+    "simulation": {
+      "status": "not_run"
+    },
+    "source_AST_and_static_compile": {
+      "log": "handoffs/c/C-DEEPEYE-OWNED-LIFECYCLE-IDENTITY-20261029-26/STATIC-EVIDENCE.json",
+      "status": "passed"
+    },
+    "synthesis": {
+      "status": "not_run"
+    },
+    "whole_owner_hard_limits": {
+      "log": "handoffs/c/C-DEEPEYE-OWNED-LIFECYCLE-IDENTITY-20261029-26/README.md",
+      "status": "blocked"
+    }
+  }
+}
