@@ -1,0 +1,88 @@
+{
+  "artifacts": [
+    "handoffs/c/C-DEEPEYE-CAUSAL-DATA-PREPARATION-20261028-24/causal_data.py",
+    "handoffs/c/C-DEEPEYE-CAUSAL-DATA-PREPARATION-20261028-24/CONTROL-EVIDENCE.json",
+    "handoffs/c/C-DEEPEYE-CAUSAL-DATA-PREPARATION-20261028-24/run_controls.py",
+    "handoffs/c/C-DEEPEYE-CAUSAL-DATA-PREPARATION-20261028-24/SCHEMA.md",
+    "handoffs/c/C-DEEPEYE-CAUSAL-DATA-PREPARATION-20261028-24/SOURCE-PINS.json",
+    "handoffs/c/C-DEEPEYE-CAUSAL-DATA-PREPARATION-20261028-24/TASK-RECEIPT.json",
+    "handoffs/c/C-DEEPEYE-CAUSAL-DATA-PREPARATION-20261028-24/test_causal_data.py"
+  ],
+  "files": {
+    "handoffs/c/C-DEEPEYE-CAUSAL-DATA-PREPARATION-20261028-24/CONTROL-EVIDENCE.json": {
+      "sha256": "da9146535896eeb60b59ed8e29ccf572d6dc3f7c4718f49f5bd4d16c76141e62",
+      "size": 27385
+    },
+    "handoffs/c/C-DEEPEYE-CAUSAL-DATA-PREPARATION-20261028-24/SCHEMA.md": {
+      "sha256": "8179528b29c0ea948d9d20f04b5394eb8ba6f3c063b37e6715e600c9606866e0",
+      "size": 19566
+    },
+    "handoffs/c/C-DEEPEYE-CAUSAL-DATA-PREPARATION-20261028-24/SOURCE-PINS.json": {
+      "sha256": "40b8f5c2258e9c23545c3064ba094c2a69932ddea7f8cfddbe1ea5044dd890d3",
+      "size": 5292
+    },
+    "handoffs/c/C-DEEPEYE-CAUSAL-DATA-PREPARATION-20261028-24/TASK-RECEIPT.json": {
+      "sha256": "3b737eda232e8bd6c84c56705c16c020a4297007664ad87d30a3b98475a74cd8",
+      "size": 6696
+    },
+    "handoffs/c/C-DEEPEYE-CAUSAL-DATA-PREPARATION-20261028-24/causal_data.py": {
+      "sha256": "121de187ffeaced0a21007ffe54602b5dfef9ecf2c91f01281819aad2c54f219",
+      "size": 33297
+    },
+    "handoffs/c/C-DEEPEYE-CAUSAL-DATA-PREPARATION-20261028-24/run_controls.py": {
+      "sha256": "a6f72603cec8ae9dda18b19d868d8a844ce75c9af38b55f052bbce5b07b64e43",
+      "size": 24257
+    },
+    "handoffs/c/C-DEEPEYE-CAUSAL-DATA-PREPARATION-20261028-24/test_causal_data.py": {
+      "sha256": "fac3eb02f10ccb0124ea65d1987cb42ea109cb368c733d0169c5e0d3839195eb",
+      "size": 34677
+    }
+  },
+  "request": {
+    "code_commit": "65da522dfedd1f8aedb0d098b5a72d3fbc6f9d89",
+    "expected_result": "Exact executable C24 candidate tool plus one bounded new synthetic control evidence handoff;14/14 groups and13 subcases tool PASS, wrapper/supervisor FAILED exit1 after active1 post-child then successful Job cleanup0. No unqualified C24/resource/formal acceptance, new dataset/calibration/model/profile adoption, endpoint or board execution.",
+    "operation_id": "C-DEEPEYE-CAUSAL-DATA-PREPARATION-20261028-24",
+    "requester": "node-c",
+    "task_id": "DEEPEYE-IMPLEMENTATION-20261014",
+    "task_version": 1,
+    "test_steps": [
+      "Read SOURCE-PINS/TASK-RECEIPT; verify original A comment6469933721 UTF8 hash, H01-H15 lock and exact source pins.",
+      "Inspect CONTROL-EVIDENCE original argv, raw UTF8 logs, SHA256 and exits: one actually executed new CPU batch,14 groups/13 subcases passed and CLI/child exit0, wrapper/supervisor exit1; do not rerun without a new explicit bounded work assignment.",
+      "Review offline candidate schema/catalog, transitive scene/event/native disjoint splits, train-only analytic scales, held native time/age and future-safe raw windows. No physical/model admission.",
+      "Verify canonical manifest and original Git blobs; retain the failed post-child resource supervision stage and successful final cleanup evidence separately."
+    ]
+  },
+  "request_hash": "7d671789479962c87d65fb00c56fc45562e0f91db81a69f8d370bcc80cf35545",
+  "schema_version": 1,
+  "stages": {
+    "formal_acceptance": {
+      "status": "not_run"
+    },
+    "implementation": {
+      "status": "not_run"
+    },
+    "model_train_or_forward": {
+      "status": "not_run"
+    },
+    "new_synthetic_tool_controls": {
+      "log": "handoffs/c/C-DEEPEYE-CAUSAL-DATA-PREPARATION-20261028-24/CONTROL-EVIDENCE.json",
+      "status": "passed"
+    },
+    "physical_board": {
+      "status": "not_run"
+    },
+    "qualified_physical_data_calibration": {
+      "status": "blocked"
+    },
+    "resource_supervision": {
+      "log": "handoffs/c/C-DEEPEYE-CAUSAL-DATA-PREPARATION-20261028-24/CONTROL-EVIDENCE.json",
+      "status": "failed"
+    },
+    "simulation": {
+      "status": "not_run"
+    },
+    "synthesis": {
+      "status": "not_run"
+    }
+  }
+}
