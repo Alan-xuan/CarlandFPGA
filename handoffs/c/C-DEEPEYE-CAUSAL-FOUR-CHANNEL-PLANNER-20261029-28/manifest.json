@@ -1,0 +1,97 @@
+{
+  "artifacts": [
+    "handoffs/c/C-DEEPEYE-CAUSAL-FOUR-CHANNEL-PLANNER-20261029-28/author.stderr.txt",
+    "handoffs/c/C-DEEPEYE-CAUSAL-FOUR-CHANNEL-PLANNER-20261029-28/candidate_four_channel_planner_v1.py",
+    "handoffs/c/C-DEEPEYE-CAUSAL-FOUR-CHANNEL-PLANNER-20261029-28/independent.stderr.txt",
+    "handoffs/c/C-DEEPEYE-CAUSAL-FOUR-CHANNEL-PLANNER-20261029-28/independent.stdout.json",
+    "handoffs/c/C-DEEPEYE-CAUSAL-FOUR-CHANNEL-PLANNER-20261029-28/independent_checks.py",
+    "handoffs/c/C-DEEPEYE-CAUSAL-FOUR-CHANNEL-PLANNER-20261029-28/interface-examples.json",
+    "handoffs/c/C-DEEPEYE-CAUSAL-FOUR-CHANNEL-PLANNER-20261029-28/local-evidence.json",
+    "handoffs/c/C-DEEPEYE-CAUSAL-FOUR-CHANNEL-PLANNER-20261029-28/producer-contract.json",
+    "handoffs/c/C-DEEPEYE-CAUSAL-FOUR-CHANNEL-PLANNER-20261029-28/README.md",
+    "handoffs/c/C-DEEPEYE-CAUSAL-FOUR-CHANNEL-PLANNER-20261029-28/source-review.md",
+    "handoffs/c/C-DEEPEYE-CAUSAL-FOUR-CHANNEL-PLANNER-20261029-28/test_candidate_four_channel_planner_v1.py"
+  ],
+  "files": {
+    "handoffs/c/C-DEEPEYE-CAUSAL-FOUR-CHANNEL-PLANNER-20261029-28/README.md": {
+      "sha256": "127926ebb73a8d92d22952ef4d02116efd9e32a931710a241d3aea61d0dd2790",
+      "size": 14917
+    },
+    "handoffs/c/C-DEEPEYE-CAUSAL-FOUR-CHANNEL-PLANNER-20261029-28/author.stderr.txt": {
+      "sha256": "2e3ae6513728c06f59508d97d97bbdb1d73592113cdea7683b23c70b49077ea0",
+      "size": 2182
+    },
+    "handoffs/c/C-DEEPEYE-CAUSAL-FOUR-CHANNEL-PLANNER-20261029-28/candidate_four_channel_planner_v1.py": {
+      "sha256": "70b317681fee8c9182c342fe8d2f94eaecc957c62231a74a080d213bb5e0eab4",
+      "size": 17651
+    },
+    "handoffs/c/C-DEEPEYE-CAUSAL-FOUR-CHANNEL-PLANNER-20261029-28/independent.stderr.txt": {
+      "sha256": "71c3dd2e72a23003aa8123aee7407c76fafc3c22fde8d6fc0af6ff87819eb44f",
+      "size": 2659
+    },
+    "handoffs/c/C-DEEPEYE-CAUSAL-FOUR-CHANNEL-PLANNER-20261029-28/independent.stdout.json": {
+      "sha256": "14e996b10e7c7acadb93d1c69d5d00fb7d32dd9eafb30cb7a9fe5c445f19fbf4",
+      "size": 34648
+    },
+    "handoffs/c/C-DEEPEYE-CAUSAL-FOUR-CHANNEL-PLANNER-20261029-28/independent_checks.py": {
+      "sha256": "7cffff333463d0cdf0969f335aa56b51d4440b76f4168f82cccf4b2c45e07a05",
+      "size": 18586
+    },
+    "handoffs/c/C-DEEPEYE-CAUSAL-FOUR-CHANNEL-PLANNER-20261029-28/interface-examples.json": {
+      "sha256": "338955440a56eaebc1787b08401d98ab25cced6ec9a67cc8e0c349018e835f40",
+      "size": 70172
+    },
+    "handoffs/c/C-DEEPEYE-CAUSAL-FOUR-CHANNEL-PLANNER-20261029-28/local-evidence.json": {
+      "sha256": "1fd20edaf31a6be651b230d4fb4505f32adfbbf26f4cb3c9f86acd0bbe7034ab",
+      "size": 14352
+    },
+    "handoffs/c/C-DEEPEYE-CAUSAL-FOUR-CHANNEL-PLANNER-20261029-28/producer-contract.json": {
+      "sha256": "a888f6baaab1243a8653e3525a357ee9532071767a20efdc6f0957b2feb879bf",
+      "size": 4294
+    },
+    "handoffs/c/C-DEEPEYE-CAUSAL-FOUR-CHANNEL-PLANNER-20261029-28/source-review.md": {
+      "sha256": "4c6f0196fed2dde9bb2bff7478b837ecf9146af9a8a6c577477a22aef815c4c2",
+      "size": 3061
+    },
+    "handoffs/c/C-DEEPEYE-CAUSAL-FOUR-CHANNEL-PLANNER-20261029-28/test_candidate_four_channel_planner_v1.py": {
+      "sha256": "68eb93a1b07f889f46b88d940fb392fbda85dae26902fd6ba63a9e1024c3e1e0",
+      "size": 14765
+    }
+  },
+  "request": {
+    "code_commit": "26a044f3f93b990eeea12563cabd60b9919b0f9d",
+    "expected_result": "C28 pure bounded candidate local behavior only; original observation identity and fixture labels preserved; defaults disabled; no whole-chain, board, model qualification, final precision or latency acceptance.",
+    "operation_id": "C-DEEPEYE-CAUSAL-FOUR-CHANNEL-PLANNER-20261029-28",
+    "requester": "node-c",
+    "task_id": "DEEPEYE-IMPLEMENTATION-20261014",
+    "task_version": 1,
+    "test_steps": [
+      "python -B handoffs/c/C-DEEPEYE-CAUSAL-FOUR-CHANNEL-PLANNER-20261029-28/test_candidate_four_channel_planner_v1.py",
+      "python -B handoffs/c/C-DEEPEYE-CAUSAL-FOUR-CHANNEL-PLANNER-20261029-28/independent_checks.py handoffs/c/C-DEEPEYE-CAUSAL-FOUR-CHANNEL-PLANNER-20261029-28"
+    ]
+  },
+  "request_hash": "bf7880863fa883a13350596acd81ce01081b5a5df9fb8410d089e78da46a9cda",
+  "schema_version": 1,
+  "stages": {
+    "final_acceptance": {
+      "status": "not_run"
+    },
+    "full_chain": {
+      "status": "not_run"
+    },
+    "local_function": {
+      "log": "handoffs/c/C-DEEPEYE-CAUSAL-FOUR-CHANNEL-PLANNER-20261029-28/independent.stderr.txt",
+      "status": "passed"
+    },
+    "model_qualification": {
+      "status": "not_run"
+    },
+    "physical_board": {
+      "status": "not_run"
+    },
+    "source_review": {
+      "log": "handoffs/c/C-DEEPEYE-CAUSAL-FOUR-CHANNEL-PLANNER-20261029-28/source-review.md",
+      "status": "passed"
+    }
+  }
+}
