@@ -1,0 +1,120 @@
+{
+  "schema_version": 1,
+  "status": "candidate_only_not_calibrated_not_formally_frozen",
+  "task_id": "DEEPEYE-IMPLEMENTATION-20261014",
+  "task_version": 1,
+  "contract_id": "DEEPEYE-HUMAN-LOCK-20261014",
+  "contract_revision": 1,
+  "requirements_sha256": "c229834bfc2292f5fe4411fc9f12c68487008f9d1adaf31f0144ee7a98173804",
+  "producer": {
+    "repository": "carolwjade/CarlandFPGA",
+    "pr": 24,
+    "head": "5c192f34bad064b14e238747c2c569347257a62c",
+    "path": "competition/deepeye/simulation/sensors/forward_profile.py",
+    "sha256": "6a5f70a6acdaa6de52fc72d678d452956861370e1d143b70219ced107c5a04c9",
+    "git_blob": "c468d43d1a6e58f6962423de4bf806d1e45109fb"
+  },
+  "profile_id": "deepeye_forward_profile_candidate_v1",
+  "profile_status": "candidate_only",
+  "profile_note": "not_calibrated;not_em_surrogate_v2;not_formally_frozen",
+  "outer_source_mode": "twin_fixture",
+  "board_source_id": 4,
+  "board_source_name": "software_fixture",
+  "production_acquisition_profile_id": null,
+  "channels": [
+    {
+      "index": 0,
+      "name": "log10_rho_apparent",
+      "unit": "log10 numerical ohm m",
+      "inverse": "log10(0.2)+4*q/4095",
+      "half_bin": 0.0004884004884004884
+    },
+    {
+      "index": 1,
+      "name": "yaw_log10_rho_difference",
+      "unit": "log10 difference",
+      "inverse": "-2+4*q/4095",
+      "half_bin": 0.0004884004884004884,
+      "positive": "body +X more resistive"
+    },
+    {
+      "index": 2,
+      "name": "pitch_log10_rho_difference",
+      "unit": "log10 difference",
+      "inverse": "-2+4*q/4095",
+      "half_bin": 0.0004884004884004884,
+      "positive": "body +Y more resistive"
+    },
+    {
+      "index": 3,
+      "name": "near_bit_vibration_rms_g",
+      "unit": "g RMS",
+      "inverse": "2*q/4095",
+      "half_bin": 0.0002442002442002442
+    }
+  ],
+  "count_range": [
+    0,
+    4095
+  ],
+  "null": "explicit invalid channel; zero is valid",
+  "rounding": "Python round ties-to-even",
+  "adc_period_ms": 10,
+  "em_period_ms": 50,
+  "original_em_age_max_ms_inclusive": 100,
+  "vibration_support_ticks": 10,
+  "vibration_support_ms": "ADC tick-90 through ADC tick; no gap filling",
+  "quality": {
+    "valid_bits": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "saturated_bits": [
+      4,
+      5,
+      6,
+      7
+    ],
+    "held_bits": [
+      8,
+      9,
+      10,
+      11
+    ],
+    "source_fault_bit": 12,
+    "reserved_zero_bits": [
+      13,
+      14,
+      15
+    ],
+    "C3_held": false
+  },
+  "temporal_contract": "original ADC and EM clock; held preserves counts/saturation/original pose; no independent held evidence",
+  "limits": {
+    "combined_history_and_actions_including_current": 32,
+    "map_cells": 32,
+    "direction_candidates": 9,
+    "json_input_bytes": 262144
+  },
+  "trust": "A adapter establishes actual board frame/source/trigger/sample/build/BOOT/time/own-odometry association. Supplied hashes and JSON assertions are not authentication.",
+  "unimplemented_production_gap": "TELEM/EVENT do not yield raw4 identities; offline TRACE is not admitted production type7. A must supply trusted exact-count adapter.",
+  "acceptance": "local function candidate only; no hardware, full-chain, final1percent/100ms or model qualification",
+  "planner_reuse_policy": {
+    "revision": "C28-support-repair-v2",
+    "pose_pairs": [
+      "native_EM:ADC",
+      "native_EM:current_own_pose",
+      "ADC:current_own_pose"
+    ],
+    "max_pairwise_displacement_m_inclusive": 0.25,
+    "max_pairwise_forward_angle_degrees_inclusive": 15.0,
+    "max_advised_direction_angle_from_original_EM_forward_degrees": 30.0,
+    "cosine_numeric_tolerance": 1e-12,
+    "roll_only": "permitted; forward-axis comparison; original world contrast retained",
+    "outside_pose_envelope": "STOP original_observation_pose_inapplicable; risk=uncertainty=1; zero speed/direction; original map retained",
+    "displacement_basis": "candidate engineering gate equal to one0.25m planner trial length, not derived from8m sensor crop, no physical accuracy/clearance/speed qualification",
+    "angular_basis": "restrictive candidate reuse policy plus original central30degree beam subset, not physical calibration"
+  }
+}

@@ -1,0 +1,2255 @@
+{
+  "status": "synthetic_local_function_fixtures_only",
+  "warning": "Repeated-letter hashes and fixture IDs are dummy labels, not board receipts. Never use these fixtures for real control.",
+  "examples": [
+    {
+      "name": "disabled-default",
+      "request": {
+        "schema_version": 1,
+        "enabled": false,
+        "binding": {
+          "run_id": "local-fixture-only",
+          "build_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "boot_sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+          "session": 1,
+          "config_epoch": 1,
+          "clock_domain": "fixture-tick-ms",
+          "source_id": 4,
+          "source_mode": "twin_fixture",
+          "profile_id": "deepeye_forward_profile_candidate_v1",
+          "producer_sha256": "6a5f70a6acdaa6de52fc72d678d452956861370e1d143b70219ced107c5a04c9",
+          "topology_id": 2
+        },
+        "now_tick_ms": 100,
+        "pose": {
+          "position_m": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "orientation_xyzw": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "goal_m": [
+          0.0,
+          0.0,
+          10.0
+        ],
+        "observation": {
+          "binding": {
+            "run_id": "local-fixture-only",
+            "build_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "boot_sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "session": 1,
+            "config_epoch": 1,
+            "clock_domain": "fixture-tick-ms",
+            "source_id": 4,
+            "source_mode": "twin_fixture",
+            "profile_id": "deepeye_forward_profile_candidate_v1",
+            "producer_sha256": "6a5f70a6acdaa6de52fc72d678d452956861370e1d143b70219ced107c5a04c9",
+            "topology_id": 2
+          },
+          "sample_id": "fixture-100",
+          "trigger_id": "fixture-trigger-100",
+          "sequence": 10,
+          "board_frame_sha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+          "source_record_sha256": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+          "adc_tick_ms": 100,
+          "em_tick_ms": 100,
+          "em_origin_sample_id": "fixture-100",
+          "counts": [
+            1739,
+            2048,
+            2048,
+            0
+          ],
+          "quality": 15,
+          "adc_pose": {
+            "position_m": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "orientation_xyzw": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          },
+          "em_pose": {
+            "position_m": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "orientation_xyzw": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          },
+          "cause_action_id": null
+        },
+        "history": [],
+        "executed_actions": []
+      },
+      "actual_local_function_output": {
+        "authorization": "none",
+        "candidate_only": true,
+        "direction_world": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "independent_em_count": 0,
+        "map_cells": [],
+        "observation": {
+          "adc_pose": {
+            "orientation_xyzw": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "position_m": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "adc_tick_ms": 100,
+          "binding": {
+            "boot_sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "build_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "clock_domain": "fixture-tick-ms",
+            "config_epoch": 1,
+            "producer_sha256": "6a5f70a6acdaa6de52fc72d678d452956861370e1d143b70219ced107c5a04c9",
+            "profile_id": "deepeye_forward_profile_candidate_v1",
+            "run_id": "local-fixture-only",
+            "session": 1,
+            "source_id": 4,
+            "source_mode": "twin_fixture",
+            "topology_id": 2
+          },
+          "board_frame_sha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+          "cause_action_id": null,
+          "counts": [
+            1739,
+            2048,
+            2048,
+            0
+          ],
+          "em_origin_sample_id": "fixture-100",
+          "em_pose": {
+            "orientation_xyzw": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "position_m": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "em_tick_ms": 100,
+          "quality": 15,
+          "sample_id": "fixture-100",
+          "sequence": 10,
+          "source_record_sha256": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+          "trigger_id": "fixture-trigger-100"
+        },
+        "planner_id": "candidate_four_channel_planner_v1",
+        "reason": "disabled",
+        "risk": 1.0,
+        "schema_version": 1,
+        "speed_limit_m_s": 0.0,
+        "status": "STOP",
+        "uncertainty": 1.0
+      }
+    },
+    {
+      "name": "same-goal-right-up",
+      "request": {
+        "schema_version": 1,
+        "enabled": true,
+        "binding": {
+          "run_id": "local-fixture-only",
+          "build_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "boot_sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+          "session": 1,
+          "config_epoch": 1,
+          "clock_domain": "fixture-tick-ms",
+          "source_id": 4,
+          "source_mode": "twin_fixture",
+          "profile_id": "deepeye_forward_profile_candidate_v1",
+          "producer_sha256": "6a5f70a6acdaa6de52fc72d678d452956861370e1d143b70219ced107c5a04c9",
+          "topology_id": 2
+        },
+        "now_tick_ms": 100,
+        "pose": {
+          "position_m": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "orientation_xyzw": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "goal_m": [
+          0.0,
+          0.0,
+          10.0
+        ],
+        "observation": {
+          "binding": {
+            "run_id": "local-fixture-only",
+            "build_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "boot_sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "session": 1,
+            "config_epoch": 1,
+            "clock_domain": "fixture-tick-ms",
+            "source_id": 4,
+            "source_mode": "twin_fixture",
+            "profile_id": "deepeye_forward_profile_candidate_v1",
+            "producer_sha256": "6a5f70a6acdaa6de52fc72d678d452956861370e1d143b70219ced107c5a04c9",
+            "topology_id": 2
+          },
+          "sample_id": "fixture-100",
+          "trigger_id": "fixture-trigger-100",
+          "sequence": 10,
+          "board_frame_sha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+          "source_record_sha256": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+          "adc_tick_ms": 100,
+          "em_tick_ms": 100,
+          "em_origin_sample_id": "fixture-100",
+          "counts": [
+            716,
+            3276,
+            3276,
+            0
+          ],
+          "quality": 15,
+          "adc_pose": {
+            "position_m": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "orientation_xyzw": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          },
+          "em_pose": {
+            "position_m": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "orientation_xyzw": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          },
+          "cause_action_id": null
+        },
+        "history": [],
+        "executed_actions": []
+      },
+      "actual_local_function_output": {
+        "authorization": "none",
+        "candidate_only": true,
+        "direction_world": [
+          0.31367750046375453,
+          0.31367750046375453,
+          0.8962214298964415
+        ],
+        "independent_em_count": 1,
+        "map_cells": [
+          {
+            "em_tick_ms": 100,
+            "pose": {
+              "orientation_xyzw": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "position_m": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            },
+            "risk": 0.4997902524732597,
+            "sample_id": "fixture-100"
+          }
+        ],
+        "observation": {
+          "adc_pose": {
+            "orientation_xyzw": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "position_m": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "adc_tick_ms": 100,
+          "binding": {
+            "boot_sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "build_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "clock_domain": "fixture-tick-ms",
+            "config_epoch": 1,
+            "producer_sha256": "6a5f70a6acdaa6de52fc72d678d452956861370e1d143b70219ced107c5a04c9",
+            "profile_id": "deepeye_forward_profile_candidate_v1",
+            "run_id": "local-fixture-only",
+            "session": 1,
+            "source_id": 4,
+            "source_mode": "twin_fixture",
+            "topology_id": 2
+          },
+          "board_frame_sha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+          "cause_action_id": null,
+          "counts": [
+            716,
+            3276,
+            3276,
+            0
+          ],
+          "em_origin_sample_id": "fixture-100",
+          "em_pose": {
+            "orientation_xyzw": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "position_m": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "em_tick_ms": 100,
+          "quality": 15,
+          "sample_id": "fixture-100",
+          "sequence": 10,
+          "source_record_sha256": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+          "trigger_id": "fixture-trigger-100"
+        },
+        "planner_id": "candidate_four_channel_planner_v1",
+        "reason": "bounded_observation_goal_search",
+        "risk": 0.03794260546460537,
+        "schema_version": 1,
+        "speed_limit_m_s": 0.12013970699158423,
+        "status": "ADVISE",
+        "uncertainty": 0.5004884004884005
+      }
+    },
+    {
+      "name": "same-goal-left-down",
+      "request": {
+        "schema_version": 1,
+        "enabled": true,
+        "binding": {
+          "run_id": "local-fixture-only",
+          "build_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "boot_sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+          "session": 1,
+          "config_epoch": 1,
+          "clock_domain": "fixture-tick-ms",
+          "source_id": 4,
+          "source_mode": "twin_fixture",
+          "profile_id": "deepeye_forward_profile_candidate_v1",
+          "producer_sha256": "6a5f70a6acdaa6de52fc72d678d452956861370e1d143b70219ced107c5a04c9",
+          "topology_id": 2
+        },
+        "now_tick_ms": 100,
+        "pose": {
+          "position_m": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "orientation_xyzw": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "goal_m": [
+          0.0,
+          0.0,
+          10.0
+        ],
+        "observation": {
+          "binding": {
+            "run_id": "local-fixture-only",
+            "build_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "boot_sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "session": 1,
+            "config_epoch": 1,
+            "clock_domain": "fixture-tick-ms",
+            "source_id": 4,
+            "source_mode": "twin_fixture",
+            "profile_id": "deepeye_forward_profile_candidate_v1",
+            "producer_sha256": "6a5f70a6acdaa6de52fc72d678d452956861370e1d143b70219ced107c5a04c9",
+            "topology_id": 2
+          },
+          "sample_id": "fixture-100",
+          "trigger_id": "fixture-trigger-100",
+          "sequence": 10,
+          "board_frame_sha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+          "source_record_sha256": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+          "adc_tick_ms": 100,
+          "em_tick_ms": 100,
+          "em_origin_sample_id": "fixture-100",
+          "counts": [
+            716,
+            819,
+            819,
+            0
+          ],
+          "quality": 15,
+          "adc_pose": {
+            "position_m": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "orientation_xyzw": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          },
+          "em_pose": {
+            "position_m": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "orientation_xyzw": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          },
+          "cause_action_id": null
+        },
+        "history": [],
+        "executed_actions": []
+      },
+      "actual_local_function_output": {
+        "authorization": "none",
+        "candidate_only": true,
+        "direction_world": [
+          -0.31367750046375453,
+          -0.31367750046375453,
+          0.8962214298964415
+        ],
+        "independent_em_count": 1,
+        "map_cells": [
+          {
+            "em_tick_ms": 100,
+            "pose": {
+              "orientation_xyzw": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "position_m": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            },
+            "risk": 0.4997902524732597,
+            "sample_id": "fixture-100"
+          }
+        ],
+        "observation": {
+          "adc_pose": {
+            "orientation_xyzw": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "position_m": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "adc_tick_ms": 100,
+          "binding": {
+            "boot_sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "build_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "clock_domain": "fixture-tick-ms",
+            "config_epoch": 1,
+            "producer_sha256": "6a5f70a6acdaa6de52fc72d678d452956861370e1d143b70219ced107c5a04c9",
+            "profile_id": "deepeye_forward_profile_candidate_v1",
+            "run_id": "local-fixture-only",
+            "session": 1,
+            "source_id": 4,
+            "source_mode": "twin_fixture",
+            "topology_id": 2
+          },
+          "board_frame_sha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+          "cause_action_id": null,
+          "counts": [
+            716,
+            819,
+            819,
+            0
+          ],
+          "em_origin_sample_id": "fixture-100",
+          "em_pose": {
+            "orientation_xyzw": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "position_m": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "em_tick_ms": 100,
+          "quality": 15,
+          "sample_id": "fixture-100",
+          "sequence": 10,
+          "source_record_sha256": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+          "trigger_id": "fixture-trigger-100"
+        },
+        "planner_id": "candidate_four_channel_planner_v1",
+        "reason": "bounded_observation_goal_search",
+        "risk": 0.03794260546460526,
+        "schema_version": 1,
+        "speed_limit_m_s": 0.12013970699158424,
+        "status": "ADVISE",
+        "uncertainty": 0.5004884004884005
+      }
+    },
+    {
+      "name": "same-goal-contact-stop",
+      "request": {
+        "schema_version": 1,
+        "enabled": true,
+        "binding": {
+          "run_id": "local-fixture-only",
+          "build_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "boot_sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+          "session": 1,
+          "config_epoch": 1,
+          "clock_domain": "fixture-tick-ms",
+          "source_id": 4,
+          "source_mode": "twin_fixture",
+          "profile_id": "deepeye_forward_profile_candidate_v1",
+          "producer_sha256": "6a5f70a6acdaa6de52fc72d678d452956861370e1d143b70219ced107c5a04c9",
+          "topology_id": 2
+        },
+        "now_tick_ms": 100,
+        "pose": {
+          "position_m": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "orientation_xyzw": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "goal_m": [
+          0.0,
+          0.0,
+          10.0
+        ],
+        "observation": {
+          "binding": {
+            "run_id": "local-fixture-only",
+            "build_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "boot_sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "session": 1,
+            "config_epoch": 1,
+            "clock_domain": "fixture-tick-ms",
+            "source_id": 4,
+            "source_mode": "twin_fixture",
+            "profile_id": "deepeye_forward_profile_candidate_v1",
+            "producer_sha256": "6a5f70a6acdaa6de52fc72d678d452956861370e1d143b70219ced107c5a04c9",
+            "topology_id": 2
+          },
+          "sample_id": "fixture-100",
+          "trigger_id": "fixture-trigger-100",
+          "sequence": 10,
+          "board_frame_sha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+          "source_record_sha256": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+          "adc_tick_ms": 100,
+          "em_tick_ms": 100,
+          "em_origin_sample_id": "fixture-100",
+          "counts": [
+            716,
+            3276,
+            3276,
+            2048
+          ],
+          "quality": 15,
+          "adc_pose": {
+            "position_m": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "orientation_xyzw": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          },
+          "em_pose": {
+            "position_m": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "orientation_xyzw": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          },
+          "cause_action_id": null
+        },
+        "history": [],
+        "executed_actions": []
+      },
+      "actual_local_function_output": {
+        "authorization": "none",
+        "candidate_only": true,
+        "direction_world": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "independent_em_count": 1,
+        "map_cells": [
+          {
+            "em_tick_ms": 100,
+            "pose": {
+              "orientation_xyzw": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "position_m": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            },
+            "risk": 0.9999123525953598,
+            "sample_id": "fixture-100"
+          }
+        ],
+        "observation": {
+          "adc_pose": {
+            "orientation_xyzw": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "position_m": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "adc_tick_ms": 100,
+          "binding": {
+            "boot_sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "build_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "clock_domain": "fixture-tick-ms",
+            "config_epoch": 1,
+            "producer_sha256": "6a5f70a6acdaa6de52fc72d678d452956861370e1d143b70219ced107c5a04c9",
+            "profile_id": "deepeye_forward_profile_candidate_v1",
+            "run_id": "local-fixture-only",
+            "session": 1,
+            "source_id": 4,
+            "source_mode": "twin_fixture",
+            "topology_id": 2
+          },
+          "board_frame_sha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+          "cause_action_id": null,
+          "counts": [
+            716,
+            3276,
+            3276,
+            2048
+          ],
+          "em_origin_sample_id": "fixture-100",
+          "em_pose": {
+            "orientation_xyzw": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "position_m": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "em_tick_ms": 100,
+          "quality": 15,
+          "sample_id": "fixture-100",
+          "sequence": 10,
+          "source_record_sha256": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+          "trigger_id": "fixture-trigger-100"
+        },
+        "planner_id": "candidate_four_channel_planner_v1",
+        "reason": "contact_vibration_risk",
+        "risk": 1.0,
+        "schema_version": 1,
+        "speed_limit_m_s": 0.0,
+        "status": "STOP",
+        "uncertainty": 0.5004884004884005
+      }
+    },
+    {
+      "name": "held-original-pose",
+      "request": {
+        "schema_version": 1,
+        "enabled": true,
+        "binding": {
+          "run_id": "local-fixture-only",
+          "build_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "boot_sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+          "session": 1,
+          "config_epoch": 1,
+          "clock_domain": "fixture-tick-ms",
+          "source_id": 4,
+          "source_mode": "twin_fixture",
+          "profile_id": "deepeye_forward_profile_candidate_v1",
+          "producer_sha256": "6a5f70a6acdaa6de52fc72d678d452956861370e1d143b70219ced107c5a04c9",
+          "topology_id": 2
+        },
+        "now_tick_ms": 110,
+        "pose": {
+          "position_m": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "orientation_xyzw": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "goal_m": [
+          0.0,
+          0.0,
+          10.0
+        ],
+        "observation": {
+          "binding": {
+            "run_id": "local-fixture-only",
+            "build_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "boot_sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "session": 1,
+            "config_epoch": 1,
+            "clock_domain": "fixture-tick-ms",
+            "source_id": 4,
+            "source_mode": "twin_fixture",
+            "profile_id": "deepeye_forward_profile_candidate_v1",
+            "producer_sha256": "6a5f70a6acdaa6de52fc72d678d452956861370e1d143b70219ced107c5a04c9",
+            "topology_id": 2
+          },
+          "sample_id": "fixture-110",
+          "trigger_id": "fixture-trigger-110",
+          "sequence": 11,
+          "board_frame_sha256": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+          "source_record_sha256": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+          "adc_tick_ms": 110,
+          "em_tick_ms": 100,
+          "em_origin_sample_id": "fixture-100",
+          "counts": [
+            716,
+            3071,
+            3071,
+            0
+          ],
+          "quality": 1807,
+          "adc_pose": {
+            "position_m": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "orientation_xyzw": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          },
+          "em_pose": {
+            "position_m": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "orientation_xyzw": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          },
+          "cause_action_id": null
+        },
+        "history": [
+          {
+            "binding": {
+              "run_id": "local-fixture-only",
+              "build_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "boot_sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+              "session": 1,
+              "config_epoch": 1,
+              "clock_domain": "fixture-tick-ms",
+              "source_id": 4,
+              "source_mode": "twin_fixture",
+              "profile_id": "deepeye_forward_profile_candidate_v1",
+              "producer_sha256": "6a5f70a6acdaa6de52fc72d678d452956861370e1d143b70219ced107c5a04c9",
+              "topology_id": 2
+            },
+            "sample_id": "fixture-100",
+            "trigger_id": "fixture-trigger-100",
+            "sequence": 10,
+            "board_frame_sha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+            "source_record_sha256": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+            "adc_tick_ms": 100,
+            "em_tick_ms": 100,
+            "em_origin_sample_id": "fixture-100",
+            "counts": [
+              716,
+              3071,
+              3071,
+              0
+            ],
+            "quality": 15,
+            "adc_pose": {
+              "position_m": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "orientation_xyzw": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ]
+            },
+            "em_pose": {
+              "position_m": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "orientation_xyzw": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ]
+            },
+            "cause_action_id": null
+          }
+        ],
+        "executed_actions": []
+      },
+      "actual_local_function_output": {
+        "authorization": "none",
+        "candidate_only": true,
+        "direction_world": [
+          0.31367750046375453,
+          0.31367750046375453,
+          0.8962214298964415
+        ],
+        "independent_em_count": 1,
+        "map_cells": [
+          {
+            "em_tick_ms": 100,
+            "pose": {
+              "orientation_xyzw": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "position_m": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            },
+            "risk": 0.4997902524732597,
+            "sample_id": "fixture-100"
+          }
+        ],
+        "observation": {
+          "adc_pose": {
+            "orientation_xyzw": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "position_m": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "adc_tick_ms": 110,
+          "binding": {
+            "boot_sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "build_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "clock_domain": "fixture-tick-ms",
+            "config_epoch": 1,
+            "producer_sha256": "6a5f70a6acdaa6de52fc72d678d452956861370e1d143b70219ced107c5a04c9",
+            "profile_id": "deepeye_forward_profile_candidate_v1",
+            "run_id": "local-fixture-only",
+            "session": 1,
+            "source_id": 4,
+            "source_mode": "twin_fixture",
+            "topology_id": 2
+          },
+          "board_frame_sha256": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+          "cause_action_id": null,
+          "counts": [
+            716,
+            3071,
+            3071,
+            0
+          ],
+          "em_origin_sample_id": "fixture-100",
+          "em_pose": {
+            "orientation_xyzw": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "position_m": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "em_tick_ms": 100,
+          "quality": 1807,
+          "sample_id": "fixture-110",
+          "sequence": 11,
+          "source_record_sha256": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+          "trigger_id": "fixture-trigger-110"
+        },
+        "planner_id": "candidate_four_channel_planner_v1",
+        "reason": "bounded_observation_goal_search",
+        "risk": 0.05178896627105806,
+        "schema_version": 1,
+        "speed_limit_m_s": 0.10892849219583334,
+        "status": "ADVISE",
+        "uncertainty": 0.5404884004884005
+      }
+    },
+    {
+      "name": "held-yaw180-unsupported-stop",
+      "request": {
+        "schema_version": 1,
+        "enabled": true,
+        "binding": {
+          "run_id": "local-fixture-only",
+          "build_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "boot_sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+          "session": 1,
+          "config_epoch": 1,
+          "clock_domain": "fixture-tick-ms",
+          "source_id": 4,
+          "source_mode": "twin_fixture",
+          "profile_id": "deepeye_forward_profile_candidate_v1",
+          "producer_sha256": "6a5f70a6acdaa6de52fc72d678d452956861370e1d143b70219ced107c5a04c9",
+          "topology_id": 2
+        },
+        "now_tick_ms": 110,
+        "pose": {
+          "position_m": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "orientation_xyzw": [
+            0.0,
+            1.0,
+            0.0,
+            6.123233995736766e-17
+          ]
+        },
+        "goal_m": [
+          0,
+          0,
+          -10
+        ],
+        "observation": {
+          "binding": {
+            "run_id": "local-fixture-only",
+            "build_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "boot_sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "session": 1,
+            "config_epoch": 1,
+            "clock_domain": "fixture-tick-ms",
+            "source_id": 4,
+            "source_mode": "twin_fixture",
+            "profile_id": "deepeye_forward_profile_candidate_v1",
+            "producer_sha256": "6a5f70a6acdaa6de52fc72d678d452956861370e1d143b70219ced107c5a04c9",
+            "topology_id": 2
+          },
+          "sample_id": "fixture-110",
+          "trigger_id": "fixture-trigger-110",
+          "sequence": 11,
+          "board_frame_sha256": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+          "source_record_sha256": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+          "adc_tick_ms": 110,
+          "em_tick_ms": 100,
+          "em_origin_sample_id": "fixture-100",
+          "counts": [
+            716,
+            3071,
+            3071,
+            0
+          ],
+          "quality": 1807,
+          "adc_pose": {
+            "position_m": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "orientation_xyzw": [
+              0.0,
+              1.0,
+              0.0,
+              6.123233995736766e-17
+            ]
+          },
+          "em_pose": {
+            "position_m": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "orientation_xyzw": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          },
+          "cause_action_id": null
+        },
+        "history": [
+          {
+            "binding": {
+              "run_id": "local-fixture-only",
+              "build_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "boot_sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+              "session": 1,
+              "config_epoch": 1,
+              "clock_domain": "fixture-tick-ms",
+              "source_id": 4,
+              "source_mode": "twin_fixture",
+              "profile_id": "deepeye_forward_profile_candidate_v1",
+              "producer_sha256": "6a5f70a6acdaa6de52fc72d678d452956861370e1d143b70219ced107c5a04c9",
+              "topology_id": 2
+            },
+            "sample_id": "fixture-100",
+            "trigger_id": "fixture-trigger-100",
+            "sequence": 10,
+            "board_frame_sha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+            "source_record_sha256": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+            "adc_tick_ms": 100,
+            "em_tick_ms": 100,
+            "em_origin_sample_id": "fixture-100",
+            "counts": [
+              716,
+              3071,
+              3071,
+              0
+            ],
+            "quality": 15,
+            "adc_pose": {
+              "position_m": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "orientation_xyzw": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ]
+            },
+            "em_pose": {
+              "position_m": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "orientation_xyzw": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ]
+            },
+            "cause_action_id": null
+          }
+        ],
+        "executed_actions": []
+      },
+      "actual_local_function_output": {
+        "authorization": "none",
+        "candidate_only": true,
+        "direction_world": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "independent_em_count": 1,
+        "map_cells": [
+          {
+            "em_tick_ms": 100,
+            "pose": {
+              "orientation_xyzw": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "position_m": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            },
+            "risk": 0.4997902524732597,
+            "sample_id": "fixture-100"
+          }
+        ],
+        "observation": {
+          "adc_pose": {
+            "orientation_xyzw": [
+              0.0,
+              1.0,
+              0.0,
+              6.123233995736766e-17
+            ],
+            "position_m": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "adc_tick_ms": 110,
+          "binding": {
+            "boot_sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "build_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "clock_domain": "fixture-tick-ms",
+            "config_epoch": 1,
+            "producer_sha256": "6a5f70a6acdaa6de52fc72d678d452956861370e1d143b70219ced107c5a04c9",
+            "profile_id": "deepeye_forward_profile_candidate_v1",
+            "run_id": "local-fixture-only",
+            "session": 1,
+            "source_id": 4,
+            "source_mode": "twin_fixture",
+            "topology_id": 2
+          },
+          "board_frame_sha256": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+          "cause_action_id": null,
+          "counts": [
+            716,
+            3071,
+            3071,
+            0
+          ],
+          "em_origin_sample_id": "fixture-100",
+          "em_pose": {
+            "orientation_xyzw": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "position_m": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "em_tick_ms": 100,
+          "quality": 1807,
+          "sample_id": "fixture-110",
+          "sequence": 11,
+          "source_record_sha256": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+          "trigger_id": "fixture-trigger-110"
+        },
+        "planner_id": "candidate_four_channel_planner_v1",
+        "reason": "original_observation_pose_inapplicable",
+        "risk": 1.0,
+        "schema_version": 1,
+        "speed_limit_m_s": 0.0,
+        "status": "STOP",
+        "uncertainty": 1.0
+      }
+    },
+    {
+      "name": "held-yaw90-unsupported-stop",
+      "request": {
+        "schema_version": 1,
+        "enabled": true,
+        "binding": {
+          "run_id": "local-fixture-only",
+          "build_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "boot_sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+          "session": 1,
+          "config_epoch": 1,
+          "clock_domain": "fixture-tick-ms",
+          "source_id": 4,
+          "source_mode": "twin_fixture",
+          "profile_id": "deepeye_forward_profile_candidate_v1",
+          "producer_sha256": "6a5f70a6acdaa6de52fc72d678d452956861370e1d143b70219ced107c5a04c9",
+          "topology_id": 2
+        },
+        "now_tick_ms": 110,
+        "pose": {
+          "position_m": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "orientation_xyzw": [
+            0.0,
+            0.7071067811865476,
+            0.0,
+            0.7071067811865476
+          ]
+        },
+        "goal_m": [
+          10,
+          0,
+          0
+        ],
+        "observation": {
+          "binding": {
+            "run_id": "local-fixture-only",
+            "build_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "boot_sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "session": 1,
+            "config_epoch": 1,
+            "clock_domain": "fixture-tick-ms",
+            "source_id": 4,
+            "source_mode": "twin_fixture",
+            "profile_id": "deepeye_forward_profile_candidate_v1",
+            "producer_sha256": "6a5f70a6acdaa6de52fc72d678d452956861370e1d143b70219ced107c5a04c9",
+            "topology_id": 2
+          },
+          "sample_id": "fixture-110",
+          "trigger_id": "fixture-trigger-110",
+          "sequence": 11,
+          "board_frame_sha256": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+          "source_record_sha256": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+          "adc_tick_ms": 110,
+          "em_tick_ms": 100,
+          "em_origin_sample_id": "fixture-100",
+          "counts": [
+            716,
+            3071,
+            3071,
+            0
+          ],
+          "quality": 1807,
+          "adc_pose": {
+            "position_m": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "orientation_xyzw": [
+              0.0,
+              0.7071067811865476,
+              0.0,
+              0.7071067811865476
+            ]
+          },
+          "em_pose": {
+            "position_m": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "orientation_xyzw": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          },
+          "cause_action_id": null
+        },
+        "history": [
+          {
+            "binding": {
+              "run_id": "local-fixture-only",
+              "build_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "boot_sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+              "session": 1,
+              "config_epoch": 1,
+              "clock_domain": "fixture-tick-ms",
+              "source_id": 4,
+              "source_mode": "twin_fixture",
+              "profile_id": "deepeye_forward_profile_candidate_v1",
+              "producer_sha256": "6a5f70a6acdaa6de52fc72d678d452956861370e1d143b70219ced107c5a04c9",
+              "topology_id": 2
+            },
+            "sample_id": "fixture-100",
+            "trigger_id": "fixture-trigger-100",
+            "sequence": 10,
+            "board_frame_sha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+            "source_record_sha256": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+            "adc_tick_ms": 100,
+            "em_tick_ms": 100,
+            "em_origin_sample_id": "fixture-100",
+            "counts": [
+              716,
+              3071,
+              3071,
+              0
+            ],
+            "quality": 15,
+            "adc_pose": {
+              "position_m": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "orientation_xyzw": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ]
+            },
+            "em_pose": {
+              "position_m": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "orientation_xyzw": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ]
+            },
+            "cause_action_id": null
+          }
+        ],
+        "executed_actions": []
+      },
+      "actual_local_function_output": {
+        "authorization": "none",
+        "candidate_only": true,
+        "direction_world": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "independent_em_count": 1,
+        "map_cells": [
+          {
+            "em_tick_ms": 100,
+            "pose": {
+              "orientation_xyzw": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "position_m": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            },
+            "risk": 0.4997902524732597,
+            "sample_id": "fixture-100"
+          }
+        ],
+        "observation": {
+          "adc_pose": {
+            "orientation_xyzw": [
+              0.0,
+              0.7071067811865476,
+              0.0,
+              0.7071067811865476
+            ],
+            "position_m": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "adc_tick_ms": 110,
+          "binding": {
+            "boot_sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "build_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "clock_domain": "fixture-tick-ms",
+            "config_epoch": 1,
+            "producer_sha256": "6a5f70a6acdaa6de52fc72d678d452956861370e1d143b70219ced107c5a04c9",
+            "profile_id": "deepeye_forward_profile_candidate_v1",
+            "run_id": "local-fixture-only",
+            "session": 1,
+            "source_id": 4,
+            "source_mode": "twin_fixture",
+            "topology_id": 2
+          },
+          "board_frame_sha256": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+          "cause_action_id": null,
+          "counts": [
+            716,
+            3071,
+            3071,
+            0
+          ],
+          "em_origin_sample_id": "fixture-100",
+          "em_pose": {
+            "orientation_xyzw": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "position_m": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "em_tick_ms": 100,
+          "quality": 1807,
+          "sample_id": "fixture-110",
+          "sequence": 11,
+          "source_record_sha256": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+          "trigger_id": "fixture-trigger-110"
+        },
+        "planner_id": "candidate_four_channel_planner_v1",
+        "reason": "original_observation_pose_inapplicable",
+        "risk": 1.0,
+        "schema_version": 1,
+        "speed_limit_m_s": 0.0,
+        "status": "STOP",
+        "uncertainty": 1.0
+      }
+    },
+    {
+      "name": "held-translation10m-unsupported-stop",
+      "request": {
+        "schema_version": 1,
+        "enabled": true,
+        "binding": {
+          "run_id": "local-fixture-only",
+          "build_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "boot_sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+          "session": 1,
+          "config_epoch": 1,
+          "clock_domain": "fixture-tick-ms",
+          "source_id": 4,
+          "source_mode": "twin_fixture",
+          "profile_id": "deepeye_forward_profile_candidate_v1",
+          "producer_sha256": "6a5f70a6acdaa6de52fc72d678d452956861370e1d143b70219ced107c5a04c9",
+          "topology_id": 2
+        },
+        "now_tick_ms": 110,
+        "pose": {
+          "position_m": [
+            10,
+            0,
+            0
+          ],
+          "orientation_xyzw": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "goal_m": [
+          0.0,
+          0.0,
+          10.0
+        ],
+        "observation": {
+          "binding": {
+            "run_id": "local-fixture-only",
+            "build_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "boot_sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "session": 1,
+            "config_epoch": 1,
+            "clock_domain": "fixture-tick-ms",
+            "source_id": 4,
+            "source_mode": "twin_fixture",
+            "profile_id": "deepeye_forward_profile_candidate_v1",
+            "producer_sha256": "6a5f70a6acdaa6de52fc72d678d452956861370e1d143b70219ced107c5a04c9",
+            "topology_id": 2
+          },
+          "sample_id": "fixture-110",
+          "trigger_id": "fixture-trigger-110",
+          "sequence": 11,
+          "board_frame_sha256": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+          "source_record_sha256": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+          "adc_tick_ms": 110,
+          "em_tick_ms": 100,
+          "em_origin_sample_id": "fixture-100",
+          "counts": [
+            716,
+            3071,
+            3071,
+            0
+          ],
+          "quality": 1807,
+          "adc_pose": {
+            "position_m": [
+              10,
+              0,
+              0
+            ],
+            "orientation_xyzw": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          },
+          "em_pose": {
+            "position_m": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "orientation_xyzw": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          },
+          "cause_action_id": null
+        },
+        "history": [
+          {
+            "binding": {
+              "run_id": "local-fixture-only",
+              "build_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "boot_sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+              "session": 1,
+              "config_epoch": 1,
+              "clock_domain": "fixture-tick-ms",
+              "source_id": 4,
+              "source_mode": "twin_fixture",
+              "profile_id": "deepeye_forward_profile_candidate_v1",
+              "producer_sha256": "6a5f70a6acdaa6de52fc72d678d452956861370e1d143b70219ced107c5a04c9",
+              "topology_id": 2
+            },
+            "sample_id": "fixture-100",
+            "trigger_id": "fixture-trigger-100",
+            "sequence": 10,
+            "board_frame_sha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+            "source_record_sha256": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+            "adc_tick_ms": 100,
+            "em_tick_ms": 100,
+            "em_origin_sample_id": "fixture-100",
+            "counts": [
+              716,
+              3071,
+              3071,
+              0
+            ],
+            "quality": 15,
+            "adc_pose": {
+              "position_m": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "orientation_xyzw": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ]
+            },
+            "em_pose": {
+              "position_m": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "orientation_xyzw": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ]
+            },
+            "cause_action_id": null
+          }
+        ],
+        "executed_actions": []
+      },
+      "actual_local_function_output": {
+        "authorization": "none",
+        "candidate_only": true,
+        "direction_world": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "independent_em_count": 1,
+        "map_cells": [
+          {
+            "em_tick_ms": 100,
+            "pose": {
+              "orientation_xyzw": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "position_m": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            },
+            "risk": 0.4997902524732597,
+            "sample_id": "fixture-100"
+          }
+        ],
+        "observation": {
+          "adc_pose": {
+            "orientation_xyzw": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "position_m": [
+              10,
+              0,
+              0
+            ]
+          },
+          "adc_tick_ms": 110,
+          "binding": {
+            "boot_sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "build_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "clock_domain": "fixture-tick-ms",
+            "config_epoch": 1,
+            "producer_sha256": "6a5f70a6acdaa6de52fc72d678d452956861370e1d143b70219ced107c5a04c9",
+            "profile_id": "deepeye_forward_profile_candidate_v1",
+            "run_id": "local-fixture-only",
+            "session": 1,
+            "source_id": 4,
+            "source_mode": "twin_fixture",
+            "topology_id": 2
+          },
+          "board_frame_sha256": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+          "cause_action_id": null,
+          "counts": [
+            716,
+            3071,
+            3071,
+            0
+          ],
+          "em_origin_sample_id": "fixture-100",
+          "em_pose": {
+            "orientation_xyzw": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "position_m": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "em_tick_ms": 100,
+          "quality": 1807,
+          "sample_id": "fixture-110",
+          "sequence": 11,
+          "source_record_sha256": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+          "trigger_id": "fixture-trigger-110"
+        },
+        "planner_id": "candidate_four_channel_planner_v1",
+        "reason": "original_observation_pose_inapplicable",
+        "risk": 1.0,
+        "schema_version": 1,
+        "speed_limit_m_s": 0.0,
+        "status": "STOP",
+        "uncertainty": 1.0
+      }
+    },
+    {
+      "name": "held-supported-small-move-yaw10",
+      "request": {
+        "schema_version": 1,
+        "enabled": true,
+        "binding": {
+          "run_id": "local-fixture-only",
+          "build_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "boot_sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+          "session": 1,
+          "config_epoch": 1,
+          "clock_domain": "fixture-tick-ms",
+          "source_id": 4,
+          "source_mode": "twin_fixture",
+          "profile_id": "deepeye_forward_profile_candidate_v1",
+          "producer_sha256": "6a5f70a6acdaa6de52fc72d678d452956861370e1d143b70219ced107c5a04c9",
+          "topology_id": 2
+        },
+        "now_tick_ms": 110,
+        "pose": {
+          "position_m": [
+            0,
+            0,
+            0.2
+          ],
+          "orientation_xyzw": [
+            0.0,
+            0.08715574274765817,
+            0.0,
+            0.9961946980917455
+          ]
+        },
+        "goal_m": [
+          0.0,
+          0.0,
+          10.0
+        ],
+        "observation": {
+          "binding": {
+            "run_id": "local-fixture-only",
+            "build_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "boot_sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "session": 1,
+            "config_epoch": 1,
+            "clock_domain": "fixture-tick-ms",
+            "source_id": 4,
+            "source_mode": "twin_fixture",
+            "profile_id": "deepeye_forward_profile_candidate_v1",
+            "producer_sha256": "6a5f70a6acdaa6de52fc72d678d452956861370e1d143b70219ced107c5a04c9",
+            "topology_id": 2
+          },
+          "sample_id": "fixture-110",
+          "trigger_id": "fixture-trigger-110",
+          "sequence": 11,
+          "board_frame_sha256": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+          "source_record_sha256": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+          "adc_tick_ms": 110,
+          "em_tick_ms": 100,
+          "em_origin_sample_id": "fixture-100",
+          "counts": [
+            716,
+            3071,
+            3071,
+            0
+          ],
+          "quality": 1807,
+          "adc_pose": {
+            "position_m": [
+              0,
+              0,
+              0.1
+            ],
+            "orientation_xyzw": [
+              0.0,
+              0.08715574274765817,
+              0.0,
+              0.9961946980917455
+            ]
+          },
+          "em_pose": {
+            "position_m": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "orientation_xyzw": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          },
+          "cause_action_id": null
+        },
+        "history": [
+          {
+            "binding": {
+              "run_id": "local-fixture-only",
+              "build_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "boot_sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+              "session": 1,
+              "config_epoch": 1,
+              "clock_domain": "fixture-tick-ms",
+              "source_id": 4,
+              "source_mode": "twin_fixture",
+              "profile_id": "deepeye_forward_profile_candidate_v1",
+              "producer_sha256": "6a5f70a6acdaa6de52fc72d678d452956861370e1d143b70219ced107c5a04c9",
+              "topology_id": 2
+            },
+            "sample_id": "fixture-100",
+            "trigger_id": "fixture-trigger-100",
+            "sequence": 10,
+            "board_frame_sha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+            "source_record_sha256": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+            "adc_tick_ms": 100,
+            "em_tick_ms": 100,
+            "em_origin_sample_id": "fixture-100",
+            "counts": [
+              716,
+              3071,
+              3071,
+              0
+            ],
+            "quality": 15,
+            "adc_pose": {
+              "position_m": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "orientation_xyzw": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ]
+            },
+            "em_pose": {
+              "position_m": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "orientation_xyzw": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ]
+            },
+            "cause_action_id": null
+          }
+        ],
+        "executed_actions": []
+      },
+      "actual_local_function_output": {
+        "authorization": "none",
+        "candidate_only": true,
+        "direction_world": [
+          0.16389928355866304,
+          0.33035042472810605,
+          0.9295190270946135
+        ],
+        "independent_em_count": 1,
+        "map_cells": [
+          {
+            "em_tick_ms": 100,
+            "pose": {
+              "orientation_xyzw": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "position_m": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            },
+            "risk": 0.4997902524732597,
+            "sample_id": "fixture-100"
+          }
+        ],
+        "observation": {
+          "adc_pose": {
+            "orientation_xyzw": [
+              0.0,
+              0.08715574274765817,
+              0.0,
+              0.9961946980917455
+            ],
+            "position_m": [
+              0,
+              0,
+              0.1
+            ]
+          },
+          "adc_tick_ms": 110,
+          "binding": {
+            "boot_sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "build_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "clock_domain": "fixture-tick-ms",
+            "config_epoch": 1,
+            "producer_sha256": "6a5f70a6acdaa6de52fc72d678d452956861370e1d143b70219ced107c5a04c9",
+            "profile_id": "deepeye_forward_profile_candidate_v1",
+            "run_id": "local-fixture-only",
+            "session": 1,
+            "source_id": 4,
+            "source_mode": "twin_fixture",
+            "topology_id": 2
+          },
+          "board_frame_sha256": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+          "cause_action_id": null,
+          "counts": [
+            716,
+            3071,
+            3071,
+            0
+          ],
+          "em_origin_sample_id": "fixture-100",
+          "em_pose": {
+            "orientation_xyzw": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "position_m": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "em_tick_ms": 100,
+          "quality": 1807,
+          "sample_id": "fixture-110",
+          "sequence": 11,
+          "source_record_sha256": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+          "trigger_id": "fixture-trigger-110"
+        },
+        "planner_id": "candidate_four_channel_planner_v1",
+        "reason": "bounded_observation_goal_search",
+        "risk": 0.1468409579108957,
+        "schema_version": 1,
+        "speed_limit_m_s": 0.09800911901703709,
+        "status": "ADVISE",
+        "uncertainty": 0.5404884004884005
+      }
+    },
+    {
+      "name": "held-supported-roll180",
+      "request": {
+        "schema_version": 1,
+        "enabled": true,
+        "binding": {
+          "run_id": "local-fixture-only",
+          "build_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "boot_sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+          "session": 1,
+          "config_epoch": 1,
+          "clock_domain": "fixture-tick-ms",
+          "source_id": 4,
+          "source_mode": "twin_fixture",
+          "profile_id": "deepeye_forward_profile_candidate_v1",
+          "producer_sha256": "6a5f70a6acdaa6de52fc72d678d452956861370e1d143b70219ced107c5a04c9",
+          "topology_id": 2
+        },
+        "now_tick_ms": 110,
+        "pose": {
+          "position_m": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "orientation_xyzw": [
+            0,
+            0,
+            1,
+            0
+          ]
+        },
+        "goal_m": [
+          0.0,
+          0.0,
+          10.0
+        ],
+        "observation": {
+          "binding": {
+            "run_id": "local-fixture-only",
+            "build_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "boot_sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "session": 1,
+            "config_epoch": 1,
+            "clock_domain": "fixture-tick-ms",
+            "source_id": 4,
+            "source_mode": "twin_fixture",
+            "profile_id": "deepeye_forward_profile_candidate_v1",
+            "producer_sha256": "6a5f70a6acdaa6de52fc72d678d452956861370e1d143b70219ced107c5a04c9",
+            "topology_id": 2
+          },
+          "sample_id": "fixture-110",
+          "trigger_id": "fixture-trigger-110",
+          "sequence": 11,
+          "board_frame_sha256": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+          "source_record_sha256": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+          "adc_tick_ms": 110,
+          "em_tick_ms": 100,
+          "em_origin_sample_id": "fixture-100",
+          "counts": [
+            716,
+            3071,
+            3071,
+            0
+          ],
+          "quality": 1807,
+          "adc_pose": {
+            "position_m": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "orientation_xyzw": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          },
+          "em_pose": {
+            "position_m": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "orientation_xyzw": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          },
+          "cause_action_id": null
+        },
+        "history": [
+          {
+            "binding": {
+              "run_id": "local-fixture-only",
+              "build_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "boot_sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+              "session": 1,
+              "config_epoch": 1,
+              "clock_domain": "fixture-tick-ms",
+              "source_id": 4,
+              "source_mode": "twin_fixture",
+              "profile_id": "deepeye_forward_profile_candidate_v1",
+              "producer_sha256": "6a5f70a6acdaa6de52fc72d678d452956861370e1d143b70219ced107c5a04c9",
+              "topology_id": 2
+            },
+            "sample_id": "fixture-100",
+            "trigger_id": "fixture-trigger-100",
+            "sequence": 10,
+            "board_frame_sha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+            "source_record_sha256": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+            "adc_tick_ms": 100,
+            "em_tick_ms": 100,
+            "em_origin_sample_id": "fixture-100",
+            "counts": [
+              716,
+              3071,
+              3071,
+              0
+            ],
+            "quality": 15,
+            "adc_pose": {
+              "position_m": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "orientation_xyzw": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ]
+            },
+            "em_pose": {
+              "position_m": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "orientation_xyzw": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ]
+            },
+            "cause_action_id": null
+          }
+        ],
+        "executed_actions": []
+      },
+      "actual_local_function_output": {
+        "authorization": "none",
+        "candidate_only": true,
+        "direction_world": [
+          0.31367750046375453,
+          0.31367750046375453,
+          0.8962214298964415
+        ],
+        "independent_em_count": 1,
+        "map_cells": [
+          {
+            "em_tick_ms": 100,
+            "pose": {
+              "orientation_xyzw": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "position_m": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            },
+            "risk": 0.4997902524732597,
+            "sample_id": "fixture-100"
+          }
+        ],
+        "observation": {
+          "adc_pose": {
+            "orientation_xyzw": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "position_m": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "adc_tick_ms": 110,
+          "binding": {
+            "boot_sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "build_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "clock_domain": "fixture-tick-ms",
+            "config_epoch": 1,
+            "producer_sha256": "6a5f70a6acdaa6de52fc72d678d452956861370e1d143b70219ced107c5a04c9",
+            "profile_id": "deepeye_forward_profile_candidate_v1",
+            "run_id": "local-fixture-only",
+            "session": 1,
+            "source_id": 4,
+            "source_mode": "twin_fixture",
+            "topology_id": 2
+          },
+          "board_frame_sha256": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+          "cause_action_id": null,
+          "counts": [
+            716,
+            3071,
+            3071,
+            0
+          ],
+          "em_origin_sample_id": "fixture-100",
+          "em_pose": {
+            "orientation_xyzw": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "position_m": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "em_tick_ms": 100,
+          "quality": 1807,
+          "sample_id": "fixture-110",
+          "sequence": 11,
+          "source_record_sha256": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+          "trigger_id": "fixture-trigger-110"
+        },
+        "planner_id": "candidate_four_channel_planner_v1",
+        "reason": "bounded_observation_goal_search",
+        "risk": 0.05178896627105806,
+        "schema_version": 1,
+        "speed_limit_m_s": 0.10892849219583334,
+        "status": "ADVISE",
+        "uncertainty": 0.5404884004884005
+      }
+    }
+  ]
+}

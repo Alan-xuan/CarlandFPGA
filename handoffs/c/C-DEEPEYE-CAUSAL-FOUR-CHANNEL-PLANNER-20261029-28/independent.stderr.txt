@@ -1,0 +1,26 @@
+test_01_counts_independent_inverse_and_half_bins (__main__.IndependentChecks.test_01_counts_independent_inverse_and_half_bins) ... ok
+test_02_quality_legal_zero_and_poor_stop (__main__.IndependentChecks.test_02_quality_legal_zero_and_poor_stop) ... ok
+test_03_quality_contradictions (__main__.IndependentChecks.test_03_quality_contradictions) ... ok
+test_04_original_age_grid_future (__main__.IndependentChecks.test_04_original_age_grid_future) ... ok
+test_05_held_no_extra_confidence_and_original_pose (__main__.IndependentChecks.test_05_held_no_extra_confidence_and_original_pose) ... ok
+test_06_fault_revival_origin_eviction_replay (__main__.IndependentChecks.test_06_fault_revival_origin_eviction_replay) ... ok
+test_07_same_goal_actual_decisions_and_signs (__main__.IndependentChecks.test_07_same_goal_actual_decisions_and_signs) ... ok
+test_08_context_and_hidden_inputs (__main__.IndependentChecks.test_08_context_and_hidden_inputs) ... ok
+test_09_actions_causal_and_unconfirmed_shape (__main__.IndependentChecks.test_09_actions_causal_and_unconfirmed_shape) ... ok
+test_10_budget_and_eviction (__main__.IndependentChecks.test_10_budget_and_eviction) ... ok
+test_11_strict_json_detached_and_deterministic (__main__.IndependentChecks.test_11_strict_json_detached_and_deterministic) ... ok
+test_12_defaults_goal_and_no_arrival (__main__.IndependentChecks.test_12_defaults_goal_and_no_arrival) ... ok
+test_13_all_saved_examples_exact (__main__.IndependentChecks.test_13_all_saved_examples_exact) ... ok
+test_14_original_forward_support_not_reused_behind (__main__.IndependentChecks.test_14_original_forward_support_not_reused_behind) ... ok
+test_15_yaw90_180_each_pose_field (__main__.IndependentChecks.test_15_yaw90_180_each_pose_field) ... ok
+test_16_ten_metre_displacement_each_pose_field (__main__.IndependentChecks.test_16_ten_metre_displacement_each_pose_field) ... ok
+test_17_position_boundary_and_pairwise_offsets (__main__.IndependentChecks.test_17_position_boundary_and_pairwise_offsets) ... ok
+test_18_fifteen_degree_inclusive_and_pairwise (__main__.IndependentChecks.test_18_fifteen_degree_inclusive_and_pairwise) ... ok
+test_19_thirty_degree_real_candidate_boundary (__main__.IndependentChecks.test_19_thirty_degree_real_candidate_boundary) ... ok
+test_20_roll_small_displacement_and_quaternion_sign (__main__.IndependentChecks.test_20_roll_small_displacement_and_quaternion_sign) ... ok
+test_21_native_world_frame_rotated_equivalence (__main__.IndependentChecks.test_21_native_world_frame_rotated_equivalence) ... ok
+
+----------------------------------------------------------------------
+Ran 21 tests in 0.037s
+
+OK

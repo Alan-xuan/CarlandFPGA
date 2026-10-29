@@ -1,0 +1,22 @@
+test_counts_exact_mapping_and_null (__main__.PlannerTests.test_counts_exact_mapping_and_null) ... ok
+test_determinism_detached_no_mutation_and_strict_json (__main__.PlannerTests.test_determinism_detached_no_mutation_and_strict_json) ... ok
+test_disabled_and_positive_both_h12 (__main__.PlannerTests.test_disabled_and_positive_both_h12) ... ok
+test_duplicate_order_and_budget (__main__.PlannerTests.test_duplicate_order_and_budget) ... ok
+test_each_advised_direction_inside_original_central_cone (__main__.PlannerTests.test_each_advised_direction_inside_original_central_cone) ... ok
+test_executed_action_causal_binding (__main__.PlannerTests.test_executed_action_causal_binding) ... ok
+test_fault_revival_and_full_history_bound (__main__.PlannerTests.test_fault_revival_and_full_history_bound) ... ok
+test_goal_changes_advice_and_no_arrival_claim (__main__.PlannerTests.test_goal_changes_advice_and_no_arrival_claim) ... ok
+test_held_no_new_evidence_preserves_original_pose (__main__.PlannerTests.test_held_no_new_evidence_preserves_original_pose) ... ok
+test_old_forward_cannot_advise_yaw180_or_yaw90 (__main__.PlannerTests.test_old_forward_cannot_advise_yaw180_or_yaw90) ... ok
+test_original_age_exact100_and_expiry (__main__.PlannerTests.test_original_age_exact100_and_expiry) ... ok
+test_original_direction_frame_not_current_frame (__main__.PlannerTests.test_original_direction_frame_not_current_frame) ... ok
+test_quality_schema_time_identity_rejections (__main__.PlannerTests.test_quality_schema_time_identity_rejections) ... ok
+test_reuse_angular_boundary_pairwise_and_roll (__main__.PlannerTests.test_reuse_angular_boundary_pairwise_and_roll) ... ok
+test_reuse_translation_boundary_and_each_pose_pair (__main__.PlannerTests.test_reuse_translation_boundary_and_each_pose_pair) ... ok
+test_same_goal_contrast_3d_signs_and_vibration (__main__.PlannerTests.test_same_goal_contrast_3d_signs_and_vibration) ... ok
+test_source_fault_c3_valid_and_saturation_are_legal_stop (__main__.PlannerTests.test_source_fault_c3_valid_and_saturation_are_legal_stop) ... ok
+
+----------------------------------------------------------------------
+Ran 17 tests in 0.020s
+
+OK

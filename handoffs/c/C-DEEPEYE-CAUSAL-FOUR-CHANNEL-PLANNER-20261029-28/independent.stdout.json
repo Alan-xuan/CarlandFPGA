@@ -1,0 +1,1206 @@
+{
+  "candidate_sha256": "70b317681fee8c9182c342fe8d2f94eaecc957c62231a74a080d213bb5e0eab4",
+  "errors": 0,
+  "evidence_scope": "synthetic_local_function_only",
+  "examples_verified": [
+    "disabled-default",
+    "same-goal-right-up",
+    "same-goal-left-down",
+    "same-goal-contact-stop",
+    "held-original-pose",
+    "held-yaw180-unsupported-stop",
+    "held-yaw90-unsupported-stop",
+    "held-translation10m-unsupported-stop",
+    "held-supported-small-move-yaw10",
+    "held-supported-roll180"
+  ],
+  "failures": 0,
+  "fifteen_degree_boundary": [
+    {
+      "angle": 14.999999,
+      "direction": [
+        -0.074805505868144,
+        0.0,
+        0.9971981429444255
+      ],
+      "status": "ADVISE"
+    },
+    {
+      "angle": 15,
+      "direction": [
+        -0.07480548846375312,
+        0.0,
+        0.9971981442500278
+      ],
+      "status": "ADVISE"
+    },
+    {
+      "angle": 15.000001,
+      "direction": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "status": "STOP"
+    }
+  ],
+  "opposite_native_forward_probe": {
+    "direction_world": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "risk": 1.0,
+    "speed_limit_m_s": 0.0,
+    "status": "STOP",
+    "uncertainty": 1.0
+  },
+  "opposite_native_forward_reproducer": {
+    "actual_output": {
+      "authorization": "none",
+      "candidate_only": true,
+      "direction_world": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "independent_em_count": 1,
+      "map_cells": [
+        {
+          "em_tick_ms": 100,
+          "pose": {
+            "orientation_xyzw": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "position_m": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "risk": 0.0001565528395600646,
+          "sample_id": "native-100"
+        }
+      ],
+      "observation": {
+        "adc_pose": {
+          "orientation_xyzw": [
+            0,
+            1,
+            0,
+            0
+          ],
+          "position_m": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "adc_tick_ms": 110,
+        "binding": {
+          "boot_sha256": "2222222222222222222222222222222222222222222222222222222222222222",
+          "build_sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+          "clock_domain": "independent-fixture-ms",
+          "config_epoch": 7,
+          "producer_sha256": "6a5f70a6acdaa6de52fc72d678d452956861370e1d143b70219ced107c5a04c9",
+          "profile_id": "deepeye_forward_profile_candidate_v1",
+          "run_id": "independent-synthetic",
+          "session": 23,
+          "source_id": 4,
+          "source_mode": "twin_fixture",
+          "topology_id": 2
+        },
+        "board_frame_sha256": "3333333333333333333333333333333333333333333333333333333333333333",
+        "cause_action_id": null,
+        "counts": [
+          1739,
+          2048,
+          2048,
+          0
+        ],
+        "em_origin_sample_id": "native-100",
+        "em_pose": {
+          "orientation_xyzw": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "position_m": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "em_tick_ms": 100,
+        "quality": 1807,
+        "sample_id": "held-110",
+        "sequence": 11,
+        "source_record_sha256": "4444444444444444444444444444444444444444444444444444444444444444",
+        "trigger_id": "trigger-110"
+      },
+      "planner_id": "candidate_four_channel_planner_v1",
+      "reason": "original_observation_pose_inapplicable",
+      "risk": 1.0,
+      "schema_version": 1,
+      "speed_limit_m_s": 0.0,
+      "status": "STOP",
+      "uncertainty": 1.0
+    },
+    "request": {
+      "binding": {
+        "boot_sha256": "2222222222222222222222222222222222222222222222222222222222222222",
+        "build_sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+        "clock_domain": "independent-fixture-ms",
+        "config_epoch": 7,
+        "producer_sha256": "6a5f70a6acdaa6de52fc72d678d452956861370e1d143b70219ced107c5a04c9",
+        "profile_id": "deepeye_forward_profile_candidate_v1",
+        "run_id": "independent-synthetic",
+        "session": 23,
+        "source_id": 4,
+        "source_mode": "twin_fixture",
+        "topology_id": 2
+      },
+      "enabled": true,
+      "executed_actions": [],
+      "goal_m": [
+        0,
+        0,
+        -10
+      ],
+      "history": [
+        {
+          "adc_pose": {
+            "orientation_xyzw": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "position_m": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "adc_tick_ms": 100,
+          "binding": {
+            "boot_sha256": "2222222222222222222222222222222222222222222222222222222222222222",
+            "build_sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+            "clock_domain": "independent-fixture-ms",
+            "config_epoch": 7,
+            "producer_sha256": "6a5f70a6acdaa6de52fc72d678d452956861370e1d143b70219ced107c5a04c9",
+            "profile_id": "deepeye_forward_profile_candidate_v1",
+            "run_id": "independent-synthetic",
+            "session": 23,
+            "source_id": 4,
+            "source_mode": "twin_fixture",
+            "topology_id": 2
+          },
+          "board_frame_sha256": "3333333333333333333333333333333333333333333333333333333333333333",
+          "cause_action_id": null,
+          "counts": [
+            1739,
+            2048,
+            2048,
+            0
+          ],
+          "em_origin_sample_id": "native-100",
+          "em_pose": {
+            "orientation_xyzw": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "position_m": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "em_tick_ms": 100,
+          "quality": 15,
+          "sample_id": "native-100",
+          "sequence": 10,
+          "source_record_sha256": "4444444444444444444444444444444444444444444444444444444444444444",
+          "trigger_id": "trigger-100"
+        }
+      ],
+      "now_tick_ms": 110,
+      "observation": {
+        "adc_pose": {
+          "orientation_xyzw": [
+            0,
+            1,
+            0,
+            0
+          ],
+          "position_m": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "adc_tick_ms": 110,
+        "binding": {
+          "boot_sha256": "2222222222222222222222222222222222222222222222222222222222222222",
+          "build_sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+          "clock_domain": "independent-fixture-ms",
+          "config_epoch": 7,
+          "producer_sha256": "6a5f70a6acdaa6de52fc72d678d452956861370e1d143b70219ced107c5a04c9",
+          "profile_id": "deepeye_forward_profile_candidate_v1",
+          "run_id": "independent-synthetic",
+          "session": 23,
+          "source_id": 4,
+          "source_mode": "twin_fixture",
+          "topology_id": 2
+        },
+        "board_frame_sha256": "3333333333333333333333333333333333333333333333333333333333333333",
+        "cause_action_id": null,
+        "counts": [
+          1739,
+          2048,
+          2048,
+          0
+        ],
+        "em_origin_sample_id": "native-100",
+        "em_pose": {
+          "orientation_xyzw": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "position_m": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "em_tick_ms": 100,
+        "quality": 1807,
+        "sample_id": "held-110",
+        "sequence": 11,
+        "source_record_sha256": "4444444444444444444444444444444444444444444444444444444444444444",
+        "trigger_id": "trigger-110"
+      },
+      "pose": {
+        "orientation_xyzw": [
+          0,
+          1,
+          0,
+          0
+        ],
+        "position_m": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "schema_version": 1
+    }
+  },
+  "same_goal_decisions": [
+    {
+      "direction_world": [
+        0.31367750046375453,
+        0.31367750046375453,
+        0.8962214298964415
+      ],
+      "risk": 0.03794260546460537,
+      "speed_limit_m_s": 0.12013970699158423,
+      "status": "ADVISE",
+      "uncertainty": 0.5004884004884005
+    },
+    {
+      "direction_world": [
+        -0.31367750046375453,
+        -0.31367750046375453,
+        0.8962214298964415
+      ],
+      "risk": 0.03794260546460526,
+      "speed_limit_m_s": 0.12013970699158424,
+      "status": "ADVISE",
+      "uncertainty": 0.5004884004884005
+    },
+    {
+      "direction_world": [
+        -0.31367750046375453,
+        -0.31367750046375453,
+        0.8962214298964415
+      ],
+      "risk": 0.037767310655324904,
+      "speed_limit_m_s": 0.12016159743922668,
+      "status": "ADVISE",
+      "uncertainty": 0.5004884004884005
+    },
+    {
+      "direction_world": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "risk": 1.0,
+      "speed_limit_m_s": 0.0,
+      "status": "STOP",
+      "uncertainty": 0.5004884004884005
+    }
+  ],
+  "tests_run": 21,
+  "thirty_degree_boundary": [
+    {
+      "direction": [
+        0.4999999848850052,
+        0.0,
+        0.8660254125110848
+      ],
+      "native_angle_degrees": 29.999999,
+      "offset_degrees": -1e-06
+    },
+    {
+      "direction": [
+        0.49999999999999994,
+        0.0,
+        0.8660254037844387
+      ],
+      "native_angle_degrees": 29.999999999999993,
+      "offset_degrees": 0
+    },
+    {
+      "direction": [
+        0.18583733536675512,
+        0.0,
+        0.9825805233077767
+      ],
+      "native_angle_degrees": 10.709954780811252,
+      "offset_degrees": 1e-06
+    }
+  ],
+  "translation_reproducers": [
+    {
+      "actual_output": {
+        "authorization": "none",
+        "candidate_only": true,
+        "direction_world": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "independent_em_count": 1,
+        "map_cells": [
+          {
+            "em_tick_ms": 100,
+            "pose": {
+              "orientation_xyzw": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "position_m": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            },
+            "risk": 0.0001565528395600646,
+            "sample_id": "native-100"
+          }
+        ],
+        "observation": {
+          "adc_pose": {
+            "orientation_xyzw": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "position_m": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "adc_tick_ms": 110,
+          "binding": {
+            "boot_sha256": "2222222222222222222222222222222222222222222222222222222222222222",
+            "build_sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+            "clock_domain": "independent-fixture-ms",
+            "config_epoch": 7,
+            "producer_sha256": "6a5f70a6acdaa6de52fc72d678d452956861370e1d143b70219ced107c5a04c9",
+            "profile_id": "deepeye_forward_profile_candidate_v1",
+            "run_id": "independent-synthetic",
+            "session": 23,
+            "source_id": 4,
+            "source_mode": "twin_fixture",
+            "topology_id": 2
+          },
+          "board_frame_sha256": "3333333333333333333333333333333333333333333333333333333333333333",
+          "cause_action_id": null,
+          "counts": [
+            1739,
+            2048,
+            2048,
+            0
+          ],
+          "em_origin_sample_id": "native-100",
+          "em_pose": {
+            "orientation_xyzw": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "position_m": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "em_tick_ms": 100,
+          "quality": 1807,
+          "sample_id": "held-110",
+          "sequence": 11,
+          "source_record_sha256": "4444444444444444444444444444444444444444444444444444444444444444",
+          "trigger_id": "trigger-110"
+        },
+        "planner_id": "candidate_four_channel_planner_v1",
+        "reason": "original_observation_pose_inapplicable",
+        "risk": 1.0,
+        "schema_version": 1,
+        "speed_limit_m_s": 0.0,
+        "status": "STOP",
+        "uncertainty": 1.0
+      },
+      "request": {
+        "binding": {
+          "boot_sha256": "2222222222222222222222222222222222222222222222222222222222222222",
+          "build_sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+          "clock_domain": "independent-fixture-ms",
+          "config_epoch": 7,
+          "producer_sha256": "6a5f70a6acdaa6de52fc72d678d452956861370e1d143b70219ced107c5a04c9",
+          "profile_id": "deepeye_forward_profile_candidate_v1",
+          "run_id": "independent-synthetic",
+          "session": 23,
+          "source_id": 4,
+          "source_mode": "twin_fixture",
+          "topology_id": 2
+        },
+        "enabled": true,
+        "executed_actions": [],
+        "goal_m": [
+          10,
+          0,
+          10
+        ],
+        "history": [
+          {
+            "adc_pose": {
+              "orientation_xyzw": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "position_m": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            },
+            "adc_tick_ms": 100,
+            "binding": {
+              "boot_sha256": "2222222222222222222222222222222222222222222222222222222222222222",
+              "build_sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+              "clock_domain": "independent-fixture-ms",
+              "config_epoch": 7,
+              "producer_sha256": "6a5f70a6acdaa6de52fc72d678d452956861370e1d143b70219ced107c5a04c9",
+              "profile_id": "deepeye_forward_profile_candidate_v1",
+              "run_id": "independent-synthetic",
+              "session": 23,
+              "source_id": 4,
+              "source_mode": "twin_fixture",
+              "topology_id": 2
+            },
+            "board_frame_sha256": "3333333333333333333333333333333333333333333333333333333333333333",
+            "cause_action_id": null,
+            "counts": [
+              1739,
+              2048,
+              2048,
+              0
+            ],
+            "em_origin_sample_id": "native-100",
+            "em_pose": {
+              "orientation_xyzw": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "position_m": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            },
+            "em_tick_ms": 100,
+            "quality": 15,
+            "sample_id": "native-100",
+            "sequence": 10,
+            "source_record_sha256": "4444444444444444444444444444444444444444444444444444444444444444",
+            "trigger_id": "trigger-100"
+          }
+        ],
+        "now_tick_ms": 110,
+        "observation": {
+          "adc_pose": {
+            "orientation_xyzw": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "position_m": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "adc_tick_ms": 110,
+          "binding": {
+            "boot_sha256": "2222222222222222222222222222222222222222222222222222222222222222",
+            "build_sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+            "clock_domain": "independent-fixture-ms",
+            "config_epoch": 7,
+            "producer_sha256": "6a5f70a6acdaa6de52fc72d678d452956861370e1d143b70219ced107c5a04c9",
+            "profile_id": "deepeye_forward_profile_candidate_v1",
+            "run_id": "independent-synthetic",
+            "session": 23,
+            "source_id": 4,
+            "source_mode": "twin_fixture",
+            "topology_id": 2
+          },
+          "board_frame_sha256": "3333333333333333333333333333333333333333333333333333333333333333",
+          "cause_action_id": null,
+          "counts": [
+            1739,
+            2048,
+            2048,
+            0
+          ],
+          "em_origin_sample_id": "native-100",
+          "em_pose": {
+            "orientation_xyzw": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "position_m": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "em_tick_ms": 100,
+          "quality": 1807,
+          "sample_id": "held-110",
+          "sequence": 11,
+          "source_record_sha256": "4444444444444444444444444444444444444444444444444444444444444444",
+          "trigger_id": "trigger-110"
+        },
+        "pose": {
+          "orientation_xyzw": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "position_m": [
+            10,
+            0,
+            0
+          ]
+        },
+        "schema_version": 1
+      }
+    },
+    {
+      "actual_output": {
+        "authorization": "none",
+        "candidate_only": true,
+        "direction_world": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "independent_em_count": 1,
+        "map_cells": [
+          {
+            "em_tick_ms": 100,
+            "pose": {
+              "orientation_xyzw": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "position_m": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            },
+            "risk": 0.0001565528395600646,
+            "sample_id": "native-100"
+          }
+        ],
+        "observation": {
+          "adc_pose": {
+            "orientation_xyzw": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "position_m": [
+              10,
+              0,
+              0
+            ]
+          },
+          "adc_tick_ms": 110,
+          "binding": {
+            "boot_sha256": "2222222222222222222222222222222222222222222222222222222222222222",
+            "build_sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+            "clock_domain": "independent-fixture-ms",
+            "config_epoch": 7,
+            "producer_sha256": "6a5f70a6acdaa6de52fc72d678d452956861370e1d143b70219ced107c5a04c9",
+            "profile_id": "deepeye_forward_profile_candidate_v1",
+            "run_id": "independent-synthetic",
+            "session": 23,
+            "source_id": 4,
+            "source_mode": "twin_fixture",
+            "topology_id": 2
+          },
+          "board_frame_sha256": "3333333333333333333333333333333333333333333333333333333333333333",
+          "cause_action_id": null,
+          "counts": [
+            1739,
+            2048,
+            2048,
+            0
+          ],
+          "em_origin_sample_id": "native-100",
+          "em_pose": {
+            "orientation_xyzw": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "position_m": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "em_tick_ms": 100,
+          "quality": 1807,
+          "sample_id": "held-110",
+          "sequence": 11,
+          "source_record_sha256": "4444444444444444444444444444444444444444444444444444444444444444",
+          "trigger_id": "trigger-110"
+        },
+        "planner_id": "candidate_four_channel_planner_v1",
+        "reason": "original_observation_pose_inapplicable",
+        "risk": 1.0,
+        "schema_version": 1,
+        "speed_limit_m_s": 0.0,
+        "status": "STOP",
+        "uncertainty": 1.0
+      },
+      "request": {
+        "binding": {
+          "boot_sha256": "2222222222222222222222222222222222222222222222222222222222222222",
+          "build_sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+          "clock_domain": "independent-fixture-ms",
+          "config_epoch": 7,
+          "producer_sha256": "6a5f70a6acdaa6de52fc72d678d452956861370e1d143b70219ced107c5a04c9",
+          "profile_id": "deepeye_forward_profile_candidate_v1",
+          "run_id": "independent-synthetic",
+          "session": 23,
+          "source_id": 4,
+          "source_mode": "twin_fixture",
+          "topology_id": 2
+        },
+        "enabled": true,
+        "executed_actions": [],
+        "goal_m": [
+          10,
+          0,
+          10
+        ],
+        "history": [
+          {
+            "adc_pose": {
+              "orientation_xyzw": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "position_m": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            },
+            "adc_tick_ms": 100,
+            "binding": {
+              "boot_sha256": "2222222222222222222222222222222222222222222222222222222222222222",
+              "build_sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+              "clock_domain": "independent-fixture-ms",
+              "config_epoch": 7,
+              "producer_sha256": "6a5f70a6acdaa6de52fc72d678d452956861370e1d143b70219ced107c5a04c9",
+              "profile_id": "deepeye_forward_profile_candidate_v1",
+              "run_id": "independent-synthetic",
+              "session": 23,
+              "source_id": 4,
+              "source_mode": "twin_fixture",
+              "topology_id": 2
+            },
+            "board_frame_sha256": "3333333333333333333333333333333333333333333333333333333333333333",
+            "cause_action_id": null,
+            "counts": [
+              1739,
+              2048,
+              2048,
+              0
+            ],
+            "em_origin_sample_id": "native-100",
+            "em_pose": {
+              "orientation_xyzw": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "position_m": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            },
+            "em_tick_ms": 100,
+            "quality": 15,
+            "sample_id": "native-100",
+            "sequence": 10,
+            "source_record_sha256": "4444444444444444444444444444444444444444444444444444444444444444",
+            "trigger_id": "trigger-100"
+          }
+        ],
+        "now_tick_ms": 110,
+        "observation": {
+          "adc_pose": {
+            "orientation_xyzw": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "position_m": [
+              10,
+              0,
+              0
+            ]
+          },
+          "adc_tick_ms": 110,
+          "binding": {
+            "boot_sha256": "2222222222222222222222222222222222222222222222222222222222222222",
+            "build_sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+            "clock_domain": "independent-fixture-ms",
+            "config_epoch": 7,
+            "producer_sha256": "6a5f70a6acdaa6de52fc72d678d452956861370e1d143b70219ced107c5a04c9",
+            "profile_id": "deepeye_forward_profile_candidate_v1",
+            "run_id": "independent-synthetic",
+            "session": 23,
+            "source_id": 4,
+            "source_mode": "twin_fixture",
+            "topology_id": 2
+          },
+          "board_frame_sha256": "3333333333333333333333333333333333333333333333333333333333333333",
+          "cause_action_id": null,
+          "counts": [
+            1739,
+            2048,
+            2048,
+            0
+          ],
+          "em_origin_sample_id": "native-100",
+          "em_pose": {
+            "orientation_xyzw": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "position_m": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "em_tick_ms": 100,
+          "quality": 1807,
+          "sample_id": "held-110",
+          "sequence": 11,
+          "source_record_sha256": "4444444444444444444444444444444444444444444444444444444444444444",
+          "trigger_id": "trigger-110"
+        },
+        "pose": {
+          "orientation_xyzw": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "position_m": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "schema_version": 1
+      }
+    },
+    {
+      "actual_output": {
+        "authorization": "none",
+        "candidate_only": true,
+        "direction_world": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "independent_em_count": 1,
+        "map_cells": [
+          {
+            "em_tick_ms": 100,
+            "pose": {
+              "orientation_xyzw": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "position_m": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            },
+            "risk": 0.0001565528395600646,
+            "sample_id": "native-100"
+          }
+        ],
+        "observation": {
+          "adc_pose": {
+            "orientation_xyzw": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "position_m": [
+              10,
+              0,
+              0
+            ]
+          },
+          "adc_tick_ms": 110,
+          "binding": {
+            "boot_sha256": "2222222222222222222222222222222222222222222222222222222222222222",
+            "build_sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+            "clock_domain": "independent-fixture-ms",
+            "config_epoch": 7,
+            "producer_sha256": "6a5f70a6acdaa6de52fc72d678d452956861370e1d143b70219ced107c5a04c9",
+            "profile_id": "deepeye_forward_profile_candidate_v1",
+            "run_id": "independent-synthetic",
+            "session": 23,
+            "source_id": 4,
+            "source_mode": "twin_fixture",
+            "topology_id": 2
+          },
+          "board_frame_sha256": "3333333333333333333333333333333333333333333333333333333333333333",
+          "cause_action_id": null,
+          "counts": [
+            1739,
+            2048,
+            2048,
+            0
+          ],
+          "em_origin_sample_id": "native-100",
+          "em_pose": {
+            "orientation_xyzw": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "position_m": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "em_tick_ms": 100,
+          "quality": 1807,
+          "sample_id": "held-110",
+          "sequence": 11,
+          "source_record_sha256": "4444444444444444444444444444444444444444444444444444444444444444",
+          "trigger_id": "trigger-110"
+        },
+        "planner_id": "candidate_four_channel_planner_v1",
+        "reason": "original_observation_pose_inapplicable",
+        "risk": 1.0,
+        "schema_version": 1,
+        "speed_limit_m_s": 0.0,
+        "status": "STOP",
+        "uncertainty": 1.0
+      },
+      "request": {
+        "binding": {
+          "boot_sha256": "2222222222222222222222222222222222222222222222222222222222222222",
+          "build_sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+          "clock_domain": "independent-fixture-ms",
+          "config_epoch": 7,
+          "producer_sha256": "6a5f70a6acdaa6de52fc72d678d452956861370e1d143b70219ced107c5a04c9",
+          "profile_id": "deepeye_forward_profile_candidate_v1",
+          "run_id": "independent-synthetic",
+          "session": 23,
+          "source_id": 4,
+          "source_mode": "twin_fixture",
+          "topology_id": 2
+        },
+        "enabled": true,
+        "executed_actions": [],
+        "goal_m": [
+          10,
+          0,
+          10
+        ],
+        "history": [
+          {
+            "adc_pose": {
+              "orientation_xyzw": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "position_m": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            },
+            "adc_tick_ms": 100,
+            "binding": {
+              "boot_sha256": "2222222222222222222222222222222222222222222222222222222222222222",
+              "build_sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+              "clock_domain": "independent-fixture-ms",
+              "config_epoch": 7,
+              "producer_sha256": "6a5f70a6acdaa6de52fc72d678d452956861370e1d143b70219ced107c5a04c9",
+              "profile_id": "deepeye_forward_profile_candidate_v1",
+              "run_id": "independent-synthetic",
+              "session": 23,
+              "source_id": 4,
+              "source_mode": "twin_fixture",
+              "topology_id": 2
+            },
+            "board_frame_sha256": "3333333333333333333333333333333333333333333333333333333333333333",
+            "cause_action_id": null,
+            "counts": [
+              1739,
+              2048,
+              2048,
+              0
+            ],
+            "em_origin_sample_id": "native-100",
+            "em_pose": {
+              "orientation_xyzw": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "position_m": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            },
+            "em_tick_ms": 100,
+            "quality": 15,
+            "sample_id": "native-100",
+            "sequence": 10,
+            "source_record_sha256": "4444444444444444444444444444444444444444444444444444444444444444",
+            "trigger_id": "trigger-100"
+          }
+        ],
+        "now_tick_ms": 110,
+        "observation": {
+          "adc_pose": {
+            "orientation_xyzw": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "position_m": [
+              10,
+              0,
+              0
+            ]
+          },
+          "adc_tick_ms": 110,
+          "binding": {
+            "boot_sha256": "2222222222222222222222222222222222222222222222222222222222222222",
+            "build_sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+            "clock_domain": "independent-fixture-ms",
+            "config_epoch": 7,
+            "producer_sha256": "6a5f70a6acdaa6de52fc72d678d452956861370e1d143b70219ced107c5a04c9",
+            "profile_id": "deepeye_forward_profile_candidate_v1",
+            "run_id": "independent-synthetic",
+            "session": 23,
+            "source_id": 4,
+            "source_mode": "twin_fixture",
+            "topology_id": 2
+          },
+          "board_frame_sha256": "3333333333333333333333333333333333333333333333333333333333333333",
+          "cause_action_id": null,
+          "counts": [
+            1739,
+            2048,
+            2048,
+            0
+          ],
+          "em_origin_sample_id": "native-100",
+          "em_pose": {
+            "orientation_xyzw": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "position_m": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "em_tick_ms": 100,
+          "quality": 1807,
+          "sample_id": "held-110",
+          "sequence": 11,
+          "source_record_sha256": "4444444444444444444444444444444444444444444444444444444444444444",
+          "trigger_id": "trigger-110"
+        },
+        "pose": {
+          "orientation_xyzw": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "position_m": [
+            10,
+            0,
+            0
+          ]
+        },
+        "schema_version": 1
+      }
+    }
+  ],
+  "yaw_rejections": [
+    {
+      "adc": false,
+      "current": true,
+      "status": "STOP",
+      "yaw": -180
+    },
+    {
+      "adc": true,
+      "current": false,
+      "status": "STOP",
+      "yaw": -180
+    },
+    {
+      "adc": true,
+      "current": true,
+      "status": "STOP",
+      "yaw": -180
+    },
+    {
+      "adc": false,
+      "current": true,
+      "status": "STOP",
+      "yaw": -90
+    },
+    {
+      "adc": true,
+      "current": false,
+      "status": "STOP",
+      "yaw": -90
+    },
+    {
+      "adc": true,
+      "current": true,
+      "status": "STOP",
+      "yaw": -90
+    },
+    {
+      "adc": false,
+      "current": true,
+      "status": "STOP",
+      "yaw": 90
+    },
+    {
+      "adc": true,
+      "current": false,
+      "status": "STOP",
+      "yaw": 90
+    },
+    {
+      "adc": true,
+      "current": true,
+      "status": "STOP",
+      "yaw": 90
+    },
+    {
+      "adc": false,
+      "current": true,
+      "status": "STOP",
+      "yaw": 180
+    },
+    {
+      "adc": true,
+      "current": false,
+      "status": "STOP",
+      "yaw": 180
+    },
+    {
+      "adc": true,
+      "current": true,
+      "status": "STOP",
+      "yaw": 180
+    }
+  ]
+}

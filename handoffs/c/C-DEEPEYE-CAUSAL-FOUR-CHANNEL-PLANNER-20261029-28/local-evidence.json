@@ -1,0 +1,410 @@
+{
+  "task_id": "DEEPEYE-IMPLEMENTATION-20261014",
+  "task_version": 1,
+  "operation_id": "C-DEEPEYE-CAUSAL-FOUR-CHANNEL-PLANNER-20261029-28",
+  "scope": "synthetic_local_function_only",
+  "candidate_sha256": "70b317681fee8c9182c342fe8d2f94eaecc957c62231a74a080d213bb5e0eab4",
+  "source_files": [
+    {
+      "path": "candidate_four_channel_planner_v1.py",
+      "bytes": 17651,
+      "sha256": "70b317681fee8c9182c342fe8d2f94eaecc957c62231a74a080d213bb5e0eab4"
+    },
+    {
+      "path": "test_candidate_four_channel_planner_v1.py",
+      "bytes": 14765,
+      "sha256": "68eb93a1b07f889f46b88d940fb392fbda85dae26902fd6ba63a9e1024c3e1e0"
+    },
+    {
+      "path": "interface-examples.json",
+      "bytes": 70172,
+      "sha256": "338955440a56eaebc1787b08401d98ab25cced6ec9a67cc8e0c349018e835f40"
+    },
+    {
+      "path": "producer-contract.json",
+      "bytes": 4294,
+      "sha256": "a888f6baaab1243a8653e3525a357ee9532071767a20efdc6f0957b2feb879bf"
+    },
+    {
+      "path": "README.md",
+      "bytes": 14917,
+      "sha256": "127926ebb73a8d92d22952ef4d02116efd9e32a931710a241d3aea61d0dd2790"
+    }
+  ],
+  "independent_command": {
+    "argv": [
+      "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\venv\\Scripts\\python.exe",
+      "-B",
+      "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\main-20261015-01a14025\\C28-four-channel-planner-20261029\\review\\source-v2\\independent_checks.py",
+      "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\deepeye-implementation-c\\handoffs\\c\\C-DEEPEYE-CAUSAL-FOUR-CHANNEL-PLANNER-20261029-28"
+    ],
+    "cwd": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\main-20261015-01a14025\\C28-four-channel-planner-20261029\\review\\source-v2",
+    "started_utc": "2026-10-29T14:51:16.128688+00:00",
+    "finished_utc": "2026-10-29T14:51:16.401049+00:00",
+    "wall_seconds": 0.28100000000267755,
+    "exit_code": 0,
+    "timeout_seconds": 30,
+    "test_script_sha256": "7cffff333463d0cdf0969f335aa56b51d4440b76f4168f82cccf4b2c45e07a05",
+    "stdout_sha256": "14e996b10e7c7acadb93d1c69d5d00fb7d32dd9eafb30cb7a9fe5c445f19fbf4",
+    "stderr_sha256": "71c3dd2e72a23003aa8123aee7407c76fafc3c22fde8d6fc0af6ff87819eb44f"
+  },
+  "independent_result": {
+    "tests": 21,
+    "passed": 21,
+    "failures": 0,
+    "errors": 0,
+    "exit_code": 0,
+    "wall_seconds": 0.28100000000267755
+  },
+  "author_command": {
+    "argv": [
+      "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\venv\\Scripts\\python.exe",
+      "-B",
+      "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\deepeye-implementation-c\\handoffs\\c\\C-DEEPEYE-CAUSAL-FOUR-CHANNEL-PLANNER-20261029-28\\test_candidate_four_channel_planner_v1.py"
+    ],
+    "cwd": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\deepeye-implementation-c\\handoffs\\c\\C-DEEPEYE-CAUSAL-FOUR-CHANNEL-PLANNER-20261029-28",
+    "start_utc": "2026-10-29T14:46:47.432810+00:00",
+    "end_utc": "2026-10-29T14:46:47.719885+00:00",
+    "exit_code": 0,
+    "wall_seconds": 0.2819999999992433,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "2e3ae6513728c06f59508d97d97bbdb1d73592113cdea7683b23c70b49077ea0",
+    "candidate_sha256": "70b317681fee8c9182c342fe8d2f94eaecc957c62231a74a080d213bb5e0eab4",
+    "test_source_pins": [
+      {
+        "path": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\deepeye-implementation-c\\handoffs\\c\\C-DEEPEYE-CAUSAL-FOUR-CHANNEL-PLANNER-20261029-28\\candidate_four_channel_planner_v1.py",
+        "bytes": 17651,
+        "sha256": "70b317681fee8c9182c342fe8d2f94eaecc957c62231a74a080d213bb5e0eab4",
+        "snapshot": "tested-five-files/candidate_four_channel_planner_v1.py"
+      },
+      {
+        "path": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\deepeye-implementation-c\\handoffs\\c\\C-DEEPEYE-CAUSAL-FOUR-CHANNEL-PLANNER-20261029-28\\test_candidate_four_channel_planner_v1.py",
+        "bytes": 14765,
+        "sha256": "68eb93a1b07f889f46b88d940fb392fbda85dae26902fd6ba63a9e1024c3e1e0",
+        "snapshot": "tested-five-files/test_candidate_four_channel_planner_v1.py"
+      },
+      {
+        "path": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\deepeye-implementation-c\\handoffs\\c\\C-DEEPEYE-CAUSAL-FOUR-CHANNEL-PLANNER-20261029-28\\interface-examples.json",
+        "bytes": 70172,
+        "sha256": "338955440a56eaebc1787b08401d98ab25cced6ec9a67cc8e0c349018e835f40",
+        "snapshot": "tested-five-files/interface-examples.json"
+      },
+      {
+        "path": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\deepeye-implementation-c\\handoffs\\c\\C-DEEPEYE-CAUSAL-FOUR-CHANNEL-PLANNER-20261029-28\\producer-contract.json",
+        "bytes": 4294,
+        "sha256": "a888f6baaab1243a8653e3525a357ee9532071767a20efdc6f0957b2feb879bf",
+        "snapshot": "tested-five-files/producer-contract.json"
+      },
+      {
+        "path": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\deepeye-implementation-c\\handoffs\\c\\C-DEEPEYE-CAUSAL-FOUR-CHANNEL-PLANNER-20261029-28\\README.md",
+        "bytes": 14917,
+        "sha256": "127926ebb73a8d92d22952ef4d02116efd9e32a931710a241d3aea61d0dd2790",
+        "snapshot": "tested-five-files/README.md"
+      }
+    ]
+  },
+  "author_result": {
+    "count": 17,
+    "failures": 0,
+    "errors": 0,
+    "exit_code": 0
+  },
+  "main_counterexample_command": {
+    "argv": [
+      "C:\\Users\\Alan\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+      "-I",
+      "-S",
+      "-B",
+      "-X",
+      "utf8",
+      "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\main-20261015-01a14025\\C28-four-channel-planner-20261029\\main\\main_support_probe_v2.py",
+      "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\deepeye-implementation-c\\handoffs\\c\\C-DEEPEYE-CAUSAL-FOUR-CHANNEL-PLANNER-20261029-28"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 0.125,
+    "stdout_sha256": "f550e31b8c2a70dac067466cb6b1c2e0d2313555b77a576ba7f77ee15194a0c5",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "new_C28_pure_function_only": true
+  },
+  "main_counterexample": {
+    "actual": {
+      "authorization": "none",
+      "candidate_only": true,
+      "direction_world": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "independent_em_count": 1,
+      "map_cells": [
+        {
+          "em_tick_ms": 100,
+          "pose": {
+            "orientation_xyzw": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "position_m": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "risk": 0.0001565528395600646,
+          "sample_id": "fixture-100"
+        }
+      ],
+      "observation": {
+        "adc_pose": {
+          "orientation_xyzw": [
+            0,
+            1,
+            0,
+            0
+          ],
+          "position_m": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "adc_tick_ms": 110,
+        "binding": {
+          "boot_sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+          "build_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "clock_domain": "fixture-tick-ms",
+          "config_epoch": 1,
+          "producer_sha256": "6a5f70a6acdaa6de52fc72d678d452956861370e1d143b70219ced107c5a04c9",
+          "profile_id": "deepeye_forward_profile_candidate_v1",
+          "run_id": "local-fixture-only",
+          "session": 1,
+          "source_id": 4,
+          "source_mode": "twin_fixture",
+          "topology_id": 2
+        },
+        "board_frame_sha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+        "cause_action_id": null,
+        "counts": [
+          1739,
+          2048,
+          2048,
+          0
+        ],
+        "em_origin_sample_id": "fixture-100",
+        "em_pose": {
+          "orientation_xyzw": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "position_m": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "em_tick_ms": 100,
+        "quality": 1807,
+        "sample_id": "probe-held-110",
+        "sequence": 11,
+        "source_record_sha256": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+        "trigger_id": "probe-trigger-110"
+      },
+      "planner_id": "candidate_four_channel_planner_v1",
+      "reason": "original_observation_pose_inapplicable",
+      "risk": 1.0,
+      "schema_version": 1,
+      "speed_limit_m_s": 0.0,
+      "status": "STOP",
+      "uncertainty": 1.0
+    },
+    "case": "old_forward_EM_current_180deg_turn",
+    "expected": "STOP_without_current_direction_evidence",
+    "fixture_only": true,
+    "request": {
+      "binding": {
+        "boot_sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+        "build_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "clock_domain": "fixture-tick-ms",
+        "config_epoch": 1,
+        "producer_sha256": "6a5f70a6acdaa6de52fc72d678d452956861370e1d143b70219ced107c5a04c9",
+        "profile_id": "deepeye_forward_profile_candidate_v1",
+        "run_id": "local-fixture-only",
+        "session": 1,
+        "source_id": 4,
+        "source_mode": "twin_fixture",
+        "topology_id": 2
+      },
+      "enabled": true,
+      "executed_actions": [],
+      "goal_m": [
+        0,
+        0,
+        -10
+      ],
+      "history": [
+        {
+          "adc_pose": {
+            "orientation_xyzw": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "position_m": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "adc_tick_ms": 100,
+          "binding": {
+            "boot_sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "build_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "clock_domain": "fixture-tick-ms",
+            "config_epoch": 1,
+            "producer_sha256": "6a5f70a6acdaa6de52fc72d678d452956861370e1d143b70219ced107c5a04c9",
+            "profile_id": "deepeye_forward_profile_candidate_v1",
+            "run_id": "local-fixture-only",
+            "session": 1,
+            "source_id": 4,
+            "source_mode": "twin_fixture",
+            "topology_id": 2
+          },
+          "board_frame_sha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+          "cause_action_id": null,
+          "counts": [
+            1739,
+            2048,
+            2048,
+            0
+          ],
+          "em_origin_sample_id": "fixture-100",
+          "em_pose": {
+            "orientation_xyzw": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "position_m": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "em_tick_ms": 100,
+          "quality": 15,
+          "sample_id": "fixture-100",
+          "sequence": 10,
+          "source_record_sha256": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+          "trigger_id": "fixture-trigger-100"
+        }
+      ],
+      "now_tick_ms": 110,
+      "observation": {
+        "adc_pose": {
+          "orientation_xyzw": [
+            0,
+            1,
+            0,
+            0
+          ],
+          "position_m": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "adc_tick_ms": 110,
+        "binding": {
+          "boot_sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+          "build_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "clock_domain": "fixture-tick-ms",
+          "config_epoch": 1,
+          "producer_sha256": "6a5f70a6acdaa6de52fc72d678d452956861370e1d143b70219ced107c5a04c9",
+          "profile_id": "deepeye_forward_profile_candidate_v1",
+          "run_id": "local-fixture-only",
+          "session": 1,
+          "source_id": 4,
+          "source_mode": "twin_fixture",
+          "topology_id": 2
+        },
+        "board_frame_sha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+        "cause_action_id": null,
+        "counts": [
+          1739,
+          2048,
+          2048,
+          0
+        ],
+        "em_origin_sample_id": "fixture-100",
+        "em_pose": {
+          "orientation_xyzw": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "position_m": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "em_tick_ms": 100,
+        "quality": 1807,
+        "sample_id": "probe-held-110",
+        "sequence": 11,
+        "source_record_sha256": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+        "trigger_id": "probe-trigger-110"
+      },
+      "pose": {
+        "orientation_xyzw": [
+          0,
+          1,
+          0,
+          0
+        ],
+        "position_m": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "schema_version": 1
+    }
+  },
+  "v1_failure": {
+    "candidate_sha256": "7774bbdc3dbdae55745bf299dcc8b5fabfbf2e5235f381e5de8dbd760c3a251b",
+    "independent_exit_code": 1,
+    "main_exit_code": 1,
+    "preserved": true
+  },
+  "raw_public_logs": [
+    {
+      "path": "independent.stdout.json",
+      "bytes": 34648,
+      "sha256": "14e996b10e7c7acadb93d1c69d5d00fb7d32dd9eafb30cb7a9fe5c445f19fbf4"
+    },
+    {
+      "path": "independent.stderr.txt",
+      "bytes": 2659,
+      "sha256": "71c3dd2e72a23003aa8123aee7407c76fafc3c22fde8d6fc0af6ff87819eb44f"
+    },
+    {
+      "path": "author.stderr.txt",
+      "bytes": 2182,
+      "sha256": "2e3ae6513728c06f59508d97d97bbdb1d73592113cdea7683b23c70b49077ea0"
+    }
+  ],
+  "author_actual_FINAL_verified": true,
+  "reviewer_actual_FINAL_verified": true,
+  "main_source_review_passed": true,
+  "formal_acceptance": false,
+  "full_chain": "NOT_RUN",
+  "physical_board": "NOT_RUN"
+}
