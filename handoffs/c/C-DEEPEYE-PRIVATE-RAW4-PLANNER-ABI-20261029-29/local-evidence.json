@@ -1,0 +1,319 @@
+{
+  "operation_id": "C-DEEPEYE-PRIVATE-RAW4-PLANNER-ABI-20261029-29",
+  "task_id": "DEEPEYE-IMPLEMENTATION-20261014",
+  "task_version": 1,
+  "main_thread_id": "01a14025-4dfd-7ec3-aebb-57be48daba59",
+  "artifact_kind": "main evidence index with exact raw pins; not a replacement for full raw logs",
+  "source_v1": [
+    {
+      "path": "private_raw4_planner_abi_v1.py",
+      "bytes": 38811,
+      "sha256": "43b03d47584559181648532f2a70720f8c074158fe896edc8e08065cf8ea8b3f"
+    },
+    {
+      "path": "test_private_raw4_planner_abi_v1.py",
+      "bytes": 24752,
+      "sha256": "491f0efd8e373dc3a9ff5a4e5c00adb7af526b47039e2b9db46e5347eee2bf81"
+    },
+    {
+      "path": "abi-contract.json",
+      "bytes": 5976,
+      "sha256": "83945dfe699c0a5238aec69ef10b22f8edca01698144c50b4c35b1bf60b0a307"
+    },
+    {
+      "path": "interface-examples.json",
+      "bytes": 63161,
+      "sha256": "5f9eb784cab7f94094f6cad9023d4287f615798065a9763d94eab7e1d474fc39"
+    },
+    {
+      "path": "README.md",
+      "bytes": 7816,
+      "sha256": "d9e393a74338c3cd066475093abfc2b8bb37df3ee7a5db954c112b3c6f4d3841"
+    }
+  ],
+  "source_v2": [
+    {
+      "path": "private_raw4_planner_abi_v1.py",
+      "bytes": 38910,
+      "sha256": "6a28e08354dc7774022a0e9512495c21871b7435d05e6217e0b0394fcc2d8ea3"
+    },
+    {
+      "path": "test_private_raw4_planner_abi_v1.py",
+      "bytes": 27011,
+      "sha256": "6ccf5bf68205889b3653417ec908b9e787e4fe6dab83d9e7b599b63059e59845"
+    },
+    {
+      "path": "abi-contract.json",
+      "bytes": 5976,
+      "sha256": "83945dfe699c0a5238aec69ef10b22f8edca01698144c50b4c35b1bf60b0a307"
+    },
+    {
+      "path": "interface-examples.json",
+      "bytes": 63161,
+      "sha256": "5f9eb784cab7f94094f6cad9023d4287f615798065a9763d94eab7e1d474fc39"
+    },
+    {
+      "path": "README.md",
+      "bytes": 8271,
+      "sha256": "b910cad03c06abb35cac8a8822527f6e978dd0949267160262b62d4b72fa5b70"
+    }
+  ],
+  "test_summary": "v1: 20 new author test groups and 66 independent checks passed (exit0); a separate missing-tail regression failed (exit1) and is preserved. v2: only the new test21, the original failing regression replay and 24 new independent closure checks ran, all exit0. The main independently ran five critical v1 probes (exit0), then verified the exact two-branch v1-to-v2 change and unchanged remaining AST. The 20/66 suites were not rerun on v2 or represented as fresh v2 results; old C28 suites were not run.",
+  "raw_commands": [
+    {
+      "argv": [
+        "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\venv\\Scripts\\python.exe",
+        "-B",
+        "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\deepeye-implementation-c\\handoffs\\c\\C-DEEPEYE-PRIVATE-RAW4-PLANNER-ABI-20261029-29\\test_private_raw4_planner_abi_v1.py"
+      ],
+      "cwd": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\deepeye-implementation-c\\handoffs\\c\\C-DEEPEYE-PRIVATE-RAW4-PLANNER-ABI-20261029-29",
+      "start_utc": "2026-10-29T16:34:22.997315+00:00",
+      "end_utc": "2026-10-29T16:34:24.107167+00:00",
+      "exit_code": 1,
+      "max_wall_seconds": 30,
+      "stdout_bytes": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_bytes": 2270,
+      "stderr_sha256": "69c5442829c15e6ede99f47349882e3876e3c636cd6f499d8b6ce9a5d1822dd8"
+    },
+    {
+      "argv": [
+        "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\venv\\Scripts\\python.exe",
+        "-B",
+        "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\deepeye-implementation-c\\handoffs\\c\\C-DEEPEYE-PRIVATE-RAW4-PLANNER-ABI-20261029-29\\test_private_raw4_planner_abi_v1.py"
+      ],
+      "cwd": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\deepeye-implementation-c\\handoffs\\c\\C-DEEPEYE-PRIVATE-RAW4-PLANNER-ABI-20261029-29",
+      "start_utc": "2026-10-29T16:39:04.051049+00:00",
+      "end_utc": "2026-10-29T16:39:06.164622+00:00",
+      "exit_code": 0,
+      "max_wall_seconds": 30,
+      "stdout_bytes": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_bytes": 2222,
+      "stderr_sha256": "37f3c85da8283e998475758bda99c7bdf8a721ca179867d665cde34d0269d0d2"
+    },
+    {
+      "argv": [
+        "C:\\Users\\Alan\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+        "-B",
+        "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\main-20261015-01a14025\\C29-private-raw4-ABI-20261030\\review\\implementation-v1\\independent_checks.py",
+        "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\deepeye-implementation-c\\handoffs\\c\\C-DEEPEYE-PRIVATE-RAW4-PLANNER-ABI-20261029-29"
+      ],
+      "cwd": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c",
+      "started_utc": "2026-10-29T16:44:49.642215+00:00",
+      "wall_seconds": 0.9532511999932467,
+      "timeout_seconds": 30,
+      "timed_out": false,
+      "exit_code": 0,
+      "subprocesses": []
+    },
+    {
+      "argv": [
+        "C:\\Users\\Alan\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+        "-B",
+        "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\main-20261015-01a14025\\C29-private-raw4-ABI-20261030\\review\\implementation-v1\\missing_admission_check.py",
+        "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\deepeye-implementation-c\\handoffs\\c\\C-DEEPEYE-PRIVATE-RAW4-PLANNER-ABI-20261029-29"
+      ],
+      "cwd": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c",
+      "exit_code": 1,
+      "wall_seconds": 0.4947764000025927,
+      "completed_utc": "2026-10-29T16:46:14.269672+00:00",
+      "timeout_seconds": 30,
+      "subprocesses": [],
+      "expectation": "missing association returns INPUT_UNAVAILABLE/STOP/core_ran=false"
+    },
+    {
+      "argv": [
+        "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\venv\\Scripts\\python.exe",
+        "-B",
+        "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\deepeye-implementation-c\\handoffs\\c\\C-DEEPEYE-PRIVATE-RAW4-PLANNER-ABI-20261029-29\\test_private_raw4_planner_abi_v1.py",
+        "NewC29Controls.test21_missing_admission_prefix_outcome"
+      ],
+      "cwd": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\deepeye-implementation-c\\handoffs\\c\\C-DEEPEYE-PRIVATE-RAW4-PLANNER-ABI-20261029-29",
+      "start_utc": "2026-10-29T16:53:03.832764+00:00",
+      "end_utc": "2026-10-29T16:53:04.791339+00:00",
+      "exit_code": 0,
+      "max_wall_seconds": 30,
+      "only_new_test21": true,
+      "stdout_bytes": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_bytes": 216,
+      "stderr_sha256": "810773af53279b64986d0a1e142624807342edb6105e179652d6936c95cdd283"
+    },
+    {
+      "argv": [
+        "C:\\Users\\Alan\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+        "-B",
+        "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\main-20261015-01a14025\\C29-private-raw4-ABI-20261030\\review\\implementation-v1\\missing_admission_check.py",
+        "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\deepeye-implementation-c\\handoffs\\c\\C-DEEPEYE-PRIVATE-RAW4-PLANNER-ABI-20261029-29"
+      ],
+      "cwd": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c",
+      "started_utc": "2026-10-29T16:57:28.642998+00:00",
+      "exit_code": 0,
+      "wall_seconds": 0.544299699999101,
+      "timeout_seconds": 30,
+      "subprocesses": []
+    },
+    {
+      "argv": [
+        "C:\\Users\\Alan\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+        "-B",
+        "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\main-20261015-01a14025\\C29-private-raw4-ABI-20261030\\review\\implementation-v2\\independent_r1_checks.py",
+        "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\deepeye-implementation-c\\handoffs\\c\\C-DEEPEYE-PRIVATE-RAW4-PLANNER-ABI-20261029-29",
+        "--fixture-library",
+        "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\main-20261015-01a14025\\C29-private-raw4-ABI-20261030\\review\\implementation-v1\\independent_checks.py"
+      ],
+      "cwd": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c",
+      "started_utc": "2026-10-29T16:57:29.190001+00:00",
+      "exit_code": 0,
+      "wall_seconds": 1.0400072999982513,
+      "timeout_seconds": 30,
+      "subprocesses": []
+    }
+  ],
+  "raw_log_pins": [
+    {
+      "path": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\main-20261015-01a14025\\C29-private-raw4-ABI-20261030\\author-v1\\run01\\stderr.txt",
+      "bytes": 2270,
+      "sha256": "69c5442829c15e6ede99f47349882e3876e3c636cd6f499d8b6ce9a5d1822dd8"
+    },
+    {
+      "path": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\main-20261015-01a14025\\C29-private-raw4-ABI-20261030\\author-v1\\run03\\stderr.txt",
+      "bytes": 2222,
+      "sha256": "37f3c85da8283e998475758bda99c7bdf8a721ca179867d665cde34d0269d0d2"
+    },
+    {
+      "path": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\main-20261015-01a14025\\C29-private-raw4-ABI-20261030\\review\\implementation-v1\\independent.stdout.json",
+      "bytes": 1939479,
+      "sha256": "fc88f7082acec9393cfd5714f45aaa61676cf6e64052f4d134e3ab534fabdf56"
+    },
+    {
+      "path": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\main-20261015-01a14025\\C29-private-raw4-ABI-20261030\\review\\implementation-v1\\missing-admission.stdout.json",
+      "bytes": 15467,
+      "sha256": "596ce93135a117dcf6eee5bc9ac1c7258343cab7265727da670cca7ed3d41ea1"
+    },
+    {
+      "path": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\main-20261015-01a14025\\C29-private-raw4-ABI-20261030\\author-v2\\targeted-run01\\stderr.txt",
+      "bytes": 216,
+      "sha256": "810773af53279b64986d0a1e142624807342edb6105e179652d6936c95cdd283"
+    },
+    {
+      "path": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\main-20261015-01a14025\\C29-private-raw4-ABI-20261030\\review\\implementation-v2\\original-regression.stdout.json",
+      "bytes": 30997,
+      "sha256": "6236603e805b8af82a71312c68d584b16c6f42a47633d1f0f30c2893aba9e00f"
+    },
+    {
+      "path": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\main-20261015-01a14025\\C29-private-raw4-ABI-20261030\\review\\implementation-v2\\new-r1-controls.stdout.json",
+      "bytes": 12706,
+      "sha256": "fc45ebbea570f405c2727c48920cf7cd5fd42492e24d9bdb577b956b1fdec89b"
+    }
+  ],
+  "public_summary_notice": "independent-v1-summary.json is DERIVED; original 1939479-byte stdout remains privately retained. independent-v2.stdout.json and v1-missing-admission.stdout.json are byte-identical original stdout.",
+  "main_critical_v1": {
+    "main_thread": "01a14025-4dfd-7ec3-aebb-57be48daba59",
+    "source_sha256": "43b03d47584559181648532f2a70720f8c074158fe896edc8e08065cf8ea8b3f",
+    "critical_checks": [
+      {
+        "case": "exact_original_QPC_age",
+        "age_ns": 100000000,
+        "original_QPC": 36028797118964091,
+        "core_ran": true,
+        "status": "ADVISE",
+        "reason": "bounded_observation_goal_search"
+      },
+      {
+        "case": "exact_original_QPC_age",
+        "age_ns": 100000001,
+        "original_QPC": 36028797118964091,
+        "core_ran": false,
+        "status": "STOP",
+        "reason": "original_source_expired_now"
+      },
+      {
+        "case": "no_Root_receipt",
+        "core_ran": false,
+        "reason": "missing_root_receipt"
+      },
+      {
+        "case": "hidden_field_rejected",
+        "disabled": true,
+        "error": "Root config: exact fields"
+      },
+      {
+        "case": "hidden_field_rejected",
+        "disabled": false,
+        "error": "Root config: exact fields"
+      }
+    ],
+    "source_unchanged": true,
+    "fixtures": "public synthetic examples only; no actual A integration",
+    "old_suites_run": false,
+    "formal_acceptance": false
+  },
+  "main_critical_tool_exit_code": 0,
+  "main_exact_v2_diff": {
+    "v1_source_sha256": "43b03d47584559181648532f2a70720f8c074158fe896edc8e08065cf8ea8b3f",
+    "v2_source_sha256": "6a28e08354dc7774022a0e9512495c21871b7435d05e6217e0b0394fcc2d8ea3",
+    "changed_functions": [
+      "_admissions",
+      "_association"
+    ],
+    "exact_two_branch_text_changes_only": true,
+    "all_other_module_AST_unchanged": true,
+    "all_five_v1_and_v2_hashes_checked": true,
+    "candidate_executed": false,
+    "old_suites_run": false
+  },
+  "native_completion_audits": [
+    {
+      "work_id": "C29-ACTUAL-CONTEXT-AND-CORE-REUSE-DESIGN-v1",
+      "actual_thread_id": "01a18676-bad1-7031-b26e-7da2ef7dc2dc",
+      "closed_calls": 22,
+      "raw_sha256": "6ddc85e82b3d8555c83b5b561bd72326c7d21628e6c99d09097d3298baeed91c"
+    },
+    {
+      "work_id": "C29-INDEPENDENT-ABI-DESIGN-REVIEW-v1",
+      "actual_thread_id": "01a18686-39ad-75d3-8bb4-90836d2ac026",
+      "closed_calls": 25,
+      "raw_sha256": "3695f3c7e17a1ccfbbde0d5a9c034b39007185f1d91a5c17ef009b55cc8d9029"
+    },
+    {
+      "work_id": "C29-PRIVATE-RAW4-ABI-IMPLEMENTATION-v1",
+      "actual_thread_id": "01a18676-bad1-7031-b26e-7da2ef7dc2dc",
+      "closed_calls": 12,
+      "raw_sha256": "c190a2ed10b2e6f27836f80fc5d8891a66deb07d09d9e4da45fbeda395cabec8"
+    },
+    {
+      "work_id": "C29-INDEPENDENT-IMPLEMENTATION-REVIEW-v1",
+      "actual_thread_id": "01a18686-39ad-75d3-8bb4-90836d2ac026",
+      "closed_calls": 20,
+      "raw_sha256": "9fdce8c9b3a9f43bf6556a0cd14fe777c8a78fcd68ee2234580ce38ff772ee17"
+    },
+    {
+      "work_id": "C29-R1-MISSING-ADMISSION-REPAIR-v2",
+      "actual_thread_id": "01a18676-bad1-7031-b26e-7da2ef7dc2dc",
+      "closed_calls": 6,
+      "raw_sha256": "55ba48bd28eb88cd4e8a5d75e8b32f3ede52e9ac93389e01c4bb0e369b5b8455"
+    },
+    {
+      "work_id": "C29-R1-INDEPENDENT-CLOSURE-v2",
+      "actual_thread_id": "01a18686-39ad-75d3-8bb4-90836d2ac026",
+      "closed_calls": 4,
+      "raw_sha256": "bba351f9aeb26d0b4906cb62497fec954adbc398eb3e26774986c52162d747e5"
+    }
+  ],
+  "C29_R1": "CLOSED by final independent review; original v1 failure retained",
+  "scope": "Complete diagnostic input is intentionally limited to original admissions0..31 with no omission/rebase (continuous100Hz ticks0..310ms); later sliding windows are unsupported. Actual A Root configuration/pose/action/source association is still missing, and all complete local fixtures are synthetic, not authentication or an actual A run. Original stale EM/null vibration stays unchanged. Source/interface acceptance only; no formal product acceptance or full-chain permission.",
+  "H01_H15_preserved": true,
+  "both_H12_preserved": true,
+  "formal_acceptance": false,
+  "actual_A_integration": false,
+  "contract": {
+    "contract_id": "DEEPEYE-HUMAN-LOCK-20261014",
+    "contract_revision": 1,
+    "contract_source": "f5989cd5defce561f9ba98e6b18fc2682945f0a2",
+    "requirements_sha256": "c229834bfc2292f5fe4411fc9f12c68487008f9d1adaf31f0144ee7a98173804",
+    "fixed_design": "1011259415a0916054eb580687612580bc1e5f09"
+  },
+  "tooling_incident": "An optional empty-directory cleanup in review v1 was blocked before execution by policy and not retried; no product writes or required work depended on it."
+}

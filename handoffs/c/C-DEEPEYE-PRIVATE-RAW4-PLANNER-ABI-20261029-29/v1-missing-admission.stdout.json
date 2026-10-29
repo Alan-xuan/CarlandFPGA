@@ -1,0 +1,375 @@
+{
+  "name": "valid_original_source_prefix_missing_referenced_tail",
+  "input": {
+    "schema_version": 1,
+    "abi_id": "private_raw4_planner_abi_v1",
+    "diagnostic_only": true,
+    "evidence_scope": "synthetic_diagnostic_fixture",
+    "enabled": true,
+    "now_qpc_ns": 72057594138057396,
+    "candidate": {
+      "schema": 1,
+      "kind": "candidate_four_channel_input",
+      "profile_id": "deepeye_forward_profile_candidate_v1",
+      "profile_status": "candidate_only",
+      "profile_note": "not_calibrated;not_em_surrogate_v2;not_formally_frozen",
+      "source_mode": "twin_fixture",
+      "quality_encoding": "candidate_four_channel_quality_v1",
+      "source_id": 4,
+      "transport_source": "software_fixture",
+      "channel_names": [
+        "log10_rho_apparent",
+        "yaw_log10_rho_difference",
+        "pitch_log10_rho_difference",
+        "near_bit_vibration_rms_g"
+      ],
+      "channel_counts": [
+        1739,
+        2048,
+        2048,
+        0
+      ],
+      "quality": 15,
+      "source_time": {
+        "adc_tick_ms": 100,
+        "em_tick_ms": 100,
+        "source_start_tick_ms": 0,
+        "source_start_monotonic_ns": 72057594038051393,
+        "admission_received_monotonic_ns": 72057594138054393,
+        "adc_source_age_ns": 5003,
+        "em_source_age_ns": 5003,
+        "time_basis": "trusted_root_source_schedule_not_physical_sample_authentication"
+      },
+      "observation_identity": {
+        "context": {
+          "operation_id": "independent-local-C29-control",
+          "request_hash": "1111111111111111111111111111111111111111111111111111111111111111",
+          "tested_commit": "2222222222222222222222222222222222222222",
+          "build_manifest_sha256": "3333333333333333333333333333333333333333333333333333333333333333",
+          "boot_id": "linux-kernel-instance-only",
+          "session_id": "full-session-SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS",
+          "tag": 4275878552,
+          "clock_domain_id": "44444444444444444444444444444444"
+        },
+        "request_seq": 1,
+        "request_sha256": "fe51337af108fe2d066a849478533f4b9022ae860ec14dad2e0a7e9bf2c8ed19",
+        "capture_sha256": "08b805740d1fdce180d0b637c863f3ad7ee087d0100a406a2933791da2ffa6cd",
+        "generation": 305419896,
+        "trigger_id": 501,
+        "source_admission_index": 10,
+        "original_host_injection_qpc_ns": [
+          72057594138055393,
+          72057594138055394,
+          72057594138055395,
+          72057594138055396
+        ],
+        "receiver_upper_qpc_ns": 72057594138056396
+      },
+      "diagnostic_flags": {
+        "source_fresh_at_capture": true,
+        "all_channels_valid": true,
+        "injection_to_receiver_upper_ns": 1003,
+        "target100ms_met": true,
+        "target100ms_scope": "conservative_receiver_upper_bound",
+        "formal_100ms_acceptance": "not_run",
+        "formal_H12": "not_run",
+        "transport_authenticated": false,
+        "BOOT_authenticated": false,
+        "physical_sample_authenticated": false,
+        "compression_verified": false,
+        "CPU_completion_created": false,
+        "movement_authorized": false
+      }
+    },
+    "history": [],
+    "root_receipt": {
+      "kind": "c29_root_association_v1",
+      "evidence_scope": "synthetic_diagnostic_fixture",
+      "config": {
+        "receipt_id": "synthetic-config",
+        "context": {
+          "operation_id": "independent-local-C29-control",
+          "request_hash": "1111111111111111111111111111111111111111111111111111111111111111",
+          "tested_commit": "2222222222222222222222222222222222222222",
+          "build_manifest_sha256": "3333333333333333333333333333333333333333333333333333333333333333",
+          "boot_id": "linux-kernel-instance-only",
+          "session_id": "full-session-SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS",
+          "tag": 4275878552,
+          "clock_domain_id": "44444444444444444444444444444444"
+        },
+        "generation": 305419896,
+        "profile_id": "deepeye_forward_profile_candidate_v1",
+        "producer_sha256": "6a5f70a6acdaa6de52fc72d678d452956861370e1d143b70219ced107c5a04c9",
+        "source_policy": "candidate_causal_source_v1",
+        "quality_encoding": "candidate_four_channel_quality_v1",
+        "source_mode": "twin_fixture",
+        "transport_source": "software_fixture",
+        "source_start_tick_ms": 0,
+        "source_start_monotonic_ns": 72057594038051393,
+        "goal_m": [
+          0,
+          0,
+          3
+        ],
+        "baseline_counters": [
+          100,
+          200,
+          300
+        ],
+        "initial_trigger_id": 500
+      },
+      "source_admissions": [
+        {
+          "index": 0,
+          "adc_tick_ms": 0,
+          "em_tick_ms": 0,
+          "channel_counts": [
+            1739,
+            2048,
+            2048,
+            null
+          ],
+          "quality": 7,
+          "source_record_sha256": "a1d943cc7d047f07cd9b60ffa54f9ef0b11b13a84ad6c9f01f2a7d226cc6c68b",
+          "received_qpc_ns": 72057594038054393,
+          "new_em_sample": true
+        },
+        {
+          "index": 1,
+          "adc_tick_ms": 10,
+          "em_tick_ms": 0,
+          "channel_counts": [
+            1739,
+            2048,
+            2048,
+            null
+          ],
+          "quality": 1799,
+          "source_record_sha256": "3f64f015955bbfee20a1a2877a752810adb8b2da99924b4e44fda0e2d97f8887",
+          "received_qpc_ns": 72057594048054393,
+          "new_em_sample": false
+        },
+        {
+          "index": 2,
+          "adc_tick_ms": 20,
+          "em_tick_ms": 0,
+          "channel_counts": [
+            1739,
+            2048,
+            2048,
+            null
+          ],
+          "quality": 1799,
+          "source_record_sha256": "78c7a3ae254693b83707851142a8f0bcafa7295f92931970f4ce8e830c0f8761",
+          "received_qpc_ns": 72057594058054393,
+          "new_em_sample": false
+        },
+        {
+          "index": 3,
+          "adc_tick_ms": 30,
+          "em_tick_ms": 0,
+          "channel_counts": [
+            1739,
+            2048,
+            2048,
+            null
+          ],
+          "quality": 1799,
+          "source_record_sha256": "4c0e3e3aa8c4f0397379ff77bae881f290d2ece0d269b98b226b3efabadcb434",
+          "received_qpc_ns": 72057594068054393,
+          "new_em_sample": false
+        },
+        {
+          "index": 4,
+          "adc_tick_ms": 40,
+          "em_tick_ms": 0,
+          "channel_counts": [
+            1739,
+            2048,
+            2048,
+            null
+          ],
+          "quality": 1799,
+          "source_record_sha256": "9e54532c8f24ac409a01fff0de976b9168dd86ff700b424fc65ebbe7f5be742f",
+          "received_qpc_ns": 72057594078054393,
+          "new_em_sample": false
+        },
+        {
+          "index": 5,
+          "adc_tick_ms": 50,
+          "em_tick_ms": 50,
+          "channel_counts": [
+            1739,
+            2048,
+            2048,
+            null
+          ],
+          "quality": 7,
+          "source_record_sha256": "1e7c311b3aa924edc378090567ff5ddb5cbf6e45a0cd0fa8e9392f602874f337",
+          "received_qpc_ns": 72057594088054393,
+          "new_em_sample": true
+        },
+        {
+          "index": 6,
+          "adc_tick_ms": 60,
+          "em_tick_ms": 50,
+          "channel_counts": [
+            1739,
+            2048,
+            2048,
+            null
+          ],
+          "quality": 1799,
+          "source_record_sha256": "6e9b6cbe601ea95322023c100cc053f1e73afa1dc14cfefe3638da15c553cf63",
+          "received_qpc_ns": 72057594098054393,
+          "new_em_sample": false
+        },
+        {
+          "index": 7,
+          "adc_tick_ms": 70,
+          "em_tick_ms": 50,
+          "channel_counts": [
+            1739,
+            2048,
+            2048,
+            null
+          ],
+          "quality": 1799,
+          "source_record_sha256": "b4c0779591f6a8690fe7b66f0e81491f4567ea904f39e7d4c27dc7c4e7fbb175",
+          "received_qpc_ns": 72057594108054393,
+          "new_em_sample": false
+        },
+        {
+          "index": 8,
+          "adc_tick_ms": 80,
+          "em_tick_ms": 50,
+          "channel_counts": [
+            1739,
+            2048,
+            2048,
+            null
+          ],
+          "quality": 1799,
+          "source_record_sha256": "b9e748798bd8560b0e054703eac467e11b550873f0c889b0e43ea279d618e0d5",
+          "received_qpc_ns": 72057594118054393,
+          "new_em_sample": false
+        },
+        {
+          "index": 9,
+          "adc_tick_ms": 90,
+          "em_tick_ms": 50,
+          "channel_counts": [
+            1739,
+            2048,
+            2048,
+            0
+          ],
+          "quality": 1807,
+          "source_record_sha256": "7763d11fd99e59ccca6860ff21a30dcc708c3862ebf7ee113ee6e1f29613c021",
+          "received_qpc_ns": 72057594128054393,
+          "new_em_sample": false
+        }
+      ],
+      "captures": [
+        {
+          "capture_sha256": "08b805740d1fdce180d0b637c863f3ad7ee087d0100a406a2933791da2ffa6cd",
+          "source_record_sha256": "d4ed2f7363d7543923816e80b64920b7eaf332648a9153c91820e4181272b6c2",
+          "request_raw": "{\"context\":{\"boot_id\":\"linux-kernel-instance-only\",\"build_manifest_sha256\":\"3333333333333333333333333333333333333333333333333333333333333333\",\"clock_domain_id\":\"44444444444444444444444444444444\",\"operation_id\":\"independent-local-C29-control\",\"request_hash\":\"1111111111111111111111111111111111111111111111111111111111111111\",\"session_id\":\"full-session-SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS\",\"tag\":4275878552,\"tested_commit\":\"2222222222222222222222222222222222222222\"},\"kind\":\"diagnostic_scan\",\"original_host_qpc_ns\":[72057594138055393,72057594138055394,72057594138055395,72057594138055396],\"qualities\":[1,1,1,1],\"request_seq\":1,\"schema\":1,\"source\":\"software_fixture\",\"source_id\":4,\"values\":[1739,2048,2048,0]}\n",
+          "capture_raw": "{\"captures\":[{\"ack_returned\":true,\"channel\":0,\"pipeline_counters\":[104,201,301],\"raw_words\":[1739,256,100127457,16777216,0,3,4275878552,501,305419896,0]},{\"ack_returned\":true,\"channel\":1,\"pipeline_counters\":[104,201,302],\"raw_words\":[2048,257,100127458,16777216,0,3,4275878552,501,305419896,0]},{\"ack_returned\":true,\"channel\":2,\"pipeline_counters\":[104,201,303],\"raw_words\":[2048,258,100127459,16777216,0,3,4275878552,501,305419896,0]},{\"ack_returned\":true,\"channel\":3,\"pipeline_counters\":[104,201,304],\"raw_words\":[0,259,100127460,16777216,0,3,4275878552,501,305419896,0]}],\"context\":{\"boot_id\":\"linux-kernel-instance-only\",\"build_manifest_sha256\":\"3333333333333333333333333333333333333333333333333333333333333333\",\"clock_domain_id\":\"44444444444444444444444444444444\",\"operation_id\":\"independent-local-C29-control\",\"request_hash\":\"1111111111111111111111111111111111111111111111111111111111111111\",\"session_id\":\"full-session-SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS\",\"tag\":4275878552,\"tested_commit\":\"2222222222222222222222222222222222222222\"},\"final_counters\":[104,201,304],\"generation\":305419896,\"kind\":\"diagnostic_capture\",\"request_seq\":1,\"request_sha256\":\"fe51337af108fe2d066a849478533f4b9022ae860ec14dad2e0a7e9bf2c8ed19\",\"schema\":1,\"trigger_id\":501}\n",
+          "adc_pose": {
+            "receipt_id": "synthetic-pose-10",
+            "source_admission_index": 10,
+            "acquisition_qpc_ns": 72057594138051393,
+            "pose": {
+              "position_m": [
+                0,
+                0,
+                0
+              ],
+              "orientation_xyzw": [
+                0,
+                0,
+                0,
+                1
+              ]
+            }
+          },
+          "em_pose": {
+            "receipt_id": "synthetic-pose-10",
+            "source_admission_index": 10,
+            "acquisition_qpc_ns": 72057594138051393,
+            "pose": {
+              "position_m": [
+                0,
+                0,
+                0
+              ],
+              "orientation_xyzw": [
+                0,
+                0,
+                0,
+                1
+              ]
+            }
+          },
+          "em_origin_capture_sha256": "08b805740d1fdce180d0b637c863f3ad7ee087d0100a406a2933791da2ffa6cd",
+          "cause_action_id": null
+        }
+      ],
+      "current_pose": {
+        "receipt_id": "synthetic-current",
+        "context": {
+          "operation_id": "independent-local-C29-control",
+          "request_hash": "1111111111111111111111111111111111111111111111111111111111111111",
+          "tested_commit": "2222222222222222222222222222222222222222",
+          "build_manifest_sha256": "3333333333333333333333333333333333333333333333333333333333333333",
+          "boot_id": "linux-kernel-instance-only",
+          "session_id": "full-session-SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS",
+          "tag": 4275878552,
+          "clock_domain_id": "44444444444444444444444444444444"
+        },
+        "generation": 305419896,
+        "at_qpc_ns": 72057594138057396,
+        "pose": {
+          "position_m": [
+            0,
+            0,
+            0
+          ],
+          "orientation_xyzw": [
+            0,
+            0,
+            0,
+            1
+          ]
+        }
+      },
+      "action_registry": {
+        "receipt_id": "synthetic-registry",
+        "context": {
+          "operation_id": "independent-local-C29-control",
+          "request_hash": "1111111111111111111111111111111111111111111111111111111111111111",
+          "tested_commit": "2222222222222222222222222222222222222222",
+          "build_manifest_sha256": "3333333333333333333333333333333333333333333333333333333333333333",
+          "boot_id": "linux-kernel-instance-only",
+          "session_id": "full-session-SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS",
+          "tag": 4275878552,
+          "clock_domain_id": "44444444444444444444444444444444"
+        },
+        "generation": 305419896,
+        "as_of_qpc_ns": 72057594138057396,
+        "actions": []
+      }
+    }
+  },
+  "expected": {
+    "input_status": "INPUT_UNAVAILABLE",
+    "status": "STOP",
+    "core_ran": false
+  },
+  "exception": {
+    "type": "Rejected",
+    "message": "missing source admission index"
+  },
+  "passed": false
+}

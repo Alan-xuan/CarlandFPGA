@@ -1,0 +1,1281 @@
+{
+  "schema_version": 1,
+  "notice": "All bytes/receipts are fabricated local examples. Actual-shape case illustrates A fields but is not original A evidence. No authentication or movement authority.",
+  "cases": [
+    {
+      "name": "synthetic_native_complete",
+      "provenance": "SYNTHETIC_LOCAL_DIAGNOSTIC_ONLY_NOT_AN_A_CAPTURE",
+      "request": {
+        "schema_version": 1,
+        "abi_id": "private_raw4_planner_abi_v1",
+        "diagnostic_only": true,
+        "evidence_scope": "synthetic_diagnostic_fixture",
+        "enabled": true,
+        "now_qpc_ns": 36028797121964091,
+        "candidate": {
+          "schema": 1,
+          "kind": "candidate_four_channel_input",
+          "profile_id": "deepeye_forward_profile_candidate_v1",
+          "profile_status": "candidate_only",
+          "profile_note": "not_calibrated;not_em_surrogate_v2;not_formally_frozen",
+          "source_mode": "twin_fixture",
+          "quality_encoding": "candidate_four_channel_quality_v1",
+          "source_id": 4,
+          "transport_source": "software_fixture",
+          "channel_names": [
+            "log10_rho_apparent",
+            "yaw_log10_rho_difference",
+            "pitch_log10_rho_difference",
+            "near_bit_vibration_rms_g"
+          ],
+          "channel_counts": [
+            1740,
+            2048,
+            2048,
+            0
+          ],
+          "quality": 15,
+          "source_time": {
+            "adc_tick_ms": 100,
+            "em_tick_ms": 100,
+            "source_start_tick_ms": 0,
+            "source_start_monotonic_ns": 36028797018964091,
+            "admission_received_monotonic_ns": 36028797119964091,
+            "adc_source_age_ns": 2000000,
+            "em_source_age_ns": 2000000,
+            "time_basis": "trusted_root_source_schedule_not_physical_sample_authentication"
+          },
+          "observation_identity": {
+            "context": {
+              "operation_id": "fixture-operation/oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo",
+              "request_hash": "1111111111111111111111111111111111111111111111111111111111111111",
+              "tested_commit": "2222222222222222222222222222222222222222",
+              "build_manifest_sha256": "3333333333333333333333333333333333333333333333333333333333333333",
+              "boot_id": "synthetic Linux kernel instance",
+              "session_id": "ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss",
+              "tag": 4294967295,
+              "clock_domain_id": "44444444444444444444444444444444"
+            },
+            "request_seq": 1,
+            "request_sha256": "44d5ddc9b8dd0100edb15792b648ffc20692f0b71be85928e7c0c4b931e9c8c6",
+            "capture_sha256": "69cb6a19d4f04512471af274d6d259fa769c79f582b9524225deb958c8ac01d2",
+            "generation": 2147483667,
+            "trigger_id": 4001,
+            "source_admission_index": 10,
+            "original_host_injection_qpc_ns": [
+              36028797120464091,
+              36028797120464092,
+              36028797120464093,
+              36028797120464094
+            ],
+            "receiver_upper_qpc_ns": 36028797120964091
+          },
+          "diagnostic_flags": {
+            "source_fresh_at_capture": true,
+            "all_channels_valid": true,
+            "injection_to_receiver_upper_ns": 500000,
+            "target100ms_met": true,
+            "target100ms_scope": "conservative_receiver_upper_bound",
+            "formal_100ms_acceptance": "not_run",
+            "formal_H12": "not_run",
+            "transport_authenticated": false,
+            "BOOT_authenticated": false,
+            "physical_sample_authenticated": false,
+            "compression_verified": false,
+            "CPU_completion_created": false,
+            "movement_authorized": false
+          }
+        },
+        "history": [],
+        "root_receipt": {
+          "kind": "c29_root_association_v1",
+          "evidence_scope": "synthetic_diagnostic_fixture",
+          "config": {
+            "receipt_id": "synthetic-config-receipt",
+            "context": {
+              "operation_id": "fixture-operation/oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo",
+              "request_hash": "1111111111111111111111111111111111111111111111111111111111111111",
+              "tested_commit": "2222222222222222222222222222222222222222",
+              "build_manifest_sha256": "3333333333333333333333333333333333333333333333333333333333333333",
+              "boot_id": "synthetic Linux kernel instance",
+              "session_id": "ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss",
+              "tag": 4294967295,
+              "clock_domain_id": "44444444444444444444444444444444"
+            },
+            "generation": 2147483667,
+            "profile_id": "deepeye_forward_profile_candidate_v1",
+            "producer_sha256": "6a5f70a6acdaa6de52fc72d678d452956861370e1d143b70219ced107c5a04c9",
+            "source_policy": "candidate_causal_source_v1",
+            "quality_encoding": "candidate_four_channel_quality_v1",
+            "source_mode": "twin_fixture",
+            "transport_source": "software_fixture",
+            "source_start_tick_ms": 0,
+            "source_start_monotonic_ns": 36028797018964091,
+            "goal_m": [
+              0.0,
+              0.0,
+              2.0
+            ],
+            "baseline_counters": [
+              7,
+              8,
+              9
+            ],
+            "initial_trigger_id": 4000
+          },
+          "source_admissions": [
+            {
+              "index": 0,
+              "adc_tick_ms": 0,
+              "em_tick_ms": 0,
+              "channel_counts": [
+                1740,
+                2048,
+                2048,
+                null
+              ],
+              "quality": 7,
+              "source_record_sha256": "49a8eb116dd27caabe660337d3b2afea130a269c28f59becd9463b6b9487b6e6",
+              "received_qpc_ns": 36028797019964091,
+              "new_em_sample": true
+            },
+            {
+              "index": 1,
+              "adc_tick_ms": 10,
+              "em_tick_ms": 0,
+              "channel_counts": [
+                1740,
+                2048,
+                2048,
+                null
+              ],
+              "quality": 1799,
+              "source_record_sha256": "a49f1b5d25b6e739ee9712ac77eaf4e2d893793f932dcb0de660917cfa80d849",
+              "received_qpc_ns": 36028797029964091,
+              "new_em_sample": false
+            },
+            {
+              "index": 2,
+              "adc_tick_ms": 20,
+              "em_tick_ms": 0,
+              "channel_counts": [
+                1740,
+                2048,
+                2048,
+                null
+              ],
+              "quality": 1799,
+              "source_record_sha256": "15df3e84923282d1e7694c396a98e85a9d124fa9aeea7bd05c7091b1587d6a34",
+              "received_qpc_ns": 36028797039964091,
+              "new_em_sample": false
+            },
+            {
+              "index": 3,
+              "adc_tick_ms": 30,
+              "em_tick_ms": 0,
+              "channel_counts": [
+                1740,
+                2048,
+                2048,
+                null
+              ],
+              "quality": 1799,
+              "source_record_sha256": "d9316d49c6c68677d6dc635f5b6788ccd997c87d2d14353e2ec6e54fc40e1b36",
+              "received_qpc_ns": 36028797049964091,
+              "new_em_sample": false
+            },
+            {
+              "index": 4,
+              "adc_tick_ms": 40,
+              "em_tick_ms": 0,
+              "channel_counts": [
+                1740,
+                2048,
+                2048,
+                null
+              ],
+              "quality": 1799,
+              "source_record_sha256": "62a8a8f2c06c6961c063fa525ee211fb057c155df8169d82347594f76df436b7",
+              "received_qpc_ns": 36028797059964091,
+              "new_em_sample": false
+            },
+            {
+              "index": 5,
+              "adc_tick_ms": 50,
+              "em_tick_ms": 50,
+              "channel_counts": [
+                1740,
+                2048,
+                2048,
+                null
+              ],
+              "quality": 7,
+              "source_record_sha256": "54d5aa9f9c5c2741af51d5997b859e20cc9b21345f61b44b9d91fbbbd5c6cafc",
+              "received_qpc_ns": 36028797069964091,
+              "new_em_sample": true
+            },
+            {
+              "index": 6,
+              "adc_tick_ms": 60,
+              "em_tick_ms": 50,
+              "channel_counts": [
+                1740,
+                2048,
+                2048,
+                null
+              ],
+              "quality": 1799,
+              "source_record_sha256": "f66f1e0142e8748cbcbfc38823172271ee08b4cb0faedf0b78334e4d6df89b3c",
+              "received_qpc_ns": 36028797079964091,
+              "new_em_sample": false
+            },
+            {
+              "index": 7,
+              "adc_tick_ms": 70,
+              "em_tick_ms": 50,
+              "channel_counts": [
+                1740,
+                2048,
+                2048,
+                null
+              ],
+              "quality": 1799,
+              "source_record_sha256": "e58225d4143199a41d7da5556355ea9b181be9a3d761d40a6a8eb5bf3341bf1a",
+              "received_qpc_ns": 36028797089964091,
+              "new_em_sample": false
+            },
+            {
+              "index": 8,
+              "adc_tick_ms": 80,
+              "em_tick_ms": 50,
+              "channel_counts": [
+                1740,
+                2048,
+                2048,
+                null
+              ],
+              "quality": 1799,
+              "source_record_sha256": "eec5cd6a8f70aa5023c3ff8e84cde058b91d46c5fda813c4c60d3d244b4408e0",
+              "received_qpc_ns": 36028797099964091,
+              "new_em_sample": false
+            },
+            {
+              "index": 9,
+              "adc_tick_ms": 90,
+              "em_tick_ms": 50,
+              "channel_counts": [
+                1740,
+                2048,
+                2048,
+                0
+              ],
+              "quality": 1807,
+              "source_record_sha256": "bcd0d13c85c008994a17cf7a6b57b3b026c0cf87ebb544aec4034ec2c82e1702",
+              "received_qpc_ns": 36028797109964091,
+              "new_em_sample": false
+            },
+            {
+              "index": 10,
+              "adc_tick_ms": 100,
+              "em_tick_ms": 100,
+              "channel_counts": [
+                1740,
+                2048,
+                2048,
+                0
+              ],
+              "quality": 15,
+              "source_record_sha256": "371d741c9236d6bd8bbdc35f46d889b7bb37bba3efeb117abc0df6b452aaa9e0",
+              "received_qpc_ns": 36028797119964091,
+              "new_em_sample": true
+            }
+          ],
+          "captures": [
+            {
+              "capture_sha256": "69cb6a19d4f04512471af274d6d259fa769c79f582b9524225deb958c8ac01d2",
+              "source_record_sha256": "371d741c9236d6bd8bbdc35f46d889b7bb37bba3efeb117abc0df6b452aaa9e0",
+              "request_raw": "{\"context\":{\"boot_id\":\"synthetic Linux kernel instance\",\"build_manifest_sha256\":\"3333333333333333333333333333333333333333333333333333333333333333\",\"clock_domain_id\":\"44444444444444444444444444444444\",\"operation_id\":\"fixture-operation/oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo\",\"request_hash\":\"1111111111111111111111111111111111111111111111111111111111111111\",\"session_id\":\"ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss\",\"tag\":4294967295,\"tested_commit\":\"2222222222222222222222222222222222222222\"},\"kind\":\"diagnostic_scan\",\"original_host_qpc_ns\":[36028797120464091,36028797120464092,36028797120464093,36028797120464094],\"qualities\":[1,1,1,1],\"request_seq\":1,\"schema\":1,\"source\":\"software_fixture\",\"source_id\":4,\"values\":[1740,2048,2048,0]}\n",
+              "capture_raw": "{\"captures\":[{\"ack_returned\":true,\"channel\":0,\"pipeline_counters\":[11,9,10],\"raw_words\":[1740,256,101500123,8388608,0,3,4294967295,4001,2147483667,123]},{\"ack_returned\":true,\"channel\":1,\"pipeline_counters\":[11,9,11],\"raw_words\":[2048,257,101500124,8388608,0,3,4294967295,4001,2147483667,123]},{\"ack_returned\":true,\"channel\":2,\"pipeline_counters\":[11,9,12],\"raw_words\":[2048,258,101500125,8388608,0,3,4294967295,4001,2147483667,123]},{\"ack_returned\":true,\"channel\":3,\"pipeline_counters\":[11,9,13],\"raw_words\":[0,259,101500126,8388608,0,3,4294967295,4001,2147483667,123]}],\"context\":{\"boot_id\":\"synthetic Linux kernel instance\",\"build_manifest_sha256\":\"3333333333333333333333333333333333333333333333333333333333333333\",\"clock_domain_id\":\"44444444444444444444444444444444\",\"operation_id\":\"fixture-operation/oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo\",\"request_hash\":\"1111111111111111111111111111111111111111111111111111111111111111\",\"session_id\":\"ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss\",\"tag\":4294967295,\"tested_commit\":\"2222222222222222222222222222222222222222\"},\"final_counters\":[11,9,13],\"generation\":2147483667,\"kind\":\"diagnostic_capture\",\"request_seq\":1,\"request_sha256\":\"44d5ddc9b8dd0100edb15792b648ffc20692f0b71be85928e7c0c4b931e9c8c6\",\"schema\":1,\"trigger_id\":4001}\n",
+              "adc_pose": {
+                "receipt_id": "synthetic-adc-pose-100",
+                "source_admission_index": 10,
+                "acquisition_qpc_ns": 36028797118964091,
+                "pose": {
+                  "position_m": [
+                    0.0,
+                    0.0,
+                    0.0
+                  ],
+                  "orientation_xyzw": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                  ]
+                }
+              },
+              "em_pose": {
+                "receipt_id": "synthetic-em-pose-100",
+                "source_admission_index": 10,
+                "acquisition_qpc_ns": 36028797118964091,
+                "pose": {
+                  "position_m": [
+                    0.0,
+                    0.0,
+                    0.0
+                  ],
+                  "orientation_xyzw": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                  ]
+                }
+              },
+              "em_origin_capture_sha256": "69cb6a19d4f04512471af274d6d259fa769c79f582b9524225deb958c8ac01d2",
+              "cause_action_id": null
+            }
+          ],
+          "current_pose": {
+            "receipt_id": "synthetic-current-pose",
+            "context": {
+              "operation_id": "fixture-operation/oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo",
+              "request_hash": "1111111111111111111111111111111111111111111111111111111111111111",
+              "tested_commit": "2222222222222222222222222222222222222222",
+              "build_manifest_sha256": "3333333333333333333333333333333333333333333333333333333333333333",
+              "boot_id": "synthetic Linux kernel instance",
+              "session_id": "ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss",
+              "tag": 4294967295,
+              "clock_domain_id": "44444444444444444444444444444444"
+            },
+            "generation": 2147483667,
+            "at_qpc_ns": 36028797121964091,
+            "pose": {
+              "position_m": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "orientation_xyzw": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ]
+            }
+          },
+          "action_registry": {
+            "receipt_id": "synthetic-empty-occurred-action-registry",
+            "context": {
+              "operation_id": "fixture-operation/oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo",
+              "request_hash": "1111111111111111111111111111111111111111111111111111111111111111",
+              "tested_commit": "2222222222222222222222222222222222222222",
+              "build_manifest_sha256": "3333333333333333333333333333333333333333333333333333333333333333",
+              "boot_id": "synthetic Linux kernel instance",
+              "session_id": "ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss",
+              "tag": 4294967295,
+              "clock_domain_id": "44444444444444444444444444444444"
+            },
+            "generation": 2147483667,
+            "as_of_qpc_ns": 36028797121964091,
+            "actions": []
+          }
+        }
+      },
+      "expected": {
+        "input_status": "COMPLETE_DIAGNOSTIC",
+        "status": "ADVISE",
+        "reason": "bounded_observation_goal_search",
+        "core_ran": true,
+        "risk": 0.00033184764884042206,
+        "uncertainty": 0.5124884004884005,
+        "direction_world": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "speed_limit_m_s": 0.12183745498337979,
+        "independent_em_count": 1
+      }
+    },
+    {
+      "name": "synthetic_held_retained_native",
+      "provenance": "SYNTHETIC_LOCAL_DIAGNOSTIC_ONLY_NOT_AN_A_CAPTURE",
+      "request": {
+        "schema_version": 1,
+        "abi_id": "private_raw4_planner_abi_v1",
+        "diagnostic_only": true,
+        "evidence_scope": "synthetic_diagnostic_fixture",
+        "enabled": true,
+        "now_qpc_ns": 36028797131964091,
+        "candidate": {
+          "schema": 1,
+          "kind": "candidate_four_channel_input",
+          "profile_id": "deepeye_forward_profile_candidate_v1",
+          "profile_status": "candidate_only",
+          "profile_note": "not_calibrated;not_em_surrogate_v2;not_formally_frozen",
+          "source_mode": "twin_fixture",
+          "quality_encoding": "candidate_four_channel_quality_v1",
+          "source_id": 4,
+          "transport_source": "software_fixture",
+          "channel_names": [
+            "log10_rho_apparent",
+            "yaw_log10_rho_difference",
+            "pitch_log10_rho_difference",
+            "near_bit_vibration_rms_g"
+          ],
+          "channel_counts": [
+            1740,
+            2048,
+            2048,
+            0
+          ],
+          "quality": 1807,
+          "source_time": {
+            "adc_tick_ms": 110,
+            "em_tick_ms": 100,
+            "source_start_tick_ms": 0,
+            "source_start_monotonic_ns": 36028797018964091,
+            "admission_received_monotonic_ns": 36028797129964091,
+            "adc_source_age_ns": 2000000,
+            "em_source_age_ns": 12000000,
+            "time_basis": "trusted_root_source_schedule_not_physical_sample_authentication"
+          },
+          "observation_identity": {
+            "context": {
+              "operation_id": "fixture-operation/oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo",
+              "request_hash": "1111111111111111111111111111111111111111111111111111111111111111",
+              "tested_commit": "2222222222222222222222222222222222222222",
+              "build_manifest_sha256": "3333333333333333333333333333333333333333333333333333333333333333",
+              "boot_id": "synthetic Linux kernel instance",
+              "session_id": "ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss",
+              "tag": 4294967295,
+              "clock_domain_id": "44444444444444444444444444444444"
+            },
+            "request_seq": 2,
+            "request_sha256": "ae33554c3f68ec02d37b34df04b6c1da456b24865576404f3eb8fda86ab56ac6",
+            "capture_sha256": "3370f0a27c166b3d9af4482dd2f0c7dd92e97745c5ccf558504d5e91dc0ce581",
+            "generation": 2147483667,
+            "trigger_id": 4002,
+            "source_admission_index": 11,
+            "original_host_injection_qpc_ns": [
+              36028797130464091,
+              36028797130464092,
+              36028797130464093,
+              36028797130464094
+            ],
+            "receiver_upper_qpc_ns": 36028797130964091
+          },
+          "diagnostic_flags": {
+            "source_fresh_at_capture": true,
+            "all_channels_valid": true,
+            "injection_to_receiver_upper_ns": 500000,
+            "target100ms_met": true,
+            "target100ms_scope": "conservative_receiver_upper_bound",
+            "formal_100ms_acceptance": "not_run",
+            "formal_H12": "not_run",
+            "transport_authenticated": false,
+            "BOOT_authenticated": false,
+            "physical_sample_authenticated": false,
+            "compression_verified": false,
+            "CPU_completion_created": false,
+            "movement_authorized": false
+          }
+        },
+        "history": [
+          {
+            "schema": 1,
+            "kind": "candidate_four_channel_input",
+            "profile_id": "deepeye_forward_profile_candidate_v1",
+            "profile_status": "candidate_only",
+            "profile_note": "not_calibrated;not_em_surrogate_v2;not_formally_frozen",
+            "source_mode": "twin_fixture",
+            "quality_encoding": "candidate_four_channel_quality_v1",
+            "source_id": 4,
+            "transport_source": "software_fixture",
+            "channel_names": [
+              "log10_rho_apparent",
+              "yaw_log10_rho_difference",
+              "pitch_log10_rho_difference",
+              "near_bit_vibration_rms_g"
+            ],
+            "channel_counts": [
+              1740,
+              2048,
+              2048,
+              0
+            ],
+            "quality": 15,
+            "source_time": {
+              "adc_tick_ms": 100,
+              "em_tick_ms": 100,
+              "source_start_tick_ms": 0,
+              "source_start_monotonic_ns": 36028797018964091,
+              "admission_received_monotonic_ns": 36028797119964091,
+              "adc_source_age_ns": 2000000,
+              "em_source_age_ns": 2000000,
+              "time_basis": "trusted_root_source_schedule_not_physical_sample_authentication"
+            },
+            "observation_identity": {
+              "context": {
+                "operation_id": "fixture-operation/oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo",
+                "request_hash": "1111111111111111111111111111111111111111111111111111111111111111",
+                "tested_commit": "2222222222222222222222222222222222222222",
+                "build_manifest_sha256": "3333333333333333333333333333333333333333333333333333333333333333",
+                "boot_id": "synthetic Linux kernel instance",
+                "session_id": "ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss",
+                "tag": 4294967295,
+                "clock_domain_id": "44444444444444444444444444444444"
+              },
+              "request_seq": 1,
+              "request_sha256": "44d5ddc9b8dd0100edb15792b648ffc20692f0b71be85928e7c0c4b931e9c8c6",
+              "capture_sha256": "69cb6a19d4f04512471af274d6d259fa769c79f582b9524225deb958c8ac01d2",
+              "generation": 2147483667,
+              "trigger_id": 4001,
+              "source_admission_index": 10,
+              "original_host_injection_qpc_ns": [
+                36028797120464091,
+                36028797120464092,
+                36028797120464093,
+                36028797120464094
+              ],
+              "receiver_upper_qpc_ns": 36028797120964091
+            },
+            "diagnostic_flags": {
+              "source_fresh_at_capture": true,
+              "all_channels_valid": true,
+              "injection_to_receiver_upper_ns": 500000,
+              "target100ms_met": true,
+              "target100ms_scope": "conservative_receiver_upper_bound",
+              "formal_100ms_acceptance": "not_run",
+              "formal_H12": "not_run",
+              "transport_authenticated": false,
+              "BOOT_authenticated": false,
+              "physical_sample_authenticated": false,
+              "compression_verified": false,
+              "CPU_completion_created": false,
+              "movement_authorized": false
+            }
+          }
+        ],
+        "root_receipt": {
+          "kind": "c29_root_association_v1",
+          "evidence_scope": "synthetic_diagnostic_fixture",
+          "config": {
+            "receipt_id": "synthetic-config-receipt",
+            "context": {
+              "operation_id": "fixture-operation/oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo",
+              "request_hash": "1111111111111111111111111111111111111111111111111111111111111111",
+              "tested_commit": "2222222222222222222222222222222222222222",
+              "build_manifest_sha256": "3333333333333333333333333333333333333333333333333333333333333333",
+              "boot_id": "synthetic Linux kernel instance",
+              "session_id": "ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss",
+              "tag": 4294967295,
+              "clock_domain_id": "44444444444444444444444444444444"
+            },
+            "generation": 2147483667,
+            "profile_id": "deepeye_forward_profile_candidate_v1",
+            "producer_sha256": "6a5f70a6acdaa6de52fc72d678d452956861370e1d143b70219ced107c5a04c9",
+            "source_policy": "candidate_causal_source_v1",
+            "quality_encoding": "candidate_four_channel_quality_v1",
+            "source_mode": "twin_fixture",
+            "transport_source": "software_fixture",
+            "source_start_tick_ms": 0,
+            "source_start_monotonic_ns": 36028797018964091,
+            "goal_m": [
+              0.0,
+              0.0,
+              2.0
+            ],
+            "baseline_counters": [
+              7,
+              8,
+              9
+            ],
+            "initial_trigger_id": 4000
+          },
+          "source_admissions": [
+            {
+              "index": 0,
+              "adc_tick_ms": 0,
+              "em_tick_ms": 0,
+              "channel_counts": [
+                1740,
+                2048,
+                2048,
+                null
+              ],
+              "quality": 7,
+              "source_record_sha256": "49a8eb116dd27caabe660337d3b2afea130a269c28f59becd9463b6b9487b6e6",
+              "received_qpc_ns": 36028797019964091,
+              "new_em_sample": true
+            },
+            {
+              "index": 1,
+              "adc_tick_ms": 10,
+              "em_tick_ms": 0,
+              "channel_counts": [
+                1740,
+                2048,
+                2048,
+                null
+              ],
+              "quality": 1799,
+              "source_record_sha256": "a49f1b5d25b6e739ee9712ac77eaf4e2d893793f932dcb0de660917cfa80d849",
+              "received_qpc_ns": 36028797029964091,
+              "new_em_sample": false
+            },
+            {
+              "index": 2,
+              "adc_tick_ms": 20,
+              "em_tick_ms": 0,
+              "channel_counts": [
+                1740,
+                2048,
+                2048,
+                null
+              ],
+              "quality": 1799,
+              "source_record_sha256": "15df3e84923282d1e7694c396a98e85a9d124fa9aeea7bd05c7091b1587d6a34",
+              "received_qpc_ns": 36028797039964091,
+              "new_em_sample": false
+            },
+            {
+              "index": 3,
+              "adc_tick_ms": 30,
+              "em_tick_ms": 0,
+              "channel_counts": [
+                1740,
+                2048,
+                2048,
+                null
+              ],
+              "quality": 1799,
+              "source_record_sha256": "d9316d49c6c68677d6dc635f5b6788ccd997c87d2d14353e2ec6e54fc40e1b36",
+              "received_qpc_ns": 36028797049964091,
+              "new_em_sample": false
+            },
+            {
+              "index": 4,
+              "adc_tick_ms": 40,
+              "em_tick_ms": 0,
+              "channel_counts": [
+                1740,
+                2048,
+                2048,
+                null
+              ],
+              "quality": 1799,
+              "source_record_sha256": "62a8a8f2c06c6961c063fa525ee211fb057c155df8169d82347594f76df436b7",
+              "received_qpc_ns": 36028797059964091,
+              "new_em_sample": false
+            },
+            {
+              "index": 5,
+              "adc_tick_ms": 50,
+              "em_tick_ms": 50,
+              "channel_counts": [
+                1740,
+                2048,
+                2048,
+                null
+              ],
+              "quality": 7,
+              "source_record_sha256": "54d5aa9f9c5c2741af51d5997b859e20cc9b21345f61b44b9d91fbbbd5c6cafc",
+              "received_qpc_ns": 36028797069964091,
+              "new_em_sample": true
+            },
+            {
+              "index": 6,
+              "adc_tick_ms": 60,
+              "em_tick_ms": 50,
+              "channel_counts": [
+                1740,
+                2048,
+                2048,
+                null
+              ],
+              "quality": 1799,
+              "source_record_sha256": "f66f1e0142e8748cbcbfc38823172271ee08b4cb0faedf0b78334e4d6df89b3c",
+              "received_qpc_ns": 36028797079964091,
+              "new_em_sample": false
+            },
+            {
+              "index": 7,
+              "adc_tick_ms": 70,
+              "em_tick_ms": 50,
+              "channel_counts": [
+                1740,
+                2048,
+                2048,
+                null
+              ],
+              "quality": 1799,
+              "source_record_sha256": "e58225d4143199a41d7da5556355ea9b181be9a3d761d40a6a8eb5bf3341bf1a",
+              "received_qpc_ns": 36028797089964091,
+              "new_em_sample": false
+            },
+            {
+              "index": 8,
+              "adc_tick_ms": 80,
+              "em_tick_ms": 50,
+              "channel_counts": [
+                1740,
+                2048,
+                2048,
+                null
+              ],
+              "quality": 1799,
+              "source_record_sha256": "eec5cd6a8f70aa5023c3ff8e84cde058b91d46c5fda813c4c60d3d244b4408e0",
+              "received_qpc_ns": 36028797099964091,
+              "new_em_sample": false
+            },
+            {
+              "index": 9,
+              "adc_tick_ms": 90,
+              "em_tick_ms": 50,
+              "channel_counts": [
+                1740,
+                2048,
+                2048,
+                0
+              ],
+              "quality": 1807,
+              "source_record_sha256": "bcd0d13c85c008994a17cf7a6b57b3b026c0cf87ebb544aec4034ec2c82e1702",
+              "received_qpc_ns": 36028797109964091,
+              "new_em_sample": false
+            },
+            {
+              "index": 10,
+              "adc_tick_ms": 100,
+              "em_tick_ms": 100,
+              "channel_counts": [
+                1740,
+                2048,
+                2048,
+                0
+              ],
+              "quality": 15,
+              "source_record_sha256": "371d741c9236d6bd8bbdc35f46d889b7bb37bba3efeb117abc0df6b452aaa9e0",
+              "received_qpc_ns": 36028797119964091,
+              "new_em_sample": true
+            },
+            {
+              "index": 11,
+              "adc_tick_ms": 110,
+              "em_tick_ms": 100,
+              "channel_counts": [
+                1740,
+                2048,
+                2048,
+                0
+              ],
+              "quality": 1807,
+              "source_record_sha256": "8c17115ee907ce1f4d7d4050287579dd35b9d0e4e269135c3706c6e4b93a2fe8",
+              "received_qpc_ns": 36028797129964091,
+              "new_em_sample": false
+            }
+          ],
+          "captures": [
+            {
+              "capture_sha256": "69cb6a19d4f04512471af274d6d259fa769c79f582b9524225deb958c8ac01d2",
+              "source_record_sha256": "371d741c9236d6bd8bbdc35f46d889b7bb37bba3efeb117abc0df6b452aaa9e0",
+              "request_raw": "{\"context\":{\"boot_id\":\"synthetic Linux kernel instance\",\"build_manifest_sha256\":\"3333333333333333333333333333333333333333333333333333333333333333\",\"clock_domain_id\":\"44444444444444444444444444444444\",\"operation_id\":\"fixture-operation/oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo\",\"request_hash\":\"1111111111111111111111111111111111111111111111111111111111111111\",\"session_id\":\"ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss\",\"tag\":4294967295,\"tested_commit\":\"2222222222222222222222222222222222222222\"},\"kind\":\"diagnostic_scan\",\"original_host_qpc_ns\":[36028797120464091,36028797120464092,36028797120464093,36028797120464094],\"qualities\":[1,1,1,1],\"request_seq\":1,\"schema\":1,\"source\":\"software_fixture\",\"source_id\":4,\"values\":[1740,2048,2048,0]}\n",
+              "capture_raw": "{\"captures\":[{\"ack_returned\":true,\"channel\":0,\"pipeline_counters\":[11,9,10],\"raw_words\":[1740,256,101500123,8388608,0,3,4294967295,4001,2147483667,123]},{\"ack_returned\":true,\"channel\":1,\"pipeline_counters\":[11,9,11],\"raw_words\":[2048,257,101500124,8388608,0,3,4294967295,4001,2147483667,123]},{\"ack_returned\":true,\"channel\":2,\"pipeline_counters\":[11,9,12],\"raw_words\":[2048,258,101500125,8388608,0,3,4294967295,4001,2147483667,123]},{\"ack_returned\":true,\"channel\":3,\"pipeline_counters\":[11,9,13],\"raw_words\":[0,259,101500126,8388608,0,3,4294967295,4001,2147483667,123]}],\"context\":{\"boot_id\":\"synthetic Linux kernel instance\",\"build_manifest_sha256\":\"3333333333333333333333333333333333333333333333333333333333333333\",\"clock_domain_id\":\"44444444444444444444444444444444\",\"operation_id\":\"fixture-operation/oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo\",\"request_hash\":\"1111111111111111111111111111111111111111111111111111111111111111\",\"session_id\":\"ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss\",\"tag\":4294967295,\"tested_commit\":\"2222222222222222222222222222222222222222\"},\"final_counters\":[11,9,13],\"generation\":2147483667,\"kind\":\"diagnostic_capture\",\"request_seq\":1,\"request_sha256\":\"44d5ddc9b8dd0100edb15792b648ffc20692f0b71be85928e7c0c4b931e9c8c6\",\"schema\":1,\"trigger_id\":4001}\n",
+              "adc_pose": {
+                "receipt_id": "synthetic-adc-pose-100",
+                "source_admission_index": 10,
+                "acquisition_qpc_ns": 36028797118964091,
+                "pose": {
+                  "position_m": [
+                    0.0,
+                    0.0,
+                    0.0
+                  ],
+                  "orientation_xyzw": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                  ]
+                }
+              },
+              "em_pose": {
+                "receipt_id": "synthetic-em-pose-100",
+                "source_admission_index": 10,
+                "acquisition_qpc_ns": 36028797118964091,
+                "pose": {
+                  "position_m": [
+                    0.0,
+                    0.0,
+                    0.0
+                  ],
+                  "orientation_xyzw": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                  ]
+                }
+              },
+              "em_origin_capture_sha256": "69cb6a19d4f04512471af274d6d259fa769c79f582b9524225deb958c8ac01d2",
+              "cause_action_id": null
+            },
+            {
+              "capture_sha256": "3370f0a27c166b3d9af4482dd2f0c7dd92e97745c5ccf558504d5e91dc0ce581",
+              "source_record_sha256": "8c17115ee907ce1f4d7d4050287579dd35b9d0e4e269135c3706c6e4b93a2fe8",
+              "request_raw": "{\"context\":{\"boot_id\":\"synthetic Linux kernel instance\",\"build_manifest_sha256\":\"3333333333333333333333333333333333333333333333333333333333333333\",\"clock_domain_id\":\"44444444444444444444444444444444\",\"operation_id\":\"fixture-operation/oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo\",\"request_hash\":\"1111111111111111111111111111111111111111111111111111111111111111\",\"session_id\":\"ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss\",\"tag\":4294967295,\"tested_commit\":\"2222222222222222222222222222222222222222\"},\"kind\":\"diagnostic_scan\",\"original_host_qpc_ns\":[36028797130464091,36028797130464092,36028797130464093,36028797130464094],\"qualities\":[5,5,5,1],\"request_seq\":2,\"schema\":1,\"source\":\"software_fixture\",\"source_id\":4,\"values\":[1740,2048,2048,0]}\n",
+              "capture_raw": "{\"captures\":[{\"ack_returned\":true,\"channel\":0,\"pipeline_counters\":[15,10,14],\"raw_words\":[1740,1280,111500123,8388608,4,7,4294967295,4002,2147483667,123]},{\"ack_returned\":true,\"channel\":1,\"pipeline_counters\":[15,10,15],\"raw_words\":[2048,1281,111500124,8388608,4,7,4294967295,4002,2147483667,123]},{\"ack_returned\":true,\"channel\":2,\"pipeline_counters\":[15,10,16],\"raw_words\":[2048,1282,111500125,8388608,4,7,4294967295,4002,2147483667,123]},{\"ack_returned\":true,\"channel\":3,\"pipeline_counters\":[15,10,17],\"raw_words\":[0,259,111500126,8388608,4,7,4294967295,4002,2147483667,123]}],\"context\":{\"boot_id\":\"synthetic Linux kernel instance\",\"build_manifest_sha256\":\"3333333333333333333333333333333333333333333333333333333333333333\",\"clock_domain_id\":\"44444444444444444444444444444444\",\"operation_id\":\"fixture-operation/oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo\",\"request_hash\":\"1111111111111111111111111111111111111111111111111111111111111111\",\"session_id\":\"ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss\",\"tag\":4294967295,\"tested_commit\":\"2222222222222222222222222222222222222222\"},\"final_counters\":[15,10,17],\"generation\":2147483667,\"kind\":\"diagnostic_capture\",\"request_seq\":2,\"request_sha256\":\"ae33554c3f68ec02d37b34df04b6c1da456b24865576404f3eb8fda86ab56ac6\",\"schema\":1,\"trigger_id\":4002}\n",
+              "adc_pose": {
+                "receipt_id": "synthetic-adc-pose-110",
+                "source_admission_index": 11,
+                "acquisition_qpc_ns": 36028797128964091,
+                "pose": {
+                  "position_m": [
+                    0.0,
+                    0.0,
+                    0.0
+                  ],
+                  "orientation_xyzw": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                  ]
+                }
+              },
+              "em_pose": {
+                "receipt_id": "synthetic-em-pose-100",
+                "source_admission_index": 10,
+                "acquisition_qpc_ns": 36028797118964091,
+                "pose": {
+                  "position_m": [
+                    0.0,
+                    0.0,
+                    0.0
+                  ],
+                  "orientation_xyzw": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                  ]
+                }
+              },
+              "em_origin_capture_sha256": "69cb6a19d4f04512471af274d6d259fa769c79f582b9524225deb958c8ac01d2",
+              "cause_action_id": null
+            }
+          ],
+          "current_pose": {
+            "receipt_id": "synthetic-current-pose",
+            "context": {
+              "operation_id": "fixture-operation/oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo",
+              "request_hash": "1111111111111111111111111111111111111111111111111111111111111111",
+              "tested_commit": "2222222222222222222222222222222222222222",
+              "build_manifest_sha256": "3333333333333333333333333333333333333333333333333333333333333333",
+              "boot_id": "synthetic Linux kernel instance",
+              "session_id": "ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss",
+              "tag": 4294967295,
+              "clock_domain_id": "44444444444444444444444444444444"
+            },
+            "generation": 2147483667,
+            "at_qpc_ns": 36028797131964091,
+            "pose": {
+              "position_m": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "orientation_xyzw": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ]
+            }
+          },
+          "action_registry": {
+            "receipt_id": "synthetic-empty-occurred-action-registry",
+            "context": {
+              "operation_id": "fixture-operation/oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo",
+              "request_hash": "1111111111111111111111111111111111111111111111111111111111111111",
+              "tested_commit": "2222222222222222222222222222222222222222",
+              "build_manifest_sha256": "3333333333333333333333333333333333333333333333333333333333333333",
+              "boot_id": "synthetic Linux kernel instance",
+              "session_id": "ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss",
+              "tag": 4294967295,
+              "clock_domain_id": "44444444444444444444444444444444"
+            },
+            "generation": 2147483667,
+            "as_of_qpc_ns": 36028797131964091,
+            "actions": []
+          }
+        }
+      },
+      "expected": {
+        "input_status": "COMPLETE_DIAGNOSTIC",
+        "status": "ADVISE",
+        "reason": "bounded_observation_goal_search",
+        "core_ran": true,
+        "risk": 0.00033184764884042206,
+        "uncertainty": 0.5524884004884005,
+        "direction_world": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "speed_limit_m_s": 0.11184077345986818,
+        "independent_em_count": 1
+      }
+    },
+    {
+      "name": "synthetic_actual_shape_missing_association",
+      "provenance": "SYNTHETIC_LOCAL_DIAGNOSTIC_ONLY_NOT_AN_A_CAPTURE",
+      "request": {
+        "schema_version": 1,
+        "abi_id": "private_raw4_planner_abi_v1",
+        "diagnostic_only": true,
+        "evidence_scope": "unassociated_diagnostic",
+        "enabled": true,
+        "now_qpc_ns": 36028797291516491,
+        "candidate": {
+          "schema": 1,
+          "kind": "candidate_four_channel_input",
+          "profile_id": "deepeye_forward_profile_candidate_v1",
+          "profile_status": "candidate_only",
+          "profile_note": "not_calibrated;not_em_surrogate_v2;not_formally_frozen",
+          "source_mode": "twin_fixture",
+          "quality_encoding": "candidate_four_channel_quality_v1",
+          "source_id": 4,
+          "transport_source": "software_fixture",
+          "channel_names": [
+            "log10_rho_apparent",
+            "yaw_log10_rho_difference",
+            "pitch_log10_rho_difference",
+            "near_bit_vibration_rms_g"
+          ],
+          "channel_counts": [
+            1740,
+            2048,
+            2048,
+            null
+          ],
+          "quality": 7,
+          "source_time": {
+            "adc_tick_ms": 50,
+            "em_tick_ms": 50,
+            "source_start_tick_ms": 0,
+            "source_start_monotonic_ns": 36028797018964091,
+            "admission_received_monotonic_ns": 36028797069964091,
+            "adc_source_age_ns": 222552400,
+            "em_source_age_ns": 222552400,
+            "time_basis": "trusted_root_source_schedule_not_physical_sample_authentication"
+          },
+          "observation_identity": {
+            "context": {
+              "operation_id": "fixture-operation/oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo",
+              "request_hash": "1111111111111111111111111111111111111111111111111111111111111111",
+              "tested_commit": "2222222222222222222222222222222222222222",
+              "build_manifest_sha256": "3333333333333333333333333333333333333333333333333333333333333333",
+              "boot_id": "synthetic Linux kernel instance",
+              "session_id": "ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss",
+              "tag": 4294967295,
+              "clock_domain_id": "44444444444444444444444444444444"
+            },
+            "request_seq": 1,
+            "request_sha256": "ed9ae98fe394e20d85eb14fc61a08ae4b8319021d273c2d20e436d7ad6373c0d",
+            "capture_sha256": "f90c4070cc58bd072222e47a324363d822887b23c525373eae60a5774a893769",
+            "generation": 2147483667,
+            "trigger_id": 4001,
+            "source_admission_index": 5,
+            "original_host_injection_qpc_ns": [
+              36028797070464091,
+              36028797070464092,
+              36028797070464093,
+              36028797070464094
+            ],
+            "receiver_upper_qpc_ns": 36028797291516491
+          },
+          "diagnostic_flags": {
+            "source_fresh_at_capture": false,
+            "all_channels_valid": false,
+            "injection_to_receiver_upper_ns": 221052400,
+            "target100ms_met": false,
+            "target100ms_scope": "conservative_receiver_upper_bound",
+            "formal_100ms_acceptance": "not_run",
+            "formal_H12": "not_run",
+            "transport_authenticated": false,
+            "BOOT_authenticated": false,
+            "physical_sample_authenticated": false,
+            "compression_verified": false,
+            "CPU_completion_created": false,
+            "movement_authorized": false
+          }
+        },
+        "history": [],
+        "root_receipt": null
+      },
+      "expected": {
+        "input_status": "INPUT_UNAVAILABLE",
+        "status": "STOP",
+        "reason": "missing_root_receipt",
+        "core_ran": false,
+        "risk": 1.0,
+        "uncertainty": 1.0,
+        "direction_world": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "speed_limit_m_s": 0.0,
+        "independent_em_count": 0
+      }
+    },
+    {
+      "name": "synthetic_null_C3_startup",
+      "provenance": "SYNTHETIC_LOCAL_DIAGNOSTIC_ONLY_NOT_AN_A_CAPTURE",
+      "request": {
+        "schema_version": 1,
+        "abi_id": "private_raw4_planner_abi_v1",
+        "diagnostic_only": true,
+        "evidence_scope": "synthetic_diagnostic_fixture",
+        "enabled": true,
+        "now_qpc_ns": 36028797021964091,
+        "candidate": {
+          "schema": 1,
+          "kind": "candidate_four_channel_input",
+          "profile_id": "deepeye_forward_profile_candidate_v1",
+          "profile_status": "candidate_only",
+          "profile_note": "not_calibrated;not_em_surrogate_v2;not_formally_frozen",
+          "source_mode": "twin_fixture",
+          "quality_encoding": "candidate_four_channel_quality_v1",
+          "source_id": 4,
+          "transport_source": "software_fixture",
+          "channel_names": [
+            "log10_rho_apparent",
+            "yaw_log10_rho_difference",
+            "pitch_log10_rho_difference",
+            "near_bit_vibration_rms_g"
+          ],
+          "channel_counts": [
+            1740,
+            2048,
+            2048,
+            null
+          ],
+          "quality": 7,
+          "source_time": {
+            "adc_tick_ms": 0,
+            "em_tick_ms": 0,
+            "source_start_tick_ms": 0,
+            "source_start_monotonic_ns": 36028797018964091,
+            "admission_received_monotonic_ns": 36028797019964091,
+            "adc_source_age_ns": 2000000,
+            "em_source_age_ns": 2000000,
+            "time_basis": "trusted_root_source_schedule_not_physical_sample_authentication"
+          },
+          "observation_identity": {
+            "context": {
+              "operation_id": "fixture-operation/oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo",
+              "request_hash": "1111111111111111111111111111111111111111111111111111111111111111",
+              "tested_commit": "2222222222222222222222222222222222222222",
+              "build_manifest_sha256": "3333333333333333333333333333333333333333333333333333333333333333",
+              "boot_id": "synthetic Linux kernel instance",
+              "session_id": "ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss",
+              "tag": 4294967295,
+              "clock_domain_id": "44444444444444444444444444444444"
+            },
+            "request_seq": 1,
+            "request_sha256": "a57f6af9ee38e7de81d0935d3d8ed26af0ff99f77461d011cad52ed417ee3fb1",
+            "capture_sha256": "e032205df5cca4f314086709f907b037dd5206bdcc0fe28bf6725dc3574f290c",
+            "generation": 2147483667,
+            "trigger_id": 4001,
+            "source_admission_index": 0,
+            "original_host_injection_qpc_ns": [
+              36028797020464091,
+              36028797020464092,
+              36028797020464093,
+              36028797020464094
+            ],
+            "receiver_upper_qpc_ns": 36028797020964091
+          },
+          "diagnostic_flags": {
+            "source_fresh_at_capture": true,
+            "all_channels_valid": false,
+            "injection_to_receiver_upper_ns": 500000,
+            "target100ms_met": true,
+            "target100ms_scope": "conservative_receiver_upper_bound",
+            "formal_100ms_acceptance": "not_run",
+            "formal_H12": "not_run",
+            "transport_authenticated": false,
+            "BOOT_authenticated": false,
+            "physical_sample_authenticated": false,
+            "compression_verified": false,
+            "CPU_completion_created": false,
+            "movement_authorized": false
+          }
+        },
+        "history": [],
+        "root_receipt": {
+          "kind": "c29_root_association_v1",
+          "evidence_scope": "synthetic_diagnostic_fixture",
+          "config": {
+            "receipt_id": "synthetic-config-receipt",
+            "context": {
+              "operation_id": "fixture-operation/oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo",
+              "request_hash": "1111111111111111111111111111111111111111111111111111111111111111",
+              "tested_commit": "2222222222222222222222222222222222222222",
+              "build_manifest_sha256": "3333333333333333333333333333333333333333333333333333333333333333",
+              "boot_id": "synthetic Linux kernel instance",
+              "session_id": "ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss",
+              "tag": 4294967295,
+              "clock_domain_id": "44444444444444444444444444444444"
+            },
+            "generation": 2147483667,
+            "profile_id": "deepeye_forward_profile_candidate_v1",
+            "producer_sha256": "6a5f70a6acdaa6de52fc72d678d452956861370e1d143b70219ced107c5a04c9",
+            "source_policy": "candidate_causal_source_v1",
+            "quality_encoding": "candidate_four_channel_quality_v1",
+            "source_mode": "twin_fixture",
+            "transport_source": "software_fixture",
+            "source_start_tick_ms": 0,
+            "source_start_monotonic_ns": 36028797018964091,
+            "goal_m": [
+              0.0,
+              0.0,
+              2.0
+            ],
+            "baseline_counters": [
+              7,
+              8,
+              9
+            ],
+            "initial_trigger_id": 4000
+          },
+          "source_admissions": [
+            {
+              "index": 0,
+              "adc_tick_ms": 0,
+              "em_tick_ms": 0,
+              "channel_counts": [
+                1740,
+                2048,
+                2048,
+                null
+              ],
+              "quality": 7,
+              "source_record_sha256": "49a8eb116dd27caabe660337d3b2afea130a269c28f59becd9463b6b9487b6e6",
+              "received_qpc_ns": 36028797019964091,
+              "new_em_sample": true
+            }
+          ],
+          "captures": [
+            {
+              "capture_sha256": "e032205df5cca4f314086709f907b037dd5206bdcc0fe28bf6725dc3574f290c",
+              "source_record_sha256": "49a8eb116dd27caabe660337d3b2afea130a269c28f59becd9463b6b9487b6e6",
+              "request_raw": "{\"context\":{\"boot_id\":\"synthetic Linux kernel instance\",\"build_manifest_sha256\":\"3333333333333333333333333333333333333333333333333333333333333333\",\"clock_domain_id\":\"44444444444444444444444444444444\",\"operation_id\":\"fixture-operation/oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo\",\"request_hash\":\"1111111111111111111111111111111111111111111111111111111111111111\",\"session_id\":\"ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss\",\"tag\":4294967295,\"tested_commit\":\"2222222222222222222222222222222222222222\"},\"kind\":\"diagnostic_scan\",\"original_host_qpc_ns\":[36028797020464091,36028797020464092,36028797020464093,36028797020464094],\"qualities\":[1,1,1,0],\"request_seq\":1,\"schema\":1,\"source\":\"software_fixture\",\"source_id\":4,\"values\":[1740,2048,2048,0]}\n",
+              "capture_raw": "{\"captures\":[{\"ack_returned\":true,\"channel\":0,\"pipeline_counters\":[11,9,10],\"raw_words\":[1740,256,1500123,8388608,0,3,4294967295,4001,2147483667,123]},{\"ack_returned\":true,\"channel\":1,\"pipeline_counters\":[11,9,11],\"raw_words\":[2048,257,1500124,8388608,0,3,4294967295,4001,2147483667,123]},{\"ack_returned\":true,\"channel\":2,\"pipeline_counters\":[11,9,12],\"raw_words\":[2048,258,1500125,8388608,0,3,4294967295,4001,2147483667,123]},{\"ack_returned\":true,\"channel\":3,\"pipeline_counters\":[11,9,13],\"raw_words\":[0,3,1500126,8388608,0,3,4294967295,4001,2147483667,123]}],\"context\":{\"boot_id\":\"synthetic Linux kernel instance\",\"build_manifest_sha256\":\"3333333333333333333333333333333333333333333333333333333333333333\",\"clock_domain_id\":\"44444444444444444444444444444444\",\"operation_id\":\"fixture-operation/oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo\",\"request_hash\":\"1111111111111111111111111111111111111111111111111111111111111111\",\"session_id\":\"ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss\",\"tag\":4294967295,\"tested_commit\":\"2222222222222222222222222222222222222222\"},\"final_counters\":[11,9,13],\"generation\":2147483667,\"kind\":\"diagnostic_capture\",\"request_seq\":1,\"request_sha256\":\"a57f6af9ee38e7de81d0935d3d8ed26af0ff99f77461d011cad52ed417ee3fb1\",\"schema\":1,\"trigger_id\":4001}\n",
+              "adc_pose": {
+                "receipt_id": "synthetic-adc-pose-0",
+                "source_admission_index": 0,
+                "acquisition_qpc_ns": 36028797018964091,
+                "pose": {
+                  "position_m": [
+                    0.0,
+                    0.0,
+                    0.0
+                  ],
+                  "orientation_xyzw": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                  ]
+                }
+              },
+              "em_pose": {
+                "receipt_id": "synthetic-em-pose-0",
+                "source_admission_index": 0,
+                "acquisition_qpc_ns": 36028797018964091,
+                "pose": {
+                  "position_m": [
+                    0.0,
+                    0.0,
+                    0.0
+                  ],
+                  "orientation_xyzw": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                  ]
+                }
+              },
+              "em_origin_capture_sha256": "e032205df5cca4f314086709f907b037dd5206bdcc0fe28bf6725dc3574f290c",
+              "cause_action_id": null
+            }
+          ],
+          "current_pose": {
+            "receipt_id": "synthetic-current-pose",
+            "context": {
+              "operation_id": "fixture-operation/oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo",
+              "request_hash": "1111111111111111111111111111111111111111111111111111111111111111",
+              "tested_commit": "2222222222222222222222222222222222222222",
+              "build_manifest_sha256": "3333333333333333333333333333333333333333333333333333333333333333",
+              "boot_id": "synthetic Linux kernel instance",
+              "session_id": "ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss",
+              "tag": 4294967295,
+              "clock_domain_id": "44444444444444444444444444444444"
+            },
+            "generation": 2147483667,
+            "at_qpc_ns": 36028797021964091,
+            "pose": {
+              "position_m": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "orientation_xyzw": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ]
+            }
+          },
+          "action_registry": {
+            "receipt_id": "synthetic-empty-occurred-action-registry",
+            "context": {
+              "operation_id": "fixture-operation/oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo",
+              "request_hash": "1111111111111111111111111111111111111111111111111111111111111111",
+              "tested_commit": "2222222222222222222222222222222222222222",
+              "build_manifest_sha256": "3333333333333333333333333333333333333333333333333333333333333333",
+              "boot_id": "synthetic Linux kernel instance",
+              "session_id": "ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss",
+              "tag": 4294967295,
+              "clock_domain_id": "44444444444444444444444444444444"
+            },
+            "generation": 2147483667,
+            "as_of_qpc_ns": 36028797021964091,
+            "actions": []
+          }
+        }
+      },
+      "expected": {
+        "input_status": "COMPLETE_DIAGNOSTIC",
+        "status": "STOP",
+        "reason": "invalid_faulted_or_saturated",
+        "core_ran": true,
+        "risk": 1.0,
+        "uncertainty": 1.0,
+        "direction_world": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "speed_limit_m_s": 0.0,
+        "independent_em_count": 0
+      }
+    }
+  ]
+}

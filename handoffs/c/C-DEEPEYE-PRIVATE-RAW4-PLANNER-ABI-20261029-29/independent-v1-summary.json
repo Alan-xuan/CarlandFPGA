@@ -1,0 +1,825 @@
+{
+  "artifact_kind": "DERIVED_COMPACT_SUMMARY_NOT_ORIGINAL_RAW_STDOUT",
+  "raw_stdout_retained_privately": {
+    "path": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\main-20261015-01a14025\\C29-private-raw4-ABI-20261030\\review\\implementation-v1\\independent.stdout.json",
+    "bytes": 1939479,
+    "sha256": "fc88f7082acec9393cfd5714f45aaa61676cf6e64052f4d134e3ab534fabdf56"
+  },
+  "raw_stderr": {
+    "path": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\main-20261015-01a14025\\C29-private-raw4-ABI-20261030\\review\\implementation-v1\\independent.stderr.txt",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "command": {
+    "argv": [
+      "C:\\Users\\Alan\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+      "-B",
+      "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\main-20261015-01a14025\\C29-private-raw4-ABI-20261030\\review\\implementation-v1\\independent_checks.py",
+      "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\deepeye-implementation-c\\handoffs\\c\\C-DEEPEYE-PRIVATE-RAW4-PLANNER-ABI-20261029-29"
+    ],
+    "cwd": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c",
+    "started_utc": "2026-10-29T16:44:49.642215+00:00",
+    "wall_seconds": 0.9532511999932467,
+    "timeout_seconds": 30,
+    "timed_out": false,
+    "exit_code": 0,
+    "subprocesses": []
+  },
+  "total_checks": 66,
+  "passed": true,
+  "source_pins": {
+    "abi-contract.json": {
+      "bytes": 5976,
+      "sha256": "83945dfe699c0a5238aec69ef10b22f8edca01698144c50b4c35b1bf60b0a307"
+    },
+    "interface-examples.json": {
+      "bytes": 63161,
+      "sha256": "5f9eb784cab7f94094f6cad9023d4287f615798065a9763d94eab7e1d474fc39"
+    },
+    "private_raw4_planner_abi_v1.py": {
+      "bytes": 38811,
+      "sha256": "43b03d47584559181648532f2a70720f8c074158fe896edc8e08065cf8ea8b3f"
+    },
+    "README.md": {
+      "bytes": 7816,
+      "sha256": "d9e393a74338c3cd066475093abfc2b8bb37df3ee7a5db954c112b3c6f4d3841"
+    },
+    "test_private_raw4_planner_abi_v1.py": {
+      "bytes": 24752,
+      "sha256": "491f0efd8e373dc3a9ff5a4e5c00adb7af526b47039e2b9db46e5347eee2bf81"
+    }
+  },
+  "results": [
+    {
+      "name": "native_exact_large_qpc_identity_and_map",
+      "passed": true,
+      "observed": {
+        "core_ran": true,
+        "input_status": "COMPLETE_DIAGNOSTIC",
+        "status": "ADVISE",
+        "reason": "bounded_observation_goal_search",
+        "direction_world": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "independent_em_count": 1
+      }
+    },
+    {
+      "name": "omitted_enabled_real_private_context",
+      "passed": true,
+      "observed": {
+        "core_ran": false,
+        "input_status": "DISABLED",
+        "status": "STOP",
+        "reason": "disabled",
+        "direction_world": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "independent_em_count": 0
+      }
+    },
+    {
+      "name": "missing_root_receipt",
+      "passed": true,
+      "observed": {
+        "core_ran": false,
+        "input_status": "INPUT_UNAVAILABLE",
+        "status": "STOP",
+        "reason": "missing_root_receipt",
+        "direction_world": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "independent_em_count": 0
+      }
+    },
+    {
+      "name": "missing_config",
+      "passed": true,
+      "observed": {
+        "core_ran": false,
+        "input_status": "INPUT_UNAVAILABLE",
+        "status": "STOP",
+        "reason": "missing_root_config",
+        "direction_world": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "independent_em_count": 0
+      }
+    },
+    {
+      "name": "missing_source_admissions",
+      "passed": true,
+      "observed": {
+        "core_ran": false,
+        "input_status": "INPUT_UNAVAILABLE",
+        "status": "STOP",
+        "reason": "missing_source_admissions",
+        "direction_world": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "independent_em_count": 0
+      }
+    },
+    {
+      "name": "missing_captures",
+      "passed": true,
+      "observed": {
+        "core_ran": false,
+        "input_status": "INPUT_UNAVAILABLE",
+        "status": "STOP",
+        "reason": "missing_capture_associations",
+        "direction_world": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "independent_em_count": 0
+      }
+    },
+    {
+      "name": "missing_current_pose",
+      "passed": true,
+      "observed": {
+        "core_ran": false,
+        "input_status": "INPUT_UNAVAILABLE",
+        "status": "STOP",
+        "reason": "missing_current_pose",
+        "direction_world": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "independent_em_count": 0
+      }
+    },
+    {
+      "name": "missing_action_registry",
+      "passed": true,
+      "observed": {
+        "core_ran": false,
+        "input_status": "INPUT_UNAVAILABLE",
+        "status": "STOP",
+        "reason": "missing_action_registry",
+        "direction_world": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "independent_em_count": 0
+      }
+    },
+    {
+      "name": "missing_request_raw",
+      "passed": true,
+      "observed": {
+        "core_ran": false,
+        "input_status": "INPUT_UNAVAILABLE",
+        "status": "STOP",
+        "reason": "missing_original_request",
+        "direction_world": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "independent_em_count": 0
+      }
+    },
+    {
+      "name": "missing_capture_raw",
+      "passed": true,
+      "observed": {
+        "core_ran": false,
+        "input_status": "INPUT_UNAVAILABLE",
+        "status": "STOP",
+        "reason": "missing_original_capture",
+        "direction_world": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "independent_em_count": 0
+      }
+    },
+    {
+      "name": "missing_adc_pose",
+      "passed": true,
+      "observed": {
+        "core_ran": false,
+        "input_status": "INPUT_UNAVAILABLE",
+        "status": "STOP",
+        "reason": "missing_adc_pose",
+        "direction_world": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "independent_em_count": 0
+      }
+    },
+    {
+      "name": "missing_em_pose",
+      "passed": true,
+      "observed": {
+        "core_ran": false,
+        "input_status": "INPUT_UNAVAILABLE",
+        "status": "STOP",
+        "reason": "missing_em_pose",
+        "direction_world": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "independent_em_count": 0
+      }
+    },
+    {
+      "name": "missing_em_origin_capture_sha256",
+      "passed": true,
+      "observed": {
+        "core_ran": false,
+        "input_status": "INPUT_UNAVAILABLE",
+        "status": "STOP",
+        "reason": "missing_held_board_origin",
+        "direction_world": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "independent_em_count": 0
+      }
+    },
+    {
+      "name": "exact_now_age_100000000",
+      "passed": true,
+      "observed": {
+        "core_ran": true,
+        "input_status": "COMPLETE_DIAGNOSTIC",
+        "status": "ADVISE",
+        "reason": "bounded_observation_goal_search",
+        "direction_world": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "independent_em_count": 1
+      }
+    },
+    {
+      "name": "exact_now_age_100000001",
+      "passed": true,
+      "observed": {
+        "core_ran": false,
+        "input_status": "INPUT_UNAVAILABLE",
+        "status": "STOP",
+        "reason": "original_source_expired_now",
+        "direction_world": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "independent_em_count": 0
+      }
+    },
+    {
+      "name": "one_ns_source_age_tamper",
+      "passed": true,
+      "observed_exception": "Rejected: original source age mismatch"
+    },
+    {
+      "name": "anchor_one_ns_not_rebased",
+      "passed": true,
+      "observed_exception": "Rejected: original source age mismatch"
+    },
+    {
+      "name": "injection_latency_is_not_source_age",
+      "passed": true,
+      "observed_exception": "Rejected: original source age mismatch"
+    },
+    {
+      "name": "held_original_native_map_once",
+      "passed": true,
+      "observed": {
+        "core_ran": true,
+        "input_status": "COMPLETE_DIAGNOSTIC",
+        "status": "ADVISE",
+        "reason": "bounded_observation_goal_search",
+        "direction_world": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "independent_em_count": 1
+      }
+    },
+    {
+      "name": "held_evicted_native_capture",
+      "passed": true,
+      "observed": {
+        "core_ran": false,
+        "input_status": "INPUT_UNAVAILABLE",
+        "status": "STOP",
+        "reason": "missing_retained_native_board_origin",
+        "direction_world": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "independent_em_count": 0
+      }
+    },
+    {
+      "name": "held_own_pose_not_replaced",
+      "passed": true,
+      "observed_exception": "Rejected: held native board evidence mismatch"
+    },
+    {
+      "name": "held_native_pose_index",
+      "passed": true,
+      "observed_exception": "Rejected: own pose/source association"
+    },
+    {
+      "name": "held_not_new_native",
+      "passed": true,
+      "observed_exception": "Rejected: native admission flag"
+    },
+    {
+      "name": "held_after_source_fault_cannot_revive",
+      "passed": true,
+      "observed_exception": "Rejected: held fault revival"
+    },
+    {
+      "name": "own_pose_one_ns_mismatch",
+      "passed": true,
+      "observed_exception": "Rejected: own pose/source association"
+    },
+    {
+      "name": "origin_zero_not_sliding_window",
+      "passed": true,
+      "observed_exception": "Rejected: original admissions must begin at zero with no omission"
+    },
+    {
+      "name": "c3_contiguity_from_original_source",
+      "passed": true,
+      "observed_exception": "Rejected: source order"
+    },
+    {
+      "name": "startup_null_c3_legal_quality_stop",
+      "passed": true,
+      "observed": {
+        "core_ran": true,
+        "input_status": "COMPLETE_DIAGNOSTIC",
+        "status": "STOP",
+        "reason": "invalid_faulted_or_saturated",
+        "direction_world": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "independent_em_count": 0
+      }
+    },
+    {
+      "name": "em_fault_null_legal_quality_stop",
+      "passed": true,
+      "observed": {
+        "core_ran": true,
+        "input_status": "COMPLETE_DIAGNOSTIC",
+        "status": "STOP",
+        "reason": "invalid_faulted_or_saturated",
+        "direction_world": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "independent_em_count": 0
+      }
+    },
+    {
+      "name": "legal_nonfullscale_c3_saturation_stop",
+      "passed": true,
+      "observed": {
+        "core_ran": true,
+        "input_status": "COMPLETE_DIAGNOSTIC",
+        "status": "STOP",
+        "reason": "invalid_faulted_or_saturated",
+        "direction_world": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "independent_em_count": 0
+      }
+    },
+    {
+      "name": "full_context_mismatch_session_id",
+      "passed": true,
+      "observed_exception": "Rejected: current pose context/time"
+    },
+    {
+      "name": "full_context_mismatch_tag",
+      "passed": true,
+      "observed_exception": "Rejected: current pose context/time"
+    },
+    {
+      "name": "full_context_mismatch_boot_id",
+      "passed": true,
+      "observed_exception": "Rejected: current pose context/time"
+    },
+    {
+      "name": "full_context_mismatch_clock_domain_id",
+      "passed": true,
+      "observed_exception": "Rejected: current pose context/time"
+    },
+    {
+      "name": "generation_no_lowbyte_alias",
+      "passed": true,
+      "observed_exception": "Rejected: current pose context/time"
+    },
+    {
+      "name": "source_record_hash_association",
+      "passed": true,
+      "observed_exception": "Rejected: capture/source association mismatch"
+    },
+    {
+      "name": "rehash_cannot_fix_returned_count_mismatch",
+      "passed": true,
+      "observed_exception": "Rejected: returned raw words mismatch"
+    },
+    {
+      "name": "raw_qpc_low_word_exact",
+      "passed": true,
+      "observed_exception": "Rejected: returned raw words mismatch"
+    },
+    {
+      "name": "raw_tag_no_lowbyte_alias",
+      "passed": true,
+      "observed_exception": "Rejected: returned raw words mismatch"
+    },
+    {
+      "name": "world_turn_90",
+      "passed": true,
+      "observed": {
+        "core_ran": true,
+        "input_status": "COMPLETE_DIAGNOSTIC",
+        "status": "STOP",
+        "reason": "original_observation_pose_inapplicable",
+        "direction_world": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "independent_em_count": 1
+      }
+    },
+    {
+      "name": "world_turn_180",
+      "passed": true,
+      "observed": {
+        "core_ran": true,
+        "input_status": "COMPLETE_DIAGNOSTIC",
+        "status": "STOP",
+        "reason": "original_observation_pose_inapplicable",
+        "direction_world": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "independent_em_count": 1
+      }
+    },
+    {
+      "name": "large_translation_stop",
+      "passed": true,
+      "observed": {
+        "core_ran": true,
+        "input_status": "COMPLETE_DIAGNOSTIC",
+        "status": "STOP",
+        "reason": "original_observation_pose_inapplicable",
+        "direction_world": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "independent_em_count": 1
+      }
+    },
+    {
+      "name": "roll_and_small_translation_supported",
+      "passed": true,
+      "observed": {
+        "core_ran": true,
+        "input_status": "COMPLETE_DIAGNOSTIC",
+        "status": "ADVISE",
+        "reason": "bounded_observation_goal_search",
+        "direction_world": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "independent_em_count": 1
+      }
+    },
+    {
+      "name": "pose_angle_boundary_15",
+      "passed": true,
+      "observed": {
+        "core_ran": true,
+        "input_status": "COMPLETE_DIAGNOSTIC",
+        "status": "ADVISE",
+        "reason": "bounded_observation_goal_search",
+        "direction_world": [
+          -0.07480548846375312,
+          0.0,
+          0.9971981442500278
+        ],
+        "independent_em_count": 1
+      }
+    },
+    {
+      "name": "pose_angle_boundary_15.00001",
+      "passed": true,
+      "observed": {
+        "core_ran": true,
+        "input_status": "COMPLETE_DIAGNOSTIC",
+        "status": "STOP",
+        "reason": "original_observation_pose_inapplicable",
+        "direction_world": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "independent_em_count": 1
+      }
+    },
+    {
+      "name": "pose_translation_boundary_0.25",
+      "passed": true,
+      "observed": {
+        "core_ran": true,
+        "input_status": "COMPLETE_DIAGNOSTIC",
+        "status": "ADVISE",
+        "reason": "bounded_observation_goal_search",
+        "direction_world": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "independent_em_count": 1
+      }
+    },
+    {
+      "name": "pose_translation_boundary_0.25000001",
+      "passed": true,
+      "observed": {
+        "core_ran": true,
+        "input_status": "COMPLETE_DIAGNOSTIC",
+        "status": "STOP",
+        "reason": "original_observation_pose_inapplicable",
+        "direction_world": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "independent_em_count": 1
+      }
+    },
+    {
+      "name": "count_signal_direction_0_700",
+      "passed": true,
+      "observed": {
+        "core_ran": true,
+        "input_status": "COMPLETE_DIAGNOSTIC",
+        "status": "ADVISE",
+        "reason": "bounded_observation_goal_search",
+        "direction_world": [
+          0.33035042472810605,
+          0.0,
+          0.9438583563660174
+        ],
+        "independent_em_count": 1
+      }
+    },
+    {
+      "name": "count_signal_direction_0_3400",
+      "passed": true,
+      "observed": {
+        "core_ran": true,
+        "input_status": "COMPLETE_DIAGNOSTIC",
+        "status": "ADVISE",
+        "reason": "bounded_observation_goal_search",
+        "direction_world": [
+          -0.33035042472810605,
+          0.0,
+          0.9438583563660174
+        ],
+        "independent_em_count": 1
+      }
+    },
+    {
+      "name": "count_signal_direction_1_700",
+      "passed": true,
+      "observed": {
+        "core_ran": true,
+        "input_status": "COMPLETE_DIAGNOSTIC",
+        "status": "ADVISE",
+        "reason": "bounded_observation_goal_search",
+        "direction_world": [
+          0.0,
+          0.33035042472810605,
+          0.9438583563660174
+        ],
+        "independent_em_count": 1
+      }
+    },
+    {
+      "name": "count_signal_direction_1_3400",
+      "passed": true,
+      "observed": {
+        "core_ran": true,
+        "input_status": "COMPLETE_DIAGNOSTIC",
+        "status": "ADVISE",
+        "reason": "bounded_observation_goal_search",
+        "direction_world": [
+          0.0,
+          -0.33035042472810605,
+          0.9438583563660174
+        ],
+        "independent_em_count": 1
+      }
+    },
+    {
+      "name": "actual_action_receipt_causal_order",
+      "passed": true,
+      "observed": {
+        "core_ran": true,
+        "input_status": "COMPLETE_DIAGNOSTIC",
+        "status": "ADVISE",
+        "reason": "bounded_observation_goal_search",
+        "direction_world": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "independent_em_count": 1
+      }
+    },
+    {
+      "name": "action_bad_receipt_id",
+      "passed": true,
+      "observed": {
+        "core_ran": false,
+        "input_status": "INPUT_UNAVAILABLE",
+        "status": "STOP",
+        "reason": "missing_action_execution_receipt",
+        "direction_world": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "independent_em_count": 0
+      }
+    },
+    {
+      "name": "action_bad_state",
+      "passed": true,
+      "observed_exception": "Rejected: only actually executed actions"
+    },
+    {
+      "name": "action_bad_at_qpc_ns",
+      "passed": true,
+      "observed_exception": "Rejected: future/cyclic action cause"
+    },
+    {
+      "name": "action_bad_observation_capture_sha256",
+      "passed": true,
+      "observed": {
+        "core_ran": false,
+        "input_status": "INPUT_UNAVAILABLE",
+        "status": "STOP",
+        "reason": "missing_action_observation",
+        "direction_world": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "independent_em_count": 0
+      }
+    },
+    {
+      "name": "hidden_nested_field_earlyreturn_False",
+      "passed": true,
+      "observed_exception": "Rejected: capture association: exact fields"
+    },
+    {
+      "name": "hidden_nested_field_earlyreturn_True",
+      "passed": true,
+      "observed_exception": "Rejected: capture association: exact fields"
+    },
+    {
+      "name": "strict_json_boolqpc",
+      "passed": true,
+      "observed_exception": "Rejected: integer: strict unsigned integer"
+    },
+    {
+      "name": "strict_json_floatqpc",
+      "passed": true,
+      "observed_exception": "Rejected: integer: strict unsigned integer"
+    },
+    {
+      "name": "strict_json_unknown",
+      "passed": true,
+      "observed_exception": "Rejected: exact C29 envelope"
+    },
+    {
+      "name": "strict_json_nan",
+      "passed": true,
+      "observed_exception": "Rejected: nonfinite number"
+    },
+    {
+      "name": "strict_json_depth",
+      "passed": true,
+      "observed_exception": "Rejected: JSON depth/node budget"
+    },
+    {
+      "name": "strict_json_history33",
+      "passed": true,
+      "observed_exception": "Rejected: array budget"
+    },
+    {
+      "name": "exact_codeobject_isolation_and_fixed_projection",
+      "passed": true,
+      "detail": "same code object; only isolated validator differs; changed projection rejected"
+    },
+    {
+      "name": "strict_bytes_and_detachment",
+      "passed": true,
+      "detail": "strict UTF8/duplicate/nonfinite/bytebound and detached output"
+    }
+  ],
+  "supplemental_missing_admission": {
+    "command": {
+      "argv": [
+        "C:\\Users\\Alan\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+        "-B",
+        "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\main-20261015-01a14025\\C29-private-raw4-ABI-20261030\\review\\implementation-v1\\missing_admission_check.py",
+        "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\deepeye-implementation-c\\handoffs\\c\\C-DEEPEYE-PRIVATE-RAW4-PLANNER-ABI-20261029-29"
+      ],
+      "cwd": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c",
+      "exit_code": 1,
+      "wall_seconds": 0.4947764000025927,
+      "completed_utc": "2026-10-29T16:46:14.269672+00:00",
+      "timeout_seconds": 30,
+      "subprocesses": [],
+      "expectation": "missing association returns INPUT_UNAVAILABLE/STOP/core_ran=false"
+    },
+    "raw_stdout": {
+      "path": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\main-20261015-01a14025\\C29-private-raw4-ABI-20261030\\review\\implementation-v1\\missing-admission.stdout.json",
+      "bytes": 15467,
+      "sha256": "596ce93135a117dcf6eee5bc9ac1c7258343cab7265727da670cca7ed3d41ea1"
+    },
+    "exception": {
+      "type": "Rejected",
+      "message": "missing source admission index"
+    },
+    "passed": false
+  },
+  "supplemental_schema_probe": {
+    "command": {
+      "argv": [
+        "C:\\Users\\Alan\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+        "-B",
+        "-c",
+        "import importlib.util,json,sys\nfrom pathlib import Path\nsys.path.insert(0,sys.argv[1])\nfrom independent_checks import fixture\np=Path(sys.argv[2])/'private_raw4_planner_abi_v1.py'\ns=importlib.util.spec_from_file_location('schema_probe_subject',p)\nm=importlib.util.module_from_spec(s);s.loader.exec_module(m)\nrows=[]\nfor value in ([],{}):\n r=fixture();r['evidence_scope']=value\n row={'name':'envelope_evidence_scope_'+type(value).__name__,'input':r}\n try:\n  row['output']=m.recommend(r);row['passed']=False\n except Exception as e:\n  row['exception']={'type':type(e).__name__,'message':str(e)};row['passed']=isinstance(e,m.Rejected)\n rows.append(row)\nprint(json.dumps({'cases':rows,'passed':all(r['passed'] for r in rows)},indent=2))\nsys.exit(0 if all(r['passed'] for r in rows) else 1)\n",
+        "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\main-20261015-01a14025\\C29-private-raw4-ABI-20261030\\review\\implementation-v1",
+        "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\deepeye-implementation-c\\handoffs\\c\\C-DEEPEYE-PRIVATE-RAW4-PLANNER-ABI-20261029-29"
+      ],
+      "cwd": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c",
+      "exit_code": 0,
+      "wall_seconds": 0.4692834999950719,
+      "completed_utc": "2026-10-29T16:46:56.087717+00:00",
+      "timeout_seconds": 30,
+      "subprocesses": []
+    },
+    "raw_stdout": {
+      "path": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\main-20261015-01a14025\\C29-private-raw4-ABI-20261030\\review\\implementation-v1\\schema-probe.stdout.json",
+      "bytes": 34593,
+      "sha256": "0c7248b76dfed379e5d5b04947090cfed88a59ab32f51675f0d01aaf928aa6fa"
+    },
+    "passed": true
+  },
+  "source_approved": false,
+  "findings": [
+    "C29-R1"
+  ],
+  "formal_acceptance": false
+}

@@ -1,0 +1,418 @@
+{
+  "scope": "SYNTHETIC_LOCAL_R1_ONLY_NO_AUTHENTICATION",
+  "module_sha256": "6a28e08354dc7774022a0e9512495c21871b7435d05e6217e0b0394fcc2d8ea3",
+  "fixture_library_sha256": "d9a2486a0fdded4c6f5a27f66eaed2a9e03731741119e1fe3dc358a58171ddd4",
+  "total_checks": 24,
+  "passed": true,
+  "elapsed_seconds": 0.3298189999986789,
+  "cases": [
+    {
+      "name": "missing_prefix_None",
+      "enabled": false,
+      "input_sha256": "e3094ec597b23c4bc2342175216cb255a742cbae0ddfd5d7269268ae319b9921",
+      "expected": {
+        "status": "STOP",
+        "input_status": "DISABLED",
+        "core_ran": false,
+        "reason": "disabled"
+      },
+      "observed_core_calls": 0,
+      "output": {
+        "status": "STOP",
+        "reason": "disabled",
+        "input_status": "DISABLED",
+        "core_ran": false,
+        "independent_em_count": 0
+      },
+      "passed": true,
+      "input_unchanged": true
+    },
+    {
+      "name": "missing_prefix_0",
+      "enabled": false,
+      "input_sha256": "10c350477b509c9d92edb87430c237a44d5a7ddb899dcfebf98e7de83ebf7878",
+      "expected": {
+        "status": "STOP",
+        "input_status": "DISABLED",
+        "core_ran": false,
+        "reason": "disabled"
+      },
+      "observed_core_calls": 0,
+      "output": {
+        "status": "STOP",
+        "reason": "disabled",
+        "input_status": "DISABLED",
+        "core_ran": false,
+        "independent_em_count": 0
+      },
+      "passed": true,
+      "input_unchanged": true
+    },
+    {
+      "name": "missing_prefix_1",
+      "enabled": false,
+      "input_sha256": "be21e248442af15b3b586cb8d30bbb5e988f36c7a9b6905186dcab0b9f7d94d6",
+      "expected": {
+        "status": "STOP",
+        "input_status": "DISABLED",
+        "core_ran": false,
+        "reason": "disabled"
+      },
+      "observed_core_calls": 0,
+      "output": {
+        "status": "STOP",
+        "reason": "disabled",
+        "input_status": "DISABLED",
+        "core_ran": false,
+        "independent_em_count": 0
+      },
+      "passed": true,
+      "input_unchanged": true
+    },
+    {
+      "name": "missing_prefix_5",
+      "enabled": false,
+      "input_sha256": "84a000a1e8a7b0059bf13d7ae055515c2f0a5c02fc96061eaec8b052f5194c38",
+      "expected": {
+        "status": "STOP",
+        "input_status": "DISABLED",
+        "core_ran": false,
+        "reason": "disabled"
+      },
+      "observed_core_calls": 0,
+      "output": {
+        "status": "STOP",
+        "reason": "disabled",
+        "input_status": "DISABLED",
+        "core_ran": false,
+        "independent_em_count": 0
+      },
+      "passed": true,
+      "input_unchanged": true
+    },
+    {
+      "name": "missing_prefix_10",
+      "enabled": false,
+      "input_sha256": "f380a6369b7aae3ee02c11f2153e446b8665dfa2bd76c1cb351dacb26fcdaf54",
+      "expected": {
+        "status": "STOP",
+        "input_status": "DISABLED",
+        "core_ran": false,
+        "reason": "disabled"
+      },
+      "observed_core_calls": 0,
+      "output": {
+        "status": "STOP",
+        "reason": "disabled",
+        "input_status": "DISABLED",
+        "core_ran": false,
+        "independent_em_count": 0
+      },
+      "passed": true,
+      "input_unchanged": true
+    },
+    {
+      "name": "nonzero_start",
+      "enabled": false,
+      "input_sha256": "a065e0c2fe9b0cbcbd0dfdae1ff3be94555c9806e96e8b47edb7614880c808d5",
+      "expected": "Rejected",
+      "observed_core_calls": 0,
+      "exception": {
+        "type": "Rejected",
+        "message": "original admissions must begin at zero with no omission"
+      },
+      "passed": true,
+      "input_unchanged": true
+    },
+    {
+      "name": "interior_gap",
+      "enabled": false,
+      "input_sha256": "209d0bb613cac72c661a82ec2f5c14828fb129f1ca4652437abc90537eddf4bd",
+      "expected": "Rejected",
+      "observed_core_calls": 0,
+      "exception": {
+        "type": "Rejected",
+        "message": "original admissions must begin at zero with no omission"
+      },
+      "passed": true,
+      "input_unchanged": true
+    },
+    {
+      "name": "held_changed_in_prefix",
+      "enabled": false,
+      "input_sha256": "e6dd8912f588f13a4d019c98389bd52ca79349330a803bd9daa665d63e86050e",
+      "expected": "Rejected",
+      "observed_core_calls": 0,
+      "exception": {
+        "type": "Rejected",
+        "message": "held source changed"
+      },
+      "passed": true,
+      "input_unchanged": true
+    },
+    {
+      "name": "complete_candidate_contradiction",
+      "enabled": false,
+      "input_sha256": "1dc10c812a8ea17d27068e181bb5e180ca26afd1f948b073ae1fff5e70ea9dfe",
+      "expected": "Rejected",
+      "observed_core_calls": 0,
+      "exception": {
+        "type": "Rejected",
+        "message": "capture/source association mismatch"
+      },
+      "passed": true,
+      "input_unchanged": true
+    },
+    {
+      "name": "wrong_registry_type",
+      "enabled": false,
+      "input_sha256": "1a20200562f122aa2ec15de0af9d27f26a50bf5fdf3fc6fe333783abfd8dbd8c",
+      "expected": "Rejected",
+      "observed_core_calls": 0,
+      "exception": {
+        "type": "Rejected",
+        "message": "admissions array"
+      },
+      "passed": true,
+      "input_unchanged": true
+    },
+    {
+      "name": "hidden_field_empty_prefix",
+      "enabled": false,
+      "input_sha256": "f893f5b7a4189ed2a2f640078bb849a9c5eae2fb5cfae092ef58031edca5d9bd",
+      "expected": "Rejected",
+      "observed_core_calls": 0,
+      "exception": {
+        "type": "Rejected",
+        "message": "capture association: exact fields"
+      },
+      "passed": true,
+      "input_unchanged": true
+    },
+    {
+      "name": "complete_original_input",
+      "enabled": false,
+      "input_sha256": "6b78c8ef87ba27bb7aeca3c29bfec2061d02fcfd3b938a55a206003c85a0b7ba",
+      "expected": {
+        "status": "STOP",
+        "core_ran": false,
+        "input_status": "DISABLED"
+      },
+      "observed_core_calls": 0,
+      "output": {
+        "status": "STOP",
+        "reason": "disabled",
+        "input_status": "DISABLED",
+        "core_ran": false,
+        "independent_em_count": 0
+      },
+      "passed": true,
+      "input_unchanged": true
+    },
+    {
+      "name": "missing_prefix_None",
+      "enabled": true,
+      "input_sha256": "82a6fb3dfa68790087708a3627745eea86ec0c816f30d85630bd4851bb06b379",
+      "expected": {
+        "status": "STOP",
+        "input_status": "INPUT_UNAVAILABLE",
+        "core_ran": false,
+        "reason": "missing_source_admissions"
+      },
+      "observed_core_calls": 0,
+      "output": {
+        "status": "STOP",
+        "reason": "missing_source_admissions",
+        "input_status": "INPUT_UNAVAILABLE",
+        "core_ran": false,
+        "independent_em_count": 0
+      },
+      "passed": true,
+      "input_unchanged": true
+    },
+    {
+      "name": "missing_prefix_0",
+      "enabled": true,
+      "input_sha256": "9381d6872f783b6b8a95d6a3caf2f688a7ab4f69793516678f76364f3cb5e447",
+      "expected": {
+        "status": "STOP",
+        "input_status": "INPUT_UNAVAILABLE",
+        "core_ran": false,
+        "reason": "missing_source_admissions"
+      },
+      "observed_core_calls": 0,
+      "output": {
+        "status": "STOP",
+        "reason": "missing_source_admissions",
+        "input_status": "INPUT_UNAVAILABLE",
+        "core_ran": false,
+        "independent_em_count": 0
+      },
+      "passed": true,
+      "input_unchanged": true
+    },
+    {
+      "name": "missing_prefix_1",
+      "enabled": true,
+      "input_sha256": "fa961ec83ec44dd7d050bf8c24e39174400562ad4f928827eb283a3e26946684",
+      "expected": {
+        "status": "STOP",
+        "input_status": "INPUT_UNAVAILABLE",
+        "core_ran": false,
+        "reason": "missing_source_admission_index"
+      },
+      "observed_core_calls": 0,
+      "output": {
+        "status": "STOP",
+        "reason": "missing_source_admission_index",
+        "input_status": "INPUT_UNAVAILABLE",
+        "core_ran": false,
+        "independent_em_count": 0
+      },
+      "passed": true,
+      "input_unchanged": true
+    },
+    {
+      "name": "missing_prefix_5",
+      "enabled": true,
+      "input_sha256": "2a5a4beb5d10e507af21642f5a5bee414a1f67c47763c551200a9fcaf15f9019",
+      "expected": {
+        "status": "STOP",
+        "input_status": "INPUT_UNAVAILABLE",
+        "core_ran": false,
+        "reason": "missing_source_admission_index"
+      },
+      "observed_core_calls": 0,
+      "output": {
+        "status": "STOP",
+        "reason": "missing_source_admission_index",
+        "input_status": "INPUT_UNAVAILABLE",
+        "core_ran": false,
+        "independent_em_count": 0
+      },
+      "passed": true,
+      "input_unchanged": true
+    },
+    {
+      "name": "missing_prefix_10",
+      "enabled": true,
+      "input_sha256": "17f4eb3b659e9f575cba2cbf04fdced6673052ef6dfcac21a08ecee246eff47e",
+      "expected": {
+        "status": "STOP",
+        "input_status": "INPUT_UNAVAILABLE",
+        "core_ran": false,
+        "reason": "missing_source_admission_index"
+      },
+      "observed_core_calls": 0,
+      "output": {
+        "status": "STOP",
+        "reason": "missing_source_admission_index",
+        "input_status": "INPUT_UNAVAILABLE",
+        "core_ran": false,
+        "independent_em_count": 0
+      },
+      "passed": true,
+      "input_unchanged": true
+    },
+    {
+      "name": "nonzero_start",
+      "enabled": true,
+      "input_sha256": "a659d3c264faed7fde9bc2f447aa00e8878f9241b6172b326cb536cf7a3219ec",
+      "expected": "Rejected",
+      "observed_core_calls": 0,
+      "exception": {
+        "type": "Rejected",
+        "message": "original admissions must begin at zero with no omission"
+      },
+      "passed": true,
+      "input_unchanged": true
+    },
+    {
+      "name": "interior_gap",
+      "enabled": true,
+      "input_sha256": "152d932b0b380180e5b9974f69a9ca64810603e1a23365388751d8a2d82db683",
+      "expected": "Rejected",
+      "observed_core_calls": 0,
+      "exception": {
+        "type": "Rejected",
+        "message": "original admissions must begin at zero with no omission"
+      },
+      "passed": true,
+      "input_unchanged": true
+    },
+    {
+      "name": "held_changed_in_prefix",
+      "enabled": true,
+      "input_sha256": "696b83883d27b07d0dd597cd9951e8938b03fc2c3a5432fdbb8ae7eef3207039",
+      "expected": "Rejected",
+      "observed_core_calls": 0,
+      "exception": {
+        "type": "Rejected",
+        "message": "held source changed"
+      },
+      "passed": true,
+      "input_unchanged": true
+    },
+    {
+      "name": "complete_candidate_contradiction",
+      "enabled": true,
+      "input_sha256": "b37cc209e05809ce41d60bded2bfd01bc407aef4c02101320483cfa8fc5925cd",
+      "expected": "Rejected",
+      "observed_core_calls": 0,
+      "exception": {
+        "type": "Rejected",
+        "message": "capture/source association mismatch"
+      },
+      "passed": true,
+      "input_unchanged": true
+    },
+    {
+      "name": "wrong_registry_type",
+      "enabled": true,
+      "input_sha256": "ea0905c37949379522bda4924bd7f569e860883abbd6ef4c1e6b4fa926d47e38",
+      "expected": "Rejected",
+      "observed_core_calls": 0,
+      "exception": {
+        "type": "Rejected",
+        "message": "admissions array"
+      },
+      "passed": true,
+      "input_unchanged": true
+    },
+    {
+      "name": "hidden_field_empty_prefix",
+      "enabled": true,
+      "input_sha256": "facb7b8937edb4f9469db975fd9a789f27ea55824646ec7e215324be9fc62055",
+      "expected": "Rejected",
+      "observed_core_calls": 0,
+      "exception": {
+        "type": "Rejected",
+        "message": "capture association: exact fields"
+      },
+      "passed": true,
+      "input_unchanged": true
+    },
+    {
+      "name": "complete_original_input",
+      "enabled": true,
+      "input_sha256": "c91ac8989cac07b9a3bb22a06018972dbb03a249f2176e97520dbe3e1cdd941b",
+      "expected": {
+        "status": "ADVISE",
+        "core_ran": true,
+        "input_status": "COMPLETE_DIAGNOSTIC"
+      },
+      "observed_core_calls": 1,
+      "output": {
+        "status": "ADVISE",
+        "reason": "bounded_observation_goal_search",
+        "input_status": "COMPLETE_DIAGNOSTIC",
+        "core_ran": true,
+        "independent_em_count": 1
+      },
+      "passed": true,
+      "input_unchanged": true
+    }
+  ],
+  "old_suites_run": false,
+  "formal_acceptance": false
+}

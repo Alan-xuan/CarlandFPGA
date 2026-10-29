@@ -1,0 +1,6 @@
+test21_missing_admission_prefix_outcome (__main__.NewC29Controls.test21_missing_admission_prefix_outcome) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 0.100s
+
+OK

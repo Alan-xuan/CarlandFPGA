@@ -1,0 +1,25 @@
+test01_default_disabled_actual_context (__main__.NewC29Controls.test01_default_disabled_actual_context) ... ok
+test02_complete_reuses_code (__main__.NewC29Controls.test02_complete_reuses_code) ... ok
+test03_missing_each_association (__main__.NewC29Controls.test03_missing_each_association) ... ok
+test04_exact_large_qpc_age (__main__.NewC29Controls.test04_exact_large_qpc_age) ... ok
+test05_native_and_held (__main__.NewC29Controls.test05_native_and_held) ... ok
+test06_held_tampering_and_fault_revival (__main__.NewC29Controls.test06_held_tampering_and_fault_revival) ... ok
+test07_raw_context_count_quality_identity (__main__.NewC29Controls.test07_raw_context_count_quality_identity) ... ok
+test08_timestamp_namespace (__main__.NewC29Controls.test08_timestamp_namespace) ... ok
+test09_original_pose_envelope_and_roll (__main__.NewC29Controls.test09_original_pose_envelope_and_roll) ... ok
+test10_real_decision_contrast_and_direction (__main__.NewC29Controls.test10_real_decision_contrast_and_direction) ... ok
+test11_actions_require_occurred_evidence (__main__.NewC29Controls.test11_actions_require_occurred_evidence) ... ok
+test12_strict_json_and_detachment (__main__.NewC29Controls.test12_strict_json_and_detachment) ... ok
+test13_concurrent_full_identity_no_crossover (__main__.NewC29Controls.test13_concurrent_full_identity_no_crossover) ... ok
+test14_disabled_never_enters_core (__main__.NewC29Controls.test14_disabled_never_enters_core) ... ok
+test15_disabled_and_missing_strict_shapes (__main__.NewC29Controls.test15_disabled_and_missing_strict_shapes) ... ok
+test16_pose_thresholds_and_full_3d (__main__.NewC29Controls.test16_pose_thresholds_and_full_3d) ... ok
+test17_history_and_fabricated_legacy_fields (__main__.NewC29Controls.test17_history_and_fabricated_legacy_fields) ... ok
+test18_legal_quality_semantics (__main__.NewC29Controls.test18_legal_quality_semantics) ... ok
+test19_dependency_hash_fails_closed (__main__.NewC29Controls.test19_dependency_hash_fails_closed) ... ok
+test20_goal_and_unequal_native_time (__main__.NewC29Controls.test20_goal_and_unequal_native_time) ... ok
+
+----------------------------------------------------------------------
+Ran 20 tests in 0.477s
+
+OK

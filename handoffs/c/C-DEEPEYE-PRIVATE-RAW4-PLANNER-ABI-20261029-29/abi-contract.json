@@ -1,0 +1,87 @@
+{
+  "schema_version": 1,
+  "abi_id": "private_raw4_planner_abi_v1",
+  "operation_id": "C-DEEPEYE-PRIVATE-RAW4-PLANNER-ABI-20261029-29",
+  "diagnostic_only": true,
+  "default_enabled": false,
+  "authorization": "none",
+  "core": {
+    "sibling": "C-DEEPEYE-CAUSAL-FOUR-CHANNEL-PLANNER-20261029-28/candidate_four_channel_planner_v1.py",
+    "sha256": "70b317681fee8c9182c342fe8d2f94eaecc957c62231a74a080d213bb5e0eab4",
+    "reuse": "Exact recommend.__code__; isolated per-call globals replacing only fixed validation seam; original helpers unchanged",
+    "load": "One fixed local file read at module initialization; SHA mismatch ImportError; no request-selected paths",
+    "public_calls": "No I/O, process, plugin, model, network or control operations"
+  },
+  "provenance": {
+    "A_source_commit": "708603c53efc020e7fbbc5eefe58d304943b8ca5",
+    "candidate_source_path": "competition/deepeye/simulation/authority/live_chain_channels.py",
+    "producer_sha256": "6a5f70a6acdaa6de52fc72d678d452956861370e1d143b70219ced107c5a04c9",
+    "Root_receipt_status": "New proposed c29_root_association_v1 ABI; not supplied by current actual candidate",
+    "trust": "Structural JSON correlation only; actual A Root must supply original owner-held associations. Labels, hashes and booleans do not authenticate evidence.",
+    "examples": "All fabricated local diagnostic examples; actual-shape example is not an actual A capture"
+  },
+  "contract": {
+    "id": "DEEPEYE-HUMAN-LOCK-20261014",
+    "revision": 1,
+    "source": "f5989cd5defce561f9ba98e6b18fc2682945f0a2",
+    "requirements_sha256": "c229834bfc2292f5fe4411fc9f12c68487008f9d1adaf31f0144ee7a98173804",
+    "fixed_design": "1011259415a0916054eb580687612580bc1e5f09",
+    "all_H01_H15_preserved": true,
+    "formal_acceptance": false
+  },
+  "bounds": {
+    "request_and_result_bytes_each": 262144,
+    "tree_depth": 16,
+    "tree_nodes": 16000,
+    "array_items": 32,
+    "history_plus_current_plus_actions": 32,
+    "source_admissions": "1..32 original admissions from index0; no omissions or checkpoint/rebase. At contiguous100Hz ticks0..310ms only.",
+    "strings": "192 printable ASCII for identities; original raw request/capture line strings at most16384 bytes",
+    "qpc": "strict uint63 integer nanoseconds in original clock_domain_id",
+    "tag_generation_trigger_request": "strict uint32; nonzero tag/generation/request",
+    "model_ticks": "uint31; ADC/start grid10ms, EM grid50ms",
+    "counts": "exactly four null or uint12; validity/quality cross-check",
+    "own_pose": "position3 finite within +/-1000m; quaternion xyzw4 normalized within1e-12",
+    "goal": "three finite coordinates within +/-1000m bound to Root config",
+    "source_age_ns_inclusive": 100000000,
+    "pairwise_pose_displacement_m": 0.25,
+    "pairwise_forward_angle_degrees": 15,
+    "native_direction_cone_degrees": 30
+  },
+  "envelope_fields": {
+    "schema_version": "integer1",
+    "abi_id": "private_raw4_planner_abi_v1",
+    "diagnostic_only": "true",
+    "evidence_scope": "unassociated_diagnostic | synthetic_diagnostic_fixture | root_supplied_diagnostic",
+    "enabled": "optional boolean; absence=false",
+    "now_qpc_ns": "strict uint63; no earlier than any retained capture receiver",
+    "candidate": "exact original candidate_four_channel_input object",
+    "history": "ordered earlier candidate objects; no fabricated/duplicate source capture",
+    "root_receipt": "null or exact proposed c29_root_association_v1 object"
+  },
+  "Root_receipt_fields": {
+    "kind": "c29_root_association_v1",
+    "evidence_scope": "must equal envelope, cannot be unassociated when complete",
+    "config": "null or receipt_id,context,generation,profile_id,producer_sha256,source_policy,quality_encoding,source_mode,transport_source,source_start_tick_ms,source_start_monotonic_ns,goal_m,baseline_counters,initial_trigger_id",
+    "source_admissions": "null or array: index,adc_tick_ms,em_tick_ms,channel_counts,quality,source_record_sha256,received_qpc_ns,new_em_sample",
+    "captures": "null or ordered array corresponding to history+candidate: capture_sha256,source_record_sha256,request_raw,capture_raw,adc_pose,em_pose,em_origin_capture_sha256,cause_action_id",
+    "acquisition_pose_receipt": "receipt_id,source_admission_index,acquisition_qpc_ns,pose; null when missing; faulted EM pose/origin must be null",
+    "current_pose": "null or receipt_id,context,generation,at_qpc_ns,pose; at_qpc_ns equals now",
+    "action_registry": "null or receipt_id,context,generation,as_of_qpc_ns,actions; as_of equals now; actions=[] means explicitly observed empty registry",
+    "occurred_action": "receipt_id,action_id,state=executed,observation_capture_sha256,at_qpc_ns,from_pose,to_pose; original retained observed capture precedes execution"
+  },
+  "clock_semantics": {
+    "source_qpc_ns": "original source_start_monotonic_ns + (original model tick - source_start_tick_ms)*1000000",
+    "original_model_ticks": "Retained separately; C3 startup and contiguous-window validation never use absolute QPC milliseconds",
+    "private_computation_only": "Fraction(original_qpc_ns,1000000), no origin reset/truncation/float conversion",
+    "native": "Root native admission plus actual ADC/EM source time equality and same original own pose; retained unique capture required",
+    "output": "Exact original integer QPC/full identities, never Fraction or private pseudo-ms fields"
+  },
+  "outcomes": {
+    "malformed": "Rejected exception; strict unknown/type/duplicate/budget/provenance contradictions",
+    "disabled": "STOP, core_ran=false, input_status=DISABLED; supplied fields still structurally checked",
+    "missing_or_expired": "STOP, core_ran=false, input_status=INPUT_UNAVAILABLE with specific missing/age reason",
+    "complete": "Actual frozen core invoked; core_ran=true and input_status=COMPLETE_DIAGNOSTIC even if its quality/pose/risk rules STOP",
+    "authority": "Always none; STOP is advice, never claimed behavioral stopping"
+  }
+}
