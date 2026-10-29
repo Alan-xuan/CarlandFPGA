@@ -1,0 +1,132 @@
+{
+  "artifacts": [
+    "handoffs/c/C-DEEPEYE-PRIVATE-RAW4-PLANNER-ABI-20261029-29/abi-contract.json",
+    "handoffs/c/C-DEEPEYE-PRIVATE-RAW4-PLANNER-ABI-20261029-29/author-v1.stderr.txt",
+    "handoffs/c/C-DEEPEYE-PRIVATE-RAW4-PLANNER-ABI-20261029-29/author-v2.stderr.txt",
+    "handoffs/c/C-DEEPEYE-PRIVATE-RAW4-PLANNER-ABI-20261029-29/independent-v1-summary.json",
+    "handoffs/c/C-DEEPEYE-PRIVATE-RAW4-PLANNER-ABI-20261029-29/independent-v2.stdout.json",
+    "handoffs/c/C-DEEPEYE-PRIVATE-RAW4-PLANNER-ABI-20261029-29/independent_checks.py",
+    "handoffs/c/C-DEEPEYE-PRIVATE-RAW4-PLANNER-ABI-20261029-29/independent_r1_checks.py",
+    "handoffs/c/C-DEEPEYE-PRIVATE-RAW4-PLANNER-ABI-20261029-29/interface-examples.json",
+    "handoffs/c/C-DEEPEYE-PRIVATE-RAW4-PLANNER-ABI-20261029-29/local-evidence.json",
+    "handoffs/c/C-DEEPEYE-PRIVATE-RAW4-PLANNER-ABI-20261029-29/missing_admission_check.py",
+    "handoffs/c/C-DEEPEYE-PRIVATE-RAW4-PLANNER-ABI-20261029-29/private_raw4_planner_abi_v1.py",
+    "handoffs/c/C-DEEPEYE-PRIVATE-RAW4-PLANNER-ABI-20261029-29/README.md",
+    "handoffs/c/C-DEEPEYE-PRIVATE-RAW4-PLANNER-ABI-20261029-29/source-review.md",
+    "handoffs/c/C-DEEPEYE-PRIVATE-RAW4-PLANNER-ABI-20261029-29/test_private_raw4_planner_abi_v1.py",
+    "handoffs/c/C-DEEPEYE-PRIVATE-RAW4-PLANNER-ABI-20261029-29/v1-missing-admission.stdout.json",
+    "handoffs/c/C-DEEPEYE-CAUSAL-FOUR-CHANNEL-PLANNER-20261029-28/candidate_four_channel_planner_v1.py"
+  ],
+  "files": {
+    "handoffs/c/C-DEEPEYE-CAUSAL-FOUR-CHANNEL-PLANNER-20261029-28/candidate_four_channel_planner_v1.py": {
+      "sha256": "70b317681fee8c9182c342fe8d2f94eaecc957c62231a74a080d213bb5e0eab4",
+      "size": 17651
+    },
+    "handoffs/c/C-DEEPEYE-PRIVATE-RAW4-PLANNER-ABI-20261029-29/README.md": {
+      "sha256": "b910cad03c06abb35cac8a8822527f6e978dd0949267160262b62d4b72fa5b70",
+      "size": 8271
+    },
+    "handoffs/c/C-DEEPEYE-PRIVATE-RAW4-PLANNER-ABI-20261029-29/abi-contract.json": {
+      "sha256": "83945dfe699c0a5238aec69ef10b22f8edca01698144c50b4c35b1bf60b0a307",
+      "size": 5976
+    },
+    "handoffs/c/C-DEEPEYE-PRIVATE-RAW4-PLANNER-ABI-20261029-29/author-v1.stderr.txt": {
+      "sha256": "37f3c85da8283e998475758bda99c7bdf8a721ca179867d665cde34d0269d0d2",
+      "size": 2222
+    },
+    "handoffs/c/C-DEEPEYE-PRIVATE-RAW4-PLANNER-ABI-20261029-29/author-v2.stderr.txt": {
+      "sha256": "810773af53279b64986d0a1e142624807342edb6105e179652d6936c95cdd283",
+      "size": 216
+    },
+    "handoffs/c/C-DEEPEYE-PRIVATE-RAW4-PLANNER-ABI-20261029-29/independent-v1-summary.json": {
+      "sha256": "ef010138d05415444ef62d748ee5664e2b267963a3889071caf3a6e68b8de6aa",
+      "size": 23521
+    },
+    "handoffs/c/C-DEEPEYE-PRIVATE-RAW4-PLANNER-ABI-20261029-29/independent-v2.stdout.json": {
+      "sha256": "fc45ebbea570f405c2727c48920cf7cd5fd42492e24d9bdb577b956b1fdec89b",
+      "size": 12706
+    },
+    "handoffs/c/C-DEEPEYE-PRIVATE-RAW4-PLANNER-ABI-20261029-29/independent_checks.py": {
+      "sha256": "d9a2486a0fdded4c6f5a27f66eaed2a9e03731741119e1fe3dc358a58171ddd4",
+      "size": 21245
+    },
+    "handoffs/c/C-DEEPEYE-PRIVATE-RAW4-PLANNER-ABI-20261029-29/independent_r1_checks.py": {
+      "sha256": "d9eb62636a326ba8b682a2dfd452d2ad1c2510cd242378be7729b604464a1ca2",
+      "size": 5150
+    },
+    "handoffs/c/C-DEEPEYE-PRIVATE-RAW4-PLANNER-ABI-20261029-29/interface-examples.json": {
+      "sha256": "5f9eb784cab7f94094f6cad9023d4287f615798065a9763d94eab7e1d474fc39",
+      "size": 63161
+    },
+    "handoffs/c/C-DEEPEYE-PRIVATE-RAW4-PLANNER-ABI-20261029-29/local-evidence.json": {
+      "sha256": "d045d4d6b959165c0c358b7fa92e430cb2450706f5f0ceb90e8ba744360d0c3e",
+      "size": 15546
+    },
+    "handoffs/c/C-DEEPEYE-PRIVATE-RAW4-PLANNER-ABI-20261029-29/missing_admission_check.py": {
+      "sha256": "7fdd7ed75ab414839fa8a19605bc12c4faadd63cd98f793cd510a6b4445f92c6",
+      "size": 1169
+    },
+    "handoffs/c/C-DEEPEYE-PRIVATE-RAW4-PLANNER-ABI-20261029-29/private_raw4_planner_abi_v1.py": {
+      "sha256": "6a28e08354dc7774022a0e9512495c21871b7435d05e6217e0b0394fcc2d8ea3",
+      "size": 38910
+    },
+    "handoffs/c/C-DEEPEYE-PRIVATE-RAW4-PLANNER-ABI-20261029-29/source-review.md": {
+      "sha256": "921acaa1c456d7666bc08bcc2b05ea09bb4fcde095305d71bd9301c11525c56e",
+      "size": 8997
+    },
+    "handoffs/c/C-DEEPEYE-PRIVATE-RAW4-PLANNER-ABI-20261029-29/test_private_raw4_planner_abi_v1.py": {
+      "sha256": "6ccf5bf68205889b3653417ec908b9e787e4fe6dab83d9e7b599b63059e59845",
+      "size": 27011
+    },
+    "handoffs/c/C-DEEPEYE-PRIVATE-RAW4-PLANNER-ABI-20261029-29/v1-missing-admission.stdout.json": {
+      "sha256": "596ce93135a117dcf6eee5bc9ac1c7258343cab7265727da670cca7ed3d41ea1",
+      "size": 15467
+    }
+  },
+  "request": {
+    "code_commit": "2210ca5f32e4e806651a6b06d0e2d9710d78e773",
+    "expected_result": "C29 bounded diagnostic ABI local behavior only: full private context and original acquisition QPC preserved, frozen C28 core reused; missing Root associations unavailable, default disabled and authorization none. New focused controls only; no actual Root integration, full-chain, board, model qualification or formal acceptance.",
+    "operation_id": "C-DEEPEYE-PRIVATE-RAW4-PLANNER-ABI-20261029-29",
+    "requester": "node-c",
+    "task_id": "DEEPEYE-IMPLEMENTATION-20261014",
+    "task_version": 1,
+    "test_steps": [
+      "Keep the frozen C28 sibling module; verify canonical manifest with original handoff.py.",
+      "From the C29 directory run python -B missing_admission_check.py . and python -B independent_r1_checks.py . under an external30second bound; these are synthetic diagnostic checks only.",
+      "Optional full NEW C29 local suite: python -B test_private_raw4_planner_abi_v1.py; prior20/66 results are explicitly versioned and were not replayed on v2 by C. No old C28 suite or physical execution is requested."
+    ]
+  },
+  "request_hash": "0b0e183344c2ff2079045a504ea7fda9930d167e817160a37355e25bfc1dc888",
+  "schema_version": 1,
+  "stages": {
+    "final_acceptance": {
+      "status": "not_run"
+    },
+    "full_chain": {
+      "status": "not_run"
+    },
+    "implementation": {
+      "status": "not_run"
+    },
+    "local_function": {
+      "log": "handoffs/c/C-DEEPEYE-PRIVATE-RAW4-PLANNER-ABI-20261029-29/independent-v2.stdout.json",
+      "status": "passed"
+    },
+    "model_qualification": {
+      "status": "not_run"
+    },
+    "physical_board": {
+      "status": "not_run"
+    },
+    "rtl_simulation": {
+      "status": "not_run"
+    },
+    "source_review": {
+      "log": "handoffs/c/C-DEEPEYE-PRIVATE-RAW4-PLANNER-ABI-20261029-29/source-review.md",
+      "status": "passed"
+    },
+    "synthesis": {
+      "status": "not_run"
+    }
+  }
+}
