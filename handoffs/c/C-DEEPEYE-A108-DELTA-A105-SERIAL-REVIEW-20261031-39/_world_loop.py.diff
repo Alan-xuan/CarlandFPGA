@@ -1,0 +1,51 @@
+--- 2a5e57ff7dc78763bc98352e6cb02e2510d370ea/_world_loop.py
++++ 51c48e106c76f3e4d18000da61be17dd8a4b6623/_world_loop.py
+@@ -149,6 +149,9 @@
+     readback_ns: int | None = None
+     differences: object = None
+     getter_admitted: bool = False
++    admitted_readback: object = None
++    admitted_readback_ns: int | None = None
++    admitted_readback_digest: str | None = None
+     query_attempted: bool = False
+     query_tx: object = None
+     resolved: bool = False
+@@ -448,6 +451,17 @@
+                 raise WorldRejected('APPLIED revision differs')
+             if body['state'] == 'NOT_SEEN' and int(body['pose_revision']) != self._renderer_revision:
+                 raise WorldRejected('NOT_SEEN actual renderer revision differs')
++            if pending.getter_admitted:
++                # A source/action admission names this exact immutable original
++                # frame. Duplicate delivery of that same object cannot renew
++                # its observation time; any replacement retires the owner.
++                if (pending.admitted_readback is None
++                        or pending.readback is not pending.admitted_readback
++                        or pending.readback_ns != pending.admitted_readback_ns
++                        or pending.admitted_readback_digest != pending.readback.payload_digest
++                        or frame is not pending.admitted_readback):
++                    raise WorldRejected('admitted original getter readback cannot be replaced')
++                return
+             width = self._hello.as_dict()['body']['scalar_width']
+             expected = pending.message['body']['desired_transform']
+             pending.differences = dict(local=_getter_differences(expected, body['local_transform'], width),
+@@ -626,6 +640,8 @@
+                 or publication.revision != self._renderer_revision
+                 or binding.executor._root.pose_revision != self._renderer_revision):
+             raise WorldRejected('actual published getter pose has not been admitted')
++        from .original_world_actor_link import _require_admitted_readback
++        _require_admitted_readback(publication, slot)
+         if (link is None or self._actor_links.get(id(link)) is not link
+                 or slot is None or not getattr(slot, 'closed', False)
+                 or slot.publication is not publication
+@@ -740,6 +756,11 @@
+             publications=[dict(kind=x.kind,operation_id=x.operation_id,payload_digest=x.digest,
+                 revision=x.revision,state=x.state,resolved=x.resolved,query_attempted=x.query_attempted,
+                 readback_ns=x.readback_ns,deadline_ns=x.deadline_ns,
++                admitted_readback_ns=x.admitted_readback_ns,
++                admitted_readback_digest=x.admitted_readback_digest,
++                admission_bound_to_current_readback=(x.getter_admitted
++                    and x.readback is x.admitted_readback
++                    and x.readback_ns == x.admitted_readback_ns),
+                 actual_getter_differences=x.differences,getter_admitted=x.getter_admitted) for x in self._publications],
+             native=self._native.diagnostics(),close_result=self._close_result,
+             genuine_PC_DIRECT=False,board=False,AI_provider=False,GPU_frame=False)

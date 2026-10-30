@@ -1,0 +1,74 @@
+{
+  "request": {
+    "operation_id": "C-DEEPEYE-A108-DELTA-A105-SERIAL-REVIEW-20261031-39",
+    "task_id": "DEEPEYE-IMPLEMENTATION-20261014",
+    "task_version": 1,
+    "requester": "node-c",
+    "code_commit": "MAIN_SET_SOURCE_COMMIT_40_HEX",
+    "test_steps": [
+      "Read REVIEW.md and FINDINGS.json as a bounded static source assessment only.",
+      "Run python -I -B handoffs/c/C-DEEPEYE-A108-DELTA-A105-SERIAL-REVIEW-20261031-39/verify_static.py to verify archived source/GET bytes, pins, commit chain, diffs and AST without importing source.",
+      "Keep A105 single-frame versus C37 READY+RESULT integration unavailable and multicycle unapproved; do not execute source/native/model/board or historical tests."
+    ],
+    "expected_result": "Static source review approved; offline static evidence integrity passes. Runtime/local-function/native/model/board remain NOT_RUN with null exit codes in evidence. No integration, multicycle, authority or formal acceptance is granted."
+  },
+  "artifacts": [
+    "handoffs/c/C-DEEPEYE-A108-DELTA-A105-SERIAL-REVIEW-20261031-39/FINDINGS.json",
+    "handoffs/c/C-DEEPEYE-A108-DELTA-A105-SERIAL-REVIEW-20261031-39/README.md",
+    "handoffs/c/C-DEEPEYE-A108-DELTA-A105-SERIAL-REVIEW-20261031-39/REVIEW.md",
+    "handoffs/c/C-DEEPEYE-A108-DELTA-A105-SERIAL-REVIEW-20261031-39/_actor_source_custody.py.diff",
+    "handoffs/c/C-DEEPEYE-A108-DELTA-A105-SERIAL-REVIEW-20261031-39/_world_loop.py.diff",
+    "handoffs/c/C-DEEPEYE-A108-DELTA-A105-SERIAL-REVIEW-20261031-39/actor_owner.py.diff",
+    "handoffs/c/C-DEEPEYE-A108-DELTA-A105-SERIAL-REVIEW-20261031-39/actor_pipe_io.py.diff",
+    "handoffs/c/C-DEEPEYE-A108-DELTA-A105-SERIAL-REVIEW-20261031-39/api-read-command-summary.json",
+    "handoffs/c/C-DEEPEYE-A108-DELTA-A105-SERIAL-REVIEW-20261031-39/archive-index.json",
+    "handoffs/c/C-DEEPEYE-A108-DELTA-A105-SERIAL-REVIEW-20261031-39/ast-delta.json",
+    "handoffs/c/C-DEEPEYE-A108-DELTA-A105-SERIAL-REVIEW-20261031-39/handoff-input-template.json",
+    "handoffs/c/C-DEEPEYE-A108-DELTA-A105-SERIAL-REVIEW-20261031-39/original-api-evidence.zip",
+    "handoffs/c/C-DEEPEYE-A108-DELTA-A105-SERIAL-REVIEW-20261031-39/original-static.stderr.txt",
+    "handoffs/c/C-DEEPEYE-A108-DELTA-A105-SERIAL-REVIEW-20261031-39/original-static.stdout.txt",
+    "handoffs/c/C-DEEPEYE-A108-DELTA-A105-SERIAL-REVIEW-20261031-39/original_world_actor_link.py.diff",
+    "handoffs/c/C-DEEPEYE-A108-DELTA-A105-SERIAL-REVIEW-20261031-39/packet-verify.stderr.txt",
+    "handoffs/c/C-DEEPEYE-A108-DELTA-A105-SERIAL-REVIEW-20261031-39/packet-verify.stdout.txt",
+    "handoffs/c/C-DEEPEYE-A108-DELTA-A105-SERIAL-REVIEW-20261031-39/proposed-manifest.json",
+    "handoffs/c/C-DEEPEYE-A108-DELTA-A105-SERIAL-REVIEW-20261031-39/source-pins.json",
+    "handoffs/c/C-DEEPEYE-A108-DELTA-A105-SERIAL-REVIEW-20261031-39/sources.zip",
+    "handoffs/c/C-DEEPEYE-A108-DELTA-A105-SERIAL-REVIEW-20261031-39/static-execution-summary.json",
+    "handoffs/c/C-DEEPEYE-A108-DELTA-A105-SERIAL-REVIEW-20261031-39/static-verification.json",
+    "handoffs/c/C-DEEPEYE-A108-DELTA-A105-SERIAL-REVIEW-20261031-39/verify_static.py"
+  ],
+  "stages": {
+    "source_review": {
+      "status": "passed",
+      "log": "handoffs/c/C-DEEPEYE-A108-DELTA-A105-SERIAL-REVIEW-20261031-39/REVIEW.md"
+    },
+    "static_evidence_verification": {
+      "status": "passed",
+      "log": "handoffs/c/C-DEEPEYE-A108-DELTA-A105-SERIAL-REVIEW-20261031-39/packet-verify.stdout.txt"
+    },
+    "local_function_tests": {
+      "status": "not_run"
+    },
+    "runtime": {
+      "status": "not_run"
+    },
+    "native": {
+      "status": "not_run"
+    },
+    "model": {
+      "status": "not_run"
+    },
+    "simulation": {
+      "status": "not_run"
+    },
+    "synthesis": {
+      "status": "not_run"
+    },
+    "implementation": {
+      "status": "not_run"
+    },
+    "board": {
+      "status": "not_run"
+    }
+  }
+}

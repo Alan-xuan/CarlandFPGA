@@ -1,0 +1,40 @@
+--- 2a5e57ff7dc78763bc98352e6cb02e2510d370ea/original_world_actor_link.py
++++ 51c48e106c76f3e4d18000da61be17dd8a4b6623/original_world_actor_link.py
+@@ -368,6 +368,25 @@
+     return result
+ 
+ 
++def _require_admitted_readback(publication, slot):
++    """Pure binding check; flags alone cannot admit a replaced native frame."""
++    if (type(publication) is not world._Publication or type(slot) is not world._Commit
++            or slot.publication is not publication or publication.getter_admitted is not True
++            or getattr(slot, 'getter_admitted', False) is not True
++            or publication.admitted_readback is None
++            or publication.readback is not publication.admitted_readback
++            or getattr(slot, 'admitted_readback', None) is not publication.admitted_readback
++            or type(publication.admitted_readback_ns) is not int
++            or publication.readback_ns != publication.admitted_readback_ns
++            or getattr(slot, 'admitted_readback_ns', None) != publication.admitted_readback_ns
++            or type(publication.admitted_readback_digest) is not str
++            or len(publication.admitted_readback_digest) != 64
++            or any(c not in '0123456789abcdef' for c in publication.admitted_readback_digest)
++            or publication.readback.payload_digest != publication.admitted_readback_digest
++            or getattr(slot, 'admitted_readback_digest', None) != publication.admitted_readback_digest):
++        raise world.WorldRejected('exact original admitted readback/frame/time binding required')
++
++
+ def _progress_actor_commit(link):
+     """Poll the original transport while source acquisition remains excluded.
+ 
+@@ -423,7 +442,11 @@
+             global_bound = _readback_endpoint_bound(root.pose.position_m, root.pose.orientation_xyzw,
+                 body['global_transform'], width, model, derivation)
+             slot.endpoint_bounds = (local, global_bound)
++            slot.admitted_readback = pub.admitted_readback = pub.readback
++            slot.admitted_readback_ns = pub.admitted_readback_ns = pub.readback_ns
++            slot.admitted_readback_digest = pub.admitted_readback_digest = pub.readback.payload_digest
+             slot.getter_admitted = pub.getter_admitted = link.getter_admitted = True
++        _require_admitted_readback(pub, slot)  # Also on every later pending-time poll.
+         now = link.clock()
+         world._integer(now)
+         if now >= slot.deadline_ns or now < slot.post_cas_observed_qpc_ns:

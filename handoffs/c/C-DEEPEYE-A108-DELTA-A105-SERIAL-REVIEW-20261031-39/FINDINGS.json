@@ -1,0 +1,25 @@
+{
+  "work_id": "C39-A108-DELTA-A105-SERIAL-REVIEW-v1",
+  "source_target": "51c48e106c76f3e4d18000da61be17dd8a4b6623",
+  "parent_target": "2a5e57ff7dc78763bc98352e6cb02e2510d370ea",
+  "review_passed": true,
+  "source_approved": true,
+  "approval_scope": "Bounded independent static A108 correction delta and A105 raw serial source review only",
+  "open_source_findings": [],
+  "historical_findings": [
+    {"finding":"C38-R1", "original_target":"e794de598a40c11cefb372813aa950f58f03007a", "original_evidence_preserved":true, "new_target_static_correction_reviewed":true},
+    {"finding":"old closed-span endpoint equals lower observation", "original_evidence_preserved":true, "new_target_static_correction_reviewed":true}
+  ],
+  "integration_limitations": [
+    "A105 accepts exactly one raw response frame; C37 READY plus RESULT is not directly compatible and READY is not semantic completion.",
+    "No future serial child, multicycle, provider, production, numerical/native/physical authority or formal acceptance granted.",
+    "Actual provider current getter and new old_pose_span grammar still require their own original-custody implementation evidence."
+  ],
+  "runtime_status":"NOT_RUN",
+  "runtime_exit_code":null,
+  "local_function_tests_status":"NOT_RUN",
+  "local_function_tests_exit_code":null,
+  "static_verification_exit_code":0,
+  "original_API_GET_count":20,
+  "all_original_API_GET_exit_codes":0
+}

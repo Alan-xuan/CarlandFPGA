@@ -1,0 +1,73 @@
+[
+  {
+    "file": "_actor_source_custody.py",
+    "before": "2a5e57ff7dc78763bc98352e6cb02e2510d370ea",
+    "after": "51c48e106c76f3e4d18000da61be17dd8a4b6623",
+    "diff": "_actor_source_custody.py.diff",
+    "changed": [
+      "_ActorSourceCustody.reserve",
+      "_Transition.__init__"
+    ],
+    "added": [],
+    "removed": []
+  },
+  {
+    "file": "_world_loop.py",
+    "before": "2a5e57ff7dc78763bc98352e6cb02e2510d370ea",
+    "after": "51c48e106c76f3e4d18000da61be17dd8a4b6623",
+    "diff": "_world_loop.py.diff",
+    "changed": [
+      "_RootWorldOwner._accept_frame",
+      "_RootWorldOwner.evidence",
+      "_RootWorldOwner.require_source_pose_current"
+    ],
+    "added": [],
+    "removed": []
+  },
+  {
+    "file": "original_world_actor_link.py",
+    "before": "2a5e57ff7dc78763bc98352e6cb02e2510d370ea",
+    "after": "51c48e106c76f3e4d18000da61be17dd8a4b6623",
+    "diff": "original_world_actor_link.py.diff",
+    "changed": [
+      "_progress_actor_commit"
+    ],
+    "added": [
+      "_require_admitted_readback"
+    ],
+    "removed": []
+  },
+  {
+    "file": "actor_owner.py",
+    "before": "e794de598a40c11cefb372813aa950f58f03007a",
+    "after": "2a5e57ff7dc78763bc98352e6cb02e2510d370ea",
+    "diff": "actor_owner.py.diff",
+    "changed": [
+      "ActorOwner.__init__",
+      "ActorOwner._invocation_check",
+      "ActorOwner.dispatch_invocation_once",
+      "ActorOwner.prepare_invocation",
+      "ActorOwner.read_invocation_once",
+      "_persist"
+    ],
+    "added": [
+      "ActorOwner._prepare_raw_invocation",
+      "ActorOwner.begin_serial_invocations",
+      "ActorOwner.prepare_next_invocation",
+      "ActorOwner.seal_serial_invocation_frame"
+    ],
+    "removed": []
+  },
+  {
+    "file": "actor_pipe_io.py",
+    "before": "e794de598a40c11cefb372813aa950f58f03007a",
+    "after": "2a5e57ff7dc78763bc98352e6cb02e2510d370ea",
+    "diff": "actor_pipe_io.py.diff",
+    "changed": [
+      "_ActorPipeIO.account",
+      "_Operation.__init__"
+    ],
+    "added": [],
+    "removed": []
+  }
+]

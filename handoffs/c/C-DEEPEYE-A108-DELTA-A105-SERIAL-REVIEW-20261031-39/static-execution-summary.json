@@ -1,0 +1,20 @@
+{
+  "kind": "STATIC_VERIFICATION_ONLY",
+  "original_exit_code": 0,
+  "original_timeout_seconds": 30,
+  "original_execution_record_sha256": "79abdb5ad64df5665c34e21fe1acec73903c8fe10e04672a054c0642b06b5ad9",
+  "argv_public": [
+    "<original-python-executable>",
+    "<original-review-directory>/verify_static.py"
+  ],
+  "argv_redaction": "Only private local executable/directory paths redacted; this is not a new execution command.",
+  "original_stdout": "original-static.stdout.txt",
+  "original_stderr": "original-static.stderr.txt",
+  "original_API_commands": "api-read-command-summary.json",
+  "original_API_GET_count": 20,
+  "source_imports": 0,
+  "local_function_tests_status": "NOT_RUN",
+  "local_function_tests_exit_code": null,
+  "runtime_status": "NOT_RUN",
+  "runtime_exit_code": null
+}

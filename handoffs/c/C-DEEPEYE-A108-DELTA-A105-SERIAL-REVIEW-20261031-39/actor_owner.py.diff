@@ -1,0 +1,120 @@
+--- e794de598a40c11cefb372813aa950f58f03007a/actor_owner.py
++++ 2a5e57ff7dc78763bc98352e6cb02e2510d370ea/actor_owner.py
+@@ -138,6 +138,8 @@
+             process_pair_registered=owner._pending_io.process_pair_registered,
+             private_acquisitions=owner._pending_io.private_acquisition_diagnostics(),
+             invocation=None if owner._invocation is None else owner._invocation.snapshot()))
++    if owner._invocation_series is not None:
++        document['serial_invocations']=owner._invocation_series.summary()
+     temporary = owner._root / ('receipt.' + uuid.uuid4().hex + '.pending')
+     with temporary.open('x', encoding='utf-8', newline='\n') as stream:
+         stream.write(json.dumps(document, ensure_ascii=False, indent=2) + '\n')
+@@ -267,6 +269,7 @@
+         self._revoking = False
+         self._pending_io = self._invocation = None
+         self._invocation_claimed = False
++        self._invocation_series = None  # Explicit opt-in; legacy invocation remains once-only.
+         self._model_ready_reference = self._model_ready_native = None
+         self._model_ready_launch_readback = None
+ 
+@@ -564,6 +567,10 @@
+     def _invocation_check(self):
+         from .actor_lifetime import _sample
+         self._checkpoint()
++        if self._invocation_series is not None:
++            from .actor_invocation_series import _OriginalSerialSeries
++            if type(self._invocation_series) is not _OriginalSerialSeries or self._invocation_series.owner is not self:
++                raise ValueError('exact original serial owner association required')
+         if self._pending_io is None or self._state not in ('RUNNING_UNBOUND', 'BOUND_ACTIVE'):
+             raise ValueError('original fresh overlapped actor required')
+         self._pending_io.continuity()
+@@ -576,18 +583,56 @@
+         return now
+ 
+     @_entry
++    def begin_serial_invocations(self, limits):
++        """Choose finite same-owner framing policy before its first request."""
++        from .actor_invocation_series import _new_original_series
++        self._invocation_check()
++        self._invocation_series=_new_original_series(self,limits)
++        self._invocation_series._check()
++        self._report()
++
++    def _prepare_raw_invocation(self, identity, *, request_raw, journal_name,
++                                max_output_bytes, max_reads, read_size, io_deadline_ns):
++        from ...integration.cpu_invocation_transcript import _new_actor_record
++        options=dict(request_raw=request_raw,journal_name=journal_name,
++            max_output_bytes=max_output_bytes,max_reads=max_reads,read_size=read_size,
++            io_deadline_ns=io_deadline_ns)
++        series=self._invocation_series
++        ticket=None if series is None else series.reserve(identity,**options)
++        self._invocation=_new_actor_record(self,identity,**options)
++        if series is not None:series.retain(ticket,self._invocation)
++        self._invocation_check()
++        self._invocation.prepare()
++        self._invocation_check()
++
++    @_entry
+     def prepare_invocation(self, identity, *, request_raw, journal_name,
+                            max_output_bytes, max_reads, read_size, io_deadline_ns):
+         if self._invocation_claimed: raise ValueError('original invocation slot consumed')
+         self._invocation_claimed = True  # Before clock, validation, journal or native event.
+         self._invocation_check()
+-        from ...integration.cpu_invocation_transcript import _new_actor_record
+-        self._invocation = _new_actor_record(self, identity, request_raw=request_raw,
++        self._prepare_raw_invocation(identity, request_raw=request_raw,
+             journal_name=journal_name, max_output_bytes=max_output_bytes, max_reads=max_reads,
+             read_size=read_size, io_deadline_ns=io_deadline_ns)
+-        self._invocation_check()
+-        self._invocation.prepare()
+-        self._invocation_check()
++
++    @_entry
++    def prepare_next_invocation(self, identity, *, request_raw, journal_name,
++                                max_output_bytes, max_reads, read_size, io_deadline_ns):
++        """New ticket after an observed raw frame; never resets legacy claims."""
++        if self._invocation_series is None or not self._invocation_claimed:
++            raise ValueError('explicit original serial policy and first invocation required')
++        self._invocation_check()
++        self._prepare_raw_invocation(identity,request_raw=request_raw,journal_name=journal_name,
++            max_output_bytes=max_output_bytes,max_reads=max_reads,read_size=read_size,
++            io_deadline_ns=io_deadline_ns)
++
++    @_entry
++    def seal_serial_invocation_frame(self):
++        """Observe one original frame; does not verify semantic AI completion."""
++        if self._invocation_series is None:
++            raise ValueError('explicit original serial framing policy required')
++        self._invocation_check()
++        return self._invocation_series.seal_current()
+ 
+     def _require_invocation(self):
+         if self._invocation is None: raise ValueError('original prepared invocation required')
+@@ -596,7 +641,10 @@
+     @_entry
+     def dispatch_invocation_once(self):
+         record = self._require_invocation()
+-        if self._pending_io.write_reserved: raise ValueError('original write reserved; no replay')
++        if self._invocation_series is None:
++            if self._pending_io.write_reserved: raise ValueError('original write reserved; no replay')
++        else:
++            self._invocation_series.claim_write(record)
+         self._pending_io.write_reserved = True
+         row = record.start_dispatch()
+         row['started_marker_ns'] = self._invocation_check()
+@@ -604,6 +652,7 @@
+         op = self._pending_io.operation(self._pending_io.endpoints['input_write'][0],
+                                         'write', len(record.request), record.request)
+         op.row = row
++        op.record = record
+         row['raw_call_bracket_ns'][0] = self._invocation_check()
+         try:
+             self._pending_io.issue(op)
+@@ -630,6 +679,7 @@
+         op = self._pending_io.operation(self._pending_io.endpoints['output_read'][0],
+                                         'read', row['requested_bytes'])
+         op.row = row
++        op.record = record
+         row['raw_call_bracket_ns'][0] = self._invocation_check()
+         try:
+             self._pending_io.issue(op)

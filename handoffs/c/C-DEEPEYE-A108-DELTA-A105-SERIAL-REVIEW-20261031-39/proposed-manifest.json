@@ -1,0 +1,135 @@
+{
+  "schema_version": 1,
+  "kind": "PROPOSED_STATIC_PACKET_NOT_CANONICAL_HANDOFF",
+  "operation_id": "C-DEEPEYE-A108-DELTA-A105-SERIAL-REVIEW-20261031-39",
+  "task_id": "DEEPEYE-IMPLEMENTATION-20261014",
+  "task_version": 1,
+  "source_target": "51c48e106c76f3e4d18000da61be17dd8a4b6623",
+  "parent_target": "2a5e57ff7dc78763bc98352e6cb02e2510d370ea",
+  "contract_id": "DEEPEYE-HUMAN-LOCK-20261014",
+  "contract_revision": 1,
+  "requirements_sha256": "c229834bfc2292f5fe4411fc9f12c68487008f9d1adaf31f0144ee7a98173804",
+  "source_review_approved": true,
+  "approval_scope": "bounded static source only",
+  "runtime_status": "NOT_RUN",
+  "runtime_exit_code": null,
+  "local_function_tests_status": "NOT_RUN",
+  "local_function_tests_exit_code": null,
+  "integration_compatibility_approved": false,
+  "multicycle_approved": false,
+  "canonical_request_hash": null,
+  "code_commit": "MAIN_SET_SOURCE_COMMIT_40_HEX",
+  "created_after_static_verifier": true,
+  "files": [
+    {
+      "file": "_actor_source_custody.py.diff",
+      "bytes": 1756,
+      "sha256": "682ce0db1d447d6279b4a169a9f49a25c11fe91f0235f7c68ac6c0b58fbbdb66"
+    },
+    {
+      "file": "_world_loop.py.diff",
+      "bytes": 3310,
+      "sha256": "19c34157c913925165756d1f2f0ab0706c1129236c6078caac7e54d2c8bddd9b"
+    },
+    {
+      "file": "actor_owner.py.diff",
+      "bytes": 6541,
+      "sha256": "05d6663fd69a7e955453a3c79e0c70e432cb3ce84ceae9fa0ab108fc58be956e"
+    },
+    {
+      "file": "actor_pipe_io.py.diff",
+      "bytes": 1014,
+      "sha256": "0aee27a5c51a63fac84a25c8ffa57a6d4f4ebc5d37934f23ecaa7a34fc97bf81"
+    },
+    {
+      "file": "api-read-command-summary.json",
+      "bytes": 6739,
+      "sha256": "587a401183dcf6bc5e1e57964781ba57c3b57ccdbd2d78e8e9239be9913c8ea4"
+    },
+    {
+      "file": "archive-index.json",
+      "bytes": 22408,
+      "sha256": "8cf7b0a02182835a42006e4476939f8b8e792ed5bbdc5a5953f1b13119e32bc0"
+    },
+    {
+      "file": "ast-delta.json",
+      "bytes": 2083,
+      "sha256": "f6eb9c7a9c1e48d824930417802b0f88d2189b3dd285201b0376f167d25278df"
+    },
+    {
+      "file": "FINDINGS.json",
+      "bytes": 1415,
+      "sha256": "95954d9ae825974781bbf730205da76bda441178085e66eb648cced7ba42c5c8"
+    },
+    {
+      "file": "handoff-input-template.json",
+      "bytes": 3961,
+      "sha256": "72896e0b76a80b8a8c69d00309eb4c754ffac4866b998fd4adcf655c29e9de9c"
+    },
+    {
+      "file": "original-api-evidence.zip",
+      "bytes": 225640,
+      "sha256": "7084839ea8baf827760770aa99fa7fe5ef2f536c6442dcfe5e5841e3e260fd88"
+    },
+    {
+      "file": "original-static.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "original-static.stdout.txt",
+      "bytes": 309,
+      "sha256": "ae2d263a734f33123b6378234aa36561ad3be84cb9bb2280c87538a89896574a"
+    },
+    {
+      "file": "original_world_actor_link.py.diff",
+      "bytes": 2544,
+      "sha256": "c09f6022af60e1bd6ce1183b4c07160868b8831e5041f5d318d9fb9d8a8395b0"
+    },
+    {
+      "file": "packet-verify.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "packet-verify.stdout.txt",
+      "bytes": 447,
+      "sha256": "6d1fcd8229df15ebdc5474675d872f1607b9582b992f01522d497aeac635839b"
+    },
+    {
+      "file": "README.md",
+      "bytes": 5065,
+      "sha256": "325b6d61a64fc087d738da6d15decb4e7df01823a0680b49d014e7248696713f"
+    },
+    {
+      "file": "REVIEW.md",
+      "bytes": 8945,
+      "sha256": "e54a831ecaffdc4cc0bd42032bc893efc6131b9c48473b6a09ab5504904c2327"
+    },
+    {
+      "file": "source-pins.json",
+      "bytes": 9123,
+      "sha256": "50e8d84ae8ac40869cb3d692fe2556a178af4c2432c130cf464c5b3340258a66"
+    },
+    {
+      "file": "sources.zip",
+      "bytes": 117289,
+      "sha256": "0c4f4f0b9604d65eeb6f8eba51eb47c287b3d22d56e3e678798b39a56f6b43ef"
+    },
+    {
+      "file": "static-execution-summary.json",
+      "bytes": 818,
+      "sha256": "4b5ac33707a9708604f007df6caae7f3a60669967fc8a9079d2f917fc9d7427c"
+    },
+    {
+      "file": "static-verification.json",
+      "bytes": 342,
+      "sha256": "74aecf6a7d3a6364bad042ea7bd1ac0a0dc35adfe7c54c069e49d4d19666d196"
+    },
+    {
+      "file": "verify_static.py",
+      "bytes": 7266,
+      "sha256": "dfbdbef32815f807b6b7244537da2737cf87561f592d9721d601b6f6c8b66975"
+    }
+  ]
+}
