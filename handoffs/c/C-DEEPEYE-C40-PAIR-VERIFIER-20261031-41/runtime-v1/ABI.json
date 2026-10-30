@@ -1,0 +1,33 @@
+{
+  "abi_id": "c41_c40_pair_consistency_v1",
+  "entry": "verify_pair(request_wire: bytes, response_wire: bytes, *, expected_ids: dict) -> PairConsistency",
+  "secondary": "validate_observed_interval(*, dispatch_lower_ns, all_result_observed_upper_ns, now_ns) -> HostObservedInterval",
+  "C40_abi": "c37-owned-cpu-package/v2",
+  "fixed_manifest_sha256": "d63dc5d32c7b9d8bb32035edc1d78483a51c6d88e680b7fbd4ef9f304cf005f0",
+  "fixed_core_sha256": "70b317681fee8c9182c342fe8d2f94eaecc957c62231a74a080d213bb5e0eab4",
+  "request_bytes": 16384,
+  "request_payload_bytes": 16380,
+  "response_frame_count": 2,
+  "ordered_kinds": [
+    "READY",
+    "RESULT"
+  ],
+  "payload_limits": [
+    2048,
+    16384
+  ],
+  "total_response_limit": 18440,
+  "uint63_ns_max": 9223372036854775807,
+  "JSON_depth_limit": 24,
+  "JSON_node_limit": 4096,
+  "JSON_collection_limit": 32,
+  "unexpected_fields": "reject",
+  "return_mutability": "recursively immutable detached mappingproxy/tuple in frozen dataclass",
+  "source_imports": 0,
+  "core_calls": 0,
+  "authority": "none",
+  "completion_grant": false,
+  "null_ID_early_diagnostics": "outside admission, rejected",
+  "completion_interval_proposal": "README; no old completed_monotonic_ns synthesis",
+  "current_A_envelope_semantics": "unverified, A decision required"
+}

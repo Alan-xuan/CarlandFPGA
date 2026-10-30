@@ -1,0 +1,42 @@
+[
+  {
+    "path": "ABI.json",
+    "bytes": 1330,
+    "sha256": "7254e88bfc0fb8cdbad17e3dd1acff4b2f8f76f85e79da7e79b86cc95215d76d"
+  },
+  {
+    "path": "c40_pair_verifier_v1.py",
+    "bytes": 18734,
+    "sha256": "fc00cd1441e0dc15a092e601bb2864419e19ca688ba508c0b5a52faee429dd9b"
+  },
+  {
+    "path": "evidence-index.json",
+    "bytes": 7055,
+    "sha256": "bfbcb83460e726e8fa7d88306ae6dcd578c712f0dc4a9e8ca1ef5b2d736dde93"
+  },
+  {
+    "path": "evidence.zip",
+    "bytes": 35173,
+    "sha256": "99291739f942a9ef79edaae98508b54b379aa76b6e9203a833c28370f26d1f1a"
+  },
+  {
+    "path": "FINDINGS.json",
+    "bytes": 562,
+    "sha256": "e665c8faf461f0eef68735518baa3d95bf90295e6aeed61bd3cc654f0dd01ac6"
+  },
+  {
+    "path": "README.md",
+    "bytes": 9410,
+    "sha256": "cf11b4890eb9b8861d99850ec7350b15a207223397f0fd8eabad42275b0a1995"
+  },
+  {
+    "path": "REVIEW.md",
+    "bytes": 7659,
+    "sha256": "115f28573e98e880655f3b39cc97384eb95156d599b09accc1da4a063c3d4690"
+  },
+  {
+    "path": "verify_delivery.py",
+    "bytes": 728,
+    "sha256": "f358b7cd9ecc7eaa75d6c62b7792b34552dc9fcbf84dbed86284fd2b1fe1fb4a"
+  }
+]

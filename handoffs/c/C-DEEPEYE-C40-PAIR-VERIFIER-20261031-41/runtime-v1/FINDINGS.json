@@ -1,0 +1,20 @@
+{
+  "review_passed": true,
+  "source_approved": true,
+  "open_findings": [],
+  "approval_scope": "Pure C40 pair consistency verifier only",
+  "new_controls": 4,
+  "new_control_processes": 1,
+  "new_control_exit_code": 0,
+  "C40_imports": 0,
+  "C28_imports": 0,
+  "core_calls": 0,
+  "native_runs": 0,
+  "model_runs": 0,
+  "board_runs": 0,
+  "old_suite_runs": 0,
+  "completion_mapping": "UNAPPROVED_SCHEMA_PROPOSAL_ONLY",
+  "actual_provider_verified": false,
+  "numerical_inference_authenticity_verified": false,
+  "formal_acceptance": false
+}
