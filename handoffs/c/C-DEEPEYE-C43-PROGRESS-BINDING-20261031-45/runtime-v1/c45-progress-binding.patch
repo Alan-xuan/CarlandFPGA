@@ -1,0 +1,303 @@
+--- a/competition/deepeye/simulation/authority/actor_composition.py
++++ b/competition/deepeye/simulation/authority/actor_composition.py
+@@ -15,7 +15,7 @@
+ from .pc_direct_runtime import (AiLease, AuthorityDependencies, BootBinding, PcDirectRuntime,
+                                 VerifiedEnvelope, VerifiedObservation)
+ from ...integration import host_envelope
+-from ...integration.candidate_mailbox import PcDirectWindowV2
++from ...integration.candidate_mailbox import PcDirectWindowV2, _validate_interval_candidate
+ from ...integration import host_clock as clocks
+ 
+ 
+@@ -40,6 +40,7 @@
+     progress_max_age_ns: int
+     ai_model_sha256: str
+     pc_direct_window_v2: PcDirectWindowV2 | None = None
++    enable_completion_interval_v2: bool = False
+ 
+ 
+ @dataclass(frozen=True)
+@@ -76,11 +77,16 @@
+     completion_lower_ns: int
+     completion_upper_ns: int
+     deadline_ns: int
++    observed_interval_v2: object = None
+ 
+ 
+ class _ProgressGate:
+     """One activation, one current command, irreversible expiry/revocation."""
+-    def __init__(self, boot, source, clock_domain, model_hash, max_age, now):
++    def __init__(self, boot, source, clock_domain, model_hash, max_age, now, *,
++                 enable_completion_interval_v2=False):
++        if type(enable_completion_interval_v2) is not bool:
++            raise ValueError('strict interval opt-in required')
++        self.enable_completion_interval_v2 = enable_completion_interval_v2
+         self.boot, self.source, self.clock_domain = boot, source, clock_domain
+         self.model_hash, self.max_age = model_hash, _bounded(max_age, 1)
+         self.started = self.high_water = _bounded(now)
+@@ -121,8 +127,14 @@
+             raise ValueError('original verified inference association required')
+         request = host_envelope.validate_message(request_raw, producer='control_broker',
+             consumer='world_authority', context=self.context, now_ns=now)
+-        candidate = host_envelope.validate_message(proof.candidate_raw, producer='ai_controller',
+-            consumer='control_broker', context=self.context, now_ns=now)
++        if self.enable_completion_interval_v2:
++            candidate = _validate_interval_candidate(proof, self.context, now, self.max_age)
++        else:
++            if proof.observed_interval_v2 is not None:
++                raise ValueError('observed interval requires explicit progress opt-in')
++            candidate = host_envelope.validate_message(proof.candidate_raw, producer='ai_controller',
++                consumer='control_broker', context=self.context, now_ns=now)
++        interval_deadline = candidate.valid_until_ns if self.enable_completion_interval_v2 else None
+         if request.kind != 'motion_request' or candidate.kind != 'model_candidate':
+             raise ValueError('original candidate and motion request required')
+         request, candidate = request.document, candidate.document
+@@ -132,16 +144,21 @@
+         invocation = _bounded(proof.invocation_id, 1)
+         dispatch = _bounded(proof.dispatch_lower_ns)
+         lower, upper = _bounded(proof.completion_lower_ns), _bounded(proof.completion_upper_ns)
+-        claimed = _bounded(candidate['completed_monotonic_ns'])
+         issue = _bounded(request['host_issue_monotonic_ns'])
+         sequence, candidate_id = _bounded(request['command_seq']), _bounded(candidate['candidate_id'])
+-        if not self.started <= dispatch <= lower <= claimed <= upper <= issue <= now:
+-            raise ValueError('completion interval lacks ordered original host-time bounds')
+-        deadline = _bounded(lower + self.max_age)
++        if self.enable_completion_interval_v2:
++            if not self.started <= dispatch <= lower <= upper <= issue <= now:
++                raise ValueError('observation interval lacks ordered original host-time bounds')
++            deadline = _bounded(interval_deadline)
++        else:
++            claimed = _bounded(candidate['completed_monotonic_ns'])
++            if not self.started <= dispatch <= lower <= claimed <= upper <= issue <= now:
++                raise ValueError('completion interval lacks ordered original host-time bounds')
++            deadline = _bounded(lower + self.max_age)
+         if now >= deadline:
+             raise ValueError('original inference completion already stale')
+         proposed = _BoundProgress(request_raw, proof.candidate_raw, sequence, candidate_id,
+-            invocation, dispatch, lower, upper, deadline)
++            invocation, dispatch, lower, upper, deadline, proof.observed_interval_v2)
+         old = self.bound
+         if old is not None:
+             if sequence == old.command_seq:
+@@ -480,7 +497,8 @@
+             raise ValueError('original independently verified binding required')
+         self._boot, self._boot_event = proposed, event
+         self._progress = _ProgressGate(proposed, self._channels, self._clock,
+-            self._config.ai_model_sha256, self._config.progress_max_age_ns, self._clock())
++            self._config.ai_model_sha256, self._config.progress_max_age_ns, self._clock(),
++            enable_completion_interval_v2=self._config.enable_completion_interval_v2)
+         self._checkpoint(epoch)
+         self._state = 'ACTIVATING'
+         # Intended original activations are captured before either call; never
+@@ -502,7 +520,8 @@
+         self._candidates = _CandidateOwner(proposed, self._channels, self._clock,
+             self._config.ai_model_sha256, self._config.progress_max_age_ns,
+             self._progress.started, activation, now,
+-            pc_direct_window_v2=self._config.pc_direct_window_v2)
++            pc_direct_window_v2=self._config.pc_direct_window_v2,
++            enable_completion_interval_v2=self._config.enable_completion_interval_v2)
+         self._progress_time()
+         self._checkpoint(epoch)
+         self._actor.poll()
+@@ -628,6 +647,8 @@
+     if type(config) is not AuthorityConfig or type(config.actor_policy) is not ActorPolicy:
+         raise CompositionRejected('explicit trusted authority configuration required')
+     _bounded(config.progress_max_age_ns, 1)
++    if type(config.enable_completion_interval_v2) is not bool:
++        raise CompositionRejected('strict interval opt-in required')
+     policy = config.pc_direct_window_v2
+     if policy is not None:
+         if type(policy) is not PcDirectWindowV2:
+@@ -657,6 +678,8 @@
+             or type(capability) is not _OriginalWorldActorLink):
+         raise CompositionRejected('original registered world capability required')
+     _bounded(config.progress_max_age_ns, 1)
++    if type(config.enable_completion_interval_v2) is not bool:
++        raise CompositionRejected('strict interval opt-in required')
+     if (type(config.ai_model_sha256) is not str or len(config.ai_model_sha256) != 64
+             or any(c not in '0123456789abcdef' for c in config.ai_model_sha256)):
+         raise CompositionRejected('explicit approved inference model hash required')
+--- a/competition/deepeye/simulation/authority/candidate_owner.py
++++ b/competition/deepeye/simulation/authority/candidate_owner.py
+@@ -30,6 +30,7 @@
+     dispatch_lower_ns: int
+     completion_lower_ns: int
+     completion_upper_ns: int
++    observed_interval_v2: mailbox.ObservedIntervalBoundsV2 | None = None
+ 
+ 
+ @dataclass(frozen=True)
+@@ -65,9 +66,13 @@
+ class _CandidateOwner:
+     """One pending original proof, one committed association; no reset/recovery."""
+     def __init__(self, boot, source, clock_domain, model_hash, max_age, started,
+-                 activation, now, *, pc_direct_window_v2=None):
++                 activation, now, *, pc_direct_window_v2=None,
++                 enable_completion_interval_v2=False):
+         self._boot, self._source, self._clock = boot, source, clock_domain
+         self._model, self._age, self._started = model_hash, _bounded(max_age,1), _bounded(started)
++        if type(enable_completion_interval_v2) is not bool:
++            raise ValueError('strict interval opt-in required')
++        self._enable_completion_interval_v2 = enable_completion_interval_v2
+         self._pending = self._current = None
+         self._retired = False
+         if (type(activation) is not _MailboxActivation or activation.boot is not boot
+@@ -83,7 +88,8 @@
+         self._mailbox = mailbox.LatestCompletedMailbox(document)
+         self._mailbox.activate(boot.context_json,generation=boot.generation,slot_origin_ns=origin,
+             source=source,clock_domain=clock_domain,bounds=bounds,now_ns=_bounded(now),
+-            pc_direct_window_v2=pc_direct_window_v2)
++            pc_direct_window_v2=pc_direct_window_v2,
++            enable_completion_interval_v2=enable_completion_interval_v2)
+         self._pc_direct_window_v2 = pc_direct_window_v2
+ 
+     def _active(self):
+@@ -111,16 +117,26 @@
+         invocation = _bounded(proof.invocation_id,1)
+         dispatch = _bounded(proof.dispatch_lower_ns)
+         lower,upper = _bounded(proof.completion_lower_ns),_bounded(proof.completion_upper_ns)
+-        parsed = host_envelope.validate_message(proof.candidate_raw,producer='ai_controller',
+-            consumer='control_broker',context=self._context,now_ns=now)
++        if self._enable_completion_interval_v2:
++            parsed = mailbox._validate_interval_candidate(proof, self._context, now, self._age)
++        else:
++            if proof.observed_interval_v2 is not None:
++                raise ValueError('observed interval requires explicit owner opt-in')
++            parsed = host_envelope.validate_message(proof.candidate_raw,producer='ai_controller',
++                consumer='control_broker',context=self._context,now_ns=now)
+         if parsed.kind != 'model_candidate' or parsed.document['model_sha256'] != self._model:
+             raise ValueError('original approved-model candidate required')
+-        claimed = _bounded(parsed.document['completed_monotonic_ns'])
+-        if not self._started <= dispatch <= lower <= claimed <= upper <= now:
+-            raise ValueError('original ordered completion timeline required')
+-        deadline = _bounded(lower + self._age)
++        if self._enable_completion_interval_v2:
++            if not self._started <= dispatch <= lower <= upper <= now:
++                raise ValueError('original ordered observation timeline required')
++            deadline = _bounded(parsed.valid_until_ns)
++        else:
++            claimed = _bounded(parsed.document['completed_monotonic_ns'])
++            if not self._started <= dispatch <= lower <= claimed <= upper <= now:
++                raise ValueError('original ordered completion timeline required')
++            deadline = _bounded(lower + self._age)
+         projected = mailbox.Completion(self._boot.generation,self._source,self._clock,
+-            proof.candidate_raw,invocation,dispatch,lower,upper,deadline)
++            proof.candidate_raw,invocation,dispatch,lower,upper,deadline,proof.observed_interval_v2)
+         accepted = self._mailbox.complete(projected,now_ns=now)
+         if accepted:
+             self._pending = proof  # Retain exactly the original verifier object.
+--- a/competition/deepeye/integration/candidate_mailbox.py
++++ b/competition/deepeye/integration/candidate_mailbox.py
+@@ -55,6 +55,45 @@
+ 
+ 
+ @dataclass(frozen=True)
++class ObservedIntervalBoundsV2:
++    """Original verifier-retained lifetime bounds; labels/types grant no authority."""
++    max_age_ns: int
++    source_deadline_ns: int
++    dispatch_deadline_ns: int
++    previous_deadline_ns: int | None
++
++
++def _validate_interval_candidate(record, context, now, max_age=None):
++    bounds = record.observed_interval_v2
++    if type(bounds) is not ObservedIntervalBoundsV2:
++        raise ValueError('original observed-interval bounds required')
++    age = _integer(bounds.max_age_ns, 'max_age_ns', 1, 100_000_000)
++    if max_age is not None and age != max_age:
++        raise ValueError('original configured progress age differs')
++    _integer(bounds.source_deadline_ns, 'source_deadline_ns')
++    _integer(bounds.dispatch_deadline_ns, 'dispatch_deadline_ns')
++    if bounds.previous_deadline_ns is not None:
++        _integer(bounds.previous_deadline_ns, 'previous_deadline_ns')
++    dispatch = _integer(record.dispatch_lower_ns, 'dispatch_lower_ns')
++    lower = _integer(record.completion_lower_ns, 'completion_lower_ns')
++    upper = _integer(record.completion_upper_ns, 'completion_upper_ns')
++    if not dispatch <= lower <= upper <= now:
++        raise ValueError('original observed interval is not ordered')
++    parsed = envelope.validate_message(record.candidate_raw, producer='ai_controller',
++        consumer='control_broker', context=context, now_ns=now,
++        enable_completion_interval=True, completion_bounds=dict(max_age_ns=age,
++            source_deadline_ns=bounds.source_deadline_ns,
++            dispatch_deadline_ns=bounds.dispatch_deadline_ns,
++            previous_deadline_ns=bounds.previous_deadline_ns))
++    doc = parsed.document
++    if (doc['basis'] != 'host_dispatch_to_complete_result_observed_v1' or
++            doc['completion_observed_interval_ns']['lower_ns'] != dispatch or
++            doc['completion_observed_interval_ns']['upper_ns'] != upper):
++        raise ValueError('candidate differs from retained original dispatch/RESULT bounds')
++    return parsed
++
++
++@dataclass(frozen=True)
+ class Completion:
+     generation: int
+     source: object
+@@ -65,6 +104,7 @@
+     completion_lower_ns: int
+     completion_upper_ns: int
+     deadline_ns: int
++    observed_interval_v2: ObservedIntervalBoundsV2 | None = None
+ 
+ 
+ @dataclass(frozen=True)
+@@ -153,8 +193,12 @@
+ 
+     @_entry
+     def activate(self, context_raw, *, generation, slot_origin_ns, source,
+-                 clock_domain, bounds, now_ns, pc_direct_window_v2=None):
++                 clock_domain, bounds, now_ns, pc_direct_window_v2=None,
++                 enable_completion_interval_v2=False):
+         self._halt('activation_replaced')
++        if type(enable_completion_interval_v2) is not bool:
++            raise ValueError('strict interval opt-in required')
++        self._enable_completion_interval_v2 = enable_completion_interval_v2
+         now = self._time(now_ns)
+         generation = _integer(generation, 'generation', 1)
+         origin = _integer(slot_origin_ns, 'slot_origin_ns')
+@@ -246,14 +290,23 @@
+             raise ValueError('original activation/source/clock/completion association required')
+         for name in ('invocation_id','dispatch_lower_ns','completion_lower_ns','completion_upper_ns','deadline_ns'):
+             _integer(getattr(record, name), name, 1 if name == 'invocation_id' else 0)
+-        parsed = envelope.validate_message(record.candidate_raw, producer='ai_controller',
+-            consumer='control_broker', context=self._context, now_ns=now)
++        if self._enable_completion_interval_v2:
++            parsed = _validate_interval_candidate(record, self._context, now)
++            if record.deadline_ns != parsed.valid_until_ns:
++                raise ValueError('completion deadline differs from retained original caps')
++        else:
++            if record.observed_interval_v2 is not None:
++                raise ValueError('observed interval requires explicit activation opt-in')
++            parsed = envelope.validate_message(record.candidate_raw, producer='ai_controller',
++                consumer='control_broker', context=self._context, now_ns=now)
+         if parsed.kind != 'model_candidate' or parsed.document['target']['action'] == 0:
+             raise ValueError('non-STOP model candidate required; STOP is a separate event')
+         doc = parsed.document
+         seq = doc['observation']['observed_seq']
+         fingerprint = (record.generation, record.candidate_raw, record.invocation_id,
+             record.dispatch_lower_ns, record.completion_lower_ns, record.completion_upper_ns, record.deadline_ns)
++        if self._enable_completion_interval_v2:
++            fingerprint += (record.observed_interval_v2,)
+         last = self._completed
+         if last is not None:
+             if fingerprint == last.fingerprint:
+@@ -268,8 +321,17 @@
+         observation = self._observations.get(seq)
+         if observation is None:
+             raise ValueError('completion lacks retained original observation')
++        if self._enable_completion_interval_v2:
++            if observation.sample_lower_ns is None:
++                raise ValueError('original observation acquisition bound unavailable')
++            source_cap = _integer(observation.sample_lower_ns + self._age_cap, 'source cap')
++            if record.observed_interval_v2.source_deadline_ns > source_cap:
++                raise ValueError('source bound exceeds original observation lifetime')
++            completion_ordered = record.completion_lower_ns <= record.completion_upper_ns
++        else:
++            completion_ordered = record.completion_lower_ns <= doc['completed_monotonic_ns'] <= record.completion_upper_ns
+         if not (self._started <= record.dispatch_lower_ns <= record.completion_lower_ns
+-                <= doc['completed_monotonic_ns'] <= record.completion_upper_ns <= now
++                and completion_ordered and record.completion_upper_ns <= now
+                 and observation.receipt_upper_ns <= record.dispatch_lower_ns
+                 and now < record.deadline_ns):
+             raise ValueError('original causal completion timeline/deadline required')

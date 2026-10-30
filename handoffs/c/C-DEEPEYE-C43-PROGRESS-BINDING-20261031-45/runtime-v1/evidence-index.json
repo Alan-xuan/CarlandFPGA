@@ -1,0 +1,371 @@
+{
+  "files": [
+    {
+      "path": "implementation-v1/actor_composition.py.patch",
+      "bytes": 7082,
+      "sha256": "3b9a90b5123ca1da8c596bff59ed2582bca0bcdcb00ce4dd458f5a8e566d2d51"
+    },
+    {
+      "path": "implementation-v1/API.json",
+      "bytes": 2548,
+      "sha256": "3c18665384874be8040982bbaa51e351c9935d8d6bf057a74d6e5f9d7cc28ff2"
+    },
+    {
+      "path": "implementation-v1/c45-progress-binding.patch",
+      "bytes": 17447,
+      "sha256": "49cbf4c63e2c02c41525fc1e4557bf876d715c5cf2d184cc6629e7b4e6f59a31"
+    },
+    {
+      "path": "implementation-v1/candidate_mailbox.py.patch",
+      "bytes": 6457,
+      "sha256": "4f64e680288f5b2c89709c1fb10a4f7807c3442b541f6dd9a14ce85f874ff884"
+    },
+    {
+      "path": "implementation-v1/candidate_owner.py.patch",
+      "bytes": 4211,
+      "sha256": "b3f4c387011b002904204194b3210e9847606f04893a7b62809172f0b1241f2e"
+    },
+    {
+      "path": "implementation-v1/fetch-candidate-mailbox.json",
+      "bytes": 305,
+      "sha256": "4cbbbb8c4f9a85252dc196de2e2472862120b9cd226e1d015778a5813c83f1ea"
+    },
+    {
+      "path": "implementation-v1/fetch-candidate-owner.json",
+      "bytes": 311,
+      "sha256": "503ba3b541c9335e6529eed508cfdefda3d1ac11637a4535eda89c9d02243848"
+    },
+    {
+      "path": "implementation-v1/inputs/actor_composition.py",
+      "bytes": 31028,
+      "sha256": "933cc7a0fa4f9e0bd7be8286ae802d54dda65e1bd8d14ce4cd6b9dbf39bb27fa"
+    },
+    {
+      "path": "implementation-v1/inputs/candidate_mailbox.py",
+      "bytes": 18394,
+      "sha256": "ab43c3cdb5dac00256a5436d31acbd3e2a729c3ead1a6d647e9e493464d4cf59"
+    },
+    {
+      "path": "implementation-v1/inputs/candidate_owner.py",
+      "bytes": 7620,
+      "sha256": "64d6a1e7cf68650e9e603da51816bce9dd84921efd0ece62ceb53bfcceb2eec5"
+    },
+    {
+      "path": "implementation-v1/patched/actor_composition.py",
+      "bytes": 32576,
+      "sha256": "3318a39ae1f7631d8fa4872e4bc3386c6cf46010857f837fe19f6c9e6bda71ba"
+    },
+    {
+      "path": "implementation-v1/patched/candidate_mailbox.py",
+      "bytes": 21960,
+      "sha256": "02d9af273d1de99b53a1f613ddb5bd84c132604a037e53db140e405a173e1e97"
+    },
+    {
+      "path": "implementation-v1/patched/candidate_owner.py",
+      "bytes": 8640,
+      "sha256": "9e820722944cda450d3d16eca69e3bc8e8e5618919e2ea5e4b36f9d5a3fa2d29"
+    },
+    {
+      "path": "implementation-v1/prepare_patch.py",
+      "bytes": 12309,
+      "sha256": "e7b8450bc26dd84bfbbb28e6b0706bfbcd43ca9b98c3102b7d43c581813c6ff5"
+    },
+    {
+      "path": "implementation-v1/README.md",
+      "bytes": 7147,
+      "sha256": "c2c7af943f67af3cdf5c72377527ed6bd5ffe1b026eec0a0d96c3168e95f4150"
+    },
+    {
+      "path": "implementation-v1/run-index.json",
+      "bytes": 4422,
+      "sha256": "008c787391a67afa23573e327eecbc05f4e5ee585cca70e255ae8011fbacc2d5"
+    },
+    {
+      "path": "implementation-v1/run01-baseline-red/command.json",
+      "bytes": 1240,
+      "sha256": "7395867fcc759d339ac5cb91cfa5ad2a20f45f05182212bf170375bc12989b75"
+    },
+    {
+      "path": "implementation-v1/run01-baseline-red/patched/actor_composition.py",
+      "bytes": 32576,
+      "sha256": "3318a39ae1f7631d8fa4872e4bc3386c6cf46010857f837fe19f6c9e6bda71ba"
+    },
+    {
+      "path": "implementation-v1/run01-baseline-red/patched/candidate_mailbox.py",
+      "bytes": 21960,
+      "sha256": "02d9af273d1de99b53a1f613ddb5bd84c132604a037e53db140e405a173e1e97"
+    },
+    {
+      "path": "implementation-v1/run01-baseline-red/patched/candidate_owner.py",
+      "bytes": 8640,
+      "sha256": "9e820722944cda450d3d16eca69e3bc8e8e5618919e2ea5e4b36f9d5a3fa2d29"
+    },
+    {
+      "path": "implementation-v1/run01-baseline-red/prepare_patch.py",
+      "bytes": 12309,
+      "sha256": "e7b8450bc26dd84bfbbb28e6b0706bfbcd43ca9b98c3102b7d43c581813c6ff5"
+    },
+    {
+      "path": "implementation-v1/run01-baseline-red/run_checks.py",
+      "bytes": 1109,
+      "sha256": "caf4ed6e75cbc06cd0fed17a3ff467b9d5f8ea1f4e42dc5c2112d032d2e0d2dc"
+    },
+    {
+      "path": "implementation-v1/run01-baseline-red/stderr.txt",
+      "bytes": 1351,
+      "sha256": "5c33b4d80e515f4b81ce6a59e65d0e8530830771cb4734cb37c5717921bd4b15"
+    },
+    {
+      "path": "implementation-v1/run01-baseline-red/stdout.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "implementation-v1/run01-baseline-red/test_progress.py",
+      "bytes": 8961,
+      "sha256": "d99128be842907bd57d48ad1ad5e4c9554196729d59a8a6d5015dd7492127811"
+    },
+    {
+      "path": "implementation-v1/run02-new-branches/command.json",
+      "bytes": 1158,
+      "sha256": "541c463b229b4634d99509d16c5fdfa797e52a3deb9183d8b201e81f73f60803"
+    },
+    {
+      "path": "implementation-v1/run02-new-branches/patched/actor_composition.py",
+      "bytes": 32576,
+      "sha256": "3318a39ae1f7631d8fa4872e4bc3386c6cf46010857f837fe19f6c9e6bda71ba"
+    },
+    {
+      "path": "implementation-v1/run02-new-branches/patched/candidate_mailbox.py",
+      "bytes": 21960,
+      "sha256": "02d9af273d1de99b53a1f613ddb5bd84c132604a037e53db140e405a173e1e97"
+    },
+    {
+      "path": "implementation-v1/run02-new-branches/patched/candidate_owner.py",
+      "bytes": 8640,
+      "sha256": "9e820722944cda450d3d16eca69e3bc8e8e5618919e2ea5e4b36f9d5a3fa2d29"
+    },
+    {
+      "path": "implementation-v1/run02-new-branches/prepare_patch.py",
+      "bytes": 12309,
+      "sha256": "e7b8450bc26dd84bfbbb28e6b0706bfbcd43ca9b98c3102b7d43c581813c6ff5"
+    },
+    {
+      "path": "implementation-v1/run02-new-branches/run_checks.py",
+      "bytes": 1109,
+      "sha256": "caf4ed6e75cbc06cd0fed17a3ff467b9d5f8ea1f4e42dc5c2112d032d2e0d2dc"
+    },
+    {
+      "path": "implementation-v1/run02-new-branches/stderr.txt",
+      "bytes": 989,
+      "sha256": "f715b6c46fdf5cef2ab0530c37104cae58f61e948f5b81ed0d1f35c3e680fd75"
+    },
+    {
+      "path": "implementation-v1/run02-new-branches/stdout.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "implementation-v1/run02-new-branches/test_progress.py",
+      "bytes": 8961,
+      "sha256": "d99128be842907bd57d48ad1ad5e4c9554196729d59a8a6d5015dd7492127811"
+    },
+    {
+      "path": "implementation-v1/run03-mailbox-edge/command.json",
+      "bytes": 1232,
+      "sha256": "fa6ac9623155c6c0a55ccab2cd6ad1875c3081fa718891e21c2e8c13d039ecac"
+    },
+    {
+      "path": "implementation-v1/run03-mailbox-edge/patched/actor_composition.py",
+      "bytes": 32576,
+      "sha256": "3318a39ae1f7631d8fa4872e4bc3386c6cf46010857f837fe19f6c9e6bda71ba"
+    },
+    {
+      "path": "implementation-v1/run03-mailbox-edge/patched/candidate_mailbox.py",
+      "bytes": 21960,
+      "sha256": "02d9af273d1de99b53a1f613ddb5bd84c132604a037e53db140e405a173e1e97"
+    },
+    {
+      "path": "implementation-v1/run03-mailbox-edge/patched/candidate_owner.py",
+      "bytes": 8640,
+      "sha256": "9e820722944cda450d3d16eca69e3bc8e8e5618919e2ea5e4b36f9d5a3fa2d29"
+    },
+    {
+      "path": "implementation-v1/run03-mailbox-edge/prepare_patch.py",
+      "bytes": 12309,
+      "sha256": "e7b8450bc26dd84bfbbb28e6b0706bfbcd43ca9b98c3102b7d43c581813c6ff5"
+    },
+    {
+      "path": "implementation-v1/run03-mailbox-edge/run_checks.py",
+      "bytes": 1109,
+      "sha256": "caf4ed6e75cbc06cd0fed17a3ff467b9d5f8ea1f4e42dc5c2112d032d2e0d2dc"
+    },
+    {
+      "path": "implementation-v1/run03-mailbox-edge/stderr.txt",
+      "bytes": 239,
+      "sha256": "260826cd4f5e25b27330b21cb089f39d0f6be6faf3054d7a9097b9d118ebfeb7"
+    },
+    {
+      "path": "implementation-v1/run03-mailbox-edge/stdout.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "implementation-v1/run03-mailbox-edge/test_progress.py",
+      "bytes": 9486,
+      "sha256": "7fdbabc9d514a339790d53bc53ad20a95d8563b39210bd7110ca5c0dc0eebfe3"
+    },
+    {
+      "path": "implementation-v1/run04-static/command.json",
+      "bytes": 451,
+      "sha256": "ccaa978bd475709e5a069b34987d0fec8505dfc4fe151a989e04c91c46a6865b"
+    },
+    {
+      "path": "implementation-v1/run04-static/static_audit.py",
+      "bytes": 2045,
+      "sha256": "1d5906eb27b96d9374f49317cd37ee160ab88169380ebbd91a128cd8dc4bb62b"
+    },
+    {
+      "path": "implementation-v1/run04-static/stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "implementation-v1/run04-static/stdout.txt",
+      "bytes": 4220,
+      "sha256": "a028405605455760a384b40a3f3c5da093350ac0cf3576db917f341be82d3f09"
+    },
+    {
+      "path": "implementation-v1/run_checks.py",
+      "bytes": 1109,
+      "sha256": "caf4ed6e75cbc06cd0fed17a3ff467b9d5f8ea1f4e42dc5c2112d032d2e0d2dc"
+    },
+    {
+      "path": "implementation-v1/scope-verification.json",
+      "bytes": 175,
+      "sha256": "427d987ffd7b3b5f256592660bc3772177f6cb6bc4025631e5b4a435f0461cea"
+    },
+    {
+      "path": "implementation-v1/source-pins.json",
+      "bytes": 1237,
+      "sha256": "f0d8cca6fb7dc22d354ebfaecdc63c852f9bed4101f3fd5c92746f5506bb2c38"
+    },
+    {
+      "path": "implementation-v1/static_audit.py",
+      "bytes": 2045,
+      "sha256": "1d5906eb27b96d9374f49317cd37ee160ab88169380ebbd91a128cd8dc4bb62b"
+    },
+    {
+      "path": "implementation-v1/test_progress.py",
+      "bytes": 9486,
+      "sha256": "7fdbabc9d514a339790d53bc53ad20a95d8563b39210bd7110ca5c0dc0eebfe3"
+    },
+    {
+      "path": "implementation-v1/evidence-manifest.json",
+      "bytes": 8298,
+      "sha256": "20e722053d0d5f1ce64b9f8c1e7d28e50850c3367a0f568d468a3d64ef3def47"
+    },
+    {
+      "path": "review-v1/ast-delta.json",
+      "bytes": 836,
+      "sha256": "f20e9c7a46563656c58096f7c6aac38e077cb83042f2514df87a75dd80e266bb"
+    },
+    {
+      "path": "review-v1/author-raw-review.json",
+      "bytes": 12142,
+      "sha256": "409523e68481e130a6aa77ef43b19f95cd40cc06624caa724970240d13da2e73"
+    },
+    {
+      "path": "review-v1/checks.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "review-v1/checks.stdout",
+      "bytes": 735,
+      "sha256": "e41ac25f9b92fe56d86ecb5d818ba907108ac24c2eeb0f16dd3667bb79e4d900"
+    },
+    {
+      "path": "review-v1/command-exit.json",
+      "bytes": 913,
+      "sha256": "30f9ff4c8921a089e37d39b0129ba9a29164be4d581b188d6c1a3858415a3034"
+    },
+    {
+      "path": "review-v1/FINDINGS.json",
+      "bytes": 247,
+      "sha256": "8a08ed7395588dd252c7405a13fe38b2ab79db833e6bab40c141aeee532a97d7"
+    },
+    {
+      "path": "review-v1/independent_checks.py",
+      "bytes": 7054,
+      "sha256": "1e9036d9876564c4b3b371fce411124eb0f5b34d752f6c37af7d51abb6afe294"
+    },
+    {
+      "path": "review-v1/new-evidence/bounds-subclass-cannot-satisfy-original-record-type.input.json",
+      "bytes": 1137,
+      "sha256": "435557a29e43d89d8b268e57baa33e8b88e00de6c4ef5bdfcb66585b9fabfd8e"
+    },
+    {
+      "path": "review-v1/new-evidence/bounds-subclass-cannot-satisfy-original-record-type.output.json",
+      "bytes": 158,
+      "sha256": "ddbb61e8029cea3f7e2b721e1095b8cfa9ec99f7812424932880ad1ac23f35ba"
+    },
+    {
+      "path": "review-v1/new-evidence/fresh-progression-and-nonbinding-cap-duplicate.input.json",
+      "bytes": 2335,
+      "sha256": "781853bea89343fb087a32d7c96cc9badfc93425a74d6a1f04e744303c493caa"
+    },
+    {
+      "path": "review-v1/new-evidence/fresh-progression-and-nonbinding-cap-duplicate.output.json",
+      "bytes": 168,
+      "sha256": "be205d2974781a94b5e90635a7e7fb13daedb2fd675f4616b79eb4e550e93337"
+    },
+    {
+      "path": "review-v1/new-evidence/nonbinding-source-cap-exact-profile-limit.input.json",
+      "bytes": 2171,
+      "sha256": "12769459e47a67efc72736b8dc9f00ca7a94725dcc8158d5320f698fb1071b96"
+    },
+    {
+      "path": "review-v1/new-evidence/nonbinding-source-cap-exact-profile-limit.output.json",
+      "bytes": 185,
+      "sha256": "9b62c7a9a02b700877405e575c7973838f0bfea420c25f2dc04e605299a7f0d1"
+    },
+    {
+      "path": "review-v1/new-evidence/results.json",
+      "bytes": 822,
+      "sha256": "bf3e8c318c30b088c8c6fb2d4ae4ba0bfc8031c336d9af325605ee46d6f75996"
+    },
+    {
+      "path": "review-v1/REVIEW.md",
+      "bytes": 6616,
+      "sha256": "30258e2f463f9d0d4543d5fbc7616f56b7d0a7eb7aeb108f3f1d488f2228d30d"
+    },
+    {
+      "path": "review-v1/run_bounded.py",
+      "bytes": 709,
+      "sha256": "41aa653c567e5133eb42a932e1358d51cf1853411a0dd343ef95634363080c67"
+    }
+  ],
+  "main_approval": {
+    "source_approved": true,
+    "scope": "Default-off observed-interval binding through original owner/mailbox/progress pure source path only",
+    "patch_sha256": "49cbf4c63e2c02c41525fc1e4557bf876d715c5cf2d184cc6629e7b4e6f59a31",
+    "independent_FINAL_sha256": "09ec9d40f096a2ffb7ac6d996ddad2ced26ad227ce9ae8741e6aae973d9ae86f",
+    "author_phase_exits": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "author_new_methods": 9,
+    "independent_new_controls": 3,
+    "independent_exit": 0,
+    "main_review": "Read full three-source diffs, exact new independent controls, raw versioned outputs/exits; regenerated patches and checked artifact and actual terminal ownership. Main checker initial metadata comparison erroneously included directory added by run-index; corrected comparison only, retained scripts and no product rerun.",
+    "original_provider_integrated": false,
+    "native_run": false,
+    "formal_acceptance": false,
+    "open_findings": []
+  },
+  "original_failed_baseline_retained": true,
+  "source_only": true
+}

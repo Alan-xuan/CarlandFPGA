@@ -1,0 +1,77 @@
+[
+  {
+    "path": "actor_composition.py.patch",
+    "bytes": 7082,
+    "sha256": "3b9a90b5123ca1da8c596bff59ed2582bca0bcdcb00ce4dd458f5a8e566d2d51"
+  },
+  {
+    "path": "API.json",
+    "bytes": 2548,
+    "sha256": "3c18665384874be8040982bbaa51e351c9935d8d6bf057a74d6e5f9d7cc28ff2"
+  },
+  {
+    "path": "c45-progress-binding.patch",
+    "bytes": 17447,
+    "sha256": "49cbf4c63e2c02c41525fc1e4557bf876d715c5cf2d184cc6629e7b4e6f59a31"
+  },
+  {
+    "path": "candidate_mailbox.py.patch",
+    "bytes": 6457,
+    "sha256": "4f64e680288f5b2c89709c1fb10a4f7807c3442b541f6dd9a14ce85f874ff884"
+  },
+  {
+    "path": "candidate_owner.py.patch",
+    "bytes": 4211,
+    "sha256": "b3f4c387011b002904204194b3210e9847606f04893a7b62809172f0b1241f2e"
+  },
+  {
+    "path": "evidence-index.json",
+    "bytes": 14003,
+    "sha256": "3d25cd2063def4267ee46e3eee8adecbb4b338582ee48a5e20ff55d33bebf44d"
+  },
+  {
+    "path": "evidence.zip",
+    "bytes": 146355,
+    "sha256": "4f53c5eb9fd61c1b7e732f95ae16d73999cf2e2ab2aae66fad0e9b86650ec479"
+  },
+  {
+    "path": "FINDINGS.json",
+    "bytes": 247,
+    "sha256": "8a08ed7395588dd252c7405a13fe38b2ab79db833e6bab40c141aeee532a97d7"
+  },
+  {
+    "path": "patched/actor_composition.py",
+    "bytes": 32576,
+    "sha256": "3318a39ae1f7631d8fa4872e4bc3386c6cf46010857f837fe19f6c9e6bda71ba"
+  },
+  {
+    "path": "patched/candidate_mailbox.py",
+    "bytes": 21960,
+    "sha256": "02d9af273d1de99b53a1f613ddb5bd84c132604a037e53db140e405a173e1e97"
+  },
+  {
+    "path": "patched/candidate_owner.py",
+    "bytes": 8640,
+    "sha256": "9e820722944cda450d3d16eca69e3bc8e8e5618919e2ea5e4b36f9d5a3fa2d29"
+  },
+  {
+    "path": "README.md",
+    "bytes": 7147,
+    "sha256": "c2c7af943f67af3cdf5c72377527ed6bd5ffe1b026eec0a0d96c3168e95f4150"
+  },
+  {
+    "path": "REVIEW.md",
+    "bytes": 6616,
+    "sha256": "30258e2f463f9d0d4543d5fbc7616f56b7d0a7eb7aeb108f3f1d488f2228d30d"
+  },
+  {
+    "path": "source-pins.json",
+    "bytes": 1237,
+    "sha256": "f0d8cca6fb7dc22d354ebfaecdc63c852f9bed4101f3fd5c92746f5506bb2c38"
+  },
+  {
+    "path": "verify_delivery.py",
+    "bytes": 728,
+    "sha256": "f358b7cd9ecc7eaa75d6c62b7792b34552dc9fcbf84dbed86284fd2b1fe1fb4a"
+  }
+]

@@ -1,0 +1,43 @@
+{
+  "name": "C45_original_progress_observed_interval_v2",
+  "apply_order": [
+    "Exact A42f baseline",
+    "Already frozen C43 completion-interval-successor.patch SHA256 37f6b42d5d7a662a86d1e787b63896ae36ab0fee868fc0ef48c65ea6ba4fb22d",
+    "C45 c45-progress-binding.patch (incremental three-source patch only)"
+  ],
+  "configuration": {
+    "AuthorityConfig.enable_completion_interval_v2": "strict bool; default False; propagated unchanged to owner/mailbox/gate"
+  },
+  "original_provider_record": {
+    "_CompletedInference.observed_interval_v2": "None default for v1; exact mailbox.ObservedIntervalBoundsV2 for explicit v2",
+    "ObservedIntervalBoundsV2": [
+      "max_age_ns",
+      "source_deadline_ns",
+      "dispatch_deadline_ns",
+      "previous_deadline_ns"
+    ]
+  },
+  "invariants": [
+    "exact original proof class and boot/source/clock objects preserved",
+    "max_age_ns equals original configured progress_max_age_ns; 1..100000000",
+    "source and dispatch deadlines required exact uint63; previous explicit None or exact uint63",
+    "candidate.interval.lower == original dispatch_lower_ns",
+    "candidate.interval.upper == original completion_upper_ns (all RESULT observed)",
+    "started <= dispatch <= original completion_lower <= upper <= issue <= now",
+    "fixed basis host_dispatch_to_complete_result_observed_v1",
+    "exclusive deadline min(dispatch+age, source cap, dispatch cap, explicit previous cap)",
+    "no completion scalar synthesized; read lower not rewritten",
+    "source cap <= actual retained observation.sample_lower_ns + original profile age cap",
+    "duplicate fingerprints include original bounds record; cannot renew",
+    "fresh command/candidate/invocation remains permitted to acquire new deadline; no cross-inference old-deadline clamp"
+  ],
+  "original_callchain": [
+    "accept_completion -> original channels.verify_completion -> _CandidateOwner.offer",
+    "LatestCompletedMailbox.complete -> C43 host v2 validation",
+    "consume_pc_direct_v2/select -> original proof retained",
+    "_Dependencies.verify_command -> _ProgressGate.admit/_admit -> C43 host v2 validation",
+    "original command commit/executor/runtime/lease/step fences unchanged"
+  ],
+  "authority": "none; missing real factory/provenance/caps cannot be granted by dataclass, JSON, enabled flag or fake dependencies",
+  "tests": "AST-extracted unchanged/patched pure blocks and actual frozen C43 host validator; original factory/actor/native runtime not imported or activated"
+}

@@ -1,0 +1,115 @@
+--- a/competition/deepeye/integration/candidate_mailbox.py
++++ b/competition/deepeye/integration/candidate_mailbox.py
+@@ -55,6 +55,45 @@
+ 
+ 
+ @dataclass(frozen=True)
++class ObservedIntervalBoundsV2:
++    """Original verifier-retained lifetime bounds; labels/types grant no authority."""
++    max_age_ns: int
++    source_deadline_ns: int
++    dispatch_deadline_ns: int
++    previous_deadline_ns: int | None
++
++
++def _validate_interval_candidate(record, context, now, max_age=None):
++    bounds = record.observed_interval_v2
++    if type(bounds) is not ObservedIntervalBoundsV2:
++        raise ValueError('original observed-interval bounds required')
++    age = _integer(bounds.max_age_ns, 'max_age_ns', 1, 100_000_000)
++    if max_age is not None and age != max_age:
++        raise ValueError('original configured progress age differs')
++    _integer(bounds.source_deadline_ns, 'source_deadline_ns')
++    _integer(bounds.dispatch_deadline_ns, 'dispatch_deadline_ns')
++    if bounds.previous_deadline_ns is not None:
++        _integer(bounds.previous_deadline_ns, 'previous_deadline_ns')
++    dispatch = _integer(record.dispatch_lower_ns, 'dispatch_lower_ns')
++    lower = _integer(record.completion_lower_ns, 'completion_lower_ns')
++    upper = _integer(record.completion_upper_ns, 'completion_upper_ns')
++    if not dispatch <= lower <= upper <= now:
++        raise ValueError('original observed interval is not ordered')
++    parsed = envelope.validate_message(record.candidate_raw, producer='ai_controller',
++        consumer='control_broker', context=context, now_ns=now,
++        enable_completion_interval=True, completion_bounds=dict(max_age_ns=age,
++            source_deadline_ns=bounds.source_deadline_ns,
++            dispatch_deadline_ns=bounds.dispatch_deadline_ns,
++            previous_deadline_ns=bounds.previous_deadline_ns))
++    doc = parsed.document
++    if (doc['basis'] != 'host_dispatch_to_complete_result_observed_v1' or
++            doc['completion_observed_interval_ns']['lower_ns'] != dispatch or
++            doc['completion_observed_interval_ns']['upper_ns'] != upper):
++        raise ValueError('candidate differs from retained original dispatch/RESULT bounds')
++    return parsed
++
++
++@dataclass(frozen=True)
+ class Completion:
+     generation: int
+     source: object
+@@ -65,6 +104,7 @@
+     completion_lower_ns: int
+     completion_upper_ns: int
+     deadline_ns: int
++    observed_interval_v2: ObservedIntervalBoundsV2 | None = None
+ 
+ 
+ @dataclass(frozen=True)
+@@ -153,8 +193,12 @@
+ 
+     @_entry
+     def activate(self, context_raw, *, generation, slot_origin_ns, source,
+-                 clock_domain, bounds, now_ns, pc_direct_window_v2=None):
++                 clock_domain, bounds, now_ns, pc_direct_window_v2=None,
++                 enable_completion_interval_v2=False):
+         self._halt('activation_replaced')
++        if type(enable_completion_interval_v2) is not bool:
++            raise ValueError('strict interval opt-in required')
++        self._enable_completion_interval_v2 = enable_completion_interval_v2
+         now = self._time(now_ns)
+         generation = _integer(generation, 'generation', 1)
+         origin = _integer(slot_origin_ns, 'slot_origin_ns')
+@@ -246,14 +290,23 @@
+             raise ValueError('original activation/source/clock/completion association required')
+         for name in ('invocation_id','dispatch_lower_ns','completion_lower_ns','completion_upper_ns','deadline_ns'):
+             _integer(getattr(record, name), name, 1 if name == 'invocation_id' else 0)
+-        parsed = envelope.validate_message(record.candidate_raw, producer='ai_controller',
+-            consumer='control_broker', context=self._context, now_ns=now)
++        if self._enable_completion_interval_v2:
++            parsed = _validate_interval_candidate(record, self._context, now)
++            if record.deadline_ns != parsed.valid_until_ns:
++                raise ValueError('completion deadline differs from retained original caps')
++        else:
++            if record.observed_interval_v2 is not None:
++                raise ValueError('observed interval requires explicit activation opt-in')
++            parsed = envelope.validate_message(record.candidate_raw, producer='ai_controller',
++                consumer='control_broker', context=self._context, now_ns=now)
+         if parsed.kind != 'model_candidate' or parsed.document['target']['action'] == 0:
+             raise ValueError('non-STOP model candidate required; STOP is a separate event')
+         doc = parsed.document
+         seq = doc['observation']['observed_seq']
+         fingerprint = (record.generation, record.candidate_raw, record.invocation_id,
+             record.dispatch_lower_ns, record.completion_lower_ns, record.completion_upper_ns, record.deadline_ns)
++        if self._enable_completion_interval_v2:
++            fingerprint += (record.observed_interval_v2,)
+         last = self._completed
+         if last is not None:
+             if fingerprint == last.fingerprint:
+@@ -268,8 +321,17 @@
+         observation = self._observations.get(seq)
+         if observation is None:
+             raise ValueError('completion lacks retained original observation')
++        if self._enable_completion_interval_v2:
++            if observation.sample_lower_ns is None:
++                raise ValueError('original observation acquisition bound unavailable')
++            source_cap = _integer(observation.sample_lower_ns + self._age_cap, 'source cap')
++            if record.observed_interval_v2.source_deadline_ns > source_cap:
++                raise ValueError('source bound exceeds original observation lifetime')
++            completion_ordered = record.completion_lower_ns <= record.completion_upper_ns
++        else:
++            completion_ordered = record.completion_lower_ns <= doc['completed_monotonic_ns'] <= record.completion_upper_ns
+         if not (self._started <= record.dispatch_lower_ns <= record.completion_lower_ns
+-                <= doc['completed_monotonic_ns'] <= record.completion_upper_ns <= now
++                and completion_ordered and record.completion_upper_ns <= now
+                 and observation.receipt_upper_ns <= record.dispatch_lower_ns
+                 and now < record.deadline_ns):
+             raise ValueError('original causal completion timeline/deadline required')

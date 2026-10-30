@@ -1,0 +1,21 @@
+{
+  "A_base_commit": "42f3de654aef3d52300ae1cfb16e3ac512ea2cea",
+  "original_inputs": {
+    "actor_composition.py": "933cc7a0fa4f9e0bd7be8286ae802d54dda65e1bd8d14ce4cd6b9dbf39bb27fa",
+    "candidate_owner.py": "64d6a1e7cf68650e9e603da51816bce9dd84921efd0ece62ceb53bfcceb2eec5",
+    "candidate_mailbox.py": "ab43c3cdb5dac00256a5436d31acbd3e2a729c3ead1a6d647e9e493464d4cf59"
+  },
+  "patched": {
+    "actor_composition.py": "3318a39ae1f7631d8fa4872e4bc3386c6cf46010857f837fe19f6c9e6bda71ba",
+    "candidate_owner.py": "9e820722944cda450d3d16eca69e3bc8e8e5618919e2ea5e4b36f9d5a3fa2d29",
+    "candidate_mailbox.py": "02d9af273d1de99b53a1f613ddb5bd84c132604a037e53db140e405a173e1e97"
+  },
+  "required_C43_first": {
+    "patch": "completion-interval-successor.patch",
+    "sha256": "37f6b42d5d7a662a86d1e787b63896ae36ab0fee868fc0ef48c65ea6ba4fb22d",
+    "runtime_sha256": "05da98393d47f3eaf4690d8979d2e37d2e4f1e0b00c801177a3fb6a3f84bbe96",
+    "schema_sha256": "e432fc0dda967df2635cb8f3e4d72bf4cef1253c86aa0f1ff4c4ba1214832f0d",
+    "host_sha256": "20b2221491825964f91381f68053a13bf3867347d35896ce1dd132c4a8972c3b"
+  },
+  "C45_incremental_patch_sha256": "49cbf4c63e2c02c41525fc1e4557bf876d715c5cf2d184cc6629e7b4e6f59a31"
+}

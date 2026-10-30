@@ -1,0 +1,69 @@
+--- a/competition/deepeye/simulation/authority/candidate_owner.py
++++ b/competition/deepeye/simulation/authority/candidate_owner.py
+@@ -30,6 +30,7 @@
+     dispatch_lower_ns: int
+     completion_lower_ns: int
+     completion_upper_ns: int
++    observed_interval_v2: mailbox.ObservedIntervalBoundsV2 | None = None
+ 
+ 
+ @dataclass(frozen=True)
+@@ -65,9 +66,13 @@
+ class _CandidateOwner:
+     """One pending original proof, one committed association; no reset/recovery."""
+     def __init__(self, boot, source, clock_domain, model_hash, max_age, started,
+-                 activation, now, *, pc_direct_window_v2=None):
++                 activation, now, *, pc_direct_window_v2=None,
++                 enable_completion_interval_v2=False):
+         self._boot, self._source, self._clock = boot, source, clock_domain
+         self._model, self._age, self._started = model_hash, _bounded(max_age,1), _bounded(started)
++        if type(enable_completion_interval_v2) is not bool:
++            raise ValueError('strict interval opt-in required')
++        self._enable_completion_interval_v2 = enable_completion_interval_v2
+         self._pending = self._current = None
+         self._retired = False
+         if (type(activation) is not _MailboxActivation or activation.boot is not boot
+@@ -83,7 +88,8 @@
+         self._mailbox = mailbox.LatestCompletedMailbox(document)
+         self._mailbox.activate(boot.context_json,generation=boot.generation,slot_origin_ns=origin,
+             source=source,clock_domain=clock_domain,bounds=bounds,now_ns=_bounded(now),
+-            pc_direct_window_v2=pc_direct_window_v2)
++            pc_direct_window_v2=pc_direct_window_v2,
++            enable_completion_interval_v2=enable_completion_interval_v2)
+         self._pc_direct_window_v2 = pc_direct_window_v2
+ 
+     def _active(self):
+@@ -111,16 +117,26 @@
+         invocation = _bounded(proof.invocation_id,1)
+         dispatch = _bounded(proof.dispatch_lower_ns)
+         lower,upper = _bounded(proof.completion_lower_ns),_bounded(proof.completion_upper_ns)
+-        parsed = host_envelope.validate_message(proof.candidate_raw,producer='ai_controller',
+-            consumer='control_broker',context=self._context,now_ns=now)
++        if self._enable_completion_interval_v2:
++            parsed = mailbox._validate_interval_candidate(proof, self._context, now, self._age)
++        else:
++            if proof.observed_interval_v2 is not None:
++                raise ValueError('observed interval requires explicit owner opt-in')
++            parsed = host_envelope.validate_message(proof.candidate_raw,producer='ai_controller',
++                consumer='control_broker',context=self._context,now_ns=now)
+         if parsed.kind != 'model_candidate' or parsed.document['model_sha256'] != self._model:
+             raise ValueError('original approved-model candidate required')
+-        claimed = _bounded(parsed.document['completed_monotonic_ns'])
+-        if not self._started <= dispatch <= lower <= claimed <= upper <= now:
+-            raise ValueError('original ordered completion timeline required')
+-        deadline = _bounded(lower + self._age)
++        if self._enable_completion_interval_v2:
++            if not self._started <= dispatch <= lower <= upper <= now:
++                raise ValueError('original ordered observation timeline required')
++            deadline = _bounded(parsed.valid_until_ns)
++        else:
++            claimed = _bounded(parsed.document['completed_monotonic_ns'])
++            if not self._started <= dispatch <= lower <= claimed <= upper <= now:
++                raise ValueError('original ordered completion timeline required')
++            deadline = _bounded(lower + self._age)
+         projected = mailbox.Completion(self._boot.generation,self._source,self._clock,
+-            proof.candidate_raw,invocation,dispatch,lower,upper,deadline)
++            proof.candidate_raw,invocation,dispatch,lower,upper,deadline,proof.observed_interval_v2)
+         accepted = self._mailbox.complete(projected,now_ns=now)
+         if accepted:
+             self._pending = proof  # Retain exactly the original verifier object.
