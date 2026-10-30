@@ -1,0 +1,2917 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:deepeye:c36:host-proof:v1",
+  "title": "C36 full host proof grammar; main freeze addendum1",
+  "$ref": "#/$defs/Request",
+  "$defs": {
+    "Pose": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "position_m": {
+          "type": "array",
+          "minItems": 3,
+          "maxItems": 3,
+          "items": {
+            "type": "number",
+            "minimum": -1000,
+            "maximum": 1000
+          }
+        },
+        "orientation_xyzw": {
+          "type": "array",
+          "minItems": 4,
+          "maxItems": 4,
+          "items": {
+            "type": "number",
+            "minimum": -1,
+            "maximum": 1
+          }
+        }
+      },
+      "required": [
+        "position_m",
+        "orientation_xyzw"
+      ]
+    },
+    "Bracket": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "begin_qpc_ns": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 9223372036854775807
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "end_qpc_ns": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 9223372036854775807
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "begin_qpc_ns",
+        "end_qpc_ns"
+      ]
+    },
+    "Span": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "from_qpc_ns": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 9223372036854775807
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "through_qpc_ns": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 9223372036854775807
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "root_revision": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 9223372036854775807
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "pose_revision": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 9223372036854775807
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "from_qpc_ns",
+        "through_qpc_ns",
+        "root_revision",
+        "pose_revision"
+      ]
+    },
+    "Read": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "pose": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Pose"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "pose_revision": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 9223372036854775807
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "begin_qpc_ns": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 9223372036854775807
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "end_qpc_ns": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 9223372036854775807
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "root_revision": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 9223372036854775807
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "revoke_generation": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 9223372036854775807
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "postcheck_complete": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "pose",
+        "pose_revision",
+        "begin_qpc_ns",
+        "end_qpc_ns",
+        "root_revision",
+        "revoke_generation",
+        "postcheck_complete"
+      ]
+    },
+    "Context": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "operation_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 192,
+          "pattern": "^[ -~]+$"
+        },
+        "request_hash": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "tested_commit": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{40}$"
+        },
+        "build_manifest_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "boot_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 192,
+          "pattern": "^[ -~]+$"
+        },
+        "session_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 192,
+          "pattern": "^[ -~]+$"
+        },
+        "tag": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 4294967295
+        },
+        "clock_domain_id": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{32}$"
+        }
+      },
+      "required": [
+        "operation_id",
+        "request_hash",
+        "tested_commit",
+        "build_manifest_sha256",
+        "boot_id",
+        "session_id",
+        "tag",
+        "clock_domain_id"
+      ]
+    },
+    "Identity": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "context": {
+          "$ref": "#/$defs/Context"
+        },
+        "request_seq": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4294967295
+        },
+        "request_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "capture_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "generation": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4294967295
+        },
+        "trigger_id": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4294967295
+        },
+        "source_admission_index": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4294967295
+        },
+        "original_host_injection_qpc_ns": {
+          "type": "array",
+          "minItems": 4,
+          "maxItems": 4,
+          "items": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 9223372036854775807
+          }
+        },
+        "receiver_upper_qpc_ns": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9223372036854775807
+        }
+      },
+      "required": [
+        "context",
+        "request_seq",
+        "request_sha256",
+        "capture_sha256",
+        "generation",
+        "trigger_id",
+        "source_admission_index",
+        "original_host_injection_qpc_ns",
+        "receiver_upper_qpc_ns"
+      ]
+    },
+    "SourceTime": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "adc_tick_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "em_tick_ms": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2147483647
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "source_start_tick_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "source_start_monotonic_ns": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9223372036854775807
+        },
+        "admission_received_monotonic_ns": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9223372036854775807
+        },
+        "adc_source_age_ns": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9223372036854775807
+        },
+        "em_source_age_ns": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 9223372036854775807
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "time_basis": {
+          "const": "trusted_root_source_schedule_not_physical_sample_authentication"
+        }
+      },
+      "required": [
+        "adc_tick_ms",
+        "em_tick_ms",
+        "source_start_tick_ms",
+        "source_start_monotonic_ns",
+        "admission_received_monotonic_ns",
+        "adc_source_age_ns",
+        "em_source_age_ns",
+        "time_basis"
+      ]
+    },
+    "DiagnosticFlags": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "source_fresh_at_capture": {
+          "type": "boolean"
+        },
+        "all_channels_valid": {
+          "type": "boolean"
+        },
+        "injection_to_receiver_upper_ns": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9223372036854775807
+        },
+        "target100ms_met": {
+          "type": "boolean"
+        },
+        "target100ms_scope": {
+          "enum": [
+            "conservative_receiver_upper_bound",
+            "private_HostOwner_request_to_receive"
+          ]
+        },
+        "formal_100ms_acceptance": {
+          "const": "not_run"
+        },
+        "formal_H12": {
+          "const": "not_run"
+        },
+        "transport_authenticated": {
+          "const": false
+        },
+        "BOOT_authenticated": {
+          "const": false
+        },
+        "physical_sample_authenticated": {
+          "const": false
+        },
+        "compression_verified": {
+          "const": false
+        },
+        "CPU_completion_created": {
+          "const": false
+        },
+        "movement_authorized": {
+          "const": false
+        }
+      },
+      "required": [
+        "source_fresh_at_capture",
+        "all_channels_valid",
+        "injection_to_receiver_upper_ns",
+        "target100ms_met",
+        "target100ms_scope",
+        "formal_100ms_acceptance",
+        "formal_H12",
+        "transport_authenticated",
+        "BOOT_authenticated",
+        "physical_sample_authenticated",
+        "compression_verified",
+        "CPU_completion_created",
+        "movement_authorized"
+      ]
+    },
+    "Candidate": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "schema": {
+          "const": 1
+        },
+        "kind": {
+          "const": "candidate_four_channel_input"
+        },
+        "profile_id": {
+          "const": "deepeye_forward_profile_candidate_v1"
+        },
+        "profile_status": {
+          "const": "candidate_only"
+        },
+        "profile_note": {
+          "const": "not_calibrated;not_em_surrogate_v2;not_formally_frozen"
+        },
+        "source_mode": {
+          "const": "twin_fixture"
+        },
+        "quality_encoding": {
+          "const": "candidate_four_channel_quality_v1"
+        },
+        "source_id": {
+          "const": 4
+        },
+        "transport_source": {
+          "const": "software_fixture"
+        },
+        "channel_names": {
+          "const": [
+            "log10_rho_apparent",
+            "yaw_log10_rho_difference",
+            "pitch_log10_rho_difference",
+            "near_bit_vibration_rms_g"
+          ]
+        },
+        "channel_counts": {
+          "type": "array",
+          "minItems": 4,
+          "maxItems": 4,
+          "items": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 4095
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "quality": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 8191
+        },
+        "source_time": {
+          "$ref": "#/$defs/SourceTime"
+        },
+        "observation_identity": {
+          "$ref": "#/$defs/Identity"
+        },
+        "diagnostic_flags": {
+          "$ref": "#/$defs/DiagnosticFlags"
+        }
+      },
+      "required": [
+        "schema",
+        "kind",
+        "profile_id",
+        "profile_status",
+        "profile_note",
+        "source_mode",
+        "quality_encoding",
+        "source_id",
+        "transport_source",
+        "channel_names",
+        "channel_counts",
+        "quality",
+        "source_time",
+        "observation_identity",
+        "diagnostic_flags"
+      ]
+    },
+    "Config": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "receipt_id": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 192,
+              "pattern": "^[ -~]+$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "context": {
+          "$ref": "#/$defs/Context"
+        },
+        "generation": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4294967295
+        },
+        "profile_id": {
+          "const": "deepeye_forward_profile_candidate_v1"
+        },
+        "producer_sha256": {
+          "const": "6a5f70a6acdaa6de52fc72d678d452956861370e1d143b70219ced107c5a04c9"
+        },
+        "source_policy": {
+          "const": "candidate_causal_source_v1"
+        },
+        "quality_encoding": {
+          "const": "candidate_four_channel_quality_v1"
+        },
+        "source_mode": {
+          "const": "twin_fixture"
+        },
+        "transport_source": {
+          "const": "software_fixture"
+        },
+        "source_start_tick_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "source_start_monotonic_ns": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9223372036854775807
+        },
+        "goal_m": {
+          "type": "array",
+          "minItems": 3,
+          "maxItems": 3,
+          "items": {
+            "type": "number",
+            "minimum": -1000,
+            "maximum": 1000
+          }
+        },
+        "baseline_counters": {
+          "type": "array",
+          "minItems": 3,
+          "maxItems": 3,
+          "items": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          }
+        },
+        "initial_trigger_id": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4294967295
+        },
+        "pose_book_id": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 192,
+              "pattern": "^[ -~]+$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "owner_binding_id": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 192,
+              "pattern": "^[ -~]+$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "receipt_id",
+        "context",
+        "generation",
+        "profile_id",
+        "producer_sha256",
+        "source_policy",
+        "quality_encoding",
+        "source_mode",
+        "transport_source",
+        "source_start_tick_ms",
+        "source_start_monotonic_ns",
+        "goal_m",
+        "baseline_counters",
+        "initial_trigger_id",
+        "pose_book_id",
+        "owner_binding_id"
+      ]
+    },
+    "Admission": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "index": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4294967295
+        },
+        "adc_tick_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "em_tick_ms": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2147483647
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "channel_counts": {
+          "type": "array",
+          "minItems": 4,
+          "maxItems": 4,
+          "items": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 4095
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "quality": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 8191
+        },
+        "source_record_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "received_qpc_ns": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9223372036854775807
+        },
+        "new_em_sample": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "index",
+        "adc_tick_ms",
+        "em_tick_ms",
+        "channel_counts",
+        "quality",
+        "source_record_sha256",
+        "received_qpc_ns",
+        "new_em_sample"
+      ]
+    },
+    "ReceiptSpan": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "receipt_id": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 192,
+              "pattern": "^[ -~]+$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "from_qpc_ns": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 9223372036854775807
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "through_qpc_ns": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 9223372036854775807
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "receipt_id",
+        "from_qpc_ns",
+        "through_qpc_ns"
+      ]
+    },
+    "PoseReceipt": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "receipt_id": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 192,
+              "pattern": "^[ -~]+$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "source_admission_index": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4294967295
+        },
+        "nominal_source_qpc_ns": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9223372036854775807
+        },
+        "pose": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Pose"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "pose_revision": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 9223372036854775807
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "pose_read": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Bracket"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "valid_span": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ReceiptSpan"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "receipt_id",
+        "source_admission_index",
+        "nominal_source_qpc_ns",
+        "pose",
+        "pose_revision",
+        "pose_read",
+        "valid_span"
+      ]
+    },
+    "Capture": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "capture_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "source_record_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "request_raw": {
+          "anyOf": [
+            {
+              "type": "string",
+              "maxLength": 16380
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "capture_raw": {
+          "anyOf": [
+            {
+              "type": "string",
+              "maxLength": 16380
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "adc_pose": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/PoseReceipt"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "em_pose": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/PoseReceipt"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "em_origin_capture_sha256": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "cause_action_id": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 192,
+              "pattern": "^[ -~]+$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "adc_call": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Bracket"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "adc_book_source_sha256": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "em_book_source_sha256": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "adc_root_revision": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 9223372036854775807
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "em_root_revision": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 9223372036854775807
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "original_em_call": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Bracket"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "original_em_scope_closed_qpc_ns": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 9223372036854775807
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "capture_sha256",
+        "source_record_sha256",
+        "request_raw",
+        "capture_raw",
+        "adc_pose",
+        "em_pose",
+        "em_origin_capture_sha256",
+        "cause_action_id",
+        "adc_call",
+        "adc_book_source_sha256",
+        "em_book_source_sha256",
+        "adc_root_revision",
+        "em_root_revision",
+        "original_em_call",
+        "original_em_scope_closed_qpc_ns"
+      ]
+    },
+    "Current": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "receipt_id": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 192,
+              "pattern": "^[ -~]+$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "context": {
+          "$ref": "#/$defs/Context"
+        },
+        "generation": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4294967295
+        },
+        "at_qpc_ns": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9223372036854775807
+        },
+        "pose": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Pose"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "root_revision": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 9223372036854775807
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "pose_revision": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 9223372036854775807
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "pose_read": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Bracket"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "valid_span": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ReceiptSpan"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "receipt_id",
+        "context",
+        "generation",
+        "at_qpc_ns",
+        "pose",
+        "root_revision",
+        "pose_revision",
+        "pose_read",
+        "valid_span"
+      ]
+    },
+    "BookCurrentRead": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "pose": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Pose"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "pose_revision": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 9223372036854775807
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "at_qpc_ns": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9223372036854775807
+        },
+        "pose_read": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Bracket"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "valid_span": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Span"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "claim": {
+          "const": "numerical_immutable_committed_root_only"
+        },
+        "native_interval_atomic": {
+          "const": false
+        }
+      },
+      "required": [
+        "pose",
+        "pose_revision",
+        "at_qpc_ns",
+        "pose_read",
+        "valid_span",
+        "claim",
+        "native_interval_atomic"
+      ]
+    },
+    "OriginalEM": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "const": "original_scoped_em_call_v1"
+        },
+        "source_origin_qpc_ns": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9223372036854775807
+        },
+        "tick_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "source_count": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9223372036854775807
+        },
+        "nominal_qpc_ns": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9223372036854775807
+        },
+        "pose_read": {
+          "$ref": "#/$defs/Read"
+        },
+        "call": {
+          "$ref": "#/$defs/Bracket"
+        },
+        "scope_closed_qpc_ns": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 9223372036854775807
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "root_revision": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9223372036854775807
+        },
+        "pose_revision": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9223372036854775807
+        },
+        "revoke_generation": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9223372036854775807
+        },
+        "numerical_pose_span": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Span"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "channel_values": {
+          "type": "array",
+          "minItems": 3,
+          "maxItems": 3,
+          "items": {
+            "type": "number"
+          }
+        },
+        "channel_saturated": {
+          "type": "array",
+          "minItems": 3,
+          "maxItems": 3,
+          "items": {
+            "type": "boolean"
+          }
+        }
+      },
+      "required": [
+        "kind",
+        "source_origin_qpc_ns",
+        "tick_ms",
+        "source_count",
+        "nominal_qpc_ns",
+        "pose_read",
+        "call",
+        "scope_closed_qpc_ns",
+        "root_revision",
+        "pose_revision",
+        "revoke_generation",
+        "numerical_pose_span",
+        "channel_values",
+        "channel_saturated"
+      ]
+    },
+    "HeldEM": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "const": "original_scoped_em_association_v1"
+        },
+        "held": {
+          "type": "boolean"
+        },
+        "original_em": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/OriginalEM"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "native_interval_atomic": {
+          "const": false
+        },
+        "claim": {
+          "const": "original_numerical_root_scoped_call_only;no_board_or_admission_authority"
+        }
+      },
+      "required": [
+        "kind",
+        "held",
+        "original_em",
+        "native_interval_atomic",
+        "claim"
+      ]
+    },
+    "PoseReads": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "adc": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Read"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "em": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Read"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "adc",
+        "em"
+      ]
+    },
+    "Sample": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "source_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "tick_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "source_count": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9223372036854775807
+        },
+        "nominal_qpc_ns": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9223372036854775807
+        },
+        "status": {
+          "enum": [
+            "complete",
+            "failed"
+          ]
+        },
+        "pose_reads": {
+          "$ref": "#/$defs/PoseReads"
+        },
+        "adc": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ADCBracket"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "numerical_pose_span": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Span"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "held_em_association": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/HeldEM"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "finish_qpc_ns": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 9223372036854775807
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "observed_source_qpc_ns": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 9223372036854775807
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "opened_qpc_ns": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 9223372036854775807
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "source_sha256",
+        "tick_ms",
+        "source_count",
+        "nominal_qpc_ns",
+        "status",
+        "pose_reads",
+        "adc",
+        "numerical_pose_span",
+        "held_em_association",
+        "finish_qpc_ns",
+        "observed_source_qpc_ns",
+        "opened_qpc_ns"
+      ]
+    },
+    "TransitionReserved": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "enum": [
+            "BOOT",
+            "COMMAND",
+            "STEP"
+          ]
+        },
+        "state": {
+          "const": "RESERVED"
+        },
+        "before_root_revision": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9223372036854775807
+        },
+        "from_pose_revision": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9223372036854775807
+        },
+        "lower_observed_qpc_ns": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9223372036854775807
+        },
+        "completion_observed_qpc_ns": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 9223372036854775807
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "exact_commit_qpc_ns": {
+          "type": "null"
+        },
+        "old_pose_span": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Span"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "kind",
+        "state",
+        "before_root_revision",
+        "from_pose_revision",
+        "lower_observed_qpc_ns",
+        "completion_observed_qpc_ns",
+        "exact_commit_qpc_ns",
+        "old_pose_span"
+      ]
+    },
+    "TransitionCompleteNonspatial": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "enum": [
+            "BOOT",
+            "COMMAND"
+          ]
+        },
+        "state": {
+          "const": "COMPLETE"
+        },
+        "before_root_revision": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9223372036854775807
+        },
+        "from_pose_revision": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9223372036854775807
+        },
+        "lower_observed_qpc_ns": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9223372036854775807
+        },
+        "completion_observed_qpc_ns": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 9223372036854775807
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "exact_commit_qpc_ns": {
+          "type": "null"
+        },
+        "after_root_revision": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9223372036854775807
+        },
+        "to_pose_revision": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9223372036854775807
+        },
+        "old_pose_span": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Span"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "kind",
+        "state",
+        "before_root_revision",
+        "from_pose_revision",
+        "lower_observed_qpc_ns",
+        "completion_observed_qpc_ns",
+        "exact_commit_qpc_ns",
+        "after_root_revision",
+        "to_pose_revision",
+        "old_pose_span"
+      ]
+    },
+    "TransitionCompleteStep": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "const": "STEP"
+        },
+        "state": {
+          "const": "COMPLETE"
+        },
+        "before_root_revision": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9223372036854775807
+        },
+        "from_pose_revision": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9223372036854775807
+        },
+        "lower_observed_qpc_ns": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9223372036854775807
+        },
+        "completion_observed_qpc_ns": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 9223372036854775807
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "exact_commit_qpc_ns": {
+          "type": "null"
+        },
+        "after_root_revision": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9223372036854775807
+        },
+        "to_pose_revision": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9223372036854775807
+        },
+        "pre_cas_qpc_ns": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9223372036854775807
+        },
+        "post_cas_observed_qpc_ns": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9223372036854775807
+        },
+        "model_executed_until_qpc_ns": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9223372036854775807
+        },
+        "publication_operation_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 192,
+          "pattern": "^[ -~]+$"
+        },
+        "getter_readback_qpc_ns": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9223372036854775807
+        },
+        "old_pose_span": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Span"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "kind",
+        "state",
+        "before_root_revision",
+        "from_pose_revision",
+        "lower_observed_qpc_ns",
+        "completion_observed_qpc_ns",
+        "exact_commit_qpc_ns",
+        "after_root_revision",
+        "to_pose_revision",
+        "pre_cas_qpc_ns",
+        "post_cas_observed_qpc_ns",
+        "model_executed_until_qpc_ns",
+        "publication_operation_id",
+        "getter_readback_qpc_ns",
+        "old_pose_span"
+      ]
+    },
+    "TransitionFailed": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "enum": [
+            "BOOT",
+            "COMMAND",
+            "STEP"
+          ]
+        },
+        "state": {
+          "const": "FAILED"
+        },
+        "before_root_revision": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9223372036854775807
+        },
+        "from_pose_revision": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9223372036854775807
+        },
+        "lower_observed_qpc_ns": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9223372036854775807
+        },
+        "completion_observed_qpc_ns": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 9223372036854775807
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "exact_commit_qpc_ns": {
+          "type": "null"
+        },
+        "failed_observed_root_revision": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9223372036854775807
+        },
+        "failed_observed_pose_revision": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9223372036854775807
+        },
+        "effect_observation": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 192,
+          "pattern": "^[ -~]+$"
+        },
+        "returned_receipt_observed": {
+          "type": "boolean"
+        },
+        "old_pose_span": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Span"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "kind",
+        "state",
+        "before_root_revision",
+        "from_pose_revision",
+        "lower_observed_qpc_ns",
+        "completion_observed_qpc_ns",
+        "exact_commit_qpc_ns",
+        "old_pose_span"
+      ]
+    },
+    "Transition": {
+      "oneOf": [
+        {
+          "$ref": "#/$defs/TransitionReserved"
+        },
+        {
+          "$ref": "#/$defs/TransitionCompleteNonspatial"
+        },
+        {
+          "$ref": "#/$defs/TransitionCompleteStep"
+        },
+        {
+          "$ref": "#/$defs/TransitionFailed"
+        }
+      ]
+    },
+    "ActorIntervals": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "const": "original_actor_pose_revision_intervals_v1"
+        },
+        "transitions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Transition"
+          },
+          "maxItems": 32
+        },
+        "closed_spans": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Span"
+          },
+          "maxItems": 32
+        },
+        "pending": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Transition"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "exact_action_time": {
+          "const": "unavailable;only_original_observation_intervals"
+        },
+        "native_interval_atomic": {
+          "const": false
+        }
+      },
+      "required": [
+        "kind",
+        "transitions",
+        "closed_spans",
+        "pending",
+        "exact_action_time",
+        "native_interval_atomic"
+      ]
+    },
+    "ActorBook": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "schema": {
+          "const": 3
+        },
+        "source_commit": {
+          "const": "51c48e106c76f3e4d18000da61be17dd8a4b6623"
+        },
+        "snapshot_sha256": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "state": {
+          "enum": [
+            "NEW",
+            "RUNNING",
+            "RETIRED",
+            "FAILED"
+          ]
+        },
+        "source_state": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 192,
+          "pattern": "^[ -~]+$"
+        },
+        "source_origin_qpc_ns": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 9223372036854775807
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "samples": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Sample"
+          },
+          "maxItems": 1001
+        },
+        "actor_pose_intervals": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ActorIntervals"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "current_pose_interval": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Span"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "current_read": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/BookCurrentRead"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "claim": {
+          "const": "numerical_immutable_committed_root_only"
+        },
+        "native_interval_atomic": {
+          "const": false
+        }
+      },
+      "required": [
+        "schema",
+        "source_commit",
+        "snapshot_sha256",
+        "state",
+        "source_state",
+        "source_origin_qpc_ns",
+        "samples",
+        "actor_pose_intervals",
+        "current_pose_interval",
+        "current_read",
+        "claim",
+        "native_interval_atomic"
+      ]
+    },
+    "TransitionKey": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "enum": [
+            "BOOT",
+            "COMMAND",
+            "STEP"
+          ]
+        },
+        "before_root_revision": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9223372036854775807
+        },
+        "from_pose_revision": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9223372036854775807
+        },
+        "lower_observed_qpc_ns": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9223372036854775807
+        }
+      },
+      "required": [
+        "kind",
+        "before_root_revision",
+        "from_pose_revision",
+        "lower_observed_qpc_ns"
+      ]
+    },
+    "RootValue": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "root_revision": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9223372036854775807
+        },
+        "pose_revision": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9223372036854775807
+        },
+        "revoke_generation": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9223372036854775807
+        },
+        "pose": {
+          "$ref": "#/$defs/Pose"
+        }
+      },
+      "required": [
+        "root_revision",
+        "pose_revision",
+        "revoke_generation",
+        "pose"
+      ]
+    },
+    "Custody": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "receipt_id": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 192,
+              "pattern": "^[ -~]+$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "pose_book_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 192,
+          "pattern": "^[ -~]+$"
+        },
+        "owner_binding_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 192,
+          "pattern": "^[ -~]+$"
+        },
+        "actor_composition_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 192,
+          "pattern": "^[ -~]+$"
+        },
+        "original_world_actor_link_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 192,
+          "pattern": "^[ -~]+$"
+        },
+        "observed_qpc_ns": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9223372036854775807
+        },
+        "before_root_revision": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9223372036854775807
+        },
+        "after_root_revision": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 9223372036854775807
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "revoke_generation_before": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9223372036854775807
+        },
+        "revoke_generation_after": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 9223372036854775807
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "cancel_state": {
+          "enum": [
+            "clear",
+            "cancelled",
+            "unknown"
+          ]
+        },
+        "revoke_state": {
+          "enum": [
+            "clear",
+            "revoked",
+            "unknown"
+          ]
+        },
+        "successor_state": {
+          "enum": [
+            "original_candidate",
+            "original_nonspatial",
+            "unknown"
+          ]
+        }
+      },
+      "required": [
+        "receipt_id",
+        "pose_book_id",
+        "owner_binding_id",
+        "actor_composition_id",
+        "original_world_actor_link_id",
+        "observed_qpc_ns",
+        "before_root_revision",
+        "after_root_revision",
+        "revoke_generation_before",
+        "revoke_generation_after",
+        "cancel_state",
+        "revoke_state",
+        "successor_state"
+      ]
+    },
+    "StepReceipt": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "receipt_id": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 192,
+              "pattern": "^[ -~]+$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "candidate_receipt_id": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 192,
+              "pattern": "^[ -~]+$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "returned_receipt_id": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 192,
+              "pattern": "^[ -~]+$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "effect_witness_id": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 192,
+              "pattern": "^[ -~]+$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "effect_observation": {
+          "enum": [
+            "candidate_root_current",
+            "candidate_not_observed",
+            "unclassified_root",
+            "candidate_frame_retained_by_revoke"
+          ]
+        },
+        "returned_receipt_observed": {
+          "type": "boolean"
+        },
+        "model_start_qpc_ns": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9223372036854775807
+        },
+        "model_executed_until_qpc_ns": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9223372036854775807
+        },
+        "command_seq": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4294967295
+        },
+        "command_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "boot_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 192,
+          "pattern": "^[ -~]+$"
+        },
+        "pose_revision": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9223372036854775807
+        }
+      },
+      "required": [
+        "receipt_id",
+        "candidate_receipt_id",
+        "returned_receipt_id",
+        "effect_witness_id",
+        "effect_observation",
+        "returned_receipt_observed",
+        "model_start_qpc_ns",
+        "model_executed_until_qpc_ns",
+        "command_seq",
+        "command_sha256",
+        "boot_id",
+        "pose_revision"
+      ]
+    },
+    "Publication": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "receipt_id": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 192,
+              "pattern": "^[ -~]+$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "operation_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 192,
+          "pattern": "^[ -~]+$"
+        },
+        "kind": {
+          "const": "PUBLISH_VIEW"
+        },
+        "state": {
+          "enum": [
+            "APPLIED",
+            "pending",
+            "unknown"
+          ]
+        },
+        "numerical_receipt_digest": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "freeze_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 192,
+          "pattern": "^[ -~]+$"
+        },
+        "pose_revision": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9223372036854775807
+        },
+        "getter_readback_qpc_ns": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9223372036854775807
+        },
+        "getter_receipt_id": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 192,
+              "pattern": "^[ -~]+$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "getter_policy_receipt_id": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 192,
+              "pattern": "^[ -~]+$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "local_error_bound_m": {
+          "type": "number",
+          "minimum": 0
+        },
+        "global_error_bound_m": {
+          "type": "number",
+          "minimum": 0
+        },
+        "frozen_getter_cap_m": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        }
+      },
+      "required": [
+        "receipt_id",
+        "operation_id",
+        "kind",
+        "state",
+        "numerical_receipt_digest",
+        "freeze_id",
+        "pose_revision",
+        "getter_readback_qpc_ns",
+        "getter_receipt_id",
+        "getter_policy_receipt_id",
+        "local_error_bound_m",
+        "global_error_bound_m",
+        "frozen_getter_cap_m"
+      ]
+    },
+    "NonspatialReceipt": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "receipt_id": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 192,
+              "pattern": "^[ -~]+$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "boot_receipt_id": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 192,
+              "pattern": "^[ -~]+$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "command_receipt_id": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 192,
+              "pattern": "^[ -~]+$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "command_seq": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 4294967295
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "command_sha256": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "duplicate_command": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "receipt_id",
+        "boot_receipt_id",
+        "command_receipt_id",
+        "command_seq",
+        "command_sha256",
+        "duplicate_command"
+      ]
+    },
+    "ActorAssociation": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "receipt_id": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 192,
+              "pattern": "^[ -~]+$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "action_id": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 192,
+              "pattern": "^[ -~]+$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "transition_key": {
+          "$ref": "#/$defs/TransitionKey"
+        },
+        "observation_capture_sha256": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "from_root": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/RootValue"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "to_root": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/RootValue"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "candidate_root": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/RootValue"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "custody": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Custody"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "step_receipt": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/StepReceipt"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "publication": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Publication"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "nonspatial_receipt": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/NonspatialReceipt"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "receipt_id",
+        "action_id",
+        "transition_key",
+        "observation_capture_sha256",
+        "from_root",
+        "to_root",
+        "candidate_root",
+        "custody",
+        "step_receipt",
+        "publication",
+        "nonspatial_receipt"
+      ]
+    },
+    "ActorRegistry": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "receipt_id": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 192,
+              "pattern": "^[ -~]+$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "context": {
+          "$ref": "#/$defs/Context"
+        },
+        "generation": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4294967295
+        },
+        "as_of_qpc_ns": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9223372036854775807
+        },
+        "associations": {
+          "anyOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/ActorAssociation"
+              },
+              "maxItems": 32
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "receipt_id",
+        "context",
+        "generation",
+        "as_of_qpc_ns",
+        "associations"
+      ]
+    },
+    "RootReceipt": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "const": "c36_interval_root_association_v1"
+        },
+        "evidence_scope": {
+          "enum": [
+            "unassociated_diagnostic",
+            "synthetic_diagnostic_fixture",
+            "root_supplied_diagnostic"
+          ]
+        },
+        "config": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Config"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "source_admissions": {
+          "anyOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/Admission"
+              },
+              "maxItems": 1001
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "captures": {
+          "anyOf": [
+            {
+              "type": "array",
+              "items": {
+                "anyOf": [
+                  {
+                    "$ref": "#/$defs/Capture"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "maxItems": 32
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "current_pose": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Current"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "actor_registry": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ActorRegistry"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "kind",
+        "evidence_scope",
+        "config",
+        "source_admissions",
+        "captures",
+        "current_pose",
+        "actor_registry"
+      ]
+    },
+    "Request": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "schema_version": {
+          "const": 2
+        },
+        "abi_id": {
+          "const": "moving_interval_book_bridge_v2"
+        },
+        "diagnostic_only": {
+          "const": true
+        },
+        "evidence_scope": {
+          "enum": [
+            "unassociated_diagnostic",
+            "synthetic_diagnostic_fixture",
+            "root_supplied_diagnostic"
+          ]
+        },
+        "enabled": {
+          "type": "boolean"
+        },
+        "now_qpc_ns": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9223372036854775807
+        },
+        "candidate": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Candidate"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "history": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Candidate"
+          },
+          "maxItems": 32
+        },
+        "root_receipt": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/RootReceipt"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "actor_book": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ActorBook"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "schema_version",
+        "abi_id",
+        "diagnostic_only",
+        "evidence_scope",
+        "now_qpc_ns",
+        "candidate",
+        "history",
+        "root_receipt",
+        "actor_book"
+      ]
+    },
+    "ADCBracket": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "begin_qpc_ns": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9223372036854775807
+        },
+        "end_qpc_ns": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 9223372036854775807
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "previous_adc_tick_ms": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 9223372036854775807
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "profile_tick_observed": {
+          "type": "boolean"
+        },
+        "end_attempt_qpc_ns": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 9223372036854775807
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "postcheck_complete": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "begin_qpc_ns",
+        "end_qpc_ns",
+        "previous_adc_tick_ms",
+        "profile_tick_observed",
+        "end_attempt_qpc_ns",
+        "postcheck_complete"
+      ]
+    }
+  },
+  "$comment": "Crosschecks, freshness, original numerical bounds and provenance separation in ABI-PROPOSAL.md are mandatory. Schema validity is never authority or sufficient acceptance. JSON parser must independently reject duplicate keys, nonfinite constants, booleans in integer fields, and excess depth/nodes/bytes. Full host input1MiB, not child IPC. OriginalEM values/saturation retained for host consistency checks; never put in compact child proof. Exact field values alone remain untrusted and do not establish original custody."
+}

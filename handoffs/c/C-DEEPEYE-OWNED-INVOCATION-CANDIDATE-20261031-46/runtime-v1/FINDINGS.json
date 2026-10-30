@@ -1,0 +1,24 @@
+{
+  "source_approved": true,
+  "review_passed": true,
+  "approval_scope": "default-off C46 integration candidate source and one independent synthetic pure combination control",
+  "open_findings": [],
+  "activation_approved": false,
+  "formal_acceptance": false,
+  "remaining_gates": [
+    "Original trusted source mapping and source/dispatch/previous receipt provenance must be supplied by A; default production factory remains unavailable.",
+    "Real C42/C36 source attachment, original actor native custody and enabled original-loop behavior were not executed in this review.",
+    "Separate typed second-H12 board-derived motion producer is not implemented.",
+    "No physical board, trajectory accuracy, 1 percent, full timing or formal contract acceptance follows."
+  ],
+  "evidence_limits": [
+    "Author run01 pre-build adapter/mechanics snapshots absent; construction did not import them. No functional pass attributed.",
+    "Author 15 methods have version-specific staged evidence, not a final full-suite run.",
+    "Independent run01 failed only when serializing a binary wire as UTF8; exact failed script and raw output retained. Corrected run02 stores hex and passes."
+  ],
+  "independent_control_exit_codes": [1, 0],
+  "independent_static_exit_code": 0,
+  "actual_core_calls": 0,
+  "actual_native_calls": 0,
+  "actual_C36_calls": 0
+}

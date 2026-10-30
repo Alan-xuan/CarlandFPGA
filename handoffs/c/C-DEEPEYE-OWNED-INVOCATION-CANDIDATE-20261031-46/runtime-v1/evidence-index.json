@@ -1,0 +1,1014 @@
+{
+  "files": [
+    {
+      "path": "implementation-v1/API.json",
+      "bytes": 3265,
+      "sha256": "d382a472e123ed8c291b0214e379350007aff4fa546eb1bf6a078093ffd5ca56"
+    },
+    {
+      "path": "implementation-v1/README.md",
+      "bytes": 11022,
+      "sha256": "9f0ad5964405040009501e54c905215c5174db45ff8299bf665cc824dfc56bff"
+    },
+    {
+      "path": "implementation-v1/build_integration.py",
+      "bytes": 6488,
+      "sha256": "d092da421a916c684e6e6a1e26b3fae41f5088457c910f3ffe53b1930e7ad734"
+    },
+    {
+      "path": "implementation-v1/c46-owned-invocation.patch",
+      "bytes": 5566,
+      "sha256": "8e3a8cc354c6ee4691a0fa9c0e6749c5109a375149e6904a2851feb7779d7172"
+    },
+    {
+      "path": "implementation-v1/control-inputs.json",
+      "bytes": 661,
+      "sha256": "93c6dc82846c427f78994dc128edf539d8e5e1ffe6649b1bdefb97267238ea77"
+    },
+    {
+      "path": "implementation-v1/delivery-manifest.json",
+      "bytes": 2895,
+      "sha256": "79bf41a61fe6bcbadac1402a29cb26583b311892b848f141137f1b13402d24c6"
+    },
+    {
+      "path": "implementation-v1/dependencies.json",
+      "bytes": 3018,
+      "sha256": "4c69fda6d1b2d2b1d2ae5fa37406292fea02bbe3302e365741a3a6844c3f553a"
+    },
+    {
+      "path": "implementation-v1/execution-summary.json",
+      "bytes": 6000,
+      "sha256": "421577898f88c34e57693f80a808f4baa5d078fc3a39cc5bfdca06bcbec037f3"
+    },
+    {
+      "path": "implementation-v1/package/owned_invocation_v1/__init__.py",
+      "bytes": 79,
+      "sha256": "298929634d1fafe3644a21e465c2dfdd1509770cd9157ea69ec773c29cfdedc2"
+    },
+    {
+      "path": "implementation-v1/package/owned_invocation_v1/adapter.py",
+      "bytes": 20421,
+      "sha256": "8cdaa41f69e2da5174af03b1c8861158eb9d43d3706b087205d14ae4e84e2b4d"
+    },
+    {
+      "path": "implementation-v1/package/owned_invocation_v1/fixed.py",
+      "bytes": 755,
+      "sha256": "cd91c07ebd60af9e828c59c8e52fc1a523552841c4b4f8a909872e43670e7192"
+    },
+    {
+      "path": "implementation-v1/package/owned_invocation_v1/fixed/c36/frozen_source_predicates.py",
+      "bytes": 17536,
+      "sha256": "7f4eaa649f1669e3f475d6cdbfb92a7ab7dfe1324cfb42719eb34c15f479ccf4"
+    },
+    {
+      "path": "implementation-v1/package/owned_invocation_v1/fixed/c36/host_projection.py",
+      "bytes": 54338,
+      "sha256": "7defaee9318f9a33a0586628661d054c028b5952584030ebc3b771a479a8982e"
+    },
+    {
+      "path": "implementation-v1/package/owned_invocation_v1/fixed/c36/public-view.schema.json",
+      "bytes": 4766,
+      "sha256": "046b863c6bc07bbaa5396c5b7dfc55fb1febf7bbd0bda29ef79cbd5119f981ed"
+    },
+    {
+      "path": "implementation-v1/package/owned_invocation_v1/fixed/c36/request.schema.json",
+      "bytes": 69906,
+      "sha256": "ab1b432e9f337523fd75057fec4647f5eda2569de308e7c777507e05907bdd70"
+    },
+    {
+      "path": "implementation-v1/package/owned_invocation_v1/fixed/c44_pair_verifier_v1.py",
+      "bytes": 18734,
+      "sha256": "af7ea20a3ee80f1266d66062698db4c5b1f8a9835262cc2ccfc7f480f6260ea6"
+    },
+    {
+      "path": "implementation-v1/package/owned_invocation_v1/mechanics.py",
+      "bytes": 3109,
+      "sha256": "96165d1a08c318807541a77c793658fd17fd28afcbf3632da59cb2f400291e46"
+    },
+    {
+      "path": "implementation-v1/patched/competition/deepeye/simulation/authority/actor_composition.py",
+      "bytes": 34190,
+      "sha256": "3765ba5e68942dc888b0235792c63963e6e29fb5be66a4f14226e0c0ba29203a"
+    },
+    {
+      "path": "implementation-v1/patched/competition/deepeye/simulation/authority/candidate_owner.py",
+      "bytes": 8711,
+      "sha256": "563c7ad8e1bba496db85357884fa4832e39927333e4ec1a54a11e2d4b352c6a2"
+    },
+    {
+      "path": "implementation-v1/preserve_run05.py",
+      "bytes": 571,
+      "sha256": "76c0872fe3a82aa9f917d6118d3641a826b63c2a76eadd9adb9e4cb0a3ca49cc"
+    },
+    {
+      "path": "implementation-v1/refine_expiry.py",
+      "bytes": 1208,
+      "sha256": "68d04bec00a15614bfcd53692a638de63ab1d427547dcd70b9ac20cce77c99be"
+    },
+    {
+      "path": "implementation-v1/refine_pending.py",
+      "bytes": 5899,
+      "sha256": "8adf24f4804924581ff0b5a155482d09e9e55e565063a249180f1fcee1b01277"
+    },
+    {
+      "path": "implementation-v1/run01.command-exit.json",
+      "bytes": 1371,
+      "sha256": "f8f42fce29ff95329a1479c00018d1021384579eb0aa121292203b1be93a0a02"
+    },
+    {
+      "path": "implementation-v1/run01.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "implementation-v1/run01.stdout",
+      "bytes": 124,
+      "sha256": "ec20f033e64cc263e6e5e95352e0c63ec3098f197a3da122c65a13ff5c0a3102"
+    },
+    {
+      "path": "implementation-v1/run02.command-exit.json",
+      "bytes": 2337,
+      "sha256": "201047c0be3d38f462014b0d6de45c19a32a45366af6faa3bce78bdddf738b08"
+    },
+    {
+      "path": "implementation-v1/run02.stderr",
+      "bytes": 4308,
+      "sha256": "267923a88608c0fb8078de769c842c5aa64771847d1c64d6845c4d595c54f241"
+    },
+    {
+      "path": "implementation-v1/run02.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "implementation-v1/run03.command-exit.json",
+      "bytes": 2459,
+      "sha256": "cb59a2f4153809ad4edad70b95e736eaaebfc12985473c788ba274a0e50479ac"
+    },
+    {
+      "path": "implementation-v1/run03.stderr",
+      "bytes": 345,
+      "sha256": "ec9aec421ba727a1500801b418c7acd69cb4653340f5cfebe15343ad30c468db"
+    },
+    {
+      "path": "implementation-v1/run03.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "implementation-v1/run04.command-exit.json",
+      "bytes": 2502,
+      "sha256": "c93f7f05c8ba55bbfca6f81c65a2a9e227ef7490424002a604884feb6c57538f"
+    },
+    {
+      "path": "implementation-v1/run04.stderr",
+      "bytes": 430,
+      "sha256": "ebd905256e045d608ad26b774ea08bace8ae1950e0920e6122662d5fb7c0b34e"
+    },
+    {
+      "path": "implementation-v1/run04.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "implementation-v1/run05.command-exit.json",
+      "bytes": 2466,
+      "sha256": "bb832513d638adc49bc38f25e94485630faa1ebf447a978aac736a85b0f18ff0"
+    },
+    {
+      "path": "implementation-v1/run05.stderr",
+      "bytes": 359,
+      "sha256": "f4986ac645affbb52dd96d84b64eca654832711603c862c794e16f94beba41c1"
+    },
+    {
+      "path": "implementation-v1/run05.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "implementation-v1/run06.command-exit.json",
+      "bytes": 2450,
+      "sha256": "f6970ba1b961a664f810f406625deb2da635596ca853311c548a1ff2e5ef384b"
+    },
+    {
+      "path": "implementation-v1/run06.stderr",
+      "bytes": 327,
+      "sha256": "4d5e19458a84db6018dd0ff052f4226cd1ac56bf31b1b01e32e94b81e5b4d4db"
+    },
+    {
+      "path": "implementation-v1/run06.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "implementation-v1/run07.command-exit.json",
+      "bytes": 2340,
+      "sha256": "d9f803f60cdc9f762be35a0c8808708fdf71b99de84781f9da3961e57822ee7d"
+    },
+    {
+      "path": "implementation-v1/run07.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "implementation-v1/run07.stdout",
+      "bytes": 159,
+      "sha256": "44f76cdac2f0ff04b283346f361e97894151e77074296222c3d625dec4fb7ec9"
+    },
+    {
+      "path": "implementation-v1/run_phase.py",
+      "bytes": 1315,
+      "sha256": "2d1fd29418775487371fbe3fa4c9fa2f2e9daa4253217aa349457fa909c7769d"
+    },
+    {
+      "path": "implementation-v1/source-pins.json",
+      "bytes": 8453,
+      "sha256": "57d7f32bb5f2c03409df615dd3283d900dc0eab00fe915dcb410e6ec988a2ac7"
+    },
+    {
+      "path": "implementation-v1/source/competition/deepeye/integration/candidate_mailbox.get.json",
+      "bytes": 615,
+      "sha256": "92231d0f2070e82831484e96192fdcfcea7f99a6aede5d7316904629a8046e37"
+    },
+    {
+      "path": "implementation-v1/source/competition/deepeye/integration/candidate_mailbox.py",
+      "bytes": 18394,
+      "sha256": "ab43c3cdb5dac00256a5436d31acbd3e2a729c3ead1a6d647e9e493464d4cf59"
+    },
+    {
+      "path": "implementation-v1/source/competition/deepeye/integration/candidate_mailbox.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "implementation-v1/source/competition/deepeye/integration/cpu_invocation_transcript.get.json",
+      "bytes": 623,
+      "sha256": "3751809f9d4700084781be44ae05309a1e484d421fbf994d25f5c2dbcabf505d"
+    },
+    {
+      "path": "implementation-v1/source/competition/deepeye/integration/cpu_invocation_transcript.py",
+      "bytes": 20729,
+      "sha256": "9ef9925a4cb572a2cf3685a047000fe72b489b2c46c35b9325152208f2b3cff6"
+    },
+    {
+      "path": "implementation-v1/source/competition/deepeye/integration/cpu_invocation_transcript.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "implementation-v1/source/competition/deepeye/integration/host_clock.get.json",
+      "bytes": 607,
+      "sha256": "dfda9a445f17c83a857aa25987477972fcd2681772097c701929e1ecae13153a"
+    },
+    {
+      "path": "implementation-v1/source/competition/deepeye/integration/host_clock.py",
+      "bytes": 3704,
+      "sha256": "091accae52c376d259d0057f7b93b23dc5f4143508025beec88394c4b657e376"
+    },
+    {
+      "path": "implementation-v1/source/competition/deepeye/integration/host_clock.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "implementation-v1/source/competition/deepeye/integration/host_envelope.get.json",
+      "bytes": 611,
+      "sha256": "78df21c16bc93b2d819b77a7b2741815f99e56156a2794572f0e0862662394ef"
+    },
+    {
+      "path": "implementation-v1/source/competition/deepeye/integration/host_envelope.py",
+      "bytes": 26184,
+      "sha256": "025adf0eee851327f6492ac853b77bc6ebfbb26c17eb7960f01baf644de4b7fd"
+    },
+    {
+      "path": "implementation-v1/source/competition/deepeye/integration/host_envelope.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "implementation-v1/source/competition/deepeye/integration/live_board_receipts.get.json",
+      "bytes": 617,
+      "sha256": "b2a32d497c469e268805a5b8a0f3ad148b2343a8acc7f340de4ce06e13d7b741"
+    },
+    {
+      "path": "implementation-v1/source/competition/deepeye/integration/live_board_receipts.py",
+      "bytes": 13110,
+      "sha256": "b427bb730e741bcaf35134a7be0473aa2ec0e3ea262ae81448d8a9872d0dad91"
+    },
+    {
+      "path": "implementation-v1/source/competition/deepeye/integration/live_board_receipts.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "implementation-v1/source/competition/deepeye/integration/motion.get.json",
+      "bytes": 603,
+      "sha256": "a2f00d8cc4dbf9a9c632531ef8533438159c02ded8961bb37afd02f0e50a8e13"
+    },
+    {
+      "path": "implementation-v1/source/competition/deepeye/integration/motion.py",
+      "bytes": 3935,
+      "sha256": "6f221f8a2c7180d615dfaad4080153a18bcf553417e764407c47dbedccb3df7e"
+    },
+    {
+      "path": "implementation-v1/source/competition/deepeye/integration/motion.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "implementation-v1/source/competition/deepeye/simulation/authority/_offboard_motion_component.get.json",
+      "bytes": 632,
+      "sha256": "4a0bad1fa46ee865ca5dd80d1c1fd363f416ceb51e5b8db188e56408e80cb0cc"
+    },
+    {
+      "path": "implementation-v1/source/competition/deepeye/simulation/authority/_offboard_motion_component.py",
+      "bytes": 3539,
+      "sha256": "1e120b9ee10cf4f7385ec4a1ec8bc31450a3e1e025521910dc77966840f9bd72"
+    },
+    {
+      "path": "implementation-v1/source/competition/deepeye/simulation/authority/_offboard_motion_component.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "implementation-v1/source/competition/deepeye/simulation/authority/actor_composition.get.json",
+      "bytes": 624,
+      "sha256": "d31ca4539626bf47857452c947c692ee467bd148c99ee465b4fd2d5a0f3b2808"
+    },
+    {
+      "path": "implementation-v1/source/competition/deepeye/simulation/authority/actor_composition.py",
+      "bytes": 31028,
+      "sha256": "933cc7a0fa4f9e0bd7be8286ae802d54dda65e1bd8d14ce4cd6b9dbf39bb27fa"
+    },
+    {
+      "path": "implementation-v1/source/competition/deepeye/simulation/authority/actor_composition.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "implementation-v1/source/competition/deepeye/simulation/authority/candidate_owner.get.json",
+      "bytes": 621,
+      "sha256": "b8ddfef3ac115083c1615055b60f88a1980d78f680d08f601dd8ae1786c35bfb"
+    },
+    {
+      "path": "implementation-v1/source/competition/deepeye/simulation/authority/candidate_owner.py",
+      "bytes": 7620,
+      "sha256": "64d6a1e7cf68650e9e603da51816bce9dd84921efd0ece62ceb53bfcceb2eec5"
+    },
+    {
+      "path": "implementation-v1/source/competition/deepeye/simulation/authority/candidate_owner.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "implementation-v1/source/competition/deepeye/simulation/authority/live_chain_channels.get.json",
+      "bytes": 626,
+      "sha256": "22c11efcdcb9dad027361c1a7ec9c9e58b0b9bd0d3d6e76778d5fdba74771d49"
+    },
+    {
+      "path": "implementation-v1/source/competition/deepeye/simulation/authority/live_chain_channels.py",
+      "bytes": 13480,
+      "sha256": "084e65624cf576bb43afbeef5b1bfaabf1334e1b4cbcdba180517b5c6a9adf5a"
+    },
+    {
+      "path": "implementation-v1/source/competition/deepeye/simulation/authority/live_chain_channels.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "implementation-v1/source/competition/deepeye/simulation/authority/motion/kinematics.get.json",
+      "bytes": 624,
+      "sha256": "87167c4d1d0d699e5d1953b746a4b6ca90df4598ec3cb3b7c3258b81a1498c67"
+    },
+    {
+      "path": "implementation-v1/source/competition/deepeye/simulation/authority/motion/kinematics.py",
+      "bytes": 11016,
+      "sha256": "5cab98c7100385a4bf290fc74c6e7173f56f328272c278ea6ce8ecb37542e043"
+    },
+    {
+      "path": "implementation-v1/source/competition/deepeye/simulation/authority/motion/kinematics.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "implementation-v1/source/competition/deepeye/simulation/authority/motion_executor.get.json",
+      "bytes": 622,
+      "sha256": "e6e79ff63ef961461da213917cba18fdaf00c692103f03296281d45493dba0cf"
+    },
+    {
+      "path": "implementation-v1/source/competition/deepeye/simulation/authority/motion_executor.py",
+      "bytes": 22060,
+      "sha256": "df3a174b054e5034b3d91a16b7ade3bd750b162b9c1036073af65e4d92c06e62"
+    },
+    {
+      "path": "implementation-v1/source/competition/deepeye/simulation/authority/motion_executor.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "implementation-v1/source/competition/deepeye/simulation/authority/original_world_actor_link.get.json",
+      "bytes": 632,
+      "sha256": "3c3be1d88c23d96912f84113f8b83a2d819af1f8761a81cafa88353dc987ef4c"
+    },
+    {
+      "path": "implementation-v1/source/competition/deepeye/simulation/authority/original_world_actor_link.py",
+      "bytes": 33494,
+      "sha256": "38e731c392f41b0b9d3b1852bea49c081f8398501cab996544ae36adbac108fb"
+    },
+    {
+      "path": "implementation-v1/source/competition/deepeye/simulation/authority/original_world_actor_link.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "implementation-v1/source/competition/deepeye/simulation/authority/pc_direct_runtime.get.json",
+      "bytes": 624,
+      "sha256": "fa0b5bd7f208206a2f8bfc33f92e34f3ded4c71e0131d6d6b74ceea490b6ae61"
+    },
+    {
+      "path": "implementation-v1/source/competition/deepeye/simulation/authority/pc_direct_runtime.py",
+      "bytes": 24936,
+      "sha256": "1be7129834ea6f4892a1f527b173373e36325f88adabd44f443d95ad3ac1e461"
+    },
+    {
+      "path": "implementation-v1/source/competition/deepeye/simulation/authority/pc_direct_runtime.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "implementation-v1/source/competition/deepeye/simulation/authority/source_projection_v1/assembler.get.json",
+      "bytes": 637,
+      "sha256": "25416c32abc1660a42e43173bb30ab1fc90f6cdb14ac56c469628792a1fe1623"
+    },
+    {
+      "path": "implementation-v1/source/competition/deepeye/simulation/authority/source_projection_v1/assembler.py",
+      "bytes": 26485,
+      "sha256": "b49169ac2ab87073e31406d8448d69c7958d5e5775310f94990fe89eee8d3722"
+    },
+    {
+      "path": "implementation-v1/source/competition/deepeye/simulation/authority/source_projection_v1/assembler.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "implementation-v1/source/competition/deepeye/simulation/authority/source_projection_v1/provider.get.json",
+      "bytes": 635,
+      "sha256": "4146df7cbe8d1c036e9166e73e349432c84d5f8b5769081464bb1e783f4a553f"
+    },
+    {
+      "path": "implementation-v1/source/competition/deepeye/simulation/authority/source_projection_v1/provider.py",
+      "bytes": 6345,
+      "sha256": "dfaccdde0830c8bb3255557505afe2b0ba915a66aa1002f48c1064d1ba9c44fe"
+    },
+    {
+      "path": "implementation-v1/source/competition/deepeye/simulation/authority/source_projection_v1/provider.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "implementation-v1/source/competition/deepeye/simulation/isolation/actor_invocation_series.get.json",
+      "bytes": 630,
+      "sha256": "1a6c0e886751b3144ee0557fd2d9fed56f773af05acf81bd6271a427a36049f4"
+    },
+    {
+      "path": "implementation-v1/source/competition/deepeye/simulation/isolation/actor_invocation_series.py",
+      "bytes": 17953,
+      "sha256": "9af38696cf4b0bc9f05c9729d949ac5a48d351954a5988ef00e2949740d87445"
+    },
+    {
+      "path": "implementation-v1/source/competition/deepeye/simulation/isolation/actor_invocation_series.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "implementation-v1/source/competition/deepeye/simulation/isolation/actor_lifetime.get.json",
+      "bytes": 620,
+      "sha256": "a2473a9f92a7c0d5d341a22810110e61c3377d1d4256c4dd24ce5563841a8f43"
+    },
+    {
+      "path": "implementation-v1/source/competition/deepeye/simulation/isolation/actor_lifetime.py",
+      "bytes": 2609,
+      "sha256": "f73df762802e632d182e7de5c65ee2bbe2e9ed11660269c083dfbfa4d0e136b0"
+    },
+    {
+      "path": "implementation-v1/source/competition/deepeye/simulation/isolation/actor_lifetime.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "implementation-v1/source/competition/deepeye/simulation/isolation/actor_owner.get.json",
+      "bytes": 618,
+      "sha256": "44b78ff5275352953d49ac1af54b0379e9c2eb38b2054dc11e198d9055758930"
+    },
+    {
+      "path": "implementation-v1/source/competition/deepeye/simulation/isolation/actor_owner.py",
+      "bytes": 38840,
+      "sha256": "41480311f81d236745abdc008e2ac330557da8aa3812cb5a1ecf21d2ca8b636f"
+    },
+    {
+      "path": "implementation-v1/source/competition/deepeye/simulation/isolation/actor_owner.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "implementation-v1/source/competition/deepeye/simulation/isolation/actor_pipe_io.get.json",
+      "bytes": 620,
+      "sha256": "f472cfc52c47f5f75e7e518488c63f2c12ecf4594a796a06b2668aa2994f3410"
+    },
+    {
+      "path": "implementation-v1/source/competition/deepeye/simulation/isolation/actor_pipe_io.py",
+      "bytes": 24404,
+      "sha256": "9e2ce4bcd2dc4058d6f73096f442d38a999fed971bbf8f0c158448209666f930"
+    },
+    {
+      "path": "implementation-v1/source/competition/deepeye/simulation/isolation/actor_pipe_io.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "implementation-v1/static-delivery-result.json",
+      "bytes": 378,
+      "sha256": "c81fca411dd6a26afe2b4739df6389c6d15f200d057372ec3c169371c5ef4dd0"
+    },
+    {
+      "path": "implementation-v1/static_delivery.py",
+      "bytes": 5203,
+      "sha256": "bac4a35333e8147a798b8bdca9a51146e41b5ff25f71900f4f6be07488673125"
+    },
+    {
+      "path": "implementation-v1/test_c46_new.py",
+      "bytes": 20036,
+      "sha256": "730a26241ffa674d08e930b8c8278cb3edbb6594b6783c814ff52d2a784cb419"
+    },
+    {
+      "path": "implementation-v1/test_c46_new.run02-original.py",
+      "bytes": 15095,
+      "sha256": "07d1cfa605405801d8a74f2de09112c2bc15df546a8c6340dd288314a20c72a2"
+    },
+    {
+      "path": "implementation-v1/versions/run02/c46-owned-invocation.patch",
+      "bytes": 5264,
+      "sha256": "d4ba52977b470c65cdcb2db600210e3e31ff7c7fd3cc1202e86647e8f518e564"
+    },
+    {
+      "path": "implementation-v1/versions/run02/package/owned_invocation_v1/__init__.py",
+      "bytes": 79,
+      "sha256": "298929634d1fafe3644a21e465c2dfdd1509770cd9157ea69ec773c29cfdedc2"
+    },
+    {
+      "path": "implementation-v1/versions/run02/package/owned_invocation_v1/adapter.py",
+      "bytes": 18523,
+      "sha256": "e1049b103f665e3fb7be03d95eb8f038cb0c28b24641e7a891c204764019e556"
+    },
+    {
+      "path": "implementation-v1/versions/run02/package/owned_invocation_v1/fixed.py",
+      "bytes": 755,
+      "sha256": "cd91c07ebd60af9e828c59c8e52fc1a523552841c4b4f8a909872e43670e7192"
+    },
+    {
+      "path": "implementation-v1/versions/run02/package/owned_invocation_v1/fixed/c36/frozen_source_predicates.py",
+      "bytes": 17536,
+      "sha256": "7f4eaa649f1669e3f475d6cdbfb92a7ab7dfe1324cfb42719eb34c15f479ccf4"
+    },
+    {
+      "path": "implementation-v1/versions/run02/package/owned_invocation_v1/fixed/c36/host_projection.py",
+      "bytes": 54338,
+      "sha256": "7defaee9318f9a33a0586628661d054c028b5952584030ebc3b771a479a8982e"
+    },
+    {
+      "path": "implementation-v1/versions/run02/package/owned_invocation_v1/fixed/c36/public-view.schema.json",
+      "bytes": 4766,
+      "sha256": "046b863c6bc07bbaa5396c5b7dfc55fb1febf7bbd0bda29ef79cbd5119f981ed"
+    },
+    {
+      "path": "implementation-v1/versions/run02/package/owned_invocation_v1/fixed/c36/request.schema.json",
+      "bytes": 69906,
+      "sha256": "ab1b432e9f337523fd75057fec4647f5eda2569de308e7c777507e05907bdd70"
+    },
+    {
+      "path": "implementation-v1/versions/run02/package/owned_invocation_v1/fixed/c44_pair_verifier_v1.py",
+      "bytes": 18734,
+      "sha256": "af7ea20a3ee80f1266d66062698db4c5b1f8a9835262cc2ccfc7f480f6260ea6"
+    },
+    {
+      "path": "implementation-v1/versions/run02/package/owned_invocation_v1/mechanics.py",
+      "bytes": 3109,
+      "sha256": "96165d1a08c318807541a77c793658fd17fd28afcbf3632da59cb2f400291e46"
+    },
+    {
+      "path": "implementation-v1/versions/run02/patched/competition/deepeye/simulation/authority/actor_composition.py",
+      "bytes": 33895,
+      "sha256": "bc35fd4a4a3315671d6803ea3935e76d6041a5420dc9999e5b643fc024a154f2"
+    },
+    {
+      "path": "implementation-v1/versions/run02/patched/competition/deepeye/simulation/authority/candidate_owner.py",
+      "bytes": 8711,
+      "sha256": "563c7ad8e1bba496db85357884fa4832e39927333e4ec1a54a11e2d4b352c6a2"
+    },
+    {
+      "path": "implementation-v1/versions/run02/test_c46_new.py",
+      "bytes": 15095,
+      "sha256": "07d1cfa605405801d8a74f2de09112c2bc15df546a8c6340dd288314a20c72a2"
+    },
+    {
+      "path": "implementation-v1/versions/run03/c46-owned-invocation.patch",
+      "bytes": 5264,
+      "sha256": "d4ba52977b470c65cdcb2db600210e3e31ff7c7fd3cc1202e86647e8f518e564"
+    },
+    {
+      "path": "implementation-v1/versions/run03/package/owned_invocation_v1/__init__.py",
+      "bytes": 79,
+      "sha256": "298929634d1fafe3644a21e465c2dfdd1509770cd9157ea69ec773c29cfdedc2"
+    },
+    {
+      "path": "implementation-v1/versions/run03/package/owned_invocation_v1/adapter.py",
+      "bytes": 18523,
+      "sha256": "e1049b103f665e3fb7be03d95eb8f038cb0c28b24641e7a891c204764019e556"
+    },
+    {
+      "path": "implementation-v1/versions/run03/package/owned_invocation_v1/fixed.py",
+      "bytes": 755,
+      "sha256": "cd91c07ebd60af9e828c59c8e52fc1a523552841c4b4f8a909872e43670e7192"
+    },
+    {
+      "path": "implementation-v1/versions/run03/package/owned_invocation_v1/fixed/c36/frozen_source_predicates.py",
+      "bytes": 17536,
+      "sha256": "7f4eaa649f1669e3f475d6cdbfb92a7ab7dfe1324cfb42719eb34c15f479ccf4"
+    },
+    {
+      "path": "implementation-v1/versions/run03/package/owned_invocation_v1/fixed/c36/host_projection.py",
+      "bytes": 54338,
+      "sha256": "7defaee9318f9a33a0586628661d054c028b5952584030ebc3b771a479a8982e"
+    },
+    {
+      "path": "implementation-v1/versions/run03/package/owned_invocation_v1/fixed/c36/public-view.schema.json",
+      "bytes": 4766,
+      "sha256": "046b863c6bc07bbaa5396c5b7dfc55fb1febf7bbd0bda29ef79cbd5119f981ed"
+    },
+    {
+      "path": "implementation-v1/versions/run03/package/owned_invocation_v1/fixed/c36/request.schema.json",
+      "bytes": 69906,
+      "sha256": "ab1b432e9f337523fd75057fec4647f5eda2569de308e7c777507e05907bdd70"
+    },
+    {
+      "path": "implementation-v1/versions/run03/package/owned_invocation_v1/fixed/c44_pair_verifier_v1.py",
+      "bytes": 18734,
+      "sha256": "af7ea20a3ee80f1266d66062698db4c5b1f8a9835262cc2ccfc7f480f6260ea6"
+    },
+    {
+      "path": "implementation-v1/versions/run03/package/owned_invocation_v1/mechanics.py",
+      "bytes": 3109,
+      "sha256": "96165d1a08c318807541a77c793658fd17fd28afcbf3632da59cb2f400291e46"
+    },
+    {
+      "path": "implementation-v1/versions/run03/patched/competition/deepeye/simulation/authority/actor_composition.py",
+      "bytes": 33895,
+      "sha256": "bc35fd4a4a3315671d6803ea3935e76d6041a5420dc9999e5b643fc024a154f2"
+    },
+    {
+      "path": "implementation-v1/versions/run03/patched/competition/deepeye/simulation/authority/candidate_owner.py",
+      "bytes": 8711,
+      "sha256": "563c7ad8e1bba496db85357884fa4832e39927333e4ec1a54a11e2d4b352c6a2"
+    },
+    {
+      "path": "implementation-v1/versions/run03/test_c46_new.py",
+      "bytes": 15129,
+      "sha256": "56043af3ca1c6b7d4ef9ae18e2130aafa022cb7eef722b60a0f128163beda404"
+    },
+    {
+      "path": "implementation-v1/versions/run04/c46-owned-invocation.patch",
+      "bytes": 5566,
+      "sha256": "8e3a8cc354c6ee4691a0fa9c0e6749c5109a375149e6904a2851feb7779d7172"
+    },
+    {
+      "path": "implementation-v1/versions/run04/package/owned_invocation_v1/__init__.py",
+      "bytes": 79,
+      "sha256": "298929634d1fafe3644a21e465c2dfdd1509770cd9157ea69ec773c29cfdedc2"
+    },
+    {
+      "path": "implementation-v1/versions/run04/package/owned_invocation_v1/adapter.py",
+      "bytes": 20172,
+      "sha256": "821016e1e60eebd2c200f2db35ff8e9ab70f7f410c3e724a69b6401693817a02"
+    },
+    {
+      "path": "implementation-v1/versions/run04/package/owned_invocation_v1/fixed.py",
+      "bytes": 755,
+      "sha256": "cd91c07ebd60af9e828c59c8e52fc1a523552841c4b4f8a909872e43670e7192"
+    },
+    {
+      "path": "implementation-v1/versions/run04/package/owned_invocation_v1/fixed/c36/frozen_source_predicates.py",
+      "bytes": 17536,
+      "sha256": "7f4eaa649f1669e3f475d6cdbfb92a7ab7dfe1324cfb42719eb34c15f479ccf4"
+    },
+    {
+      "path": "implementation-v1/versions/run04/package/owned_invocation_v1/fixed/c36/host_projection.py",
+      "bytes": 54338,
+      "sha256": "7defaee9318f9a33a0586628661d054c028b5952584030ebc3b771a479a8982e"
+    },
+    {
+      "path": "implementation-v1/versions/run04/package/owned_invocation_v1/fixed/c36/public-view.schema.json",
+      "bytes": 4766,
+      "sha256": "046b863c6bc07bbaa5396c5b7dfc55fb1febf7bbd0bda29ef79cbd5119f981ed"
+    },
+    {
+      "path": "implementation-v1/versions/run04/package/owned_invocation_v1/fixed/c36/request.schema.json",
+      "bytes": 69906,
+      "sha256": "ab1b432e9f337523fd75057fec4647f5eda2569de308e7c777507e05907bdd70"
+    },
+    {
+      "path": "implementation-v1/versions/run04/package/owned_invocation_v1/fixed/c44_pair_verifier_v1.py",
+      "bytes": 18734,
+      "sha256": "af7ea20a3ee80f1266d66062698db4c5b1f8a9835262cc2ccfc7f480f6260ea6"
+    },
+    {
+      "path": "implementation-v1/versions/run04/package/owned_invocation_v1/mechanics.py",
+      "bytes": 3109,
+      "sha256": "96165d1a08c318807541a77c793658fd17fd28afcbf3632da59cb2f400291e46"
+    },
+    {
+      "path": "implementation-v1/versions/run04/patched/competition/deepeye/simulation/authority/actor_composition.py",
+      "bytes": 34190,
+      "sha256": "3765ba5e68942dc888b0235792c63963e6e29fb5be66a4f14226e0c0ba29203a"
+    },
+    {
+      "path": "implementation-v1/versions/run04/patched/competition/deepeye/simulation/authority/candidate_owner.py",
+      "bytes": 8711,
+      "sha256": "563c7ad8e1bba496db85357884fa4832e39927333e4ec1a54a11e2d4b352c6a2"
+    },
+    {
+      "path": "implementation-v1/versions/run04/test_c46_new.py",
+      "bytes": 17526,
+      "sha256": "9e7b2501976b2b1af173977a12ef5b7bf77082ecbb372db558b35484f232c4dc"
+    },
+    {
+      "path": "implementation-v1/versions/run05/c46-owned-invocation.patch",
+      "bytes": 5566,
+      "sha256": "8e3a8cc354c6ee4691a0fa9c0e6749c5109a375149e6904a2851feb7779d7172"
+    },
+    {
+      "path": "implementation-v1/versions/run05/package/owned_invocation_v1/__init__.py",
+      "bytes": 79,
+      "sha256": "298929634d1fafe3644a21e465c2dfdd1509770cd9157ea69ec773c29cfdedc2"
+    },
+    {
+      "path": "implementation-v1/versions/run05/package/owned_invocation_v1/adapter.py",
+      "bytes": 20421,
+      "sha256": "8cdaa41f69e2da5174af03b1c8861158eb9d43d3706b087205d14ae4e84e2b4d"
+    },
+    {
+      "path": "implementation-v1/versions/run05/package/owned_invocation_v1/fixed.py",
+      "bytes": 755,
+      "sha256": "cd91c07ebd60af9e828c59c8e52fc1a523552841c4b4f8a909872e43670e7192"
+    },
+    {
+      "path": "implementation-v1/versions/run05/package/owned_invocation_v1/fixed/c36/frozen_source_predicates.py",
+      "bytes": 17536,
+      "sha256": "7f4eaa649f1669e3f475d6cdbfb92a7ab7dfe1324cfb42719eb34c15f479ccf4"
+    },
+    {
+      "path": "implementation-v1/versions/run05/package/owned_invocation_v1/fixed/c36/host_projection.py",
+      "bytes": 54338,
+      "sha256": "7defaee9318f9a33a0586628661d054c028b5952584030ebc3b771a479a8982e"
+    },
+    {
+      "path": "implementation-v1/versions/run05/package/owned_invocation_v1/fixed/c36/public-view.schema.json",
+      "bytes": 4766,
+      "sha256": "046b863c6bc07bbaa5396c5b7dfc55fb1febf7bbd0bda29ef79cbd5119f981ed"
+    },
+    {
+      "path": "implementation-v1/versions/run05/package/owned_invocation_v1/fixed/c36/request.schema.json",
+      "bytes": 69906,
+      "sha256": "ab1b432e9f337523fd75057fec4647f5eda2569de308e7c777507e05907bdd70"
+    },
+    {
+      "path": "implementation-v1/versions/run05/package/owned_invocation_v1/fixed/c44_pair_verifier_v1.py",
+      "bytes": 18734,
+      "sha256": "af7ea20a3ee80f1266d66062698db4c5b1f8a9835262cc2ccfc7f480f6260ea6"
+    },
+    {
+      "path": "implementation-v1/versions/run05/package/owned_invocation_v1/mechanics.py",
+      "bytes": 3109,
+      "sha256": "96165d1a08c318807541a77c793658fd17fd28afcbf3632da59cb2f400291e46"
+    },
+    {
+      "path": "implementation-v1/versions/run05/patched/competition/deepeye/simulation/authority/actor_composition.py",
+      "bytes": 34190,
+      "sha256": "3765ba5e68942dc888b0235792c63963e6e29fb5be66a4f14226e0c0ba29203a"
+    },
+    {
+      "path": "implementation-v1/versions/run05/patched/competition/deepeye/simulation/authority/candidate_owner.py",
+      "bytes": 8711,
+      "sha256": "563c7ad8e1bba496db85357884fa4832e39927333e4ec1a54a11e2d4b352c6a2"
+    },
+    {
+      "path": "implementation-v1/versions/run05/test_c46_new.py",
+      "bytes": 18397,
+      "sha256": "937ae4555b4649de56b2883b311eda29e2ec426665f7ba3603d59564f09603a3"
+    },
+    {
+      "path": "implementation-v1/versions/run06/c46-owned-invocation.patch",
+      "bytes": 5566,
+      "sha256": "8e3a8cc354c6ee4691a0fa9c0e6749c5109a375149e6904a2851feb7779d7172"
+    },
+    {
+      "path": "implementation-v1/versions/run06/package/owned_invocation_v1/__init__.py",
+      "bytes": 79,
+      "sha256": "298929634d1fafe3644a21e465c2dfdd1509770cd9157ea69ec773c29cfdedc2"
+    },
+    {
+      "path": "implementation-v1/versions/run06/package/owned_invocation_v1/adapter.py",
+      "bytes": 20421,
+      "sha256": "8cdaa41f69e2da5174af03b1c8861158eb9d43d3706b087205d14ae4e84e2b4d"
+    },
+    {
+      "path": "implementation-v1/versions/run06/package/owned_invocation_v1/fixed.py",
+      "bytes": 755,
+      "sha256": "cd91c07ebd60af9e828c59c8e52fc1a523552841c4b4f8a909872e43670e7192"
+    },
+    {
+      "path": "implementation-v1/versions/run06/package/owned_invocation_v1/fixed/c36/frozen_source_predicates.py",
+      "bytes": 17536,
+      "sha256": "7f4eaa649f1669e3f475d6cdbfb92a7ab7dfe1324cfb42719eb34c15f479ccf4"
+    },
+    {
+      "path": "implementation-v1/versions/run06/package/owned_invocation_v1/fixed/c36/host_projection.py",
+      "bytes": 54338,
+      "sha256": "7defaee9318f9a33a0586628661d054c028b5952584030ebc3b771a479a8982e"
+    },
+    {
+      "path": "implementation-v1/versions/run06/package/owned_invocation_v1/fixed/c36/public-view.schema.json",
+      "bytes": 4766,
+      "sha256": "046b863c6bc07bbaa5396c5b7dfc55fb1febf7bbd0bda29ef79cbd5119f981ed"
+    },
+    {
+      "path": "implementation-v1/versions/run06/package/owned_invocation_v1/fixed/c36/request.schema.json",
+      "bytes": 69906,
+      "sha256": "ab1b432e9f337523fd75057fec4647f5eda2569de308e7c777507e05907bdd70"
+    },
+    {
+      "path": "implementation-v1/versions/run06/package/owned_invocation_v1/fixed/c44_pair_verifier_v1.py",
+      "bytes": 18734,
+      "sha256": "af7ea20a3ee80f1266d66062698db4c5b1f8a9835262cc2ccfc7f480f6260ea6"
+    },
+    {
+      "path": "implementation-v1/versions/run06/package/owned_invocation_v1/mechanics.py",
+      "bytes": 3109,
+      "sha256": "96165d1a08c318807541a77c793658fd17fd28afcbf3632da59cb2f400291e46"
+    },
+    {
+      "path": "implementation-v1/versions/run06/patched/competition/deepeye/simulation/authority/actor_composition.py",
+      "bytes": 34190,
+      "sha256": "3765ba5e68942dc888b0235792c63963e6e29fb5be66a4f14226e0c0ba29203a"
+    },
+    {
+      "path": "implementation-v1/versions/run06/patched/competition/deepeye/simulation/authority/candidate_owner.py",
+      "bytes": 8711,
+      "sha256": "563c7ad8e1bba496db85357884fa4832e39927333e4ec1a54a11e2d4b352c6a2"
+    },
+    {
+      "path": "implementation-v1/versions/run06/test_c46_new.py",
+      "bytes": 20036,
+      "sha256": "730a26241ffa674d08e930b8c8278cb3edbb6594b6783c814ff52d2a784cb419"
+    },
+    {
+      "path": "review-v1/FINDINGS.json",
+      "bytes": 1349,
+      "sha256": "7d51b6f3df7ba65c30cd3d4a8a331c045f95edaf9e19ddadbfdc84c9fa6dced0"
+    },
+    {
+      "path": "review-v1/REVIEW.md",
+      "bytes": 8743,
+      "sha256": "47cf1eece05efaef34234c52608cad132986f198b98ed461a7444494106f8723"
+    },
+    {
+      "path": "review-v1/independent_serial_checks.py",
+      "bytes": 13881,
+      "sha256": "186cb8d1354934457ea82a62b21b9497f002d9e88adc44e2a5952acb5c73b462"
+    },
+    {
+      "path": "review-v1/independent_serial_checks.run01.py",
+      "bytes": 13885,
+      "sha256": "f47295426c85353bb9d6c426cf4067e61e147bfdb402861f6a26d996dd12d6c6"
+    },
+    {
+      "path": "review-v1/run01.command-exit.json",
+      "bytes": 1783,
+      "sha256": "b1d917268f4851a3e1a5cded62ad4c9ff4358940a44d67a3d8a37e04a82836d5"
+    },
+    {
+      "path": "review-v1/run01.input-output.json",
+      "bytes": 98,
+      "sha256": "3e55e341cdd96701737e788b73c4e9277fd8f9399d3cb66248aa89a67afc159e"
+    },
+    {
+      "path": "review-v1/run01.stderr",
+      "bytes": 444,
+      "sha256": "98f8f43b2e53b14a55d5483da2486adb92ac5b8c05d0aa57b84845827724ade2"
+    },
+    {
+      "path": "review-v1/run01.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "review-v1/run02.command-exit.json",
+      "bytes": 1783,
+      "sha256": "38203016320440cafeea590c5756225b6b422adf72d911c7a75b573d63d5b3f9"
+    },
+    {
+      "path": "review-v1/run02.input-output.json",
+      "bytes": 77419,
+      "sha256": "355148e51c44c3e8e77516a1670f02eefb27cb1d22ae5c92454b25180ee6b0fd"
+    },
+    {
+      "path": "review-v1/run02.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "review-v1/run02.stdout",
+      "bytes": 204,
+      "sha256": "10ae43bddf2ed25dd0782738734f583599f556d41722b8eb625342fd140bd47c"
+    },
+    {
+      "path": "review-v1/run_review.py",
+      "bytes": 1936,
+      "sha256": "76621809bf4495c81f32048268666f0ee8446ce5b9c07f593563703d2b0658fc"
+    },
+    {
+      "path": "review-v1/run_review.run01.py",
+      "bytes": 1936,
+      "sha256": "e8a46140e01f0470c2e02ca5c9ddf34bf29b1b265e4eb4567e40f88554d8d087"
+    },
+    {
+      "path": "review-v1/source-pins-after.json",
+      "bytes": 57785,
+      "sha256": "4eb4463bf4f0e7ae6728942b79ea19d1a5689a291965520349f341d000ffa7cd"
+    },
+    {
+      "path": "review-v1/source-pins-before.json",
+      "bytes": 57785,
+      "sha256": "4eb4463bf4f0e7ae6728942b79ea19d1a5689a291965520349f341d000ffa7cd"
+    },
+    {
+      "path": "review-v1/static-command-exit.json",
+      "bytes": 495,
+      "sha256": "981540859c5fd8705f0979505dac75db40d3e68d603ccf4f07a47d82023e5dfb"
+    },
+    {
+      "path": "review-v1/static-review.json",
+      "bytes": 14785,
+      "sha256": "9f437c495dc53e055c4a8fa067fd65f2ce98872e007469c1765a540b7aea8f86"
+    },
+    {
+      "path": "review-v1/static_review.py",
+      "bytes": 3868,
+      "sha256": "186d2cb6a76aec3e48be568c756860973d0cb194023256c526e47096581225c7"
+    }
+  ],
+  "main_approval": {
+    "source_approved": true,
+    "scope": "Default-off original owned invocation candidate adapter source only",
+    "author_FINAL_sha256": "c014738445bb187174f05fc0e423c02e0a75a6be0d1fe673b4eb31a54fbdb502",
+    "independent_FINAL_sha256": "a5f238ffc356737db40b15b4efbc21169380251eebba37a31a87558be92a8d15",
+    "patch_sha256": "8e3a8cc354c6ee4691a0fa9c0e6749c5109a375149e6904a2851feb7779d7172",
+    "author_phase_exits": [
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "author_new_methods": 15,
+    "author_final_full_suite_run": false,
+    "independent_new_controls": 1,
+    "independent_phase_exits": [
+      1,
+      0
+    ],
+    "independent_static_exit": 0,
+    "main_review": "Read exact original A request, integration changes, adapter and mechanism, original source callsites, full independent control and raw outputs/errors. Verified 179 frozen files, 20 original source pins, executed test snapshots, exact regenerated patch, review artifacts and actual native session completion/ownership release. One independent two-invocation/old-event combination passed. Both fixture failures remain retained; no old suite reruns.",
+    "construction_evidence_limit": [
+      {
+        "path": "package/owned_invocation_v1/adapter.py",
+        "expected_sha256": "3f64c292e0b220515d63dc50ee11d9181bb73d979a8d71b23346a3b3ed6cd11c"
+      },
+      {
+        "path": "package/owned_invocation_v1/mechanics.py",
+        "expected_sha256": "17bab690973d1b67420bc7a60c801ffd69f2c423367c79bc8bb4f00cb3c8af1d"
+      }
+    ],
+    "original_provider_integrated": false,
+    "native_run": false,
+    "board_run": false,
+    "second_H12_implemented": false,
+    "activation_approved": false,
+    "formal_acceptance": false,
+    "open_findings": []
+  },
+  "original_failed_runs_retained": true,
+  "source_only": true,
+  "construction_evidence_limit": "run01 pre-build adapter/mechanics snapshots not independently retained; run01 did not import them. Actual test source versions run02..06 verified."
+}

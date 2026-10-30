@@ -1,0 +1,124 @@
+--- a/competition/deepeye/simulation/authority/candidate_owner.py
++++ b/competition/deepeye/simulation/authority/candidate_owner.py
+@@ -61,6 +61,8 @@
+     observation_record: object = None
+     selected_proof: object = None
+     request_raw: bytes | None = None
++    original_event: object = None
++    owned_association: object = None
+ 
+ 
+ class _CandidateOwner:
+--- a/competition/deepeye/simulation/authority/actor_composition.py
++++ b/competition/deepeye/simulation/authority/actor_composition.py
+@@ -41,6 +41,7 @@
+     ai_model_sha256: str
+     pc_direct_window_v2: PcDirectWindowV2 | None = None
+     enable_completion_interval_v2: bool = False
++    owned_invocation_v1: object = None
+ 
+ 
+ @dataclass(frozen=True)
+@@ -399,6 +400,7 @@
+         self._boot = self._boot_event = self._command_record = None
+         self._progress = None
+         self._candidates = self._input_transaction = None
++        self._owned_invocations = None
+         self._boot_taken = False
+         self._primary_error, self._errors, self._last_step = None, [], None
+ 
+@@ -437,6 +439,8 @@
+     def _retire(self, reason):
+         self._veto += 1
+         self._retired = True  # Gate first, before callbacks or cleanup.
++        if self._owned_invocations is not None:
++            self._owned_invocations.retire()
+         self._input_transaction = None
+         link = self._world_action_link
+         if (link is not None and link.owner._actor_links.get(id(link)) is link
+@@ -479,7 +483,9 @@
+             dependencies=_Dependencies(self), clock=self._clock,
+             heartbeat_timeout_ns=config.heartbeat_timeout_ns)
+         self._checkpoint()
+-        self._actor = self._registry.launch(config.actor_policy)
++        launch = (self._registry.launch if config.owned_invocation_v1 is None
++                  else self._registry.launch_overlapped)
++        self._actor = launch(config.actor_policy)
+         self._checkpoint()
+         if self._world_action_link is not None:
+             self._world_action_link._registered()
+@@ -527,6 +533,9 @@
+         self._actor.poll()
+         self._checkpoint(epoch)
+         self._state = 'ACTIVE'
++        if self._config.owned_invocation_v1 is not None:
++            from .owned_invocation_v1.adapter import _from_composition
++            self._owned_invocations = _from_composition(self)
+ 
+     def _channel_health(self):
+         epoch = self._veto
+@@ -553,7 +562,7 @@
+     @_entry
+     def accept_observation(self, event):
+         self._active(); self._channel_health()
+-        self._input_transaction = _InputTransaction('observation')
++        self._input_transaction = _InputTransaction('observation', original_event=event)
+         self._runtime.observe(event)
+         self._runtime_active()
+         now = self._progress_time()
+@@ -561,16 +570,34 @@
+         if transaction is None or transaction.observation_record is None:
+             raise ValueError('original runtime-admitted observation missing')
+         self._candidates.observe(transaction.observation_record, now)
++        if self._owned_invocations is not None:
++            return self._owned_invocations.begin(transaction)
+ 
+     @_entry
+     def accept_completion(self, event):
+         self._active(); self._channel_health()
+         epoch = self._veto
+-        proof = self._channels.verify_completion(event, self._boot)
++        proof = (self._channels.verify_completion(event, self._boot)
++                 if self._owned_invocations is None
++                 else self._owned_invocations.verify_completion(event, self._boot))
+         self._checkpoint(epoch)
+         now = self._progress_time()
+         self._checkpoint(epoch)
+         return self._candidates.offer(proof, now)
++
++    @_entry
++    def inspect_owned_candidate(self, event):
++        self._active(); self._channel_health()
++        if self._owned_invocations is None:
++            raise ValueError('owned invocation adapter is disabled')
++        return self._owned_invocations.inspect_candidate(event, self._boot)
++
++    @_entry
++    def poll_owned_invocation(self):
++        self._active(); self._channel_health()
++        if self._owned_invocations is None:
++            raise ValueError('owned invocation adapter is disabled')
++        return self._owned_invocations.advance()
+ 
+     @_entry
+     def accept_command(self, event, *, slot_event=None):
+@@ -658,6 +685,9 @@
+     if (type(digest) is not str or len(digest) != 64 or
+             any(character not in '0123456789abcdef' for character in digest)):
+         raise CompositionRejected('explicit approved inference model hash required')
++    if config.owned_invocation_v1 is not None:
++        from .owned_invocation_v1.adapter import _validate_config
++        _validate_config(config, binding)
+     channels = _production_channels(config,host_clock=binding)  # Must precede registry construction.
+     owner = ActorComposition(_FACTORY, config, channels,host_clock=binding)
+     _RETAINED.append(owner)
+@@ -672,6 +702,9 @@
+ def _create_authority_for_original_world(config, capability, *, host_clock=None):
+     """Fixed production channel first; consume only the exact registered world."""
+     binding = clocks._require_binding(host_clock)
++    if config.owned_invocation_v1 is not None:
++        from .owned_invocation_v1.adapter import _validate_config
++        _validate_config(config, binding)
+     channels = _production_channels(config, host_clock=binding)
+     from .original_world_actor_link import _OriginalWorldActorLink
+     if (type(config) is not AuthorityConfig or type(config.actor_policy) is not ActorPolicy

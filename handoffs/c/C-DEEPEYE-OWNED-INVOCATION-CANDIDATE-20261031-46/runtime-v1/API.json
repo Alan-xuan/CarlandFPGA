@@ -1,0 +1,111 @@
+{
+  "default_enabled": false,
+  "production_provider_installed": false,
+  "authority": "none",
+  "api": [
+    {
+      "file": "package/owned_invocation_v1/adapter.py",
+      "symbol": "OwnedInvocationPolicy",
+      "line": 25,
+      "signature": null
+    },
+    {
+      "file": "package/owned_invocation_v1/adapter.py",
+      "symbol": "_Association",
+      "line": 41,
+      "signature": null
+    },
+    {
+      "file": "package/owned_invocation_v1/adapter.py",
+      "symbol": "_CompletionEvent",
+      "line": 46,
+      "signature": null
+    },
+    {
+      "file": "package/owned_invocation_v1/adapter.py",
+      "symbol": "_root_guard",
+      "line": 50,
+      "signature": "owner, association"
+    },
+    {
+      "file": "package/owned_invocation_v1/adapter.py",
+      "symbol": "_same_root",
+      "line": 57,
+      "signature": "owner, association, guard"
+    },
+    {
+      "file": "package/owned_invocation_v1/adapter.py",
+      "symbol": "_retain_original_association",
+      "line": 62,
+      "signature": "owner, event, record, *, session, capture_ref, sample_ref, current_read, registry_ref, history_refs, mapping_receipt, source_bound_receipt, dispatch_bound_receipt, source_deadline_ns, dispatch_deadline_ns, previous_action, previous_deadline_ns"
+    },
+    {
+      "file": "package/owned_invocation_v1/adapter.py",
+      "symbol": "_OwnedInvocationAdapter",
+      "line": 107,
+      "signature": null
+    },
+    {
+      "file": "package/owned_invocation_v1/adapter.py",
+      "symbol": "_from_composition",
+      "line": 246,
+      "signature": "owner"
+    },
+    {
+      "file": "package/owned_invocation_v1/adapter.py",
+      "symbol": "_validate_config",
+      "line": 249,
+      "signature": "config, binding"
+    },
+    {
+      "file": "package/owned_invocation_v1/fixed.py",
+      "symbol": "_load",
+      "line": 5,
+      "signature": "name, path, pin"
+    },
+    {
+      "file": "package/owned_invocation_v1/mechanics.py",
+      "symbol": "need",
+      "line": 7,
+      "signature": "ok, reason"
+    },
+    {
+      "file": "package/owned_invocation_v1/mechanics.py",
+      "symbol": "uint",
+      "line": 9,
+      "signature": "x, lo=0"
+    },
+    {
+      "file": "package/owned_invocation_v1/mechanics.py",
+      "symbol": "encode",
+      "line": 11,
+      "signature": "value"
+    },
+    {
+      "file": "package/owned_invocation_v1/mechanics.py",
+      "symbol": "pair_state",
+      "line": 12,
+      "signature": "raw"
+    },
+    {
+      "file": "package/owned_invocation_v1/mechanics.py",
+      "symbol": "_body_direction",
+      "line": 24,
+      "signature": "q, v"
+    },
+    {
+      "file": "package/owned_invocation_v1/mechanics.py",
+      "symbol": "quantize_target",
+      "line": 30,
+      "signature": "advice, public, profile, duration_ms, motion"
+    }
+  ],
+  "original_admission_callsite": "original channels.verify_observation inside ActorComposition.accept_observation transaction, before returning exact VerifiedObservation",
+  "public_composition_calls": [
+    "accept_observation",
+    "poll_owned_invocation",
+    "inspect_owned_candidate",
+    "accept_completion"
+  ],
+  "second_h12_implemented": false
+}
