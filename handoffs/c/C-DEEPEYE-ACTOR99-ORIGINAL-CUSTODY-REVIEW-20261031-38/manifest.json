@@ -1,0 +1,142 @@
+{
+  "artifacts": [
+    "handoffs/c/C-DEEPEYE-ACTOR99-ORIGINAL-CUSTODY-REVIEW-20261031-38/_world_loop.py.parent.diff",
+    "handoffs/c/C-DEEPEYE-ACTOR99-ORIGINAL-CUSTODY-REVIEW-20261031-38/actor_composition.py.parent.diff",
+    "handoffs/c/C-DEEPEYE-ACTOR99-ORIGINAL-CUSTODY-REVIEW-20261031-38/AST-parent-delta.json",
+    "handoffs/c/C-DEEPEYE-ACTOR99-ORIGINAL-CUSTODY-REVIEW-20261031-38/FINDINGS.json",
+    "handoffs/c/C-DEEPEYE-ACTOR99-ORIGINAL-CUSTODY-REVIEW-20261031-38/motion_executor.py.parent.diff",
+    "handoffs/c/C-DEEPEYE-ACTOR99-ORIGINAL-CUSTODY-REVIEW-20261031-38/original_world_actor_link.py.parent.diff",
+    "handoffs/c/C-DEEPEYE-ACTOR99-ORIGINAL-CUSTODY-REVIEW-20261031-38/README.md",
+    "handoffs/c/C-DEEPEYE-ACTOR99-ORIGINAL-CUSTODY-REVIEW-20261031-38/REVIEW.md",
+    "handoffs/c/C-DEEPEYE-ACTOR99-ORIGINAL-CUSTODY-REVIEW-20261031-38/root_source_book.py.parent.diff",
+    "handoffs/c/C-DEEPEYE-ACTOR99-ORIGINAL-CUSTODY-REVIEW-20261031-38/source-bytes.json.gz.b64",
+    "handoffs/c/C-DEEPEYE-ACTOR99-ORIGINAL-CUSTODY-REVIEW-20261031-38/source-commands.json",
+    "handoffs/c/C-DEEPEYE-ACTOR99-ORIGINAL-CUSTODY-REVIEW-20261031-38/source-pins.json",
+    "handoffs/c/C-DEEPEYE-ACTOR99-ORIGINAL-CUSTODY-REVIEW-20261031-38/verification-exit.json",
+    "handoffs/c/C-DEEPEYE-ACTOR99-ORIGINAL-CUSTODY-REVIEW-20261031-38/verification.stderr.txt",
+    "handoffs/c/C-DEEPEYE-ACTOR99-ORIGINAL-CUSTODY-REVIEW-20261031-38/verification.stdout.txt",
+    "handoffs/c/C-DEEPEYE-ACTOR99-ORIGINAL-CUSTODY-REVIEW-20261031-38/verify_static.py",
+    "handoffs/c/C-DEEPEYE-ACTOR99-ORIGINAL-CUSTODY-REVIEW-20261031-38/handoff-input-template.json"
+  ],
+  "files": {
+    "handoffs/c/C-DEEPEYE-ACTOR99-ORIGINAL-CUSTODY-REVIEW-20261031-38/AST-parent-delta.json": {
+      "sha256": "af3cf8c2c2447bf70e6ba58f8c60283ae329de519da7468deff1dbf8674016ad",
+      "size": 1524
+    },
+    "handoffs/c/C-DEEPEYE-ACTOR99-ORIGINAL-CUSTODY-REVIEW-20261031-38/FINDINGS.json": {
+      "sha256": "464ff89e143c9365e8eb82d8ae55a8f967012e85027d714c30d4a7e9a2696296",
+      "size": 1432
+    },
+    "handoffs/c/C-DEEPEYE-ACTOR99-ORIGINAL-CUSTODY-REVIEW-20261031-38/README.md": {
+      "sha256": "8c8ca8375a35f1a6e5c00ad0e88e9df469fdcc5ec718c0c84ba2fdaa6f06b6eb",
+      "size": 1932
+    },
+    "handoffs/c/C-DEEPEYE-ACTOR99-ORIGINAL-CUSTODY-REVIEW-20261031-38/REVIEW.md": {
+      "sha256": "a38dfcc6963cad103af64dfda8afba957097b76fe95810ed1b763a6c26e910f6",
+      "size": 14002
+    },
+    "handoffs/c/C-DEEPEYE-ACTOR99-ORIGINAL-CUSTODY-REVIEW-20261031-38/_world_loop.py.parent.diff": {
+      "sha256": "1a9ac276bb08a5da09b5550d287ddb0e4db9807774733661473e86245715f358",
+      "size": 3529
+    },
+    "handoffs/c/C-DEEPEYE-ACTOR99-ORIGINAL-CUSTODY-REVIEW-20261031-38/actor_composition.py.parent.diff": {
+      "sha256": "d8d22585af6b8bfaab14ad450ea1ef35256e58d30694990010770fe88465c3d3",
+      "size": 2215
+    },
+    "handoffs/c/C-DEEPEYE-ACTOR99-ORIGINAL-CUSTODY-REVIEW-20261031-38/handoff-input-template.json": {
+      "sha256": "e511fc884a5cfce361299b6b8539799a98e325b10f01e8b55c12cfd4727f0558",
+      "size": 2729
+    },
+    "handoffs/c/C-DEEPEYE-ACTOR99-ORIGINAL-CUSTODY-REVIEW-20261031-38/motion_executor.py.parent.diff": {
+      "sha256": "a497f6cf80faf4f16ee2182eedf12897d783089ab06b86722398b4cd57ce0f65",
+      "size": 957
+    },
+    "handoffs/c/C-DEEPEYE-ACTOR99-ORIGINAL-CUSTODY-REVIEW-20261031-38/original_world_actor_link.py.parent.diff": {
+      "sha256": "7f89a2021ee3d43c7ece1ab09f6b42b6d82512aa83a98830f5de02812c56ad9b",
+      "size": 20743
+    },
+    "handoffs/c/C-DEEPEYE-ACTOR99-ORIGINAL-CUSTODY-REVIEW-20261031-38/root_source_book.py.parent.diff": {
+      "sha256": "a7850f19ea8e5aaa5807c39187443496631473a1f6b57756eabde6db9e6ed712",
+      "size": 6622
+    },
+    "handoffs/c/C-DEEPEYE-ACTOR99-ORIGINAL-CUSTODY-REVIEW-20261031-38/source-bytes.json.gz.b64": {
+      "sha256": "46284ae0056b480fd085176cf3e502de4b61d5d769726bc9504faac84a07348a",
+      "size": 259396
+    },
+    "handoffs/c/C-DEEPEYE-ACTOR99-ORIGINAL-CUSTODY-REVIEW-20261031-38/source-commands.json": {
+      "sha256": "445ee0029336b246497684bb91697713155b8bb0a4bbce715d0f280a42008172",
+      "size": 11654
+    },
+    "handoffs/c/C-DEEPEYE-ACTOR99-ORIGINAL-CUSTODY-REVIEW-20261031-38/source-pins.json": {
+      "sha256": "f45e884cf8e6eadc5605f65034e3a32197efb8d5116a6faec502c1d642a28904",
+      "size": 6496
+    },
+    "handoffs/c/C-DEEPEYE-ACTOR99-ORIGINAL-CUSTODY-REVIEW-20261031-38/verification-exit.json": {
+      "sha256": "f0c5d63cbf1913b17ceaeddb6c4527de44b02e82b56beff3d7688904ff204d72",
+      "size": 237
+    },
+    "handoffs/c/C-DEEPEYE-ACTOR99-ORIGINAL-CUSTODY-REVIEW-20261031-38/verification.stderr.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0
+    },
+    "handoffs/c/C-DEEPEYE-ACTOR99-ORIGINAL-CUSTODY-REVIEW-20261031-38/verification.stdout.txt": {
+      "sha256": "0306110468f5f21718a2531bea35150da0b630c263eb7b29981db4c132d95267",
+      "size": 389
+    },
+    "handoffs/c/C-DEEPEYE-ACTOR99-ORIGINAL-CUSTODY-REVIEW-20261031-38/verify_static.py": {
+      "sha256": "09f72c0b91f61c779b9a97320b8eeee09766d5c5b43f78788d37e70d04bd6e5e",
+      "size": 3980
+    }
+  },
+  "request": {
+    "code_commit": "06c33bde12a31399a6c9af3d445fd420e726dbe3",
+    "expected_result": "Exact 21 source pins and five static parent deltas verified; C38-R1 OPEN, source_approved=false; runtime/local_function NOT_RUN.",
+    "operation_id": "C-DEEPEYE-ACTOR99-ORIGINAL-CUSTODY-REVIEW-20261031-38",
+    "requester": "node-c",
+    "task_id": "DEEPEYE-IMPLEMENTATION-20261014",
+    "task_version": 1,
+    "test_steps": [
+      "Offline byte/AST packaging verification only: python handoffs/c/C-DEEPEYE-ACTOR99-ORIGINAL-CUSTODY-REVIEW-20261031-38/verify_static.py",
+      "Read REVIEW.md and OPEN C38-R1; no candidate/local-function/runtime tests executed."
+    ]
+  },
+  "request_hash": "d3485533a19bb9c4a270110f5ff05048b8f473229842523a556bcb8ef1cbdf54",
+  "schema_version": 1,
+  "stages": {
+    "final_acceptance": {
+      "status": "not_run"
+    },
+    "full_chain": {
+      "status": "not_run"
+    },
+    "implementation": {
+      "status": "not_run"
+    },
+    "local_function": {
+      "status": "not_run"
+    },
+    "model_qualification": {
+      "status": "not_run"
+    },
+    "packaging_verification": {
+      "log": "handoffs/c/C-DEEPEYE-ACTOR99-ORIGINAL-CUSTODY-REVIEW-20261031-38/verification.stdout.txt",
+      "status": "passed"
+    },
+    "physical_board": {
+      "status": "not_run"
+    },
+    "rtl_simulation": {
+      "status": "not_run"
+    },
+    "runtime": {
+      "status": "not_run"
+    },
+    "static_source_review": {
+      "log": "handoffs/c/C-DEEPEYE-ACTOR99-ORIGINAL-CUSTODY-REVIEW-20261031-38/REVIEW.md",
+      "status": "failed"
+    },
+    "synthesis": {
+      "status": "not_run"
+    }
+  }
+}
