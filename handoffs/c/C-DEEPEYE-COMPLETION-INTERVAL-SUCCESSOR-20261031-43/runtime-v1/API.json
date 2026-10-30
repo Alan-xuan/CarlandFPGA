@@ -1,0 +1,27 @@
+{
+  "abi_id": "host_completion_interval_successor_v2",
+  "runtime": "completion_interval.py",
+  "host_patch": "completion-interval-successor.patch",
+  "schema": "completion_interval.schema.json",
+  "base_A_commit": "42f3de654aef3d52300ae1cfb16e3ac512ea2cea",
+  "base_host_sha256": "025adf0eee851327f6492ac853b77bc6ebfbb26c17eb7960f01baf644de4b7fd",
+  "runtime_sha256": "05da98393d47f3eaf4690d8979d2e37d2e4f1e0b00c801177a3fb6a3f84bbe96",
+  "default": "original scalar/v1 behavior, no successor import",
+  "opt_in_host_keywords": {
+    "enable_completion_interval": true,
+    "completion_bounds": "exactdict max_age_ns/source_deadline_ns/dispatch_deadline_ns/previous_deadline_ns"
+  },
+  "standalone_entry": "validate_message(raw_bytes, *, legacy, producer, context, now_ns, consumer=None, enable_interval=False, bounds=None)",
+  "downstream_entry": "adapt_action_candidate(candidate, *, host_issue_ns, now_ns, previous_deadline_ns)",
+  "version": 2,
+  "kind": "model_candidate",
+  "basis": "host_dispatch_to_complete_result_observed_v1",
+  "time": "exact uint63, ordered closed observation interval, upper<=now",
+  "validity": "exclusive min(lower+max_age, source_deadline, dispatch_deadline, explicit previous if present)>now",
+  "max_age_ns_limit": 100000000,
+  "overflow": "reject checked additions, no wrapping or saturation",
+  "downstream_duration": "full exact target duration must fit; refuse rather than truncate or renew",
+  "STOP": "original zero target and null observation allowed; downstream deadline None, no positive lease",
+  "completion_scalar_synthesized": false,
+  "authority": "none"
+}

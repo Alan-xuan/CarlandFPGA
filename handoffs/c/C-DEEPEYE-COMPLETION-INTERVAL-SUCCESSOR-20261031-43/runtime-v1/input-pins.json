@@ -1,0 +1,70 @@
+{
+  "main_pins": [
+    {
+      "ref": "42f3de654aef3d52300ae1cfb16e3ac512ea2cea",
+      "path": "competition/deepeye/docs/host_contract.json",
+      "git_blob": "11ae4992cb4983684c90460f5622d41efae76670",
+      "bytes": 19892,
+      "sha256": "a291d48a8791757bf0d612bdcc08d4c5c0d2a133b57990e803063619f8a88f28",
+      "local": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\main-20261015-01a14025\\C43-20261031\\main\\inputs\\host_contract.json"
+    },
+    {
+      "ref": "42f3de654aef3d52300ae1cfb16e3ac512ea2cea",
+      "path": "competition/deepeye/docs/host_timing_contract.md",
+      "git_blob": "2118b7fbb2a21cf9f00dc1154c4ae55c7381c7c4",
+      "bytes": 8180,
+      "sha256": "0f15f4f2589f4804ef671d520531fc12f163d2df21ca887e40723492f2eff5ff",
+      "local": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\main-20261015-01a14025\\C43-20261031\\main\\inputs\\host_timing_contract.md"
+    },
+    {
+      "ref": "42f3de654aef3d52300ae1cfb16e3ac512ea2cea",
+      "path": "competition/deepeye/integration/host_envelope.py",
+      "git_blob": "705ef2e8b33d0e8c3874e65172dd334307c5a889",
+      "bytes": 26184,
+      "sha256": "025adf0eee851327f6492ac853b77bc6ebfbb26c17eb7960f01baf644de4b7fd",
+      "local": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\main-20261015-01a14025\\C43-20261031\\main\\inputs\\host_envelope.py"
+    }
+  ],
+  "dependency_GETs": [
+    {
+      "argv": [
+        "gh",
+        "api",
+        "--method",
+        "GET",
+        "-H",
+        "Accept: application/vnd.github.raw+json",
+        "repos/carolwjade/CarlandFPGA/contents/competition/deepeye/integration/wire.py?ref=42f3de654aef3d52300ae1cfb16e3ac512ea2cea"
+      ],
+      "start_utc": "2026-10-30T20:12:02.564324+00:00",
+      "end_utc": "2026-10-30T20:12:03.478969+00:00",
+      "exit_code": 0,
+      "timeout_seconds": 20,
+      "bytes": 5459,
+      "sha256": "31533439f1bab32ca71fae138bb988f51ce1d043b4e364a6c33a09eab1d5f5ec",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "ca2a7d9ad44c239cbf36840d35a502a306cd6834"
+    },
+    {
+      "argv": [
+        "gh",
+        "api",
+        "--method",
+        "GET",
+        "-H",
+        "Accept: application/vnd.github.raw+json",
+        "repos/carolwjade/CarlandFPGA/contents/competition/deepeye/integration/motion.py?ref=42f3de654aef3d52300ae1cfb16e3ac512ea2cea"
+      ],
+      "start_utc": "2026-10-30T20:12:03.487839+00:00",
+      "end_utc": "2026-10-30T20:12:04.375304+00:00",
+      "exit_code": 0,
+      "timeout_seconds": 20,
+      "bytes": 3935,
+      "sha256": "6f221f8a2c7180d615dfaad4080153a18bcf553417e764407c47dbedccb3df7e",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "be9bb5d6a1d005306b25c2fc62ee15ce1598c7dc"
+    }
+  ],
+  "contract_verified": true,
+  "A41_verified": true
+}

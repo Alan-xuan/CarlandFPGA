@@ -1,0 +1,1051 @@
+--- a/competition/deepeye/integration/host_envelope.py
++++ b/competition/deepeye/integration/host_envelope.py
+@@ -586,7 +586,8 @@
+ }
+ 
+ 
+-def validate_message(raw_bytes, *, producer, context, now_ns, consumer=None):
++def validate_message(raw_bytes, *, producer, context, now_ns, consumer=None,
++                     enable_completion_interval=False, completion_bounds=None):
+     """Validate one bounded envelope; raise ValueError on any rejection.
+ 
+     ``producer`` and ``context`` are caller-asserted (authenticated upstream);
+@@ -597,6 +598,17 @@
+     capture, request and observation history and deadlines before any grant,
+     and stale grants stay the caller's responsibility to reject.
+     """
++    if type(enable_completion_interval) is not bool:
++        raise ValueError('enable_completion_interval must be bool')
++    if enable_completion_interval:
++        adapter = sys.modules.get('deepeye_completion_interval')
++        if adapter is None:
++            adapter = _load_sibling('deepeye_completion_interval', 'completion_interval.py')
++        return adapter.validate_message(raw_bytes, legacy=sys.modules[__name__],
++            producer=producer, context=context, now_ns=now_ns, consumer=consumer,
++            enable_interval=True, bounds=completion_bounds)
++    if completion_bounds is not None:
++        raise ValueError('completion_bounds require explicit interval opt-in')
+     schema = _sealed_schema()
+     message_validator, context_validator = _validators()
+     _check_producer_argument(producer, schema)
+--- /dev/null
++++ b/competition/deepeye/integration/completion_interval.py
+@@ -0,0 +1,144 @@
++"""Explicit opt-in host model-candidate interval successor; no grant or I/O.
++
++Default forwards the exact v1 call. Opt-in reuses original schema/types and all
++original producer/context/observation/target/consumer gates without a scalar.
++The legacy object and supplied bounds are process-call contracts, not proof.
++"""
++import copy
++from dataclasses import dataclass
++import hashlib
++import json
++from types import MappingProxyType
++
++BASIS='host_dispatch_to_complete_result_observed_v1'
++UINT63=(1<<63)-1
++MAX_CANDIDATE_AGE_NS=100_000_000
++BASE_SCHEMA_CANONICAL_SHA256='28a0d7721da1287c41665f8757346c4e3b81a15dbb651d3ab4bcf52d3b5e9b2f'
++
++class Rejected(ValueError):pass
++class Unavailable(ValueError):pass
++
++def _need(condition,reason):
++    if not condition:raise Rejected(reason)
++
++def _uint(value,label):
++    _need(type(value) is int and 0<=value<=UINT63,label+': uint63 required')
++    return value
++
++def _freeze(value):
++    if type(value) is dict:return MappingProxyType({k:_freeze(v) for k,v in value.items()})
++    if type(value) is list:return tuple(_freeze(v) for v in value)
++    return value
++
++def _schema(legacy):
++    original=legacy._sealed_schema()
++    raw=json.dumps(original,sort_keys=True,separators=(',',':'),ensure_ascii=False).encode()
++    _need(hashlib.sha256(raw).hexdigest()==BASE_SCHEMA_CANONICAL_SHA256,'original schema pin mismatch')
++    schema=copy.deepcopy(original)
++    schema['$id']='urn:carlandfpga:deepeye:host-model-candidate-completion-interval:v2'
++    schema['title']='Explicit opt-in model candidate completion interval revision 2'
++    schema['oneOf']=[{'$ref':'#/$defs/model_candidate_interval'}]
++    candidate=copy.deepcopy(schema['$defs']['model_candidate'])
++    candidate['properties']['schema_version']={'const':2}
++    del candidate['properties']['completed_monotonic_ns']
++    candidate['required'].remove('completed_monotonic_ns')
++    candidate['properties']['completion_observed_interval_ns']={'$ref':'#/$defs/interval_ns'}
++    candidate['properties']['basis']={'const':BASIS}
++    candidate['required']+=['completion_observed_interval_ns','basis']
++    schema['$defs']['model_candidate_interval']=candidate
++    return schema
++
++@dataclass(frozen=True,slots=True)
++class IntervalCandidate:
++    kind: str
++    producer: str
++    consumer: object
++    authority_only: bool
++    document: object
++    valid_until_ns: int
++    validated_at_ns: int
++    bounds: object
++
++@dataclass(frozen=True,slots=True)
++class FiniteActionCandidate:
++    """Exact existing target/observation plus a conservative deadline; no command."""
++    candidate: IntervalCandidate
++    host_issue_ns: int
++    deadline_ns: object
++    authority: str='none'
++
++
++def _validity(bounds,lower,now):
++    _need(type(bounds) is dict and set(bounds)=={'max_age_ns','source_deadline_ns','dispatch_deadline_ns','previous_deadline_ns'},'exact four explicit bounds required')
++    # No unspecified previous sentinel: first candidate must explicitly pass None.
++    age=_uint(bounds['max_age_ns'],'max_age_ns')
++    _need(0<age<=MAX_CANDIDATE_AGE_NS,'max_age_ns must be 1..100000000')
++    source=bounds['source_deadline_ns'];dispatch=bounds['dispatch_deadline_ns'];previous=bounds['previous_deadline_ns']
++    if source is not None:_uint(source,'source_deadline_ns')
++    if dispatch is not None:_uint(dispatch,'dispatch_deadline_ns')
++    if previous is not None:_uint(previous,'previous_deadline_ns')
++    _need(lower<=UINT63-age,'lower plus max_age_ns overflows uint63')
++    if source is None or dispatch is None:raise Unavailable('original source and dispatch bounds required')
++    caps=[lower+age,source,dispatch]
++    if previous is not None:caps.append(previous)
++    deadline=min(caps)
++    if deadline<=now:raise Unavailable('candidate original lower/source/dispatch/previous deadline expired')
++    return deadline
++
++
++def validate_message(raw_bytes,*,legacy,producer,context,now_ns,consumer=None,
++                     enable_interval=False,bounds=None):
++    """v1 default; explicit v2 interval and original finite bounds required.
++
++    No call fabricates completed_monotonic_ns. Returns original v1 result when
++    disabled, IntervalCandidate when enabled. No registration or new authority.
++    """
++    _need(type(enable_interval) is bool,'enable_interval must be bool')
++    if not enable_interval:
++        _need(bounds is None,'bounds require explicit interval opt-in')
++        return legacy.validate_message(raw_bytes,producer=producer,context=context,now_ns=now_ns,consumer=consumer)
++    schema=_schema(legacy)
++    legacy._check_producer_argument(producer,schema)
++    _uint(now_ns,'now_ns')
++    _,context_validator=legacy._validators()
++    legacy._check_context_argument(context,context_validator)
++    document=legacy._parse_message(raw_bytes)
++    error=next(legacy.StrictDraft202012Validator(schema).iter_errors(document),None)
++    if error is not None:raise Rejected('interval schema reject: '+legacy._describe(error))
++    kind=document['kind']
++    _need(kind in schema['x-producers'][producer],'producer may not carry model_candidate')
++    legacy._check_message_context(document,context)
++    legacy._check_nested_contexts(document,context)
++    legacy._check_intervals(document,kind,now_ns)
++    # These are the original candidate's other two gates, without its scalar.
++    legacy._check_target(document['target'],legacy._profile_name(context))
++    legacy._require_observation(document)
++    legacy._check_consumer_argument(consumer,False,schema)
++    span=document['completion_observed_interval_ns']
++    lower=_uint(span['lower_ns'],'lower_ns');upper=_uint(span['upper_ns'],'upper_ns')
++    _need(lower<=upper<=now_ns,'ordered interval must end by now')
++    if bounds is None:raise Unavailable('original completion bounds missing')
++    deadline=_validity(bounds,lower,now_ns)
++    return IntervalCandidate(kind,producer,consumer,False,_freeze(document),deadline,now_ns,_freeze(bounds))
++
++
++def adapt_action_candidate(candidate,*,host_issue_ns,now_ns,previous_deadline_ns):
++    """Produce a finite downstream candidate, never motion_request or grant.
++
++    SET_TARGET duration must fit fully within retained caps; no shortening or
++    renewal is implicit. STOP retains zero target and gets no positive lease.
++    Original authority/PC_DIRECT still checks its live state and all source gates.
++    """
++    _need(isinstance(candidate,IntervalCandidate),'interval candidate required')
++    issue=_uint(host_issue_ns,'host_issue_ns');now=_uint(now_ns,'now_ns')
++    _need(candidate.validated_at_ns<=issue<=now,'issue must follow validation and not be future')
++    if previous_deadline_ns is not None:_uint(previous_deadline_ns,'previous_deadline_ns')
++    target=candidate.document['target']
++    if target['action']==0:return FiniteActionCandidate(candidate,issue,None)
++    duration=target['duration_ms']*1_000_000
++    _need(issue<=UINT63-duration,'issue plus target duration overflows uint63')
++    requested_end=issue+duration
++    deadline=min(candidate.valid_until_ns,previous_deadline_ns) if previous_deadline_ns is not None else candidate.valid_until_ns
++    if deadline<=now or requested_end<=now:raise Unavailable('finite action candidate expired')
++    if requested_end>deadline:raise Unavailable('full requested target duration exceeds original validity')
++    return FiniteActionCandidate(candidate,issue,requested_end)
+--- /dev/null
++++ b/competition/deepeye/docs/completion_interval.schema.json
+@@ -0,0 +1,810 @@
++{
++  "$schema": "https://json-schema.org/draft/2020-12/schema",
++  "$id": "urn:carlandfpga:deepeye:host-model-candidate-completion-interval:v2",
++  "title": "Explicit opt-in model candidate completion interval revision 2",
++  "description": "A-owned structure contract only. Runtime cross-field validation, ACL separation and measured timing/capture are required independently. No product acceptance.",
++  "x-owner": "A-main",
++  "x-implementation-task": "DEEPEYE-IMPLEMENTATION-20261014/v1",
++  "x-design-commit": "1011259415a0916054eb580687612580bc1e5f09",
++  "x-immutable-scope-sha256": "c229834bfc2292f5fe4411fc9f12c68487008f9d1adaf31f0144ee7a98173804",
++  "x-status": "structure_reviewed_runtime_and_process_isolation_not_run",
++  "oneOf": [
++    {
++      "$ref": "#/$defs/model_candidate_interval"
++    }
++  ],
++  "$defs": {
++    "interval_ns": {
++      "type": "object",
++      "properties": {
++        "lower_ns": {
++          "type": "integer",
++          "minimum": 0,
++          "maximum": 9223372036854775807
++        },
++        "upper_ns": {
++          "type": "integer",
++          "minimum": 0,
++          "maximum": 9223372036854775807
++        }
++      },
++      "required": [
++        "lower_ns",
++        "upper_ns"
++      ],
++      "additionalProperties": false
++    },
++    "context": {
++      "type": "object",
++      "properties": {
++        "session": {
++          "type": "integer",
++          "minimum": 0,
++          "maximum": 4294967295
++        },
++        "config_epoch": {
++          "type": "integer",
++          "minimum": 0,
++          "maximum": 255
++        },
++        "boot_sha256": {
++          "type": "string",
++          "pattern": "^[0-9a-f]{64}$"
++        },
++        "transport_profile_id": {
++          "enum": [
++            1,
++            2
++          ]
++        },
++        "source_id": {
++          "enum": [
++            1,
++            2,
++            3,
++            4
++          ]
++        },
++        "topology_id": {
++          "enum": [
++            1,
++            2,
++            3
++          ]
++        },
++        "acquisition_profile_id": {
++          "enum": [
++            1,
++            2,
++            3
++          ]
++        }
++      },
++      "required": [
++        "session",
++        "config_epoch",
++        "boot_sha256",
++        "transport_profile_id",
++        "source_id",
++        "topology_id",
++        "acquisition_profile_id"
++      ],
++      "additionalProperties": false
++    },
++    "observation_key": {
++      "type": "object",
++      "properties": {
++        "context": {
++          "$ref": "#/$defs/context"
++        },
++        "observed_seq": {
++          "type": "integer",
++          "minimum": 0,
++          "maximum": 65535
++        }
++      },
++      "required": [
++        "context",
++        "observed_seq"
++      ],
++      "additionalProperties": false
++    },
++    "motion_target": {
++      "type": "object",
++      "properties": {
++        "action": {
++          "enum": [
++            0,
++            1
++          ]
++        },
++        "yaw_q": {
++          "type": "integer",
++          "minimum": -15000,
++          "maximum": 15000
++        },
++        "pitch_q": {
++          "type": "integer",
++          "minimum": -15000,
++          "maximum": 15000
++        },
++        "speed_code": {
++          "type": "integer",
++          "minimum": 0,
++          "maximum": 20
++        },
++        "duration_ms": {
++          "type": "integer",
++          "minimum": 0,
++          "maximum": 12000
++        }
++      },
++      "required": [
++        "action",
++        "yaw_q",
++        "pitch_q",
++        "speed_code",
++        "duration_ms"
++      ],
++      "additionalProperties": false
++    },
++    "pose": {
++      "type": "object",
++      "properties": {
++        "position_m": {
++          "type": "array",
++          "items": {
++            "type": "number"
++          },
++          "minItems": 3,
++          "maxItems": 3
++        },
++        "orientation_xyzw": {
++          "type": "array",
++          "items": {
++            "type": "number"
++          },
++          "minItems": 4,
++          "maxItems": 4
++        },
++        "position_error_bound_m": {
++          "type": "number",
++          "minimum": 0
++        },
++        "orientation_error_bound_rad": {
++          "type": "number",
++          "minimum": 0
++        }
++      },
++      "required": [
++        "position_m",
++        "orientation_xyzw",
++        "position_error_bound_m",
++        "orientation_error_bound_rad"
++      ],
++      "additionalProperties": false
++    },
++    "gate": {
++      "type": "object",
++      "properties": {
++        "face": {
++          "enum": [
++            "+X",
++            "-X",
++            "+Y",
++            "-Y",
++            "+Z",
++            "-Z"
++          ]
++        },
++        "center_m": {
++          "type": "array",
++          "items": {
++            "type": "number"
++          },
++          "minItems": 3,
++          "maxItems": 3
++        },
++        "radius_m": {
++          "const": 0.15
++        }
++      },
++      "required": [
++        "face",
++        "center_m",
++        "radius_m"
++      ],
++      "additionalProperties": false
++    },
++    "telem_observation": {
++      "type": "object",
++      "properties": {
++        "schema_version": {
++          "const": 1
++        },
++        "context": {
++          "$ref": "#/$defs/context"
++        },
++        "kind": {
++          "const": "telem_observation"
++        },
++        "observed_seq": {
++          "type": "integer",
++          "minimum": 0,
++          "maximum": 65535
++        },
++        "tick_ms_raw": {
++          "type": "integer",
++          "minimum": 0,
++          "maximum": 4294967295
++        },
++        "receipt_interval_ns": {
++          "$ref": "#/$defs/interval_ns"
++        },
++        "adc_last_interval_ns": {
++          "oneOf": [
++            {
++              "$ref": "#/$defs/interval_ns"
++            },
++            {
++              "type": "null"
++            }
++          ]
++        },
++        "adc_first_interval_ns": {
++          "oneOf": [
++            {
++              "$ref": "#/$defs/interval_ns"
++            },
++            {
++              "type": "null"
++            }
++          ]
++        },
++        "native_em_interval_ns": {
++          "oneOf": [
++            {
++              "$ref": "#/$defs/interval_ns"
++            },
++            {
++              "type": "null"
++            }
++          ]
++        },
++        "sample_count": {
++          "enum": [
++            50,
++            800
++          ]
++        },
++        "mean_counts": {
++          "type": "array",
++          "items": {
++            "type": "integer",
++            "minimum": 0,
++            "maximum": 65535
++          },
++          "minItems": 4,
++          "maxItems": 4
++        },
++        "range_counts": {
++          "type": "array",
++          "items": {
++            "type": "integer",
++            "minimum": 0,
++            "maximum": 65535
++          },
++          "minItems": 4,
++          "maxItems": 4
++        },
++        "quality_flags": {
++          "type": "integer",
++          "minimum": 0,
++          "maximum": 65535
++        },
++        "wire_frame_hex": {
++          "type": "string",
++          "pattern": "^[0-9a-f]{64}$"
++        }
++      },
++      "required": [
++        "schema_version",
++        "context",
++        "kind",
++        "observed_seq",
++        "tick_ms_raw",
++        "receipt_interval_ns",
++        "adc_last_interval_ns",
++        "adc_first_interval_ns",
++        "native_em_interval_ns",
++        "sample_count",
++        "mean_counts",
++        "range_counts",
++        "quality_flags",
++        "wire_frame_hex"
++      ],
++      "additionalProperties": false
++    },
++    "event_observation": {
++      "type": "object",
++      "properties": {
++        "schema_version": {
++          "const": 1
++        },
++        "context": {
++          "$ref": "#/$defs/context"
++        },
++        "kind": {
++          "const": "event_observation"
++        },
++        "observed_seq": {
++          "type": "integer",
++          "minimum": 0,
++          "maximum": 65535
++        },
++        "tick_ms_raw": {
++          "type": "integer",
++          "minimum": 0,
++          "maximum": 4294967295
++        },
++        "receipt_interval_ns": {
++          "$ref": "#/$defs/interval_ns"
++        },
++        "trigger_sample_interval_ns": {
++          "oneOf": [
++            {
++              "$ref": "#/$defs/interval_ns"
++            },
++            {
++              "type": "null"
++            }
++          ]
++        },
++        "bitmap": {
++          "type": "integer",
++          "minimum": 0,
++          "maximum": 65535
++        },
++        "channel": {
++          "type": "integer",
++          "minimum": 0,
++          "maximum": 3
++        },
++        "severity": {
++          "type": "integer",
++          "minimum": 0,
++          "maximum": 255
++        },
++        "peak_counts": {
++          "type": "integer",
++          "minimum": 0,
++          "maximum": 65535
++        },
++        "wire_frame_hex": {
++          "type": "string",
++          "pattern": "^[0-9a-f]{40}$"
++        }
++      },
++      "required": [
++        "schema_version",
++        "context",
++        "kind",
++        "observed_seq",
++        "tick_ms_raw",
++        "receipt_interval_ns",
++        "trigger_sample_interval_ns",
++        "bitmap",
++        "channel",
++        "severity",
++        "peak_counts",
++        "wire_frame_hex"
++      ],
++      "additionalProperties": false
++    },
++    "model_candidate": {
++      "type": "object",
++      "properties": {
++        "schema_version": {
++          "const": 1
++        },
++        "context": {
++          "$ref": "#/$defs/context"
++        },
++        "kind": {
++          "const": "model_candidate"
++        },
++        "candidate_id": {
++          "type": "integer",
++          "minimum": 0,
++          "maximum": 9223372036854775807
++        },
++        "model_sha256": {
++          "type": "string",
++          "pattern": "^[0-9a-f]{64}$"
++        },
++        "observation": {
++          "oneOf": [
++            {
++              "$ref": "#/$defs/observation_key"
++            },
++            {
++              "type": "null"
++            }
++          ]
++        },
++        "completed_monotonic_ns": {
++          "type": "integer",
++          "minimum": 0,
++          "maximum": 9223372036854775807
++        },
++        "target": {
++          "$ref": "#/$defs/motion_target"
++        }
++      },
++      "required": [
++        "schema_version",
++        "context",
++        "kind",
++        "candidate_id",
++        "model_sha256",
++        "observation",
++        "completed_monotonic_ns",
++        "target"
++      ],
++      "additionalProperties": false
++    },
++    "motion_request": {
++      "type": "object",
++      "properties": {
++        "schema_version": {
++          "const": 1
++        },
++        "context": {
++          "$ref": "#/$defs/context"
++        },
++        "kind": {
++          "const": "motion_request"
++        },
++        "candidate_id": {
++          "type": "integer",
++          "minimum": 0,
++          "maximum": 9223372036854775807
++        },
++        "command_seq": {
++          "type": "integer",
++          "minimum": 0,
++          "maximum": 65535
++        },
++        "observation": {
++          "oneOf": [
++            {
++              "$ref": "#/$defs/observation_key"
++            },
++            {
++              "type": "null"
++            }
++          ]
++        },
++        "host_issue_monotonic_ns": {
++          "type": "integer",
++          "minimum": 0,
++          "maximum": 9223372036854775807
++        },
++        "target": {
++          "$ref": "#/$defs/motion_target"
++        }
++      },
++      "required": [
++        "schema_version",
++        "context",
++        "kind",
++        "candidate_id",
++        "command_seq",
++        "observation",
++        "host_issue_monotonic_ns",
++        "target"
++      ],
++      "additionalProperties": false
++    },
++    "motion_grant": {
++      "type": "object",
++      "properties": {
++        "schema_version": {
++          "const": 1
++        },
++        "context": {
++          "$ref": "#/$defs/context"
++        },
++        "kind": {
++          "const": "motion_grant"
++        },
++        "command_seq": {
++          "type": "integer",
++          "minimum": 0,
++          "maximum": 65535
++        },
++        "observation": {
++          "oneOf": [
++            {
++              "$ref": "#/$defs/observation_key"
++            },
++            {
++              "type": "null"
++            }
++          ]
++        },
++        "target": {
++          "$ref": "#/$defs/motion_target"
++        },
++        "action_source": {
++          "enum": [
++            "board_capture",
++            "pc_direct_host",
++            "fpga_local_capture"
++          ]
++        },
++        "deadline_monotonic_ns": {
++          "type": "integer",
++          "minimum": 0,
++          "maximum": 9223372036854775807
++        },
++        "capture_seq": {
++          "oneOf": [
++            {
++              "type": "integer",
++              "minimum": 0,
++              "maximum": 65535
++            },
++            {
++              "type": "null"
++            }
++          ]
++        }
++      },
++      "required": [
++        "schema_version",
++        "context",
++        "kind",
++        "command_seq",
++        "observation",
++        "target",
++        "action_source",
++        "deadline_monotonic_ns",
++        "capture_seq"
++      ],
++      "additionalProperties": false
++    },
++    "odometry": {
++      "type": "object",
++      "properties": {
++        "schema_version": {
++          "const": 1
++        },
++        "context": {
++          "$ref": "#/$defs/context"
++        },
++        "kind": {
++          "const": "odometry"
++        },
++        "at_interval_ns": {
++          "$ref": "#/$defs/interval_ns"
++        },
++        "pose": {
++          "$ref": "#/$defs/pose"
++        },
++        "provenance": {
++          "enum": [
++            "executed_motion_integrator",
++            "encoder_estimate"
++          ]
++        }
++      },
++      "required": [
++        "schema_version",
++        "context",
++        "kind",
++        "at_interval_ns",
++        "pose",
++        "provenance"
++      ],
++      "additionalProperties": false
++    },
++    "public_task_geometry": {
++      "type": "object",
++      "properties": {
++        "schema_version": {
++          "const": 1
++        },
++        "context": {
++          "$ref": "#/$defs/context"
++        },
++        "kind": {
++          "const": "public_task_geometry"
++        },
++        "cube_half_extent_m": {
++          "const": 15
++        },
++        "drill_radius_m": {
++          "const": 0.12
++        },
++        "drill_length_m": {
++          "const": 0.8
++        },
++        "minimum_turn_radius_m": {
++          "const": 2
++        },
++        "acceleration_bound_m_s2": {
++          "const": 0.25
++        },
++        "entry_blue": {
++          "$ref": "#/$defs/gate"
++        },
++        "exit_red": {
++          "$ref": "#/$defs/gate"
++        },
++        "initial_odometry": {
++          "$ref": "#/$defs/pose"
++        }
++      },
++      "required": [
++        "schema_version",
++        "context",
++        "kind",
++        "cube_half_extent_m",
++        "drill_radius_m",
++        "drill_length_m",
++        "minimum_turn_radius_m",
++        "acceleration_bound_m_s2",
++        "entry_blue",
++        "exit_red",
++        "initial_odometry"
++      ],
++      "additionalProperties": false
++    },
++    "board_response": {
++      "type": "object",
++      "properties": {
++        "schema_version": {
++          "const": 1
++        },
++        "context": {
++          "$ref": "#/$defs/context"
++        },
++        "kind": {
++          "const": "board_response"
++        },
++        "receipt_interval_ns": {
++          "$ref": "#/$defs/interval_ns"
++        },
++        "wire_frame_hex": {
++          "type": "string",
++          "pattern": "^(?:[0-9a-f]{2}){14,46}$"
++        },
++        "timing_record_sha256": {
++          "oneOf": [
++            {
++              "type": "string",
++              "pattern": "^[0-9a-f]{64}$"
++            },
++            {
++              "type": "null"
++            }
++          ]
++        },
++        "physical_capture_record_sha256": {
++          "oneOf": [
++            {
++              "type": "string",
++              "pattern": "^[0-9a-f]{64}$"
++            },
++            {
++              "type": "null"
++            }
++          ]
++        }
++      },
++      "required": [
++        "schema_version",
++        "context",
++        "kind",
++        "receipt_interval_ns",
++        "wire_frame_hex",
++        "timing_record_sha256",
++        "physical_capture_record_sha256"
++      ],
++      "additionalProperties": false
++    },
++    "model_candidate_interval": {
++      "type": "object",
++      "properties": {
++        "schema_version": {
++          "const": 2
++        },
++        "context": {
++          "$ref": "#/$defs/context"
++        },
++        "kind": {
++          "const": "model_candidate"
++        },
++        "candidate_id": {
++          "type": "integer",
++          "minimum": 0,
++          "maximum": 9223372036854775807
++        },
++        "model_sha256": {
++          "type": "string",
++          "pattern": "^[0-9a-f]{64}$"
++        },
++        "observation": {
++          "oneOf": [
++            {
++              "$ref": "#/$defs/observation_key"
++            },
++            {
++              "type": "null"
++            }
++          ]
++        },
++        "target": {
++          "$ref": "#/$defs/motion_target"
++        },
++        "completion_observed_interval_ns": {
++          "$ref": "#/$defs/interval_ns"
++        },
++        "basis": {
++          "const": "host_dispatch_to_complete_result_observed_v1"
++        }
++      },
++      "required": [
++        "schema_version",
++        "context",
++        "kind",
++        "candidate_id",
++        "model_sha256",
++        "observation",
++        "target",
++        "completion_observed_interval_ns",
++        "basis"
++      ],
++      "additionalProperties": false
++    }
++  },
++  "x-producers": {
++    "hardware_bridge": [
++      "telem_observation",
++      "event_observation",
++      "board_response"
++    ],
++    "ai_controller": [
++      "model_candidate"
++    ],
++    "control_broker": [
++      "motion_request"
++    ],
++    "world_authority": [
++      "motion_grant",
++      "odometry",
++      "public_task_geometry"
++    ]
++  },
++  "x-cross-field-invariants": [
++    "Reject duplicate JSON keys, NaN/Infinity, non-integral timestamps and booleans as integer fields; bounded message length before parsing.",
++    "All nested context fields must equal the top-level context and active negotiated BOOT/profile/session; unknown fields or enums reject.",
++    "Re-encode/reparse wire_frame_hex with ABI3 CRC/length/type; header sequence/config_epoch/tick and payload must exactly match envelope.",
++    "TELEM count is50 for fast_9600 and800 for stress_300; sample windows are actual acquisition windows, not receipt times.",
++    "Intervals satisfy0<=lower<=upper; unknown intervals are null and block motion. Native EM interval remains null without verified source phase.",
++    "Candidates complete no later than host now; candidate/command ids cannot roll back or wrap within a session. Latest completed mailbox never revives consumed or retired work.",
++    "Duration <=3000ms FAST or <=12000ms STRESS; action STOP requires all target fields zero and may carry null observation. SET_TARGET requires a nonnull fresh actual FPGA observation in formal HIL/PC_DIRECT.",
++    "Validate target combined curvature and zero-speed q rule; preserve first-send/original TTL and monotonically shrinking deadline under host_timing_contract.md.",
++    "Grant producers are authenticated by process/pipe ACL, not by the kind string; ai_controller/broker cannot write the grant pipe.",
++    "HIL/topology1 usesboard_capture and nonnullcapture_seq; PC_DIRECT/topology2 usespc_direct_host and nullcapture_seq; topology3 isprotectivebaseline, notcomplete-routeclaim.",
++    "Pose quaternion finite, unit and xyzw; uncertain odometry contains only self pose. Gate centers must lie on selected faces with full-circle clearance and equal radii; geometry legality does not prove reachability.",
++    "No controller inputs may contain obstacle IDs/geometry/type/labels, hidden-map seeds, editor history, future sensors, collision queries, screenshots or precomputed hidden routes.",
++    "board_response is hardware_bridge-to-world_authority only, never a controller/model input. Decode ABI3 CRC and exact type/length; only STATE(8), CONFIG_ACK(9), GAIN_ACK(11), BOOT_ACK(13), ACK3D(15), STATE3D(16). The decoded session and applicable epoch must match context; current response/request/observation history and capture/TTL are independently checked by authority before any grant.",
++    "For BOOT_ACK, context is the proposed stopped-state negotiation, not an already-enabled context. Exact complete BOOT/profile echo and fresh session are required before activating it. A stored measurement hash is a reference, never authentication or a substitute for verified measurement content; null timing/capture evidence cannot authorize HIL motion.",
++    "STATE(8) is a 32-byte physical GAIN or PC_DIRECT health/clock heartbeat. It never provides three-axis motion capture, observed_seq, sample freshness, or a renewed motion deadline. PC_DIRECT STATE requires physical_capture_record_sha256=null; fault state is forwarded for authority to stop."
++  ],
++  "x-authority-only-kinds": [
++    "board_response"
++  ]
++}
+--- /dev/null
++++ b/competition/deepeye/docs/host_completion_interval_v2.md
+@@ -0,0 +1,58 @@
++# C43 opt-in completion interval successor
++
++The original A source is fixed at 42f3de654aef3d52300ae1cfb16e3ac512ea2cea. The three provided source files and the two explicitly authorized wire.py/motion.py dependencies are pinned in input-pins.json. No deployed A/C file is changed. `patched/` is a private review/test tree. The distribution delta is completion_interval.py, completion_interval.schema.json, host_envelope.py.patch and this specification; baseline/ and dependencies/ are evidence, not an alternate deployed runtime.
++
++## Concrete APIs
++
++The minimal host patch adds keyword-only `enable_completion_interval=False, completion_bounds=None` to the original validate_message. Default calls continue the original body; no successor module is loaded. An enabled call lazily loads the new sibling and uses its v2 branch:
++
++```
++checked = host_envelope.validate_message(
++    original_candidate_bytes,
++    producer=original_producer, context=original_context,
++    now_ns=original_host_now, consumer=original_consumer,
++    enable_completion_interval=True,
++    completion_bounds={
++        'max_age_ns': original_candidate_max_age_ns,
++        'source_deadline_ns': original_source_deadline_ns,
++        'dispatch_deadline_ns': original_dispatch_deadline_ns,
++        'previous_deadline_ns': original_previous_deadline_or_None,
++    })
++```
++
++The standalone adapter is `completion_interval.validate_message(raw_bytes, *, legacy, producer, context, now_ns, consumer=None, enable_interval=False, bounds=None)`. `legacy` is the actual original host module, not a JSON proof label. Its default forwards to the exact scalar/v1 entry. The new opt-in branch takes only schema_version=2/kind=model_candidate. It never temporarily synthesizes completed_monotonic_ns to trick the old candidate checker.
++
++New wire fields replace the scalar: `completion_observed_interval_ns:{lower_ns,upper_ns}` and `basis:'host_dispatch_to_complete_result_observed_v1'`. All other fields, observation/context/target definitions, enum types and producer/consumer restrictions remain those of the pinned original. Every original definition is retained verbatim structurally in the successor schema; only a new model_candidate_interval definition and root selection are added. The old JSON schema file is unchanged. Runtime regenerates the same schema from the pinned canonical original schema; the separately saved new JSON is its exact equivalent.
++
++## Original timing bounds and expiry
++
++Lower is the actual original host observation before request dispatch; upper is the actual original host observation after the entire RESULT was observed. Both must be in the same original fixed host clock. They are uint63 integers, never booleans/floats; `lower<=upper<=now`. This interval is not an exact CPU-finish measurement. Actual provider/pipe/process/transcript/source association belongs to A; serialization and the legacy module call contract authenticate nothing.
++
++The bounds dictionary must have exactly all four keys. max_age_ns is an integer1..100000000. Original source and dispatch deadlines must be supplied; None is Unavailable, not infinity. previous_deadline_ns must be explicitly supplied as an original integer or None only when no previous deadline exists. Missing keys are rejected. Checked uint63 addition refuses lower+max_age overflow; it does not wrap, round or silently saturate.
++
++```
++valid_until_ns = min(lower + max_age_ns,
++                     original_source_deadline_ns,
++                     original_dispatch_deadline_ns,
++                     original_previous_deadline_ns if present)
++```
++
++Admission requires valid_until_ns>now. This is an exclusive deadline, matching the existing timing contract's rule that a deadline at or before now cannot support motion. Thus at the age expiry point no residual validity is granted, even though an unrelated source-age consistency check may include exactly100ms. C28/C40 source checks are unchanged. A later upper bound, process survival, initialization event, READY, reconnect or retry cannot move this deadline. Bounds are retained in the immutable checked result for downstream review. Missing evidence does not become a fallback scalar.
++
++The new result is a frozen IntervalCandidate with recursively immutable original document, valid_until_ns, validated_at_ns and bounds. It is consistency data, not ValidatedMessage authority, _CompletedInference, registration, BOOT or a motion grant. Caller creation of the dataclass is not evidence; the original provider must retain the actual validator result and live association.
++
++## Concrete provider / PC_DIRECT handoff
++
++After the real C41 pair verifier and original provider bindings pass, A's original provider serializes its real candidate_id/model_sha256/context/observation/target with the two observed bounds and fixed basis. The code above validates this explicit v2 document. No identifier or successful receipt is derived here. The finite downstream adapter is implemented, not deferred:
++
++```
++finite = completion_interval.adapt_action_candidate(
++    checked, host_issue_ns=original_issue_ns,
++    now_ns=original_host_now,
++    previous_deadline_ns=original_action_previous_deadline_or_None)
++```
++
++The adapter requires issue>=checked.validation_time and issue<=now. For SET_TARGET, it preserves the exact existing target and computes issue+target.duration_ms*1000000 with checked uint63 addition. The entire requested duration must fit within the checked interval/source/dispatch/previous caps AND the explicitly supplied action previous deadline. Otherwise it returns Unavailable; it never silently truncates duration or refreshes from upper. It returns the original immutable candidate plus host_issue_ns and the finite requested end as deadline_ns, with authority='none'. The original authority/PC_DIRECT path must still apply its normal live source/observation/BOOT/run/fault/collision/command-consumption checks and take the minimum with its actual current PC_DIRECT/HIL bounds. No motion_request, command_seq, grant, owner registration or runtime state is synthesized.
++
++STOP retains the original requirement of zero yaw/pitch/speed/duration and may use null observation. The checked v2 candidate still needs its stated interval bounds at validation. Adapting that STOP produces deadline_ns=None: no positive lease or motion duration, even if subsequently used to request stopping after the candidate expires. Original STOP channels and scalar/v1 behavior remain available and unmodified by default.
++

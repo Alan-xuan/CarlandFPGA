@@ -1,0 +1,6 @@
+{
+  "source_approved": true,
+  "review_passed": true,
+  "open_findings": [],
+  "scope": "Explicit opt-in static host validation and finite candidate only; original provider and live authority integration remain A-owned and unverified"
+}

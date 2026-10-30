@@ -1,0 +1,436 @@
+{
+  "files": [
+    {
+      "path": "implementation-v1/acquire_dependencies.py",
+      "bytes": 1904,
+      "sha256": "937968a2861c431572565dd4abc5116486186cfdefbb6fea85dd639e3d13b9b7"
+    },
+    {
+      "path": "implementation-v1/API.json",
+      "bytes": 1633,
+      "sha256": "70bee99d7dd96af261c054f7901b3cb64359c23fd44e607e033581d5b869c4a0"
+    },
+    {
+      "path": "implementation-v1/baseline/docs/host_contract.json",
+      "bytes": 19892,
+      "sha256": "a291d48a8791757bf0d612bdcc08d4c5c0d2a133b57990e803063619f8a88f28"
+    },
+    {
+      "path": "implementation-v1/baseline/docs/host_timing_contract.md",
+      "bytes": 8180,
+      "sha256": "0f15f4f2589f4804ef671d520531fc12f163d2df21ca887e40723492f2eff5ff"
+    },
+    {
+      "path": "implementation-v1/baseline/integration/host_envelope.py",
+      "bytes": 26184,
+      "sha256": "025adf0eee851327f6492ac853b77bc6ebfbb26c17eb7960f01baf644de4b7fd"
+    },
+    {
+      "path": "implementation-v1/baseline/integration/motion.py",
+      "bytes": 3935,
+      "sha256": "6f221f8a2c7180d615dfaad4080153a18bcf553417e764407c47dbedccb3df7e"
+    },
+    {
+      "path": "implementation-v1/baseline/integration/wire.py",
+      "bytes": 5459,
+      "sha256": "31533439f1bab32ca71fae138bb988f51ce1d043b4e364a6c33a09eab1d5f5ec"
+    },
+    {
+      "path": "implementation-v1/completion-interval-successor.patch",
+      "bytes": 37433,
+      "sha256": "37f6b42d5d7a662a86d1e787b63896ae36ab0fee868fc0ef48c65ea6ba4fb22d"
+    },
+    {
+      "path": "implementation-v1/completion_interval.py",
+      "bytes": 7271,
+      "sha256": "05da98393d47f3eaf4690d8979d2e37d2e4f1e0b00c801177a3fb6a3f84bbe96"
+    },
+    {
+      "path": "implementation-v1/completion_interval.schema.json",
+      "bytes": 21658,
+      "sha256": "e432fc0dda967df2635cb8f3e4d72bf4cef1253c86aa0f1ff4c4ba1214832f0d"
+    },
+    {
+      "path": "implementation-v1/dependencies/attempt02/download.command.json",
+      "bytes": 1337,
+      "sha256": "b43d20c9854e70814c7da378af186f124a6ae663b52d73e29e550d970ece73bc"
+    },
+    {
+      "path": "implementation-v1/dependencies/attempt02/download.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "implementation-v1/dependencies/attempt02/download.stdout",
+      "bytes": 2981,
+      "sha256": "e778ed8da54f92d5e1fdc41e6d98d45a852606811f700de7ef0c12a462709629"
+    },
+    {
+      "path": "implementation-v1/dependencies/attempt02/install.command.json",
+      "bytes": 1258,
+      "sha256": "479f7d7fd75d3e1ef60192adea8f0f4cf99aa166066384a6a988e8e4f4ab6a38"
+    },
+    {
+      "path": "implementation-v1/dependencies/attempt02/install.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "implementation-v1/dependencies/attempt02/install.stdout",
+      "bytes": 1379,
+      "sha256": "e9a0f7e4e026008636265655839a4d0e9bd6c02b640709802520f6249e9fe50f"
+    },
+    {
+      "path": "implementation-v1/dependencies/attempt02/pip-download.log",
+      "bytes": 2489873,
+      "sha256": "a0486874ef2ddba1531e9acdeb940f1e8a7a181e1e2dcb6c40b60fcf0df85bde"
+    },
+    {
+      "path": "implementation-v1/dependencies/attempt02/resolved-wheels.json",
+      "bytes": 2514,
+      "sha256": "425b773ff3d36e61e31d295d68699e0dbc0d2cbdd7df1d70d6799259ec032d95"
+    },
+    {
+      "path": "implementation-v1/dependencies/download.command.json",
+      "bytes": 1073,
+      "sha256": "ea89e6eacb2d877e29f999bc54e12c095c688051050a22f22c0ffb5f7b32fde9"
+    },
+    {
+      "path": "implementation-v1/dependencies/download.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "implementation-v1/dependencies/download.stdout",
+      "bytes": 1025,
+      "sha256": "f05b3f94a4fdc97113ed018a559b105870363b9c966218a9df44159d736c41ee"
+    },
+    {
+      "path": "implementation-v1/dependencies/motion.py",
+      "bytes": 3935,
+      "sha256": "6f221f8a2c7180d615dfaad4080153a18bcf553417e764407c47dbedccb3df7e"
+    },
+    {
+      "path": "implementation-v1/dependencies/motion.py.command.json",
+      "bytes": 660,
+      "sha256": "79e2848852b32fea9f58eadcff70d083cef84c64e5c25392a79d34e1947e19a8"
+    },
+    {
+      "path": "implementation-v1/dependencies/motion.py.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "implementation-v1/dependencies/pip-download.log",
+      "bytes": 5669527,
+      "sha256": "4592030e70bc4eb905a70a42ef8d256859b6561ab89c57cfaace119e454b34ef"
+    },
+    {
+      "path": "implementation-v1/dependencies/wire.py",
+      "bytes": 5459,
+      "sha256": "31533439f1bab32ca71fae138bb988f51ce1d043b4e364a6c33a09eab1d5f5ec"
+    },
+    {
+      "path": "implementation-v1/dependencies/wire.py.command.json",
+      "bytes": 658,
+      "sha256": "e532a69564d766d893bcbfcd795405d0d4cfeeeebbb0a649eef0bd538a273613"
+    },
+    {
+      "path": "implementation-v1/dependencies/wire.py.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "implementation-v1/host_completion_interval_v2.md",
+      "bytes": 6486,
+      "sha256": "5b7f616a6de288d9db187fad91dfca7da7b7fefe11b17c45e9c0c037947ac5a4"
+    },
+    {
+      "path": "implementation-v1/host_envelope.py.patch",
+      "bytes": 1565,
+      "sha256": "6f38afa414bd962c77663f941bf83f7320f3194d4f0195315574bff8368a05e3"
+    },
+    {
+      "path": "implementation-v1/input-pins.json",
+      "bytes": 2994,
+      "sha256": "c1914fb4949f7be337c8b43d73ca1f686cc79f469626b06f42954b11543d2afb"
+    },
+    {
+      "path": "implementation-v1/patched/docs/host_contract.json",
+      "bytes": 19892,
+      "sha256": "a291d48a8791757bf0d612bdcc08d4c5c0d2a133b57990e803063619f8a88f28"
+    },
+    {
+      "path": "implementation-v1/patched/docs/host_timing_contract.md",
+      "bytes": 8180,
+      "sha256": "0f15f4f2589f4804ef671d520531fc12f163d2df21ca887e40723492f2eff5ff"
+    },
+    {
+      "path": "implementation-v1/patched/integration/completion_interval.py",
+      "bytes": 7271,
+      "sha256": "05da98393d47f3eaf4690d8979d2e37d2e4f1e0b00c801177a3fb6a3f84bbe96"
+    },
+    {
+      "path": "implementation-v1/patched/integration/host_envelope.py",
+      "bytes": 26945,
+      "sha256": "20b2221491825964f91381f68053a13bf3867347d35896ce1dd132c4a8972c3b"
+    },
+    {
+      "path": "implementation-v1/patched/integration/motion.py",
+      "bytes": 3935,
+      "sha256": "6f221f8a2c7180d615dfaad4080153a18bcf553417e764407c47dbedccb3df7e"
+    },
+    {
+      "path": "implementation-v1/patched/integration/wire.py",
+      "bytes": 5459,
+      "sha256": "31533439f1bab32ca71fae138bb988f51ce1d043b4e364a6c33a09eab1d5f5ec"
+    },
+    {
+      "path": "implementation-v1/prepare_integration.py",
+      "bytes": 3590,
+      "sha256": "eae3d685bdeaec107d9d9173be3b16d3d8923275eacd3153d2aba389d634a51a"
+    },
+    {
+      "path": "implementation-v1/prepare_test_dependencies.py",
+      "bytes": 2231,
+      "sha256": "1ce2a5365265be8f49ea6404cbdf4d9e156bad648149d8f2670b33eb3b55178d"
+    },
+    {
+      "path": "implementation-v1/prepare_test_dependencies02.py",
+      "bytes": 3159,
+      "sha256": "baebbd525a73879ad830ebf8cea72f551968dd6c7c211351e5e42590a7075106"
+    },
+    {
+      "path": "implementation-v1/README.md",
+      "bytes": 9267,
+      "sha256": "3869147dcf6165581b912e3e1c1e7569931b68ea0f1331eae8010f5f87c23fbd"
+    },
+    {
+      "path": "implementation-v1/run01.command-exit.json",
+      "bytes": 1056,
+      "sha256": "cbba31d53317065fb749e168d7790cf2a32ab19db66078a446de2a2c0f0aa308"
+    },
+    {
+      "path": "implementation-v1/run01.stderr",
+      "bytes": 1271,
+      "sha256": "9c779f4b4d80f1c73fbdd682c41f318b2f6342ba37c2dc53d6036ea4867755f4"
+    },
+    {
+      "path": "implementation-v1/run01.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "implementation-v1/run02.command-exit.json",
+      "bytes": 1056,
+      "sha256": "c21cb25ea22d80d8ed7ebf496a4f0aed6f87fa6ce8c12fb2175c57a10b0e9ee7"
+    },
+    {
+      "path": "implementation-v1/run02.stderr",
+      "bytes": 1552,
+      "sha256": "a0072df765f18d35662ce314d2b677624b35bb5060b924c273b0e269e95e3644"
+    },
+    {
+      "path": "implementation-v1/run02.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "implementation-v1/run03.command-exit.json",
+      "bytes": 1056,
+      "sha256": "ed547be97021d660afeb67d5d84f79e28ec825dffabeefcb0a82e210cf0059a8"
+    },
+    {
+      "path": "implementation-v1/run03.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "implementation-v1/run03.stdout",
+      "bytes": 610,
+      "sha256": "aa04f4660caa19bf5413c8b89c7f0caacf1c7c654ed1529591f85c1b00d50f40"
+    },
+    {
+      "path": "implementation-v1/run_phase.py",
+      "bytes": 1243,
+      "sha256": "8661230a3bed8e8e7bafe247db4671b5b037e751208b99a8d3b269100e414aff"
+    },
+    {
+      "path": "implementation-v1/static-audit.json",
+      "bytes": 653,
+      "sha256": "da1e3807b7ce44a31c168a5d5a0c2d92ef174f915750651701773f571d4a7868"
+    },
+    {
+      "path": "implementation-v1/static_audit.py",
+      "bytes": 4217,
+      "sha256": "57d096ec1cf5160dcff624753525344001050f84d993e63010f2d6c602d7661f"
+    },
+    {
+      "path": "implementation-v1/synthetic-candidate.json",
+      "bytes": 814,
+      "sha256": "e9eb608a540892faa374eeac38d9f97b6bee335f8c4c5f3f8d505c285c1b85f1"
+    },
+    {
+      "path": "implementation-v1/test_c43_new.py",
+      "bytes": 9345,
+      "sha256": "92b096606afb955da213070f21793c040f70e70e52e497de72a859bad7695d16"
+    },
+    {
+      "path": "implementation-v1/test_c43_new.run01.py",
+      "bytes": 9287,
+      "sha256": "d1a03b47068ab228de9a3752d34bd6b702115ad014218a9437d90b8f1cbabeef"
+    },
+    {
+      "path": "review-v1/author-raw-review.json",
+      "bytes": 7150,
+      "sha256": "3b828d277e187392717e7aed091506b97d1255bab767e500656cc8894db11e59"
+    },
+    {
+      "path": "review-v1/checks.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "review-v1/checks.stdout",
+      "bytes": 1875,
+      "sha256": "05878e1bd47379e71f62d97ceb805bc8752cba812b43894efc8c192b76d039f3"
+    },
+    {
+      "path": "review-v1/command-exit.json",
+      "bytes": 792,
+      "sha256": "14727e13d1f8d0881ce52de72431e6b043b2a1635917aab27e95ee808b719865"
+    },
+    {
+      "path": "review-v1/FINDINGS.json",
+      "bytes": 241,
+      "sha256": "918a2c8446c4268c771a342ee1e4b05cd43dc92fce042ee37a51416dfc942631"
+    },
+    {
+      "path": "review-v1/independent_checks.py",
+      "bytes": 6259,
+      "sha256": "f7da130a961f27864d405f9534acd6aacf35f554bddd1c60db2aec19f0c79e95"
+    },
+    {
+      "path": "review-v1/new-evidence/checked-addition-at-uint63-max.input.json",
+      "bytes": 997,
+      "sha256": "983a09c3794925c5d12906f8294dae4e7092225ff45206da826915389fc14031"
+    },
+    {
+      "path": "review-v1/new-evidence/checked-addition-at-uint63-max.output.json",
+      "bytes": 75,
+      "sha256": "5e97f4c198fe208cf211703c0bb79e1a897aa898fb9f8396b79a00de498c12bb"
+    },
+    {
+      "path": "review-v1/new-evidence/detached-inputs-and-delayed-duration.input.json",
+      "bytes": 1049,
+      "sha256": "49a41bd8905d3a82afa55dda05798cee00a7994964289db857826faa1cc3fdcd"
+    },
+    {
+      "path": "review-v1/new-evidence/detached-inputs-and-delayed-duration.output.json",
+      "bytes": 1267,
+      "sha256": "6e956e69f0b409ff7613ff8ca509f79f7f6b39621f6a7ccb4e262b99683f1e7e"
+    },
+    {
+      "path": "review-v1/new-evidence/later-observation-cannot-extend-minimum.input.json",
+      "bytes": 241,
+      "sha256": "b2258e6d437db660d6c7182f555a79374a070776b0fb71507376a2ca43f25dd0"
+    },
+    {
+      "path": "review-v1/new-evidence/later-observation-cannot-extend-minimum.output.json",
+      "bytes": 2365,
+      "sha256": "5c9a821f11950843208bfb83516971d22e2393c33988a6be09ef926308f33aa8"
+    },
+    {
+      "path": "review-v1/new-evidence/previous-action-cap-one-ns-short.input.json",
+      "bytes": 70,
+      "sha256": "40a358a61defa6cb5dbf9ed71d3bcfc159821ec321bd5389d159bc6e3cb0b7b9"
+    },
+    {
+      "path": "review-v1/new-evidence/previous-action-cap-one-ns-short.output.json",
+      "bytes": 96,
+      "sha256": "6db06ad1fa07b75b62a73ae2c3af2eac25490cf03b24669490efd8779fb6a998"
+    },
+    {
+      "path": "review-v1/new-evidence/previous-cap-exact-expiry.input.json",
+      "bytes": 1020,
+      "sha256": "767a72f3ab215c2ef85ea0b5c8b00bef4b00edec316be64aebd6e347de71e3f5"
+    },
+    {
+      "path": "review-v1/new-evidence/previous-cap-exact-expiry.output.json",
+      "bytes": 106,
+      "sha256": "699346a49223f74bd6fdd0d357a3ba326f21e418908a4c5917c2bca964a98509"
+    },
+    {
+      "path": "review-v1/new-evidence/results.json",
+      "bytes": 2102,
+      "sha256": "3f6f269e9aa82a5532b2000dcbc78f0b67289d8a1e83c8f2e3087a2c35b7ddfc"
+    },
+    {
+      "path": "review-v1/new-evidence/uint63-exact-cap-and-duration-equality.input.json",
+      "bytes": 1003,
+      "sha256": "d37129941c08e4282a863c9ecfa42d5226bfe6ad2461ba33d46727460de4c3b6"
+    },
+    {
+      "path": "review-v1/new-evidence/uint63-exact-cap-and-duration-equality.output.json",
+      "bytes": 1259,
+      "sha256": "6cf6597f4d1e1b7e485fb4fcfbe3c28afe70f4614a7f7cc374ce6d9ac515e67c"
+    },
+    {
+      "path": "review-v1/new-evidence/v1-retains-unbounded-caller-now-default.input.json",
+      "bytes": 30,
+      "sha256": "769c1125977cb4d926458d15164842624bf1876e032441f32e3376e17c26cf7a"
+    },
+    {
+      "path": "review-v1/new-evidence/v1-retains-unbounded-caller-now-default.output.json",
+      "bytes": 746,
+      "sha256": "46f72b73887956d684abc193f636f904e91873309e163b5cfd5d764c428d76eb"
+    },
+    {
+      "path": "review-v1/new-evidence/zero-width-observed-interval-one-ns-validity.input.json",
+      "bytes": 997,
+      "sha256": "49c71c87171ee25a850f527d6a40dcf4aee616e5e77030bd9e529c7e1fa4f86d"
+    },
+    {
+      "path": "review-v1/new-evidence/zero-width-observed-interval-one-ns-validity.output.json",
+      "bytes": 1270,
+      "sha256": "111a2b145ebae7e08db0aa9c6ba9ae926ac2c56e06c631c33728ae8490954f38"
+    },
+    {
+      "path": "review-v1/REVIEW.md",
+      "bytes": 6212,
+      "sha256": "5345825e73509286d6269e55771e9078f2c0c6011810590cc894a8ba604363ab"
+    },
+    {
+      "path": "review-v1/static-checks.json",
+      "bytes": 143,
+      "sha256": "b9b06d8004eca846272ed6d06ca5b906f75096f1c4815738584ea9d9a90a0434"
+    }
+  ],
+  "main_approval": {
+    "source_approved": true,
+    "scope": "Explicit opt-in completion interval validation and finite action candidate only",
+    "runtime_sha256": "05da98393d47f3eaf4690d8979d2e37d2e4f1e0b00c801177a3fb6a3f84bbe96",
+    "schema_sha256": "e432fc0dda967df2635cb8f3e4d72bf4cef1253c86aa0f1ff4c4ba1214832f0d",
+    "complete_patch_sha256": "37f6b42d5d7a662a86d1e787b63896ae36ab0fee868fc0ef48c65ea6ba4fb22d",
+    "independent_FINAL_sha256": "4fc5e2a9fbb9acecc1be22cb5e4ac1719c7b4a13a5433578719e4b2f65bf7951",
+    "author_test_exits": [
+      1,
+      0
+    ],
+    "first_failure_before_collection": true,
+    "new_author_methods": 11,
+    "static_audit_exit": 0,
+    "independent_new_cases": 8,
+    "independent_exit_code": 0,
+    "old_suite_rerun": false,
+    "original_provider_integrated": false,
+    "native_run": false,
+    "formal_acceptance": false,
+    "open_findings": [],
+    "main_review": "Read complete runtime, exact minimal host diff, original timing contract, author and reviewer raw logs, all eight independent control inputs/outputs and checker source; verified frozen artifacts, raw hashes/exits, actual terminal events and immutable ownership release. Caller provenance/live clock/downstream grant remain A-owned."
+  },
+  "synthetic_controls_only": true,
+  "dependency_failures_retained": true,
+  "third_party_wheels_excluded": true,
+  "fixed_wheel_hashes": "implementation-v1/dependencies/attempt02/resolved-wheels.json"
+}
