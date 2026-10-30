@@ -1,0 +1,147 @@
+{
+  "artifacts": [
+    "handoffs/c/C-DEEPEYE-C30-STALE-ADMISSION-SEMANTICS-20261030-32/abi-contract.json",
+    "handoffs/c/C-DEEPEYE-C30-STALE-ADMISSION-SEMANTICS-20261030-32/author-v1-new.stdout.json",
+    "handoffs/c/C-DEEPEYE-C30-STALE-ADMISSION-SEMANTICS-20261030-32/author-v2-repair.stdout.json",
+    "handoffs/c/C-DEEPEYE-C30-STALE-ADMISSION-SEMANTICS-20261030-32/baseline-to-candidate.diff",
+    "handoffs/c/C-DEEPEYE-C30-STALE-ADMISSION-SEMANTICS-20261030-32/independent-v1-red.stdout.json",
+    "handoffs/c/C-DEEPEYE-C30-STALE-ADMISSION-SEMANTICS-20261030-32/independent-v2-new.stdout.json",
+    "handoffs/c/C-DEEPEYE-C30-STALE-ADMISSION-SEMANTICS-20261030-32/independent-v2-replay.stdout.json",
+    "handoffs/c/C-DEEPEYE-C30-STALE-ADMISSION-SEMANTICS-20261030-32/independent_c32_checks.py",
+    "handoffs/c/C-DEEPEYE-C30-STALE-ADMISSION-SEMANTICS-20261030-32/independent_counter_closure.py",
+    "handoffs/c/C-DEEPEYE-C30-STALE-ADMISSION-SEMANTICS-20261030-32/independent_fixture.py",
+    "handoffs/c/C-DEEPEYE-C30-STALE-ADMISSION-SEMANTICS-20261030-32/local-evidence.json",
+    "handoffs/c/C-DEEPEYE-C30-STALE-ADMISSION-SEMANTICS-20261030-32/original-red-inputs.json",
+    "handoffs/c/C-DEEPEYE-C30-STALE-ADMISSION-SEMANTICS-20261030-32/private_raw4_time_association_v2.py",
+    "handoffs/c/C-DEEPEYE-C30-STALE-ADMISSION-SEMANTICS-20261030-32/README.md",
+    "handoffs/c/C-DEEPEYE-C30-STALE-ADMISSION-SEMANTICS-20261030-32/source-review.md",
+    "handoffs/c/C-DEEPEYE-C30-STALE-ADMISSION-SEMANTICS-20261030-32/test_counter_consistency_v2.py",
+    "handoffs/c/C-DEEPEYE-C30-STALE-ADMISSION-SEMANTICS-20261030-32/test_stale_admission_v2.py",
+    "handoffs/c/C-DEEPEYE-CAUSAL-FOUR-CHANNEL-PLANNER-20261029-28/candidate_four_channel_planner_v1.py",
+    "handoffs/c/C-DEEPEYE-PRIVATE-RAW4-TIME-ASSOCIATION-20261030-30/private_raw4_time_association_v1.py"
+  ],
+  "files": {
+    "handoffs/c/C-DEEPEYE-C30-STALE-ADMISSION-SEMANTICS-20261030-32/README.md": {
+      "sha256": "ff1a334d457220b47791ab623f69dd31b5503d1b58728b6b43252c3d4fc3c4ef",
+      "size": 12122
+    },
+    "handoffs/c/C-DEEPEYE-C30-STALE-ADMISSION-SEMANTICS-20261030-32/abi-contract.json": {
+      "sha256": "979971b750b9596b278d8e3149e8c12326156d56fa720c847f0cd7ee05b43224",
+      "size": 11563
+    },
+    "handoffs/c/C-DEEPEYE-C30-STALE-ADMISSION-SEMANTICS-20261030-32/author-v1-new.stdout.json": {
+      "sha256": "385933ddf0543239369ee678cd248c6237c0d64da9a91f06a813c47021d90592",
+      "size": 16725
+    },
+    "handoffs/c/C-DEEPEYE-C30-STALE-ADMISSION-SEMANTICS-20261030-32/author-v2-repair.stdout.json": {
+      "sha256": "0920e68d72098f09d03bed667f2551f144a4fd4bd0204d692274188680d87c6f",
+      "size": 8563
+    },
+    "handoffs/c/C-DEEPEYE-C30-STALE-ADMISSION-SEMANTICS-20261030-32/baseline-to-candidate.diff": {
+      "sha256": "69093497eba0a7401dbce26deb5f4bb14612e1ee78ee28d55f4befde997899aa",
+      "size": 38967
+    },
+    "handoffs/c/C-DEEPEYE-C30-STALE-ADMISSION-SEMANTICS-20261030-32/independent-v1-red.stdout.json": {
+      "sha256": "af6eb9ff3b6d9fff420e94b1a213d4d1d9a61215dd3f1582517a22198436e773",
+      "size": 21877
+    },
+    "handoffs/c/C-DEEPEYE-C30-STALE-ADMISSION-SEMANTICS-20261030-32/independent-v2-new.stdout.json": {
+      "sha256": "5b19182ea88af54a045395f8efb883af953f4e2ba435a8b888a286c032e4ec5a",
+      "size": 11327
+    },
+    "handoffs/c/C-DEEPEYE-C30-STALE-ADMISSION-SEMANTICS-20261030-32/independent-v2-replay.stdout.json": {
+      "sha256": "eaee5da8c0746696e0288fddb0445736b32c77d38213d9fc1131bf953233391b",
+      "size": 2201
+    },
+    "handoffs/c/C-DEEPEYE-C30-STALE-ADMISSION-SEMANTICS-20261030-32/independent_c32_checks.py": {
+      "sha256": "5d8ed0de9a7d314b2e4e5609bf452c017ed31bdf7762a8797b5f6247a282cbdc",
+      "size": 10973
+    },
+    "handoffs/c/C-DEEPEYE-C30-STALE-ADMISSION-SEMANTICS-20261030-32/independent_counter_closure.py": {
+      "sha256": "2c137226f67b6971d055a6aabd20664cce25edbd89a948edfa324b52c52df133",
+      "size": 7441
+    },
+    "handoffs/c/C-DEEPEYE-C30-STALE-ADMISSION-SEMANTICS-20261030-32/independent_fixture.py": {
+      "sha256": "dcdcfc96cee7accb2f01b0c6aacce9ed2f6b6ffcc74eff2f95375dcf689fc6de",
+      "size": 9064
+    },
+    "handoffs/c/C-DEEPEYE-C30-STALE-ADMISSION-SEMANTICS-20261030-32/local-evidence.json": {
+      "sha256": "3de202220462660a4562385d911678610e6488ed06e063357a7c695b4b289016",
+      "size": 74358
+    },
+    "handoffs/c/C-DEEPEYE-C30-STALE-ADMISSION-SEMANTICS-20261030-32/original-red-inputs.json": {
+      "sha256": "3b5fa6fb04caabd3760ba0deacda5fc01967ca8dbc547ae485765bbaa836d8db",
+      "size": 58625
+    },
+    "handoffs/c/C-DEEPEYE-C30-STALE-ADMISSION-SEMANTICS-20261030-32/private_raw4_time_association_v2.py": {
+      "sha256": "39fe63a3d71308fae9482e3203b4f5120c34d796ccd2b755b99a9de902005a87",
+      "size": 51109
+    },
+    "handoffs/c/C-DEEPEYE-C30-STALE-ADMISSION-SEMANTICS-20261030-32/source-review.md": {
+      "sha256": "10b94ef1d2d260afd871752da9cfda936527ced336b8c31b61a0bfee00c49543",
+      "size": 17150
+    },
+    "handoffs/c/C-DEEPEYE-C30-STALE-ADMISSION-SEMANTICS-20261030-32/test_counter_consistency_v2.py": {
+      "sha256": "9b5c3f0e2ca5dab5985147c71b6cb501b8074921f47f96026d7b387529c9b255",
+      "size": 16437
+    },
+    "handoffs/c/C-DEEPEYE-C30-STALE-ADMISSION-SEMANTICS-20261030-32/test_stale_admission_v2.py": {
+      "sha256": "88c5046fbc4e3a216cb7447bd1e3495da7494b9ca669fda49af80941990a8630",
+      "size": 20464
+    },
+    "handoffs/c/C-DEEPEYE-CAUSAL-FOUR-CHANNEL-PLANNER-20261029-28/candidate_four_channel_planner_v1.py": {
+      "sha256": "70b317681fee8c9182c342fe8d2f94eaecc957c62231a74a080d213bb5e0eab4",
+      "size": 17651
+    },
+    "handoffs/c/C-DEEPEYE-PRIVATE-RAW4-TIME-ASSOCIATION-20261030-30/private_raw4_time_association_v1.py": {
+      "sha256": "abaa06d10ab68f0bee721bf1a6d9278fc000446112ac559362079ad63afc686d",
+      "size": 48155
+    }
+  },
+  "request": {
+    "code_commit": "eb62c02f25cda180eb0e133dd7b9c6188d20a15a",
+    "expected_result": "C32 distinguishes structurally legal stale admissions from malformed input. It validates every supplied independently decidable identity, order, counter and resource constraint before returning unavailable for stale or missing evidence. Fresh complete input still invokes the one frozen C28 planner code object; default remains disabled with no authority. All complete fixtures are explicit synthetic structural evidence. Missing actual Root config/pose/action/native capture associations remains unavailable, never inferred from counters, endpoints or ACK. Original full uint63 anchor and inclusive100000000ns age gate remain;100000001ns is stale without timestamp rewriting. Initial prefix1001/10s, combined32 and byte/node/depth budgets remain. Actual A473319100ns/nullC3 facts are not relabeled as success. No actual Root/native/board/fullchain/model qualification or formal acceptance; all H01-H15, both H12 and29 gates retain their original status.",
+    "operation_id": "C-DEEPEYE-C30-STALE-ADMISSION-SEMANTICS-20261030-32",
+    "requester": "node-c",
+    "task_id": "DEEPEYE-IMPLEMENTATION-20261014",
+    "task_version": 1,
+    "test_steps": [
+      "Verify canonical manifest and unchanged sibling C28/C30 dependencies.",
+      "From this directory, under an external30s timeout: python -B independent_counter_closure.py . 39fe63a3d71308fae9482e3203b4f5120c34d796ccd2b755b99a9de902005a87 replay OUTPUT_DIR ; then new instead of replay. Original4 byte hashes verified, new23 expected pass.",
+      "Earlier v1 author53 and independent35 are historical versioned evidence, not final-v2 regressions; no old suite or actual Root/fullchain execution requested."
+    ]
+  },
+  "request_hash": "0240864235943ec35cd807eba4a215e3d81438db21a88612f93e65641653c6bf",
+  "schema_version": 1,
+  "stages": {
+    "final_acceptance": {
+      "status": "not_run"
+    },
+    "full_chain": {
+      "status": "not_run"
+    },
+    "implementation": {
+      "status": "not_run"
+    },
+    "local_function": {
+      "log": "handoffs/c/C-DEEPEYE-C30-STALE-ADMISSION-SEMANTICS-20261030-32/independent-v2-new.stdout.json",
+      "status": "passed"
+    },
+    "model_qualification": {
+      "status": "not_run"
+    },
+    "physical_board": {
+      "status": "not_run"
+    },
+    "rtl_simulation": {
+      "status": "not_run"
+    },
+    "source_review": {
+      "log": "handoffs/c/C-DEEPEYE-C30-STALE-ADMISSION-SEMANTICS-20261030-32/source-review.md",
+      "status": "passed"
+    },
+    "synthesis": {
+      "status": "not_run"
+    }
+  }
+}
