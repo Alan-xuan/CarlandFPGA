@@ -1,0 +1,31 @@
+{
+  "review_passed": true,
+  "source_approved": true,
+  "approval_scope": "Bounded finite-live-v2 source/software behavior only",
+  "open_findings": [],
+  "external_unverified": [
+    "Original provider completion-field mapping",
+    "A response-pair transport extension",
+    "Actual native lifetime and owner retirement",
+    "Real provider/source authentication"
+  ],
+  "native_runs": 0,
+  "model_runs": 0,
+  "board_runs": 0,
+  "old_suite_runs": 0,
+  "stage_executed": false,
+  "new_control_count": 3,
+  "new_control_processes": 1,
+  "new_control_exit_code": 0,
+  "reviewer_static_harness_exits": [
+    1,
+    0
+  ],
+  "author_exits": [
+    1,
+    0,
+    0
+  ],
+  "multicycle_acceptance": false,
+  "formal_acceptance": false
+}

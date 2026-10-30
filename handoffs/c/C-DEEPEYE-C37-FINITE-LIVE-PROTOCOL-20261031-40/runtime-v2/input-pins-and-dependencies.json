@@ -1,0 +1,26 @@
+{
+  "original_package": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\main-20261015-01a14025\\C37-20261031\\implementation-v1\\c37-owned-cpu-package",
+  "original_package_pins": {
+    "c37_entry.py": "e565f034213c5fb81df711cbf374340544e699ea57b9a7d8be93695511d41731",
+    "c37_package.py": "fa04f09e655ab514a7d7569bec4583e326006312c245e08ec44f21a7e6191b07",
+    "frozen_c28.py": "70b317681fee8c9182c342fe8d2f94eaecc957c62231a74a080d213bb5e0eab4",
+    "package-manifest.json": "37d85bc7cc630a0a31c4eba833f91d56d943f7af4220ffd169494abe22959286"
+  },
+  "requirements_verified": true,
+  "host_envelope": {
+    "commit": "5c192f34bad064b14e238747c2c569347257a62c",
+    "path": "competition/deepeye/integration/host_envelope.py",
+    "sha256": "025adf0eee851327f6492ac853b77bc6ebfbb26c17eb7960f01baf644de4b7fd",
+    "lines": [
+      431,
+      432
+    ],
+    "original_GET_record": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\main-20261015-01a14025\\C28-four-channel-planner-20261029\\inventory\\host_envelope.command.json",
+    "current_at_A35_unverified": true,
+    "gap": "completed_monotonic_ns scalar only checked <=now; no authenticated CPU completion measurement established. Host actual observation interval requires A original provider mapping, never child/projection/max timestamp substitution."
+  },
+  "runtime_inventory_reference": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\main-20261015-01a14025\\C37-20261031\\implementation-v1\\runtime-inventory.json",
+  "runtime_inventory_sha256": "498003c217bfb5562f1a6e90c16f13434900aa381b9821cf092814bcba4d1fbb",
+  "repaired_stager_reference": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\main-20261015-01a14025\\C37-20261031\\repair-stage-v1\\stage_package.py",
+  "repaired_stager_sha256": "07293493207c19f7b39297165907c28e221797b0b2c037e9b1c85d28a3597c14"
+}
