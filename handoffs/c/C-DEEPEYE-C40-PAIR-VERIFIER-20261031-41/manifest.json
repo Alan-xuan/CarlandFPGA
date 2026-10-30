@@ -1,0 +1,100 @@
+{
+  "artifacts": [
+    "handoffs/c/C-DEEPEYE-C40-PAIR-VERIFIER-20261031-41/runtime-v1/ABI.json",
+    "handoffs/c/C-DEEPEYE-C40-PAIR-VERIFIER-20261031-41/runtime-v1/c40_pair_verifier_v1.py",
+    "handoffs/c/C-DEEPEYE-C40-PAIR-VERIFIER-20261031-41/runtime-v1/evidence-index.json",
+    "handoffs/c/C-DEEPEYE-C40-PAIR-VERIFIER-20261031-41/runtime-v1/evidence.zip",
+    "handoffs/c/C-DEEPEYE-C40-PAIR-VERIFIER-20261031-41/runtime-v1/FINDINGS.json",
+    "handoffs/c/C-DEEPEYE-C40-PAIR-VERIFIER-20261031-41/runtime-v1/README.md",
+    "handoffs/c/C-DEEPEYE-C40-PAIR-VERIFIER-20261031-41/runtime-v1/REVIEW.md",
+    "handoffs/c/C-DEEPEYE-C40-PAIR-VERIFIER-20261031-41/runtime-v1/verify_delivery.py",
+    "handoffs/c/C-DEEPEYE-C40-PAIR-VERIFIER-20261031-41/runtime-v1/pins.json"
+  ],
+  "files": {
+    "handoffs/c/C-DEEPEYE-C40-PAIR-VERIFIER-20261031-41/runtime-v1/ABI.json": {
+      "sha256": "7254e88bfc0fb8cdbad17e3dd1acff4b2f8f76f85e79da7e79b86cc95215d76d",
+      "size": 1330
+    },
+    "handoffs/c/C-DEEPEYE-C40-PAIR-VERIFIER-20261031-41/runtime-v1/FINDINGS.json": {
+      "sha256": "e665c8faf461f0eef68735518baa3d95bf90295e6aeed61bd3cc654f0dd01ac6",
+      "size": 562
+    },
+    "handoffs/c/C-DEEPEYE-C40-PAIR-VERIFIER-20261031-41/runtime-v1/README.md": {
+      "sha256": "cf11b4890eb9b8861d99850ec7350b15a207223397f0fd8eabad42275b0a1995",
+      "size": 9410
+    },
+    "handoffs/c/C-DEEPEYE-C40-PAIR-VERIFIER-20261031-41/runtime-v1/REVIEW.md": {
+      "sha256": "115f28573e98e880655f3b39cc97384eb95156d599b09accc1da4a063c3d4690",
+      "size": 7659
+    },
+    "handoffs/c/C-DEEPEYE-C40-PAIR-VERIFIER-20261031-41/runtime-v1/c40_pair_verifier_v1.py": {
+      "sha256": "fc00cd1441e0dc15a092e601bb2864419e19ca688ba508c0b5a52faee429dd9b",
+      "size": 18734
+    },
+    "handoffs/c/C-DEEPEYE-C40-PAIR-VERIFIER-20261031-41/runtime-v1/evidence-index.json": {
+      "sha256": "bfbcb83460e726e8fa7d88306ae6dcd578c712f0dc4a9e8ca1ef5b2d736dde93",
+      "size": 7055
+    },
+    "handoffs/c/C-DEEPEYE-C40-PAIR-VERIFIER-20261031-41/runtime-v1/evidence.zip": {
+      "sha256": "99291739f942a9ef79edaae98508b54b379aa76b6e9203a833c28370f26d1f1a",
+      "size": 35173
+    },
+    "handoffs/c/C-DEEPEYE-C40-PAIR-VERIFIER-20261031-41/runtime-v1/pins.json": {
+      "sha256": "f428da4e200ac5fca962b4b6d6675995bf4f7185f2e4a23758f5c767deffd7ab",
+      "size": 1156
+    },
+    "handoffs/c/C-DEEPEYE-C40-PAIR-VERIFIER-20261031-41/runtime-v1/verify_delivery.py": {
+      "sha256": "f358b7cd9ecc7eaa75d6c62b7792b34552dc9fcbf84dbed86284fd2b1fe1fb4a",
+      "size": 728
+    }
+  },
+  "request": {
+    "code_commit": "7bbf37153dd6e47a7dedb2f482f02b08d4ca268d",
+    "expected_result": "Pure fixed-pin correlated READY+RESULT verification with immutable parsed data and integer observed-interval helper. Host interval schema is a new proposal only; no CPU-finish scalar or authority. A retains original provider, process, IO and clock custody. Native, actual inference, full-chain and formal acceptance remain unverified.",
+    "operation_id": "C-DEEPEYE-C40-PAIR-VERIFIER-20261031-41",
+    "requester": "node-c",
+    "task_id": "DEEPEYE-IMPLEMENTATION-20261014",
+    "task_version": 1,
+    "test_steps": [
+      "Byte/archive verification only: python -I -S -B handoffs/c/C-DEEPEYE-C40-PAIR-VERIFIER-20261031-41/runtime-v1/verify_delivery.py",
+      "Read retained versioned pure verifier checks and independent review; no old suite or native execution is requested",
+      "A must separately verify original provider proof, owned native handles, source readiness and exact runtime before any actual dispatch"
+    ]
+  },
+  "request_hash": "a4ba75670b7ef0a2f00f48436b86c130ceb98ade51e48a59170dcf32bd36a509",
+  "schema_version": 1,
+  "stages": {
+    "final_acceptance": {
+      "status": "not_run"
+    },
+    "full_chain": {
+      "status": "not_run"
+    },
+    "implementation": {
+      "status": "not_run"
+    },
+    "local_function": {
+      "log": "handoffs/c/C-DEEPEYE-C40-PAIR-VERIFIER-20261031-41/runtime-v1/evidence-index.json",
+      "status": "passed"
+    },
+    "model_qualification": {
+      "status": "not_run"
+    },
+    "native_actor": {
+      "status": "not_run"
+    },
+    "physical_board": {
+      "status": "not_run"
+    },
+    "rtl_simulation": {
+      "status": "not_run"
+    },
+    "source_review": {
+      "log": "handoffs/c/C-DEEPEYE-C40-PAIR-VERIFIER-20261031-41/runtime-v1/REVIEW.md",
+      "status": "passed"
+    },
+    "synthesis": {
+      "status": "not_run"
+    }
+  }
+}
