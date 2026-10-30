@@ -1,0 +1,11 @@
+--- frozen/verifier
++++ C44/verifier
+@@ -237,7 +237,7 @@
+     _hex(value['tested_commit'], 40); _hex(value['package_manifest_sha256'], 64)
+ 
+ # C41 output verification. No planner/host/native module is loaded.
+-PACKAGE_MANIFEST_SHA256 = 'd63dc5d32c7b9d8bb32035edc1d78483a51c6d88e680b7fbd4ef9f304cf005f0'
++PACKAGE_MANIFEST_SHA256 = 'cb971d321bcdd3dcb6a7b85fdd9e08171c995feb62fab3f995bc7f50fdf97a8a'
+ _READY = {'abi','kind','echo_ids','request_wire_sha256','core_sha256','authority'}
+ _RESULT = {'abi','kind','echo_ids','request_wire_sha256','status','core_ran',
+            'authority','completion_grant','result','reason'}

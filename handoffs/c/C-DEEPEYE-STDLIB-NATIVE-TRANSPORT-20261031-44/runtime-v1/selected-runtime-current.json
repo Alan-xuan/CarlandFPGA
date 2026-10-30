@@ -1,0 +1,29 @@
+{
+  "checked_utc": "2026-10-30T20:38:56.483287+00:00",
+  "files": [
+    {
+      "path": "C:\\Users\\Alan\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+      "bytes": 107312,
+      "sha256": "73dbf1f40507275d6fa636b49eb80b4753e313f649f52591abba86b31f1a1bce",
+      "matches_inherited_row": true
+    },
+    {
+      "path": "C:\\Users\\Alan\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\Lib\\threading.py",
+      "bytes": 60200,
+      "sha256": "846f450ae794e4aab823a163f8c71d27751148af33e91dd3de886686a4e8ebfb",
+      "matches_inherited_row": true
+    },
+    {
+      "path": "C:\\Users\\Alan\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\LICENSE.txt",
+      "bytes": 25066,
+      "sha256": "886a0ead2d89030ee62dbff52b04e47ab91998341295bb9c56fb952b4e081c7a",
+      "matches_inherited_row": true
+    }
+  ],
+  "thread_module_origin": "built-in",
+  "Event_wait_signature": "(self, timeout=None)",
+  "Event_instances_created": 0,
+  "native_handle_API_calls": 0,
+  "core_calls": 0,
+  "actor_launches": 0
+}

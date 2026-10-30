@@ -1,0 +1,63 @@
+{
+  "source": [
+    {
+      "path": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\main-20261015-01a14025\\C40-20261031\\implementation-v2\\c37-owned-cpu-package-v2\\c37_entry.py",
+      "bytes": 6841,
+      "sha256": "03446c7ae78605a90fe134d961700d377cadfbc8af629a879a317ddb5ca79930"
+    },
+    {
+      "path": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\main-20261015-01a14025\\C40-20261031\\implementation-v2\\c37-owned-cpu-package-v2\\c37_package.py",
+      "bytes": 13723,
+      "sha256": "60e26bc8ae9ee0ba1fba8bcea358b4bfad8be2f3a58ccb360e767b6886d62f16"
+    },
+    {
+      "path": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\main-20261015-01a14025\\C40-20261031\\implementation-v2\\c37-owned-cpu-package-v2\\frozen_c28.py",
+      "bytes": 17651,
+      "sha256": "70b317681fee8c9182c342fe8d2f94eaecc957c62231a74a080d213bb5e0eab4"
+    },
+    {
+      "path": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\main-20261015-01a14025\\C40-20261031\\implementation-v2\\c37-owned-cpu-package-v2\\package-manifest.json",
+      "bytes": 318,
+      "sha256": "d63dc5d32c7b9d8bb32035edc1d78483a51c6d88e680b7fbd4ef9f304cf005f0"
+    },
+    {
+      "path": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\main-20261015-01a14025\\C40-20261031\\implementation-v2\\runtime-inventory-v2.json",
+      "bytes": 109557,
+      "sha256": "952c24859827b94a0862fd81dc6123feedc6a4f4f4985cf388c0f5407675e792"
+    },
+    {
+      "path": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\main-20261015-01a14025\\C40-20261031\\implementation-v2\\stage_package.py",
+      "bytes": 3837,
+      "sha256": "ff932658db74a5f2330a9acd8db2ee2a44b391ae8062114b4707223b1d938950"
+    },
+    {
+      "path": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\main-20261015-01a14025\\C41-20261031\\implementation-v1\\c40_pair_verifier_v1.py",
+      "bytes": 18734,
+      "sha256": "fc00cd1441e0dc15a092e601bb2864419e19ca688ba508c0b5a52faee429dd9b"
+    },
+    {
+      "path": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\main-20261015-01a14025\\C44-20261031\\main\\assignment-v1.json",
+      "bytes": 5177,
+      "sha256": "11b1b017007625765866cfb1dbe623bd149f3cb11f7d75141e5dc636e86132ea"
+    },
+    {
+      "path": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\main-20261015-01a14025\\C44-20261031\\main\\A42-original.json",
+      "bytes": 5677,
+      "sha256": "886f3dc9bf867c0f1ca3cd5aac53dcef9c02455cfe7b9c309be2765b1e449e18"
+    }
+  ],
+  "official_CPython": [
+    {
+      "path": "primary-source\\_winapi.c",
+      "bytes": 78816,
+      "sha256": "9f231ff4d286683f3df9ec925cdfc375ae951609d9ea39ddb6529f4649ebfd78",
+      "upstream": "https://github.com/python/cpython/blob/v3.12.14/Modules/_winapi.c"
+    },
+    {
+      "path": "primary-source\\overlapped.c",
+      "bytes": 59013,
+      "sha256": "59794da64e5699aab2bcc20f7fd82f2c5bad75f309c2dd4d441c84a4524b5c36",
+      "upstream": "https://github.com/python/cpython/blob/v3.12.14/Modules/overlapped.c"
+    }
+  ]
+}

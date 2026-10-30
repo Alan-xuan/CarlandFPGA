@@ -1,0 +1,7 @@
+{
+  "source_approved": true,
+  "review_passed": true,
+  "open_findings": [],
+  "native_qualification": "NOT_RUN",
+  "scope": "Source transport/API consistency and fake error-path closure only; no actual native/OS cleanup or A632 qualification"
+}

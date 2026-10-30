@@ -1,0 +1,198 @@
+--- frozen/entry
++++ C44/entry
+@@ -66,65 +66,121 @@
+         transport.close()
+ 
+ 
++class NativeSetupFailure(Exception):
++    """Fixed local diagnostic only; no handle values or arbitrary error text."""
++    def __init__(self, close_available, attempted, failed):
++        super().__init__('native setup failed')
++        self.close_available = close_available
++        self.close_attempted = tuple(attempted)
++        self.close_failed = tuple(failed)
++
++
++class HandleCloseFailure(Exception):
++    pass
++
++
++def _get_winapi():
++    import _winapi
++    return _winapi
++
++
++def _get_set_event():
++    from _overlapped import SetEvent
++    return SetEvent
++
++
++def _new_wait_event():
++    from threading import Event
++    return Event()
++
++
+ class NativeTransport:
+-    """Only inherited child synchronous handles; original parent owns custody."""
++    """One-use inherited handles. Original owner retains custody and lifetime."""
+     def __init__(self, ready, input_handle, output_handle):
+-        import ctypes as c
+-        from ctypes import wintypes as w
+-        if sys.platform != 'win32':
+-            raise ValueError('Windows child handles required')
+-        self._c, self._w = c, w
+         self._handles = (ready, input_handle, output_handle)
+         self._closed = False
+-        self._api = c.WinDLL('kernel32.dll', use_last_error=True)
+-        self._api.ReadFile.argtypes = [w.HANDLE, w.LPVOID, w.DWORD, c.POINTER(w.DWORD), w.LPVOID]
+-        self._api.ReadFile.restype = w.BOOL
+-        self._api.WriteFile.argtypes = [w.HANDLE, w.LPCVOID, w.DWORD, c.POINTER(w.DWORD), w.LPVOID]
+-        self._api.WriteFile.restype = w.BOOL
+-        self._api.SetEvent.argtypes = [w.HANDLE]; self._api.SetEvent.restype = w.BOOL
+-        self._api.CloseHandle.argtypes = [w.HANDLE]; self._api.CloseHandle.restype = w.BOOL
+-        self._api.Sleep.argtypes = [w.DWORD]; self._api.Sleep.restype = None
++        self._ready_attempted = False
++        self._ready = False
++        self._wait_started = False
++        self._close_handle = None
++        self.close_attempted = []
++        self.close_failed = []
++        try:
++            if sys.platform != 'win32' or any(type(h) is not int or not 0 < h < (1 << 64) - 1 for h in self._handles) or len(set(self._handles)) != 3:
++                raise ValueError('three distinct Windows handles required')
++            self._api = _get_winapi()
++            self._close_handle = self._api.CloseHandle
++            self._set_event = _get_set_event()
++            # Initialized before readiness/inference; never set or timed here.
++            self._owner_wait = _new_wait_event()
++        except Exception:
++            available = self._close_handle is not None
++            if available:
++                try:
++                    self.close()
++                except HandleCloseFailure:
++                    pass
++            else:
++                self._closed = True
++            raise NativeSetupFailure(available, self.close_attempted, self.close_failed) from None
++
++    def _live(self):
++        if self._closed or self._wait_started:
++            raise RuntimeError('transport already retired')
+ 
+     def signal_ready(self):
+-        if not self._api.SetEvent(self._handles[0]):
+-            raise OSError('readiness event failed')
++        self._live()
++        if self._ready_attempted:
++            raise RuntimeError('readiness already attempted')
++        self._ready_attempted = True
++        if self._set_event(self._handles[0]) is not None:
++            raise OSError('invalid readiness result')
++        self._ready = True
+ 
+     def read(self, size):
+-        if type(size) is not int or not 1 <= size <= 8192:
+-            raise ValueError('read chunk budget')
+-        buffer = self._c.create_string_buffer(size)
+-        count = self._w.DWORD()
+-        if not self._api.ReadFile(self._handles[1], buffer, size, self._c.byref(count), None):
+-            if self._c.get_last_error() == 109:
+-                return b''
+-            raise OSError('input read failed')
+-        if count.value > size:
+-            raise OSError('invalid read count')
+-        return buffer.raw[:count.value]
++        self._live()
++        if not self._ready or type(size) is not int or not 1 <= size <= 8192:
++            raise ValueError('read state/chunk budget')
++        result = self._api.ReadFile(self._handles[1], size, overlapped=False)
++        if (type(result) is not tuple or len(result) != 2
++            or type(result[0]) is not bytes or not 0 < len(result[0]) <= size
++            or type(result[1]) is not int or result[1] != 0):
++            raise OSError('invalid synchronous read result')
++        # Positive partial byte-stream reads remain legal, as in C40.
++        return result[0]
+ 
+     def write(self, raw):
+-        if type(raw) is not bytes or not 1 <= len(raw) <= 8192:
+-            raise ValueError('write chunk budget')
+-        buffer = self._c.create_string_buffer(raw, len(raw))
+-        count = self._w.DWORD()
+-        if not self._api.WriteFile(self._handles[2], buffer, len(raw), self._c.byref(count), None):
+-            raise OSError('output write failed')
+-        return count.value
++        self._live()
++        if not self._ready or type(raw) is not bytes or not 1 <= len(raw) <= 8192:
++            raise ValueError('write state/chunk budget')
++        result = self._api.WriteFile(self._handles[2], raw, overlapped=False)
++        if (type(result) is not tuple or len(result) != 2
++            or type(result[0]) is not int or result[0] != len(raw)
++            or type(result[1]) is not int or result[1] != 0):
++            raise OSError('short/invalid synchronous write result; no retry')
++        return result[0]
+ 
+     def wait_for_owner_teardown(self):
+-        # Sleep(INFINITE) leaves retirement to the original bounded owner.
+-        self._api.Sleep(0xFFFFFFFF)
++        self._live()
++        if not self._ready:
++            raise RuntimeError('readiness required')
++        self._wait_started = True
++        self._owner_wait.wait()
++        raise RuntimeError('owner teardown wait returned unexpectedly')
+ 
+     def close(self):
+         if self._closed:
+             return
+         self._closed = True
+-        failed = False
+-        for handle in self._handles:
+-            if not self._api.CloseHandle(handle):
+-                failed = True
+-        if failed:
+-            raise OSError('inherited handle close failed')
++        for slot, handle in enumerate(self._handles):
++            self.close_attempted.append(slot)
++            try:
++                if self._close_handle(handle) is not None:
++                    raise OSError('invalid close result')
++            except Exception:
++                self.close_failed.append(slot)
++        if self.close_failed:
++            raise HandleCloseFailure('inherited handle close failed; no retry')
+ 
+ 
+ def main(argv):
+@@ -140,13 +196,27 @@
+             return 64
+         if not all(0 < handle < (1 << 64) - 1 for handle in (ready, inp, out)):
+             return 64
++    except Exception:
++        return 64
++    try:
+         package = load_package()
++    except Exception:
++        return 70
++    try:
+         transport = NativeTransport(ready, inp, out)
++    except NativeSetupFailure as error:
++        # 71: all three closes attempted and succeeded; 74: no close API;
++        # 75: all attempted, at least one failed. OS exit is final cleanup.
++        return (71 if not error.close_failed else 75) if error.close_available else 74
++    except Exception:
++        return 74
++    try:
+         serve(transport, size, count, package)
+-        return 0
+-    except Exception:
+-        # No arbitrary exception text, native handle or traceback on either pipe.
+-        return 65
++        return 72  # A returning serve is not a successful live child.
++    except HandleCloseFailure:
++        return 73
++    except Exception:
++        return 72
+ 
+ 
+ if __name__ == '__main__':

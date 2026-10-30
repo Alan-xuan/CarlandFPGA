@@ -1,0 +1,92 @@
+[
+  {
+    "path": "c44-owned-cpu-package/c37_entry.py",
+    "bytes": 9050,
+    "sha256": "899b843111a1b9278e4c5ee16b11d4493c35c1cb0bca328a57f164c3f0c11c74"
+  },
+  {
+    "path": "c44-owned-cpu-package/c37_package.py",
+    "bytes": 13723,
+    "sha256": "60e26bc8ae9ee0ba1fba8bcea358b4bfad8be2f3a58ccb360e767b6886d62f16"
+  },
+  {
+    "path": "c44-owned-cpu-package/frozen_c28.py",
+    "bytes": 17651,
+    "sha256": "70b317681fee8c9182c342fe8d2f94eaecc957c62231a74a080d213bb5e0eab4"
+  },
+  {
+    "path": "c44-owned-cpu-package/package-manifest.json",
+    "bytes": 310,
+    "sha256": "cb971d321bcdd3dcb6a7b85fdd9e08171c995feb62fab3f995bc7f50fdf97a8a"
+  },
+  {
+    "path": "c44_pair_verifier_v1.py",
+    "bytes": 18734,
+    "sha256": "af7ea20a3ee80f1266d66062698db4c5b1f8a9835262cc2ccfc7f480f6260ea6"
+  },
+  {
+    "path": "entry.diff",
+    "bytes": 7949,
+    "sha256": "20370286dd030f988f54e73a6b857d7725afe06a6e087eb8a388cc336423d132"
+  },
+  {
+    "path": "evidence-index.json",
+    "bytes": 13730,
+    "sha256": "11894d7ed66caf76456c27cf6561fadad986c38dcca203a9bac9c238bf138cc4"
+  },
+  {
+    "path": "evidence.zip",
+    "bytes": 181720,
+    "sha256": "bb3cb024afd1adbc810157bf39ed249c0125089e343f51c25306667c4672cda0"
+  },
+  {
+    "path": "FINDINGS.json",
+    "bytes": 251,
+    "sha256": "70f8c19fe5f8135d6d7814485123f2786ffdce28064b0f8d401e284f33fac806"
+  },
+  {
+    "path": "local-api-pe.json",
+    "bytes": 4495,
+    "sha256": "5de38875cf4d20fd8c07bcb47c9ed04ce804cf40192eb0a01a3754c66080c28e"
+  },
+  {
+    "path": "README.md",
+    "bytes": 7636,
+    "sha256": "fa42151d30ea90bc9271f75aed627b64e5c893188234f2415c0e49950c512f1e"
+  },
+  {
+    "path": "REVIEW.md",
+    "bytes": 6865,
+    "sha256": "fccd63f4e4808002e571852820f9a79b699bc61042939429f99f66b0b74afdf3"
+  },
+  {
+    "path": "runtime-inventory-c44.json",
+    "bytes": 107188,
+    "sha256": "41a6576e3dfc75e2238bdd62cef60efc7283ea84aa77a3189380277884878cc9"
+  },
+  {
+    "path": "selected-runtime-current.json",
+    "bytes": 1112,
+    "sha256": "a1bbc9a8dd507d4beb511469aa3467ea4a31cf7faddfd72ed05c1e0594373a40"
+  },
+  {
+    "path": "source-pins.json",
+    "bytes": 3222,
+    "sha256": "98c58a89c4b7669b7b232a06d85ed520911a523b547ac698ef623679b3806d3b"
+  },
+  {
+    "path": "stage_package.py",
+    "bytes": 3837,
+    "sha256": "ff932658db74a5f2330a9acd8db2ee2a44b391ae8062114b4707223b1d938950"
+  },
+  {
+    "path": "verifier.diff",
+    "bytes": 623,
+    "sha256": "cb9964e1f93a1e94417a02b12f7bcd523d18a8c072039707c1c572c84d8a40ba"
+  },
+  {
+    "path": "verify_delivery.py",
+    "bytes": 728,
+    "sha256": "f358b7cd9ecc7eaa75d6c62b7792b34552dc9fcbf84dbed86284fd2b1fe1fb4a"
+  }
+]

@@ -1,0 +1,125 @@
+{
+  "python_version": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+  "executable": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\venv\\Scripts\\python.exe",
+  "base_prefix": "C:\\Users\\Alan\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python",
+  "modules": {
+    "_winapi": {
+      "origin": "built-in",
+      "file": null,
+      "functions": {
+        "ReadFile": {
+          "text_signature": "($module, /, handle, size, overlapped=False)",
+          "doc": null
+        },
+        "WriteFile": {
+          "text_signature": "($module, /, handle, buffer, overlapped=False)",
+          "doc": null
+        },
+        "CloseHandle": {
+          "text_signature": "($module, handle, /)",
+          "doc": "Close handle."
+        }
+      }
+    },
+    "_overlapped": {
+      "origin": "C:\\Users\\Alan\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\DLLs\\_overlapped.pyd",
+      "file": "C:\\Users\\Alan\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\DLLs\\_overlapped.pyd",
+      "functions": {
+        "SetEvent": {
+          "text_signature": "($module, Handle, /)",
+          "doc": "Set event."
+        }
+      }
+    }
+  },
+  "winapi_has_SetEvent": false,
+  "ctypes_imported": false,
+  "PE": [
+    {
+      "path": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\venv\\Scripts\\python.exe",
+      "bytes": 277808,
+      "sha256": "34588325b101a5f1e0c7ed27a717d8b5ced009ff7b8e4995d27c05eae0340487",
+      "machine": "0x8664",
+      "imports": [
+        "VERSION.dll",
+        "KERNEL32.dll"
+      ],
+      "delay_imports": []
+    },
+    {
+      "path": "C:\\Users\\Alan\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python312.dll",
+      "bytes": 6985520,
+      "sha256": "58afcb600bce8fbebec58970e83fc0b3e160cdb257ef90c900bd97a169f61645",
+      "machine": "0x8664",
+      "imports": [
+        "VERSION.dll",
+        "WS2_32.dll",
+        "api-ms-win-core-path-l1-1-0.dll",
+        "bcrypt.dll",
+        "ADVAPI32.dll",
+        "KERNEL32.dll",
+        "VCRUNTIME140.dll",
+        "api-ms-win-crt-stdio-l1-1-0.dll",
+        "api-ms-win-crt-environment-l1-1-0.dll",
+        "api-ms-win-crt-heap-l1-1-0.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "api-ms-win-crt-locale-l1-1-0.dll",
+        "api-ms-win-crt-string-l1-1-0.dll",
+        "api-ms-win-crt-convert-l1-1-0.dll",
+        "api-ms-win-crt-math-l1-1-0.dll",
+        "api-ms-win-crt-time-l1-1-0.dll",
+        "api-ms-win-crt-process-l1-1-0.dll",
+        "api-ms-win-crt-conio-l1-1-0.dll",
+        "api-ms-win-crt-filesystem-l1-1-0.dll"
+      ],
+      "delay_imports": []
+    },
+    {
+      "path": "C:\\Users\\Alan\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\DLLs\\_overlapped.pyd",
+      "bytes": 59696,
+      "sha256": "02dfdd516bcaca1ae893f5bb1cef3935aad1343618922ce641d2d19d6aceed9b",
+      "machine": "0x8664",
+      "imports": [
+        "WS2_32.dll",
+        "KERNEL32.dll",
+        "python312.dll",
+        "VCRUNTIME140.dll",
+        "api-ms-win-crt-string-l1-1-0.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll"
+      ],
+      "delay_imports": []
+    },
+    {
+      "path": "C:\\Users\\Alan\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\vcruntime140.dll",
+      "bytes": 124544,
+      "sha256": "d5e4d9a3e835fa679450145d6a7d94e36573a509317111904d9b3712c30d9066",
+      "machine": "0x8664",
+      "imports": [
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "api-ms-win-crt-string-l1-1-0.dll",
+        "api-ms-win-crt-heap-l1-1-0.dll",
+        "api-ms-win-crt-stdio-l1-1-0.dll",
+        "api-ms-win-crt-convert-l1-1-0.dll",
+        "KERNEL32.dll"
+      ],
+      "delay_imports": []
+    },
+    {
+      "path": "C:\\Users\\Alan\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\vcruntime140_1.dll",
+      "bytes": 49792,
+      "sha256": "1f2d41c4aa5db0bc33ebf7b66d72943a817d7ce6cbe880502a9403823633093f",
+      "machine": "0x8664",
+      "imports": [
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "api-ms-win-crt-string-l1-1-0.dll",
+        "api-ms-win-crt-heap-l1-1-0.dll",
+        "VCRUNTIME140.dll",
+        "KERNEL32.dll"
+      ],
+      "delay_imports": []
+    }
+  ],
+  "actual_handle_API_calls": 0,
+  "core_calls": 0,
+  "original_actor_runs": 0
+}
