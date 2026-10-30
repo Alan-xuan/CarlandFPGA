@@ -1,0 +1,110 @@
+{
+  "artifacts": [
+    "handoffs/c/C-DEEPEYE-A-SCOPED-EM-REVIEW-20261030-35/book-54e1-to-b2d398.diff",
+    "handoffs/c/C-DEEPEYE-A-SCOPED-EM-REVIEW-20261030-35/book-static-ast-delta.json",
+    "handoffs/c/C-DEEPEYE-A-SCOPED-EM-REVIEW-20261030-35/independent-review.md",
+    "handoffs/c/C-DEEPEYE-A-SCOPED-EM-REVIEW-20261030-35/README.md",
+    "handoffs/c/C-DEEPEYE-A-SCOPED-EM-REVIEW-20261030-35/source-pins.json",
+    "handoffs/c/C-DEEPEYE-A-SCOPED-EM-REVIEW-20261030-35/source-review.md",
+    "handoffs/c/C-DEEPEYE-A-SCOPED-EM-REVIEW-20261030-35/static-evidence-raw.json.gz",
+    "handoffs/c/C-DEEPEYE-A-SCOPED-EM-REVIEW-20261030-35/static-evidence.json",
+    "handoffs/c/C-DEEPEYE-CAUSAL-FOUR-CHANNEL-PLANNER-20261029-28/candidate_four_channel_planner_v1.py",
+    "handoffs/c/C-DEEPEYE-PRIVATE-RAW4-TIME-ASSOCIATION-20261030-30/private_raw4_time_association_v1.py",
+    "handoffs/c/C-DEEPEYE-ROOT-BOOK-C30-PROJECTION-20261030-31/root_book_projection_v1.py",
+    "handoffs/c/C-DEEPEYE-C30-STALE-ADMISSION-SEMANTICS-20261030-32/private_raw4_time_association_v2.py"
+  ],
+  "files": {
+    "handoffs/c/C-DEEPEYE-A-SCOPED-EM-REVIEW-20261030-35/README.md": {
+      "sha256": "86e63ed50e51939a5ea76ba96259fdb407140428510d2827130865c1188beb62",
+      "size": 1153
+    },
+    "handoffs/c/C-DEEPEYE-A-SCOPED-EM-REVIEW-20261030-35/book-54e1-to-b2d398.diff": {
+      "sha256": "055ff5ddeb345f7a4b17efa2ae285ec5d79511589d634b3ae0144079cfc18026",
+      "size": 13570
+    },
+    "handoffs/c/C-DEEPEYE-A-SCOPED-EM-REVIEW-20261030-35/book-static-ast-delta.json": {
+      "sha256": "ae225ff8af406d59557c3b76c1f63c7be45b6bef17d6d713201bc162e487421c",
+      "size": 523
+    },
+    "handoffs/c/C-DEEPEYE-A-SCOPED-EM-REVIEW-20261030-35/independent-review.md": {
+      "sha256": "420df043e5b4b38b9348b4804806df05468371022ca9db93ea42a3dd70033639",
+      "size": 8410
+    },
+    "handoffs/c/C-DEEPEYE-A-SCOPED-EM-REVIEW-20261030-35/source-pins.json": {
+      "sha256": "98a0e8fd253745f3f2e574312e14c54a930837686306d303e12bfc6adc8fc246",
+      "size": 3747
+    },
+    "handoffs/c/C-DEEPEYE-A-SCOPED-EM-REVIEW-20261030-35/source-review.md": {
+      "sha256": "1df9ef9314050b2606750afb8e12a132e844a9871fc856763fc679f6e25684d6",
+      "size": 2776
+    },
+    "handoffs/c/C-DEEPEYE-A-SCOPED-EM-REVIEW-20261030-35/static-evidence-raw.json.gz": {
+      "sha256": "ede6079431ec91f1c4b38a0b4fd49c13c57be2eb110223a0f42a9ddbf186dbae",
+      "size": 549402
+    },
+    "handoffs/c/C-DEEPEYE-A-SCOPED-EM-REVIEW-20261030-35/static-evidence.json": {
+      "sha256": "fa0054396fe6da7849136a24197522b43e39a2e76923fbe108c522a91b008f08",
+      "size": 780
+    },
+    "handoffs/c/C-DEEPEYE-C30-STALE-ADMISSION-SEMANTICS-20261030-32/private_raw4_time_association_v2.py": {
+      "sha256": "39fe63a3d71308fae9482e3203b4f5120c34d796ccd2b755b99a9de902005a87",
+      "size": 51109
+    },
+    "handoffs/c/C-DEEPEYE-CAUSAL-FOUR-CHANNEL-PLANNER-20261029-28/candidate_four_channel_planner_v1.py": {
+      "sha256": "70b317681fee8c9182c342fe8d2f94eaecc957c62231a74a080d213bb5e0eab4",
+      "size": 17651
+    },
+    "handoffs/c/C-DEEPEYE-PRIVATE-RAW4-TIME-ASSOCIATION-20261030-30/private_raw4_time_association_v1.py": {
+      "sha256": "abaa06d10ab68f0bee721bf1a6d9278fc000446112ac559362079ad63afc686d",
+      "size": 48155
+    },
+    "handoffs/c/C-DEEPEYE-ROOT-BOOK-C30-PROJECTION-20261030-31/root_book_projection_v1.py": {
+      "sha256": "506219cf445001c46f2f4e1ffd411829ea9d184d4260d18af9e45aa3787993ee",
+      "size": 48506
+    }
+  },
+  "request": {
+    "code_commit": "286f6429839125ef390784fe297db8b93efc9b55",
+    "expected_result": "Bounded static review identifies no confirmed blocker; original current/admission/capture/BOOT/action proof remains missing. All execution and formal stages not_run.",
+    "operation_id": "C-DEEPEYE-A-SCOPED-EM-REVIEW-20261030-35",
+    "requester": "node-c",
+    "task_id": "DEEPEYE-IMPLEMENTATION-20261014",
+    "task_version": 1,
+    "test_steps": [
+      "Read source-review.md and independent-review.md against exact A source b2d398dd8f28688f7a125db9d43cc51dad4c69c9 and source-pins.json.",
+      "Decode static-evidence-raw.json.gz as data, verify per-record size/SHA and source Git blob identity, inspect actual static command exits. Do not import/run candidate files or replay tests."
+    ]
+  },
+  "request_hash": "82934254eb3fcc3ccd07d5b09d5f9ab8f64aacd6513d397e574f57f2811be158",
+  "schema_version": 1,
+  "stages": {
+    "final_acceptance": {
+      "status": "not_run"
+    },
+    "full_chain": {
+      "status": "not_run"
+    },
+    "implementation": {
+      "status": "not_run"
+    },
+    "local_function": {
+      "status": "not_run"
+    },
+    "model_qualification": {
+      "status": "not_run"
+    },
+    "physical_board": {
+      "status": "not_run"
+    },
+    "rtl_simulation": {
+      "status": "not_run"
+    },
+    "source_review": {
+      "log": "handoffs/c/C-DEEPEYE-A-SCOPED-EM-REVIEW-20261030-35/source-review.md",
+      "status": "passed"
+    },
+    "synthesis": {
+      "status": "not_run"
+    }
+  }
+}
