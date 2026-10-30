@@ -1,0 +1,345 @@
+{
+  "scope": "C32_R1_NARROW_NEW_INDEPENDENT_CLOSURE",
+  "mode": "new",
+  "source_sha256": "39fe63a3d71308fae9482e3203b4f5120c34d796ccd2b755b99a9de902005a87",
+  "total": 23,
+  "passed": true,
+  "elapsed_seconds": 0.4465816000010818,
+  "cases": [
+    {
+      "name": "third_counter_lane_progression_True",
+      "expected": "Rejected",
+      "input_sha256": "09168d1f35a01a6833e9de36cb0219764ab8b0fcd2a563f3a1ad00669b6e49b1",
+      "input_bytes": 14541,
+      "core_calls": 0,
+      "isolated_globals": true,
+      "exception": {
+        "type": "Rejected",
+        "message": "returned lane counters inconsistent"
+      },
+      "passed": true,
+      "globals_unchanged": true
+    },
+    {
+      "name": "second_counter_lane_identity_True",
+      "expected": "Rejected",
+      "input_sha256": "9d3483f65a4c3fe3e486f5ac143214953f3c7479a2c37f408cbb8529abec6543",
+      "input_bytes": 14541,
+      "core_calls": 0,
+      "isolated_globals": true,
+      "exception": {
+        "type": "Rejected",
+        "message": "returned lane counters inconsistent"
+      },
+      "passed": true,
+      "globals_unchanged": true
+    },
+    {
+      "name": "nonnegative_baseline_component_0_True",
+      "expected": "Rejected",
+      "input_sha256": "87870f957370eca1897ec51855fb2cc6042581b609bbd38a73d42ae90fa4a9cd",
+      "input_bytes": 14511,
+      "core_calls": 0,
+      "isolated_globals": true,
+      "exception": {
+        "type": "Rejected",
+        "message": "returned counters cannot have a nonnegative baseline"
+      },
+      "passed": true,
+      "globals_unchanged": true
+    },
+    {
+      "name": "nonnegative_baseline_component_1_True",
+      "expected": "Rejected",
+      "input_sha256": "b2604358a318e49e27330ea489f9dc736f0df9e7c4e321dfd9a1fbc91e753913",
+      "input_bytes": 14511,
+      "core_calls": 0,
+      "isolated_globals": true,
+      "exception": {
+        "type": "Rejected",
+        "message": "returned counters cannot have a nonnegative baseline"
+      },
+      "passed": true,
+      "globals_unchanged": true
+    },
+    {
+      "name": "nonnegative_baseline_component_2_True",
+      "expected": "Rejected",
+      "input_sha256": "495e2006a96fde00a06a70f9d3c22ad4aabfed0917321afe5667314d112ffe26",
+      "input_bytes": 14511,
+      "core_calls": 0,
+      "isolated_globals": true,
+      "exception": {
+        "type": "Rejected",
+        "message": "returned counters cannot have a nonnegative baseline"
+      },
+      "passed": true,
+      "globals_unchanged": true
+    },
+    {
+      "name": "zero_feasible_baseline_missing_config_True",
+      "expected": "UNAVAILABLE",
+      "input_sha256": "a4c1cb1d9823a175c62c423b1650e9b34269ae934cf6fd8904e2da595463a589",
+      "input_bytes": 14511,
+      "core_calls": 0,
+      "isolated_globals": true,
+      "result": {
+        "input_status": "INPUT_UNAVAILABLE",
+        "status": "STOP",
+        "core_ran": false,
+        "reason": "missing_root_config"
+      },
+      "passed": true,
+      "globals_unchanged": true
+    },
+    {
+      "name": "third_counter_lane_progression_False",
+      "expected": "Rejected",
+      "input_sha256": "fcaa7e89f5dc2ccf52df224c6a80238eb705d54001812796d680b9b6e9f5d1e6",
+      "input_bytes": 14542,
+      "core_calls": 0,
+      "isolated_globals": true,
+      "exception": {
+        "type": "Rejected",
+        "message": "returned lane counters inconsistent"
+      },
+      "passed": true,
+      "globals_unchanged": true
+    },
+    {
+      "name": "second_counter_lane_identity_False",
+      "expected": "Rejected",
+      "input_sha256": "4f2117d3cf439480c0fe58501b42d1ac4240badfb7cea5f3fc6e673ece1c5af0",
+      "input_bytes": 14542,
+      "core_calls": 0,
+      "isolated_globals": true,
+      "exception": {
+        "type": "Rejected",
+        "message": "returned lane counters inconsistent"
+      },
+      "passed": true,
+      "globals_unchanged": true
+    },
+    {
+      "name": "nonnegative_baseline_component_0_False",
+      "expected": "Rejected",
+      "input_sha256": "41ea9482682e9474b66334a1510a372f5088e84f3823ef51c4bd6910d07519c8",
+      "input_bytes": 14512,
+      "core_calls": 0,
+      "isolated_globals": true,
+      "exception": {
+        "type": "Rejected",
+        "message": "returned counters cannot have a nonnegative baseline"
+      },
+      "passed": true,
+      "globals_unchanged": true
+    },
+    {
+      "name": "nonnegative_baseline_component_1_False",
+      "expected": "Rejected",
+      "input_sha256": "c05976aa23d1a5a664fcac814a7cb04c71e9a0d7ba4cc14b393c6c17c2d6126e",
+      "input_bytes": 14512,
+      "core_calls": 0,
+      "isolated_globals": true,
+      "exception": {
+        "type": "Rejected",
+        "message": "returned counters cannot have a nonnegative baseline"
+      },
+      "passed": true,
+      "globals_unchanged": true
+    },
+    {
+      "name": "nonnegative_baseline_component_2_False",
+      "expected": "Rejected",
+      "input_sha256": "b81f6d86c432f4afdef25831ad1a0e8723f061d51cf8698c60406908239fdc74",
+      "input_bytes": 14512,
+      "core_calls": 0,
+      "isolated_globals": true,
+      "exception": {
+        "type": "Rejected",
+        "message": "returned counters cannot have a nonnegative baseline"
+      },
+      "passed": true,
+      "globals_unchanged": true
+    },
+    {
+      "name": "zero_feasible_baseline_missing_config_False",
+      "expected": "DISABLED",
+      "input_sha256": "7975ba810c63d3acd29710e12b2bd1cab661020060d85b73ede65a20d381f5cc",
+      "input_bytes": 14512,
+      "core_calls": 0,
+      "isolated_globals": true,
+      "result": {
+        "input_status": "DISABLED",
+        "status": "STOP",
+        "core_ran": false,
+        "reason": "disabled"
+      },
+      "passed": true,
+      "globals_unchanged": true
+    },
+    {
+      "name": "cross_capture_component_0_internally_consistent_wrong_delta",
+      "expected": "Rejected",
+      "input_sha256": "e5d06bb41f20ce429edf3950ed2333969d6a1f88f676e8d0cffd86c68f5508eb",
+      "input_bytes": 20773,
+      "core_calls": 0,
+      "isolated_globals": true,
+      "exception": {
+        "type": "Rejected",
+        "message": "returned cross-capture counters inconsistent"
+      },
+      "passed": true,
+      "globals_unchanged": true
+    },
+    {
+      "name": "cross_capture_component_1_internally_consistent_wrong_delta",
+      "expected": "Rejected",
+      "input_sha256": "23c695ddb664a3c91cdfc8e5b77955182becb9b2faff95aa5e333bcbc25f9edf",
+      "input_bytes": 20773,
+      "core_calls": 0,
+      "isolated_globals": true,
+      "exception": {
+        "type": "Rejected",
+        "message": "returned cross-capture counters inconsistent"
+      },
+      "passed": true,
+      "globals_unchanged": true
+    },
+    {
+      "name": "cross_capture_component_2_internally_consistent_wrong_delta",
+      "expected": "Rejected",
+      "input_sha256": "bf3693c3c3986beefb0da1fa75078068b1d3f28bd53488487d11444cf1042b75",
+      "input_bytes": 20773,
+      "core_calls": 0,
+      "isolated_globals": true,
+      "exception": {
+        "type": "Rejected",
+        "message": "returned cross-capture counters inconsistent"
+      },
+      "passed": true,
+      "globals_unchanged": true
+    },
+    {
+      "name": "missing_middle_raw_does_not_hide_first_last_counter_delta",
+      "expected": "Rejected",
+      "input_sha256": "dd223d2b0834f87a0474c9a61cd1a99554699c24b51db537cd4dad3aaa34d126",
+      "input_bytes": 25504,
+      "core_calls": 0,
+      "isolated_globals": true,
+      "exception": {
+        "type": "Rejected",
+        "message": "returned cross-capture counters inconsistent"
+      },
+      "passed": true,
+      "globals_unchanged": true
+    },
+    {
+      "name": "actual_seq1_to3_gap_valid_config_present",
+      "expected": "ADVISE",
+      "input_sha256": "14eee1f4f7462d9e13c6919ddb04215d3c2d7f48462c56af274ed03a56d81c7a",
+      "input_bytes": 22236,
+      "core_calls": 1,
+      "isolated_globals": true,
+      "result": {
+        "input_status": "COMPLETE_DIAGNOSTIC",
+        "status": "ADVISE",
+        "core_ran": true,
+        "reason": "bounded_observation_goal_search"
+      },
+      "passed": true,
+      "globals_unchanged": true
+    },
+    {
+      "name": "seq_gap_uses_actual_request_seq_delta",
+      "expected": "Rejected",
+      "input_sha256": "5bd32f82689e4c035732df3e04b3f7192549d6ee9eb4cf5598fa83066ebbe713",
+      "input_bytes": 21026,
+      "core_calls": 0,
+      "isolated_globals": true,
+      "exception": {
+        "type": "Rejected",
+        "message": "returned cross-capture counters inconsistent"
+      },
+      "passed": true,
+      "globals_unchanged": true
+    },
+    {
+      "name": "missing_first_raw_does_not_hide_later_internal_final_mismatch",
+      "expected": "Rejected",
+      "input_sha256": "aeafcd7d88b9a1103dd3d54c275cd67bbd3cd43f934255894654b21183b756c2",
+      "input_bytes": 19270,
+      "core_calls": 0,
+      "isolated_globals": true,
+      "exception": {
+        "type": "Rejected",
+        "message": "returned final counters inconsistent"
+      },
+      "passed": true,
+      "globals_unchanged": true
+    },
+    {
+      "name": "consistent_capture_pair_missing_config_no_inferred_proof",
+      "expected": "UNAVAILABLE",
+      "input_sha256": "4cbf0e41d27c8e3187906e7cc131dff11eaacae6391952ed1ddf121c4f7523b3",
+      "input_bytes": 20773,
+      "core_calls": 0,
+      "isolated_globals": true,
+      "result": {
+        "input_status": "INPUT_UNAVAILABLE",
+        "status": "STOP",
+        "core_ran": false,
+        "reason": "missing_root_config"
+      },
+      "passed": true,
+      "globals_unchanged": true
+    },
+    {
+      "name": "real_zero_baseline_fresh_native_core",
+      "expected": "ADVISE",
+      "input_sha256": "10f3ac17b0fbd76f982c2606606d32a426b8677c16b2effb47006d592eee877e",
+      "input_bytes": 15715,
+      "core_calls": 1,
+      "isolated_globals": true,
+      "result": {
+        "input_status": "COMPLETE_DIAGNOSTIC",
+        "status": "ADVISE",
+        "core_ran": true,
+        "reason": "bounded_observation_goal_search"
+      },
+      "passed": true,
+      "globals_unchanged": true
+    },
+    {
+      "name": "real_config_fresh_held_core",
+      "expected": "ADVISE",
+      "input_sha256": "8872ac1530edd90f45a665fc77e637b8a7b13c22938208b78317584683d0b525",
+      "input_bytes": 21983,
+      "core_calls": 1,
+      "isolated_globals": true,
+      "result": {
+        "input_status": "COMPLETE_DIAGNOSTIC",
+        "status": "ADVISE",
+        "core_ran": true,
+        "reason": "bounded_observation_goal_search"
+      },
+      "passed": true,
+      "globals_unchanged": true
+    },
+    {
+      "name": "actual_config_absolute_mismatch_still_rejected",
+      "expected": "Rejected",
+      "input_sha256": "ecdbb465729bdcdbfd000fbf274e9e5206adb223ac4061eb9d8b1b7389b6d3d6",
+      "input_bytes": 15751,
+      "core_calls": 0,
+      "isolated_globals": true,
+      "exception": {
+        "type": "Rejected",
+        "message": "lane counters"
+      },
+      "passed": true,
+      "globals_unchanged": true
+    }
+  ],
+  "old_suites_run": false
+}

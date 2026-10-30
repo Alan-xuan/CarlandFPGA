@@ -1,0 +1,603 @@
+--- frozen-C30/private_raw4_time_association_v1.py
++++ C32/private_raw4_time_association_v2.py
+@@ -13,7 +13,7 @@
+ import re
+ from types import FunctionType, ModuleType
+ 
+-ABI = 'private_raw4_time_association_v1'
++ABI = 'private_raw4_time_association_v2'
+ CORE_SHA256 = '70b317681fee8c9182c342fe8d2f94eaecc957c62231a74a080d213bb5e0eab4'
+ PRODUCER_SHA256 = '6a5f70a6acdaa6de52fc72d678d452956861370e1d143b70219ced107c5a04c9'
+ PROFILE = 'deepeye_forward_profile_candidate_v1'
+@@ -39,19 +39,9 @@
+     """Malformed, inconsistent or out-of-budget JSON; not an authority STOP."""
+ 
+ 
+-class _Unavailable(Exception):
+-    pass
+-
+-
+ def _need(test, reason):
+     if not test:
+         raise Rejected(reason)
+-
+-
+-def _present(value, reason):
+-    if value is None:
+-        raise _Unavailable(reason)
+-    return value
+ 
+ 
+ def _obj(value, fields, name):
+@@ -255,72 +245,71 @@
+         _uint(v, 32)
+ 
+ 
+-def _returned(c, record, config):
+-    request_raw, request = _raw(_present(record['request_raw'], 'missing_original_request'))
+-    capture_raw, capture = _raw(_present(record['capture_raw'], 'missing_original_capture'))
++def _returned(c, record, config, missing):
++    # Each supplied raw line is checked independently; no substitute raw/config.
+     ident = c['observation_identity']; seq = ident['request_seq']; ctx = ident['context']
+-    _obj(request, set('schema kind context request_seq source_id source values qualities original_host_qpc_ns'.split()), 'raw request')
+-    _obj(capture, set('schema kind context request_seq request_sha256 generation trigger_id captures final_counters'.split()), 'raw capture')
+-    _need(type(request['schema']) is int and request['schema'] == 1 and request['kind'] == 'diagnostic_scan', 'raw request schema')
+-    _need(type(capture['schema']) is int and capture['schema'] == 1 and capture['kind'] == 'diagnostic_capture', 'raw capture schema')
+-    _context(request['context']); _context(capture['context'])
+-    _need(request['context'] == capture['context'] == ctx, 'raw context mismatch')
+-    _need(type(request['source_id']) is int and request['source_id'] == 4 and request['source'] == 'software_fixture', 'raw source4')
+-    for name in ('request_seq', 'generation', 'trigger_id'):
+-        _uint(capture[name], 32)
+-        _need(capture[name] == ident[name], 'capture identity mismatch')
+-    _need(_uint(request['request_seq'], 32) == seq, 'request sequence mismatch')
+-    _need(_json_bytes(request, True) == request_raw, 'canonical original request bytes')
+-    _need(hashlib.sha256(request_raw).hexdigest() == capture['request_sha256'] == ident['request_sha256'], 'request hash mismatch')
+-    _need(hashlib.sha256(capture_raw).hexdigest() == ident['capture_sha256'], 'capture hash mismatch')
+     q = c['quality']
+     qualities = [((q >> ch) & 1) | (((q >> (4+ch)) & 1) << 1) |
+                  (((q >> (8+ch)) & 1) << 2) | (((q >> 12) & 1) << 3) for ch in range(4)]
+     values = [0 if v is None else v for v in c['channel_counts']]
+-    for name, expected, bits in (('values', values, 16), ('qualities', qualities, 8),
+-                                 ('original_host_qpc_ns', ident['original_host_injection_qpc_ns'], 63)):
+-        _need(type(request[name]) is list and len(request[name]) == 4, 'raw four lanes')
+-        for v in request[name]:
+-            _uint(v, bits)
+-        _need(request[name] == expected, 'raw/request/candidate lane mismatch')
+-    _need(ident['generation'] == config['generation'] and
+-          ident['trigger_id'] == config['initial_trigger_id'] + seq, 'original generation/trigger progression')
+-    lanes = capture['captures']; baseline = config['baseline_counters']
+-    _need(type(lanes) is list and len(lanes) == 4, 'raw capture lane count')
++    if record['request_raw'] is None:
++        missing.append('missing_original_request')
++    else:
++        request_raw, request = _raw(record['request_raw'])
++        _need(request['context'] == ctx and request['request_seq'] == seq, 'raw request context/sequence mismatch')
++        _need(_json_bytes(request, True) == request_raw, 'canonical original request bytes')
++        _need(hashlib.sha256(request_raw).hexdigest() == ident['request_sha256'], 'request hash mismatch')
++        for name, expected in (('values', values), ('qualities', qualities),
++                               ('original_host_qpc_ns', ident['original_host_injection_qpc_ns'])):
++            _need(request[name] == expected, 'raw/request/candidate lane mismatch')
++    if record['capture_raw'] is None:
++        missing.append('missing_original_capture')
++        return
++    capture_raw, capture = _raw(record['capture_raw'])
++    _need(capture['context'] == ctx, 'raw capture context mismatch')
++    for name in ('request_seq', 'generation', 'trigger_id'):
++        _need(capture[name] == ident[name], 'capture identity mismatch')
++    _need(capture['request_sha256'] == ident['request_sha256'], 'capture request hash mismatch')
++    _need(hashlib.sha256(capture_raw).hexdigest() == ident['capture_sha256'], 'capture hash mismatch')
++    lanes = capture['captures']
++    first = lanes[0]['pipeline_counters']
++    # Feasibility only: these actual values do not supply an authenticated config.
++    _need(first[0] >= 4*seq and first[1] >= seq and first[2] >= 4*(seq-1)+1,
++          'returned counters cannot have a nonnegative baseline')
+     for ch, lane in enumerate(lanes):
+-        _obj(lane, {'channel', 'raw_words', 'pipeline_counters', 'ack_returned'}, 'raw lane')
++        _need(lane['pipeline_counters'] == [first[0], first[1], first[2]+ch],
++              'returned lane counters inconsistent')
+         _need(type(lane['channel']) is int and lane['channel'] == ch and lane['ack_returned'] is True, 'lane channel/ack')
+-        words = lane['raw_words']; ticks = request['original_host_qpc_ns'][ch]
+-        _need(type(words) is list and len(words) == 10, 'ten raw words')
+-        for v in words:
+-            _uint(v, 32)
++        words = lane['raw_words']; ticks = ident['original_host_injection_qpc_ns'][ch]
+         expected = [values[ch], ch | qualities[ch] << 8, ticks & 0xffffffff, ticks >> 32,
+                     4*(seq-1), 4*seq-1, ctx['tag'], ident['trigger_id'], ident['generation']]
+         _need(words[:9] == expected, 'returned raw words mismatch')
+-        _counter(lane['pipeline_counters'])
+-        _need(lane['pipeline_counters'] == [baseline[0]+4*seq, baseline[1]+seq, baseline[2]+4*(seq-1)+ch+1], 'lane counters')
+-    _counter(capture['final_counters'])
+-    _need(capture['final_counters'] == [baseline[0]+4*seq, baseline[1]+seq, baseline[2]+4*seq], 'final counters')
+-
+-
+-def _admissions(items, config):
+-    _present(items, 'missing_source_admissions')
++        if config is not None:
++            baseline = config['baseline_counters']
++            _need(lane['pipeline_counters'] == [baseline[0]+4*seq, baseline[1]+seq, baseline[2]+4*(seq-1)+ch+1], 'lane counters')
++    _need(capture['final_counters'] == lanes[-1]['pipeline_counters'], 'returned final counters inconsistent')
++    if config is not None:
++        baseline = config['baseline_counters']
++        _need(capture['final_counters'] == [baseline[0]+4*seq, baseline[1]+seq, baseline[2]+4*seq], 'final counters')
++    return seq, first
++
++
++def _admissions(items, anchor):
+     _need(type(items) is list and len(items) <= MAX_SOURCE_ADMISSIONS, 'bounded original admissions from origin')
+-    if not items:
+-        raise _Unavailable('missing_source_admissions')
+-    previous = None; last_native = None; consecutive = 0; native = {}
++    previous = None; last_native = None; consecutive = 0; native = {}; stale = False
+     for index, item in enumerate(items):
+         _obj(item, set('index adc_tick_ms em_tick_ms channel_counts quality source_record_sha256 received_qpc_ns new_em_sample'.split()), 'Root source admission')
+         _need(_uint(item['index'], 32) == index, 'original admissions must begin at zero with no omission')
+         _hash(item['source_record_sha256'])
+         _quality(item['channel_counts'], item['quality'], item['adc_tick_ms'], item['em_tick_ms'])
+         adc, em = item['adc_tick_ms'], item['em_tick_ms']
+-        _need(0 <= adc-config['source_start_tick_ms'] <= 10000, 'original ten-second source schedule')
+-        adc_ns, em_ns = _source_ns(config, adc), _source_ns(config, em)
++        _need(0 <= adc-anchor['source_start_tick_ms'] <= 10000, 'original ten-second source schedule')
++        adc_ns, em_ns = _source_ns(anchor, adc), _source_ns(anchor, em)
+         received = _uint(item['received_qpc_ns'])
+-        _need(0 <= received-adc_ns <= AGE_NS and (em_ns is None or 0 <= received-em_ns <= AGE_NS), 'source admission original age')
++        _need(received >= adc_ns and (em_ns is None or received >= em_ns), 'negative source admission original age')
++        stale |= received-adc_ns > AGE_NS or (em_ns is not None and received-em_ns > AGE_NS)
+         if previous is None:
+-            _need(adc == config['source_start_tick_ms'], 'missing original source start')
++            _need(adc == anchor['source_start_tick_ms'], 'missing original source start')
+             consecutive = 1
+         else:
+             _need(adc > previous['adc_tick_ms'] and received >= previous['received_qpc_ns'], 'source order')
+@@ -336,151 +325,247 @@
+             _need(item['channel_counts'][:3] == previous['channel_counts'][:3] and
+                   item['quality'] & 0x70 == previous['quality'] & 0x70, 'held source changed')
+         previous = item
+-    return native
+-
+-
+-def _pose_receipt(value, index, qpc, missing, call):
+-    _present(value, missing)
+-    _need(value['source_admission_index'] == index and value['nominal_source_qpc_ns'] == qpc, 'own pose/nominal source association')
+-    _present(value['pose_revision'], missing+'_revision')
+-    read = _present(value['pose_read'], missing+'_read')
+-    _need(qpc <= read['begin_qpc_ns'] and read['end_qpc_ns'] <= call['begin_qpc_ns'], 'nominal/read/call order')
+-    _covered(value, [qpc, read['begin_qpc_ns'], read['end_qpc_ns'], call['begin_qpc_ns'], call['end_qpc_ns']], missing)
++    return native, stale
++
++
++def _pose_receipt(value, index, qpc, reason, call, missing):
++    if value is None:
++        missing.append(reason)
++        return None
++    _need((index is None or value['source_admission_index'] == index) and
++          value['nominal_source_qpc_ns'] == qpc, 'own pose/nominal source association')
++    if value['pose_revision'] is None:
++        missing.append(reason+'_revision')
++    read = value['pose_read']; times = [qpc]
++    if read is None:
++        missing.append(reason+'_read')
++    else:
++        _need(qpc <= read['begin_qpc_ns'], 'nominal/read order')
++        times += [read['begin_qpc_ns'], read['end_qpc_ns']]
++        if call is not None:
++            _need(read['end_qpc_ns'] <= call['begin_qpc_ns'], 'read/call order')
++    if call is not None:
++        times += [call['begin_qpc_ns'], call['end_qpc_ns']]
++    _covered(value, times, reason, missing)
+     return value['pose']
+ 
+ 
+-def _covered(receipt, times, reason):
+-    span = _present(receipt['valid_span'], reason+'_span')
+-    _present(span['receipt_id'], reason+'_span_receipt')
++def _covered(receipt, times, reason, missing):
++    span = receipt['valid_span']
++    if span is None:
++        missing.append(reason+'_span')
++        return
++    if span['receipt_id'] is None:
++        missing.append(reason+'_span_receipt')
+     if any(t < span['from_qpc_ns'] or t > span['through_qpc_ns'] for t in times):
+-        raise _Unavailable(reason+'_span_does_not_cover_original_times')
++        missing.append(reason+'_span_does_not_cover_original_times')
+ 
+ 
+ def _association(request, candidates):
+-    root = _present(request['root_receipt'], 'missing_root_receipt')
+-    _obj(root, {'kind', 'evidence_scope', 'config', 'source_admissions', 'captures', 'current_pose', 'action_registry'}, 'Root association')
+-    _need(root['kind'] == 'c30_root_time_association_v1' and root['evidence_scope'] == request['evidence_scope'] and
+-          root['evidence_scope'] != 'unassociated_diagnostic', 'association evidence namespace')
+-    config = _present(root['config'], 'missing_root_config')
+-    _obj(config, set('receipt_id context generation profile_id producer_sha256 source_policy quality_encoding source_mode transport_source source_start_tick_ms source_start_monotonic_ns goal_m baseline_counters initial_trigger_id pose_book_id owner_binding_id'.split()), 'Root config')
+-    _text(config['receipt_id']); _context(config['context'])
+-    for key in ('pose_book_id', 'owner_binding_id'):
+-        _text(_present(config[key], 'missing_'+key))
+-    _need(_uint(config['generation'], 32) > 0, 'Root generation')
+-    _uint(config['initial_trigger_id'], 32); _counter(config['baseline_counters'])
+-    _tick(config['source_start_tick_ms'], 10); _uint(config['source_start_monotonic_ns'])
+-    _vector(config['goal_m'], 3, 1000)
+-    _need(config['profile_id'] == PROFILE and config['producer_sha256'] == PRODUCER_SHA256 and
+-          config['source_policy'] == 'candidate_causal_source_v1' and config['quality_encoding'] == ENCODING and
+-          config['source_mode'] == 'twin_fixture' and config['transport_source'] == 'software_fixture', 'Root source configuration')
+-    native = _admissions(root['source_admissions'], config)
+-    records = _present(root['captures'], 'missing_capture_associations')
+-    _need(type(records) is list and len(records) == len(candidates), 'one Root association per retained capture')
+-    current = _present(root['current_pose'], 'missing_current_pose')
+-    _obj(current, {'receipt_id', 'context', 'generation', 'at_qpc_ns', 'pose', 'pose_revision', 'pose_read', 'valid_span'}, 'current own pose')
+-    _text(current['receipt_id']); _context(current['context']); _uint(current['generation'], 32); _uint(current['at_qpc_ns'])
+-    _need(current['context'] == config['context'] and current['generation'] == config['generation'] and
+-          current['at_qpc_ns'] == request['now_qpc_ns'], 'current pose context/time')
+-    _pose(current['pose'])
+-    _present(current['pose_revision'], 'missing_current_pose_revision')
+-    current_read = _present(current['pose_read'], 'missing_current_pose_read')
+-    _covered(current, [request['now_qpc_ns'], current_read['begin_qpc_ns'], current_read['end_qpc_ns']], 'current_pose')
+-    observations = []; by_capture = {}; native_records = {}; previous = None
+-    for c, rec in zip(candidates, records):
+-        _present(rec, 'missing_capture_association')
+-        _obj(rec, set('capture_sha256 source_record_sha256 request_raw capture_raw adc_pose em_pose em_origin_capture_sha256 cause_action_id adc_call'.split()), 'capture association')
+-        ident, t = c['observation_identity'], c['source_time']; index = ident['source_admission_index']
+-        if index >= len(root['source_admissions']):
+-            raise _Unavailable('missing_source_admission_index')
+-        adm = root['source_admissions'][index]
+-        _need(ident['context'] == config['context'] and ident['generation'] == config['generation'], 'capture/config identity')
+-        _need(t['source_start_tick_ms'] == config['source_start_tick_ms'] and
+-              t['source_start_monotonic_ns'] == config['source_start_monotonic_ns'], 'original anchor mismatch')
+-        _hash(rec['capture_sha256']); _hash(rec['source_record_sha256'])
+-        _need(rec['capture_sha256'] == ident['capture_sha256'] and rec['capture_sha256'] not in by_capture, 'unique capture identity')
+-        _need(rec['source_record_sha256'] == adm['source_record_sha256'] and
+-              c['quality'] == adm['quality'] and c['channel_counts'] == adm['channel_counts'] and
+-              t['adc_tick_ms'] == adm['adc_tick_ms'] and t['em_tick_ms'] == adm['em_tick_ms'] and
+-              t['admission_received_monotonic_ns'] == adm['received_qpc_ns'], 'capture/source association mismatch')
++    """One progressive association pass: absent operands never hide known conflicts."""
++    missing = []; stale = False
++    anchor = candidates[-1]['source_time']
++    anchor_keys = ('source_start_tick_ms', 'source_start_monotonic_ns')
++    by_candidate = {}; previous = None
++    for c in candidates:
++        ident, t = c['observation_identity'], c['source_time']
++        _need(all(t[k] == anchor[k] for k in anchor_keys), 'retained original anchor mismatch')
++        frame = ident['capture_sha256']
++        _need(frame not in by_candidate, 'unique capture identity')
+         if previous is not None:
+-            _need(ident['request_seq'] > previous['request_seq'] and index > previous['source_admission_index'] and
++            _need(ident['request_seq'] > previous['request_seq'] and
++                  ident['source_admission_index'] > previous['source_admission_index'] and
+                   ident['original_host_injection_qpc_ns'][0] > previous['original_host_injection_qpc_ns'][-1] and
+                   ident['receiver_upper_qpc_ns'] >= previous['receiver_upper_qpc_ns'], 'retained capture order')
+-        _returned(c, rec, config)
++        by_candidate[frame] = c; previous = ident
++    root = request['root_receipt']
++    if root is None:
++        return None, ['missing_root_receipt'], stale
++    _need(root['evidence_scope'] != 'unassociated_diagnostic', 'association evidence namespace')
++    config = root['config']
++    if config is None:
++        missing.append('missing_root_config')
++    else:
++        for key in ('pose_book_id', 'owner_binding_id'):
++            if config[key] is None:
++                missing.append('missing_'+key)
++        _need(config['generation'] > 0, 'Root generation')
++        _need(all(config[k] == anchor[k] for k in anchor_keys), 'original anchor mismatch')
++        _need(config['profile_id'] == PROFILE and config['producer_sha256'] == PRODUCER_SHA256 and
++              config['source_policy'] == 'candidate_causal_source_v1' and config['quality_encoding'] == ENCODING and
++              config['source_mode'] == 'twin_fixture' and config['transport_source'] == 'software_fixture', 'Root source configuration')
++        for c in candidates:
++            ident = c['observation_identity']
++            _need(ident['generation'] == config['generation'] and
++                  ident['trigger_id'] == config['initial_trigger_id'] + ident['request_seq'], 'original generation/trigger progression')
++    admissions = root['source_admissions']
++    if admissions is None or not admissions:
++        missing.append('missing_source_admissions')
++        native = {}
++    else:
++        # The actual candidates supply this original anchor; it is not a fake config.
++        native, stale = _admissions(admissions, anchor)
++    by_admission = {}
++    for c in candidates:
++        ident, t = c['observation_identity'], c['source_time']; index = ident['source_admission_index']
++        if admissions is None or index >= len(admissions):
++            missing.append('missing_source_admission_index')
++        else:
++            adm = admissions[index]
++            _need(c['quality'] == adm['quality'] and c['channel_counts'] == adm['channel_counts'] and
++                  t['adc_tick_ms'] == adm['adc_tick_ms'] and t['em_tick_ms'] == adm['em_tick_ms'] and
++                  t['admission_received_monotonic_ns'] == adm['received_qpc_ns'], 'candidate/source association mismatch')
++            by_admission[ident['capture_sha256']] = adm
++    current = root['current_pose']
++    if current is None:
++        missing.append('missing_current_pose')
++    else:
++        if current['pose_revision'] is None:
++            missing.append('missing_current_pose_revision')
++        times = [request['now_qpc_ns']]
++        if current['pose_read'] is None:
++            missing.append('missing_current_pose_read')
++        else:
++            times += [current['pose_read']['begin_qpc_ns'], current['pose_read']['end_qpc_ns']]
++        _covered(current, times, 'current_pose', missing)
++    records = root['captures']; observations = []
++    if records is None:
++        missing.append('missing_capture_associations')
++        record_pairs = []
++    else:
++        _need(len(records) == len(candidates), 'one Root association per retained capture')
++        record_pairs = list(zip(candidates, records))
++    by_record = {c['observation_identity']['capture_sha256']: r for c, r in record_pairs if r is not None}
++    previous_counters = None
++    for c, rec in record_pairs:
++        if rec is None:
++            missing.append('missing_capture_association')
++            continue
++        ident, t = c['observation_identity'], c['source_time']; index = ident['source_admission_index']
++        _need(rec['capture_sha256'] == ident['capture_sha256'], 'capture association identity mismatch')
++        adm = by_admission.get(ident['capture_sha256'])
++        if adm is not None:
++            _need(rec['source_record_sha256'] == adm['source_record_sha256'], 'capture/source hash mismatch')
++        returned = _returned(c, rec, config, missing)
++        if returned is not None:
++            if previous_counters is not None:
++                prior_seq, prior_values = previous_counters
++                seq, values = returned; delta = seq-prior_seq
++                _need([values[i]-prior_values[i] for i in range(3)] == [4*delta, delta, 4*delta],
++                      'returned cross-capture counters inconsistent')
++            previous_counters = returned
+         adc_ns, em_ns = _source_ns(t, t['adc_tick_ms']), _source_ns(t, t['em_tick_ms'])
+-        call = _present(rec['adc_call'], 'missing_adc_call')
+-        _need(call['end_qpc_ns'] <= t['admission_received_monotonic_ns'], 'ADC call after admission')
+-        adc_pose = _pose_receipt(rec['adc_pose'], index, adc_ns, 'missing_adc_pose', call)
+-        em_pose = None; origin = None
+-        if em_ns is not None:
+-            _need(t['em_tick_ms'] in native, 'missing native admission')
+-            ni = native[t['em_tick_ms']]
+-            origin = _present(rec['em_origin_capture_sha256'], 'missing_held_board_origin')
+-            _hash(origin)
+-            if adm['new_em_sample']:
+-                em_pose = _pose_receipt(rec['em_pose'], ni, em_ns, 'missing_em_pose', call)
+-                _need(ni == index and adc_ns == em_ns and origin == ident['capture_sha256'] and em_pose == adc_pose, 'native original identity/pose')
+-                _need(rec['em_pose']['pose_revision'] == rec['adc_pose']['pose_revision'], 'native ADC/EM revision mismatch')
++        call = rec['adc_call']
++        if call is None:
++            missing.append('missing_adc_call')
++        else:
++            _need(call['end_qpc_ns'] <= t['admission_received_monotonic_ns'], 'ADC call after admission')
++        adc_pose = _pose_receipt(rec['adc_pose'], index, adc_ns, 'missing_adc_pose', call, missing)
++        em_pose = None
++        if em_ns is None:
++            _need(rec['em_pose'] is None and rec['em_origin_capture_sha256'] is None, 'faulted EM association must be null')
++        else:
++            ni = native.get(t['em_tick_ms'])
++            if ni is None:
++                missing.append('missing_native_admission')
++            origin = rec['em_origin_capture_sha256']
++            if origin is None:
++                missing.append('missing_held_board_origin')
++            if adc_ns == em_ns:
++                if adm is not None:
++                    _need(adm['new_em_sample'] and ni == index, 'native original admission')
++                if origin is not None:
++                    _need(origin == ident['capture_sha256'], 'native original identity')
++                em_pose = _pose_receipt(rec['em_pose'], index, em_ns, 'missing_em_pose', call, missing)
++                if adc_pose is not None and em_pose is not None:
++                    _need(adc_pose == em_pose, 'native original pose')
++                    ar, er = rec['adc_pose']['pose_revision'], rec['em_pose']['pose_revision']
++                    if ar is not None and er is not None:
++                        _need(ar == er, 'native ADC/EM revision mismatch')
+             else:
+-                original = _present(by_capture.get(origin), 'missing_retained_native_board_origin')
+-                native_record = native_records[origin]
+-                _present(rec['em_pose'], 'missing_em_pose')
+-                _need(rec['em_pose'] == native_record['em_pose'], 'held original read/span/revision changed')
+-                em_pose = _pose_receipt(rec['em_pose'], ni, em_ns, 'missing_em_pose', native_record['adc_call'])
+-                _need(original['em_tick_ms'] == original['adc_tick_ms'] == Fraction(em_ns, NS_PER_MS) and
+-                      original['counts'][:3] == c['channel_counts'][:3] and
+-                      original['quality'] & 0x70 == c['quality'] & 0x70 and original['em_pose'] == em_pose,
+-                      'held native board evidence mismatch')
++                if adm is not None:
++                    _need(not adm['new_em_sample'], 'held original admission')
++                original = by_candidate.get(origin)
++                original_record = by_record.get(origin)
++                native_call = None
++                if original is None:
++                    missing.append('missing_retained_native_board_origin')
++                else:
++                    oi, ot = original['observation_identity'], original['source_time']
++                    _need(oi['source_admission_index'] < index, 'held origin must precede current capture')
++                    _need(ot['adc_tick_ms'] == ot['em_tick_ms'] == t['em_tick_ms'] and
++                          original['channel_counts'][:3] == c['channel_counts'][:3] and
++                          original['quality'] & 0x70 == c['quality'] & 0x70, 'held native board evidence mismatch')
++                    if ni is not None:
++                        _need(ni == oi['source_admission_index'], 'held original admission identity')
++                    ni = oi['source_admission_index']
++                if original_record is None:
++                    missing.append('missing_retained_native_association')
++                else:
++                    native_call = original_record['adc_call']
++                    if rec['em_pose'] is not None and original_record['em_pose'] is not None:
++                        held, original_pose = rec['em_pose'], original_record['em_pose']
++                        for key in ('receipt_id', 'source_admission_index', 'nominal_source_qpc_ns', 'pose', 'pose_revision', 'pose_read'):
++                            if held[key] is not None and original_pose[key] is not None:
++                                _need(held[key] == original_pose[key], 'held original read/revision changed')
++                        if held['valid_span'] is not None and original_pose['valid_span'] is not None:
++                            for key in ('receipt_id', 'from_qpc_ns', 'through_qpc_ns'):
++                                hv, ov = held['valid_span'][key], original_pose['valid_span'][key]
++                                if hv is not None and ov is not None:
++                                    _need(hv == ov, 'held original span changed')
++                em_pose = _pose_receipt(rec['em_pose'], ni, em_ns, 'missing_em_pose', native_call, missing)
++        observations.append({'sample_id': ident['capture_sha256'], 'counts': copy.deepcopy(c['channel_counts']),
++            'quality': c['quality'], 'adc_tick_ms': Fraction(adc_ns, NS_PER_MS),
++            'em_tick_ms': None if em_ns is None else Fraction(em_ns, NS_PER_MS),
++            'adc_pose': copy.deepcopy(adc_pose), 'em_pose': copy.deepcopy(em_pose)})
++    registry = root['action_registry']; actions = None; ids = {}
++    if registry is None:
++        missing.append('missing_action_registry')
++    else:
++        actions = registry['actions']
++        if actions is None:
++            missing.append('missing_occurred_actions')
+         else:
+-            _need(rec['em_pose'] is None and rec['em_origin_capture_sha256'] is None, 'faulted EM association must be null')
+-        if rec['cause_action_id'] is not None:
+-            _text(rec['cause_action_id'])
+-        obs = {'sample_id': ident['capture_sha256'], 'counts': copy.deepcopy(c['channel_counts']),
+-               'quality': c['quality'], 'adc_tick_ms': Fraction(adc_ns, NS_PER_MS),
+-               'em_tick_ms': None if em_ns is None else Fraction(em_ns, NS_PER_MS),
+-               'adc_pose': copy.deepcopy(adc_pose), 'em_pose': copy.deepcopy(em_pose)}
+-        observations.append(obs); by_capture[ident['capture_sha256']] = obs
+-        native_records[ident['capture_sha256']] = rec; previous = ident
+-    registry = _present(root['action_registry'], 'missing_action_registry')
+-    _obj(registry, {'receipt_id', 'context', 'generation', 'as_of_qpc_ns', 'actions'}, 'occurred action registry')
+-    _text(registry['receipt_id']); _context(registry['context']); _uint(registry['generation'], 32); _uint(registry['as_of_qpc_ns'])
+-    _need(registry['context'] == config['context'] and registry['generation'] == config['generation'] and
+-          registry['as_of_qpc_ns'] == request['now_qpc_ns'], 'action registry context/time')
+-    actions = _present(registry['actions'], 'missing_occurred_actions')
+-    _need(type(actions) is list and len(actions)+len(candidates) <= MAX_HISTORY, 'combined history/action bound')
+-    ids = {}; previous_time = -1
+-    for action in actions:
+-        _obj(action, {'receipt_id', 'action_id', 'state', 'observation_capture_sha256', 'at_qpc_ns', 'from_pose', 'to_pose', 'from_pose_revision', 'to_pose_revision'}, 'occurred action')
+-        _text(_present(action['receipt_id'], 'missing_action_execution_receipt')); _text(action['action_id'])
+-        _present(action['from_pose_revision'], 'missing_action_from_revision')
+-        _present(action['to_pose_revision'], 'missing_action_to_revision')
+-        _need(action['state'] == 'executed', 'only actually executed actions')
+-        _need(action['action_id'] not in ids, 'duplicate action identity')
+-        _hash(action['observation_capture_sha256'])
+-        observed = _present(by_capture.get(action['observation_capture_sha256']), 'missing_action_observation')
+-        at = _uint(action['at_qpc_ns'])
+-        _need(previous_time <= at <= request['now_qpc_ns'], 'action time order')
+-        ci = next(c['observation_identity'] for c in candidates if c['observation_identity']['capture_sha256'] == action['observation_capture_sha256'])
+-        _need(at >= ci['receiver_upper_qpc_ns'], 'action must follow received observation')
+-        _pose(action['from_pose']); _pose(action['to_pose'])
+-        ids[action['action_id']] = action; previous_time = at
+-    for c, rec in zip(candidates, records):
+-        cause = rec['cause_action_id']
+-        if cause is not None:
+-            action = _present(ids.get(cause), 'missing_observation_action_cause')
+-            _need(action['at_qpc_ns'] < _source_ns(c['source_time'], c['source_time']['adc_tick_ms']), 'future/cyclic action cause')
+-    return {'enabled': True, 'now_tick_ms': Fraction(request['now_qpc_ns'], NS_PER_MS),
++            # Keep the later bound as defense in addition to structural preflight.
++            _need(len(actions)+len(candidates) <= MAX_HISTORY, 'combined history/action bound')
++            previous_time = -1
++            for action in actions:
++                for key, reason in (('receipt_id', 'missing_action_execution_receipt'),
++                                    ('from_pose_revision', 'missing_action_from_revision'),
++                                    ('to_pose_revision', 'missing_action_to_revision')):
++                    if action[key] is None:
++                        missing.append(reason)
++                _need(action['state'] == 'executed', 'only actually executed actions')
++                _need(action['action_id'] not in ids, 'duplicate action identity')
++                at = action['at_qpc_ns']
++                _need(previous_time <= at <= request['now_qpc_ns'], 'action time order')
++                observed = by_candidate.get(action['observation_capture_sha256'])
++                if observed is None:
++                    missing.append('missing_action_observation')
++                else:
++                    _need(at >= observed['observation_identity']['receiver_upper_qpc_ns'], 'action must follow received observation')
++                ids[action['action_id']] = action; previous_time = at
++    for c, rec in record_pairs:
++        if rec is not None and rec['cause_action_id'] is not None:
++            action = ids.get(rec['cause_action_id'])
++            if action is None:
++                missing.append('missing_observation_action_cause')
++            else:
++                _need(action['at_qpc_ns'] < _source_ns(c['source_time'], c['source_time']['adc_tick_ms']), 'future/cyclic action cause')
++    if missing:
++        return None, missing, stale
++    view = {'enabled': True, 'now_tick_ms': Fraction(request['now_qpc_ns'], NS_PER_MS),
+             'pose': copy.deepcopy(current['pose']), 'goal_m': copy.deepcopy(config['goal_m']),
+             'observation': observations[-1], 'history': observations[:-1],
+             'executed_actions': copy.deepcopy(actions)}
+-
++    return view, missing, stale
+ 
+ # Known local dependency only: no caller-selected module path, no plugin lookup.
+ _CORE_PATH = Path(__file__).resolve().parent.parent / 'C-DEEPEYE-CAUSAL-FOUR-CHANNEL-PLANNER-20261029-28' / 'candidate_four_channel_planner_v1.py'
+ _CORE_BYTES = _CORE_PATH.read_bytes()
+ if hashlib.sha256(_CORE_BYTES).hexdigest() != CORE_SHA256:
+     raise ImportError('frozen C28 source hash mismatch')
+-_CORE_MODULE = ModuleType('_frozen_c28_for_c30')
++_CORE_MODULE = ModuleType('_frozen_c28_for_c32')
+ exec(compile(_CORE_BYTES, str(_CORE_PATH), 'exec'), _CORE_MODULE.__dict__)
+ _ORIGINAL = _CORE_MODULE.recommend
+ 
+@@ -532,13 +617,13 @@
+     Book labels inherit this full-context namespace; they authenticate nothing.
+     No missing span is interpolated and no absent action is inferred.
+     """
+-    if root is None:
+-        return
+     identity = candidates[-1]['observation_identity']
+     ctx, generation = identity['context'], identity['generation']
+     for c in candidates:
+         i = c['observation_identity']
+         _need(i['context'] == ctx and i['generation'] == generation, 'retained capture namespace mismatch')
++    if root is None:
++        return
+     for key in ('config', 'current_pose', 'action_registry'):
+         item = root[key]
+         if item is not None:
+@@ -589,6 +674,11 @@
+             register(before, action['from_pose']); register(after, action['to_pose'])
+             if before is not None and after is not None:
+                 _need(after > before and (previous_to is None or before >= previous_to), 'executed action revision reversal')
++            if previous_to is not None:
++                if before is not None:
++                    _need(before >= previous_to, 'executed action from revision reversal')
++                if after is not None:
++                    _need(after > previous_to, 'executed action to revision reversal')
+             if after is not None:
+                 # at is the executed completion/commit instant, not a proposal.
+                 # Check claimed spans; do not infer any unobserved motion span.
+@@ -717,9 +807,9 @@
+     _tree(request)
+     fields = {'schema_version', 'abi_id', 'diagnostic_only', 'evidence_scope', 'enabled',
+               'now_qpc_ns', 'candidate', 'history', 'root_receipt'}
+-    _need(type(request) is dict and set(request) in (fields, fields-{'enabled'}), 'exact C30 envelope')
++    _need(type(request) is dict and set(request) in (fields, fields-{'enabled'}), 'exact C32 envelope')
+     _need(type(request['schema_version']) is int and request['schema_version'] == 1 and request['abi_id'] == ABI,
+-          'C30 schema/namespace')
++          'C32 schema/namespace')
+     _need(request['diagnostic_only'] is True and type(request['evidence_scope']) is str and
+           request['evidence_scope'] in _SCOPES, 'diagnostic evidence scope')
+     enabled = request.get('enabled', False)
+@@ -752,27 +842,22 @@
+               'candidate': copy.deepcopy(request['candidate']),
+               'root_receipt': copy.deepcopy(request['root_receipt']),
+               'map_cells': [], 'independent_em_count': 0}
++    view, missing, stale = _association(request, candidates)
+     if not enabled:
+-        if request['root_receipt'] is not None:
+-            try:
+-                _association(request, candidates)
+-            except _Unavailable:
+-                pass
+         return _finish(result)
+-    try:
+-        view = _association(request, candidates)
+-        # Exact original integers gate entry; never compare truncated or float ms.
+-        for c in candidates:
+-            t = c['source_time']
+-            if t['adc_source_age_ns'] > AGE_NS or (t['em_source_age_ns'] is not None and t['em_source_age_ns'] > AGE_NS):
+-                raise _Unavailable('original_source_expired_at_capture')
+-        t = request['candidate']['source_time']
+-        for name in ('adc_tick_ms', 'em_tick_ms'):
+-            ns = _source_ns(t, t[name])
+-            if ns is not None and request['now_qpc_ns']-ns > AGE_NS:
+-                raise _Unavailable('original_source_expired_now')
+-    except _Unavailable as exc:
+-        result.update(input_status='INPUT_UNAVAILABLE', reason=str(exc))
++    reason = missing[0] if missing else ('original_source_expired_at_admission' if stale else None)
++    # Exact original integers gate entry after all decidable association checks.
++    for c in candidates:
++        t = c['source_time']
++        if t['adc_source_age_ns'] > AGE_NS or (t['em_source_age_ns'] is not None and t['em_source_age_ns'] > AGE_NS):
++            reason = reason or 'original_source_expired_at_capture'
++    t = request['candidate']['source_time']
++    for name in ('adc_tick_ms', 'em_tick_ms'):
++        ns = _source_ns(t, t[name])
++        if ns is not None and request['now_qpc_ns']-ns > AGE_NS:
++            reason = reason or 'original_source_expired_now'
++    if reason is not None:
++        result.update(input_status='INPUT_UNAVAILABLE', reason=reason)
+         return _finish(result)
+     computed = _bind_core(view)(view)
+     result.update(core_ran=True, input_status='COMPLETE_DIAGNOSTIC')

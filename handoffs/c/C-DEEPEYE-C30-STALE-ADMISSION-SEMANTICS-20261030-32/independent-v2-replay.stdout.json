@@ -1,0 +1,67 @@
+{
+  "scope": "C32_R1_NARROW_NEW_INDEPENDENT_CLOSURE",
+  "mode": "replay",
+  "source_sha256": "39fe63a3d71308fae9482e3203b4f5120c34d796ccd2b755b99a9de902005a87",
+  "total": 4,
+  "passed": true,
+  "elapsed_seconds": 0.09342249999463093,
+  "cases": [
+    {
+      "name": "stale_missing_config_internal_lane_counter_disagreement_True",
+      "expected": "Rejected",
+      "input_sha256": "a625cfcddf0097ca29c7e7f36b571c53724036fee68d69d5b3f66eab561db641",
+      "input_bytes": 13305,
+      "core_calls": 0,
+      "isolated_globals": true,
+      "exception": {
+        "type": "Rejected",
+        "message": "returned lane counters inconsistent"
+      },
+      "passed": true,
+      "globals_unchanged": true
+    },
+    {
+      "name": "stale_missing_config_final_counter_disagrees_last_lane_True",
+      "expected": "Rejected",
+      "input_sha256": "99ad0b97e656c0395ce091cac724b5131f236fdb23d4586c17b33d2e7aef993c",
+      "input_bytes": 13305,
+      "core_calls": 0,
+      "isolated_globals": true,
+      "exception": {
+        "type": "Rejected",
+        "message": "returned final counters inconsistent"
+      },
+      "passed": true,
+      "globals_unchanged": true
+    },
+    {
+      "name": "stale_missing_config_internal_lane_counter_disagreement_False",
+      "expected": "Rejected",
+      "input_sha256": "b1de8760c679ae6738696111f50738c4329b84d0055fc4018bd84146054a9af0",
+      "input_bytes": 13306,
+      "core_calls": 0,
+      "isolated_globals": true,
+      "exception": {
+        "type": "Rejected",
+        "message": "returned lane counters inconsistent"
+      },
+      "passed": true,
+      "globals_unchanged": true
+    },
+    {
+      "name": "stale_missing_config_final_counter_disagrees_last_lane_False",
+      "expected": "Rejected",
+      "input_sha256": "25ef639e089938a855c91756753b5c2791e29c1b7689323ccc09f89b5efdc930",
+      "input_bytes": 13306,
+      "core_calls": 0,
+      "isolated_globals": true,
+      "exception": {
+        "type": "Rejected",
+        "message": "returned final counters inconsistent"
+      },
+      "passed": true,
+      "globals_unchanged": true
+    }
+  ],
+  "old_suites_run": false
+}

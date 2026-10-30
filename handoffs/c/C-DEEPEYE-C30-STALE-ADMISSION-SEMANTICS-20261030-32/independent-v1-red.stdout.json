@@ -1,0 +1,632 @@
+{
+  "scope": "NEW_C32_INDEPENDENT_FOCUSED",
+  "source_sha256": "30466fc69099112010c72cdaec7c097ce38c0b43a1307a6f18ad4c58390e6f77",
+  "total": 35,
+  "passed": false,
+  "elapsed_seconds": 0.5913482000032673,
+  "cases": [
+    {
+      "name": "new_fresh_native200",
+      "expected": "ADVISE",
+      "input_sha256": "cdc027e27dd252afdae6eb58c8d23458a93eebdd9ee0b5bae38ddcb84d5e1865",
+      "input_bytes": 14509,
+      "input_file": "01-new_fresh_native200.input.json",
+      "core_calls": 1,
+      "isolated_globals": true,
+      "result": {
+        "input_status": "COMPLETE_DIAGNOSTIC",
+        "status": "ADVISE",
+        "core_ran": true,
+        "reason": "bounded_observation_goal_search",
+        "independent_em_count": 1
+      },
+      "passed": true,
+      "input_unchanged": true,
+      "globals_unchanged": true
+    },
+    {
+      "name": "new_fresh_held200_210",
+      "expected": "ADVISE",
+      "input_sha256": "9b3f6888b21e35a4313dca0caa228f1cdf5518a927059d4246c868891ece9096",
+      "input_bytes": 20741,
+      "input_file": "02-new_fresh_held200_210.input.json",
+      "core_calls": 1,
+      "isolated_globals": true,
+      "result": {
+        "input_status": "COMPLETE_DIAGNOSTIC",
+        "status": "ADVISE",
+        "core_ran": true,
+        "reason": "bounded_observation_goal_search",
+        "independent_em_count": 1
+      },
+      "passed": true,
+      "input_unchanged": true,
+      "globals_unchanged": true
+    },
+    {
+      "name": "native_admission_age_100000000",
+      "expected": "ADVISE",
+      "input_sha256": "4e8d9e0e240b2af03923691277cb9ac6a9a8d9b8d61bf15cef26bfa2d6a0803f",
+      "input_bytes": 14514,
+      "input_file": "03-native_admission_age_100000000.input.json",
+      "core_calls": 1,
+      "isolated_globals": true,
+      "result": {
+        "input_status": "COMPLETE_DIAGNOSTIC",
+        "status": "ADVISE",
+        "core_ran": true,
+        "reason": "bounded_observation_goal_search",
+        "independent_em_count": 1
+      },
+      "passed": true,
+      "input_unchanged": true,
+      "globals_unchanged": true
+    },
+    {
+      "name": "native_admission_age_100000001",
+      "expected": "UNAVAILABLE",
+      "input_sha256": "42d94f0a2af0561798306bf7c3ace23c0df16c5c8e0db726f76c1a9d76346c60",
+      "input_bytes": 14515,
+      "input_file": "04-native_admission_age_100000001.input.json",
+      "core_calls": 0,
+      "isolated_globals": true,
+      "result": {
+        "input_status": "INPUT_UNAVAILABLE",
+        "status": "STOP",
+        "core_ran": false,
+        "reason": "original_source_expired_at_admission",
+        "independent_em_count": 0
+      },
+      "passed": true,
+      "input_unchanged": true,
+      "globals_unchanged": true
+    },
+    {
+      "name": "held_admission_age_100000000",
+      "expected": "ADVISE",
+      "input_sha256": "1be585c31a139d0a2d4459e64fcf0f13a425a3f785219e23f3b1c28d39a52b17",
+      "input_bytes": 20742,
+      "input_file": "05-held_admission_age_100000000.input.json",
+      "core_calls": 1,
+      "isolated_globals": true,
+      "result": {
+        "input_status": "COMPLETE_DIAGNOSTIC",
+        "status": "ADVISE",
+        "core_ran": true,
+        "reason": "bounded_observation_goal_search",
+        "independent_em_count": 1
+      },
+      "passed": true,
+      "input_unchanged": true,
+      "globals_unchanged": true
+    },
+    {
+      "name": "held_admission_age_100000001",
+      "expected": "UNAVAILABLE",
+      "input_sha256": "d62c5768d385c55231fa4a218c7cce341c5b6a9a908e78de457fbd4432d3cd59",
+      "input_bytes": 20743,
+      "input_file": "06-held_admission_age_100000001.input.json",
+      "core_calls": 0,
+      "isolated_globals": true,
+      "result": {
+        "input_status": "INPUT_UNAVAILABLE",
+        "status": "STOP",
+        "core_ran": false,
+        "reason": "original_source_expired_at_admission",
+        "independent_em_count": 0
+      },
+      "passed": true,
+      "input_unchanged": true,
+      "globals_unchanged": true
+    },
+    {
+      "name": "stale_missing_config_True",
+      "expected": "UNAVAILABLE",
+      "input_sha256": "8bfbde65fe82c54952ba840e829f4e6fa8c1a841e1c33d280fa35202ed0268be",
+      "input_bytes": 13305,
+      "input_file": "07-stale_missing_config_True.input.json",
+      "core_calls": 0,
+      "isolated_globals": true,
+      "result": {
+        "input_status": "INPUT_UNAVAILABLE",
+        "status": "STOP",
+        "core_ran": false,
+        "reason": "missing_root_config",
+        "independent_em_count": 0
+      },
+      "passed": true,
+      "input_unchanged": true,
+      "globals_unchanged": true
+    },
+    {
+      "name": "stale_missing_config_request_bad_returned_word_True",
+      "expected": "Rejected",
+      "input_sha256": "0177f73610057fce7cf1556c598cd52276759c45b6b6137e8a12ff3328d4875b",
+      "input_bytes": 12386,
+      "input_file": "08-stale_missing_config_request_bad_returned_word_True.input.json",
+      "core_calls": 0,
+      "isolated_globals": true,
+      "exception": {
+        "type": "Rejected",
+        "message": "returned raw words mismatch"
+      },
+      "passed": true,
+      "input_unchanged": true,
+      "globals_unchanged": true
+    },
+    {
+      "name": "stale_missing_config_internal_lane_counter_disagreement_True",
+      "expected": "Rejected",
+      "input_sha256": "a625cfcddf0097ca29c7e7f36b571c53724036fee68d69d5b3f66eab561db641",
+      "input_bytes": 13305,
+      "input_file": "09-stale_missing_config_internal_lane_counter_disagreement_True.input.json",
+      "core_calls": 0,
+      "isolated_globals": true,
+      "result": {
+        "input_status": "INPUT_UNAVAILABLE",
+        "status": "STOP",
+        "core_ran": false,
+        "reason": "missing_root_config",
+        "independent_em_count": 0
+      },
+      "exception": {
+        "type": "AssertionError",
+        "message": ""
+      },
+      "passed": false,
+      "input_unchanged": true,
+      "globals_unchanged": true
+    },
+    {
+      "name": "stale_missing_config_final_counter_disagrees_last_lane_True",
+      "expected": "Rejected",
+      "input_sha256": "99ad0b97e656c0395ce091cac724b5131f236fdb23d4586c17b33d2e7aef993c",
+      "input_bytes": 13305,
+      "input_file": "10-stale_missing_config_final_counter_disagrees_last_lane_True.input.json",
+      "core_calls": 0,
+      "isolated_globals": true,
+      "result": {
+        "input_status": "INPUT_UNAVAILABLE",
+        "status": "STOP",
+        "core_ran": false,
+        "reason": "missing_root_config",
+        "independent_em_count": 0
+      },
+      "exception": {
+        "type": "AssertionError",
+        "message": ""
+      },
+      "passed": false,
+      "input_unchanged": true,
+      "globals_unchanged": true
+    },
+    {
+      "name": "stale_missing_config_False",
+      "expected": "DISABLED",
+      "input_sha256": "c04dbb1f30f9fc1f96e2a4adf423eef1d34bd7f0ac1cfb5ba51fe637c8dab709",
+      "input_bytes": 13306,
+      "input_file": "11-stale_missing_config_False.input.json",
+      "core_calls": 0,
+      "isolated_globals": true,
+      "result": {
+        "input_status": "DISABLED",
+        "status": "STOP",
+        "core_ran": false,
+        "reason": "disabled",
+        "independent_em_count": 0
+      },
+      "passed": true,
+      "input_unchanged": true,
+      "globals_unchanged": true
+    },
+    {
+      "name": "stale_missing_config_request_bad_returned_word_False",
+      "expected": "Rejected",
+      "input_sha256": "f07a42de82937cc6b25a3f6aa666fa705ddd6b3f6a04d01c22c03c35f6266f23",
+      "input_bytes": 12387,
+      "input_file": "12-stale_missing_config_request_bad_returned_word_False.input.json",
+      "core_calls": 0,
+      "isolated_globals": true,
+      "exception": {
+        "type": "Rejected",
+        "message": "returned raw words mismatch"
+      },
+      "passed": true,
+      "input_unchanged": true,
+      "globals_unchanged": true
+    },
+    {
+      "name": "stale_missing_config_internal_lane_counter_disagreement_False",
+      "expected": "Rejected",
+      "input_sha256": "b1de8760c679ae6738696111f50738c4329b84d0055fc4018bd84146054a9af0",
+      "input_bytes": 13306,
+      "input_file": "13-stale_missing_config_internal_lane_counter_disagreement_False.input.json",
+      "core_calls": 0,
+      "isolated_globals": true,
+      "result": {
+        "input_status": "DISABLED",
+        "status": "STOP",
+        "core_ran": false,
+        "reason": "disabled",
+        "independent_em_count": 0
+      },
+      "exception": {
+        "type": "AssertionError",
+        "message": ""
+      },
+      "passed": false,
+      "input_unchanged": true,
+      "globals_unchanged": true
+    },
+    {
+      "name": "stale_missing_config_final_counter_disagrees_last_lane_False",
+      "expected": "Rejected",
+      "input_sha256": "25ef639e089938a855c91756753b5c2791e29c1b7689323ccc09f89b5efdc930",
+      "input_bytes": 13306,
+      "input_file": "14-stale_missing_config_final_counter_disagrees_last_lane_False.input.json",
+      "core_calls": 0,
+      "isolated_globals": true,
+      "result": {
+        "input_status": "DISABLED",
+        "status": "STOP",
+        "core_ran": false,
+        "reason": "disabled",
+        "independent_em_count": 0
+      },
+      "exception": {
+        "type": "AssertionError",
+        "message": ""
+      },
+      "passed": false,
+      "input_unchanged": true,
+      "globals_unchanged": true
+    },
+    {
+      "name": "stale_default_disabled",
+      "expected": "DISABLED",
+      "input_sha256": "1520dc1ff1e8d8add52f1f2a11ef3e538e953d1619bc1f9c9f946478ded20863",
+      "input_bytes": 14500,
+      "input_file": "15-stale_default_disabled.input.json",
+      "core_calls": 0,
+      "isolated_globals": true,
+      "result": {
+        "input_status": "DISABLED",
+        "status": "STOP",
+        "core_ran": false,
+        "reason": "disabled",
+        "independent_em_count": 0
+      },
+      "passed": true,
+      "input_unchanged": true,
+      "globals_unchanged": true
+    },
+    {
+      "name": "older_stale_prefix_latest_capture_fresh",
+      "expected": "UNAVAILABLE",
+      "input_sha256": "49529eadbffa8357469b711d87a96985ff5ce77cbe825b6e4db3c2f872f7d471",
+      "input_bytes": 14509,
+      "input_file": "16-older_stale_prefix_latest_capture_fresh.input.json",
+      "core_calls": 0,
+      "isolated_globals": true,
+      "result": {
+        "input_status": "INPUT_UNAVAILABLE",
+        "status": "STOP",
+        "core_ran": false,
+        "reason": "original_source_expired_at_admission",
+        "independent_em_count": 0
+      },
+      "passed": true,
+      "input_unchanged": true,
+      "globals_unchanged": true
+    },
+    {
+      "name": "early_stale_missing_config_later_index",
+      "expected": "Rejected",
+      "input_sha256": "11d0366c7ad5736f889480dfa8ad2c053406b2d073ea2196775e6176e6220976",
+      "input_bytes": 13299,
+      "input_file": "17-early_stale_missing_config_later_index.input.json",
+      "core_calls": 0,
+      "isolated_globals": true,
+      "exception": {
+        "type": "Rejected",
+        "message": "original admissions must begin at zero with no omission"
+      },
+      "passed": true,
+      "input_unchanged": true,
+      "globals_unchanged": true
+    },
+    {
+      "name": "early_stale_missing_config_later_received_order",
+      "expected": "Rejected",
+      "input_sha256": "98a09396e86a9d9bb7130e5ad0f146faaa9b396ef3c9c534180194e1d17b069b",
+      "input_bytes": 13299,
+      "input_file": "18-early_stale_missing_config_later_received_order.input.json",
+      "core_calls": 0,
+      "isolated_globals": true,
+      "exception": {
+        "type": "Rejected",
+        "message": "source order"
+      },
+      "passed": true,
+      "input_unchanged": true,
+      "globals_unchanged": true
+    },
+    {
+      "name": "early_stale_missing_config_later_quality",
+      "expected": "Rejected",
+      "input_sha256": "a22cc4d0a8250e2637dd633dc2831c6deacf35079811c9ed4d29f28d3a812e7a",
+      "input_bytes": 13302,
+      "input_file": "19-early_stale_missing_config_later_quality.input.json",
+      "core_calls": 0,
+      "isolated_globals": true,
+      "exception": {
+        "type": "Rejected",
+        "message": "C3 original contiguous window"
+      },
+      "passed": true,
+      "input_unchanged": true,
+      "globals_unchanged": true
+    },
+    {
+      "name": "stale_missing_current_future_read",
+      "expected": "Rejected",
+      "input_sha256": "76e2e3120422e7488fb087e81e3dbf8effd46b9848de244b25b1b887b4d61561",
+      "input_bytes": 13528,
+      "input_file": "20-stale_missing_current_future_read.input.json",
+      "core_calls": 0,
+      "isolated_globals": true,
+      "exception": {
+        "type": "Rejected",
+        "message": "reversed or future actual bracket"
+      },
+      "passed": true,
+      "input_unchanged": true,
+      "globals_unchanged": true
+    },
+    {
+      "name": "stale_missing_config_negative_earlier_age",
+      "expected": "Rejected",
+      "input_sha256": "f3157f9033e1364952a4f2c28c1ccec5ebf2abbe0a8a83da606bd3e96eebc16d",
+      "input_bytes": 13305,
+      "input_file": "21-stale_missing_config_negative_earlier_age.input.json",
+      "core_calls": 0,
+      "isolated_globals": true,
+      "exception": {
+        "type": "Rejected",
+        "message": "negative source admission original age"
+      },
+      "passed": true,
+      "input_unchanged": true,
+      "globals_unchanged": true
+    },
+    {
+      "name": "missing_capture_does_not_hide_supplied_request_identity",
+      "expected": "Rejected",
+      "input_sha256": "5d58518636f5538f20d440a3e7c37d73c8a03b889a02cd51b71226d7070723c3",
+      "input_bytes": 12835,
+      "input_file": "22-missing_capture_does_not_hide_supplied_request_identity.input.json",
+      "core_calls": 0,
+      "isolated_globals": true,
+      "exception": {
+        "type": "Rejected",
+        "message": "raw request context/sequence mismatch"
+      },
+      "passed": true,
+      "input_unchanged": true,
+      "globals_unchanged": true
+    },
+    {
+      "name": "stale_missing_config_native_span_held_read_changed",
+      "expected": "Rejected",
+      "input_sha256": "6d34fac144c4627f0fe997b41f9b68cc6e28ceac1fe6a6825e0385eb24800bd5",
+      "input_bytes": 19420,
+      "input_file": "23-stale_missing_config_native_span_held_read_changed.input.json",
+      "core_calls": 0,
+      "isolated_globals": true,
+      "exception": {
+        "type": "Rejected",
+        "message": "held original read/revision changed"
+      },
+      "passed": true,
+      "input_unchanged": true,
+      "globals_unchanged": true
+    },
+    {
+      "name": "stale_missing_config_held_origin_points_to_self",
+      "expected": "Rejected",
+      "input_sha256": "1ed14aa929cf88b7f1b0e9ccac329021de142581b382d05dbfeb81cc2a6bd9e9",
+      "input_bytes": 19533,
+      "input_file": "24-stale_missing_config_held_origin_points_to_self.input.json",
+      "core_calls": 0,
+      "isolated_globals": true,
+      "exception": {
+        "type": "Rejected",
+        "message": "held origin must precede current capture"
+      },
+      "passed": true,
+      "input_unchanged": true,
+      "globals_unchanged": true
+    },
+    {
+      "name": "stale_native_origin_absent_still_missing",
+      "expected": "UNAVAILABLE",
+      "input_sha256": "0506ea12901dfaa8453314b48fcd43b8c73de1d0aa7a5c5a5711fe398200e8f7",
+      "input_bytes": 14768,
+      "input_file": "25-stale_native_origin_absent_still_missing.input.json",
+      "core_calls": 0,
+      "isolated_globals": true,
+      "result": {
+        "input_status": "INPUT_UNAVAILABLE",
+        "status": "STOP",
+        "core_ran": false,
+        "reason": "missing_retained_native_board_origin",
+        "independent_em_count": 0
+      },
+      "passed": true,
+      "input_unchanged": true,
+      "globals_unchanged": true
+    },
+    {
+      "name": "stale_missing_config_execution_receipt_duplicate_action",
+      "expected": "Rejected",
+      "input_sha256": "dcdc24ec5115d03a1ebd1ec755656ca0d80ffd23d545d5bd7bebda541b4c4189",
+      "input_bytes": 14044,
+      "input_file": "26-stale_missing_config_execution_receipt_duplicate_action.input.json",
+      "core_calls": 0,
+      "isolated_globals": true,
+      "exception": {
+        "type": "Rejected",
+        "message": "duplicate action identity"
+      },
+      "passed": true,
+      "input_unchanged": true,
+      "globals_unchanged": true
+    },
+    {
+      "name": "stale_missing_current_execution_receipt_future_cause",
+      "expected": "Rejected",
+      "input_sha256": "1e3e4aedf1b9ea10a928ebbafa9a45f624bc337df6e087186ad78bab692e9722",
+      "input_bytes": 13907,
+      "input_file": "27-stale_missing_current_execution_receipt_future_cause.input.json",
+      "core_calls": 0,
+      "isolated_globals": true,
+      "exception": {
+        "type": "Rejected",
+        "message": "future/cyclic action cause"
+      },
+      "passed": true,
+      "input_unchanged": true,
+      "globals_unchanged": true
+    },
+    {
+      "name": "stale_missing_current_execution_receipt_before_observation",
+      "expected": "Rejected",
+      "input_sha256": "31364aed5cb4b3485c415b4964a7b746bbc0c291310b068d848b57a4f620950d",
+      "input_bytes": 13897,
+      "input_file": "28-stale_missing_current_execution_receipt_before_observation.input.json",
+      "core_calls": 0,
+      "isolated_globals": true,
+      "exception": {
+        "type": "Rejected",
+        "message": "action must follow received observation"
+      },
+      "passed": true,
+      "input_unchanged": true,
+      "globals_unchanged": true
+    },
+    {
+      "name": "stale_disabled_missing_config_combined33",
+      "expected": "Rejected",
+      "input_sha256": "8b5f8eb23fdfd5309ed9fd82425c2c7c731fe169e7478b52decfbdbd1c0be77d",
+      "input_bytes": 24847,
+      "input_file": "29-stale_disabled_missing_config_combined33.input.json",
+      "core_calls": 0,
+      "isolated_globals": true,
+      "exception": {
+        "type": "Rejected",
+        "message": "combined supplied capture/action bound"
+      },
+      "passed": true,
+      "input_unchanged": true,
+      "globals_unchanged": true
+    },
+    {
+      "name": "stale_disabled_receipt_count_combined33",
+      "expected": "Rejected",
+      "input_sha256": "8916e895e6b808e54be7e4d209824928cd382b5cbafd7a8870b53fc953639ead",
+      "input_bytes": 10176,
+      "input_file": "30-stale_disabled_receipt_count_combined33.input.json",
+      "core_calls": 0,
+      "isolated_globals": true,
+      "exception": {
+        "type": "Rejected",
+        "message": "combined supplied capture/action bound"
+      },
+      "passed": true,
+      "input_unchanged": true,
+      "globals_unchanged": true
+    },
+    {
+      "name": "missing_config_original_prefix1002",
+      "expected": "Rejected",
+      "input_sha256": "3d02ee21a786c4a720bae5bfd43afeb0572bbd680296ce64acf9510cbcd19d63",
+      "input_bytes": 259707,
+      "input_file": "31-missing_config_original_prefix1002.input.json",
+      "core_calls": 0,
+      "isolated_globals": true,
+      "exception": {
+        "type": "Rejected",
+        "message": "array budget"
+      },
+      "passed": true,
+      "input_unchanged": true,
+      "globals_unchanged": true
+    },
+    {
+      "name": "uint63_endpoint_overflow",
+      "expected": "Rejected",
+      "input_sha256": "6b892662d633e85403aa9947f1f3a9a4c5929dcf6bf3169a1c818fcdb50977c8",
+      "input_bytes": 13305,
+      "input_file": "32-uint63_endpoint_overflow.input.json",
+      "core_calls": 0,
+      "isolated_globals": true,
+      "exception": {
+        "type": "Rejected",
+        "message": "integer: strict unsigned integer"
+      },
+      "passed": true,
+      "input_unchanged": true,
+      "globals_unchanged": true
+    },
+    {
+      "name": "uint63_float_not_accepted",
+      "expected": "Rejected",
+      "input_sha256": "178356740dc152c3650053a69b751a72324c3a2e26767ae68eaea354bc8a4097",
+      "input_bytes": 13307,
+      "input_file": "33-uint63_float_not_accepted.input.json",
+      "core_calls": 0,
+      "isolated_globals": true,
+      "exception": {
+        "type": "Rejected",
+        "message": "integer: strict unsigned integer"
+      },
+      "passed": true,
+      "input_unchanged": true,
+      "globals_unchanged": true
+    },
+    {
+      "name": "revision_bool_not_uint63",
+      "expected": "Rejected",
+      "input_sha256": "7a3b351c83079a92e13dadba0946bad79cc44a02598ab91e6f6f8d96cd9e05ea",
+      "input_bytes": 13308,
+      "input_file": "34-revision_bool_not_uint63.input.json",
+      "core_calls": 0,
+      "isolated_globals": true,
+      "exception": {
+        "type": "Rejected",
+        "message": "committed pose revision: strict unsigned integer"
+      },
+      "passed": true,
+      "input_unchanged": true,
+      "globals_unchanged": true
+    },
+    {
+      "name": "stale_missing_config_duplicate_raw_key",
+      "expected": "Rejected",
+      "input_sha256": "9c25b69fe7515c2727f61fa155fb13fff00f41b4fa39b9d5f31bc10f3570116d",
+      "input_bytes": 13318,
+      "input_file": "35-stale_missing_config_duplicate_raw_key.input.json",
+      "core_calls": 0,
+      "isolated_globals": true,
+      "exception": {
+        "type": "Rejected",
+        "message": "invalid strict JSON: duplicate JSON key"
+      },
+      "passed": true,
+      "input_unchanged": true,
+      "globals_unchanged": true
+    }
+  ],
+  "author_or_old_suite_imported": false,
+  "actual_Root_or_board_run": false
+}
