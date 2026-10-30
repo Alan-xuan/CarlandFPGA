@@ -1,0 +1,142 @@
+{
+  "artifacts": [
+    "handoffs/c/C-DEEPEYE-ACTOR-COMPLETION-TIME-SEMANTICS-20261030-33/book-provenance.json",
+    "handoffs/c/C-DEEPEYE-ACTOR-COMPLETION-TIME-SEMANTICS-20261030-33/historical-diagnostic.json",
+    "handoffs/c/C-DEEPEYE-ACTOR-COMPLETION-TIME-SEMANTICS-20261030-33/independent-review.md",
+    "handoffs/c/C-DEEPEYE-ACTOR-COMPLETION-TIME-SEMANTICS-20261030-33/independent_c33_provenance_checks.py",
+    "handoffs/c/C-DEEPEYE-ACTOR-COMPLETION-TIME-SEMANTICS-20261030-33/INTERFACE.md",
+    "handoffs/c/C-DEEPEYE-ACTOR-COMPLETION-TIME-SEMANTICS-20261030-33/local-evidence.json",
+    "handoffs/c/C-DEEPEYE-ACTOR-COMPLETION-TIME-SEMANTICS-20261030-33/minimum-evidence-contract.json",
+    "handoffs/c/C-DEEPEYE-ACTOR-COMPLETION-TIME-SEMANTICS-20261030-33/retired-source70.json",
+    "handoffs/c/C-DEEPEYE-ACTOR-COMPLETION-TIME-SEMANTICS-20261030-33/retired-source70.README.md",
+    "handoffs/c/C-DEEPEYE-ACTOR-COMPLETION-TIME-SEMANTICS-20261030-33/retired_input_diagnostic.py",
+    "handoffs/c/C-DEEPEYE-ACTOR-COMPLETION-TIME-SEMANTICS-20261030-33/source-review.md",
+    "handoffs/c/C-DEEPEYE-ACTOR-COMPLETION-TIME-SEMANTICS-20261030-33/test_retired_input_diagnostic.py",
+    "handoffs/c/C-DEEPEYE-ACTOR-COMPLETION-TIME-SEMANTICS-20261030-33/v1-actual-diagnostic.json",
+    "handoffs/c/C-DEEPEYE-ACTOR-COMPLETION-TIME-SEMANTICS-20261030-33/verification-raw.json.gz",
+    "handoffs/c/C-DEEPEYE-CAUSAL-FOUR-CHANNEL-PLANNER-20261029-28/candidate_four_channel_planner_v1.py",
+    "handoffs/c/C-DEEPEYE-PRIVATE-RAW4-TIME-ASSOCIATION-20261030-30/private_raw4_time_association_v1.py",
+    "handoffs/c/C-DEEPEYE-ROOT-BOOK-C30-PROJECTION-20261030-31/root_book_projection_v1.py",
+    "handoffs/c/C-DEEPEYE-C30-STALE-ADMISSION-SEMANTICS-20261030-32/private_raw4_time_association_v2.py"
+  ],
+  "files": {
+    "handoffs/c/C-DEEPEYE-ACTOR-COMPLETION-TIME-SEMANTICS-20261030-33/INTERFACE.md": {
+      "sha256": "5d7b3a4c5bd04b947a565a4d44261b89e9e155c190aec7c548b528fd0fbe1ac5",
+      "size": 14073
+    },
+    "handoffs/c/C-DEEPEYE-ACTOR-COMPLETION-TIME-SEMANTICS-20261030-33/book-provenance.json": {
+      "sha256": "4d40db88afea89e28e5423c05c32e575147ae012ac7394df6b4ac8909cf65ba4",
+      "size": 1515
+    },
+    "handoffs/c/C-DEEPEYE-ACTOR-COMPLETION-TIME-SEMANTICS-20261030-33/historical-diagnostic.json": {
+      "sha256": "972fa8d75d6faef2c1746a94832bdd6c11668f25f750cd25a24f8c7d1a36daf5",
+      "size": 11282
+    },
+    "handoffs/c/C-DEEPEYE-ACTOR-COMPLETION-TIME-SEMANTICS-20261030-33/independent-review.md": {
+      "sha256": "84ff39626e0ea07ea6b6a608f79e20b824bdfbdc4870b2ea6909081fac631b27",
+      "size": 5780
+    },
+    "handoffs/c/C-DEEPEYE-ACTOR-COMPLETION-TIME-SEMANTICS-20261030-33/independent_c33_provenance_checks.py": {
+      "sha256": "b126f404885bc21c8ec112340f9172ecbeccfac9f34f98aa7fbb1c74cd3e724d",
+      "size": 4409
+    },
+    "handoffs/c/C-DEEPEYE-ACTOR-COMPLETION-TIME-SEMANTICS-20261030-33/local-evidence.json": {
+      "sha256": "295f835ebe67bf51d77f861d1b8e742424a1a27606944e00f94b0d49a971a589",
+      "size": 5014
+    },
+    "handoffs/c/C-DEEPEYE-ACTOR-COMPLETION-TIME-SEMANTICS-20261030-33/minimum-evidence-contract.json": {
+      "sha256": "71a6e7d7c5d6847b06c3bfb3d9323de6f0d75a82795ed3745793ba50b7997c09",
+      "size": 24079
+    },
+    "handoffs/c/C-DEEPEYE-ACTOR-COMPLETION-TIME-SEMANTICS-20261030-33/retired-source70.README.md": {
+      "sha256": "1f0ca309bb4aff6083108ad8933af6be07c597586a9939ee4adf8dd98907ef7f",
+      "size": 2673
+    },
+    "handoffs/c/C-DEEPEYE-ACTOR-COMPLETION-TIME-SEMANTICS-20261030-33/retired-source70.json": {
+      "sha256": "63616e2915edc5a2ef6ed592e8f9830ce77a635aaf883ab964aa4dbd5fd1910c",
+      "size": 82496
+    },
+    "handoffs/c/C-DEEPEYE-ACTOR-COMPLETION-TIME-SEMANTICS-20261030-33/retired_input_diagnostic.py": {
+      "sha256": "532f27b1c56e806e0989a30f27db1d7685278b2f9e70654a3a3d5900fca42874",
+      "size": 4710
+    },
+    "handoffs/c/C-DEEPEYE-ACTOR-COMPLETION-TIME-SEMANTICS-20261030-33/source-review.md": {
+      "sha256": "8ac41aa064f19532465e04d78eabe38a7709355e3a58e981c2992fcc70e84d01",
+      "size": 3614
+    },
+    "handoffs/c/C-DEEPEYE-ACTOR-COMPLETION-TIME-SEMANTICS-20261030-33/test_retired_input_diagnostic.py": {
+      "sha256": "f6810720b8eb56891dd7e3d4a15b8ce22be62cf044c223c1b85a4554a7a3631a",
+      "size": 6155
+    },
+    "handoffs/c/C-DEEPEYE-ACTOR-COMPLETION-TIME-SEMANTICS-20261030-33/v1-actual-diagnostic.json": {
+      "sha256": "7564f32602731a19d279b8eae841bf8173681d878f56ae239721673e1351a3e6",
+      "size": 11355
+    },
+    "handoffs/c/C-DEEPEYE-ACTOR-COMPLETION-TIME-SEMANTICS-20261030-33/verification-raw.json.gz": {
+      "sha256": "80585ac9e701be8b87196cf871ce20ab1fd1210aa419823c8a0361c03c7fd705",
+      "size": 174264
+    },
+    "handoffs/c/C-DEEPEYE-C30-STALE-ADMISSION-SEMANTICS-20261030-32/private_raw4_time_association_v2.py": {
+      "sha256": "39fe63a3d71308fae9482e3203b4f5120c34d796ccd2b755b99a9de902005a87",
+      "size": 51109
+    },
+    "handoffs/c/C-DEEPEYE-CAUSAL-FOUR-CHANNEL-PLANNER-20261029-28/candidate_four_channel_planner_v1.py": {
+      "sha256": "70b317681fee8c9182c342fe8d2f94eaecc957c62231a74a080d213bb5e0eab4",
+      "size": 17651
+    },
+    "handoffs/c/C-DEEPEYE-PRIVATE-RAW4-TIME-ASSOCIATION-20261030-30/private_raw4_time_association_v1.py": {
+      "sha256": "abaa06d10ab68f0bee721bf1a6d9278fc000446112ac559362079ad63afc686d",
+      "size": 48155
+    },
+    "handoffs/c/C-DEEPEYE-ROOT-BOOK-C30-PROJECTION-20261030-31/root_book_projection_v1.py": {
+      "sha256": "506219cf445001c46f2f4e1ffd411829ea9d184d4260d18af9e45aa3787993ee",
+      "size": 48506
+    }
+  },
+  "request": {
+    "code_commit": "73286fbc5eb9f3d513dfc5ba95ac4de120755ed3",
+    "expected_result": "Exact historical bytes produce v2 STOP/INPUT_UNAVAILABLE with no projection/authority/core; three new correction checks exit0. No false code-version mismatch reason; all real missing proof remains missing. No actual runtime/board/formal acceptance.",
+    "operation_id": "C-DEEPEYE-ACTOR-COMPLETION-TIME-SEMANTICS-20261030-33",
+    "requester": "node-c",
+    "task_id": "DEEPEYE-IMPLEMENTATION-20261014",
+    "task_version": 1,
+    "test_steps": [
+      "Read INTERFACE.md/minimum-evidence-contract.json/book-provenance.json against exact frozen contracts. No live actor adapter is supplied.",
+      "Run python -B handoffs/c/C-DEEPEYE-ACTOR-COMPLETION-TIME-SEMANTICS-20261030-33/independent_c33_provenance_checks.py <PUBLIC_DIR> <PUBLIC_DIR>/v1-actual-diagnostic.json <FRESH_OUTPUT_DIR> for only three new v2 narrow controls.",
+      "Inspect version-specific original v1 author5/independent6 and v2 independent3 raw evidence in verification-raw.json.gz; do not replay old suites or source kernels."
+    ]
+  },
+  "request_hash": "5a8607075d9011bc99fb0d273fda2c2a6151e378d56a845f21fc28df26009713",
+  "schema_version": 1,
+  "stages": {
+    "final_acceptance": {
+      "status": "not_run"
+    },
+    "full_chain": {
+      "status": "not_run"
+    },
+    "implementation": {
+      "status": "not_run"
+    },
+    "local_function": {
+      "log": "handoffs/c/C-DEEPEYE-ACTOR-COMPLETION-TIME-SEMANTICS-20261030-33/local-evidence.json",
+      "status": "passed"
+    },
+    "model_qualification": {
+      "status": "not_run"
+    },
+    "physical_board": {
+      "status": "not_run"
+    },
+    "rtl_simulation": {
+      "status": "not_run"
+    },
+    "source_review": {
+      "log": "handoffs/c/C-DEEPEYE-ACTOR-COMPLETION-TIME-SEMANTICS-20261030-33/source-review.md",
+      "status": "passed"
+    },
+    "synthesis": {
+      "status": "not_run"
+    }
+  }
+}
