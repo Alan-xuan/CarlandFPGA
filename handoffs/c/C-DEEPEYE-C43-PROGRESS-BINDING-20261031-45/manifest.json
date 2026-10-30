@@ -1,0 +1,135 @@
+{
+  "artifacts": [
+    "handoffs/c/C-DEEPEYE-C43-PROGRESS-BINDING-20261031-45/runtime-v1/actor_composition.py.patch",
+    "handoffs/c/C-DEEPEYE-C43-PROGRESS-BINDING-20261031-45/runtime-v1/API.json",
+    "handoffs/c/C-DEEPEYE-C43-PROGRESS-BINDING-20261031-45/runtime-v1/c45-progress-binding.patch",
+    "handoffs/c/C-DEEPEYE-C43-PROGRESS-BINDING-20261031-45/runtime-v1/candidate_mailbox.py.patch",
+    "handoffs/c/C-DEEPEYE-C43-PROGRESS-BINDING-20261031-45/runtime-v1/candidate_owner.py.patch",
+    "handoffs/c/C-DEEPEYE-C43-PROGRESS-BINDING-20261031-45/runtime-v1/evidence-index.json",
+    "handoffs/c/C-DEEPEYE-C43-PROGRESS-BINDING-20261031-45/runtime-v1/evidence.zip",
+    "handoffs/c/C-DEEPEYE-C43-PROGRESS-BINDING-20261031-45/runtime-v1/FINDINGS.json",
+    "handoffs/c/C-DEEPEYE-C43-PROGRESS-BINDING-20261031-45/runtime-v1/patched/actor_composition.py",
+    "handoffs/c/C-DEEPEYE-C43-PROGRESS-BINDING-20261031-45/runtime-v1/patched/candidate_mailbox.py",
+    "handoffs/c/C-DEEPEYE-C43-PROGRESS-BINDING-20261031-45/runtime-v1/patched/candidate_owner.py",
+    "handoffs/c/C-DEEPEYE-C43-PROGRESS-BINDING-20261031-45/runtime-v1/README.md",
+    "handoffs/c/C-DEEPEYE-C43-PROGRESS-BINDING-20261031-45/runtime-v1/REVIEW.md",
+    "handoffs/c/C-DEEPEYE-C43-PROGRESS-BINDING-20261031-45/runtime-v1/source-pins.json",
+    "handoffs/c/C-DEEPEYE-C43-PROGRESS-BINDING-20261031-45/runtime-v1/verify_delivery.py",
+    "handoffs/c/C-DEEPEYE-C43-PROGRESS-BINDING-20261031-45/runtime-v1/pins.json"
+  ],
+  "files": {
+    "handoffs/c/C-DEEPEYE-C43-PROGRESS-BINDING-20261031-45/runtime-v1/API.json": {
+      "sha256": "3c18665384874be8040982bbaa51e351c9935d8d6bf057a74d6e5f9d7cc28ff2",
+      "size": 2548
+    },
+    "handoffs/c/C-DEEPEYE-C43-PROGRESS-BINDING-20261031-45/runtime-v1/FINDINGS.json": {
+      "sha256": "8a08ed7395588dd252c7405a13fe38b2ab79db833e6bab40c141aeee532a97d7",
+      "size": 247
+    },
+    "handoffs/c/C-DEEPEYE-C43-PROGRESS-BINDING-20261031-45/runtime-v1/README.md": {
+      "sha256": "c2c7af943f67af3cdf5c72377527ed6bd5ffe1b026eec0a0d96c3168e95f4150",
+      "size": 7147
+    },
+    "handoffs/c/C-DEEPEYE-C43-PROGRESS-BINDING-20261031-45/runtime-v1/REVIEW.md": {
+      "sha256": "30258e2f463f9d0d4543d5fbc7616f56b7d0a7eb7aeb108f3f1d488f2228d30d",
+      "size": 6616
+    },
+    "handoffs/c/C-DEEPEYE-C43-PROGRESS-BINDING-20261031-45/runtime-v1/actor_composition.py.patch": {
+      "sha256": "3b9a90b5123ca1da8c596bff59ed2582bca0bcdcb00ce4dd458f5a8e566d2d51",
+      "size": 7082
+    },
+    "handoffs/c/C-DEEPEYE-C43-PROGRESS-BINDING-20261031-45/runtime-v1/c45-progress-binding.patch": {
+      "sha256": "49cbf4c63e2c02c41525fc1e4557bf876d715c5cf2d184cc6629e7b4e6f59a31",
+      "size": 17447
+    },
+    "handoffs/c/C-DEEPEYE-C43-PROGRESS-BINDING-20261031-45/runtime-v1/candidate_mailbox.py.patch": {
+      "sha256": "4f64e680288f5b2c89709c1fb10a4f7807c3442b541f6dd9a14ce85f874ff884",
+      "size": 6457
+    },
+    "handoffs/c/C-DEEPEYE-C43-PROGRESS-BINDING-20261031-45/runtime-v1/candidate_owner.py.patch": {
+      "sha256": "b3f4c387011b002904204194b3210e9847606f04893a7b62809172f0b1241f2e",
+      "size": 4211
+    },
+    "handoffs/c/C-DEEPEYE-C43-PROGRESS-BINDING-20261031-45/runtime-v1/evidence-index.json": {
+      "sha256": "3d25cd2063def4267ee46e3eee8adecbb4b338582ee48a5e20ff55d33bebf44d",
+      "size": 14003
+    },
+    "handoffs/c/C-DEEPEYE-C43-PROGRESS-BINDING-20261031-45/runtime-v1/evidence.zip": {
+      "sha256": "4f53c5eb9fd61c1b7e732f95ae16d73999cf2e2ab2aae66fad0e9b86650ec479",
+      "size": 146355
+    },
+    "handoffs/c/C-DEEPEYE-C43-PROGRESS-BINDING-20261031-45/runtime-v1/patched/actor_composition.py": {
+      "sha256": "3318a39ae1f7631d8fa4872e4bc3386c6cf46010857f837fe19f6c9e6bda71ba",
+      "size": 32576
+    },
+    "handoffs/c/C-DEEPEYE-C43-PROGRESS-BINDING-20261031-45/runtime-v1/patched/candidate_mailbox.py": {
+      "sha256": "02d9af273d1de99b53a1f613ddb5bd84c132604a037e53db140e405a173e1e97",
+      "size": 21960
+    },
+    "handoffs/c/C-DEEPEYE-C43-PROGRESS-BINDING-20261031-45/runtime-v1/patched/candidate_owner.py": {
+      "sha256": "9e820722944cda450d3d16eca69e3bc8e8e5618919e2ea5e4b36f9d5a3fa2d29",
+      "size": 8640
+    },
+    "handoffs/c/C-DEEPEYE-C43-PROGRESS-BINDING-20261031-45/runtime-v1/pins.json": {
+      "sha256": "e1d248433b813d3597fd6e360d8d7170eb7dd47ba46e73d549b7d8a26375851d",
+      "size": 2247
+    },
+    "handoffs/c/C-DEEPEYE-C43-PROGRESS-BINDING-20261031-45/runtime-v1/source-pins.json": {
+      "sha256": "f0d8cca6fb7dc22d354ebfaecdc63c852f9bed4101f3fd5c92746f5506bb2c38",
+      "size": 1237
+    },
+    "handoffs/c/C-DEEPEYE-C43-PROGRESS-BINDING-20261031-45/runtime-v1/verify_delivery.py": {
+      "sha256": "f358b7cd9ecc7eaa75d6c62b7792b34552dc9fcbf84dbed86284fd2b1fe1fb4a",
+      "size": 728
+    }
+  },
+  "request": {
+    "code_commit": "45c9059453519c929fe9628927e67db0242bd4d9",
+    "expected_result": "Explicit default-off observed-interval branch through original candidate owner, completion mailbox and progress gate, extending frozen C43 without invented scalar. Match exact original dispatch/RESULT bounds and source/dispatch/previous deadline facts, retain all causal/final fences and legacy semantics. A owns genuine provider facts/factory wiring and native/full-chain/board/formal qualification.",
+    "operation_id": "C-DEEPEYE-C43-PROGRESS-BINDING-20261031-45",
+    "requester": "node-c",
+    "task_id": "DEEPEYE-IMPLEMENTATION-20261014",
+    "task_version": 1,
+    "test_steps": [
+      "Byte/archive verification only: python -I -S -B handoffs/c/C-DEEPEYE-C43-PROGRESS-BINDING-20261031-45/runtime-v1/verify_delivery.py",
+      "Read new observed-interval branch controls and independent review; original provider/native/board integration remains A-owned",
+      "A must separately verify original provider proof, owned native handles, source readiness and exact runtime before any actual dispatch"
+    ]
+  },
+  "request_hash": "c146331fc3a02c15a0744d9e1e13c5517a88d459810210192bbd26b6c788f83b",
+  "schema_version": 1,
+  "stages": {
+    "final_acceptance": {
+      "status": "not_run"
+    },
+    "full_chain": {
+      "status": "not_run"
+    },
+    "implementation": {
+      "status": "not_run"
+    },
+    "local_function": {
+      "log": "handoffs/c/C-DEEPEYE-C43-PROGRESS-BINDING-20261031-45/runtime-v1/evidence-index.json",
+      "status": "passed"
+    },
+    "model_qualification": {
+      "status": "not_run"
+    },
+    "native_actor": {
+      "status": "not_run"
+    },
+    "physical_board": {
+      "status": "not_run"
+    },
+    "rtl_simulation": {
+      "status": "not_run"
+    },
+    "source_review": {
+      "log": "handoffs/c/C-DEEPEYE-C43-PROGRESS-BINDING-20261031-45/runtime-v1/REVIEW.md",
+      "status": "passed"
+    },
+    "synthesis": {
+      "status": "not_run"
+    }
+  }
+}
