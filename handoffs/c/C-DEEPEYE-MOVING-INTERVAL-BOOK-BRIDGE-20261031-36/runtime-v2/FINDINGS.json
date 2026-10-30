@@ -1,0 +1,18 @@
+{
+  "review_passed": true,
+  "source_approved": true,
+  "closed_findings": [
+    "C36-R1",
+    "C36-R2",
+    "C36-R3"
+  ],
+  "open_findings": [],
+  "approval_scope": "Final host v2 structural/numerical software interface and one bounded synthetic C36-C37-C28 composition only",
+  "actual_provider_verified": false,
+  "serial_enabled": false,
+  "native_actor_board_status": "NOT_RUN",
+  "new_controls": 2,
+  "new_control_exit_code": 0,
+  "host_core_calls": 0,
+  "child_core_calls": 1
+}

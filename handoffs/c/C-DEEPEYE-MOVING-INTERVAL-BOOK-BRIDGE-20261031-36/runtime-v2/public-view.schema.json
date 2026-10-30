@@ -1,0 +1,193 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:deepeye:c36:c28-public-view:proposed:v1",
+  "$ref": "#/$defs/PublicView",
+  "$defs": {
+    "Pose": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "position_m": {
+          "type": "array",
+          "minItems": 3,
+          "maxItems": 3,
+          "items": {
+            "type": "number",
+            "minimum": -1000,
+            "maximum": 1000
+          }
+        },
+        "orientation_xyzw": {
+          "type": "array",
+          "minItems": 4,
+          "maxItems": 4,
+          "items": {
+            "type": "number",
+            "minimum": -1,
+            "maximum": 1
+          }
+        }
+      },
+      "required": [
+        "position_m",
+        "orientation_xyzw"
+      ]
+    },
+    "Observation": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "sample_id": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "counts": {
+          "type": "array",
+          "minItems": 4,
+          "maxItems": 4,
+          "items": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 4095
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "quality": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 8191
+        },
+        "adc_qpc_ns": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9223372036854775807
+        },
+        "em_qpc_ns": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 9223372036854775807
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "adc_pose": {
+          "$ref": "#/$defs/Pose"
+        },
+        "em_pose": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Pose"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "sample_id",
+        "counts",
+        "quality",
+        "adc_qpc_ns",
+        "em_qpc_ns",
+        "adc_pose",
+        "em_pose"
+      ]
+    },
+    "Action": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "action_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 192,
+          "pattern": "^[ -~]+$"
+        },
+        "from_pose": {
+          "$ref": "#/$defs/Pose"
+        },
+        "to_pose": {
+          "$ref": "#/$defs/Pose"
+        }
+      },
+      "required": [
+        "action_id",
+        "from_pose",
+        "to_pose"
+      ]
+    },
+    "PublicView": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "schema_version": {
+          "const": 1
+        },
+        "projection_id": {
+          "const": "c36_c28_public_view_v1"
+        },
+        "enabled": {
+          "type": "boolean"
+        },
+        "now_qpc_ns": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9223372036854775807
+        },
+        "pose": {
+          "$ref": "#/$defs/Pose"
+        },
+        "goal_m": {
+          "type": "array",
+          "minItems": 3,
+          "maxItems": 3,
+          "items": {
+            "type": "number",
+            "minimum": -1000,
+            "maximum": 1000
+          }
+        },
+        "observation": {
+          "$ref": "#/$defs/Observation"
+        },
+        "history": {
+          "type": "array",
+          "maxItems": 31,
+          "items": {
+            "$ref": "#/$defs/Observation"
+          }
+        },
+        "executed_actions": {
+          "type": "array",
+          "maxItems": 31,
+          "items": {
+            "$ref": "#/$defs/Action"
+          }
+        }
+      },
+      "required": [
+        "schema_version",
+        "projection_id",
+        "enabled",
+        "now_qpc_ns",
+        "pose",
+        "goal_m",
+        "observation",
+        "history",
+        "executed_actions"
+      ]
+    }
+  },
+  "$comment": "Selected A31 host full-proof validation; this is a new compact public wire ABI, NOT original frozen C28 JSON schema. Source/provenance is not authenticated here. Same core codeobject via explicit dedicated isolated validator; uint63 ns to Fraction(ns,1000000) internally only. Combined history+candidate+actions<=32; all core quality/calibration/applicability rules unchanged."
+}

@@ -1,0 +1,12 @@
+{
+  "saved_source": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\main-20261015-01a14025\\C34-20261030\\author-implementation-v1\\run10-capture-fix\\root_book_stale_composition_v1.py",
+  "saved_source_sha256": "f913c3f0d9188dc9f8d04e6f360061c081cd34da2d0dea57a61170e845333bbd",
+  "current_public_sha256": "849d083885875668f2701fedd1c855e88c81174f312c6e0cfb0619706ef5e336",
+  "two_selected_definitions_byte_equal": true,
+  "definitions": [
+    "_raw_intrinsics",
+    "_record_counter_consistency"
+  ],
+  "no_C34_module_import": true,
+  "comparison_scope": "Two selected functions compared using AST equivalence in repair; whole-file pins verified separately."
+}
