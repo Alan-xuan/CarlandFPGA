@@ -1,0 +1,110 @@
+{
+  "artifacts": [
+    "handoffs/c/C-DEEPEYE-ORIGINAL-FINITE-BOOTSTRAP-20261031-47/runtime-v1/API.json",
+    "handoffs/c/C-DEEPEYE-ORIGINAL-FINITE-BOOTSTRAP-20261031-47/runtime-v1/c47-finite-bootstrap.patch",
+    "handoffs/c/C-DEEPEYE-ORIGINAL-FINITE-BOOTSTRAP-20261031-47/runtime-v1/evidence-index.json",
+    "handoffs/c/C-DEEPEYE-ORIGINAL-FINITE-BOOTSTRAP-20261031-47/runtime-v1/evidence.zip",
+    "handoffs/c/C-DEEPEYE-ORIGINAL-FINITE-BOOTSTRAP-20261031-47/runtime-v1/FINDINGS.json",
+    "handoffs/c/C-DEEPEYE-ORIGINAL-FINITE-BOOTSTRAP-20261031-47/runtime-v1/package/competition/deepeye/tools/finite_actor_bootstrap_v1.py",
+    "handoffs/c/C-DEEPEYE-ORIGINAL-FINITE-BOOTSTRAP-20261031-47/runtime-v1/README.md",
+    "handoffs/c/C-DEEPEYE-ORIGINAL-FINITE-BOOTSTRAP-20261031-47/runtime-v1/REVIEW.md",
+    "handoffs/c/C-DEEPEYE-ORIGINAL-FINITE-BOOTSTRAP-20261031-47/runtime-v1/source-pins.json",
+    "handoffs/c/C-DEEPEYE-ORIGINAL-FINITE-BOOTSTRAP-20261031-47/runtime-v1/verify_delivery.py",
+    "handoffs/c/C-DEEPEYE-ORIGINAL-FINITE-BOOTSTRAP-20261031-47/runtime-v1/pins.json"
+  ],
+  "files": {
+    "handoffs/c/C-DEEPEYE-ORIGINAL-FINITE-BOOTSTRAP-20261031-47/runtime-v1/API.json": {
+      "sha256": "5db84c2f41bdc79ea25797bbccfe8ba57e19723a2b18c9ccda9abbd61b5bb8f4",
+      "size": 1773
+    },
+    "handoffs/c/C-DEEPEYE-ORIGINAL-FINITE-BOOTSTRAP-20261031-47/runtime-v1/FINDINGS.json": {
+      "sha256": "955ac57b3f78c2a0ae006bffd4ac603b144c2d6cb773670fa327bdcbd6ccf519",
+      "size": 1463
+    },
+    "handoffs/c/C-DEEPEYE-ORIGINAL-FINITE-BOOTSTRAP-20261031-47/runtime-v1/README.md": {
+      "sha256": "bb32539fe7326c4342177342bcee6308a1d91717763d776f4144c01080ea5096",
+      "size": 11921
+    },
+    "handoffs/c/C-DEEPEYE-ORIGINAL-FINITE-BOOTSTRAP-20261031-47/runtime-v1/REVIEW.md": {
+      "sha256": "caa60bbee9160a7cdfeca025ddb9ddf32f11ec09cb1833c2c87dd40ceb63b0fe",
+      "size": 8416
+    },
+    "handoffs/c/C-DEEPEYE-ORIGINAL-FINITE-BOOTSTRAP-20261031-47/runtime-v1/c47-finite-bootstrap.patch": {
+      "sha256": "615b2018101b6aa0340d4f107b7bdb0658853685eebcc4ddf117564f472b8430",
+      "size": 10755
+    },
+    "handoffs/c/C-DEEPEYE-ORIGINAL-FINITE-BOOTSTRAP-20261031-47/runtime-v1/evidence-index.json": {
+      "sha256": "094006d5dc487b62665376861de278e7c2233123db260b442df4624ac3bb94f5",
+      "size": 20171
+    },
+    "handoffs/c/C-DEEPEYE-ORIGINAL-FINITE-BOOTSTRAP-20261031-47/runtime-v1/evidence.zip": {
+      "sha256": "78b44f093dcfbc60814f7f85f11d8b939500c35be45aa2f02045d69718f53af7",
+      "size": 179501
+    },
+    "handoffs/c/C-DEEPEYE-ORIGINAL-FINITE-BOOTSTRAP-20261031-47/runtime-v1/package/competition/deepeye/tools/finite_actor_bootstrap_v1.py": {
+      "sha256": "ff43023110394b8efe7080518f7843634b8458f2837cacdc2a2b9c0b4f58a4dd",
+      "size": 10433
+    },
+    "handoffs/c/C-DEEPEYE-ORIGINAL-FINITE-BOOTSTRAP-20261031-47/runtime-v1/pins.json": {
+      "sha256": "035ec35de3b4e0153f7389ea178878336b4d1bab6b27720980d9d572b48f61b3",
+      "size": 1502
+    },
+    "handoffs/c/C-DEEPEYE-ORIGINAL-FINITE-BOOTSTRAP-20261031-47/runtime-v1/source-pins.json": {
+      "sha256": "d70b3f94a7424237fe657209d135f275c19ab83e6e6d79e6e19c7933fcd7d57d",
+      "size": 3283
+    },
+    "handoffs/c/C-DEEPEYE-ORIGINAL-FINITE-BOOTSTRAP-20261031-47/runtime-v1/verify_delivery.py": {
+      "sha256": "f358b7cd9ecc7eaa75d6c62b7792b34552dc9fcbf84dbed86284fd2b1fe1fb4a",
+      "size": 728
+    }
+  },
+  "request": {
+    "code_commit": "a20571f2ecea23c4c55ae6d3cbb1d8b352e2af41",
+    "expected_result": "Default-disabled finite original configuration and bootstrap lifecycle wrapper following C46. Preserve canonical host interval module identity, exact original clock/owner/package/BOOT admission, finite one-shot activation and cleanup. Current original production factory remains unavailable because genuine same-handshake context/source receipt producer is absent; no new fake dataclass/token/callback authority. Partial source implementation only, not restored production or enabled/board/formal qualification. Both H12 remain distinct and unaccepted.",
+    "operation_id": "C-DEEPEYE-ORIGINAL-FINITE-BOOTSTRAP-20261031-47",
+    "requester": "node-c",
+    "task_id": "DEEPEYE-IMPLEMENTATION-20261014",
+    "task_version": 1,
+    "test_steps": [
+      "Byte/archive verification only: python -I -S -B handoffs/c/C-DEEPEYE-ORIGINAL-FINITE-BOOTSTRAP-20261031-47/runtime-v1/verify_delivery.py",
+      "Read new finite configuration and original bootstrap lifecycle controls and independent review; current genuine producer attachment and enabled source/native/board qualification remain A-owned",
+      "A must separately verify original provider proof, owned native handles, source readiness and exact runtime before any actual dispatch"
+    ]
+  },
+  "request_hash": "3be3f00586b84adcd4b493af468a2f159fd4ba4002cb0fc70e56975c4b19373e",
+  "schema_version": 1,
+  "stages": {
+    "final_acceptance": {
+      "status": "not_run"
+    },
+    "full_chain": {
+      "status": "not_run"
+    },
+    "implementation": {
+      "status": "not_run"
+    },
+    "local_function": {
+      "log": "handoffs/c/C-DEEPEYE-ORIGINAL-FINITE-BOOTSTRAP-20261031-47/runtime-v1/evidence-index.json",
+      "status": "passed"
+    },
+    "model_qualification": {
+      "status": "not_run"
+    },
+    "native_actor": {
+      "status": "not_run"
+    },
+    "physical_board": {
+      "status": "not_run"
+    },
+    "rtl_simulation": {
+      "status": "not_run"
+    },
+    "source_review": {
+      "log": "handoffs/c/C-DEEPEYE-ORIGINAL-FINITE-BOOTSTRAP-20261031-47/runtime-v1/REVIEW.md",
+      "status": "passed"
+    },
+    "synthesis": {
+      "status": "not_run"
+    }
+  }
+}
