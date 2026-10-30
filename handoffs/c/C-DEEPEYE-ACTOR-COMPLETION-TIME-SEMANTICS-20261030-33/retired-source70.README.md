@@ -1,0 +1,13 @@
+# Retired original source70 adapter example
+
+This is a privacy-whitelisted copy of actual, already-retired source observations from operation `A-GEN4-ORIGINAL-JIT-BOOK-SOURCE-20261030-70`, source commit `4dc91fd24531b3df53fc916e8b7f509ad524592c`. It is input material for B raw4 transport and C book-projection work. It does not grant authority or establish current freshness, board processing, physical ADC, calibration, PC AI, action execution, either complete H12 path, or final acceptance.
+
+The original Root/Godot/QPC run produced 20 nominal slots, 0 through 190 ms in 10 ms steps, with no numerical commits. The JSON retains exact original payloads, canonical bytes/hashes, source origin, actual record completion times, own drill pose reads, numerical pose spans and ADC-call brackets. It omits the original owner/scene/layout/material/obstacle/seed/screen/private-field data. A SHA identifies bytes; it is not an opaque original book, admission or board-capture identity.
+
+Independent saved-data recomputation83 checked every canonical payload/hash, count1..20, monotonic record completions, quality flags and numerical span coverage. EM timestamps remain 0/50/100/150 ms, held between fresh records. Maximum **nominal EM timestamp age at actual record completion** is 43,130,900 ns. This is a bounded historical source statistic, not an end-to-end 100 ms pass. Every book sample still explicitly reports missing original EM scope/call association. No scope receipt or current/admission/capture/action proof has been manufactured afterwards.
+
+C3 is null for the first nine samples, then contains eleven distinct positive RMS values between approximately 0.0000941305 and 0.0001106552 g. They round to count0 in the original 0..2 g, 12-bit proxy quantizer. The source used no contact reader: these are model-noise observations, not physical vibration measurements. Preserve null, valid, held and saturation semantics per sample. A valid zero count is data.
+
+Default source profile remains candidate-only, `twin_fixture`, uncalibrated. A valid adapter must retain missing evidence as unavailable and must not make this retired example current by rebasing its origin or inventing admission times. Production BOOT, original opaque identities, live current captures and action receipts remain separate requirements. The book is schema1 from the actual run; a later opt-in EM-receipt implementation cannot retroactively upgrade it.
+
+Contract `DEEPEYE-HUMAN-LOCK-20261014/revision1`, requirements SHA256 `c229834bfc2292f5fe4411fc9f12c68487008f9d1adaf31f0144ee7a98173804`; all H01-H15, original29 and final1%/100ms gates are unchanged. G03, R03 and all29 remain `not_run`.

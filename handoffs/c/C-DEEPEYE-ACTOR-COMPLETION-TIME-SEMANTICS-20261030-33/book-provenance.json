@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "kind": "C33_verified_book_contract_vs_runtime_provenance_v1",
+  "contract_commit": "54e1fd6c5795cc2f1247866dd8783331f615ef66",
+  "actual_source70_runtime_commit": "4dc91fd24531b3df53fc916e8b7f509ad524592c",
+  "original_path": "competition/deepeye/simulation/authority/root_source_book.py",
+  "book_bytes_equal": true,
+  "bytes": 25692,
+  "sha256": "624c84f8de949c7c078ca0b7afa84c295804d7bc881527e9b91c38ba645004ef",
+  "git_blob": "be584260af61fa6bd4800914e3dd37323e734bf8",
+  "method": "Two actual immutable GitHub contents GETs; decoded bytes, Git blob SHA1 and SHA256 compared exactly; no code execution.",
+  "source_urls": [
+    "https://github.com/carolwjade/CarlandFPGA/blob/54e1fd6c5795cc2f1247866dd8783331f615ef66/competition/deepeye/simulation/authority/root_source_book.py",
+    "https://github.com/carolwjade/CarlandFPGA/blob/4dc91fd24531b3df53fc916e8b7f509ad524592c/competition/deepeye/simulation/authority/root_source_book.py"
+  ],
+  "meaning": "C31 book_source_commit denotes its pinned book-code contract. Source70 source_commit denotes the whole runtime. They must not be conflated. Verified identical book code permits that code-version provenance statement while retaining actual runtime4dc91; it does not establish missing owner/current/EM/capture/admission/action/BOOT evidence or authorize projection.",
+  "new_b2d_v2_schema": "Separate C35 source review; not covered by this equality or enabled in frozen C31/C34.",
+  "formal_acceptance": false
+}

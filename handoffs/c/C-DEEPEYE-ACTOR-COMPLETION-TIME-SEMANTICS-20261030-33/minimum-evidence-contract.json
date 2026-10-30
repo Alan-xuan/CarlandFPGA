@@ -1,0 +1,506 @@
+{
+  "schema_version": 1,
+  "kind": "C33_minimum_evidence_inventory_not_executable_abi_v1",
+  "task_id": "DEEPEYE-IMPLEMENTATION-20261014",
+  "task_version": 1,
+  "operation_id": "C-DEEPEYE-ACTOR-COMPLETION-TIME-SEMANTICS-20261030-33",
+  "compatibility": "CURRENT_NOT_DIRECTLY_COMPATIBLE",
+  "authorization": "none",
+  "formal_acceptance": false,
+  "current_mapping": {
+    "completion_observed_qpc_ns_to_C30_action_at": null,
+    "reason": "Frozen C30 requires original Root completion/commit point when to_pose_revision became committed; later observed upper bound, ACK or callback cannot replace it.",
+    "future_condition": "A new reviewed authority protocol must itself define and originally record an effective committed/executed barrier event with real lifecycle receipts. It cannot relabel a later callback after an earlier commit. Otherwise an interval-aware ABI needs its own version."
+  },
+  "frozen_C30": {
+    "abi_id": "private_raw4_time_association_v1",
+    "abi_contract_sha256": "2987e0e2e6bc506e662cdf5aeaa252fbb145021470c0768d208f7c60e528edd8",
+    "runtime_sha256": "abaa06d10ab68f0bee721bf1a6d9278fc000446112ac559362079ad63afc686d",
+    "input_fields": [
+      "schema_version",
+      "abi_id",
+      "diagnostic_only",
+      "evidence_scope",
+      "enabled (optional; false)",
+      "now_qpc_ns",
+      "candidate",
+      "history",
+      "root_receipt"
+    ],
+    "candidate": "Original A candidate_four_channel_input exact whitelist, including complete observation_identity, source_time, counts, quality and diagnostic_flags. No renaming of original private context boot_id into protocol BOOT.",
+    "root_fields": {
+      "root_receipt": [
+        "kind",
+        "evidence_scope",
+        "config",
+        "source_admissions",
+        "captures",
+        "current_pose",
+        "action_registry"
+      ],
+      "config": [
+        "receipt_id",
+        "context",
+        "generation",
+        "profile_id",
+        "producer_sha256",
+        "source_policy",
+        "quality_encoding",
+        "source_mode",
+        "transport_source",
+        "source_start_tick_ms",
+        "source_start_monotonic_ns",
+        "goal_m",
+        "baseline_counters",
+        "initial_trigger_id",
+        "pose_book_id",
+        "owner_binding_id"
+      ],
+      "context": [
+        "operation_id",
+        "request_hash",
+        "tested_commit",
+        "build_manifest_sha256",
+        "boot_id",
+        "session_id",
+        "tag",
+        "clock_domain_id"
+      ],
+      "source_admissions[]": [
+        "index",
+        "adc_tick_ms",
+        "em_tick_ms",
+        "channel_counts",
+        "quality",
+        "source_record_sha256",
+        "received_qpc_ns",
+        "new_em_sample"
+      ],
+      "captures[]": [
+        "capture_sha256",
+        "source_record_sha256",
+        "request_raw",
+        "capture_raw",
+        "adc_pose",
+        "em_pose",
+        "em_origin_capture_sha256",
+        "cause_action_id",
+        "adc_call"
+      ],
+      "adc_pose/em_pose": [
+        "receipt_id",
+        "source_admission_index",
+        "nominal_source_qpc_ns",
+        "pose",
+        "pose_revision",
+        "pose_read",
+        "valid_span"
+      ],
+      "current_pose": [
+        "receipt_id",
+        "context",
+        "generation",
+        "at_qpc_ns",
+        "pose",
+        "pose_revision",
+        "pose_read",
+        "valid_span"
+      ],
+      "pose": [
+        "position_m",
+        "orientation_xyzw"
+      ],
+      "pose_read/adc_call": [
+        "begin_qpc_ns",
+        "end_qpc_ns"
+      ],
+      "valid_span": [
+        "receipt_id",
+        "from_qpc_ns",
+        "through_qpc_ns"
+      ],
+      "action_registry": [
+        "receipt_id",
+        "context",
+        "generation",
+        "as_of_qpc_ns",
+        "actions"
+      ],
+      "actions[]": [
+        "receipt_id",
+        "action_id",
+        "state",
+        "observation_capture_sha256",
+        "at_qpc_ns",
+        "from_pose",
+        "to_pose",
+        "from_pose_revision",
+        "to_pose_revision"
+      ]
+    },
+    "timing": {
+      "integers": "All QPC/revisions uint63 strict int (not bool or float); original absolute QPC retained. No future supplied event, bracket or span.",
+      "nominal": "Original source_start_monotonic_ns + (source tick - source_start_tick_ms)*1000000. Original source clock never reset.",
+      "adc": "nominal <= pose_read.begin <= pose_read.end <= adc_call.begin <= adc_call.end <= admission_received. Closed valid_span must cover nominal, full read and full call.",
+      "native_em": "Native source admission and real ADC==EM nominal required; same original pose/revision. Its own read.end <= original native ADC call.begin. Original span covers nominal, own read, native call.",
+      "held_em": "Exact original native EM receipt/revision/read/span retained; check original native call only, never later held ADC call. Original native capture must remain available.",
+      "current": "at_qpc_ns == now; read.end <= now; closed span covers full read and now.",
+      "revision": "Within full context/generation/book/owner namespace, same revision means same pose. Different revision closed spans cannot overlap; chronologically later spans cannot have smaller revision.",
+      "action": "state executed only. at_qpc_ns is original Root completion/commit point when to_pose_revision became committed; not dispatch, start, ACK or callback receipt. Unknown completion => missing execution receipt/registry, unavailable.",
+      "action_span": "For every supplied action (to R, at T), every supplied revision<R span.through<T; revision>=R span.from>=T. No inferred duration. to>from, ordered execution/revisions; current>=latest to and equal revision has equal pose.",
+      "causality": "Executed action follows actual received original observation; any caused capture nominal ADC follows that executed commit strictly.",
+      "age": "Original integer age <=100000000 ns inclusive before entering core; +1ns unavailable. Only private absolute Fraction(qpc_ns,1000000) computational view; no Fraction escapes output.",
+      "source_c3": "Producer source model ticks and contiguous ten ADC admissions govern C3; initial ticks <90ms cannot have healthy C3. Separate from absolute QPC freshness."
+    },
+    "missing": "Explicit null for unavailable Root/config/book ID/admissions/capture association/pose receipt/revision/read/span/call/registry/actions/execution receipt. Empty admissions is missing evidence; explicit empty actions only from actual Root registry. Legal missing tail or insufficient proven coverage is INPUT_UNAVAILABLE, STOP, core_ran=false. Never synthesize fields.",
+    "called": false
+  },
+  "frozen_C31": {
+    "runtime_sha256": "506219cf445001c46f2f4e1ffd411829ea9d184d4260d18af9e45aa3787993ee",
+    "A_source_commit": "54e1fd6c5795cc2f1247866dd8783331f615ef66",
+    "called": false,
+    "limitation": "One explicit fixed numerical committed binding across sample/current poses and revisions; not an automatically supported moving multi-revision/held bridge. This is a limitation on a future moving bridge, not a missing-proof reason inferred from the static retired dataset.",
+    "mapping_contract_sha256": "e36f59929fb21bd1b3e288af7455ccca631619184f3827532a09db0fbca6cb0d",
+    "input": {
+      "envelope": [
+        "schema_version",
+        "adapter_id",
+        "diagnostic_only",
+        "[enabled]",
+        "book_source_commit",
+        "book",
+        "book_current",
+        "binding",
+        "external"
+      ],
+      "binding": [
+        "context",
+        "generation",
+        "pose_book_id",
+        "owner_binding_id",
+        "committed_pose",
+        "pose_revision",
+        "root_revision",
+        "claim",
+        "native_interval_atomic"
+      ],
+      "external": [
+        "evidence_scope",
+        "now_qpc_ns",
+        "candidate",
+        "history",
+        "config",
+        "source_admissions",
+        "captures",
+        "current_pose",
+        "action_registry"
+      ],
+      "capture_metadata": [
+        "capture_sha256",
+        "source_record_sha256",
+        "request_raw",
+        "capture_raw",
+        "adc_pose",
+        "em_pose",
+        "em_origin_capture_sha256",
+        "cause_action_id",
+        "adc_book_source_sha256",
+        "em_book_source_sha256"
+      ],
+      "adc_em_pose_metadata": [
+        "receipt_id",
+        "source_admission_index",
+        "valid_span_receipt_id"
+      ],
+      "current_metadata": [
+        "receipt_id",
+        "context",
+        "generation",
+        "valid_span_receipt_id"
+      ],
+      "book": "Detached evidence() at exact A source; no live objects. Used temporal fields validate; private/unknown fields discarded and counted.",
+      "book_current": "Detached current_pose_interval() at exact A source; at==read.end==external.now. Exact numerical claim/false native atomicity. Obtain current view before evidence snapshot; fixed interval must contain current span."
+    },
+    "required_original_links": [
+      {
+        "from": "binding.context/generation/pose_book_id/owner_binding_id",
+        "to": "Consistency checks against external config/candidates/current/registry",
+        "rule": "Must be explicitly supplied from original Root; not generated by C31."
+      },
+      {
+        "from": "capture.adc_book_source_sha256",
+        "to": "Select book.samples by source_sha256",
+        "rule": "Explicit Root link. Independent from wire source_record_sha256; never infer from list position/source_count."
+      },
+      {
+        "from": "capture.em_book_source_sha256 + em_origin_capture_sha256",
+        "to": "Select original native EM book sample + retained native wire capture",
+        "rule": "Both associations required for valid EM. Held uses original native read/span/call and receipt unchanged."
+      },
+      {
+        "from": "capture.adc_pose/em_pose metadata",
+        "to": "pose receipt_id/source_admission_index/valid_span.receipt_id",
+        "rule": "Exact externally supplied original association IDs. No synthesized IDs."
+      },
+      {
+        "from": "book_current pose/revision/at/read/valid_span endpoints",
+        "to": "C30.current_pose",
+        "rule": "Original actual current view; receipt/context/generation/span receipt from external current metadata."
+      }
+    ],
+    "C32": "NOT_BOUND; frozen C30 retained, separate operation required for new binding",
+    "book_code_provenance": {
+      "schema_version": 1,
+      "kind": "C33_verified_book_contract_vs_runtime_provenance_v1",
+      "contract_commit": "54e1fd6c5795cc2f1247866dd8783331f615ef66",
+      "actual_source70_runtime_commit": "4dc91fd24531b3df53fc916e8b7f509ad524592c",
+      "original_path": "competition/deepeye/simulation/authority/root_source_book.py",
+      "book_bytes_equal": true,
+      "bytes": 25692,
+      "sha256": "624c84f8de949c7c078ca0b7afa84c295804d7bc881527e9b91c38ba645004ef",
+      "git_blob": "be584260af61fa6bd4800914e3dd37323e734bf8",
+      "method": "Two actual immutable GitHub contents GETs; decoded bytes, Git blob SHA1 and SHA256 compared exactly; no code execution.",
+      "source_urls": [
+        "https://github.com/carolwjade/CarlandFPGA/blob/54e1fd6c5795cc2f1247866dd8783331f615ef66/competition/deepeye/simulation/authority/root_source_book.py",
+        "https://github.com/carolwjade/CarlandFPGA/blob/4dc91fd24531b3df53fc916e8b7f509ad524592c/competition/deepeye/simulation/authority/root_source_book.py"
+      ],
+      "meaning": "C31 book_source_commit denotes its pinned book-code contract. Source70 source_commit denotes the whole runtime. They must not be conflated. Verified identical book code permits that code-version provenance statement while retaining actual runtime4dc91; it does not establish missing owner/current/EM/capture/admission/action/BOOT evidence or authorize projection.",
+      "new_b2d_v2_schema": "Separate C35 source review; not covered by this equality or enabled in frozen C31/C34.",
+      "formal_acceptance": false
+    }
+  },
+  "future_evidence_inventory": {
+    "status": "Proposed field names and necessary evidence only; not accepted by this runtime and not asserted to exist in source70.",
+    "scalar_rules": "Original identities/receipts, strict uint63 QPC/revisions (not bool/float), unchanged full namespace/generation; unknown original evidence remains null. Retain raw records behind receipt references.",
+    "completion": {
+      "fields": [
+        "receipt_id",
+        "action_id",
+        "context",
+        "generation",
+        "authority_protocol_id",
+        "authority_protocol_source_commit",
+        "actor_composition_id",
+        "pc_direct_runtime_id",
+        "original_world_actor_link_id",
+        "owner_binding_id",
+        "pre_cas_qpc_ns",
+        "post_cas_qpc_ns",
+        "cas_result",
+        "cas_result_receipt_id",
+        "completion_observed_qpc_ns",
+        "model_execution_receipt_id",
+        "model_executed_until_qpc_ns",
+        "execution_result",
+        "execution_result_receipt_id",
+        "cancellation_state",
+        "cancellation_receipt_id",
+        "revocation_state",
+        "revocation_receipt_id",
+        "postcheck_end_qpc_ns",
+        "clock_domain_id",
+        "clock_conversion_receipt_id",
+        "original_commit_receipt_id",
+        "original_commit_qpc_ns",
+        "from_pose_revision",
+        "to_pose_revision",
+        "from_pose",
+        "to_pose",
+        "observation_capture_sha256",
+        "custody_receipt_id",
+        "getter_receipt_id"
+      ],
+      "purpose": "Separate actual CAS bracket/result, model execution success, cancellation/revocation, postchecks, observed upper bound and original commit. No inferred equivalence.",
+      "original_recorder": "Original authorized ActorComposition/PcDirectRuntime/OriginalWorldActorLink lifecycle recorders",
+      "executable_schema": false,
+      "C30_projection_in_this_slice": null,
+      "missing": "Unavailable; do not synthesize or substitute labels, hashes, booleans or equal coordinates for retained records.",
+      "conditions": [
+        "Actual successful CAS binds original from/to revisions and owner; actual model execution result successful, no cancellation/revocation for the event being certified.",
+        "pre_cas_qpc_ns <= post_cas_qpc_ns <= completion_observed_qpc_ns in one original clock domain.",
+        "model_executed_until_qpc_ns <= completion_observed_qpc_ns and all successful getter/custody/revocation postchecks completed before the separately sampled completion observation.",
+        "Completion observation must be an actual original sample after checks, not max(deadlines) or callback arrival relabeled as original commit.",
+        "Original model-time/QPC conversion/epoch record required if time domains differ. No invented conversion, epoch or reset.",
+        "Absent original_commit_qpc_ns/receipt remains missing even if all other inequalities hold."
+      ]
+    },
+    "custody": {
+      "fields": [
+        "receipt_id",
+        "context",
+        "generation",
+        "owner_binding_id",
+        "actor_link_id",
+        "root_revision",
+        "pose_revision",
+        "from_qpc_ns",
+        "through_qpc_ns",
+        "revoke_generation",
+        "original_guard_receipt_id",
+        "custody_result",
+        "cancellation_receipt_id",
+        "revocation_receipt_id"
+      ],
+      "purpose": "Actual numerical Root ownership and original guarded validity interval; does not establish native interval atomicity or physical movement.",
+      "original_recorder": "Original Root/actor ownership and revocation recorders",
+      "executable_schema": false,
+      "C30_projection_in_this_slice": null,
+      "missing": "Unavailable; do not synthesize or substitute labels, hashes, booleans or equal coordinates for retained records."
+    },
+    "getter": {
+      "fields": [
+        "receipt_id",
+        "context",
+        "generation",
+        "owner_binding_id",
+        "begin_qpc_ns",
+        "end_qpc_ns",
+        "returned_pose",
+        "root_revision",
+        "pose_revision",
+        "revoke_generation",
+        "original_guard_receipt_id",
+        "getter_result",
+        "postcheck_receipt_id"
+      ],
+      "purpose": "Original own native getter endpoint and exact association to numerical Root/owner/revision; endpoint equality does not prove an interval.",
+      "original_recorder": "Original guarded getter and Root postcheck recorders",
+      "executable_schema": false,
+      "C30_projection_in_this_slice": null,
+      "missing": "Unavailable; do not synthesize or substitute labels, hashes, booleans or equal coordinates for retained records."
+    },
+    "original_em": {
+      "fields": [
+        "receipt_id",
+        "context",
+        "generation",
+        "pose_book_id",
+        "owner_binding_id",
+        "original_source_sha256",
+        "original_source_admission_index",
+        "original_native_capture_sha256",
+        "original_native_sample_id",
+        "original_em_result_sha256",
+        "nominal_source_qpc_ns",
+        "em_call_begin_qpc_ns",
+        "em_call_end_qpc_ns",
+        "scope_open_qpc_ns",
+        "scope_close_qpc_ns",
+        "scope_result",
+        "scope_postcheck_receipt_id",
+        "pose_receipt_id",
+        "span_receipt_id",
+        "original_adc_call_receipt_id",
+        "custody_receipt_id",
+        "root_revision",
+        "pose_revision",
+        "revoke_generation"
+      ],
+      "purpose": "Actual original scoped EM call and closed receipt plus explicit original native association. Not a reconstruction from held values or later equal pose.",
+      "original_recorder": "Original scoped-EM caller/Root receipt recorder and actual admission/capture recorder",
+      "executable_schema": false,
+      "C30_projection_in_this_slice": null,
+      "missing": "Unavailable; do not synthesize or substitute labels, hashes, booleans or equal coordinates for retained records.",
+      "conditions": [
+        "Original EM scope opens before the actual call and closes after it; original result and successful guard/postcheck receipt retained before snapshot disposal.",
+        "Original numerical pose/read/span receipt remains separate from EM-call bracket and native getter endpoint.",
+        "Retain explicit original native capture and original admission association, not source-array position. Canonical book hash is not wire/admission hash.",
+        "Held record retains exact original native receipt/revision/read/span/call/result linkage. Later ADC has separate proof and does not refresh EM time."
+      ]
+    },
+    "physical_board": {
+      "fields": [
+        "original_board_boot_receipt_id",
+        "board_identity",
+        "acquisition_receipt_id",
+        "capture_receipt_id",
+        "original_acquisition_clock_domain",
+        "original_capture_clock_domain",
+        "original_clock_correspondence_receipt_id",
+        "calibration_receipt_id"
+      ],
+      "purpose": "Separate physical ADC/board evidence; numerical Root, model values and source ADC-call bracket are insufficient.",
+      "original_recorder": "A-only physical board/acquisition and calibration recorders",
+      "executable_schema": false,
+      "C30_projection_in_this_slice": null,
+      "missing": "Unavailable; do not synthesize or substitute labels, hashes, booleans or equal coordinates for retained records."
+    }
+  },
+  "span_rules": [
+    "For actual known commit to R at T: every supplied lower-revision closed span through<T; every span with revision>=R from>=T; same revision same pose; different revisions ordered/disjoint.",
+    "No fabricated T-1ns, cropped/relabelled original span, inferred duration or interpolated gap coverage.",
+    "An unknown commit interval remains unknown; conservative proven span gaps cannot supply an exact point.",
+    "Executed action follows actual received original observation; caused capture nominal ADC is strictly after actual commit.",
+    "Held EM span covers original native call, not later held ADC call; original native association must remain available.",
+    "For a separately reviewed future upper-bound barrier only: an old-revision span must have actual original proof ending strictly before the earliest possible transition (normally pre-CAS); a new-revision span must have actual original proof beginning at/after the completion-observed event. All checks relied on must remain valid under custody through that event. The uncertain gap stays unproved. This does not make frozen C30 accept an unknown commit point.",
+    "Illustration only: actual commit110, completion-observed200, old span through150 fits through<200 but falsely covers after commit110. A genuine new span beginning130 also cannot be relabelled as beginning200. No original endpoint may be clipped, shifted, or synthesized by subtracting1ns."
+  ],
+  "historical_diagnostic": {
+    "kind": "single_pinned_retired_source70_v2",
+    "input_type": "exact bytes",
+    "input_bytes": 82496,
+    "input_sha256": "63616e2915edc5a2ef6ed592e8f9830ce77a635aaf883ab964aa4dbd5fd1910c",
+    "input_file": "retired-source70.json",
+    "companion_file": "retired-source70.README.md",
+    "source_commit": "4dc91fd24531b3df53fc916e8b7f509ad524592c",
+    "export_commit": "d0185d335747acb26439f40a8ce945f7f4eaa9af",
+    "book_schema": 1,
+    "gate": "Exact type, exact length and fixed SHA before parse; every nonmatching input has fixed C33_RETIRED_INPUT_NOT_PINNED. No generic schema/JSON/depth/timeline validator.",
+    "max_output_bytes": 65536,
+    "input_status": "INPUT_UNAVAILABLE",
+    "status": "STOP",
+    "projection": null,
+    "c30_called": false,
+    "c31_called": false,
+    "core_ran": false,
+    "claim": "numerical_immutable_committed_root_only",
+    "native_interval_atomic": false,
+    "output_row_fields": [
+      "source_count",
+      "adc_tick_ms",
+      "em_tick_ms",
+      "nominal_qpc_ns",
+      "actual_record_end_qpc_ns",
+      "source_sha256",
+      "channel_counts",
+      "channel_values",
+      "quality",
+      "em_timestamp_mode",
+      "original_em_scope_association",
+      "nominal_em_age_at_record_completion_ns"
+    ],
+    "field_meanings": {
+      "source_count": "Original book count, never admission index.",
+      "source_sha256": "Original canonical book payload hash, never wire/admission identity.",
+      "channel_counts": "Original nullable per-point counts; valid zero preserved.",
+      "channel_values": "Original scoped model values; no physical/calibration assertion or re-quantization.",
+      "quality": "Exact original bitfield, including validity/held/saturation/fault semantics.",
+      "nominal_em_age_at_record_completion_ns": "Original record end - (original origin + EM tick_ms * 1000000); historical nominal timestamp age only, not current freshness/end-to-end100ms."
+    },
+    "original_missing_categories": [
+      "opaque_original_book_owner_identity",
+      "original_EM_scope_call_receipt",
+      "actual_live_current_pose_capture",
+      "original_admission_and_board_capture_times",
+      "verified_board_BOOT",
+      "executed_action_receipts"
+    ],
+    "additional_interface_limits": [
+      "retired_not_current",
+      "actual_commit_point_missing"
+    ],
+    "no_inference": "No now/admission/opaque ID/index/empty executed actions generated. source70 remains schema1; no retroactive later-schema upgrade.",
+    "interface_restrictions_not_missing_evidence": [
+      "C31 fixed-binding restriction matters for a future moving bridge; actual source70 retains fixed revision0.",
+      "Different runtime and code-contract commit labels are not by themselves incompatible; see book-provenance.json."
+    ]
+  },
+  "immutable_contract": {
+    "contract_id": "DEEPEYE-HUMAN-LOCK-20261014",
+    "revision": 1,
+    "source": "f5989cd5defce561f9ba98e6b18fc2682945f0a2",
+    "requirements_sha256": "c229834bfc2292f5fe4411fc9f12c68487008f9d1adaf31f0144ee7a98173804",
+    "fixed_design": "1011259415a0916054eb580687612580bc1e5f09",
+    "limits": "H01-H15/both H12/original29/final1%100ms unchanged; actual Root/native/model/board/fullchain/formal NOT_RUN by C33; A-only board."
+  }
+}

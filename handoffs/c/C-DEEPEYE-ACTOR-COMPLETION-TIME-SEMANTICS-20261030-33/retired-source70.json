@@ -1,0 +1,2179 @@
+{
+  "CPU_AI": false,
+  "actual_record_end_qpc_ns": [
+    27001355219600,
+    27001361160300,
+    27001370040000,
+    27001380671000,
+    27001391154800,
+    27001405923200,
+    27001409870800,
+    27001420843900,
+    27001430199900,
+    27001440690300,
+    27001455742000,
+    27001460698500,
+    27001471535100,
+    27001480467500,
+    27001491420200,
+    27001505975700,
+    27001510074500,
+    27001520708400,
+    27001530074200,
+    27001540674400
+  ],
+  "authority": "none",
+  "board": false,
+  "contract": "DEEPEYE-HUMAN-LOCK-20261014/revision1",
+  "kind": "retired_original_source70_adapter_example_v1",
+  "missing_evidence": [
+    "opaque_original_book_owner_identity",
+    "original_EM_scope_call_receipt",
+    "actual_live_current_pose_capture",
+    "original_admission_and_board_capture_times",
+    "verified_board_BOOT",
+    "executed_action_receipts"
+  ],
+  "movement_authorized": false,
+  "original_causal_sha256": "d059494b8c0966ccbd35368ee4d56c019ae24f99742209156d66dd57983adc12",
+  "original_operation_id": "A-GEN4-ORIGINAL-JIT-BOOK-SOURCE-20261030-70",
+  "original_result_sha256": "1bbb2d869ca204f7ed7619de0ee2658f961740cc413c07bb8475316c43507f1b",
+  "original_source_book": {
+    "action_association": "unavailable;fixed_revision_only",
+    "active_sample": null,
+    "adc_call_evidence": "trusted caller bracket and retained profile tick progression",
+    "baseline": {
+      "begin_qpc_ns": 27001348081200,
+      "end_qpc_ns": 27001348108200,
+      "pose": {
+        "orientation_xyzw": [
+          0.0,
+          0.7071067811865476,
+          0.0,
+          0.7071067811865476
+        ],
+        "position_m": [
+          -15.6,
+          0.0,
+          1.0
+        ]
+      },
+      "pose_revision": 0,
+      "revoke_generation": 0,
+      "root_revision": 0
+    },
+    "failure_reason": null,
+    "fixed_root_interval": {
+      "claim": "numerical_immutable_committed_root_only",
+      "from_qpc_ns": 27001348081200,
+      "pose_revision": 0,
+      "root_revision": 0,
+      "through_qpc_ns": 27001540586200
+    },
+    "native_interval_atomic": false,
+    "partial_samples": [],
+    "retire_reason": "new current-world source record budget completed",
+    "samples": [
+      {
+        "actual_adc_end_minus_nominal_ns": 6410600,
+        "adc": {
+          "begin_qpc_ns": 27001354674500,
+          "end_attempt_qpc_ns": 27001354699900,
+          "end_qpc_ns": 27001354699900,
+          "postcheck_complete": true,
+          "previous_adc_tick_ms": null,
+          "profile_tick_observed": true
+        },
+        "baseline_span": {
+          "begin_qpc_ns": 27001348081200,
+          "end_qpc_ns": 27001355126400,
+          "observation": "same committed Root value at checks; not atomic native pose",
+          "pose_revision": 0,
+          "root_revision": 0
+        },
+        "canonical_source_hex": "7b226164635f7469636b5f6d73223a302c226368616e6e656c5f636f756e7473223a5b333031312c313932342c323030322c6e756c6c5d2c226368616e6e656c5f76616c756573223a5b322e323432333436343334353035393039342c2d302e31323031363936353135333935383139382c2d302e30343438343634313630363634383637342c6e756c6c5d2c22656d5f7469636b5f6d73223a302c2270726f66696c655f6964223a22646565706579655f666f72776172645f70726f66696c655f63616e6469646174655f7631222c2270726f66696c655f6e6f7465223a226e6f745f63616c696272617465643b6e6f745f656d5f737572726f676174655f76323b6e6f745f666f726d616c6c795f66726f7a656e222c2270726f66696c655f737461747573223a2263616e6469646174655f6f6e6c79222c227175616c697479223a372c22736f757263655f6d6f6465223a227477696e5f66697874757265227d",
+        "finish_qpc_ns": 27001355126400,
+        "held_em_association": "unavailable;original_native_em_association_not_implemented",
+        "nominal_qpc_ns": 27001348289300,
+        "numerical_pose_span": {
+          "from_qpc_ns": 27001348081200,
+          "pose_revision": 0,
+          "root_revision": 0,
+          "through_qpc_ns": 27001355126400
+        },
+        "numerical_pose_span_status": "available;fixed_numerical_root_only",
+        "observed_source_qpc_ns": 27001348524900,
+        "opened_qpc_ns": 27001348649400,
+        "payload": {
+          "adc_tick_ms": 0,
+          "channel_counts": [
+            3011,
+            1924,
+            2002,
+            null
+          ],
+          "channel_values": [
+            2.2423464345059094,
+            -0.12016965153958198,
+            -0.04484641606648674,
+            null
+          ],
+          "em_tick_ms": 0,
+          "profile_id": "deepeye_forward_profile_candidate_v1",
+          "profile_note": "not_calibrated;not_em_surrogate_v2;not_formally_frozen",
+          "profile_status": "candidate_only",
+          "quality": 7,
+          "source_mode": "twin_fixture"
+        },
+        "pose_reads": {
+          "adc": {
+            "begin_qpc_ns": 27001354432600,
+            "end_qpc_ns": 27001354447700,
+            "pose": {
+              "orientation_xyzw": [
+                0.0,
+                0.7071067811865476,
+                0.0,
+                0.7071067811865476
+              ],
+              "position_m": [
+                -15.6,
+                0.0,
+                1.0
+              ]
+            },
+            "pose_revision": 0,
+            "postcheck_complete": true,
+            "revoke_generation": 0,
+            "root_revision": 0
+          },
+          "em": {
+            "begin_qpc_ns": 27001349067500,
+            "end_qpc_ns": 27001349083000,
+            "pose": {
+              "orientation_xyzw": [
+                0.0,
+                0.7071067811865476,
+                0.0,
+                0.7071067811865476
+              ],
+              "position_m": [
+                -15.6,
+                0.0,
+                1.0
+              ]
+            },
+            "pose_revision": 0,
+            "postcheck_complete": true,
+            "revoke_generation": 0,
+            "root_revision": 0
+          }
+        },
+        "source_count": 1,
+        "source_sha256": "4cc106acee6c26a9ec089b6e2c85ddce2b1146a6186637ec2a4cbab8d298c2cd",
+        "status": "complete",
+        "tick_ms": 0
+      },
+      {
+        "actual_adc_end_minus_nominal_ns": 2347400,
+        "adc": {
+          "begin_qpc_ns": 27001360613200,
+          "end_attempt_qpc_ns": 27001360636700,
+          "end_qpc_ns": 27001360636700,
+          "postcheck_complete": true,
+          "previous_adc_tick_ms": 0,
+          "profile_tick_observed": true
+        },
+        "baseline_span": {
+          "begin_qpc_ns": 27001348081200,
+          "end_qpc_ns": 27001361067700,
+          "observation": "same committed Root value at checks; not atomic native pose",
+          "pose_revision": 0,
+          "root_revision": 0
+        },
+        "canonical_source_hex": "7b226164635f7469636b5f6d73223a31302c226368616e6e656c5f636f756e7473223a5b333031312c313932342c323030322c6e756c6c5d2c226368616e6e656c5f76616c756573223a5b322e323432333436343334353035393039342c2d302e31323031363936353135333935383139382c2d302e30343438343634313630363634383637342c6e756c6c5d2c22656d5f7469636b5f6d73223a302c2270726f66696c655f6964223a22646565706579655f666f72776172645f70726f66696c655f63616e6469646174655f7631222c2270726f66696c655f6e6f7465223a226e6f745f63616c696272617465643b6e6f745f656d5f737572726f676174655f76323b6e6f745f666f726d616c6c795f66726f7a656e222c2270726f66696c655f737461747573223a2263616e6469646174655f6f6e6c79222c227175616c697479223a313739392c22736f757263655f6d6f6465223a227477696e5f66697874757265227d",
+        "finish_qpc_ns": 27001361067700,
+        "held_em_association": "unavailable;original_native_em_association_not_implemented",
+        "nominal_qpc_ns": 27001358289300,
+        "numerical_pose_span": {
+          "from_qpc_ns": 27001348081200,
+          "pose_revision": 0,
+          "root_revision": 0,
+          "through_qpc_ns": 27001361067700
+        },
+        "numerical_pose_span_status": "available;fixed_numerical_root_only",
+        "observed_source_qpc_ns": 27001359557000,
+        "opened_qpc_ns": 27001359890600,
+        "payload": {
+          "adc_tick_ms": 10,
+          "channel_counts": [
+            3011,
+            1924,
+            2002,
+            null
+          ],
+          "channel_values": [
+            2.2423464345059094,
+            -0.12016965153958198,
+            -0.04484641606648674,
+            null
+          ],
+          "em_tick_ms": 0,
+          "profile_id": "deepeye_forward_profile_candidate_v1",
+          "profile_note": "not_calibrated;not_em_surrogate_v2;not_formally_frozen",
+          "profile_status": "candidate_only",
+          "quality": 1799,
+          "source_mode": "twin_fixture"
+        },
+        "pose_reads": {
+          "adc": {
+            "begin_qpc_ns": 27001360278600,
+            "end_qpc_ns": 27001360304600,
+            "pose": {
+              "orientation_xyzw": [
+                0.0,
+                0.7071067811865476,
+                0.0,
+                0.7071067811865476
+              ],
+              "position_m": [
+                -15.6,
+                0.0,
+                1.0
+              ]
+            },
+            "pose_revision": 0,
+            "postcheck_complete": true,
+            "revoke_generation": 0,
+            "root_revision": 0
+          }
+        },
+        "source_count": 2,
+        "source_sha256": "2de884a57ffa5f712e8607d748ee4f94d2e22fb006730ca9600fa4f48f53b17a",
+        "status": "complete",
+        "tick_ms": 10
+      },
+      {
+        "actual_adc_end_minus_nominal_ns": 1244700,
+        "adc": {
+          "begin_qpc_ns": 27001369510000,
+          "end_attempt_qpc_ns": 27001369534000,
+          "end_qpc_ns": 27001369534000,
+          "postcheck_complete": true,
+          "previous_adc_tick_ms": 10,
+          "profile_tick_observed": true
+        },
+        "baseline_span": {
+          "begin_qpc_ns": 27001348081200,
+          "end_qpc_ns": 27001369949300,
+          "observation": "same committed Root value at checks; not atomic native pose",
+          "pose_revision": 0,
+          "root_revision": 0
+        },
+        "canonical_source_hex": "7b226164635f7469636b5f6d73223a32302c226368616e6e656c5f636f756e7473223a5b333031312c313932342c323030322c6e756c6c5d2c226368616e6e656c5f76616c756573223a5b322e323432333436343334353035393039342c2d302e31323031363936353135333935383139382c2d302e30343438343634313630363634383637342c6e756c6c5d2c22656d5f7469636b5f6d73223a302c2270726f66696c655f6964223a22646565706579655f666f72776172645f70726f66696c655f63616e6469646174655f7631222c2270726f66696c655f6e6f7465223a226e6f745f63616c696272617465643b6e6f745f656d5f737572726f676174655f76323b6e6f745f666f726d616c6c795f66726f7a656e222c2270726f66696c655f737461747573223a2263616e6469646174655f6f6e6c79222c227175616c697479223a313739392c22736f757263655f6d6f6465223a227477696e5f66697874757265227d",
+        "finish_qpc_ns": 27001369949300,
+        "held_em_association": "unavailable;original_native_em_association_not_implemented",
+        "nominal_qpc_ns": 27001368289300,
+        "numerical_pose_span": {
+          "from_qpc_ns": 27001348081200,
+          "pose_revision": 0,
+          "root_revision": 0,
+          "through_qpc_ns": 27001369949300
+        },
+        "numerical_pose_span_status": "available;fixed_numerical_root_only",
+        "observed_source_qpc_ns": 27001368770300,
+        "opened_qpc_ns": 27001369003800,
+        "payload": {
+          "adc_tick_ms": 20,
+          "channel_counts": [
+            3011,
+            1924,
+            2002,
+            null
+          ],
+          "channel_values": [
+            2.2423464345059094,
+            -0.12016965153958198,
+            -0.04484641606648674,
+            null
+          ],
+          "em_tick_ms": 0,
+          "profile_id": "deepeye_forward_profile_candidate_v1",
+          "profile_note": "not_calibrated;not_em_surrogate_v2;not_formally_frozen",
+          "profile_status": "candidate_only",
+          "quality": 1799,
+          "source_mode": "twin_fixture"
+        },
+        "pose_reads": {
+          "adc": {
+            "begin_qpc_ns": 27001369254300,
+            "end_qpc_ns": 27001369277100,
+            "pose": {
+              "orientation_xyzw": [
+                0.0,
+                0.7071067811865476,
+                0.0,
+                0.7071067811865476
+              ],
+              "position_m": [
+                -15.6,
+                0.0,
+                1.0
+              ]
+            },
+            "pose_revision": 0,
+            "postcheck_complete": true,
+            "revoke_generation": 0,
+            "root_revision": 0
+          }
+        },
+        "source_count": 3,
+        "source_sha256": "c51264de28b13225de6cda94fc6e73ec1879f7c567490328ce3c100dbd1fd9c3",
+        "status": "complete",
+        "tick_ms": 20
+      },
+      {
+        "actual_adc_end_minus_nominal_ns": 1884700,
+        "adc": {
+          "begin_qpc_ns": 27001380153200,
+          "end_attempt_qpc_ns": 27001380174000,
+          "end_qpc_ns": 27001380174000,
+          "postcheck_complete": true,
+          "previous_adc_tick_ms": 20,
+          "profile_tick_observed": true
+        },
+        "baseline_span": {
+          "begin_qpc_ns": 27001348081200,
+          "end_qpc_ns": 27001380581600,
+          "observation": "same committed Root value at checks; not atomic native pose",
+          "pose_revision": 0,
+          "root_revision": 0
+        },
+        "canonical_source_hex": "7b226164635f7469636b5f6d73223a33302c226368616e6e656c5f636f756e7473223a5b333031312c313932342c323030322c6e756c6c5d2c226368616e6e656c5f76616c756573223a5b322e323432333436343334353035393039342c2d302e31323031363936353135333935383139382c2d302e30343438343634313630363634383637342c6e756c6c5d2c22656d5f7469636b5f6d73223a302c2270726f66696c655f6964223a22646565706579655f666f72776172645f70726f66696c655f63616e6469646174655f7631222c2270726f66696c655f6e6f7465223a226e6f745f63616c696272617465643b6e6f745f656d5f737572726f676174655f76323b6e6f745f666f726d616c6c795f66726f7a656e222c2270726f66696c655f737461747573223a2263616e6469646174655f6f6e6c79222c227175616c697479223a313739392c22736f757263655f6d6f6465223a227477696e5f66697874757265227d",
+        "finish_qpc_ns": 27001380581600,
+        "held_em_association": "unavailable;original_native_em_association_not_implemented",
+        "nominal_qpc_ns": 27001378289300,
+        "numerical_pose_span": {
+          "from_qpc_ns": 27001348081200,
+          "pose_revision": 0,
+          "root_revision": 0,
+          "through_qpc_ns": 27001380581600
+        },
+        "numerical_pose_span_status": "available;fixed_numerical_root_only",
+        "observed_source_qpc_ns": 27001378955400,
+        "opened_qpc_ns": 27001379230600,
+        "payload": {
+          "adc_tick_ms": 30,
+          "channel_counts": [
+            3011,
+            1924,
+            2002,
+            null
+          ],
+          "channel_values": [
+            2.2423464345059094,
+            -0.12016965153958198,
+            -0.04484641606648674,
+            null
+          ],
+          "em_tick_ms": 0,
+          "profile_id": "deepeye_forward_profile_candidate_v1",
+          "profile_note": "not_calibrated;not_em_surrogate_v2;not_formally_frozen",
+          "profile_status": "candidate_only",
+          "quality": 1799,
+          "source_mode": "twin_fixture"
+        },
+        "pose_reads": {
+          "adc": {
+            "begin_qpc_ns": 27001379576500,
+            "end_qpc_ns": 27001379605800,
+            "pose": {
+              "orientation_xyzw": [
+                0.0,
+                0.7071067811865476,
+                0.0,
+                0.7071067811865476
+              ],
+              "position_m": [
+                -15.6,
+                0.0,
+                1.0
+              ]
+            },
+            "pose_revision": 0,
+            "postcheck_complete": true,
+            "revoke_generation": 0,
+            "root_revision": 0
+          }
+        },
+        "source_count": 4,
+        "source_sha256": "a14b46a5c5a755b88e95c6d1ca7116643d6fbbe57e6e7674bfbc7146679c927f",
+        "status": "complete",
+        "tick_ms": 30
+      },
+      {
+        "actual_adc_end_minus_nominal_ns": 2367400,
+        "adc": {
+          "begin_qpc_ns": 27001390633800,
+          "end_attempt_qpc_ns": 27001390656700,
+          "end_qpc_ns": 27001390656700,
+          "postcheck_complete": true,
+          "previous_adc_tick_ms": 30,
+          "profile_tick_observed": true
+        },
+        "baseline_span": {
+          "begin_qpc_ns": 27001348081200,
+          "end_qpc_ns": 27001391065200,
+          "observation": "same committed Root value at checks; not atomic native pose",
+          "pose_revision": 0,
+          "root_revision": 0
+        },
+        "canonical_source_hex": "7b226164635f7469636b5f6d73223a34302c226368616e6e656c5f636f756e7473223a5b333031312c313932342c323030322c6e756c6c5d2c226368616e6e656c5f76616c756573223a5b322e323432333436343334353035393039342c2d302e31323031363936353135333935383139382c2d302e30343438343634313630363634383637342c6e756c6c5d2c22656d5f7469636b5f6d73223a302c2270726f66696c655f6964223a22646565706579655f666f72776172645f70726f66696c655f63616e6469646174655f7631222c2270726f66696c655f6e6f7465223a226e6f745f63616c696272617465643b6e6f745f656d5f737572726f676174655f76323b6e6f745f666f726d616c6c795f66726f7a656e222c2270726f66696c655f737461747573223a2263616e6469646174655f6f6e6c79222c227175616c697479223a313739392c22736f757263655f6d6f6465223a227477696e5f66697874757265227d",
+        "finish_qpc_ns": 27001391065200,
+        "held_em_association": "unavailable;original_native_em_association_not_implemented",
+        "nominal_qpc_ns": 27001388289300,
+        "numerical_pose_span": {
+          "from_qpc_ns": 27001348081200,
+          "pose_revision": 0,
+          "root_revision": 0,
+          "through_qpc_ns": 27001391065200
+        },
+        "numerical_pose_span_status": "available;fixed_numerical_root_only",
+        "observed_source_qpc_ns": 27001389618600,
+        "opened_qpc_ns": 27001389916900,
+        "payload": {
+          "adc_tick_ms": 40,
+          "channel_counts": [
+            3011,
+            1924,
+            2002,
+            null
+          ],
+          "channel_values": [
+            2.2423464345059094,
+            -0.12016965153958198,
+            -0.04484641606648674,
+            null
+          ],
+          "em_tick_ms": 0,
+          "profile_id": "deepeye_forward_profile_candidate_v1",
+          "profile_note": "not_calibrated;not_em_surrogate_v2;not_formally_frozen",
+          "profile_status": "candidate_only",
+          "quality": 1799,
+          "source_mode": "twin_fixture"
+        },
+        "pose_reads": {
+          "adc": {
+            "begin_qpc_ns": 27001390282700,
+            "end_qpc_ns": 27001390309900,
+            "pose": {
+              "orientation_xyzw": [
+                0.0,
+                0.7071067811865476,
+                0.0,
+                0.7071067811865476
+              ],
+              "position_m": [
+                -15.6,
+                0.0,
+                1.0
+              ]
+            },
+            "pose_revision": 0,
+            "postcheck_complete": true,
+            "revoke_generation": 0,
+            "root_revision": 0
+          }
+        },
+        "source_count": 5,
+        "source_sha256": "31047feb192e10b5612064178c524d8e9ade0753fb58ec42a33b61c6c3e9591f",
+        "status": "complete",
+        "tick_ms": 40
+      },
+      {
+        "actual_adc_end_minus_nominal_ns": 7139700,
+        "adc": {
+          "begin_qpc_ns": 27001405411800,
+          "end_attempt_qpc_ns": 27001405429000,
+          "end_qpc_ns": 27001405429000,
+          "postcheck_complete": true,
+          "previous_adc_tick_ms": 40,
+          "profile_tick_observed": true
+        },
+        "baseline_span": {
+          "begin_qpc_ns": 27001348081200,
+          "end_qpc_ns": 27001405834200,
+          "observation": "same committed Root value at checks; not atomic native pose",
+          "pose_revision": 0,
+          "root_revision": 0
+        },
+        "canonical_source_hex": "7b226164635f7469636b5f6d73223a35302c226368616e6e656c5f636f756e7473223a5b323938322c323032312c313936362c6e756c6c5d2c226368616e6e656c5f76616c756573223a5b322e323134303534333233323238393236372c2d302e3032363336333435393432313535303831342c2d302e30373933313839333939383135363931352c6e756c6c5d2c22656d5f7469636b5f6d73223a35302c2270726f66696c655f6964223a22646565706579655f666f72776172645f70726f66696c655f63616e6469646174655f7631222c2270726f66696c655f6e6f7465223a226e6f745f63616c696272617465643b6e6f745f656d5f737572726f676174655f76323b6e6f745f666f726d616c6c795f66726f7a656e222c2270726f66696c655f737461747573223a2263616e6469646174655f6f6e6c79222c227175616c697479223a372c22736f757263655f6d6f6465223a227477696e5f66697874757265227d",
+        "finish_qpc_ns": 27001405834200,
+        "held_em_association": "unavailable;original_native_em_association_not_implemented",
+        "nominal_qpc_ns": 27001398289300,
+        "numerical_pose_span": {
+          "from_qpc_ns": 27001348081200,
+          "pose_revision": 0,
+          "root_revision": 0,
+          "through_qpc_ns": 27001405834200
+        },
+        "numerical_pose_span_status": "available;fixed_numerical_root_only",
+        "observed_source_qpc_ns": 27001398597700,
+        "opened_qpc_ns": 27001398855000,
+        "payload": {
+          "adc_tick_ms": 50,
+          "channel_counts": [
+            2982,
+            2021,
+            1966,
+            null
+          ],
+          "channel_values": [
+            2.2140543232289267,
+            -0.026363459421550814,
+            -0.07931893998156915,
+            null
+          ],
+          "em_tick_ms": 50,
+          "profile_id": "deepeye_forward_profile_candidate_v1",
+          "profile_note": "not_calibrated;not_em_surrogate_v2;not_formally_frozen",
+          "profile_status": "candidate_only",
+          "quality": 7,
+          "source_mode": "twin_fixture"
+        },
+        "pose_reads": {
+          "adc": {
+            "begin_qpc_ns": 27001405170300,
+            "end_qpc_ns": 27001405185100,
+            "pose": {
+              "orientation_xyzw": [
+                0.0,
+                0.7071067811865476,
+                0.0,
+                0.7071067811865476
+              ],
+              "position_m": [
+                -15.6,
+                0.0,
+                1.0
+              ]
+            },
+            "pose_revision": 0,
+            "postcheck_complete": true,
+            "revoke_generation": 0,
+            "root_revision": 0
+          },
+          "em": {
+            "begin_qpc_ns": 27001399462800,
+            "end_qpc_ns": 27001399492400,
+            "pose": {
+              "orientation_xyzw": [
+                0.0,
+                0.7071067811865476,
+                0.0,
+                0.7071067811865476
+              ],
+              "position_m": [
+                -15.6,
+                0.0,
+                1.0
+              ]
+            },
+            "pose_revision": 0,
+            "postcheck_complete": true,
+            "revoke_generation": 0,
+            "root_revision": 0
+          }
+        },
+        "source_count": 6,
+        "source_sha256": "e08ef2a9ce069e34951bad7166ecb9f9a7b3867630da0dad58a67ebd72e05731",
+        "status": "complete",
+        "tick_ms": 50
+      },
+      {
+        "actual_adc_end_minus_nominal_ns": 1086000,
+        "adc": {
+          "begin_qpc_ns": 27001409356400,
+          "end_attempt_qpc_ns": 27001409375300,
+          "end_qpc_ns": 27001409375300,
+          "postcheck_complete": true,
+          "previous_adc_tick_ms": 50,
+          "profile_tick_observed": true
+        },
+        "baseline_span": {
+          "begin_qpc_ns": 27001348081200,
+          "end_qpc_ns": 27001409782000,
+          "observation": "same committed Root value at checks; not atomic native pose",
+          "pose_revision": 0,
+          "root_revision": 0
+        },
+        "canonical_source_hex": "7b226164635f7469636b5f6d73223a36302c226368616e6e656c5f636f756e7473223a5b323938322c323032312c313936362c6e756c6c5d2c226368616e6e656c5f76616c756573223a5b322e323134303534333233323238393236372c2d302e3032363336333435393432313535303831342c2d302e30373933313839333939383135363931352c6e756c6c5d2c22656d5f7469636b5f6d73223a35302c2270726f66696c655f6964223a22646565706579655f666f72776172645f70726f66696c655f63616e6469646174655f7631222c2270726f66696c655f6e6f7465223a226e6f745f63616c696272617465643b6e6f745f656d5f737572726f676174655f76323b6e6f745f666f726d616c6c795f66726f7a656e222c2270726f66696c655f737461747573223a2263616e6469646174655f6f6e6c79222c227175616c697479223a313739392c22736f757263655f6d6f6465223a227477696e5f66697874757265227d",
+        "finish_qpc_ns": 27001409782000,
+        "held_em_association": "unavailable;original_native_em_association_not_implemented",
+        "nominal_qpc_ns": 27001408289300,
+        "numerical_pose_span": {
+          "from_qpc_ns": 27001348081200,
+          "pose_revision": 0,
+          "root_revision": 0,
+          "through_qpc_ns": 27001409782000
+        },
+        "numerical_pose_span_status": "available;fixed_numerical_root_only",
+        "observed_source_qpc_ns": 27001408656400,
+        "opened_qpc_ns": 27001408871200,
+        "payload": {
+          "adc_tick_ms": 60,
+          "channel_counts": [
+            2982,
+            2021,
+            1966,
+            null
+          ],
+          "channel_values": [
+            2.2140543232289267,
+            -0.026363459421550814,
+            -0.07931893998156915,
+            null
+          ],
+          "em_tick_ms": 50,
+          "profile_id": "deepeye_forward_profile_candidate_v1",
+          "profile_note": "not_calibrated;not_em_surrogate_v2;not_formally_frozen",
+          "profile_status": "candidate_only",
+          "quality": 1799,
+          "source_mode": "twin_fixture"
+        },
+        "pose_reads": {
+          "adc": {
+            "begin_qpc_ns": 27001409109500,
+            "end_qpc_ns": 27001409127400,
+            "pose": {
+              "orientation_xyzw": [
+                0.0,
+                0.7071067811865476,
+                0.0,
+                0.7071067811865476
+              ],
+              "position_m": [
+                -15.6,
+                0.0,
+                1.0
+              ]
+            },
+            "pose_revision": 0,
+            "postcheck_complete": true,
+            "revoke_generation": 0,
+            "root_revision": 0
+          }
+        },
+        "source_count": 7,
+        "source_sha256": "42930f92ab28733eeb48389ece73a7b58317bd92cd02f215aa6681440f16a719",
+        "status": "complete",
+        "tick_ms": 60
+      },
+      {
+        "actual_adc_end_minus_nominal_ns": 1960700,
+        "adc": {
+          "begin_qpc_ns": 27001420228000,
+          "end_attempt_qpc_ns": 27001420250000,
+          "end_qpc_ns": 27001420250000,
+          "postcheck_complete": true,
+          "previous_adc_tick_ms": 60,
+          "profile_tick_observed": true
+        },
+        "baseline_span": {
+          "begin_qpc_ns": 27001348081200,
+          "end_qpc_ns": 27001420755700,
+          "observation": "same committed Root value at checks; not atomic native pose",
+          "pose_revision": 0,
+          "root_revision": 0
+        },
+        "canonical_source_hex": "7b226164635f7469636b5f6d73223a37302c226368616e6e656c5f636f756e7473223a5b323938322c323032312c313936362c6e756c6c5d2c226368616e6e656c5f76616c756573223a5b322e323134303534333233323238393236372c2d302e3032363336333435393432313535303831342c2d302e30373933313839333939383135363931352c6e756c6c5d2c22656d5f7469636b5f6d73223a35302c2270726f66696c655f6964223a22646565706579655f666f72776172645f70726f66696c655f63616e6469646174655f7631222c2270726f66696c655f6e6f7465223a226e6f745f63616c696272617465643b6e6f745f656d5f737572726f676174655f76323b6e6f745f666f726d616c6c795f66726f7a656e222c2270726f66696c655f737461747573223a2263616e6469646174655f6f6e6c79222c227175616c697479223a313739392c22736f757263655f6d6f6465223a227477696e5f66697874757265227d",
+        "finish_qpc_ns": 27001420755700,
+        "held_em_association": "unavailable;original_native_em_association_not_implemented",
+        "nominal_qpc_ns": 27001418289300,
+        "numerical_pose_span": {
+          "from_qpc_ns": 27001348081200,
+          "pose_revision": 0,
+          "root_revision": 0,
+          "through_qpc_ns": 27001420755700
+        },
+        "numerical_pose_span_status": "available;fixed_numerical_root_only",
+        "observed_source_qpc_ns": 27001419230800,
+        "opened_qpc_ns": 27001419510000,
+        "payload": {
+          "adc_tick_ms": 70,
+          "channel_counts": [
+            2982,
+            2021,
+            1966,
+            null
+          ],
+          "channel_values": [
+            2.2140543232289267,
+            -0.026363459421550814,
+            -0.07931893998156915,
+            null
+          ],
+          "em_tick_ms": 50,
+          "profile_id": "deepeye_forward_profile_candidate_v1",
+          "profile_note": "not_calibrated;not_em_surrogate_v2;not_formally_frozen",
+          "profile_status": "candidate_only",
+          "quality": 1799,
+          "source_mode": "twin_fixture"
+        },
+        "pose_reads": {
+          "adc": {
+            "begin_qpc_ns": 27001419859300,
+            "end_qpc_ns": 27001419882700,
+            "pose": {
+              "orientation_xyzw": [
+                0.0,
+                0.7071067811865476,
+                0.0,
+                0.7071067811865476
+              ],
+              "position_m": [
+                -15.6,
+                0.0,
+                1.0
+              ]
+            },
+            "pose_revision": 0,
+            "postcheck_complete": true,
+            "revoke_generation": 0,
+            "root_revision": 0
+          }
+        },
+        "source_count": 8,
+        "source_sha256": "f6d6a7ccc27edda3642175f4ca3d0a1a22cb91c1d1ca577abe9cd255826ec9c7",
+        "status": "complete",
+        "tick_ms": 70
+      },
+      {
+        "actual_adc_end_minus_nominal_ns": 1180900,
+        "adc": {
+          "begin_qpc_ns": 27001429440000,
+          "end_attempt_qpc_ns": 27001429470200,
+          "end_qpc_ns": 27001429470200,
+          "postcheck_complete": true,
+          "previous_adc_tick_ms": 70,
+          "profile_tick_observed": true
+        },
+        "baseline_span": {
+          "begin_qpc_ns": 27001348081200,
+          "end_qpc_ns": 27001430086600,
+          "observation": "same committed Root value at checks; not atomic native pose",
+          "pose_revision": 0,
+          "root_revision": 0
+        },
+        "canonical_source_hex": "7b226164635f7469636b5f6d73223a38302c226368616e6e656c5f636f756e7473223a5b323938322c323032312c313936362c6e756c6c5d2c226368616e6e656c5f76616c756573223a5b322e323134303534333233323238393236372c2d302e3032363336333435393432313535303831342c2d302e30373933313839333939383135363931352c6e756c6c5d2c22656d5f7469636b5f6d73223a35302c2270726f66696c655f6964223a22646565706579655f666f72776172645f70726f66696c655f63616e6469646174655f7631222c2270726f66696c655f6e6f7465223a226e6f745f63616c696272617465643b6e6f745f656d5f737572726f676174655f76323b6e6f745f666f726d616c6c795f66726f7a656e222c2270726f66696c655f737461747573223a2263616e6469646174655f6f6e6c79222c227175616c697479223a313739392c22736f757263655f6d6f6465223a227477696e5f66697874757265227d",
+        "finish_qpc_ns": 27001430086600,
+        "held_em_association": "unavailable;original_native_em_association_not_implemented",
+        "nominal_qpc_ns": 27001428289300,
+        "numerical_pose_span": {
+          "from_qpc_ns": 27001348081200,
+          "pose_revision": 0,
+          "root_revision": 0,
+          "through_qpc_ns": 27001430086600
+        },
+        "numerical_pose_span_status": "available;fixed_numerical_root_only",
+        "observed_source_qpc_ns": 27001428380000,
+        "opened_qpc_ns": 27001428698000,
+        "payload": {
+          "adc_tick_ms": 80,
+          "channel_counts": [
+            2982,
+            2021,
+            1966,
+            null
+          ],
+          "channel_values": [
+            2.2140543232289267,
+            -0.026363459421550814,
+            -0.07931893998156915,
+            null
+          ],
+          "em_tick_ms": 50,
+          "profile_id": "deepeye_forward_profile_candidate_v1",
+          "profile_note": "not_calibrated;not_em_surrogate_v2;not_formally_frozen",
+          "profile_status": "candidate_only",
+          "quality": 1799,
+          "source_mode": "twin_fixture"
+        },
+        "pose_reads": {
+          "adc": {
+            "begin_qpc_ns": 27001429064500,
+            "end_qpc_ns": 27001429092600,
+            "pose": {
+              "orientation_xyzw": [
+                0.0,
+                0.7071067811865476,
+                0.0,
+                0.7071067811865476
+              ],
+              "position_m": [
+                -15.6,
+                0.0,
+                1.0
+              ]
+            },
+            "pose_revision": 0,
+            "postcheck_complete": true,
+            "revoke_generation": 0,
+            "root_revision": 0
+          }
+        },
+        "source_count": 9,
+        "source_sha256": "64d053936e8d2d6aad2243f1507e4abac90aa5e382a512200555b4dbdd9e4177",
+        "status": "complete",
+        "tick_ms": 80
+      },
+      {
+        "actual_adc_end_minus_nominal_ns": 1857100,
+        "adc": {
+          "begin_qpc_ns": 27001440118600,
+          "end_attempt_qpc_ns": 27001440146400,
+          "end_qpc_ns": 27001440146400,
+          "postcheck_complete": true,
+          "previous_adc_tick_ms": 80,
+          "profile_tick_observed": true
+        },
+        "baseline_span": {
+          "begin_qpc_ns": 27001348081200,
+          "end_qpc_ns": 27001440598500,
+          "observation": "same committed Root value at checks; not atomic native pose",
+          "pose_revision": 0,
+          "root_revision": 0
+        },
+        "canonical_source_hex": "7b226164635f7469636b5f6d73223a39302c226368616e6e656c5f636f756e7473223a5b323938322c323032312c313936362c305d2c226368616e6e656c5f76616c756573223a5b322e323134303534333233323238393236372c2d302e3032363336333435393432313535303831342c2d302e30373933313839333939383135363931352c392e343133303437393139393539363338652d30355d2c22656d5f7469636b5f6d73223a35302c2270726f66696c655f6964223a22646565706579655f666f72776172645f70726f66696c655f63616e6469646174655f7631222c2270726f66696c655f6e6f7465223a226e6f745f63616c696272617465643b6e6f745f656d5f737572726f676174655f76323b6e6f745f666f726d616c6c795f66726f7a656e222c2270726f66696c655f737461747573223a2263616e6469646174655f6f6e6c79222c227175616c697479223a313830372c22736f757263655f6d6f6465223a227477696e5f66697874757265227d",
+        "finish_qpc_ns": 27001440598500,
+        "held_em_association": "unavailable;original_native_em_association_not_implemented",
+        "nominal_qpc_ns": 27001438289300,
+        "numerical_pose_span": {
+          "from_qpc_ns": 27001348081200,
+          "pose_revision": 0,
+          "root_revision": 0,
+          "through_qpc_ns": 27001440598500
+        },
+        "numerical_pose_span_status": "available;fixed_numerical_root_only",
+        "observed_source_qpc_ns": 27001439126400,
+        "opened_qpc_ns": 27001439532300,
+        "payload": {
+          "adc_tick_ms": 90,
+          "channel_counts": [
+            2982,
+            2021,
+            1966,
+            0
+          ],
+          "channel_values": [
+            2.2140543232289267,
+            -0.026363459421550814,
+            -0.07931893998156915,
+            9.413047919959638e-05
+          ],
+          "em_tick_ms": 50,
+          "profile_id": "deepeye_forward_profile_candidate_v1",
+          "profile_note": "not_calibrated;not_em_surrogate_v2;not_formally_frozen",
+          "profile_status": "candidate_only",
+          "quality": 1807,
+          "source_mode": "twin_fixture"
+        },
+        "pose_reads": {
+          "adc": {
+            "begin_qpc_ns": 27001439847500,
+            "end_qpc_ns": 27001439871100,
+            "pose": {
+              "orientation_xyzw": [
+                0.0,
+                0.7071067811865476,
+                0.0,
+                0.7071067811865476
+              ],
+              "position_m": [
+                -15.6,
+                0.0,
+                1.0
+              ]
+            },
+            "pose_revision": 0,
+            "postcheck_complete": true,
+            "revoke_generation": 0,
+            "root_revision": 0
+          }
+        },
+        "source_count": 10,
+        "source_sha256": "90bf38cfd2823c5a426fa2f080e43e24d4df5f14dd2e80365a54cadeea06ad14",
+        "status": "complete",
+        "tick_ms": 90
+      },
+      {
+        "actual_adc_end_minus_nominal_ns": 6880000,
+        "adc": {
+          "begin_qpc_ns": 27001455146100,
+          "end_attempt_qpc_ns": 27001455169300,
+          "end_qpc_ns": 27001455169300,
+          "postcheck_complete": true,
+          "previous_adc_tick_ms": 90,
+          "profile_tick_observed": true
+        },
+        "baseline_span": {
+          "begin_qpc_ns": 27001348081200,
+          "end_qpc_ns": 27001455646000,
+          "observation": "same committed Root value at checks; not atomic native pose",
+          "pose_revision": 0,
+          "root_revision": 0
+        },
+        "canonical_source_hex": "7b226164635f7469636b5f6d73223a3130302c226368616e6e656c5f636f756e7473223a5b333030392c313932322c313931372c305d2c226368616e6e656c5f76616c756573223a5b322e3234303537323133303238383537332c2d302e31323239303239333734393537303335392c2d302e31323734333532313631353537323636322c302e30303031303232353330323738373734313633365d2c22656d5f7469636b5f6d73223a3130302c2270726f66696c655f6964223a22646565706579655f666f72776172645f70726f66696c655f63616e6469646174655f7631222c2270726f66696c655f6e6f7465223a226e6f745f63616c696272617465643b6e6f745f656d5f737572726f676174655f76323b6e6f745f666f726d616c6c795f66726f7a656e222c2270726f66696c655f737461747573223a2263616e6469646174655f6f6e6c79222c227175616c697479223a31352c22736f757263655f6d6f6465223a227477696e5f66697874757265227d",
+        "finish_qpc_ns": 27001455646000,
+        "held_em_association": "unavailable;original_native_em_association_not_implemented",
+        "nominal_qpc_ns": 27001448289300,
+        "numerical_pose_span": {
+          "from_qpc_ns": 27001348081200,
+          "pose_revision": 0,
+          "root_revision": 0,
+          "through_qpc_ns": 27001455646000
+        },
+        "numerical_pose_span_status": "available;fixed_numerical_root_only",
+        "observed_source_qpc_ns": 27001448290300,
+        "opened_qpc_ns": 27001448546400,
+        "payload": {
+          "adc_tick_ms": 100,
+          "channel_counts": [
+            3009,
+            1922,
+            1917,
+            0
+          ],
+          "channel_values": [
+            2.240572130288573,
+            -0.12290293749570359,
+            -0.12743521615572662,
+            0.00010225302787741636
+          ],
+          "em_tick_ms": 100,
+          "profile_id": "deepeye_forward_profile_candidate_v1",
+          "profile_note": "not_calibrated;not_em_surrogate_v2;not_formally_frozen",
+          "profile_status": "candidate_only",
+          "quality": 15,
+          "source_mode": "twin_fixture"
+        },
+        "pose_reads": {
+          "adc": {
+            "begin_qpc_ns": 27001454891700,
+            "end_qpc_ns": 27001454910400,
+            "pose": {
+              "orientation_xyzw": [
+                0.0,
+                0.7071067811865476,
+                0.0,
+                0.7071067811865476
+              ],
+              "position_m": [
+                -15.6,
+                0.0,
+                1.0
+              ]
+            },
+            "pose_revision": 0,
+            "postcheck_complete": true,
+            "revoke_generation": 0,
+            "root_revision": 0
+          },
+          "em": {
+            "begin_qpc_ns": 27001449198900,
+            "end_qpc_ns": 27001449223400,
+            "pose": {
+              "orientation_xyzw": [
+                0.0,
+                0.7071067811865476,
+                0.0,
+                0.7071067811865476
+              ],
+              "position_m": [
+                -15.6,
+                0.0,
+                1.0
+              ]
+            },
+            "pose_revision": 0,
+            "postcheck_complete": true,
+            "revoke_generation": 0,
+            "root_revision": 0
+          }
+        },
+        "source_count": 11,
+        "source_sha256": "6a87f11cf8d23bdefd01962812fe4b83b2eb2a4cca238494d824ecd2ba94c88a",
+        "status": "complete",
+        "tick_ms": 100
+      },
+      {
+        "actual_adc_end_minus_nominal_ns": 1904700,
+        "adc": {
+          "begin_qpc_ns": 27001460167700,
+          "end_attempt_qpc_ns": 27001460194000,
+          "end_qpc_ns": 27001460194000,
+          "postcheck_complete": true,
+          "previous_adc_tick_ms": 100,
+          "profile_tick_observed": true
+        },
+        "baseline_span": {
+          "begin_qpc_ns": 27001348081200,
+          "end_qpc_ns": 27001460598800,
+          "observation": "same committed Root value at checks; not atomic native pose",
+          "pose_revision": 0,
+          "root_revision": 0
+        },
+        "canonical_source_hex": "7b226164635f7469636b5f6d73223a3131302c226368616e6e656c5f636f756e7473223a5b333030392c313932322c313931372c305d2c226368616e6e656c5f76616c756573223a5b322e3234303537323133303238383537332c2d302e31323239303239333734393537303335392c2d302e31323734333532313631353537323636322c302e30303031303134313835343831373238343934395d2c22656d5f7469636b5f6d73223a3130302c2270726f66696c655f6964223a22646565706579655f666f72776172645f70726f66696c655f63616e6469646174655f7631222c2270726f66696c655f6e6f7465223a226e6f745f63616c696272617465643b6e6f745f656d5f737572726f676174655f76323b6e6f745f666f726d616c6c795f66726f7a656e222c2270726f66696c655f737461747573223a2263616e6469646174655f6f6e6c79222c227175616c697479223a313830372c22736f757263655f6d6f6465223a227477696e5f66697874757265227d",
+        "finish_qpc_ns": 27001460598800,
+        "held_em_association": "unavailable;original_native_em_association_not_implemented",
+        "nominal_qpc_ns": 27001458289300,
+        "numerical_pose_span": {
+          "from_qpc_ns": 27001348081200,
+          "pose_revision": 0,
+          "root_revision": 0,
+          "through_qpc_ns": 27001460598800
+        },
+        "numerical_pose_span_status": "available;fixed_numerical_root_only",
+        "observed_source_qpc_ns": 27001458888600,
+        "opened_qpc_ns": 27001459422200,
+        "payload": {
+          "adc_tick_ms": 110,
+          "channel_counts": [
+            3009,
+            1922,
+            1917,
+            0
+          ],
+          "channel_values": [
+            2.240572130288573,
+            -0.12290293749570359,
+            -0.12743521615572662,
+            0.00010141854817284949
+          ],
+          "em_tick_ms": 100,
+          "profile_id": "deepeye_forward_profile_candidate_v1",
+          "profile_note": "not_calibrated;not_em_surrogate_v2;not_formally_frozen",
+          "profile_status": "candidate_only",
+          "quality": 1807,
+          "source_mode": "twin_fixture"
+        },
+        "pose_reads": {
+          "adc": {
+            "begin_qpc_ns": 27001459795500,
+            "end_qpc_ns": 27001459824300,
+            "pose": {
+              "orientation_xyzw": [
+                0.0,
+                0.7071067811865476,
+                0.0,
+                0.7071067811865476
+              ],
+              "position_m": [
+                -15.6,
+                0.0,
+                1.0
+              ]
+            },
+            "pose_revision": 0,
+            "postcheck_complete": true,
+            "revoke_generation": 0,
+            "root_revision": 0
+          }
+        },
+        "source_count": 12,
+        "source_sha256": "6f42b3d5f351aa469de8cb4fe74a59c1aa02a994ca404360a49a87fc21c3cd2e",
+        "status": "complete",
+        "tick_ms": 110
+      },
+      {
+        "actual_adc_end_minus_nominal_ns": 2726100,
+        "adc": {
+          "begin_qpc_ns": 27001470959900,
+          "end_attempt_qpc_ns": 27001471015400,
+          "end_qpc_ns": 27001471015400,
+          "postcheck_complete": true,
+          "previous_adc_tick_ms": 110,
+          "profile_tick_observed": true
+        },
+        "baseline_span": {
+          "begin_qpc_ns": 27001348081200,
+          "end_qpc_ns": 27001471445700,
+          "observation": "same committed Root value at checks; not atomic native pose",
+          "pose_revision": 0,
+          "root_revision": 0
+        },
+        "canonical_source_hex": "7b226164635f7469636b5f6d73223a3132302c226368616e6e656c5f636f756e7473223a5b333030392c313932322c313931372c305d2c226368616e6e656c5f76616c756573223a5b322e3234303537323133303238383537332c2d302e31323239303239333734393537303335392c2d302e31323734333532313631353537323636322c302e30303031303038393937373138303535333834395d2c22656d5f7469636b5f6d73223a3130302c2270726f66696c655f6964223a22646565706579655f666f72776172645f70726f66696c655f63616e6469646174655f7631222c2270726f66696c655f6e6f7465223a226e6f745f63616c696272617465643b6e6f745f656d5f737572726f676174655f76323b6e6f745f666f726d616c6c795f66726f7a656e222c2270726f66696c655f737461747573223a2263616e6469646174655f6f6e6c79222c227175616c697479223a313830372c22736f757263655f6d6f6465223a227477696e5f66697874757265227d",
+        "finish_qpc_ns": 27001471445700,
+        "held_em_association": "unavailable;original_native_em_association_not_implemented",
+        "nominal_qpc_ns": 27001468289300,
+        "numerical_pose_span": {
+          "from_qpc_ns": 27001348081200,
+          "pose_revision": 0,
+          "root_revision": 0,
+          "through_qpc_ns": 27001471445700
+        },
+        "numerical_pose_span_status": "available;fixed_numerical_root_only",
+        "observed_source_qpc_ns": 27001469695600,
+        "opened_qpc_ns": 27001470152200,
+        "payload": {
+          "adc_tick_ms": 120,
+          "channel_counts": [
+            3009,
+            1922,
+            1917,
+            0
+          ],
+          "channel_values": [
+            2.240572130288573,
+            -0.12290293749570359,
+            -0.12743521615572662,
+            0.00010089977180553849
+          ],
+          "em_tick_ms": 100,
+          "profile_id": "deepeye_forward_profile_candidate_v1",
+          "profile_note": "not_calibrated;not_em_surrogate_v2;not_formally_frozen",
+          "profile_status": "candidate_only",
+          "quality": 1807,
+          "source_mode": "twin_fixture"
+        },
+        "pose_reads": {
+          "adc": {
+            "begin_qpc_ns": 27001470582400,
+            "end_qpc_ns": 27001470613000,
+            "pose": {
+              "orientation_xyzw": [
+                0.0,
+                0.7071067811865476,
+                0.0,
+                0.7071067811865476
+              ],
+              "position_m": [
+                -15.6,
+                0.0,
+                1.0
+              ]
+            },
+            "pose_revision": 0,
+            "postcheck_complete": true,
+            "revoke_generation": 0,
+            "root_revision": 0
+          }
+        },
+        "source_count": 13,
+        "source_sha256": "fd138390dbe46df82a4db85343d3c54990b3d342695eec5516777a8138bcada3",
+        "status": "complete",
+        "tick_ms": 120
+      },
+      {
+        "actual_adc_end_minus_nominal_ns": 1463600,
+        "adc": {
+          "begin_qpc_ns": 27001479728500,
+          "end_attempt_qpc_ns": 27001479752900,
+          "end_qpc_ns": 27001479752900,
+          "postcheck_complete": true,
+          "previous_adc_tick_ms": 120,
+          "profile_tick_observed": true
+        },
+        "baseline_span": {
+          "begin_qpc_ns": 27001348081200,
+          "end_qpc_ns": 27001480338700,
+          "observation": "same committed Root value at checks; not atomic native pose",
+          "pose_revision": 0,
+          "root_revision": 0
+        },
+        "canonical_source_hex": "7b226164635f7469636b5f6d73223a3133302c226368616e6e656c5f636f756e7473223a5b333030392c313932322c313931372c305d2c226368616e6e656c5f76616c756573223a5b322e3234303537323133303238383537332c2d302e31323239303239333734393537303335392c2d302e31323734333532313631353537323636322c302e30303031303932353635393034373832353337325d2c22656d5f7469636b5f6d73223a3130302c2270726f66696c655f6964223a22646565706579655f666f72776172645f70726f66696c655f63616e6469646174655f7631222c2270726f66696c655f6e6f7465223a226e6f745f63616c696272617465643b6e6f745f656d5f737572726f676174655f76323b6e6f745f666f726d616c6c795f66726f7a656e222c2270726f66696c655f737461747573223a2263616e6469646174655f6f6e6c79222c227175616c697479223a313830372c22736f757263655f6d6f6465223a227477696e5f66697874757265227d",
+        "finish_qpc_ns": 27001480338700,
+        "held_em_association": "unavailable;original_native_em_association_not_implemented",
+        "nominal_qpc_ns": 27001478289300,
+        "numerical_pose_span": {
+          "from_qpc_ns": 27001348081200,
+          "pose_revision": 0,
+          "root_revision": 0,
+          "through_qpc_ns": 27001480338700
+        },
+        "numerical_pose_span_status": "available;fixed_numerical_root_only",
+        "observed_source_qpc_ns": 27001478790900,
+        "opened_qpc_ns": 27001479034700,
+        "payload": {
+          "adc_tick_ms": 130,
+          "channel_counts": [
+            3009,
+            1922,
+            1917,
+            0
+          ],
+          "channel_values": [
+            2.240572130288573,
+            -0.12290293749570359,
+            -0.12743521615572662,
+            0.00010925659047825372
+          ],
+          "em_tick_ms": 100,
+          "profile_id": "deepeye_forward_profile_candidate_v1",
+          "profile_note": "not_calibrated;not_em_surrogate_v2;not_formally_frozen",
+          "profile_status": "candidate_only",
+          "quality": 1807,
+          "source_mode": "twin_fixture"
+        },
+        "pose_reads": {
+          "adc": {
+            "begin_qpc_ns": 27001479370200,
+            "end_qpc_ns": 27001479393200,
+            "pose": {
+              "orientation_xyzw": [
+                0.0,
+                0.7071067811865476,
+                0.0,
+                0.7071067811865476
+              ],
+              "position_m": [
+                -15.6,
+                0.0,
+                1.0
+              ]
+            },
+            "pose_revision": 0,
+            "postcheck_complete": true,
+            "revoke_generation": 0,
+            "root_revision": 0
+          }
+        },
+        "source_count": 14,
+        "source_sha256": "5f6e71c3b6de0fd6e31d80109cac0892d8e37666ceacd863897d4f068a68da75",
+        "status": "complete",
+        "tick_ms": 130
+      },
+      {
+        "actual_adc_end_minus_nominal_ns": 2397100,
+        "adc": {
+          "begin_qpc_ns": 27001490653700,
+          "end_attempt_qpc_ns": 27001490686400,
+          "end_qpc_ns": 27001490686400,
+          "postcheck_complete": true,
+          "previous_adc_tick_ms": 130,
+          "profile_tick_observed": true
+        },
+        "baseline_span": {
+          "begin_qpc_ns": 27001348081200,
+          "end_qpc_ns": 27001491315100,
+          "observation": "same committed Root value at checks; not atomic native pose",
+          "pose_revision": 0,
+          "root_revision": 0
+        },
+        "canonical_source_hex": "7b226164635f7469636b5f6d73223a3134302c226368616e6e656c5f636f756e7473223a5b333030392c313932322c313931372c305d2c226368616e6e656c5f76616c756573223a5b322e3234303537323133303238383537332c2d302e31323239303239333734393537303335392c2d302e31323734333532313631353537323636322c302e30303031303732313238343637313235393637375d2c22656d5f7469636b5f6d73223a3130302c2270726f66696c655f6964223a22646565706579655f666f72776172645f70726f66696c655f63616e6469646174655f7631222c2270726f66696c655f6e6f7465223a226e6f745f63616c696272617465643b6e6f745f656d5f737572726f676174655f76323b6e6f745f666f726d616c6c795f66726f7a656e222c2270726f66696c655f737461747573223a2263616e6469646174655f6f6e6c79222c227175616c697479223a313830372c22736f757263655f6d6f6465223a227477696e5f66697874757265227d",
+        "finish_qpc_ns": 27001491315100,
+        "held_em_association": "unavailable;original_native_em_association_not_implemented",
+        "nominal_qpc_ns": 27001488289300,
+        "numerical_pose_span": {
+          "from_qpc_ns": 27001348081200,
+          "pose_revision": 0,
+          "root_revision": 0,
+          "through_qpc_ns": 27001491315100
+        },
+        "numerical_pose_span_status": "available;fixed_numerical_root_only",
+        "observed_source_qpc_ns": 27001489622800,
+        "opened_qpc_ns": 27001489927200,
+        "payload": {
+          "adc_tick_ms": 140,
+          "channel_counts": [
+            3009,
+            1922,
+            1917,
+            0
+          ],
+          "channel_values": [
+            2.240572130288573,
+            -0.12290293749570359,
+            -0.12743521615572662,
+            0.00010721284671259677
+          ],
+          "em_tick_ms": 100,
+          "profile_id": "deepeye_forward_profile_candidate_v1",
+          "profile_note": "not_calibrated;not_em_surrogate_v2;not_formally_frozen",
+          "profile_status": "candidate_only",
+          "quality": 1807,
+          "source_mode": "twin_fixture"
+        },
+        "pose_reads": {
+          "adc": {
+            "begin_qpc_ns": 27001490279000,
+            "end_qpc_ns": 27001490305600,
+            "pose": {
+              "orientation_xyzw": [
+                0.0,
+                0.7071067811865476,
+                0.0,
+                0.7071067811865476
+              ],
+              "position_m": [
+                -15.6,
+                0.0,
+                1.0
+              ]
+            },
+            "pose_revision": 0,
+            "postcheck_complete": true,
+            "revoke_generation": 0,
+            "root_revision": 0
+          }
+        },
+        "source_count": 15,
+        "source_sha256": "bfa14ea1864d938933907d038e71095d4a7b66c0f8b44cba94f25832d6704f93",
+        "status": "complete",
+        "tick_ms": 140
+      },
+      {
+        "actual_adc_end_minus_nominal_ns": 7199700,
+        "adc": {
+          "begin_qpc_ns": 27001505468700,
+          "end_attempt_qpc_ns": 27001505489000,
+          "end_qpc_ns": 27001505489000,
+          "postcheck_complete": true,
+          "previous_adc_tick_ms": 140,
+          "profile_tick_observed": true
+        },
+        "baseline_span": {
+          "begin_qpc_ns": 27001348081200,
+          "end_qpc_ns": 27001505886300,
+          "observation": "same committed Root value at checks; not atomic native pose",
+          "pose_revision": 0,
+          "root_revision": 0
+        },
+        "canonical_source_hex": "7b226164635f7469636b5f6d73223a3135302c226368616e6e656c5f636f756e7473223a5b333032302c323031302c313938322c305d2c226368616e6e656c5f76616c756573223a5b322e323531313636323338303135343931332c2d302e303336333230313337393136323635372c2d302e30363430303233303636323534353138372c302e30303031303531303730363137373533313538345d2c22656d5f7469636b5f6d73223a3135302c2270726f66696c655f6964223a22646565706579655f666f72776172645f70726f66696c655f63616e6469646174655f7631222c2270726f66696c655f6e6f7465223a226e6f745f63616c696272617465643b6e6f745f656d5f737572726f676174655f76323b6e6f745f666f726d616c6c795f66726f7a656e222c2270726f66696c655f737461747573223a2263616e6469646174655f6f6e6c79222c227175616c697479223a31352c22736f757263655f6d6f6465223a227477696e5f66697874757265227d",
+        "finish_qpc_ns": 27001505886300,
+        "held_em_association": "unavailable;original_native_em_association_not_implemented",
+        "nominal_qpc_ns": 27001498289300,
+        "numerical_pose_span": {
+          "from_qpc_ns": 27001348081200,
+          "pose_revision": 0,
+          "root_revision": 0,
+          "through_qpc_ns": 27001505886300
+        },
+        "numerical_pose_span_status": "available;fixed_numerical_root_only",
+        "observed_source_qpc_ns": 27001498740600,
+        "opened_qpc_ns": 27001498992200,
+        "payload": {
+          "adc_tick_ms": 150,
+          "channel_counts": [
+            3020,
+            2010,
+            1982,
+            0
+          ],
+          "channel_values": [
+            2.2511662380154913,
+            -0.0363201379162657,
+            -0.06400230662545187,
+            0.00010510706177531584
+          ],
+          "em_tick_ms": 150,
+          "profile_id": "deepeye_forward_profile_candidate_v1",
+          "profile_note": "not_calibrated;not_em_surrogate_v2;not_formally_frozen",
+          "profile_status": "candidate_only",
+          "quality": 15,
+          "source_mode": "twin_fixture"
+        },
+        "pose_reads": {
+          "adc": {
+            "begin_qpc_ns": 27001505215500,
+            "end_qpc_ns": 27001505232800,
+            "pose": {
+              "orientation_xyzw": [
+                0.0,
+                0.7071067811865476,
+                0.0,
+                0.7071067811865476
+              ],
+              "position_m": [
+                -15.6,
+                0.0,
+                1.0
+              ]
+            },
+            "pose_revision": 0,
+            "postcheck_complete": true,
+            "revoke_generation": 0,
+            "root_revision": 0
+          },
+          "em": {
+            "begin_qpc_ns": 27001499616900,
+            "end_qpc_ns": 27001499639700,
+            "pose": {
+              "orientation_xyzw": [
+                0.0,
+                0.7071067811865476,
+                0.0,
+                0.7071067811865476
+              ],
+              "position_m": [
+                -15.6,
+                0.0,
+                1.0
+              ]
+            },
+            "pose_revision": 0,
+            "postcheck_complete": true,
+            "revoke_generation": 0,
+            "root_revision": 0
+          }
+        },
+        "source_count": 16,
+        "source_sha256": "9cafc8d20bffa2af3a9f866eaeb5eb83331b715fe82bf0f29b645bb3f7e352bd",
+        "status": "complete",
+        "tick_ms": 150
+      },
+      {
+        "actual_adc_end_minus_nominal_ns": 1265400,
+        "adc": {
+          "begin_qpc_ns": 27001509536900,
+          "end_attempt_qpc_ns": 27001509554700,
+          "end_qpc_ns": 27001509554700,
+          "postcheck_complete": true,
+          "previous_adc_tick_ms": 150,
+          "profile_tick_observed": true
+        },
+        "baseline_span": {
+          "begin_qpc_ns": 27001348081200,
+          "end_qpc_ns": 27001509984700,
+          "observation": "same committed Root value at checks; not atomic native pose",
+          "pose_revision": 0,
+          "root_revision": 0
+        },
+        "canonical_source_hex": "7b226164635f7469636b5f6d73223a3136302c226368616e6e656c5f636f756e7473223a5b333032302c323031302c313938322c305d2c226368616e6e656c5f76616c756573223a5b322e323531313636323338303135343931332c2d302e303336333230313337393136323635372c2d302e30363430303233303636323534353138372c392e393233383230343633353337343934652d30355d2c22656d5f7469636b5f6d73223a3135302c2270726f66696c655f6964223a22646565706579655f666f72776172645f70726f66696c655f63616e6469646174655f7631222c2270726f66696c655f6e6f7465223a226e6f745f63616c696272617465643b6e6f745f656d5f737572726f676174655f76323b6e6f745f666f726d616c6c795f66726f7a656e222c2270726f66696c655f737461747573223a2263616e6469646174655f6f6e6c79222c227175616c697479223a313830372c22736f757263655f6d6f6465223a227477696e5f66697874757265227d",
+        "finish_qpc_ns": 27001509984700,
+        "held_em_association": "unavailable;original_native_em_association_not_implemented",
+        "nominal_qpc_ns": 27001508289300,
+        "numerical_pose_span": {
+          "from_qpc_ns": 27001348081200,
+          "pose_revision": 0,
+          "root_revision": 0,
+          "through_qpc_ns": 27001509984700
+        },
+        "numerical_pose_span_status": "available;fixed_numerical_root_only",
+        "observed_source_qpc_ns": 27001508616500,
+        "opened_qpc_ns": 27001508896800,
+        "payload": {
+          "adc_tick_ms": 160,
+          "channel_counts": [
+            3020,
+            2010,
+            1982,
+            0
+          ],
+          "channel_values": [
+            2.2511662380154913,
+            -0.0363201379162657,
+            -0.06400230662545187,
+            9.923820463537494e-05
+          ],
+          "em_tick_ms": 150,
+          "profile_id": "deepeye_forward_profile_candidate_v1",
+          "profile_note": "not_calibrated;not_em_surrogate_v2;not_formally_frozen",
+          "profile_status": "candidate_only",
+          "quality": 1807,
+          "source_mode": "twin_fixture"
+        },
+        "pose_reads": {
+          "adc": {
+            "begin_qpc_ns": 27001509244900,
+            "end_qpc_ns": 27001509266800,
+            "pose": {
+              "orientation_xyzw": [
+                0.0,
+                0.7071067811865476,
+                0.0,
+                0.7071067811865476
+              ],
+              "position_m": [
+                -15.6,
+                0.0,
+                1.0
+              ]
+            },
+            "pose_revision": 0,
+            "postcheck_complete": true,
+            "revoke_generation": 0,
+            "root_revision": 0
+          }
+        },
+        "source_count": 17,
+        "source_sha256": "7aeca159896b83920b6e4b0f826f5eceee9bba45906745c2c07a133194709c8b",
+        "status": "complete",
+        "tick_ms": 160
+      },
+      {
+        "actual_adc_end_minus_nominal_ns": 1898900,
+        "adc": {
+          "begin_qpc_ns": 27001520156000,
+          "end_attempt_qpc_ns": 27001520188200,
+          "end_qpc_ns": 27001520188200,
+          "postcheck_complete": true,
+          "previous_adc_tick_ms": 160,
+          "profile_tick_observed": true
+        },
+        "baseline_span": {
+          "begin_qpc_ns": 27001348081200,
+          "end_qpc_ns": 27001520611600,
+          "observation": "same committed Root value at checks; not atomic native pose",
+          "pose_revision": 0,
+          "root_revision": 0
+        },
+        "canonical_source_hex": "7b226164635f7469636b5f6d73223a3137302c226368616e6e656c5f636f756e7473223a5b333032302c323031302c313938322c305d2c226368616e6e656c5f76616c756573223a5b322e323531313636323338303135343931332c2d302e303336333230313337393136323635372c2d302e30363430303233303636323534353138372c302e303030313034363330383934313330343838315d2c22656d5f7469636b5f6d73223a3135302c2270726f66696c655f6964223a22646565706579655f666f72776172645f70726f66696c655f63616e6469646174655f7631222c2270726f66696c655f6e6f7465223a226e6f745f63616c696272617465643b6e6f745f656d5f737572726f676174655f76323b6e6f745f666f726d616c6c795f66726f7a656e222c2270726f66696c655f737461747573223a2263616e6469646174655f6f6e6c79222c227175616c697479223a313830372c22736f757263655f6d6f6465223a227477696e5f66697874757265227d",
+        "finish_qpc_ns": 27001520611600,
+        "held_em_association": "unavailable;original_native_em_association_not_implemented",
+        "nominal_qpc_ns": 27001518289300,
+        "numerical_pose_span": {
+          "from_qpc_ns": 27001348081200,
+          "pose_revision": 0,
+          "root_revision": 0,
+          "through_qpc_ns": 27001520611600
+        },
+        "numerical_pose_span_status": "available;fixed_numerical_root_only",
+        "observed_source_qpc_ns": 27001519167300,
+        "opened_qpc_ns": 27001519427100,
+        "payload": {
+          "adc_tick_ms": 170,
+          "channel_counts": [
+            3020,
+            2010,
+            1982,
+            0
+          ],
+          "channel_values": [
+            2.2511662380154913,
+            -0.0363201379162657,
+            -0.06400230662545187,
+            0.0001046308941304881
+          ],
+          "em_tick_ms": 150,
+          "profile_id": "deepeye_forward_profile_candidate_v1",
+          "profile_note": "not_calibrated;not_em_surrogate_v2;not_formally_frozen",
+          "profile_status": "candidate_only",
+          "quality": 1807,
+          "source_mode": "twin_fixture"
+        },
+        "pose_reads": {
+          "adc": {
+            "begin_qpc_ns": 27001519784200,
+            "end_qpc_ns": 27001519815300,
+            "pose": {
+              "orientation_xyzw": [
+                0.0,
+                0.7071067811865476,
+                0.0,
+                0.7071067811865476
+              ],
+              "position_m": [
+                -15.6,
+                0.0,
+                1.0
+              ]
+            },
+            "pose_revision": 0,
+            "postcheck_complete": true,
+            "revoke_generation": 0,
+            "root_revision": 0
+          }
+        },
+        "source_count": 18,
+        "source_sha256": "1702a9d00dbaae09bee4b8893a36705aeafb726591eeda7865590530977d84c5",
+        "status": "complete",
+        "tick_ms": 170
+      },
+      {
+        "actual_adc_end_minus_nominal_ns": 1204000,
+        "adc": {
+          "begin_qpc_ns": 27001529464400,
+          "end_attempt_qpc_ns": 27001529493300,
+          "end_qpc_ns": 27001529493300,
+          "postcheck_complete": true,
+          "previous_adc_tick_ms": 170,
+          "profile_tick_observed": true
+        },
+        "baseline_span": {
+          "begin_qpc_ns": 27001348081200,
+          "end_qpc_ns": 27001529986200,
+          "observation": "same committed Root value at checks; not atomic native pose",
+          "pose_revision": 0,
+          "root_revision": 0
+        },
+        "canonical_source_hex": "7b226164635f7469636b5f6d73223a3138302c226368616e6e656c5f636f756e7473223a5b333032302c323031302c313938322c305d2c226368616e6e656c5f76616c756573223a5b322e323531313636323338303135343931332c2d302e303336333230313337393136323635372c2d302e30363430303233303636323534353138372c302e30303031313036353531383637373030343332365d2c22656d5f7469636b5f6d73223a3135302c2270726f66696c655f6964223a22646565706579655f666f72776172645f70726f66696c655f63616e6469646174655f7631222c2270726f66696c655f6e6f7465223a226e6f745f63616c696272617465643b6e6f745f656d5f737572726f676174655f76323b6e6f745f666f726d616c6c795f66726f7a656e222c2270726f66696c655f737461747573223a2263616e6469646174655f6f6e6c79222c227175616c697479223a313830372c22736f757263655f6d6f6465223a227477696e5f66697874757265227d",
+        "finish_qpc_ns": 27001529986200,
+        "held_em_association": "unavailable;original_native_em_association_not_implemented",
+        "nominal_qpc_ns": 27001528289300,
+        "numerical_pose_span": {
+          "from_qpc_ns": 27001348081200,
+          "pose_revision": 0,
+          "root_revision": 0,
+          "through_qpc_ns": 27001529986200
+        },
+        "numerical_pose_span_status": "available;fixed_numerical_root_only",
+        "observed_source_qpc_ns": 27001528528200,
+        "opened_qpc_ns": 27001528784800,
+        "payload": {
+          "adc_tick_ms": 180,
+          "channel_counts": [
+            3020,
+            2010,
+            1982,
+            0
+          ],
+          "channel_values": [
+            2.2511662380154913,
+            -0.0363201379162657,
+            -0.06400230662545187,
+            0.00011065518677004326
+          ],
+          "em_tick_ms": 150,
+          "profile_id": "deepeye_forward_profile_candidate_v1",
+          "profile_note": "not_calibrated;not_em_surrogate_v2;not_formally_frozen",
+          "profile_status": "candidate_only",
+          "quality": 1807,
+          "source_mode": "twin_fixture"
+        },
+        "pose_reads": {
+          "adc": {
+            "begin_qpc_ns": 27001529117400,
+            "end_qpc_ns": 27001529143200,
+            "pose": {
+              "orientation_xyzw": [
+                0.0,
+                0.7071067811865476,
+                0.0,
+                0.7071067811865476
+              ],
+              "position_m": [
+                -15.6,
+                0.0,
+                1.0
+              ]
+            },
+            "pose_revision": 0,
+            "postcheck_complete": true,
+            "revoke_generation": 0,
+            "root_revision": 0
+          }
+        },
+        "source_count": 19,
+        "source_sha256": "bf1d5bfeddfa4fca58630d5b8906761492d880b228770d31804b37bd9373a7ab",
+        "status": "complete",
+        "tick_ms": 180
+      },
+      {
+        "actual_adc_end_minus_nominal_ns": 1692200,
+        "adc": {
+          "begin_qpc_ns": 27001539943600,
+          "end_attempt_qpc_ns": 27001539981500,
+          "end_qpc_ns": 27001539981500,
+          "postcheck_complete": true,
+          "previous_adc_tick_ms": 180,
+          "profile_tick_observed": true
+        },
+        "baseline_span": {
+          "begin_qpc_ns": 27001348081200,
+          "end_qpc_ns": 27001540586200,
+          "observation": "same committed Root value at checks; not atomic native pose",
+          "pose_revision": 0,
+          "root_revision": 0
+        },
+        "canonical_source_hex": "7b226164635f7469636b5f6d73223a3139302c226368616e6e656c5f636f756e7473223a5b333032302c323031302c313938322c305d2c226368616e6e656c5f76616c756573223a5b322e323531313636323338303135343931332c2d302e303336333230313337393136323635372c2d302e30363430303233303636323534353138372c302e30303031313035333036313437313739313031375d2c22656d5f7469636b5f6d73223a3135302c2270726f66696c655f6964223a22646565706579655f666f72776172645f70726f66696c655f63616e6469646174655f7631222c2270726f66696c655f6e6f7465223a226e6f745f63616c696272617465643b6e6f745f656d5f737572726f676174655f76323b6e6f745f666f726d616c6c795f66726f7a656e222c2270726f66696c655f737461747573223a2263616e6469646174655f6f6e6c79222c227175616c697479223a313830372c22736f757263655f6d6f6465223a227477696e5f66697874757265227d",
+        "finish_qpc_ns": 27001540586200,
+        "held_em_association": "unavailable;original_native_em_association_not_implemented",
+        "nominal_qpc_ns": 27001538289300,
+        "numerical_pose_span": {
+          "from_qpc_ns": 27001348081200,
+          "pose_revision": 0,
+          "root_revision": 0,
+          "through_qpc_ns": 27001540586200
+        },
+        "numerical_pose_span_status": "available;fixed_numerical_root_only",
+        "observed_source_qpc_ns": 27001538954500,
+        "opened_qpc_ns": 27001539236300,
+        "payload": {
+          "adc_tick_ms": 190,
+          "channel_counts": [
+            3020,
+            2010,
+            1982,
+            0
+          ],
+          "channel_values": [
+            2.2511662380154913,
+            -0.0363201379162657,
+            -0.06400230662545187,
+            0.00011053061471791017
+          ],
+          "em_tick_ms": 150,
+          "profile_id": "deepeye_forward_profile_candidate_v1",
+          "profile_note": "not_calibrated;not_em_surrogate_v2;not_formally_frozen",
+          "profile_status": "candidate_only",
+          "quality": 1807,
+          "source_mode": "twin_fixture"
+        },
+        "pose_reads": {
+          "adc": {
+            "begin_qpc_ns": 27001539579100,
+            "end_qpc_ns": 27001539607800,
+            "pose": {
+              "orientation_xyzw": [
+                0.0,
+                0.7071067811865476,
+                0.0,
+                0.7071067811865476
+              ],
+              "position_m": [
+                -15.6,
+                0.0,
+                1.0
+              ]
+            },
+            "pose_revision": 0,
+            "postcheck_complete": true,
+            "revoke_generation": 0,
+            "root_revision": 0
+          }
+        },
+        "source_count": 20,
+        "source_sha256": "00b7c4ee4dfeed9abc70fd49cd50c2f32941783d34c3150befe2d8e3c9d7490f",
+        "status": "complete",
+        "tick_ms": 190
+      }
+    ],
+    "schema": 1,
+    "source_origin_qpc_ns": 27001348289300,
+    "source_scope": "Root private candidate observations",
+    "source_state": "RETIRED",
+    "start_observed_qpc_ns": 27001348412500,
+    "state": "RETIRED"
+  },
+  "physical_ADC": false,
+  "records": [
+    {
+      "adc_tick_ms": 0,
+      "channel_counts": [
+        3011,
+        1924,
+        2002,
+        null
+      ],
+      "channel_values": [
+        2.2423464345059094,
+        -0.12016965153958198,
+        -0.04484641606648674,
+        null
+      ],
+      "em_tick_ms": 0,
+      "profile_id": "deepeye_forward_profile_candidate_v1",
+      "profile_note": "not_calibrated;not_em_surrogate_v2;not_formally_frozen",
+      "profile_status": "candidate_only",
+      "quality": 7,
+      "source_mode": "twin_fixture"
+    },
+    {
+      "adc_tick_ms": 10,
+      "channel_counts": [
+        3011,
+        1924,
+        2002,
+        null
+      ],
+      "channel_values": [
+        2.2423464345059094,
+        -0.12016965153958198,
+        -0.04484641606648674,
+        null
+      ],
+      "em_tick_ms": 0,
+      "profile_id": "deepeye_forward_profile_candidate_v1",
+      "profile_note": "not_calibrated;not_em_surrogate_v2;not_formally_frozen",
+      "profile_status": "candidate_only",
+      "quality": 1799,
+      "source_mode": "twin_fixture"
+    },
+    {
+      "adc_tick_ms": 20,
+      "channel_counts": [
+        3011,
+        1924,
+        2002,
+        null
+      ],
+      "channel_values": [
+        2.2423464345059094,
+        -0.12016965153958198,
+        -0.04484641606648674,
+        null
+      ],
+      "em_tick_ms": 0,
+      "profile_id": "deepeye_forward_profile_candidate_v1",
+      "profile_note": "not_calibrated;not_em_surrogate_v2;not_formally_frozen",
+      "profile_status": "candidate_only",
+      "quality": 1799,
+      "source_mode": "twin_fixture"
+    },
+    {
+      "adc_tick_ms": 30,
+      "channel_counts": [
+        3011,
+        1924,
+        2002,
+        null
+      ],
+      "channel_values": [
+        2.2423464345059094,
+        -0.12016965153958198,
+        -0.04484641606648674,
+        null
+      ],
+      "em_tick_ms": 0,
+      "profile_id": "deepeye_forward_profile_candidate_v1",
+      "profile_note": "not_calibrated;not_em_surrogate_v2;not_formally_frozen",
+      "profile_status": "candidate_only",
+      "quality": 1799,
+      "source_mode": "twin_fixture"
+    },
+    {
+      "adc_tick_ms": 40,
+      "channel_counts": [
+        3011,
+        1924,
+        2002,
+        null
+      ],
+      "channel_values": [
+        2.2423464345059094,
+        -0.12016965153958198,
+        -0.04484641606648674,
+        null
+      ],
+      "em_tick_ms": 0,
+      "profile_id": "deepeye_forward_profile_candidate_v1",
+      "profile_note": "not_calibrated;not_em_surrogate_v2;not_formally_frozen",
+      "profile_status": "candidate_only",
+      "quality": 1799,
+      "source_mode": "twin_fixture"
+    },
+    {
+      "adc_tick_ms": 50,
+      "channel_counts": [
+        2982,
+        2021,
+        1966,
+        null
+      ],
+      "channel_values": [
+        2.2140543232289267,
+        -0.026363459421550814,
+        -0.07931893998156915,
+        null
+      ],
+      "em_tick_ms": 50,
+      "profile_id": "deepeye_forward_profile_candidate_v1",
+      "profile_note": "not_calibrated;not_em_surrogate_v2;not_formally_frozen",
+      "profile_status": "candidate_only",
+      "quality": 7,
+      "source_mode": "twin_fixture"
+    },
+    {
+      "adc_tick_ms": 60,
+      "channel_counts": [
+        2982,
+        2021,
+        1966,
+        null
+      ],
+      "channel_values": [
+        2.2140543232289267,
+        -0.026363459421550814,
+        -0.07931893998156915,
+        null
+      ],
+      "em_tick_ms": 50,
+      "profile_id": "deepeye_forward_profile_candidate_v1",
+      "profile_note": "not_calibrated;not_em_surrogate_v2;not_formally_frozen",
+      "profile_status": "candidate_only",
+      "quality": 1799,
+      "source_mode": "twin_fixture"
+    },
+    {
+      "adc_tick_ms": 70,
+      "channel_counts": [
+        2982,
+        2021,
+        1966,
+        null
+      ],
+      "channel_values": [
+        2.2140543232289267,
+        -0.026363459421550814,
+        -0.07931893998156915,
+        null
+      ],
+      "em_tick_ms": 50,
+      "profile_id": "deepeye_forward_profile_candidate_v1",
+      "profile_note": "not_calibrated;not_em_surrogate_v2;not_formally_frozen",
+      "profile_status": "candidate_only",
+      "quality": 1799,
+      "source_mode": "twin_fixture"
+    },
+    {
+      "adc_tick_ms": 80,
+      "channel_counts": [
+        2982,
+        2021,
+        1966,
+        null
+      ],
+      "channel_values": [
+        2.2140543232289267,
+        -0.026363459421550814,
+        -0.07931893998156915,
+        null
+      ],
+      "em_tick_ms": 50,
+      "profile_id": "deepeye_forward_profile_candidate_v1",
+      "profile_note": "not_calibrated;not_em_surrogate_v2;not_formally_frozen",
+      "profile_status": "candidate_only",
+      "quality": 1799,
+      "source_mode": "twin_fixture"
+    },
+    {
+      "adc_tick_ms": 90,
+      "channel_counts": [
+        2982,
+        2021,
+        1966,
+        0
+      ],
+      "channel_values": [
+        2.2140543232289267,
+        -0.026363459421550814,
+        -0.07931893998156915,
+        9.413047919959638e-05
+      ],
+      "em_tick_ms": 50,
+      "profile_id": "deepeye_forward_profile_candidate_v1",
+      "profile_note": "not_calibrated;not_em_surrogate_v2;not_formally_frozen",
+      "profile_status": "candidate_only",
+      "quality": 1807,
+      "source_mode": "twin_fixture"
+    },
+    {
+      "adc_tick_ms": 100,
+      "channel_counts": [
+        3009,
+        1922,
+        1917,
+        0
+      ],
+      "channel_values": [
+        2.240572130288573,
+        -0.12290293749570359,
+        -0.12743521615572662,
+        0.00010225302787741636
+      ],
+      "em_tick_ms": 100,
+      "profile_id": "deepeye_forward_profile_candidate_v1",
+      "profile_note": "not_calibrated;not_em_surrogate_v2;not_formally_frozen",
+      "profile_status": "candidate_only",
+      "quality": 15,
+      "source_mode": "twin_fixture"
+    },
+    {
+      "adc_tick_ms": 110,
+      "channel_counts": [
+        3009,
+        1922,
+        1917,
+        0
+      ],
+      "channel_values": [
+        2.240572130288573,
+        -0.12290293749570359,
+        -0.12743521615572662,
+        0.00010141854817284949
+      ],
+      "em_tick_ms": 100,
+      "profile_id": "deepeye_forward_profile_candidate_v1",
+      "profile_note": "not_calibrated;not_em_surrogate_v2;not_formally_frozen",
+      "profile_status": "candidate_only",
+      "quality": 1807,
+      "source_mode": "twin_fixture"
+    },
+    {
+      "adc_tick_ms": 120,
+      "channel_counts": [
+        3009,
+        1922,
+        1917,
+        0
+      ],
+      "channel_values": [
+        2.240572130288573,
+        -0.12290293749570359,
+        -0.12743521615572662,
+        0.00010089977180553849
+      ],
+      "em_tick_ms": 100,
+      "profile_id": "deepeye_forward_profile_candidate_v1",
+      "profile_note": "not_calibrated;not_em_surrogate_v2;not_formally_frozen",
+      "profile_status": "candidate_only",
+      "quality": 1807,
+      "source_mode": "twin_fixture"
+    },
+    {
+      "adc_tick_ms": 130,
+      "channel_counts": [
+        3009,
+        1922,
+        1917,
+        0
+      ],
+      "channel_values": [
+        2.240572130288573,
+        -0.12290293749570359,
+        -0.12743521615572662,
+        0.00010925659047825372
+      ],
+      "em_tick_ms": 100,
+      "profile_id": "deepeye_forward_profile_candidate_v1",
+      "profile_note": "not_calibrated;not_em_surrogate_v2;not_formally_frozen",
+      "profile_status": "candidate_only",
+      "quality": 1807,
+      "source_mode": "twin_fixture"
+    },
+    {
+      "adc_tick_ms": 140,
+      "channel_counts": [
+        3009,
+        1922,
+        1917,
+        0
+      ],
+      "channel_values": [
+        2.240572130288573,
+        -0.12290293749570359,
+        -0.12743521615572662,
+        0.00010721284671259677
+      ],
+      "em_tick_ms": 100,
+      "profile_id": "deepeye_forward_profile_candidate_v1",
+      "profile_note": "not_calibrated;not_em_surrogate_v2;not_formally_frozen",
+      "profile_status": "candidate_only",
+      "quality": 1807,
+      "source_mode": "twin_fixture"
+    },
+    {
+      "adc_tick_ms": 150,
+      "channel_counts": [
+        3020,
+        2010,
+        1982,
+        0
+      ],
+      "channel_values": [
+        2.2511662380154913,
+        -0.0363201379162657,
+        -0.06400230662545187,
+        0.00010510706177531584
+      ],
+      "em_tick_ms": 150,
+      "profile_id": "deepeye_forward_profile_candidate_v1",
+      "profile_note": "not_calibrated;not_em_surrogate_v2;not_formally_frozen",
+      "profile_status": "candidate_only",
+      "quality": 15,
+      "source_mode": "twin_fixture"
+    },
+    {
+      "adc_tick_ms": 160,
+      "channel_counts": [
+        3020,
+        2010,
+        1982,
+        0
+      ],
+      "channel_values": [
+        2.2511662380154913,
+        -0.0363201379162657,
+        -0.06400230662545187,
+        9.923820463537494e-05
+      ],
+      "em_tick_ms": 150,
+      "profile_id": "deepeye_forward_profile_candidate_v1",
+      "profile_note": "not_calibrated;not_em_surrogate_v2;not_formally_frozen",
+      "profile_status": "candidate_only",
+      "quality": 1807,
+      "source_mode": "twin_fixture"
+    },
+    {
+      "adc_tick_ms": 170,
+      "channel_counts": [
+        3020,
+        2010,
+        1982,
+        0
+      ],
+      "channel_values": [
+        2.2511662380154913,
+        -0.0363201379162657,
+        -0.06400230662545187,
+        0.0001046308941304881
+      ],
+      "em_tick_ms": 150,
+      "profile_id": "deepeye_forward_profile_candidate_v1",
+      "profile_note": "not_calibrated;not_em_surrogate_v2;not_formally_frozen",
+      "profile_status": "candidate_only",
+      "quality": 1807,
+      "source_mode": "twin_fixture"
+    },
+    {
+      "adc_tick_ms": 180,
+      "channel_counts": [
+        3020,
+        2010,
+        1982,
+        0
+      ],
+      "channel_values": [
+        2.2511662380154913,
+        -0.0363201379162657,
+        -0.06400230662545187,
+        0.00011065518677004326
+      ],
+      "em_tick_ms": 150,
+      "profile_id": "deepeye_forward_profile_candidate_v1",
+      "profile_note": "not_calibrated;not_em_surrogate_v2;not_formally_frozen",
+      "profile_status": "candidate_only",
+      "quality": 1807,
+      "source_mode": "twin_fixture"
+    },
+    {
+      "adc_tick_ms": 190,
+      "channel_counts": [
+        3020,
+        2010,
+        1982,
+        0
+      ],
+      "channel_values": [
+        2.2511662380154913,
+        -0.0363201379162657,
+        -0.06400230662545187,
+        0.00011053061471791017
+      ],
+      "em_tick_ms": 150,
+      "profile_id": "deepeye_forward_profile_candidate_v1",
+      "profile_note": "not_calibrated;not_em_surrogate_v2;not_formally_frozen",
+      "profile_status": "candidate_only",
+      "quality": 1807,
+      "source_mode": "twin_fixture"
+    }
+  ],
+  "requirements_sha256": "c229834bfc2292f5fe4411fc9f12c68487008f9d1adaf31f0144ee7a98173804",
+  "retired_historic_not_current_fresh": true,
+  "schema": 1,
+  "scope": "Actual bounded Root numerical source observations only. Own drill pose is included; no scene/material/obstacle/seed/screen/geometry or private field truth. Missing proof is not inferred from array indices, hashes or equal poses.",
+  "sensor_calibration_proven": false,
+  "source_commit": "4dc91fd24531b3df53fc916e8b7f509ad524592c",
+  "source_origin_qpc_ns": 27001348289300
+}

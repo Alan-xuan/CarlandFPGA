@@ -1,0 +1,125 @@
+{
+  "schema_version": 1,
+  "operation_id": "C-DEEPEYE-ACTOR-COMPLETION-TIME-SEMANTICS-20261030-33",
+  "task_id": "DEEPEYE-IMPLEMENTATION-20261014",
+  "task_version": 1,
+  "main_thread_id": "01a14025-4dfd-7ec3-aebb-57be48daba59",
+  "runtime": {
+    "path": "retired_input_diagnostic.py",
+    "sha256": "532f27b1c56e806e0989a30f27db1d7685278b2f9e70654a3a3d5900fca42874"
+  },
+  "approved_scope": "Bounded interface judgment plus exact pinned historical source diagnostic only",
+  "author": {
+    "actual_thread_id": "01a18c2d-530b-74f3-93ee-b35f96c08a02",
+    "new_tests": 5,
+    "exit_code": 0,
+    "elapsed_seconds": 1.1281189918518066,
+    "runtime_and_tests_unchanged_after_document_only_amendment": true,
+    "version": "v1 only, not rerun on v2"
+  },
+  "main_verified_actual_FINAL_and_closed_tool_calls": true,
+  "all_jobs_and_subprocesses_empty": true,
+  "original_A_comments": [
+    {
+      "id": 6524623393,
+      "body_sha256": "5854d3267091fb5a96dcd820b151300cd3dde973a8baf1f0e9dbac3fdf864eb4",
+      "url": "https://github.com/carolwjade/CarlandFPGA/pull/25#issuecomment-6524623393"
+    },
+    {
+      "id": 6524914377,
+      "body_sha256": "a8a9cd6de408554425a9c3b59e5c1da7f12d51c06f106d7167941fee83a04976",
+      "url": "https://github.com/carolwjade/CarlandFPGA/pull/25#issuecomment-6524914377"
+    },
+    {
+      "id": 6525377417,
+      "body_sha256": "3e9502e50de10b4111bba12d1c061ecbf5b35cf8b05391414f594e969c728ad2",
+      "url": "https://github.com/carolwjade/CarlandFPGA/pull/25#issuecomment-6525377417"
+    }
+  ],
+  "historical_input": {
+    "bytes": 82496,
+    "sha256": "63616e2915edc5a2ef6ed592e8f9830ce77a635aaf883ab964aa4dbd5fd1910c",
+    "runtime_source": "4dc91fd24531b3df53fc916e8b7f509ad524592c",
+    "export_commit": "d0185d335747acb26439f40a8ce945f7f4eaa9af"
+  },
+  "actual_output": {
+    "file": "historical-diagnostic.json",
+    "bytes": 11282,
+    "sha256": "972fa8d75d6faef2c1746a94832bdd6c11668f25f750cd25a24f8c7d1a36daf5",
+    "status": "STOP",
+    "input_status": "INPUT_UNAVAILABLE",
+    "projection": null,
+    "c30_called": false,
+    "c31_called": false,
+    "core_ran": false
+  },
+  "raw_archive": {
+    "file": "verification-raw.json.gz",
+    "bytes": 174264,
+    "sha256": "80585ac9e701be8b87196cf871ce20ab1fd1210aa419823c8a0361c03c7fd705",
+    "records": 56,
+    "decoded_records_independently_read_back_byte_exact": true
+  },
+  "main_historical_statistics": {
+    "utc": "2026-10-30T15:03:42.663052+00:00",
+    "method": "Main separate stdlib static saved-byte recomputation only; not source kernel or planner execution",
+    "rows": 20,
+    "native_timestamp_slots": [
+      0,
+      50,
+      100,
+      150
+    ],
+    "held_timestamp_rows": 16,
+    "null_C3_rows": 9,
+    "positive_value_valid_zero_C3_rows": 11,
+    "max_nominal_EM_timestamp_age_at_original_record_completion_ns": 43130900,
+    "original_origin_qpc_ns": 27001348289300,
+    "first_actual_record_end_qpc_ns": 27001355219600,
+    "last_actual_record_end_qpc_ns": 27001540674400,
+    "fixed_numerical_span_end_qpc_ns": 27001540586200,
+    "all_canonical_payload_bytes_hash_and_record_equals": true,
+    "all_20_original_EM_scope_associations_missing": true,
+    "retired_source_is_current_fresh": false,
+    "source_kernel_executed": false,
+    "native_ADC_or_board_executed": false,
+    "formal_100ms_acceptance": false
+  },
+  "formal_acceptance": false,
+  "contract": {
+    "contract_id": "DEEPEYE-HUMAN-LOCK-20261014",
+    "contract_revision": 1,
+    "contract_source": "f5989cd5defce561f9ba98e6b18fc2682945f0a2",
+    "requirements_sha256": "c229834bfc2292f5fe4411fc9f12c68487008f9d1adaf31f0144ee7a98173804",
+    "fixed_design": "1011259415a0916054eb580687612580bc1e5f09"
+  },
+  "independent_v1": {
+    "actual_thread_id": "01a18686-39ad-75d3-8bb4-90836d2ac026",
+    "new_groups": 6,
+    "exit_code": 0,
+    "elapsed_seconds": 0.20300000000861473,
+    "stderr_bytes": 0,
+    "source_review_passed": true,
+    "open_findings": [],
+    "version": "v1 only, later source-provenance conclusion corrected"
+  },
+  "independent": {
+    "actual_thread_id": "01a18686-39ad-75d3-8bb4-90836d2ac026",
+    "version": "v2 narrow correction",
+    "new_groups": 3,
+    "exit_code": 0,
+    "elapsed_seconds": 0.1880000000091968,
+    "stderr_bytes": 0,
+    "source_review_passed": true,
+    "open_findings": []
+  },
+  "frozen_runtime_old_suites_or_actual_Root_native_source_model_board_executed": false,
+  "provenance_correction": {
+    "finding": "Different whole-runtime/code-contract commits do not imply different book code; both actual immutable bytes equal. Version mismatch and fixed-binding restriction removed from actual missing reasons.",
+    "record": "book-provenance.json",
+    "v1_evidence_preserved": true,
+    "main_book_GETs_exit0": true,
+    "independently_decoded_raw_GETs_and_byte_hashes_verified": true,
+    "new_v2_output_only_kind_missing_codes_changed": true
+  }
+}
