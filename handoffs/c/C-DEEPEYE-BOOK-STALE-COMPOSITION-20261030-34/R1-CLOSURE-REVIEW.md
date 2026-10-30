@@ -1,0 +1,25 @@
+C34 R1 independent closure review
+
+R1 is closed. Source approval is limited to the reviewed C34 diagnostic composition and its preserved limitations. Final runtime SHA-256 is `849d083885875668f2701fedd1c855e88c81174f312c6e0cfb0619706ef5e336`. No open source findings remain from this review; formal/physical acceptance remains false.
+
+The only runtime AST change is `_crosschecks` (lines 468–486). It compares all supplied full contexts, including actual request/capture raw contexts, and separately compares all supplied generations, including actual capture generations. A request has no generation: it contributes only its context. The comparison anchor is local validation state, never an invented binding/config/receipt or output proof. Receipt parsing precedes this function; missing candidate, config, or owner evidence cannot suppress these already decidable conflicts. The remaining module AST is identical to the reviewed original runtime. Source pins before and after cover all five current public files and frozen C28/C30/C31/C32 dependencies.
+
+Read the complete repair diff and report, author eight-case raw stdout/exit, ABI and README changes, and regenerated full C31-to-C34 diff. The ABI/README additions accurately describe this predicate and distinguish the original 38-case results from author repair checks. Normalized diffs remove newline-only noise; the final published full diff exactly matches regeneration against frozen C31. Author eight-case evidence reports exit 0, 0.305 seconds, stderr empty; it was inspected, not rerun.
+
+Independent execution was one bounded process, timeout 30 seconds: 10/10 passed, exit 0, elapsed 0.286 seconds, stderr empty. Raw stdout is 4,463 bytes, SHA-256 `e53a035c3bd51386ab04acb1631b0ca99d4d28ef6a33ec9c53a085ddbebf2d7f`. `run01.command.json`, `run01.stdout`, `run01.stderr`, `run01.exit.json` preserve the actual invocation and outputs. `run01/input-output.json` retains exact input/output strings for every case; `run01/results.json` is the structured derived result.
+
+The three original product RED inputs were replayed byte-for-byte, with their original byte lengths and SHA-256 verified before execution. All now reject with the specific context/generation conflict, before any C32/core call. Original f913 runtime, original 35 PASS/3 RED, old input/output journal, and author's original error evidence remain unchanged. This is not a rerun or relabeling of the 35 old passing controls.
+
+Seven NEW controls checked both mixed request/capture orders with null entries; request-only input with an actual config generation; capture generation conflicting with external config; disabled request context conflicting with an external clock-domain anchor; an unknown request generation before two conflicting capture generations; and a complete fresh synthetic request with a changed goal. Valid incomplete inputs remain INPUT_UNAVAILABLE with no projection, C32 result, or core call. Conflicts reject before missing classification, including disabled input. The complete new positive calls the C32 JSON entry once and the exact original C28 code object once; no foreign core call occurs, original globals retain their identities, and only the intended C32/C28 modules load. Current C34 source remains unchanged after execution.
+
+Portable reproduction, without private paths or old tests:
+
+```
+python -B independent_r1_checks.py PUBLIC_DIR independent-r1-data.json OUTPUT_DIR
+```
+
+Deliver the script and data together. PUBLIC_DIR is the C34 handoff directory with its documented sibling frozen C32/C28 dependency layout. OUTPUT_DIR must be outside PUBLIC_DIR. The data bundle contains exact failed UTF-8 strings with original hashes and retained synthetic input data; the script imports no old suite or fixture. Runtime and bundle hashes are checked. `prepare_review.py` and the local bounded runner are private evidence preparation utilities, not required by the portable invocation.
+
+Limitations: synthetic controls prove bounded software behavior and structural consistency only. They authenticate neither Root ownership nor native endpoint/call lifetime, acquisition pose, executed-action evidence, or physical ADC timing. Missing actual evidence still prevents projection/core execution. Book-code contract and whole-runtime provenance remain distinct; historical bytes do not receive invented current time, IDs, admissions, actions, or book receipts. The fixed source prefix, strict budgets, stale semantics, held-origin rules, and default-off core are retained from the reviewed design and unchanged AST; this narrow run does not claim full new coverage of those unchanged branches. No old suite, author suite, board, native Root, model, service, network, or publication operation was run.
+
+Actual reviewer: `/root/c28_independent_review`, thread `01a18686-39ad-75d3-8bb4-90836d2ac026`; work `C34-INDEPENDENT-R1-REPAIR-REVIEW-v1`. Only `review/r1-v1` was written. Review ownership is released at FINAL; jobs and subprocesses are empty. Main retains the publication decision.

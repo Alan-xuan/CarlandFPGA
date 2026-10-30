@@ -1,0 +1,346 @@
+{
+  "task_id": "DEEPEYE-IMPLEMENTATION-20261014",
+  "task_version": 1,
+  "operation_id": "C-DEEPEYE-BOOK-STALE-COMPOSITION-20261030-34",
+  "actual_reviewer": "/root/c28_independent_review",
+  "actual_thread_id": "01a18686-39ad-75d3-8bb4-90836d2ac026",
+  "final_runtime_sha256": "849d083885875668f2701fedd1c855e88c81174f312c6e0cfb0619706ef5e336",
+  "author_versioned_runs": [
+    {
+      "phase": "run01-core",
+      "runtime_sha256": "ba97841fe4c1615b894ec83dafbf49a067b8cb7abfc07ba57366cb761c576f69",
+      "test_sha256": "bdc854a22649f58673eb65593cf2686da83d945058d0a40fb2089a1b3b88cf26",
+      "exit": {
+        "actual_exit_code": 0,
+        "timed_out": false,
+        "elapsed_seconds": 0.3909999999887077
+      },
+      "results": [
+        {
+          "test": "test_core_default_and_single_object",
+          "passed": true
+        },
+        {
+          "test": "test_held_and_null_valid_zero",
+          "passed": true
+        }
+      ],
+      "archive_prefix": "author-implementation-v1/run01-core"
+    },
+    {
+      "phase": "run02-partial",
+      "runtime_sha256": "ba97841fe4c1615b894ec83dafbf49a067b8cb7abfc07ba57366cb761c576f69",
+      "test_sha256": "bdc854a22649f58673eb65593cf2686da83d945058d0a40fb2089a1b3b88cf26",
+      "exit": {
+        "actual_exit_code": 1,
+        "timed_out": false,
+        "elapsed_seconds": 0.3600000000005821
+      },
+      "results": [
+        {
+          "test": "test_stage_missing_c32_call_and_null_empty",
+          "passed": false
+        },
+        {
+          "test": "test_missing_raw_and_admission_contradiction",
+          "passed": true
+        },
+        {
+          "test": "test_partial_current_and_action_conflicts",
+          "passed": true
+        },
+        {
+          "test": "test_records_only_counter_consistency",
+          "passed": true
+        },
+        {
+          "test": "test_absent_current_config_history_anchor",
+          "passed": true
+        }
+      ],
+      "archive_prefix": "author-implementation-v1/run02-partial"
+    },
+    {
+      "phase": "run03-time",
+      "runtime_sha256": "ba97841fe4c1615b894ec83dafbf49a067b8cb7abfc07ba57366cb761c576f69",
+      "test_sha256": "bdc854a22649f58673eb65593cf2686da83d945058d0a40fb2089a1b3b88cf26",
+      "exit": {
+        "actual_exit_code": 0,
+        "timed_out": false,
+        "elapsed_seconds": 0.4369999999908032
+      },
+      "results": [
+        {
+          "test": "test_high_qpc_now_boundary",
+          "passed": true
+        },
+        {
+          "test": "test_high_qpc_capture_boundary",
+          "passed": true
+        },
+        {
+          "test": "test_high_qpc_admission_boundary_and_late_conflict",
+          "passed": true
+        }
+      ],
+      "archive_prefix": "author-implementation-v1/run03-time"
+    },
+    {
+      "phase": "run04-caps",
+      "runtime_sha256": "ba97841fe4c1615b894ec83dafbf49a067b8cb7abfc07ba57366cb761c576f69",
+      "test_sha256": "bdc854a22649f58673eb65593cf2686da83d945058d0a40fb2089a1b3b88cf26",
+      "exit": {
+        "actual_exit_code": 1,
+        "timed_out": false,
+        "elapsed_seconds": 0.7649999999994179
+      },
+      "results": [
+        {
+          "test": "test_prefix_and_window_caps",
+          "passed": false
+        },
+        {
+          "test": "test_combined_null_array_and_strict_json",
+          "passed": true
+        },
+        {
+          "test": "test_source_contract_archive_and_schema",
+          "passed": true
+        }
+      ],
+      "archive_prefix": "author-implementation-v1/run04-caps"
+    },
+    {
+      "phase": "run05-expectations",
+      "runtime_sha256": "ba97841fe4c1615b894ec83dafbf49a067b8cb7abfc07ba57366cb761c576f69",
+      "test_sha256": "288f09b036e84aa1a566595fca3fd0d48e193fb5c7085b79de5c70c360379fb3",
+      "exit": {
+        "actual_exit_code": 0,
+        "timed_out": false,
+        "elapsed_seconds": 0.875
+      },
+      "results": [
+        {
+          "test": "test_stage_missing_c32_call_and_null_empty",
+          "passed": true
+        },
+        {
+          "test": "test_prefix_and_window_caps",
+          "passed": true
+        }
+      ],
+      "archive_prefix": "author-implementation-v1/run05-expectations"
+    },
+    {
+      "phase": "run06-raw-missing",
+      "runtime_sha256": "ba97841fe4c1615b894ec83dafbf49a067b8cb7abfc07ba57366cb761c576f69",
+      "test_sha256": "288f09b036e84aa1a566595fca3fd0d48e193fb5c7085b79de5c70c360379fb3",
+      "exit": {
+        "actual_exit_code": 1,
+        "timed_out": false,
+        "elapsed_seconds": 0.17200000000593718
+      },
+      "results": [
+        {
+          "test": "test_absent_candidate_request_sequence",
+          "passed": false
+        },
+        {
+          "test": "test_absent_candidate_request_future_or_reversed",
+          "passed": false
+        }
+      ],
+      "archive_prefix": "author-implementation-v1/run06-raw-missing"
+    },
+    {
+      "phase": "run07-aggregate",
+      "runtime_sha256": "ba97841fe4c1615b894ec83dafbf49a067b8cb7abfc07ba57366cb761c576f69",
+      "test_sha256": "288f09b036e84aa1a566595fca3fd0d48e193fb5c7085b79de5c70c360379fb3",
+      "exit": {
+        "actual_exit_code": 0,
+        "timed_out": false,
+        "elapsed_seconds": 2.1559999999881256
+      },
+      "results": [
+        {
+          "test": "test_aggregate_output_cap",
+          "passed": true
+        }
+      ],
+      "archive_prefix": "author-implementation-v1/run07-aggregate"
+    },
+    {
+      "phase": "run08-raw-fix",
+      "runtime_sha256": "a8740a8662cbbb1f095bac001390f60b85c19df8c28bcf5ba3e0b192c619b740",
+      "test_sha256": "dbf094129c2dc35b3d20b053f51455eaab067008b397a5390515f8383e6bde8a",
+      "exit": {
+        "actual_exit_code": 0,
+        "timed_out": false,
+        "elapsed_seconds": 0.2649999999994179
+      },
+      "results": [
+        {
+          "test": "test_absent_candidate_request_sequence",
+          "passed": true
+        },
+        {
+          "test": "test_absent_candidate_request_future_or_reversed",
+          "passed": true
+        },
+        {
+          "test": "test_absent_request_valid_counterpart_and_same_chain",
+          "passed": true
+        }
+      ],
+      "archive_prefix": "author-implementation-v1/run08-raw-fix"
+    },
+    {
+      "phase": "run09-capture-only",
+      "runtime_sha256": "a8740a8662cbbb1f095bac001390f60b85c19df8c28bcf5ba3e0b192c619b740",
+      "test_sha256": "a970fce112ced9f16ded874a817220ed256010f766f31cc466c1d9df4f8f2e63",
+      "exit": {
+        "actual_exit_code": 1,
+        "timed_out": false,
+        "elapsed_seconds": 0.20300000000861473
+      },
+      "results": [
+        {
+          "test": "test_capture_only_actual_identity_words",
+          "passed": false
+        },
+        {
+          "test": "test_capture_only_actual_qpc",
+          "passed": false
+        }
+      ],
+      "archive_prefix": "author-implementation-v1/run09-capture-only"
+    },
+    {
+      "phase": "run10-capture-fix",
+      "runtime_sha256": "f913c3f0d9188dc9f8d04e6f360061c081cd34da2d0dea57a61170e845333bbd",
+      "test_sha256": "34f75548ce164c3411f91b1f762ead70b652e5610726eba41c083e87139c5cc4",
+      "exit": {
+        "actual_exit_code": 0,
+        "timed_out": false,
+        "elapsed_seconds": 0.26600000000325963
+      },
+      "results": [
+        {
+          "test": "test_capture_only_actual_identity_words",
+          "passed": true
+        },
+        {
+          "test": "test_capture_only_actual_qpc",
+          "passed": true
+        },
+        {
+          "test": "test_capture_generation_and_final_core_chain",
+          "passed": true
+        }
+      ],
+      "archive_prefix": "author-implementation-v1/run10-capture-fix"
+    }
+  ],
+  "later_phases": [
+    {
+      "archive_prefix": "review/implementation-v1",
+      "runtime_sha256": "f913c3f0d9188dc9f8d04e6f360061c081cd34da2d0dea57a61170e845333bbd",
+      "total": 38,
+      "passed": 35,
+      "failed": 3,
+      "exit": {
+        "argv": [
+          "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\venv\\Scripts\\python.exe",
+          "-B",
+          "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\main-20261015-01a14025\\C34-20261030\\review\\implementation-v1\\independent_c34_checks.py",
+          "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\deepeye-implementation-c\\handoffs\\c\\C-DEEPEYE-BOOK-STALE-COMPOSITION-20261030-34",
+          "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\main-20261015-01a14025\\C34-20261030\\review\\implementation-v1",
+          "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\main-20261015-01a14025\\C33-20261030\\inputs\\retired-source70.json"
+        ],
+        "cwd": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\main-20261015-01a14025\\C34-20261030\\review\\implementation-v1",
+        "timeout_seconds": 30,
+        "started_utc": "2026-10-30T16:25:20.113058+00:00",
+        "script_pins": {
+          "independent_c34_checks.py": {
+            "bytes": 9660,
+            "sha256": "be22d2432b62532751ec9d6108886afceb1a73b12ad61111ee4cdb97cdc4657e"
+          },
+          "independent_fixtures.py": {
+            "bytes": 7159,
+            "sha256": "f52dd605a372ec2fb1533107316b507802459a0e014c2578fce9504a81a01e99"
+          },
+          "independent-fixture-data.json": {
+            "bytes": 66342,
+            "sha256": "eff5db05685e7fa03d400bec4c46e719257f5a1932e538c331e7cebce6c49a7a"
+          }
+        },
+        "exit_code": 1,
+        "elapsed_seconds": 5.282000000006519,
+        "stdout_bytes": 14543,
+        "stderr_bytes": 0,
+        "stdout_sha256": "0ec69a688bd3547b5f76d75ef9f236f346486728cf1c58949eb0558aaaa0cec1",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "subprocesses": []
+      }
+    },
+    {
+      "archive_prefix": "repair-r1-v1",
+      "runtime_sha256": "849d083885875668f2701fedd1c855e88c81174f312c6e0cfb0619706ef5e336",
+      "total": 8,
+      "passed": 8,
+      "failed": 0,
+      "exit": {
+        "exit_code": 0,
+        "timeout": false,
+        "elapsed_seconds": 0.30486009999003727,
+        "finished_utc": "2026-10-30T16:31:59.140496+00:00",
+        "stdout": {
+          "path": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\main-20261015-01a14025\\C34-20261030\\repair-r1-v1\\run01.stdout",
+          "bytes": 2864,
+          "sha256": "2c3b9beb201e268899a2f20e892bb749a02502fc3302770bb045490d1f37dbf6"
+        },
+        "stderr": {
+          "path": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\main-20261015-01a14025\\C34-20261030\\repair-r1-v1\\run01.stderr",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      }
+    },
+    {
+      "archive_prefix": "review/r1-v1",
+      "runtime_sha256": "849d083885875668f2701fedd1c855e88c81174f312c6e0cfb0619706ef5e336",
+      "total": 10,
+      "passed": 10,
+      "failed": 0,
+      "exit": {
+        "exit_code": 0,
+        "timeout": false,
+        "elapsed_seconds": 0.28594620000512805,
+        "finished_utc": "2026-10-30T16:40:34.961378+00:00",
+        "stdout": {
+          "bytes": 4463,
+          "sha256": "e53a035c3bd51386ab04acb1631b0ca99d4d28ef6a33ec9c53a085ddbebf2d7f"
+        },
+        "stderr": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      }
+    }
+  ],
+  "R1_closed": true,
+  "source_approved": true,
+  "formal_acceptance": false,
+  "board_authority": "A only",
+  "package_tests_executed": 0,
+  "scope": "Historical results belong only to their recorded runtime/test hash. No claim that all author groups or old35PASS ran against final849d. Packaging is byte verification only.",
+  "main_audit_sources": [
+    "main/audit-author-implementation-v1/verified.json",
+    "main/audit-design-author-v1/verified.json",
+    "main/audit-design-review-v1/verified.json",
+    "main/audit-repair-r1-v1/verified.json",
+    "main/audit-review-implementation-v1/verified.json",
+    "main/audit-review-r1-v1/verified.json"
+  ],
+  "budget_authority": "Current task.json permits18files/2097152B; original design-freeze 786432B preserved verbatim as historical budget."
+}

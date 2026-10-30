@@ -1,0 +1,32 @@
+{
+  "task_id": "DEEPEYE-IMPLEMENTATION-20261014",
+  "task_version": 1,
+  "operation_id": "C-DEEPEYE-BOOK-STALE-COMPOSITION-20261030-34",
+  "main_thread_id": "01a14025-4dfd-7ec3-aebb-57be48daba59",
+  "contract_id": "DEEPEYE-HUMAN-LOCK-20261014",
+  "contract_revision": 1,
+  "contract_source": "f5989cd5defce561f9ba98e6b18fc2682945f0a2",
+  "requirements_sha256": "c229834bfc2292f5fe4411fc9f12c68487008f9d1adaf31f0144ee7a98173804",
+  "fixed_design": "1011259415a0916054eb580687612580bc1e5f09",
+  "created_utc": "2026-10-30T15:53:40.092744+00:00",
+  "decision": "Accept reviewed explicit C31-derived new adapter, only hash-pinned C32 -> original sole C28. Independent implementation review still required.",
+  "book_source_commit": "54e1fd6c5795cc2f1247866dd8783331f615ef66",
+  "runtime_commit_is_separate_provenance": true,
+  "design_review": "review/design-v1/DESIGN-REVIEW.md",
+  "required_gates": [
+    "Preserve 54e1 code contract; no runtime4dc alias; no schema2",
+    "Add actual captures-only crosscounter consistency for same context/generation, final deltas [4*dseq,dseq,4*dseq], without invented baseline/config/candidate",
+    "Candidate absent: real config generation>0; actual config/history anchors consistent; full actual admissions traversal; no fake current/history promotion",
+    "Keep captures null vs [] and actual list entries; all supplied contradictions precede missing/stale/default-off, including partial metadata/actions and aggregate caps",
+    "Candidate present one and only one C32 recommend_json; Stage1 missing disables solely to avoid core, result/projection null; otherwise original enabled(defaultfalse)",
+    "Historical entry inspect_retired_source70(raw_bytes) accepts exact original82496B/SHA63616e2915edc5a2ef6ed592e8f9830ce77a635aaf883ab964aa4dbd5fd1910c only; fixed minimal historical provenance/missing/STOP, no now, IDs, projection or C32/core call; do not duplicate C33 analysis/statistics",
+    "Exact input/output limits plus high uint63 100ms inclusive/+1 and prefix1001/10s; full output aggregate check",
+    "NEW focused tests only, invocation <=30s, raw failures retained; no old groups or A runtime/model/board"
+  ],
+  "historical_diagnostic_is_not_general_composition_validation": true,
+  "public_budget": {
+    "max_public_files": 18,
+    "max_public_bytes": 786432
+  },
+  "formal_acceptance": false
+}
