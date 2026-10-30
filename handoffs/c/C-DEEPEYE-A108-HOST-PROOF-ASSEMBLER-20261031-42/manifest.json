@@ -1,0 +1,115 @@
+{
+  "artifacts": [
+    "handoffs/c/C-DEEPEYE-A108-HOST-PROOF-ASSEMBLER-20261031-42/runtime-v1/API.md",
+    "handoffs/c/C-DEEPEYE-A108-HOST-PROOF-ASSEMBLER-20261031-42/runtime-v1/evidence-index.json",
+    "handoffs/c/C-DEEPEYE-A108-HOST-PROOF-ASSEMBLER-20261031-42/runtime-v1/evidence.zip",
+    "handoffs/c/C-DEEPEYE-A108-HOST-PROOF-ASSEMBLER-20261031-42/runtime-v1/FINDINGS.json",
+    "handoffs/c/C-DEEPEYE-A108-HOST-PROOF-ASSEMBLER-20261031-42/runtime-v1/producer-attachments.json",
+    "handoffs/c/C-DEEPEYE-A108-HOST-PROOF-ASSEMBLER-20261031-42/runtime-v1/proof_assembler.py",
+    "handoffs/c/C-DEEPEYE-A108-HOST-PROOF-ASSEMBLER-20261031-42/runtime-v1/README.md",
+    "handoffs/c/C-DEEPEYE-A108-HOST-PROOF-ASSEMBLER-20261031-42/runtime-v1/request.schema.json",
+    "handoffs/c/C-DEEPEYE-A108-HOST-PROOF-ASSEMBLER-20261031-42/runtime-v1/REVIEW.md",
+    "handoffs/c/C-DEEPEYE-A108-HOST-PROOF-ASSEMBLER-20261031-42/runtime-v1/source-pins.json",
+    "handoffs/c/C-DEEPEYE-A108-HOST-PROOF-ASSEMBLER-20261031-42/runtime-v1/verify_delivery.py",
+    "handoffs/c/C-DEEPEYE-A108-HOST-PROOF-ASSEMBLER-20261031-42/runtime-v1/pins.json"
+  ],
+  "files": {
+    "handoffs/c/C-DEEPEYE-A108-HOST-PROOF-ASSEMBLER-20261031-42/runtime-v1/API.md": {
+      "sha256": "a5a7601d0bcf1d8e4b1d012653e89d0de5f72e606945caebb67a6784f9b8d0a6",
+      "size": 15761
+    },
+    "handoffs/c/C-DEEPEYE-A108-HOST-PROOF-ASSEMBLER-20261031-42/runtime-v1/FINDINGS.json": {
+      "sha256": "e81a5f635aeda352516f7e3a2d0315b3986d24c1a779b2b35059831919a31f85",
+      "size": 215
+    },
+    "handoffs/c/C-DEEPEYE-A108-HOST-PROOF-ASSEMBLER-20261031-42/runtime-v1/README.md": {
+      "sha256": "40b8bb96566f17de84ce4ed3630ebc73643662f5071540907592358ff7f818de",
+      "size": 8630
+    },
+    "handoffs/c/C-DEEPEYE-A108-HOST-PROOF-ASSEMBLER-20261031-42/runtime-v1/REVIEW.md": {
+      "sha256": "637c7566d9f64d5957d99be23314a638fc84da641b6e33329171ef3690851e28",
+      "size": 4702
+    },
+    "handoffs/c/C-DEEPEYE-A108-HOST-PROOF-ASSEMBLER-20261031-42/runtime-v1/evidence-index.json": {
+      "sha256": "b868f526461ec40cdaa043000617cb9f049e54142f2dddc2d206c8f4c9de0213",
+      "size": 14576
+    },
+    "handoffs/c/C-DEEPEYE-A108-HOST-PROOF-ASSEMBLER-20261031-42/runtime-v1/evidence.zip": {
+      "sha256": "e6eb5608931fd03407fed343d162b924313c73f61a48ff776203634e8a22e876",
+      "size": 346581
+    },
+    "handoffs/c/C-DEEPEYE-A108-HOST-PROOF-ASSEMBLER-20261031-42/runtime-v1/pins.json": {
+      "sha256": "bd8953281f4d1396a783797397a62c083681bb49cbcf1b21fe48bf37acff32a0",
+      "size": 1603
+    },
+    "handoffs/c/C-DEEPEYE-A108-HOST-PROOF-ASSEMBLER-20261031-42/runtime-v1/producer-attachments.json": {
+      "sha256": "6abe1170c9419ca88c5847fc93c6e3deff0fa62c088234ced6fdb4d1b093fd10",
+      "size": 9307
+    },
+    "handoffs/c/C-DEEPEYE-A108-HOST-PROOF-ASSEMBLER-20261031-42/runtime-v1/proof_assembler.py": {
+      "sha256": "b49169ac2ab87073e31406d8448d69c7958d5e5775310f94990fe89eee8d3722",
+      "size": 26485
+    },
+    "handoffs/c/C-DEEPEYE-A108-HOST-PROOF-ASSEMBLER-20261031-42/runtime-v1/request.schema.json": {
+      "sha256": "ab1b432e9f337523fd75057fec4647f5eda2569de308e7c777507e05907bdd70",
+      "size": 69906
+    },
+    "handoffs/c/C-DEEPEYE-A108-HOST-PROOF-ASSEMBLER-20261031-42/runtime-v1/source-pins.json": {
+      "sha256": "3665adfb68bbc45199c8cae469a5183580ccafd3eb55f08fd668c6d36d5b8b4a",
+      "size": 1585
+    },
+    "handoffs/c/C-DEEPEYE-A108-HOST-PROOF-ASSEMBLER-20261031-42/runtime-v1/verify_delivery.py": {
+      "sha256": "f358b7cd9ecc7eaa75d6c62b7792b34552dc9fcbf84dbed86284fd2b1fe1fb4a",
+      "size": 728
+    }
+  },
+  "request": {
+    "code_commit": "4e555c8cd2a2e5677b9fe61fc3f3eb3dcf801e6b",
+    "expected_result": "Concrete A108 original-reference proof assembler for unchanged C36 host schema. Missing facts preserve useful partial fields with no proof. A owns real producer hook wiring, original opaque IDs/clock association and lossless getter-bound representation. Assembly is unvalidated and grants no authority. Actual provider, C36 integration, native/model/board/full-chain/formal acceptance remain unverified.",
+    "operation_id": "C-DEEPEYE-A108-HOST-PROOF-ASSEMBLER-20261031-42",
+    "requester": "node-c",
+    "task_id": "DEEPEYE-IMPLEMENTATION-20261014",
+    "task_version": 1,
+    "test_steps": [
+      "Byte/archive verification only: python -I -S -B handoffs/c/C-DEEPEYE-A108-HOST-PROOF-ASSEMBLER-20261031-42/runtime-v1/verify_delivery.py",
+      "Read retained versioned assembler controls and independent review; no old suite or original A/native execution is requested",
+      "A must separately verify original provider proof, owned native handles, source readiness and exact runtime before any actual dispatch"
+    ]
+  },
+  "request_hash": "aaa99a0b1355f0e1e358a1127dad49b38f859851cbcddc42385c1ff5c3bbae71",
+  "schema_version": 1,
+  "stages": {
+    "final_acceptance": {
+      "status": "not_run"
+    },
+    "full_chain": {
+      "status": "not_run"
+    },
+    "implementation": {
+      "status": "not_run"
+    },
+    "local_function": {
+      "log": "handoffs/c/C-DEEPEYE-A108-HOST-PROOF-ASSEMBLER-20261031-42/runtime-v1/evidence-index.json",
+      "status": "passed"
+    },
+    "model_qualification": {
+      "status": "not_run"
+    },
+    "native_actor": {
+      "status": "not_run"
+    },
+    "physical_board": {
+      "status": "not_run"
+    },
+    "rtl_simulation": {
+      "status": "not_run"
+    },
+    "source_review": {
+      "log": "handoffs/c/C-DEEPEYE-A108-HOST-PROOF-ASSEMBLER-20261031-42/runtime-v1/REVIEW.md",
+      "status": "passed"
+    },
+    "synthesis": {
+      "status": "not_run"
+    }
+  }
+}
