@@ -1,0 +1,150 @@
+{
+  "artifacts": [
+    "handoffs/c/C-DEEPEYE-STDLIB-NATIVE-TRANSPORT-20261031-44/runtime-v1/c44-owned-cpu-package/c37_entry.py",
+    "handoffs/c/C-DEEPEYE-STDLIB-NATIVE-TRANSPORT-20261031-44/runtime-v1/c44-owned-cpu-package/c37_package.py",
+    "handoffs/c/C-DEEPEYE-STDLIB-NATIVE-TRANSPORT-20261031-44/runtime-v1/c44-owned-cpu-package/frozen_c28.py",
+    "handoffs/c/C-DEEPEYE-STDLIB-NATIVE-TRANSPORT-20261031-44/runtime-v1/c44-owned-cpu-package/package-manifest.json",
+    "handoffs/c/C-DEEPEYE-STDLIB-NATIVE-TRANSPORT-20261031-44/runtime-v1/c44_pair_verifier_v1.py",
+    "handoffs/c/C-DEEPEYE-STDLIB-NATIVE-TRANSPORT-20261031-44/runtime-v1/entry.diff",
+    "handoffs/c/C-DEEPEYE-STDLIB-NATIVE-TRANSPORT-20261031-44/runtime-v1/evidence-index.json",
+    "handoffs/c/C-DEEPEYE-STDLIB-NATIVE-TRANSPORT-20261031-44/runtime-v1/evidence.zip",
+    "handoffs/c/C-DEEPEYE-STDLIB-NATIVE-TRANSPORT-20261031-44/runtime-v1/FINDINGS.json",
+    "handoffs/c/C-DEEPEYE-STDLIB-NATIVE-TRANSPORT-20261031-44/runtime-v1/local-api-pe.json",
+    "handoffs/c/C-DEEPEYE-STDLIB-NATIVE-TRANSPORT-20261031-44/runtime-v1/README.md",
+    "handoffs/c/C-DEEPEYE-STDLIB-NATIVE-TRANSPORT-20261031-44/runtime-v1/REVIEW.md",
+    "handoffs/c/C-DEEPEYE-STDLIB-NATIVE-TRANSPORT-20261031-44/runtime-v1/runtime-inventory-c44.json",
+    "handoffs/c/C-DEEPEYE-STDLIB-NATIVE-TRANSPORT-20261031-44/runtime-v1/selected-runtime-current.json",
+    "handoffs/c/C-DEEPEYE-STDLIB-NATIVE-TRANSPORT-20261031-44/runtime-v1/source-pins.json",
+    "handoffs/c/C-DEEPEYE-STDLIB-NATIVE-TRANSPORT-20261031-44/runtime-v1/stage_package.py",
+    "handoffs/c/C-DEEPEYE-STDLIB-NATIVE-TRANSPORT-20261031-44/runtime-v1/verifier.diff",
+    "handoffs/c/C-DEEPEYE-STDLIB-NATIVE-TRANSPORT-20261031-44/runtime-v1/verify_delivery.py",
+    "handoffs/c/C-DEEPEYE-STDLIB-NATIVE-TRANSPORT-20261031-44/runtime-v1/pins.json"
+  ],
+  "files": {
+    "handoffs/c/C-DEEPEYE-STDLIB-NATIVE-TRANSPORT-20261031-44/runtime-v1/FINDINGS.json": {
+      "sha256": "70f8c19fe5f8135d6d7814485123f2786ffdce28064b0f8d401e284f33fac806",
+      "size": 251
+    },
+    "handoffs/c/C-DEEPEYE-STDLIB-NATIVE-TRANSPORT-20261031-44/runtime-v1/README.md": {
+      "sha256": "fa42151d30ea90bc9271f75aed627b64e5c893188234f2415c0e49950c512f1e",
+      "size": 7636
+    },
+    "handoffs/c/C-DEEPEYE-STDLIB-NATIVE-TRANSPORT-20261031-44/runtime-v1/REVIEW.md": {
+      "sha256": "fccd63f4e4808002e571852820f9a79b699bc61042939429f99f66b0b74afdf3",
+      "size": 6865
+    },
+    "handoffs/c/C-DEEPEYE-STDLIB-NATIVE-TRANSPORT-20261031-44/runtime-v1/c44-owned-cpu-package/c37_entry.py": {
+      "sha256": "899b843111a1b9278e4c5ee16b11d4493c35c1cb0bca328a57f164c3f0c11c74",
+      "size": 9050
+    },
+    "handoffs/c/C-DEEPEYE-STDLIB-NATIVE-TRANSPORT-20261031-44/runtime-v1/c44-owned-cpu-package/c37_package.py": {
+      "sha256": "60e26bc8ae9ee0ba1fba8bcea358b4bfad8be2f3a58ccb360e767b6886d62f16",
+      "size": 13723
+    },
+    "handoffs/c/C-DEEPEYE-STDLIB-NATIVE-TRANSPORT-20261031-44/runtime-v1/c44-owned-cpu-package/frozen_c28.py": {
+      "sha256": "70b317681fee8c9182c342fe8d2f94eaecc957c62231a74a080d213bb5e0eab4",
+      "size": 17651
+    },
+    "handoffs/c/C-DEEPEYE-STDLIB-NATIVE-TRANSPORT-20261031-44/runtime-v1/c44-owned-cpu-package/package-manifest.json": {
+      "sha256": "cb971d321bcdd3dcb6a7b85fdd9e08171c995feb62fab3f995bc7f50fdf97a8a",
+      "size": 310
+    },
+    "handoffs/c/C-DEEPEYE-STDLIB-NATIVE-TRANSPORT-20261031-44/runtime-v1/c44_pair_verifier_v1.py": {
+      "sha256": "af7ea20a3ee80f1266d66062698db4c5b1f8a9835262cc2ccfc7f480f6260ea6",
+      "size": 18734
+    },
+    "handoffs/c/C-DEEPEYE-STDLIB-NATIVE-TRANSPORT-20261031-44/runtime-v1/entry.diff": {
+      "sha256": "20370286dd030f988f54e73a6b857d7725afe06a6e087eb8a388cc336423d132",
+      "size": 7949
+    },
+    "handoffs/c/C-DEEPEYE-STDLIB-NATIVE-TRANSPORT-20261031-44/runtime-v1/evidence-index.json": {
+      "sha256": "11894d7ed66caf76456c27cf6561fadad986c38dcca203a9bac9c238bf138cc4",
+      "size": 13730
+    },
+    "handoffs/c/C-DEEPEYE-STDLIB-NATIVE-TRANSPORT-20261031-44/runtime-v1/evidence.zip": {
+      "sha256": "bb3cb024afd1adbc810157bf39ed249c0125089e343f51c25306667c4672cda0",
+      "size": 181720
+    },
+    "handoffs/c/C-DEEPEYE-STDLIB-NATIVE-TRANSPORT-20261031-44/runtime-v1/local-api-pe.json": {
+      "sha256": "5de38875cf4d20fd8c07bcb47c9ed04ce804cf40192eb0a01a3754c66080c28e",
+      "size": 4495
+    },
+    "handoffs/c/C-DEEPEYE-STDLIB-NATIVE-TRANSPORT-20261031-44/runtime-v1/pins.json": {
+      "sha256": "f630e57a8aec2c0c8e7c0592ceb1b58b195173215ea8f31c487d9e6da19a065e",
+      "size": 2727
+    },
+    "handoffs/c/C-DEEPEYE-STDLIB-NATIVE-TRANSPORT-20261031-44/runtime-v1/runtime-inventory-c44.json": {
+      "sha256": "41a6576e3dfc75e2238bdd62cef60efc7283ea84aa77a3189380277884878cc9",
+      "size": 107188
+    },
+    "handoffs/c/C-DEEPEYE-STDLIB-NATIVE-TRANSPORT-20261031-44/runtime-v1/selected-runtime-current.json": {
+      "sha256": "a1bbc9a8dd507d4beb511469aa3467ea4a31cf7faddfd72ed05c1e0594373a40",
+      "size": 1112
+    },
+    "handoffs/c/C-DEEPEYE-STDLIB-NATIVE-TRANSPORT-20261031-44/runtime-v1/source-pins.json": {
+      "sha256": "98c58a89c4b7669b7b232a06d85ed520911a523b547ac698ef623679b3806d3b",
+      "size": 3222
+    },
+    "handoffs/c/C-DEEPEYE-STDLIB-NATIVE-TRANSPORT-20261031-44/runtime-v1/stage_package.py": {
+      "sha256": "ff932658db74a5f2330a9acd8db2ee2a44b391ae8062114b4707223b1d938950",
+      "size": 3837
+    },
+    "handoffs/c/C-DEEPEYE-STDLIB-NATIVE-TRANSPORT-20261031-44/runtime-v1/verifier.diff": {
+      "sha256": "cb9964e1f93a1e94417a02b12f7bcd523d18a8c072039707c1c572c84d8a40ba",
+      "size": 623
+    },
+    "handoffs/c/C-DEEPEYE-STDLIB-NATIVE-TRANSPORT-20261031-44/runtime-v1/verify_delivery.py": {
+      "sha256": "f358b7cd9ecc7eaa75d6c62b7792b34552dc9fcbf84dbed86284fd2b1fe1fb4a",
+      "size": 728
+    }
+  },
+  "request": {
+    "code_commit": "ba58c2f5574489ecfab3ee5ad38afeb40eb23aa6",
+    "expected_result": "Explicit new package replaces child ctypes transport with CPython _winapi synchronous IO/CloseHandle and _overlapped SetEvent, retaining finite wire v2 protocol and frozen core math. Exact new package identity and versioned verifier pin, fixed staged error codes and one-use cleanup. C API/PE and fake boundary evidence only; A owns A632 runtime adaptation and first actual native qualification. No isolation weakening, model/board/full-chain/formal acceptance.",
+    "operation_id": "C-DEEPEYE-STDLIB-NATIVE-TRANSPORT-20261031-44",
+    "requester": "node-c",
+    "task_id": "DEEPEYE-IMPLEMENTATION-20261014",
+    "task_version": 1,
+    "test_steps": [
+      "Byte/archive verification only: python -I -S -B handoffs/c/C-DEEPEYE-STDLIB-NATIVE-TRANSPORT-20261031-44/runtime-v1/verify_delivery.py",
+      "Read new fake transport/API boundary controls and independent review; A alone selects first original native package run",
+      "A must separately verify original provider proof, owned native handles, source readiness and exact runtime before any actual dispatch"
+    ]
+  },
+  "request_hash": "f6cc50b9ca09eb559ae262c788ddc3d0fe8a6269c13403dcb57cea2b4b66e088",
+  "schema_version": 1,
+  "stages": {
+    "final_acceptance": {
+      "status": "not_run"
+    },
+    "full_chain": {
+      "status": "not_run"
+    },
+    "implementation": {
+      "status": "not_run"
+    },
+    "local_function": {
+      "log": "handoffs/c/C-DEEPEYE-STDLIB-NATIVE-TRANSPORT-20261031-44/runtime-v1/evidence-index.json",
+      "status": "passed"
+    },
+    "model_qualification": {
+      "status": "not_run"
+    },
+    "native_actor": {
+      "status": "not_run"
+    },
+    "physical_board": {
+      "status": "not_run"
+    },
+    "rtl_simulation": {
+      "status": "not_run"
+    },
+    "source_review": {
+      "log": "handoffs/c/C-DEEPEYE-STDLIB-NATIVE-TRANSPORT-20261031-44/runtime-v1/REVIEW.md",
+      "status": "passed"
+    },
+    "synthesis": {
+      "status": "not_run"
+    }
+  }
+}
