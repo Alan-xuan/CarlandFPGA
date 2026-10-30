@@ -1,0 +1,75 @@
+{
+  "schema_version": 1,
+  "files": [
+    {
+      "path": "c37-owned-cpu-package/c37_entry.py",
+      "bytes": 5667,
+      "sha256": "e565f034213c5fb81df711cbf374340544e699ea57b9a7d8be93695511d41731"
+    },
+    {
+      "path": "c37-owned-cpu-package/c37_package.py",
+      "bytes": 13018,
+      "sha256": "fa04f09e655ab514a7d7569bec4583e326006312c245e08ec44f21a7e6191b07"
+    },
+    {
+      "path": "c37-owned-cpu-package/frozen_c28.py",
+      "bytes": 17651,
+      "sha256": "70b317681fee8c9182c342fe8d2f94eaecc957c62231a74a080d213bb5e0eab4"
+    },
+    {
+      "path": "c37-owned-cpu-package/package-manifest.json",
+      "bytes": 318,
+      "sha256": "37d85bc7cc630a0a31c4eba833f91d56d943f7af4220ffd169494abe22959286"
+    },
+    {
+      "path": "evidence-index.json",
+      "bytes": 13810,
+      "sha256": "bd8d1e12949b2c724c61fbdb8a5b31539dcd294191637ad521283fbfdce8a6af"
+    },
+    {
+      "path": "evidence.zip",
+      "bytes": 126266,
+      "sha256": "8634cc68de90834172886d2c57e1d89cc51bb2feb078ea3bb2eda1b84fd0f7ea"
+    },
+    {
+      "path": "inventory_runtime.py",
+      "bytes": 2667,
+      "sha256": "18c0a27be7e75ea6c7d351a656dc2481c6edc03e0a3f2d2ed7a48954c99f0765"
+    },
+    {
+      "path": "README.md",
+      "bytes": 5909,
+      "sha256": "f319cdc8ce4692194301ce9d0917a29f75d39db553079e4a4bdd401d34cb44b3"
+    },
+    {
+      "path": "REPAIR-CLOSURE.md",
+      "bytes": 2126,
+      "sha256": "444955a8cf0ec9aa349f6c73560e4f719c1b959504c62f503a2e23a10abf87c8"
+    },
+    {
+      "path": "REVIEW-original.md",
+      "bytes": 9066,
+      "sha256": "9e4b1e2328b687fc18d86a8a6880aa96f3947e5c57e95a5e8f3fdc453f091431"
+    },
+    {
+      "path": "runtime-inventory.json",
+      "bytes": 109470,
+      "sha256": "498003c217bfb5562f1a6e90c16f13434900aa381b9821cf092814bcba4d1fbb"
+    },
+    {
+      "path": "stage_package.py",
+      "bytes": 3833,
+      "sha256": "07293493207c19f7b39297165907c28e221797b0b2c037e9b1c85d28a3597c14"
+    },
+    {
+      "path": "test_c37_new.py",
+      "bytes": 13341,
+      "sha256": "16ac89a6c33d1233c2d673c45657e3592db72246294acb5dc6e93f13e401b2f7"
+    },
+    {
+      "path": "verify_delivery.py",
+      "bytes": 1332,
+      "sha256": "b504121f2145a392d33f70983511e348c92520f32957986e278fc1c92f256a20"
+    }
+  ]
+}
