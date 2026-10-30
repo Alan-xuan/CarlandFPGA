@@ -1,0 +1,257 @@
+--- 54e1/code-contract/root_source_book.py
++++ b2d398/candidate/root_source_book.py
+@@ -7,6 +7,7 @@
+ from functools import wraps
+ import hashlib
+ import json
++import math
+ import threading
+ from types import MethodType
+ 
+@@ -58,13 +59,24 @@
+ 
+ 
+ class _Sample:
+-    __slots__ = ('_book', '_draft', '_ended', '_handle')
++    __slots__ = ('_book', '_draft', '_ended', '_handle', '_em_handle')
+ 
+     def __init__(self, key, book, draft):
+         if key is not _TOKEN:
+             raise ValueError('private original sample token required')
+         self._book, self._draft = book, draft
+         self._ended, self._handle = False, None
++        self._em_handle = None
++
++
++class _EM:
++    __slots__ = ('_sample', '_scope', '_root', '_state', '_profile_snapshot')
++
++    def __init__(self, key, sample, scope, root):
++        if key is not _TOKEN:
++            raise ValueError('private original EM handle required')
++        self._sample, self._scope, self._root = sample, scope, root
++        self._state, self._profile_snapshot = 'OPEN', None
+ 
+ 
+ class _ADC:
+@@ -78,9 +90,10 @@
+ 
+ 
+ class _SourceBookCore:
+-    def __init__(self, key, owner, binding, field, source):
++    def __init__(self, key, owner, binding, field, source, *, scoped_em_receipts=False):
+         from ...tools.diagnostic.causal_pl_exchange import CausalSourcePump
+-        if hasattr(self, '_mode') or key not in (_PRODUCTION, _SOFTWARE):
++        if (hasattr(self, '_mode') or key not in (_PRODUCTION, _SOFTWARE)
++                or type(scoped_em_receipts) is not bool):
+             raise ValueError('book cannot be rebound')
+         if key is _PRODUCTION:
+             if (type(self) is not RootSourceBook or type(owner) is not loop._RootWorldOwner
+@@ -97,6 +110,7 @@
+         if type(field) is not OwnedWorldField or type(source) is not CausalSourcePump:
+             raise ValueError('exact original field and source required')
+         self._mode, self._owner, self._binding = key, owner, binding
++        self._scoped_em_receipts = scoped_em_receipts
+         self._field, self._source = field, source
+         self._clock, self._native = owner._clock, owner._native
+         self._profile = source._profile
+@@ -115,6 +129,7 @@
+         self._last_tick = -1
+         self._active = None
+         self._samples, self._partials = [], []
++        self._last_em_receipt = None
+         self._root = self._baseline = self._base_pose = self._pose_values = None
+         self._veto_generation = None
+         self._span_from = self._span_through = None
+@@ -154,6 +169,10 @@
+     @property
+     def clock(self):
+         return self._clock
++
++    @property
++    def scoped_em_receipts(self):
++        return self._scoped_em_receipts
+ 
+     @staticmethod
+     def _pose_doc(pose):
+@@ -223,7 +242,11 @@
+                 or field._em_scope_factory is not self._scope):
+             raise ValueError('original field/source/profile/method association required')
+         if self._scope is not None:
+-            if (type(self._scope) is not loop._OriginalEmScopeFactory
++            expected = (loop._OriginalEmScopeFactory if self._mode is _PRODUCTION
++                        else loop._EmScopeFactoryCore)
++            expected_key = (loop._EM_SCOPE_PRODUCTION if self._mode is _PRODUCTION
++                            else loop._EM_SCOPE_SOFTWARE)
++            if (type(self._scope) is not expected or self._scope._key is not expected_key
+                     or self._scope._owner is not owner
+                     or self._scope._binding is not self._binding
+                     or self._scope._field is not field or self._scope._source is not source
+@@ -394,6 +417,117 @@
+             previous_adc_tick_ms=previous, profile_tick_observed=False)
+         return handle
+ 
++    def _em_handle(self, token, handle, state):
++        draft = self._sample(token)
++        if (type(handle) is not _EM or token._em_handle is not handle
++                or handle._sample is not token or handle._state != state
++                or handle._root is not self._root):
++            raise ValueError('original one-use EM call handle required')
++        return draft, handle._scope
++
++    @_operation
++    def begin_em(self, token, scope):
++        """Bracket only the fixed original scoped acquisition, after pose read."""
++        draft = self._sample(token)
++        if (not self._scoped_em_receipts or self._scope is None
++                or type(scope) is not loop._EmAcquisitionScope
++                or scope._factory is not self._scope or scope._tick != draft['tick_ms']
++                or draft['tick_ms'] % 50 or 'em' not in draft['pose_reads']
++                or 'adc' in draft['pose_reads'] or token._handle is not None
++                or token._em_handle is not None or not scope._entered
++                or not scope._active or scope._ended or scope._snapshot is None
++                or self._scope._active is not scope
++                or self._owner._em_scope_active is not scope):
++            raise ValueError('one active original EM scope after its actual pose read required')
++        self._poll()
++        previous = self._profile._last_em_tick
++        if previous is not None and previous >= draft['tick_ms']:
++            raise ValueError('fresh original EM profile slot required')
++        handle = _EM(_TOKEN, token, scope, self._root)
++        token._em_handle = handle
++        draft['em'] = dict(begin_qpc_ns=self._time(), end_qpc_ns=None,
++                          previous_em_tick_ms=previous,
++                          scope_closed_qpc_ns=None, profile_attempt_ok=None)
++        return handle
++
++    @_operation
++    def end_em(self, token, handle):
++        draft, scope = self._em_handle(token, handle, 'OPEN')
++        end = self._time()
++        draft['em']['end_attempt_qpc_ns'] = end
++        handle._state = 'ENDED'  # Never retry an attempted end.
++        p = self._profile; tick = draft['tick_ms']
++        if (not scope._active or scope._ended or self._scope._active is not scope
++                or self._owner._em_scope_active is not scope
++                or p._last_em_tick != tick or p._em_attempt_tick != tick
++                or type(p._em_attempt_ok) is not bool):
++            raise ValueError('actual original EM attempt progression required')
++        if p._em_attempt_ok and (p._em_success_tick != tick
++                or type(p._em_values) is not tuple or len(p._em_values) != 3
++                or any(type(x) is not float or not math.isfinite(x) for x in p._em_values)
++                or type(p._em_saturated) is not tuple or len(p._em_saturated) != 3
++                or any(type(x) is not bool for x in p._em_saturated)):
++            raise ValueError('original successful EM values required')
++        handle._profile_snapshot = (p._last_em_tick, p._em_attempt_tick,
++            p._em_attempt_ok, p._em_success_tick, p._em_values, p._em_saturated)
++        self._poll()
++        draft['em'].update(end_qpc_ns=end, profile_attempt_ok=p._em_attempt_ok)
++
++    @_operation
++    def close_em(self, token, handle, scope):
++        """Retain a clean scope exit; this grants no native/board authority."""
++        draft, original_scope = self._em_handle(token, handle, 'ENDED')
++        p = self._profile; snapshot = handle._profile_snapshot
++        if (scope is not original_scope or not scope._entered or not scope._ended
++                or scope._active or scope._snapshot is not None
++                or self._scope._fault.is_set() or self._scope._active is not None
++                or self._owner._em_scope_active is not None
++                or draft['em']['end_qpc_ns'] is None or snapshot is None
++                or (p._last_em_tick, p._em_attempt_tick, p._em_attempt_ok,
++                    p._em_success_tick) != snapshot[:4]
++                or p._em_values is not snapshot[4] or p._em_saturated is not snapshot[5]):
++            raise ValueError('actual clean original scope exit and unchanged profile required')
++        handle._state = 'CLOSED'
++        self._poll()
++        closed = self._time(); span = self._span(closed)
++        draft['em']['scope_closed_qpc_ns'] = closed
++        read = draft['pose_reads']['em']; call = draft['em']
++        points = (draft['nominal_qpc_ns'], read['begin_qpc_ns'], read['end_qpc_ns'],
++                  call['begin_qpc_ns'], call['end_qpc_ns'], closed)
++        covered = all(span['from_qpc_ns'] <= x <= span['through_qpc_ns'] for x in points)
++        self._last_em_receipt = (dict(kind='original_scoped_em_call_v1',
++            source_origin_qpc_ns=self._origin, tick_ms=draft['tick_ms'],
++            source_count=draft['source_count'], nominal_qpc_ns=draft['nominal_qpc_ns'],
++            pose_read=read, call=dict(begin_qpc_ns=call['begin_qpc_ns'],
++                                    end_qpc_ns=call['end_qpc_ns']),
++            scope_closed_qpc_ns=closed, root_revision=self._root.revision,
++            pose_revision=self._root.pose_revision, revoke_generation=self._root.revoke_generation,
++            numerical_pose_span=span, channel_values=list(snapshot[4]),
++            channel_saturated=list(snapshot[5])) if snapshot[2] and covered else None)
++
++    def _held_em(self, draft, record):
++        if not self._scoped_em_receipts:
++            return 'unavailable;original_native_em_association_not_implemented'
++        if self._scope is None:
++            return 'unavailable;no_original_scoped_em_call'
++        if draft['tick_ms'] % 50 == 0 and (self._active._em_handle is None
++                or self._active._em_handle._state != 'CLOSED'):
++            raise ValueError('fresh EM sample requires its actual closed scope receipt')
++        if record.em_tick_ms is None:
++            return 'unavailable;original_em_invalid_or_source_fault'
++        original = self._last_em_receipt
++        if (original is None or original['tick_ms'] != record.em_tick_ms
++                or list(record.channel_values[:3]) != original['channel_values']
++                or record.quality & 7 != 7
++                or ((record.quality >> 4) & 7) != sum(
++                    int(x) << i for i, x in enumerate(original['channel_saturated']))
++                or ((record.quality >> 8) & 7) != (7 if draft['tick_ms'] > record.em_tick_ms else 0)):
++            raise ValueError('payload must retain its actual original EM values and quality')
++        return dict(kind='original_scoped_em_association_v1',
++                    held=draft['tick_ms'] > record.em_tick_ms,
++                    original_em=original, native_interval_atomic=False,
++                    claim='original_numerical_root_scoped_call_only;no_board_or_admission_authority')
++
+     @_operation
+     def end_adc(self, token, handle):
+         draft = self._sample(token)
+@@ -423,6 +557,7 @@
+         record = sensor_source.validate_record(payload)
+         if record.adc_tick_ms != draft['tick_ms']:
+             raise ValueError('payload must belong to this original tick')
++        held_em = self._held_em(draft, record)
+         raw = _raw(asdict(record))
+         if len(raw) > 4096:
+             raise ValueError('bounded original canonical source record required')
+@@ -444,7 +579,7 @@
+             numerical_pose_span=span if covered else None,
+             numerical_pose_span_status=('available;fixed_numerical_root_only' if covered
+                 else 'unavailable;nominal_or_actual_outside_fixed_root_span'),
+-            held_em_association='unavailable;original_native_em_association_not_implemented',
++            held_em_association=held_em,
+             finish_qpc_ns=end, actual_adc_end_minus_nominal_ns=(
+                 draft['adc']['end_qpc_ns']-draft['nominal_qpc_ns']),
+             baseline_span=dict(begin_qpc_ns=self._baseline['begin_qpc_ns'],
+@@ -487,7 +622,7 @@
+         if threading.get_ident() != self._thread:
+             self.fail('foreign evidence read')
+             raise RuntimeError('original evidence owner thread required')
+-        return json.loads(_raw(dict(schema=1,
++        return json.loads(_raw(dict(schema=2 if self._scoped_em_receipts else 1,
+             state='FAILED' if self._fault.is_set() else self._state,
+             source_state=self._source.state, failure_reason=self._failure_reason,
+             retire_reason=self._retire_reason, source_origin_qpc_ns=self._origin,
+@@ -505,15 +640,17 @@
+ 
+ 
+ class RootSourceBook(_SourceBookCore):
+-    def __init__(self, owner, binding, field, source):
++    def __init__(self, owner, binding, field, source, *, scoped_em_receipts=False):
+         if type(self) is not RootSourceBook:
+             raise ValueError('exact production RootSourceBook required')
+-        super().__init__(_PRODUCTION, owner, binding, field, source)
+-
+-
+-def _software_source_book_for_test(owner, binding, field, source):
++        super().__init__(_PRODUCTION, owner, binding, field, source,
++                         scoped_em_receipts=scoped_em_receipts)
++
++
++def _software_source_book_for_test(owner, binding, field, source, *, scoped_em_receipts=False):
+     """Different exact software core; cannot satisfy production book checks."""
+-    return _SourceBookCore(_SOFTWARE, owner, binding, field, source)
++    return _SourceBookCore(_SOFTWARE, owner, binding, field, source,
++                           scoped_em_receipts=scoped_em_receipts)
+ 
+ 
+ __all__ = ['RootSourceBook']

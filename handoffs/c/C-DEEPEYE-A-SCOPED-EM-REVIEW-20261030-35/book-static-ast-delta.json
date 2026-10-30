@@ -1,0 +1,21 @@
+{
+  "added": [
+    "_EM.__init__",
+    "_SourceBookCore._em_handle",
+    "_SourceBookCore._held_em",
+    "_SourceBookCore.begin_em",
+    "_SourceBookCore.close_em",
+    "_SourceBookCore.end_em",
+    "_SourceBookCore.scoped_em_receipts"
+  ],
+  "removed": [],
+  "changed": [
+    "RootSourceBook.__init__",
+    "_Sample.__init__",
+    "_SourceBookCore.__init__",
+    "_SourceBookCore._check",
+    "_SourceBookCore.evidence",
+    "_SourceBookCore.finish_sample",
+    "_software_source_book_for_test"
+  ]
+}

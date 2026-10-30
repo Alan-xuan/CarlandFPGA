@@ -1,0 +1,79 @@
+{
+  "A_candidate_commit": "b2d398dd8f28688f7a125db9d43cc51dad4c69c9",
+  "files": [
+    {
+      "commit": "b2d398dd8f28688f7a125db9d43cc51dad4c69c9",
+      "path": "competition/deepeye/docs/source_book_scoped_em_receipts.md",
+      "archive_key": "inputs/candidate-source_book_scoped_em_receipts.md",
+      "bytes": 2962,
+      "sha256": "01c24bf28b4a36a64f0ea75248d4fd4a1cb9ceb6e295945355a73d4ae409a6b2",
+      "git_blob": "b960080530b653165cc9d4e479dc3496e500514c"
+    },
+    {
+      "commit": "b2d398dd8f28688f7a125db9d43cc51dad4c69c9",
+      "path": "competition/deepeye/simulation/authority/root_source_book.py",
+      "archive_key": "inputs/candidate-root_source_book.py",
+      "bytes": 33675,
+      "sha256": "aba3b08b1175eca076e245599572996f30b4dd4ed52e0cf92e53b3b3ceb5a2a9",
+      "git_blob": "4b0df4d9dc231f2db8186fd0c03229a2a84d139e"
+    },
+    {
+      "commit": "b2d398dd8f28688f7a125db9d43cc51dad4c69c9",
+      "path": "competition/deepeye/tests/integration/test_source_book_em_receipt.py",
+      "archive_key": "inputs/candidate-test_source_book_em_receipt.py",
+      "bytes": 10816,
+      "sha256": "071a30ee99173200c4227b9da4ce5413c50c9665c8e3583963f9b29fc95288a7",
+      "git_blob": "e21e341c01d16c7337ed94fee6244e4d36dabed2"
+    },
+    {
+      "commit": "b2d398dd8f28688f7a125db9d43cc51dad4c69c9",
+      "path": "competition/deepeye/tools/diagnostic/causal_pl_exchange.py",
+      "archive_key": "inputs/candidate-causal_pl_exchange.py",
+      "bytes": 36238,
+      "sha256": "dddb907b7a0c7ac30f3bb014d7303a1ab249fa55be242bdcd701fbc80bc7ea6b",
+      "git_blob": "57cc770bf9fa68f73e38378d2a5448dd04ec8852"
+    },
+    {
+      "commit": "b2d398dd8f28688f7a125db9d43cc51dad4c69c9",
+      "path": "competition/deepeye/tools/run_owned_chain_headless.py",
+      "archive_key": "inputs/candidate-run_owned_chain_headless.py",
+      "bytes": 23291,
+      "sha256": "24ad58a3286fd72808616c3d882cf4ebc8b510b85a04c8c8ee62e12d0452cf60",
+      "git_blob": "75ac9adf33fc0beb1b356572a057d0cae681d726"
+    },
+    {
+      "commit": "54e1fd6c5795cc2f1247866dd8783331f615ef66",
+      "path": "competition/deepeye/simulation/authority/root_source_book.py",
+      "archive_key": "inputs/book-contract54e1.py",
+      "bytes": 25692,
+      "sha256": "624c84f8de949c7c078ca0b7afa84c295804d7bc881527e9b91c38ba645004ef",
+      "git_blob": "be584260af61fa6bd4800914e3dd37323e734bf8"
+    },
+    {
+      "commit": "4dc91fd24531b3df53fc916e8b7f509ad524592c",
+      "path": "competition/deepeye/simulation/authority/root_source_book.py",
+      "archive_key": "inputs/book-runtime4dc91.py",
+      "bytes": 25692,
+      "sha256": "624c84f8de949c7c078ca0b7afa84c295804d7bc881527e9b91c38ba645004ef",
+      "git_blob": "be584260af61fa6bd4800914e3dd37323e734bf8"
+    },
+    {
+      "commit": "b2d398dd8f28688f7a125db9d43cc51dad4c69c9",
+      "path": "competition/deepeye/simulation/authority/_world_loop.py",
+      "archive_key": "inputs/dependency-_world_loop.py",
+      "bytes": 48392,
+      "sha256": "231c6f20656959315e6ebc3cc2830adb9c3d4f89d42ab8d61b07cf990d7be1e1",
+      "git_blob": "85836c585a2bfcbaf52328666ede9f641fddde7d"
+    },
+    {
+      "commit": "b2d398dd8f28688f7a125db9d43cc51dad4c69c9",
+      "path": "competition/deepeye/simulation/sensors/forward_profile.py",
+      "archive_key": "inputs/dependency-forward_profile.py",
+      "bytes": 28252,
+      "sha256": "6a5f70a6acdaa6de52fc72d678d452956861370e1d143b70219ced107c5a04c9",
+      "git_blob": "c468d43d1a6e58f6962423de4bf806d1e45109fb"
+    }
+  ],
+  "historical_file_equality_only": true,
+  "scope": "five candidate files plus two supporting dependencies and two immutable historical book comparisons; static only"
+}

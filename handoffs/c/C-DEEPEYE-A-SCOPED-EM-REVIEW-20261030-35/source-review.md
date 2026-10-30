@@ -1,0 +1,13 @@
+# C35 main independent disposition
+
+C main independently accepts the bounded static review at A source b2d398dd8f28688f7a125db9d43cc51dad4c69c9. No blocking defect was confirmed within the five candidate files and two authorized supporting dependencies. This is not runtime acceptance or a claim that all defects are excluded.
+
+Main verified all nine original source byte sizes, SHA256 and Git blob identities, read the full review and compared the critical source statements. Pump lines258-275 place begin/end inside the original scope and close after normal with exit. Book lines429-506 bind one-use handles, actual profile progression and original clean scope completion; world-loop lines981-1014 supply the exception/finally and post-boundary identity checks behind that conclusion. Book lines508-529 retain the earlier actual EM receipt, and forward-profile lines451-635 distinguish failed attempts, successful tuples, held values and age. Book lines620-653 and explicit selectors keep v2 opt-in and default schema1, subject to the newly added custody checks. No module was imported or executed for this review.
+
+The source close/finish observation is not the later original admission at pump lines491-500. Missing original owner/book identities, current capture, real admissions and their clock/index, wire/raw request-capture/counter/trigger associations, executed action registry and verified board BOOT cannot be supplied by this receipt. No opaque IDs or current timestamps are manufactured. Frozen C31/C34 schema1 consumers do not silently accept schema2.
+
+Historical54e1 code-contract and4dc91 runtime labels refer to byte-identical root_source_book.py:25692B, SHA624c84f8de949c7c078ca0b7afa84c295804d7bc881527e9b91c38ba645004ef. That proves one file equality, not dependency closure or complete input compatibility. The new b2d398 source is separately pinned.
+
+Actual native-session audit found21 closed tool call/output pairs, normal FINAL and task_complete after the work,18 shell commands all exit0, ownership release and no outstanding jobs/subprocesses. These are static inspection/bookkeeping exits, NOT18 functional tests. The worker preliminary collection covered15 pairs; the main audit also includes its later bookkeeping/completion. No candidate test, JIT/model/PDE, native or board execution occurred. A's earlier version-specific test reports are quoted as A reports, not independently certified or rerun.
+
+Source review passed; local_function/full_chain/physical_board/model_qualification/final_acceptance/RTL/synthesis/implementation all NOT_RUN. H01-H15, both H12, original29, final1%/100ms and A-only physical authority remain fixed. Main thread01a14025-4dfd-7ec3-aebb-57be48daba59 retains task/version and C34 continues separately.
