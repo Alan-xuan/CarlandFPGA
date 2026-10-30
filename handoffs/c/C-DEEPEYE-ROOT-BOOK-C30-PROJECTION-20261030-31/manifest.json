@@ -1,0 +1,148 @@
+{
+  "artifacts": [
+    "handoffs/c/C-DEEPEYE-ROOT-BOOK-C30-PROJECTION-20261030-31/independent-final-new.stdout.json",
+    "handoffs/c/C-DEEPEYE-ROOT-BOOK-C30-PROJECTION-20261030-31/independent-final-replay.stdout.json",
+    "handoffs/c/C-DEEPEYE-ROOT-BOOK-C30-PROJECTION-20261030-31/independent_aggregate_check.py",
+    "handoffs/c/C-DEEPEYE-ROOT-BOOK-C30-PROJECTION-20261030-31/independent_c31_checks.py",
+    "handoffs/c/C-DEEPEYE-ROOT-BOOK-C30-PROJECTION-20261030-31/independent_c31_closure.py",
+    "handoffs/c/C-DEEPEYE-ROOT-BOOK-C30-PROJECTION-20261030-31/independent_c31_fixture.py",
+    "handoffs/c/C-DEEPEYE-ROOT-BOOK-C30-PROJECTION-20261030-31/interface-examples.json",
+    "handoffs/c/C-DEEPEYE-ROOT-BOOK-C30-PROJECTION-20261030-31/local-evidence.json",
+    "handoffs/c/C-DEEPEYE-ROOT-BOOK-C30-PROJECTION-20261030-31/mapping-contract.json",
+    "handoffs/c/C-DEEPEYE-ROOT-BOOK-C30-PROJECTION-20261030-31/original-red-inputs.json.gz",
+    "handoffs/c/C-DEEPEYE-ROOT-BOOK-C30-PROJECTION-20261030-31/raw-execution-evidence.json.gz",
+    "handoffs/c/C-DEEPEYE-ROOT-BOOK-C30-PROJECTION-20261030-31/README.md",
+    "handoffs/c/C-DEEPEYE-ROOT-BOOK-C30-PROJECTION-20261030-31/reviewed_v1_root_book_projection.py",
+    "handoffs/c/C-DEEPEYE-ROOT-BOOK-C30-PROJECTION-20261030-31/root_book_projection_v1.py",
+    "handoffs/c/C-DEEPEYE-ROOT-BOOK-C30-PROJECTION-20261030-31/source-review.md",
+    "handoffs/c/C-DEEPEYE-ROOT-BOOK-C30-PROJECTION-20261030-31/test_partial_temporal_v2.py",
+    "handoffs/c/C-DEEPEYE-ROOT-BOOK-C30-PROJECTION-20261030-31/test_root_book_projection_v1.py",
+    "handoffs/c/C-DEEPEYE-CAUSAL-FOUR-CHANNEL-PLANNER-20261029-28/candidate_four_channel_planner_v1.py",
+    "handoffs/c/C-DEEPEYE-PRIVATE-RAW4-TIME-ASSOCIATION-20261030-30/private_raw4_time_association_v1.py"
+  ],
+  "files": {
+    "handoffs/c/C-DEEPEYE-CAUSAL-FOUR-CHANNEL-PLANNER-20261029-28/candidate_four_channel_planner_v1.py": {
+      "sha256": "70b317681fee8c9182c342fe8d2f94eaecc957c62231a74a080d213bb5e0eab4",
+      "size": 17651
+    },
+    "handoffs/c/C-DEEPEYE-PRIVATE-RAW4-TIME-ASSOCIATION-20261030-30/private_raw4_time_association_v1.py": {
+      "sha256": "abaa06d10ab68f0bee721bf1a6d9278fc000446112ac559362079ad63afc686d",
+      "size": 48155
+    },
+    "handoffs/c/C-DEEPEYE-ROOT-BOOK-C30-PROJECTION-20261030-31/README.md": {
+      "sha256": "2b2b23f9ebfe56eb9750cf9df9447971c4298926d5f3cd3d839a7ce19ad1521e",
+      "size": 14710
+    },
+    "handoffs/c/C-DEEPEYE-ROOT-BOOK-C30-PROJECTION-20261030-31/independent-final-new.stdout.json": {
+      "sha256": "78d6defc6746a17772450870d3f483b5b5dda7574fe32a2a14961e0954b800e2",
+      "size": 10871
+    },
+    "handoffs/c/C-DEEPEYE-ROOT-BOOK-C30-PROJECTION-20261030-31/independent-final-replay.stdout.json": {
+      "sha256": "a502a48328dc989a5bd3f5315d6f734c63a3ba871f8b63d89453ea00f70c1606",
+      "size": 4618
+    },
+    "handoffs/c/C-DEEPEYE-ROOT-BOOK-C30-PROJECTION-20261030-31/independent_aggregate_check.py": {
+      "sha256": "3bf13ab3fd2d7e3470e5e23ab8ebdc20ff82d979225552992022f1ddd4835b18",
+      "size": 2814
+    },
+    "handoffs/c/C-DEEPEYE-ROOT-BOOK-C30-PROJECTION-20261030-31/independent_c31_checks.py": {
+      "sha256": "c93d4602b47efe20b5e5fad4d7f7202a69e959212bb011e9f15ca8fa843c2efb",
+      "size": 11842
+    },
+    "handoffs/c/C-DEEPEYE-ROOT-BOOK-C30-PROJECTION-20261030-31/independent_c31_closure.py": {
+      "sha256": "c69f4834ce2fd6ee94870750916c0ae8a9d69d703da7150a65893d10788de145",
+      "size": 13199
+    },
+    "handoffs/c/C-DEEPEYE-ROOT-BOOK-C30-PROJECTION-20261030-31/independent_c31_fixture.py": {
+      "sha256": "9a15a555e6472fe439a57c22cd8eac43a2470eae6b0201133ba1ee08aa2c959d",
+      "size": 12966
+    },
+    "handoffs/c/C-DEEPEYE-ROOT-BOOK-C30-PROJECTION-20261030-31/interface-examples.json": {
+      "sha256": "8db30425213f590b531ce8d3b9e554ffe91402c94fc74843b4d533d3c9e538fd",
+      "size": 162687
+    },
+    "handoffs/c/C-DEEPEYE-ROOT-BOOK-C30-PROJECTION-20261030-31/local-evidence.json": {
+      "sha256": "ebea6c50c99192f7db3a5e4d17b18c155946fd70041b828bca9e221e6d289aba",
+      "size": 47216
+    },
+    "handoffs/c/C-DEEPEYE-ROOT-BOOK-C30-PROJECTION-20261030-31/mapping-contract.json": {
+      "sha256": "e36f59929fb21bd1b3e288af7455ccca631619184f3827532a09db0fbca6cb0d",
+      "size": 9977
+    },
+    "handoffs/c/C-DEEPEYE-ROOT-BOOK-C30-PROJECTION-20261030-31/original-red-inputs.json.gz": {
+      "sha256": "edd9a2d5a08b9da511f31f269bbbd8b2fc81e87236cf2d14c57b0f4505cb3769",
+      "size": 47448
+    },
+    "handoffs/c/C-DEEPEYE-ROOT-BOOK-C30-PROJECTION-20261030-31/raw-execution-evidence.json.gz": {
+      "sha256": "86b7343f4631081ae851ffb6b75bdffa6a3cf09f5667a72188e72896b22fff12",
+      "size": 23437
+    },
+    "handoffs/c/C-DEEPEYE-ROOT-BOOK-C30-PROJECTION-20261030-31/reviewed_v1_root_book_projection.py": {
+      "sha256": "9b810d79b177536ff1be3f5dd1deb282293b9060ed3f175d3627803009e9ccc0",
+      "size": 43177
+    },
+    "handoffs/c/C-DEEPEYE-ROOT-BOOK-C30-PROJECTION-20261030-31/root_book_projection_v1.py": {
+      "sha256": "506219cf445001c46f2f4e1ffd411829ea9d184d4260d18af9e45aa3787993ee",
+      "size": 48506
+    },
+    "handoffs/c/C-DEEPEYE-ROOT-BOOK-C30-PROJECTION-20261030-31/source-review.md": {
+      "sha256": "53d91f435e152ed43dbdeee8d39b541a9ab567abb2b9e6d74b966cdac8b4e33e",
+      "size": 19128
+    },
+    "handoffs/c/C-DEEPEYE-ROOT-BOOK-C30-PROJECTION-20261030-31/test_partial_temporal_v2.py": {
+      "sha256": "fc9914e83e96cb302bad3f77c0032000e29480d9b887c30484a55bdf66af2bb7",
+      "size": 11419
+    },
+    "handoffs/c/C-DEEPEYE-ROOT-BOOK-C30-PROJECTION-20261030-31/test_root_book_projection_v1.py": {
+      "sha256": "25270b1fc7232a7e9ffd61f004bf8caddf68e1e16126d9081d825ec4653ac30f",
+      "size": 32949
+    }
+  },
+  "request": {
+    "code_commit": "3519b22d057cd4e2d7b5fb493da191c1221f8678",
+    "expected_result": "C31 adds a default-disabled pure projection from A54e1 detached numerical Root book data plus explicit original binding/admission/capture/current/action evidence into the frozen C30 JSON ABI and the same C28 diagnostic core. Missing proof remains null/unavailable; independently decidable supplied contradictions are rejected before missing/disabled returns. The adapter generates no identities, timestamps, revisions, receipts or authority. Only synthetic structural software evidence. Explicit numeric equality/binding/hashes do not authenticate a Root owner, native getter interval or physical measurement. Actual A Root/native/producer/Godot/board/fullchain/model qualification and formal acceptance are NOT_RUN. A alone operates the physical board. H01-H15, both H12, original29 and final1%/100ms remain unchanged; unfulfilled gates remain unfulfilled. Original uint63 times, nominal anchor, held origin,100ms, prefix1001/10s, combined32 and input/output1MiB limits are preserved. Complete pure-stale requests deliberately retain frozen C30 Rejected; C32 is a separate delivery, not imported or silently substituted.",
+    "operation_id": "C-DEEPEYE-ROOT-BOOK-C30-PROJECTION-20261030-31",
+    "requester": "node-c",
+    "task_id": "DEEPEYE-IMPLEMENTATION-20261014",
+    "task_version": 1,
+    "test_steps": [
+      "Verify the canonical manifest and the frozen sibling C30/C28 runtime hashes before execution.",
+      "From this operation directory under an external30s bound: python -B independent_c31_closure.py . 506219cf445001c46f2f4e1ffd411829ea9d184d4260d18af9e45aa3787993ee replay OUTPUT_DIR ; expect8 exact original byte-hashed cases pass, C30/core0.",
+      "Under an external30s bound: python -B independent_c31_closure.py . 506219cf445001c46f2f4e1ffd411829ea9d184d4260d18af9e45aa3787993ee new OTHER_OUTPUT_DIR ; expect18 NEW controls pass, enabled native C30/core1/1 and default-disabled held1/0.",
+      "The gzip original-input bundle restores UTF8 strings to exact original bytes before import; raw-execution-evidence.json.gz stores original commands/stdout/stderr with independent byte lengths and SHA256. Historical author and v1 checkers retain version-specific expectations; do not run their whole historical groups against final source or interpret earlier passing counts as a final regression suite."
+    ]
+  },
+  "request_hash": "9e33fae98ab2a35ae72f6b1727082347e9b3a428b228e57bead54199395bb385",
+  "schema_version": 1,
+  "stages": {
+    "final_acceptance": {
+      "status": "not_run"
+    },
+    "full_chain": {
+      "status": "not_run"
+    },
+    "implementation": {
+      "status": "not_run"
+    },
+    "local_function": {
+      "log": "handoffs/c/C-DEEPEYE-ROOT-BOOK-C30-PROJECTION-20261030-31/independent-final-new.stdout.json",
+      "status": "passed"
+    },
+    "model_qualification": {
+      "status": "not_run"
+    },
+    "physical_board": {
+      "status": "not_run"
+    },
+    "rtl_simulation": {
+      "status": "not_run"
+    },
+    "source_review": {
+      "log": "handoffs/c/C-DEEPEYE-ROOT-BOOK-C30-PROJECTION-20261030-31/source-review.md",
+      "status": "passed"
+    },
+    "synthesis": {
+      "status": "not_run"
+    }
+  }
+}
