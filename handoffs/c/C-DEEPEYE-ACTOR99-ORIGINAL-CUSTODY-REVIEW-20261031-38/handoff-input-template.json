@@ -1,0 +1,49 @@
+{
+  "request": {
+    "operation_id": "C-DEEPEYE-ACTOR99-ORIGINAL-CUSTODY-REVIEW-20261031-38",
+    "task_id": "DEEPEYE-IMPLEMENTATION-20261014",
+    "task_version": 1,
+    "requester": "node-c",
+    "code_commit": "SOURCE_COMMIT_PENDING",
+    "test_steps": [
+      "Offline packaging verification only: python verify_static.py .",
+      "Read REVIEW.md and OPEN C38-R1; no candidate/local-function/runtime tests executed."
+    ],
+    "expected_result": "Exact 21 source pins and five static parent deltas verified; C38-R1 OPEN, source_approved=false; runtime/local_function NOT_RUN."
+  },
+  "artifacts": [
+    "handoffs/c/C-DEEPEYE-ACTOR99-ORIGINAL-CUSTODY-REVIEW-20261031-38/_world_loop.py.parent.diff",
+    "handoffs/c/C-DEEPEYE-ACTOR99-ORIGINAL-CUSTODY-REVIEW-20261031-38/actor_composition.py.parent.diff",
+    "handoffs/c/C-DEEPEYE-ACTOR99-ORIGINAL-CUSTODY-REVIEW-20261031-38/AST-parent-delta.json",
+    "handoffs/c/C-DEEPEYE-ACTOR99-ORIGINAL-CUSTODY-REVIEW-20261031-38/FINDINGS.json",
+    "handoffs/c/C-DEEPEYE-ACTOR99-ORIGINAL-CUSTODY-REVIEW-20261031-38/motion_executor.py.parent.diff",
+    "handoffs/c/C-DEEPEYE-ACTOR99-ORIGINAL-CUSTODY-REVIEW-20261031-38/original_world_actor_link.py.parent.diff",
+    "handoffs/c/C-DEEPEYE-ACTOR99-ORIGINAL-CUSTODY-REVIEW-20261031-38/README.md",
+    "handoffs/c/C-DEEPEYE-ACTOR99-ORIGINAL-CUSTODY-REVIEW-20261031-38/REVIEW.md",
+    "handoffs/c/C-DEEPEYE-ACTOR99-ORIGINAL-CUSTODY-REVIEW-20261031-38/root_source_book.py.parent.diff",
+    "handoffs/c/C-DEEPEYE-ACTOR99-ORIGINAL-CUSTODY-REVIEW-20261031-38/source-bytes.json.gz.b64",
+    "handoffs/c/C-DEEPEYE-ACTOR99-ORIGINAL-CUSTODY-REVIEW-20261031-38/source-commands.json",
+    "handoffs/c/C-DEEPEYE-ACTOR99-ORIGINAL-CUSTODY-REVIEW-20261031-38/source-pins.json",
+    "handoffs/c/C-DEEPEYE-ACTOR99-ORIGINAL-CUSTODY-REVIEW-20261031-38/verification-exit.json",
+    "handoffs/c/C-DEEPEYE-ACTOR99-ORIGINAL-CUSTODY-REVIEW-20261031-38/verification.stderr.txt",
+    "handoffs/c/C-DEEPEYE-ACTOR99-ORIGINAL-CUSTODY-REVIEW-20261031-38/verification.stdout.txt",
+    "handoffs/c/C-DEEPEYE-ACTOR99-ORIGINAL-CUSTODY-REVIEW-20261031-38/verify_static.py",
+    "handoffs/c/C-DEEPEYE-ACTOR99-ORIGINAL-CUSTODY-REVIEW-20261031-38/handoff-input-template.json"
+  ],
+  "stages": {
+    "static_source_review": {
+      "status": "failed",
+      "log": "handoffs/c/C-DEEPEYE-ACTOR99-ORIGINAL-CUSTODY-REVIEW-20261031-38/REVIEW.md"
+    },
+    "packaging_verification": {
+      "status": "passed",
+      "log": "handoffs/c/C-DEEPEYE-ACTOR99-ORIGINAL-CUSTODY-REVIEW-20261031-38/verification.stdout.txt"
+    },
+    "local_function": {
+      "status": "not_run"
+    },
+    "runtime": {
+      "status": "not_run"
+    }
+  }
+}

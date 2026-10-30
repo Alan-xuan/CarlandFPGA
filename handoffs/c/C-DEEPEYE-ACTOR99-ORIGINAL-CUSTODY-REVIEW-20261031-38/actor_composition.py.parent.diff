@@ -1,0 +1,43 @@
+--- d9716760b15cd84c6b60442a9d9368fdcd0e46fa/actor_composition.py
++++ e794de598a40c11cefb372813aa950f58f03007a/actor_composition.py
+@@ -184,6 +184,7 @@
+         terminal = method.__name__ in ('close', 'stop', 'status')
+         step_link = self._world_action_link if method.__name__ == 'step' else None
+         previous_step_slot = None if step_link is None else step_link.slot
++        source_custody = source_transition = None
+         try:
+             if self._foreign.is_set():
+                 if not terminal: raise CompositionRejected('foreign-thread veto pending')
+@@ -191,8 +192,18 @@
+             epoch = self._veto
+             if not terminal:
+                 self._checkpoint()
++            if method.__name__ in ('accept_boot', 'accept_command') and self._world_action_link is not None:
++                book = self._world_action_link.book
++                if book is None or book._actor_custody is None:
++                    raise CompositionRejected('original actor source lineage required')
++                source_custody = book._actor_custody
++                source_transition = source_custody.reserve(self,
++                    'BOOT' if method.__name__ == 'accept_boot' else 'COMMAND')
+             result = method(self, *args, **kwargs)
+-            if result is _STOPPED: return None
++            if result is _STOPPED:
++                if source_custody is not None:
++                    source_custody.abort(source_transition, 'original actor STOP')
++                return None
+             if type(result) is StepOutcome:
+                 if result.committed:
+                     try:
+@@ -205,8 +216,12 @@
+                 return result
+             if not terminal:
+                 self._checkpoint(epoch)
++            if source_custody is not None:
++                source_custody.finish_nonspatial(source_transition)
+             return result
+         except BaseException as error:
++            if source_custody is not None:
++                source_custody.abort(source_transition, 'original actor transition rejected')
+             self._remember(error)
+             try:
+                 self._retire('composition entry rejected')

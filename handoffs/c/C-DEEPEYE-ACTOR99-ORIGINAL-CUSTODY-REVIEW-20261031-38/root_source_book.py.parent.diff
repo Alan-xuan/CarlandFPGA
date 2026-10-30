@@ -1,0 +1,104 @@
+--- d9716760b15cd84c6b60442a9d9368fdcd0e46fa/root_source_book.py
++++ e794de598a40c11cefb372813aa950f58f03007a/root_source_book.py
+@@ -130,6 +130,7 @@
+         self._active = None
+         self._samples, self._partials = [], []
+         self._last_em_receipt = None
++        self._actor_custody = None  # Only the fixed original-link factory may bind this.
+         self._root = self._baseline = self._base_pose = self._pose_values = None
+         self._veto_generation = None
+         self._span_from = self._span_through = None
+@@ -181,12 +182,19 @@
+         return dict(position_m=list(pose.position_m),
+                     orientation_xyzw=list(pose.orientation_xyzw))
+ 
+-    def _check(self):
++    def _check(self, *, _actor_transition=None):
+         if self._fault.is_set():
+             raise RuntimeError('book permanently failed')
+         if threading.get_ident() != self._thread:
+             raise ValueError('original book thread required')
+         owner, source, field = self._owner, self._source, self._field
++        if self._actor_custody is not None:
++            from ._actor_source_custody import _ActorSourceCustody
++            if type(self._actor_custody) is not _ActorSourceCustody:
++                raise ValueError('exact fixed actor/source custody required')
++            self._actor_custody._context(_actor_transition)
++        elif _actor_transition is not None:
++            raise ValueError('fixed book cannot adopt an actor transition')
+         if self._mode is _PRODUCTION:
+             if (type(self) is not RootSourceBook or type(owner) is not loop._RootWorldOwner
+                     or owner._test is not False
+@@ -215,7 +223,8 @@
+         loop._RootWorldOwner._known_binding(owner, self._binding)
+         if self._mode is _PRODUCTION:
+             # Fixed original owner API; no caller-supplied gate or callback.
+-            loop._RootWorldOwner.require_source_pose_current(owner)
++            if _actor_transition is None:
++                loop._RootWorldOwner.require_source_pose_current(owner)
+         elif hasattr(type(owner), 'require_source_pose_current'):
+             # Optional explicit software-fixture API only. Legacy software
+             # fixture absence never weakens the mandatory production check.
+@@ -263,12 +272,15 @@
+                 or geometry._digest(self._scene) != field._scene_digest
+                 or self._scene.digest != field._scene_digest):
+             raise ValueError('original committed root/pose/scene required')
+-        if self._root is not None and (root is not self._root
++        if self._actor_custody is not None:
++            self._actor_custody._root_check(root, _actor_transition)
++        if self._root is not None and _actor_transition is None and (root is not self._root
+                 or root.pose is not self._base_pose
+                 or (tuple(root.pose.position_m), tuple(root.pose.orientation_xyzw)) != self._pose_values
+-                or root.revision != self._baseline['root_revision']
+-                or root.pose_revision != self._baseline['pose_revision']
+-                or root.revoke_generation != self._baseline['revoke_generation']
++                or (self._actor_custody is None and (
++                    root.revision != self._baseline['root_revision']
++                    or root.pose_revision != self._baseline['pose_revision']
++                    or root.revoke_generation != self._baseline['revoke_generation']))
+                 or owner._veto_generation != self._veto_generation):
+             raise ValueError('fixed baseline revision changed; actions unavailable')
+         if source.state == 'RUNNING':
+@@ -582,7 +594,8 @@
+             held_em_association=held_em,
+             finish_qpc_ns=end, actual_adc_end_minus_nominal_ns=(
+                 draft['adc']['end_qpc_ns']-draft['nominal_qpc_ns']),
+-            baseline_span=dict(begin_qpc_ns=self._baseline['begin_qpc_ns'],
++            baseline_span=dict(begin_qpc_ns=(self._baseline['begin_qpc_ns']
++                if self._actor_custody is None else self._span_from),
+                 end_qpc_ns=end, root_revision=self._root.revision,
+                 pose_revision=self._root.pose_revision,
+                 observation='same committed Root value at checks; not atomic native pose'))
+@@ -622,21 +635,29 @@
+         if threading.get_ident() != self._thread:
+             self.fail('foreign evidence read')
+             raise RuntimeError('original evidence owner thread required')
+-        return json.loads(_raw(dict(schema=2 if self._scoped_em_receipts else 1,
++        document = dict(schema=(3 if self._actor_custody is not None else
++            2 if self._scoped_em_receipts else 1),
+             state='FAILED' if self._fault.is_set() else self._state,
+             source_state=self._source.state, failure_reason=self._failure_reason,
+             retire_reason=self._retire_reason, source_origin_qpc_ns=self._origin,
+             start_observed_qpc_ns=self._start_observed, baseline=self._baseline,
+             samples=self._samples, partial_samples=self._partials,
+             active_sample=self._active._draft if self._active is not None else None,
+-            fixed_root_interval=(None if self._span_from is None else dict(
++            fixed_root_interval=(None if self._span_from is None or self._actor_custody is not None else dict(
+                 from_qpc_ns=self._span_from, through_qpc_ns=self._span_through,
+                 root_revision=self._baseline['root_revision'],
+                 pose_revision=self._baseline['pose_revision'],
+                 claim='numerical_immutable_committed_root_only')),
+             action_association='unavailable;fixed_revision_only',
+             native_interval_atomic=False, source_scope='Root private candidate observations',
+-            adc_call_evidence='trusted caller bracket and retained profile tick progression')))
++            adc_call_evidence='trusted caller bracket and retained profile tick progression')
++        if self._actor_custody is not None:
++            document['actor_pose_intervals'] = self._actor_custody.evidence()
++            document['current_pose_interval'] = dict(from_qpc_ns=self._span_from,
++                through_qpc_ns=self._span_through, root_revision=self._root.revision,
++                pose_revision=self._root.pose_revision)
++            document['action_association'] = 'unavailable;requires_explicit_interval_aware_projection'
++        return json.loads(_raw(document))
+ 
+ 
+ class RootSourceBook(_SourceBookCore):

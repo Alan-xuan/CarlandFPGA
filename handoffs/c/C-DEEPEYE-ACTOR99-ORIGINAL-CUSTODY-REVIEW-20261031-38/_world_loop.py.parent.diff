@@ -1,0 +1,54 @@
+--- d9716760b15cd84c6b60442a9d9368fdcd0e46fa/_world_loop.py
++++ e794de598a40c11cefb372813aa950f58f03007a/_world_loop.py
+@@ -626,10 +626,35 @@
+                 or publication.revision != self._renderer_revision
+                 or binding.executor._root.pose_revision != self._renderer_revision):
+             raise WorldRejected('actual published getter pose has not been admitted')
++        if (link is None or self._actor_links.get(id(link)) is not link
++                or slot is None or not getattr(slot, 'closed', False)
++                or slot.publication is not publication
++                or slot.completion_observed_qpc_ns is None
++                or link.composition is None or link.composition._retired
++                or link.composition._runtime._latched
++                or link.composition._runtime._executed_until_ns != binding.executor._root.executed_until_ns
++                or self._time() < binding.executor._root.executed_until_ns):
++            raise WorldRejected('original actor/source completion interval is not closed')
+ 
+     def actor_link(self, service):
+         from .original_world_actor_link import _issue
+         return _issue(self, service)
++
++    def actor_source_book(self, capability):
++        """Issue only the exact NEW source's original-link-bound recorder."""
++        from ._actor_source_custody import _issue_original_actor_book
++        from .original_world_actor_link import _OriginalWorldActorLink
++        if type(capability) is not _OriginalWorldActorLink or capability.owner is not self:
++            raise WorldRejected('same original world owner required')
++        return _issue_original_actor_book(capability)
++
++    def progress_actor_commit(self, capability):
++        """Explicit original transport/getter closure, without fresh sampling."""
++        from .original_world_actor_link import _progress_actor_commit
++        from .original_world_actor_link import _OriginalWorldActorLink
++        if type(capability) is not _OriginalWorldActorLink or capability.owner is not self:
++            raise WorldRejected('same original world owner required')
++        return _progress_actor_commit(capability)
+ 
+     @_entry
+     def publish_actor_commit_once(self, capability):
+@@ -704,7 +729,14 @@
+             actual_renderer_revision=self._renderer_revision,
+             commits=[dict(committed=x.committed,uncertainty=x.uncertainty,
+                 pose_revision=None if x.view is None else x.view.pose_revision,
+-                fence_used=x.fence_used,issue_ns=x.issue_ns,deadline_ns=x.deadline_ns) for x in self._commits],
++                fence_used=x.fence_used,issue_ns=x.issue_ns,deadline_ns=x.deadline_ns,
++                returned_receipt_observed=x.receipt is not None,
++                effect_observation=getattr(x,'effect_observation',None),
++                pre_cas_qpc_ns=getattr(x,'pre_cas_qpc_ns',None),
++                post_cas_observed_qpc_ns=getattr(x,'post_cas_observed_qpc_ns',None),
++                completion_observed_qpc_ns=getattr(x,'completion_observed_qpc_ns',None),
++                getter_admitted=getattr(x,'getter_admitted',False),
++                closed=getattr(x,'closed',False)) for x in self._commits],
+             publications=[dict(kind=x.kind,operation_id=x.operation_id,payload_digest=x.digest,
+                 revision=x.revision,state=x.state,resolved=x.resolved,query_attempted=x.query_attempted,
+                 readback_ns=x.readback_ns,deadline_ns=x.deadline_ns,

@@ -1,0 +1,12 @@
+{
+  "command": [
+    "python",
+    "verify_static.py",
+    "."
+  ],
+  "exit_code": 0,
+  "timeout_seconds": 30,
+  "scope": "packaging bytes / static AST only",
+  "local_function_exit_code": null,
+  "runtime_exit_code": null
+}

@@ -1,0 +1,35 @@
+{
+  "source_approved": false,
+  "open_findings": [
+    {
+      "id": "C38-R1",
+      "priority": 2,
+      "kind": "static acceptance-layer association defect",
+      "status": "OPEN",
+      "runtime": "e794de598a40c11cefb372813aa950f58f03007a",
+      "title": "Getter admission survives replacement of its checked readback",
+      "locations": [
+        "original_world_actor_link.py:403-434",
+        "_world_loop.py:440-458",
+        "_world_loop.py:623-636"
+      ],
+      "direct_boundary_evidence": [
+        "_world_wire.py:116",
+        "_world_wire.py:129-142",
+        "_world_wire.py:269-280",
+        "_owned_godot.py:284-294"
+      ],
+      "runtime_reproduced": false,
+      "production_occurrence_claimed": false,
+      "candidate_tests_executed": 0,
+      "minimal_gate": "Bind admission to exact original readback frame/payload and reject or invalidate/recheck replacements before closure/source use; no timestamp renewal by unclassified duplicates."
+    }
+  ],
+  "interface_constraints": [
+    "Do not crop closed_span.through==reserve.lower into strict less-than evidence",
+    "Exported schema3 current_pose_interval has no pose/read; separate original getter required",
+    "Nonspatial Root lineage does not increment pose revision or establish a movement",
+    "Returned receipt and numerical effect/publication/completion remain distinct"
+  ],
+  "formal_acceptance": false
+}

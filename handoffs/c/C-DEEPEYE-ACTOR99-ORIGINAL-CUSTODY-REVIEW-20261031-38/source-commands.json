@@ -1,0 +1,257 @@
+{
+  "kind": "derived_public_safe_source_command_summary",
+  "commands": [
+    {
+      "ref": "d9716760b15cd84c6b60442a9d9368fdcd0e46fa",
+      "path": "competition/deepeye/simulation/authority/_world_loop.py",
+      "argv": [
+        "gh",
+        "api",
+        "repos/carolwjade/CarlandFPGA/contents/competition/deepeye/simulation/authority/_world_loop.py?ref=d9716760b15cd84c6b60442a9d9368fdcd0e46fa"
+      ],
+      "exit_code": 0,
+      "provenance": "original reviewer GET command; exit observed; raw API retained privately"
+    },
+    {
+      "ref": "d9716760b15cd84c6b60442a9d9368fdcd0e46fa",
+      "path": "competition/deepeye/simulation/authority/actor_composition.py",
+      "argv": [
+        "gh",
+        "api",
+        "repos/carolwjade/CarlandFPGA/contents/competition/deepeye/simulation/authority/actor_composition.py?ref=d9716760b15cd84c6b60442a9d9368fdcd0e46fa"
+      ],
+      "exit_code": 0,
+      "provenance": "original reviewer GET command; exit observed; raw API retained privately"
+    },
+    {
+      "ref": "d9716760b15cd84c6b60442a9d9368fdcd0e46fa",
+      "path": "competition/deepeye/simulation/authority/motion_executor.py",
+      "argv": [
+        "gh",
+        "api",
+        "repos/carolwjade/CarlandFPGA/contents/competition/deepeye/simulation/authority/motion_executor.py?ref=d9716760b15cd84c6b60442a9d9368fdcd0e46fa"
+      ],
+      "exit_code": 0,
+      "provenance": "original reviewer GET command; exit observed; raw API retained privately"
+    },
+    {
+      "ref": "d9716760b15cd84c6b60442a9d9368fdcd0e46fa",
+      "path": "competition/deepeye/simulation/authority/original_world_actor_link.py",
+      "argv": [
+        "gh",
+        "api",
+        "repos/carolwjade/CarlandFPGA/contents/competition/deepeye/simulation/authority/original_world_actor_link.py?ref=d9716760b15cd84c6b60442a9d9368fdcd0e46fa"
+      ],
+      "exit_code": 0,
+      "provenance": "original reviewer GET command; exit observed; raw API retained privately"
+    },
+    {
+      "ref": "d9716760b15cd84c6b60442a9d9368fdcd0e46fa",
+      "path": "competition/deepeye/simulation/authority/root_source_book.py",
+      "argv": [
+        "gh",
+        "api",
+        "repos/carolwjade/CarlandFPGA/contents/competition/deepeye/simulation/authority/root_source_book.py?ref=d9716760b15cd84c6b60442a9d9368fdcd0e46fa"
+      ],
+      "exit_code": 0,
+      "provenance": "original reviewer GET command; exit observed; raw API retained privately"
+    },
+    {
+      "ref": "e794de598a40c11cefb372813aa950f58f03007a",
+      "path": "competition/deepeye/simulation/authority/_actor_source_custody.py",
+      "argv": [
+        "gh",
+        "api",
+        "repos/carolwjade/CarlandFPGA/contents/competition/deepeye/simulation/authority/_actor_source_custody.py?ref=e794de598a40c11cefb372813aa950f58f03007a"
+      ],
+      "exit_code": null,
+      "provenance": "reconstructed public-safe GET equivalent for main-supplied cached API bytes; no new reviewer GET; do not infer a raw GET exit from this row"
+    },
+    {
+      "ref": "e794de598a40c11cefb372813aa950f58f03007a",
+      "path": "competition/deepeye/simulation/authority/_native_pose_error_bound.py",
+      "argv": [
+        "gh",
+        "api",
+        "repos/carolwjade/CarlandFPGA/contents/competition/deepeye/simulation/authority/_native_pose_error_bound.py?ref=e794de598a40c11cefb372813aa950f58f03007a"
+      ],
+      "exit_code": 0,
+      "provenance": "original reviewer GET command; exit observed; raw API retained privately"
+    },
+    {
+      "ref": "e794de598a40c11cefb372813aa950f58f03007a",
+      "path": "competition/deepeye/simulation/authority/_owned_godot.py",
+      "argv": [
+        "gh",
+        "api",
+        "repos/carolwjade/CarlandFPGA/contents/competition/deepeye/simulation/authority/_owned_godot.py?ref=e794de598a40c11cefb372813aa950f58f03007a"
+      ],
+      "exit_code": 0,
+      "provenance": "original reviewer GET command; exit observed; raw API retained privately"
+    },
+    {
+      "ref": "e794de598a40c11cefb372813aa950f58f03007a",
+      "path": "competition/deepeye/simulation/authority/_world_loop.py",
+      "argv": [
+        "gh",
+        "api",
+        "repos/carolwjade/CarlandFPGA/contents/competition/deepeye/simulation/authority/_world_loop.py?ref=e794de598a40c11cefb372813aa950f58f03007a"
+      ],
+      "exit_code": null,
+      "provenance": "reconstructed public-safe GET equivalent for main-supplied cached API bytes; no new reviewer GET; do not infer a raw GET exit from this row"
+    },
+    {
+      "ref": "e794de598a40c11cefb372813aa950f58f03007a",
+      "path": "competition/deepeye/simulation/authority/_world_values.py",
+      "argv": [
+        "gh",
+        "api",
+        "repos/carolwjade/CarlandFPGA/contents/competition/deepeye/simulation/authority/_world_values.py?ref=e794de598a40c11cefb372813aa950f58f03007a"
+      ],
+      "exit_code": 0,
+      "provenance": "original reviewer GET command; exit observed; raw API retained privately"
+    },
+    {
+      "ref": "e794de598a40c11cefb372813aa950f58f03007a",
+      "path": "competition/deepeye/simulation/authority/_world_wire.py",
+      "argv": [
+        "gh",
+        "api",
+        "repos/carolwjade/CarlandFPGA/contents/competition/deepeye/simulation/authority/_world_wire.py?ref=e794de598a40c11cefb372813aa950f58f03007a"
+      ],
+      "exit_code": 0,
+      "provenance": "original reviewer GET command; exit observed; raw API retained privately"
+    },
+    {
+      "ref": "e794de598a40c11cefb372813aa950f58f03007a",
+      "path": "competition/deepeye/simulation/authority/actor_composition.py",
+      "argv": [
+        "gh",
+        "api",
+        "repos/carolwjade/CarlandFPGA/contents/competition/deepeye/simulation/authority/actor_composition.py?ref=e794de598a40c11cefb372813aa950f58f03007a"
+      ],
+      "exit_code": null,
+      "provenance": "reconstructed public-safe GET equivalent for main-supplied cached API bytes; no new reviewer GET; do not infer a raw GET exit from this row"
+    },
+    {
+      "ref": "e794de598a40c11cefb372813aa950f58f03007a",
+      "path": "competition/deepeye/tools/diagnostic/causal_pl_exchange.py",
+      "argv": [
+        "gh",
+        "api",
+        "repos/carolwjade/CarlandFPGA/contents/competition/deepeye/tools/diagnostic/causal_pl_exchange.py?ref=e794de598a40c11cefb372813aa950f58f03007a"
+      ],
+      "exit_code": 0,
+      "provenance": "original reviewer GET command; exit observed; raw API retained privately"
+    },
+    {
+      "ref": "e794de598a40c11cefb372813aa950f58f03007a",
+      "path": "competition/deepeye/simulation/authority/motion_executor.py",
+      "argv": [
+        "gh",
+        "api",
+        "repos/carolwjade/CarlandFPGA/contents/competition/deepeye/simulation/authority/motion_executor.py?ref=e794de598a40c11cefb372813aa950f58f03007a"
+      ],
+      "exit_code": null,
+      "provenance": "reconstructed public-safe GET equivalent for main-supplied cached API bytes; no new reviewer GET; do not infer a raw GET exit from this row"
+    },
+    {
+      "ref": "e794de598a40c11cefb372813aa950f58f03007a",
+      "path": "competition/deepeye/docs/original_actor_source_chain.md",
+      "argv": [
+        "gh",
+        "api",
+        "repos/carolwjade/CarlandFPGA/contents/competition/deepeye/docs/original_actor_source_chain.md?ref=e794de598a40c11cefb372813aa950f58f03007a"
+      ],
+      "exit_code": null,
+      "provenance": "reconstructed public-safe GET equivalent for main-supplied cached API bytes; no new reviewer GET; do not infer a raw GET exit from this row"
+    },
+    {
+      "ref": "e794de598a40c11cefb372813aa950f58f03007a",
+      "path": "competition/deepeye/simulation/authority/original_world_actor_link.py",
+      "argv": [
+        "gh",
+        "api",
+        "repos/carolwjade/CarlandFPGA/contents/competition/deepeye/simulation/authority/original_world_actor_link.py?ref=e794de598a40c11cefb372813aa950f58f03007a"
+      ],
+      "exit_code": null,
+      "provenance": "reconstructed public-safe GET equivalent for main-supplied cached API bytes; no new reviewer GET; do not infer a raw GET exit from this row"
+    },
+    {
+      "ref": "e794de598a40c11cefb372813aa950f58f03007a",
+      "path": "competition/deepeye/simulation/authority/pc_direct_runtime.py",
+      "argv": [
+        "gh",
+        "api",
+        "repos/carolwjade/CarlandFPGA/contents/competition/deepeye/simulation/authority/pc_direct_runtime.py?ref=e794de598a40c11cefb372813aa950f58f03007a"
+      ],
+      "exit_code": 0,
+      "provenance": "original reviewer GET command; exit observed; raw API retained privately"
+    },
+    {
+      "ref": "e794de598a40c11cefb372813aa950f58f03007a",
+      "path": "competition/deepeye/simulation/authority/root_source_book.py",
+      "argv": [
+        "gh",
+        "api",
+        "repos/carolwjade/CarlandFPGA/contents/competition/deepeye/simulation/authority/root_source_book.py?ref=e794de598a40c11cefb372813aa950f58f03007a"
+      ],
+      "exit_code": null,
+      "provenance": "reconstructed public-safe GET equivalent for main-supplied cached API bytes; no new reviewer GET; do not infer a raw GET exit from this row"
+    },
+    {
+      "ref": "e794de598a40c11cefb372813aa950f58f03007a",
+      "path": "competition/deepeye/simulation/authority/root_world_service.py",
+      "argv": [
+        "gh",
+        "api",
+        "repos/carolwjade/CarlandFPGA/contents/competition/deepeye/simulation/authority/root_world_service.py?ref=e794de598a40c11cefb372813aa950f58f03007a"
+      ],
+      "exit_code": 0,
+      "provenance": "original reviewer GET command; exit observed; raw API retained privately"
+    },
+    {
+      "ref": "e794de598a40c11cefb372813aa950f58f03007a",
+      "path": "competition/deepeye/tests/integration/test_actor_source_custody.py",
+      "argv": [
+        "gh",
+        "api",
+        "repos/carolwjade/CarlandFPGA/contents/competition/deepeye/tests/integration/test_actor_source_custody.py?ref=e794de598a40c11cefb372813aa950f58f03007a"
+      ],
+      "exit_code": null,
+      "provenance": "reconstructed public-safe GET equivalent for main-supplied cached API bytes; no new reviewer GET; do not infer a raw GET exit from this row"
+    },
+    {
+      "ref": "e794de598a40c11cefb372813aa950f58f03007a",
+      "path": "competition/deepeye/tests/integration/test_original_commit_effect_witness.py",
+      "argv": [
+        "gh",
+        "api",
+        "repos/carolwjade/CarlandFPGA/contents/competition/deepeye/tests/integration/test_original_commit_effect_witness.py?ref=e794de598a40c11cefb372813aa950f58f03007a"
+      ],
+      "exit_code": null,
+      "provenance": "reconstructed public-safe GET equivalent for main-supplied cached API bytes; no new reviewer GET; do not infer a raw GET exit from this row"
+    }
+  ],
+  "new_fetches_this_packaging_phase": 0,
+  "original_review_command_summary": {
+    "main_audited_closed_native_calls": 31,
+    "main_audited_command_exits": 30,
+    "nonzero_command_exits": 3,
+    "nonzero_details": [
+      "rg memory lookup: exit 1, no match",
+      "PowerShell brace-glob parse error: exit 1",
+      "mistyped read path: exit 1"
+    ],
+    "other_read_warning": "An initial absent scope path was resolved to the pinned immutable source cache.",
+    "classification": "read/tooling errors retained privately; not product test failures"
+  },
+  "local_function": {
+    "status": "NOT_RUN",
+    "exit_code": null
+  },
+  "runtime": {
+    "status": "NOT_RUN",
+    "exit_code": null
+  }
+}

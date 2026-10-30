@@ -1,0 +1,102 @@
+{
+  "task_id": "DEEPEYE-IMPLEMENTATION-20261014",
+  "task_version": 1,
+  "work_id": "C36-C37-COMMON-ABI-FREEZE-v1",
+  "created_utc": "2026-10-30T18:00:31.321978+00:00",
+  "status": "FROZEN_FOR_DEFAULT_OFF_IMPLEMENTATION_NOT_PRODUCTION_ACCEPTANCE",
+  "A_routing_comment": 6529189721,
+  "A_source_commit": "e794de598a40c11cefb372813aa950f58f03007a",
+  "contract_id": "DEEPEYE-HUMAN-LOCK-20261014",
+  "contract_revision": 1,
+  "contract_source": "f5989cd5defce561f9ba98e6b18fc2682945f0a2",
+  "requirements_sha256": "c229834bfc2292f5fe4411fc9f12c68487008f9d1adaf31f0144ee7a98173804",
+  "fixed_design": "1011259415a0916054eb580687612580bc1e5f09",
+  "core_sha256": "70b317681fee8c9182c342fe8d2f94eaecc957c62231a74a080d213bb5e0eab4",
+  "pins": [
+    {
+      "path": "handoffs/c/C-DEEPEYE-MOVING-INTERVAL-BOOK-BRIDGE-20261031-36/abi-v1/ABI.md",
+      "bytes": 19028,
+      "sha256": "640ae9b54a30bdeaa9013245cac0364b427e35e113c462af9af112f7a8987114"
+    },
+    {
+      "path": "handoffs/c/C-DEEPEYE-MOVING-INTERVAL-BOOK-BRIDGE-20261031-36/abi-v1/field-contract.json",
+      "bytes": 5451,
+      "sha256": "c51c734ee05f7d57c43dc50a4c1e1e0f97deea3735365a6a5cfeb76e707bb01e"
+    },
+    {
+      "path": "handoffs/c/C-DEEPEYE-MOVING-INTERVAL-BOOK-BRIDGE-20261031-36/abi-v1/public-view.schema.json",
+      "bytes": 4766,
+      "sha256": "046b863c6bc07bbaa5396c5b7dfc55fb1febf7bbd0bda29ef79cbd5119f981ed"
+    },
+    {
+      "path": "handoffs/c/C-DEEPEYE-MOVING-INTERVAL-BOOK-BRIDGE-20261031-36/abi-v1/request.schema.json",
+      "bytes": 68986,
+      "sha256": "360b0b1d8115d5fdebee9f62137f49b50641bdcd71a3db41694b89de89848da6"
+    },
+    {
+      "path": "handoffs/c/C-DEEPEYE-OWNED-C28-CPU-PACKAGE-20261031-37/abi-v1/ABI.md",
+      "bytes": 13763,
+      "sha256": "4533dbde76e1f13b0e7075e398d3749da19a066e7281d64e87a7f73667badb66"
+    }
+  ],
+  "decisions": {
+    "host_entry": "project_interval_json(full_proof: bytes) -> bytes",
+    "host_core_calls": 0,
+    "host_max_json_bytes": 1048576,
+    "public_view": "c36_c28_public_view_v1",
+    "public_exact_keys": [
+      "schema_version",
+      "projection_id",
+      "enabled",
+      "now_qpc_ns",
+      "pose",
+      "goal_m",
+      "observation",
+      "history",
+      "executed_actions"
+    ],
+    "projected_enabled": "required strict bool; no insertion",
+    "outer_enabled": "optional strict bool defaults false; must equal projected enabled",
+    "outer_keys": [
+      "abi",
+      "kind",
+      "echo_ids",
+      "enabled",
+      "input"
+    ],
+    "outer_abi": "c37-owned-cpu-package/v1",
+    "outer_kind": "recommend",
+    "request_total_max": 16384,
+    "request_json_max": 16380,
+    "frame_prefix": "4-byte little endian length",
+    "read_chunk_max": 8192,
+    "combined_history_candidate_actions_max": 32,
+    "child_core_calls": 1,
+    "core_seam": "unchanged recommend.__code__, shallow copied original globals, exactly _validate replacement in private scope; no shared mutation and no numerical helper replacements",
+    "time": "uint63 original host QPC nanoseconds -> exact Fraction(ns,1000000) internal only; no rounded/rebased tick or fabricated action.at; output restores original QPC values; first protocol emits no child timestamps",
+    "first_invocation_count": 1,
+    "future_serial_max_proposed": 16,
+    "future_serial_enabled": false,
+    "ready": "native inherited event signals initialization; no unsolicited stdout; one request-correlated READY then RESULT",
+    "output_ready_payload_max": 2048,
+    "output_result_payload_max": 16384,
+    "total_output_max": 18440,
+    "max_reads": 64,
+    "actor_cleanup_output_limit_max": 8192,
+    "runtime": "staged exact executable/files/dependency manifest, no ambient dynamic plugin path; do not claim complete closure if unavailable"
+  },
+  "mandatory_semantic_gates": [
+    "All supplied decidable malformed/contradictory evidence checked even if disabled/missing/stale elsewhere",
+    "Preserve entire source admission prefix and actual spans; no truncation or minus1ns, BOOT/COMMAND strict equality boundary remains unavailable",
+    "Full original proof and actual request/process/package/pipe/one-use transcript/timing/candidate association retained in A owner/provider; JSON bool/hash/echo not authentication",
+    "Original current read cannot be fabricated from span; missing original external/current/capture/admission/BOOT means host no dispatch and no completion",
+    "No literal original C28 recommend_json compatibility claim; separately named new compact ABI and scoped validator seam",
+    "Host rechecks actual elapsed dispatch/read/completion freshness before accepting; projection-time freshness not enough",
+    "C38-R1 open and original production channels unavailable; code remains default off, no A actor/native/board execution",
+    "Do not silently expand schema or weaken crosschecks when implementation encounters missing facts; report exact gap and preserve safe unavailable"
+  ],
+  "evidence_scope": "new bounded changed-path software controls only; no oldgroups/PDE/modeltraining/native/board; all versioned failures and logs preserved",
+  "formal_acceptance": false,
+  "replacement_host_schema": "request.schema.json includes original-read/source-bin/ADC addendum1",
+  "A_host_four_files_unchanged_at_e794": true
+}

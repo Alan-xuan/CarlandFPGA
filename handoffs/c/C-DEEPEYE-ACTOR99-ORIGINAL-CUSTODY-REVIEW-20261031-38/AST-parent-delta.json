@@ -1,0 +1,62 @@
+{
+  "actor_composition.py": {
+    "changed": [
+      "_entry",
+      "_entry.call"
+    ],
+    "added": [],
+    "removed": []
+  },
+  "motion_executor.py": {
+    "changed": [
+      "OwnedMotionExecutor",
+      "OwnedMotionExecutor._commit_numeric"
+    ],
+    "added": [],
+    "removed": [],
+    "final_callback_through_return_AST_identical": true
+  },
+  "original_world_actor_link.py": {
+    "changed": [
+      "_OriginalWorldActorLink",
+      "_OriginalWorldActorLink.__init__",
+      "_OriginalWorldActorLink._registered",
+      "_OriginalWorldActorLink._claim",
+      "_OriginalWorldActorLink._ready",
+      "_commit_once",
+      "_publish_once"
+    ],
+    "added": [
+      "_OriginalCommitWitness",
+      "_OriginalCommitWitness.__init__",
+      "_candidate_effect_observation",
+      "_progress_actor_commit",
+      "_readback_endpoint_bound",
+      "_stage_original_commit_witness"
+    ],
+    "removed": []
+  },
+  "root_source_book.py": {
+    "changed": [
+      "_SourceBookCore",
+      "_SourceBookCore.__init__",
+      "_SourceBookCore._check",
+      "_SourceBookCore.finish_sample",
+      "_SourceBookCore.evidence"
+    ],
+    "added": [],
+    "removed": []
+  },
+  "_world_loop.py": {
+    "changed": [
+      "_RootWorldOwner",
+      "_RootWorldOwner.require_source_pose_current",
+      "_RootWorldOwner.evidence"
+    ],
+    "added": [
+      "_RootWorldOwner.actor_source_book",
+      "_RootWorldOwner.progress_actor_commit"
+    ],
+    "removed": []
+  }
+}

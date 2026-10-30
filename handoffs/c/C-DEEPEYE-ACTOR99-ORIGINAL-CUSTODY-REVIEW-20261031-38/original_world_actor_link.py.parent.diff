@@ -1,0 +1,349 @@
+--- d9716760b15cd84c6b60442a9d9368fdcd0e46fa/original_world_actor_link.py
++++ e794de598a40c11cefb372813aa950f58f03007a/original_world_actor_link.py
+@@ -24,11 +24,12 @@
+         self.claimed = False
+         self.composition = None
+         self.slot = None
++        self.book = None
+         self.getter_admitted = False
+         self.generation = owner._veto_generation
+         self.deadline = service._deadline_ns
+ 
+-    def _registered(self):
++    def _registered(self, *, _pending_slot=None):
+         o = self.owner
+         if (type(self) is not _OriginalWorldActorLink or type(o) is not world._RootWorldOwner
+                 or not any(o is x for x in world._RETAINED)
+@@ -60,15 +61,25 @@
+                 or self.source._thread != self.thread
+                 or self.source.state not in ('NEW', 'RUNNING')
+                 or (self.source.state == 'RUNNING' and self.source._clock is not self.clock)
+-                or o._publication is None or not o._publication.resolved
+-                or o._publication.state != 'APPLIED'):
++                or o._publication is None):
+             raise world.WorldRejected('original world action association changed')
++        if _pending_slot is None:
++            if not o._publication.resolved or o._publication.state != 'APPLIED':
++                raise world.WorldRejected('original applied publication required')
++        elif (_pending_slot is not self.slot or type(_pending_slot) is not world._Commit
++                or not _pending_slot.committed or _pending_slot.uncertainty is not None
++                or _pending_slot.publication is not o._publication
++                or _pending_slot.binding is not self.binding
++                or not any(_pending_slot is s for s in o._commits)):
++            raise world.WorldRejected('exact retained pending publication required')
+         return o
+ 
+     def _claim(self, config, clock):
+         self._registered()
+         b = self.binding
+         if (self.claimed or clock is not self.clock
++                or self.book is None or self.source._source_book is not self.book
++                or self.book._actor_custody is None
+                 or config.initial_state is not b.world_values.initial_state
+                 or config.scene is not b.world_values.scene
+                 or config.model is not b.world_values.model
+@@ -87,7 +98,8 @@
+                 or o._native_observation.alive is not True
+                 or o._status is None or o._status['identity'] != self.epoch.identity
+                 or o._status['state'] not in ('FROZEN', 'BOUND_STOPPED')
+-                or (self.slot is not None and (self.slot.committed or self.slot.uncertainty is not None))):
++                or (self.slot is not None and (self.slot.uncertainty is not None
++                    or (self.slot.committed and not getattr(self.slot, 'closed', False))))):
+             raise world.WorldRejected('original running source/action slot required')
+ 
+ 
+@@ -109,6 +121,86 @@
+ 
+ 
+ 
++class _OriginalCommitWitness:
++    """One fixed link's preallocated records, never a grant or returned receipt."""
++    __slots__ = ('link', 'composition', 'slot', 'before_root', 'prepared',
++                 'candidate_root', 'frame', 'allocated_receipt', 'consumed', 'staged')
++
++    def __init__(self, key, link, composition, slot, root, prepared):
++        if key is not _KEY or type(link) is not _OriginalWorldActorLink:
++            raise world.WorldRejected('original world witness issue path required')
++        self.link, self.composition, self.slot = link, composition, slot
++        self.before_root, self.prepared = root, prepared
++        self.candidate_root = self.frame = self.allocated_receipt = None
++        self.consumed = self.staged = False
++
++
++def _stage_original_commit_witness(executor, prepared, root, candidate, frame, receipt):
++    """Fixed executor hook BEFORE its final callback; no caller callback seam."""
++    witness = getattr(executor, '_original_world_witness', None)
++    if witness is None:
++        return
++    if type(witness) is not _OriginalCommitWitness or witness.consumed:
++        raise world.WorldRejected('exact original one-use world witness required')
++    witness.consumed = True
++    link, composition, slot = witness.link, witness.composition, witness.slot
++    if type(link) is not _OriginalWorldActorLink:
++        raise world.WorldRejected('original registered link required')
++    link._ready(composition)
++    if (executor is not link.executor or composition._world_action_link is not link
++            or composition._executor is not executor or not composition._busy
++            or composition._runtime._stepping is not True
++            or link.slot is not slot or not any(slot is x for x in link.owner._commits)
++            or slot.pre_root is not root or witness.before_root is not root
++            or witness.prepared is not prepared or prepared.root is not root
++            or executor._root is not root or executor._busy is not True
++            or type(candidate) is not world.motion._Root
++            or type(frame) is not world.motion._CommitFrame or candidate.frame is not frame
++            or type(receipt) is not CommitReceipt
++            or candidate.revision != root.revision+1
++            or candidate.pose_revision != root.pose_revision+1
++            or candidate.revoke_generation != root.revoke_generation
++            or candidate.boot is not root.boot or candidate.command is not root.command
++            or receipt.boot is not root.boot or receipt.command_seq != root.command.sequence
++            or receipt.pose_revision != candidate.pose_revision):
++        raise world.WorldRejected('original prepared/candidate/receipt association required')
++    witness.candidate_root, witness.frame, witness.allocated_receipt = candidate, frame, receipt
++    witness.staged = True
++
++
++def _candidate_effect_observation(before, candidate, current):
++    """Classify a pointer observation, not authentication or an exact CAS time.
++
++    The live caller reads its original executor under sole-writer/no-ABA custody.
++    A preallocated candidate alone proves nothing. Private mutation is outside
++    that audited convention; these records are not an OS security boundary.
++    """
++    if (type(before) is not world.motion._Root
++            or type(candidate) is not world.motion._Root
++            or type(current) is not world.motion._Root
++            or type(candidate.frame) is not world.motion._CommitFrame):
++        return 'unclassified_root'
++    if current is before:
++        return 'candidate_not_observed'
++    if (candidate.revision != before.revision+1
++            or candidate.pose_revision != before.pose_revision+1
++            or candidate.revoke_generation != before.revoke_generation):
++        return 'unclassified_root'
++    if current is candidate:
++        return 'candidate_root_current'
++    if (current.revision == candidate.revision+1
++            and current.revoke_generation == candidate.revoke_generation+1
++            and current.pose is candidate.pose
++            and current.pose_revision == candidate.pose_revision
++            and current.frame is candidate.frame and current.phase is candidate.phase
++            and current.boot is candidate.boot and current.command is None
++            and current.stopped is True
++            and current.trial_failed is candidate.trial_failed
++            and current.executed_until_ns == candidate.executed_until_ns):
++        return 'candidate_frame_retained_by_revoke'
++    return 'unclassified_root'
++
++
+ def _commit_once(link, composition, prepared, before_commit):
+     """Reserve before CAS; retain the original receipt before runtime resumes."""
+     link._ready(composition)
+@@ -124,15 +216,28 @@
+     if (executor._root is not root or composition._runtime._command is not runtime_command
+             or root.command is not command):
+         raise world.WorldRejected('original command/root changed during world poll')
++    if getattr(executor, '_original_world_witness', None) is not None:
++        raise world.WorldRejected('another original world witness is pending')
++    if link.book is None or link.book._actor_custody is None:
++        raise world.WorldRejected('original actor source recorder required')
+     slot = world._Commit(link.binding, command.raw, command.issue_ns,
+                          min(command.deadline_ns, link.deadline))
+     slot.dt_ns = prepared.relative.duration_ns
+     slot.pre_root = root
++    slot.closed = slot.getter_admitted = False
++    slot.completion_observed_qpc_ns = None
+     slot.publication_attempted = False
+-    link.slot = slot
+-    o._commits.append(slot)  # Reserved before the executor critical section and CAS.
++    slot.pre_cas_qpc_ns = slot.post_cas_observed_qpc_ns = None
++    slot.effect_observation = 'candidate_not_observed'
++    witness = _OriginalCommitWitness(_KEY, link, composition, slot, root, prepared)
++    slot.original_witness = witness
+     generation, actor_generation = o._veto_generation, composition._veto
++    book_transition = link.book._actor_custody.reserve(composition, 'STEP')
++    slot.book_transition = book_transition
+     try:
++        link.slot = slot
++        o._commits.append(slot)  # Retained before the executor critical section and CAS.
++        executor._original_world_witness = witness
+         def pure_check():
+             if (o._actor_links.get(id(link)) is not link or o._actor_link is not link
+                     or o._binding is not link.binding or o._epoch is not link.epoch
+@@ -143,6 +248,9 @@
+                     or composition._foreign.is_set() or composition._retired
+                     or composition._veto != actor_generation
+                     or link.slot is not slot or executor._root is not root
++                    or link.book._actor_custody.pending is not book_transition
++                    or link.source._source_book is not link.book
++                    or executor._original_world_witness is not witness
+                     or link.source.state != 'RUNNING' or link.source._clock is not link.clock
+                     or link.source._polling or link.source._pose_reader is not link.pose_reader
+                     or link.source._sampler is not link.sampler or link.source._profile is not link.profile
+@@ -163,7 +271,13 @@
+             pure_check()
+             fence = before_commit()
+             pure_check()
+-            return _check_final(link, command, slot, fence)
++            fence = _check_final(link, command, slot, fence)
++            if fence.checked_ns <= book_transition.lower:
++                raise world.WorldRejected('distinct actual pre-transition and final QPC observations required')
++            # This is the original runtime's real QPC observation, a lower
++            # bound before CAS; it is not an exact pointer-swap timestamp.
++            slot.pre_cas_qpc_ns = fence.checked_ns
++            return fence
+         receipt = executor.commit_step(prepared, final)
+         slot.receipt = receipt  # Preserve the exact return before any subsequent check.
+         slot.post_root = executor._root
+@@ -172,19 +286,45 @@
+             raise world.WorldRejected('original CommitReceipt required')
+         slot.committed = True
+         slot.frame = slot.post_root.frame
++        slot.effect_observation = _candidate_effect_observation(root, witness.candidate_root, slot.post_root)
++        if (not witness.staged or slot.post_root is not witness.candidate_root
++                or slot.frame is not witness.frame or receipt is not witness.allocated_receipt):
++            slot.uncertainty = 'returned receipt differs from original staged candidate'
++            raise world.WorldRejected('exact original candidate effect required')
++        # Retain the real return/effect before sampling; clock failure cannot
++        # relabel the already returned numerical receipt as no side effect.
++        post = link.clock()
++        if (type(post) is not int or not 0 <= post <= (1 << 63)-1
++                or slot.pre_cas_qpc_ns is None or post < slot.pre_cas_qpc_ns):
++            slot.uncertainty = 'original post-CAS observation unavailable or reversed'
++            raise world.WorldRejected('original same-domain CAS bracket required')
++        slot.post_cas_observed_qpc_ns = post
+         slot.view = world.motion.RendererView(slot.post_root.pose, slot.post_root.pose_revision)
+         slot.deadline_ns = min(slot.deadline_ns, slot.frame.fence.deadline_ns)
+         return receipt
+     except BaseException:
+-        if not slot.committed and executor._root is not root:
+-            slot.uncertainty = 'root changed without returned receipt'
++        current = executor._root
++        slot.effect_observation = _candidate_effect_observation(root, witness.candidate_root, current)
++        if not slot.committed and current is not root:
++            slot.uncertainty = ('observed candidate effect without returned receipt'
++                if slot.effect_observation in ('candidate_root_current', 'candidate_frame_retained_by_revoke')
++                else 'root changed without returned receipt')
++        elif slot.committed and slot.uncertainty is None:
++            slot.uncertainty = 'failure after returned original numerical receipt'
++        link.book._actor_custody.abort(book_transition, 'original numerical step failed')
+         raise
++    finally:
++        if getattr(executor, '_original_world_witness', None) is witness:
++            executor._original_world_witness = None
+ 
+ 
+ def _publish_once(owner, link):
+     if (type(link) is not _OriginalWorldActorLink or link.owner is not owner
+             or owner._actor_links.get(id(link)) is not link or owner._actor_link is not link
+             or link.slot is None or not link.slot.committed or link.slot.receipt is None
++            or link.slot.uncertainty is not None
++            or getattr(link.slot, 'pre_cas_qpc_ns', None) is None
++            or getattr(link.slot, 'post_cas_observed_qpc_ns', None) is None
+             or link.slot.publication_attempted or link.slot.publication is not None
+             or owner._binding is not link.binding or owner._epoch is not link.epoch
+             or link.epoch.identity != link.freeze_identity
+@@ -203,8 +343,103 @@
+         command_sha256=world._hash(slot.command_raw), command_seq=receipt.command_seq,
+         pose_revision=receipt.pose_revision, start_ns=receipt.start_ns, end_ns=receipt.end_ns,
+         deadline_ns=slot.deadline_ns, freeze_id=link.epoch.identity['freeze_id'])))
++    slot.receipt_digest = digest
+     slot.publication = owner._publish(link.binding, 'PUBLISH_VIEW', slot.view, receipt_digest=digest)
+     return slot.publication
++
++
++def _readback_endpoint_bound(position, quaternion, transform, width, model, derivation):
++    """Exact endpoint arithmetic; caller separately proves original provenance."""
++    from fractions import Fraction as F
++    from . import _native_pose_error_bound as bounds
++    cap = derivation.getter_endpoint_cap_m
++    if (type(cap) is not F or cap <= 0
++            or derivation.numeric_m < derivation.policy_guard_m+cap
++            or derivation.asset_m < derivation.full_drill_containment_upper_m):
++        raise world.WorldRejected('positive preallocated endpoint budget required')
++    columns = tuple(tuple(bounds.decode_ieee(x, width) for x in col)
++                    for col in transform['basis_columns'])
++    origin = tuple(bounds.decode_ieee(x, width) for x in transform['origin'])
++    result = bounds.affine_body_bound(tuple(map(F, position)), tuple(map(F, quaternion)),
++        columns, origin, model.half_segment, model.radius, model.pivot_radius,
++        derivation.full_drill_containment_upper_m)
++    if not result.fits_cap(cap):
++        raise world.WorldRejected('actual endpoint exceeds frozen getter cap')
++    return result
++
++
++def _progress_actor_commit(link):
++    """Poll the original transport while source acquisition remains excluded.
++
++    Returns False while the real model interval has not elapsed. No wait,
++    resend, future clock or source polling occurs in this function.
++    """
++    if type(link) is not _OriginalWorldActorLink:
++        raise world.WorldRejected('original registered actor link required')
++    slot = link.slot
++    link._registered(_pending_slot=slot)
++    actor, owner = link.composition, link.owner
++    if (slot is None or getattr(slot, 'closed', False) or link.book is None
++            or link.book._actor_custody is None or actor is None
++            or actor._busy or actor._runtime._stepping or actor._retired
++            or actor._world_action_link is not link or slot.receipt is None):
++        raise world.WorldRejected('idle original actor and pending commit required')
++    try:
++        actor.poll()
++        link._registered(_pending_slot=slot)
++        owner.poll()  # Deliberately outside the source-gated RootWorldService.
++        link._registered(_pending_slot=slot)
++        pub, root = slot.publication, link.executor._root
++        if not pub.resolved:
++            return False
++        if (pub.state != 'APPLIED' or pub.readback is None or pub.readback_ns is None
++                or pub.readback_ns >= pub.deadline_ns or pub.epoch is not link.epoch
++                or pub.kind != 'PUBLISH_VIEW' or pub.revision != slot.receipt.pose_revision
++                or pub.revision != owner._renderer_revision or root is not slot.post_root
++                or slot.uncertainty is not None or actor._retired or actor._runtime._latched
++                or root.frame is not slot.original_witness.frame
++                or slot.effect_observation != 'candidate_root_current'):
++            raise world.WorldRejected('exact original APPLIED numerical endpoint required')
++        if not slot.getter_admitted:
++            doc = pub.readback.as_dict()
++            body = doc['body']
++            if (doc['type'] != 'VIEW_READBACK' or doc['run_id'] != link.native.run_id
++                    or body['publication_operation_id'] != pub.operation_id
++                    or body['payload_digest'] != pub.digest
++                    or body['freeze_identity'] != link.epoch.identity
++                    or body['drill_root_instance_id'] != link.epoch.identity['drill_root_instance_id']
++                    or body['state'] != 'APPLIED' or int(body['pose_revision']) != pub.revision
++                    or pub.message['body']['numerical_receipt_digest'] != slot.receipt_digest):
++                raise world.WorldRejected('original getter/publication association changed')
++            derivation = link.binding.world_values.budget_derivation
++            if derivation.source_pins_digest != link.epoch.model_policy_sha256:
++                raise world.WorldRejected('getter cap differs from frozen original policy')
++            width = owner._hello.as_dict()['body']['scalar_width']
++            model = link.binding.world_values.model
++            # Both actual local and global getters are checked. Asset expansion
++            # enters the bound radius once; it is not borrowed from the cap.
++            local = _readback_endpoint_bound(root.pose.position_m, root.pose.orientation_xyzw,
++                body['local_transform'], width, model, derivation)
++            global_bound = _readback_endpoint_bound(root.pose.position_m, root.pose.orientation_xyzw,
++                body['global_transform'], width, model, derivation)
++            slot.endpoint_bounds = (local, global_bound)
++            slot.getter_admitted = pub.getter_admitted = link.getter_admitted = True
++        now = link.clock()
++        world._integer(now)
++        if now >= slot.deadline_ns or now < slot.post_cas_observed_qpc_ns:
++            raise world.WorldRejected('actual action closure clock/deadline rejected')
++        if now < root.executed_until_ns:
++            return False
++        slot.completion_observed_qpc_ns = link.book._actor_custody.finish_step(slot)
++        slot.closed = True  # Last: the original book has accepted this successor.
++        owner.require_source_pose_current()
++        return True
++    except BaseException:
++        if slot.uncertainty is None:
++            slot.uncertainty = 'original publication/getter/completion closure failed'
++        link.book._actor_custody.abort(slot.book_transition, 'original action closure failed')
++        owner.stop('original_action_closure_failed')
++        raise
+ 
+ 
+ 
