@@ -1,0 +1,7 @@
+{
+  "R1_closed": true,
+  "source_approved": true,
+  "review_passed": true,
+  "open_findings": [],
+  "scope": "finite attachment presence/link availability only; no C36 validity/authentication/dispatch claim"
+}

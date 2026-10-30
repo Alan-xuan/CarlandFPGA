@@ -1,0 +1,382 @@
+{
+  "files": [
+    {
+      "path": "implementation-v1/focused-evidence.zip",
+      "bytes": 132928,
+      "sha256": "f5d747d7b5b31cec13e7534e8e02c6a84a1235731e66370417433e6f9e7a5ece"
+    },
+    {
+      "path": "implementation-v1/evidence-manifest.json",
+      "bytes": 6717,
+      "sha256": "d2e7db8e877fb2ff326b6c113d14c5784d3c1c47058f6c63a4e08c70fcf574f9"
+    },
+    {
+      "path": "implementation-v1/run-index.json",
+      "bytes": 7069,
+      "sha256": "c64977fbc94076778cbc02cfc71e3ef15882b316adb5cf1eb62525af31d01faf"
+    },
+    {
+      "path": "implementation-v1/implementation.diff",
+      "bytes": 23010,
+      "sha256": "4c97f5e5aaaa9ab919dc5c57453aa7f55a4c3896c8fe0ac0c28cb7071704af44"
+    },
+    {
+      "path": "repair-v1/focused-evidence.zip",
+      "bytes": 77187,
+      "sha256": "ddf4aaebe816d5e1b056836740be4835fcf55a8dd33d24be48e13857434c6662"
+    },
+    {
+      "path": "repair-v1/evidence-manifest.json",
+      "bytes": 5131,
+      "sha256": "f107f4566c416e92ea49971449125e44e90cdf1728ae275eb03ae2600165e9b0"
+    },
+    {
+      "path": "repair-v1/run-index.json",
+      "bytes": 2003,
+      "sha256": "a910d0d300073d902fdf7b9b613c2f59ef0ac5aa08d4c323bc87bde98f2a26e9"
+    },
+    {
+      "path": "repair-v1/API.md.diff",
+      "bytes": 3458,
+      "sha256": "90c60415d17553c39bccaf3b3e1c1f7e3b061445eb2e3d6446ddb42c613d82fe"
+    },
+    {
+      "path": "repair-v1/producer-attachments.json.diff",
+      "bytes": 669,
+      "sha256": "e78403b5e7014b94962e91d17a78bd718c218002878c717572a5ca1155ab134b"
+    },
+    {
+      "path": "repair-v1/proof_assembler.py.diff",
+      "bytes": 2153,
+      "sha256": "f79bfa0c60a0b600f838935566c6593df9dcb04cbb884a7a539b44bdda9c28ea"
+    },
+    {
+      "path": "repair-v1/README.md.diff",
+      "bytes": 3254,
+      "sha256": "fc6fabfd25a8cc9da37d5a57f917a3a9a8b9ea4298abc596a67211a4a357c81f"
+    },
+    {
+      "path": "repair-v2/focused-evidence.zip",
+      "bytes": 93798,
+      "sha256": "f0fe33693da76d1f775f1f37f0c8c8b749306de4235ba70882ab965dd26809e0"
+    },
+    {
+      "path": "repair-v2/evidence-manifest.json",
+      "bytes": 5546,
+      "sha256": "27db6d57b89e7739b1a4d3dc9c8522b057f1ae98d154cfad7158559f00ec3ddd"
+    },
+    {
+      "path": "repair-v2/run-index.json",
+      "bytes": 3071,
+      "sha256": "b34cbf1614f6e238ca070b68419bc5d6c8cda5dcf967e38a16f462eebbdcaad0"
+    },
+    {
+      "path": "repair-v2/API.md.diff",
+      "bytes": 4986,
+      "sha256": "6ee1acbf99b59cea56476042d2cc6c18dc729becd9531f30c34dfa3a027d5857"
+    },
+    {
+      "path": "repair-v2/producer-attachments.json.diff",
+      "bytes": 1688,
+      "sha256": "3854e4c455d58c20c653c7cac9b3d7b9aaeae6c528bc684fc9ff03e7eff7ca63"
+    },
+    {
+      "path": "repair-v2/proof_assembler.py.diff",
+      "bytes": 4502,
+      "sha256": "a418eed9df2a0df16f911644622ab0f8321a4370e66ff1a5a1ad6db3beef4b3c"
+    },
+    {
+      "path": "repair-v2/README.md.diff",
+      "bytes": 4992,
+      "sha256": "8270d69713b56df2fac179f3387c4e23925ac4f6b0d5c953b6f501136697c86c"
+    },
+    {
+      "path": "review-v1/FINDINGS.json",
+      "bytes": 1041,
+      "sha256": "3aba76963e106e030831c3ea605579fcc0a95374e3c4d4c5303cf5121fcd2bb9"
+    },
+    {
+      "path": "review-v1/fixture-provenance.json",
+      "bytes": 263,
+      "sha256": "ceed6edf403cec17948ce6f19d30c439231f963735054d7961966616db760986"
+    },
+    {
+      "path": "review-v1/independent_missing_checks.py",
+      "bytes": 2354,
+      "sha256": "1b5da31db40869f89df07da34b5c9c9e8466abb611268f1a67d0273a4621414b"
+    },
+    {
+      "path": "review-v1/new-schema-complete-fixture.json",
+      "bytes": 15528,
+      "sha256": "3b1edf386f377accd5e5d115998f80366609b5cf21b951baf64cfd572bd45906"
+    },
+    {
+      "path": "review-v1/new.command-exit.json",
+      "bytes": 860,
+      "sha256": "f431291b2ff47b16b1144809a604da0cdabd7721a4ea39fd1639c02a3bb6cb90"
+    },
+    {
+      "path": "review-v1/new.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "review-v1/new.stdout",
+      "bytes": 1718,
+      "sha256": "eac26f8528c4979230bf0ea7598413c122f2d621b2d33701e2ec90525e7867f2"
+    },
+    {
+      "path": "review-v1/REVIEW.md",
+      "bytes": 8257,
+      "sha256": "01f9f4a2bffcb99dc321821d56161b7b67eb2f003cef7780e33e1e601773cee1"
+    },
+    {
+      "path": "review-v1/new-evidence/missing-original-book-binding.input.json",
+      "bytes": 10493,
+      "sha256": "40872090da39eb39c1d802735daf0b79571cecaa51a617a58869c8d0b824c86a"
+    },
+    {
+      "path": "review-v1/new-evidence/missing-original-book-binding.output.json",
+      "bytes": 22153,
+      "sha256": "4afc70e093d36b68ea7a062e670f463ace409ab0fa8c13c47dd80c8451f8b305"
+    },
+    {
+      "path": "review-v1/new-evidence/missing-original-capture-wire.input.json",
+      "bytes": 9921,
+      "sha256": "97b16282cd38ecb132093f2f0016056acd8490060e2fc9d6cbfb9f2f4531f490"
+    },
+    {
+      "path": "review-v1/new-evidence/missing-original-capture-wire.output.json",
+      "bytes": 21009,
+      "sha256": "0bf7ca1bcae5368e25b0c3537b07c8c3ed43089f99ba916060be3cbc83b3f169"
+    },
+    {
+      "path": "review-v1/new-evidence/missing-original-owner-binding.input.json",
+      "bytes": 10492,
+      "sha256": "eadfc53296bc104b7e91cc6912f873e3146eae0985010a523d4268afe7fae862"
+    },
+    {
+      "path": "review-v1/new-evidence/missing-original-owner-binding.output.json",
+      "bytes": 22151,
+      "sha256": "9dbbd7281f68fbb85836f1d15eae76964de555241943c95c7e53f52b9c10dec6"
+    },
+    {
+      "path": "review-v1/new-evidence/missing-original-request-wire.input.json",
+      "bytes": 10001,
+      "sha256": "5e25f050f43d66f02f4fafdbd2dba8cbfba6245babfd09f112a2d94e44000dd9"
+    },
+    {
+      "path": "review-v1/new-evidence/missing-original-request-wire.output.json",
+      "bytes": 21169,
+      "sha256": "6d619848c5de4b5339835be4ce42ac886b1379d2fdc2e8d3ff0cb103a26a7bc6"
+    },
+    {
+      "path": "review-v1/new-evidence/new-schema-complete-assembly.input.json",
+      "bytes": 10499,
+      "sha256": "4ec1891a6c9ec922218b9c9821c4ee1710460920a048be69805511fde7a3e2d2"
+    },
+    {
+      "path": "review-v1/new-evidence/new-schema-complete-assembly.output.json",
+      "bytes": 22165,
+      "sha256": "e6d78e2068f2ce6c2377f36afd53c7c2f030938c336ab581453677d768a53476"
+    },
+    {
+      "path": "review-v1/new-evidence/results.json",
+      "bytes": 1963,
+      "sha256": "bd8372207dca53c6caf08b7594d961cab6b10a28ab960900d5203c7eedd859ac"
+    },
+    {
+      "path": "followup-review-v1/ast-delta.json",
+      "bytes": 334,
+      "sha256": "cf5b6931eb39d101417dd4bdcee58c5b0f772f423403568f8853715e3f898cd0"
+    },
+    {
+      "path": "followup-review-v1/checks.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "followup-review-v1/checks.stdout",
+      "bytes": 4827,
+      "sha256": "2e86ba67b68fa52aaf3afdc398f27d11d343687cd66198449577bf176c603c33"
+    },
+    {
+      "path": "followup-review-v1/command-exit.json",
+      "bytes": 1019,
+      "sha256": "9c77b8ba315bdfe5a2fe9eded4cfc7a48338fe9a0cc550b511e115923b03ed0a"
+    },
+    {
+      "path": "followup-review-v1/FINDINGS.json",
+      "bytes": 215,
+      "sha256": "e81a5f635aeda352516f7e3a2d0315b3986d24c1a779b2b35059831919a31f85"
+    },
+    {
+      "path": "followup-review-v1/implementation-v1--repair-v1.diff",
+      "bytes": 2115,
+      "sha256": "87e6d197e70ea8dff93ed0a4c34626a82ae3183ce954006cf421cdc0158b350d"
+    },
+    {
+      "path": "followup-review-v1/independent_followup_checks.py",
+      "bytes": 4742,
+      "sha256": "6dc013a96d3ef0de05998b014bfbba2410714625174132d01654a05f87543f06"
+    },
+    {
+      "path": "followup-review-v1/original-five-inputs.json",
+      "bytes": 56589,
+      "sha256": "95a2af827ebb57d5456ac60ca7b904994d13169ae6f3ee52b818a2bf73f824c0"
+    },
+    {
+      "path": "followup-review-v1/repair-v1--repair-v2.diff",
+      "bytes": 4464,
+      "sha256": "28802653e0c3346d766d84df1255872623f954c2b824c02286bb84989dd9461a"
+    },
+    {
+      "path": "followup-review-v1/REVIEW.md",
+      "bytes": 4702,
+      "sha256": "637c7566d9f64d5957d99be23314a638fc84da641b6e33329171ef3690851e28"
+    },
+    {
+      "path": "followup-review-v1/new-evidence/adc-independent-null-paths.input.json",
+      "bytes": 10372,
+      "sha256": "ac85f3d53293f92d202669f2a7a286c8c5fa9443345df88c18c42151e75cccd6"
+    },
+    {
+      "path": "followup-review-v1/new-evidence/adc-independent-null-paths.output.json",
+      "bytes": 11226,
+      "sha256": "a3e1c15ded40703b4c0f6b178da00f9a58cd7fdf814ffb224508f6a0166eebaf"
+    },
+    {
+      "path": "followup-review-v1/new-evidence/empty-prefix-and-selected-capture.input.json",
+      "bytes": 7540,
+      "sha256": "2c1f0ecafc647f1bb2d2c73d105a507d1a11d0984048c436c6dc759c6b43664c"
+    },
+    {
+      "path": "followup-review-v1/new-evidence/empty-prefix-and-selected-capture.output.json",
+      "bytes": 8340,
+      "sha256": "34a35826adfecd493df603fb1aa8737a34e109642a40bf202eb4dd8c386ea113"
+    },
+    {
+      "path": "followup-review-v1/new-evidence/history-em-needs-original-despite-candidate-null.input.json",
+      "bytes": 12528,
+      "sha256": "738e518e368bf90b9b79a3bfb27bf658c79747e2cdd7a9288b6bc452ebc42f92"
+    },
+    {
+      "path": "followup-review-v1/new-evidence/history-em-needs-original-despite-candidate-null.output.json",
+      "bytes": 13283,
+      "sha256": "d28cd0b9c512d383624f145480ca3d6546233ac54f3c1890b54a4a1c8be9c669"
+    },
+    {
+      "path": "followup-review-v1/new-evidence/missing-original-book-binding.input.json",
+      "bytes": 10493,
+      "sha256": "40872090da39eb39c1d802735daf0b79571cecaa51a617a58869c8d0b824c86a"
+    },
+    {
+      "path": "followup-review-v1/new-evidence/missing-original-book-binding.output.json",
+      "bytes": 11239,
+      "sha256": "219d533b6c3a2e4780c79e9b53eadb4390beec9debeed817f5fed32826a70140"
+    },
+    {
+      "path": "followup-review-v1/new-evidence/missing-original-capture-wire.input.json",
+      "bytes": 9921,
+      "sha256": "97b16282cd38ecb132093f2f0016056acd8490060e2fc9d6cbfb9f2f4531f490"
+    },
+    {
+      "path": "followup-review-v1/new-evidence/missing-original-capture-wire.output.json",
+      "bytes": 10671,
+      "sha256": "423a8fa3f584467624dc8a81871d1e907cf90dc066e161c7f92df26dcb51cd22"
+    },
+    {
+      "path": "followup-review-v1/new-evidence/missing-original-em-nested-call.input.json",
+      "bytes": 10434,
+      "sha256": "11a417ec8dc24446ffe02462d3bf7feae7399d56400bc33601ac8b6c3cc012c2"
+    },
+    {
+      "path": "followup-review-v1/new-evidence/missing-original-em-nested-call.output.json",
+      "bytes": 11206,
+      "sha256": "aae3bed26c038d88df313d489a70c4ed8acc9810fe80a4762fbeb0ca32fb5535"
+    },
+    {
+      "path": "followup-review-v1/new-evidence/missing-original-owner-binding.input.json",
+      "bytes": 10492,
+      "sha256": "eadfc53296bc104b7e91cc6912f873e3146eae0985010a523d4268afe7fae862"
+    },
+    {
+      "path": "followup-review-v1/new-evidence/missing-original-owner-binding.output.json",
+      "bytes": 11242,
+      "sha256": "14e6f3912de6bed35851d4e3f7a65e01368476c471c19aa8f566e7196702e548"
+    },
+    {
+      "path": "followup-review-v1/new-evidence/missing-original-request-wire.input.json",
+      "bytes": 10001,
+      "sha256": "5e25f050f43d66f02f4fafdbd2dba8cbfba6245babfd09f112a2d94e44000dd9"
+    },
+    {
+      "path": "followup-review-v1/new-evidence/missing-original-request-wire.output.json",
+      "bytes": 10751,
+      "sha256": "9320575212a974d1fdc8d15b5e02175b7963ca082a7f91ac638a266c12f5c844"
+    },
+    {
+      "path": "followup-review-v1/new-evidence/new-schema-complete-assembly.input.json",
+      "bytes": 10499,
+      "sha256": "4ec1891a6c9ec922218b9c9821c4ee1710460920a048be69805511fde7a3e2d2"
+    },
+    {
+      "path": "followup-review-v1/new-evidence/new-schema-complete-assembly.output.json",
+      "bytes": 22165,
+      "sha256": "e6d78e2068f2ce6c2377f36afd53c7c2f030938c336ab581453677d768a53476"
+    },
+    {
+      "path": "followup-review-v1/new-evidence/no-em-null-preserved.input.json",
+      "bytes": 8694,
+      "sha256": "a600b6a193450ee97bbdd2aa8a6d4c65d29d24049ecf4be9221bf1f0dca899ed"
+    },
+    {
+      "path": "followup-review-v1/new-evidence/no-em-null-preserved.output.json",
+      "bytes": 18555,
+      "sha256": "15d49f0f56f23a486ac538375495f25833ed12801e463baa1286f83c73137bb3"
+    },
+    {
+      "path": "followup-review-v1/new-evidence/results.json",
+      "bytes": 5493,
+      "sha256": "6f3c72146b6a4a12a6360d459e9e161a022090f3dc3aa97b651e7361fc591095"
+    }
+  ],
+  "main_approval": {
+    "source_approved": true,
+    "scope": "A108 mechanical proof assembly and explicit original-attachment availability only",
+    "runtime_sha256": "b49169ac2ab87073e31406d8448d69c7958d5e5775310f94990fe89eee8d3722",
+    "schema_sha256": "ab1b432e9f337523fd75057fec4647f5eda2569de308e7c777507e05907bdd70",
+    "repair_FINAL_sha256": "72352484ca9b06896775c9db9888a7383cb39920526877db9aa5e8aa8b030d8f",
+    "independent_FINAL_sha256": "15029b402fbfaf93ab703f51a9e0287282394a339f358a5c74a3e2046395915f",
+    "R1": "CLOSED_ON_FINAL_SOURCE",
+    "author_original_exits": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "repair_v1_exits": [
+      1,
+      0
+    ],
+    "repair_v2_exits": [
+      1,
+      1,
+      0
+    ],
+    "final_whole_historical_suite_rerun": false,
+    "independent_final_cases": 10,
+    "independent_exit_code": 0,
+    "original_provider_execution": false,
+    "C36_execution": false,
+    "native_run": false,
+    "formal_acceptance": false,
+    "open_findings": [],
+    "main_review": "Read concrete assembler/source API and both repair diffs; verified exact artifact/archives and actual raw test exits, original REDs and actual releases. Assembly completeness is not C36 semantic validation, original provenance or movement authority.",
+    "main_readonly_verifier_errors": "First checker expected file rather than path keys, second expected archive without its included manifest; both failed before any publication and are retained. Exact corrected archive/pin verification passed."
+  },
+  "synthetic_data_only": true,
+  "original_review_RED_retained": true
+}

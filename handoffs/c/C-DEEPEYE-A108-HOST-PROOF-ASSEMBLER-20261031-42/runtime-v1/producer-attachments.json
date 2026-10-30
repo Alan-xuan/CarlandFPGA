@@ -1,0 +1,300 @@
+{
+  "adapter": "c42_a108_proof_assembler_v1",
+  "source_target": "51c48e106c76f3e4d18000da61be17dd8a4b6623",
+  "host_schema_sha256": "ab1b432e9f337523fd75057fec4647f5eda2569de308e7c777507e05907bdd70",
+  "mechanically_assembled_fields": {
+    "ActorBook": [
+      "schema",
+      "state",
+      "source_state",
+      "source_origin_qpc_ns",
+      "samples",
+      "actor_pose_intervals",
+      "current_pose_interval",
+      "current_read",
+      "source_commit",
+      "snapshot_sha256",
+      "claim",
+      "native_interval_atomic"
+    ],
+    "Current": [
+      "at_qpc_ns",
+      "pose",
+      "pose_revision",
+      "root_revision",
+      "pose_read",
+      "valid_span.from_qpc_ns",
+      "valid_span.through_qpc_ns"
+    ],
+    "Capture": [
+      "capture_sha256 (exact supplied UTF8 capture_raw bytes)",
+      "adc_book_source_sha256",
+      "adc_call",
+      "adc_root_revision",
+      "adc_pose.pose",
+      "adc_pose.pose_revision",
+      "adc_pose.pose_read",
+      "adc_pose.nominal_source_qpc_ns",
+      "adc_pose.valid_span endpoints",
+      "em_root_revision",
+      "original_em_call",
+      "original_em_scope_closed_qpc_ns",
+      "em_pose.pose",
+      "em_pose.pose_revision",
+      "em_pose.pose_read",
+      "em_pose.nominal_source_qpc_ns",
+      "em_pose.valid_span endpoints"
+    ],
+    "ActorAssociation": [
+      "transition_key",
+      "from_root",
+      "to_root (original retained successor or slot.post_root)",
+      "candidate_root",
+      "nonspatial absence for STEP",
+      "STEP-only absence for BOOT/COMMAND"
+    ],
+    "StepReceipt": [
+      "effect_observation",
+      "returned_receipt_observed",
+      "model_start_qpc_ns",
+      "model_executed_until_qpc_ns",
+      "command_seq",
+      "command_sha256",
+      "pose_revision"
+    ],
+    "Publication": [
+      "operation_id",
+      "kind",
+      "state",
+      "numerical_receipt_digest",
+      "freeze_id",
+      "pose_revision",
+      "getter_readback_qpc_ns",
+      "local_error_bound_m if exact JSON",
+      "global_error_bound_m if exact JSON",
+      "frozen_getter_cap_m if exact JSON"
+    ],
+    "NonspatialReceipt": [
+      "command_seq",
+      "command_sha256",
+      "duplicate_command (actual Root object identity)"
+    ]
+  },
+  "complete_frozen_field_tables_for_provider": {
+    "Config": [
+      "receipt_id",
+      "context",
+      "generation",
+      "profile_id",
+      "producer_sha256",
+      "source_policy",
+      "quality_encoding",
+      "source_mode",
+      "transport_source",
+      "source_start_tick_ms",
+      "source_start_monotonic_ns",
+      "goal_m",
+      "baseline_counters",
+      "initial_trigger_id",
+      "pose_book_id",
+      "owner_binding_id"
+    ],
+    "Admission": [
+      "index",
+      "adc_tick_ms",
+      "em_tick_ms",
+      "channel_counts",
+      "quality",
+      "source_record_sha256",
+      "received_qpc_ns",
+      "new_em_sample"
+    ],
+    "Candidate": [
+      "schema",
+      "kind",
+      "profile_id",
+      "profile_status",
+      "profile_note",
+      "source_mode",
+      "quality_encoding",
+      "source_id",
+      "transport_source",
+      "channel_names",
+      "channel_counts",
+      "quality",
+      "source_time",
+      "observation_identity",
+      "diagnostic_flags"
+    ],
+    "Capture": [
+      "capture_sha256",
+      "source_record_sha256",
+      "request_raw",
+      "capture_raw",
+      "adc_pose",
+      "em_pose",
+      "em_origin_capture_sha256",
+      "cause_action_id",
+      "adc_call",
+      "adc_book_source_sha256",
+      "em_book_source_sha256",
+      "adc_root_revision",
+      "em_root_revision",
+      "original_em_call",
+      "original_em_scope_closed_qpc_ns"
+    ],
+    "Custody": [
+      "receipt_id",
+      "pose_book_id",
+      "owner_binding_id",
+      "actor_composition_id",
+      "original_world_actor_link_id",
+      "observed_qpc_ns",
+      "before_root_revision",
+      "after_root_revision",
+      "revoke_generation_before",
+      "revoke_generation_after",
+      "cancel_state",
+      "revoke_state",
+      "successor_state"
+    ],
+    "StepReceipt": [
+      "receipt_id",
+      "candidate_receipt_id",
+      "returned_receipt_id",
+      "effect_witness_id",
+      "effect_observation",
+      "returned_receipt_observed",
+      "model_start_qpc_ns",
+      "model_executed_until_qpc_ns",
+      "command_seq",
+      "command_sha256",
+      "boot_id",
+      "pose_revision"
+    ],
+    "Publication": [
+      "receipt_id",
+      "operation_id",
+      "kind",
+      "state",
+      "numerical_receipt_digest",
+      "freeze_id",
+      "pose_revision",
+      "getter_readback_qpc_ns",
+      "getter_receipt_id",
+      "getter_policy_receipt_id",
+      "local_error_bound_m",
+      "global_error_bound_m",
+      "frozen_getter_cap_m"
+    ],
+    "NonspatialReceipt": [
+      "receipt_id",
+      "boot_receipt_id",
+      "command_receipt_id",
+      "command_seq",
+      "command_sha256",
+      "duplicate_command"
+    ],
+    "Current": [
+      "receipt_id",
+      "context",
+      "generation",
+      "at_qpc_ns",
+      "pose",
+      "root_revision",
+      "pose_revision",
+      "pose_read",
+      "valid_span"
+    ],
+    "ActorRegistry": [
+      "receipt_id",
+      "context",
+      "generation",
+      "as_of_qpc_ns",
+      "associations"
+    ]
+  },
+  "known_source_merge_policy": "Mechanically available original values win; conflicting supplied overlapping values reject. Unknown original values remain unavailable, not synthesized.",
+  "required_external_groups": [
+    "Original source/native namespace, calibration/config and actual Config receipt reference",
+    "Full original admission prefix with real indexes, source_record_sha256 and received_qpc_ns",
+    "Actual original native request/capture UTF8 bytes preserving newline/remainder and candidate metadata",
+    "Original capture to ADC sample/admission/held-EM-origin capture association, receipt references and original opaque IDs",
+    "Actual observed custody status/time and original cause action/capture relationship",
+    "Original BOOT namespace and nonspatial callsite refs",
+    "Original per-read registry context/generation/as_of_qpc_ns; exact association to real current read",
+    "Original opaque IDs bound to each actual retained reference; never IDs from hash/index/counter"
+  ],
+  "fraction_fields": [
+    "Publication.local_error_bound_m",
+    "Publication.global_error_bound_m",
+    "Publication.frozen_getter_cap_m"
+  ],
+  "fraction_rule": "int/finite float are retained; Fraction denominator1 becomes exact integer; otherwise convert only if Fraction.from_float(result)==original. Nonrepresentable values become None and schema missing path; no rounding or fabricated conservative replacement.",
+  "absence_interpretation": "missing_paths denotes supplied snapshot/local attachment absence, not evidence that A original producer cannot provide the fact. Only actual referenced source values determine representation loss. Synthetic 1/10 demonstrates a possible encoding boundary, not a claimed observed A runtime value.",
+  "not_verified": [
+    "original native channel/capture authentication",
+    "actual original process/Job/pipe/QPC authority",
+    "full original receipt digest/getter association beyond pinned original checks",
+    "C36 semantic validation",
+    "C28 execution",
+    "completed inference or movement authority"
+  ],
+  "C42_R1_missing_originals": {
+    "config_required_nonnull": [
+      "pose_book_id",
+      "owner_binding_id"
+    ],
+    "each_capture_required_nonnull": [
+      "request_raw",
+      "capture_raw"
+    ],
+    "null_capture": "indexed missing path",
+    "null_policy": "field-specific; no blanket nullable rejection",
+    "scope": "assembly completeness only; unchanged C36 must validate semantic proof"
+  },
+  "C42_R1_v2_capture_availability": {
+    "ADC_required": [
+      "adc_call",
+      "adc_root_revision",
+      "adc_pose",
+      "adc_book_source_sha256"
+    ],
+    "pose_receipt_required": [
+      "receipt_id",
+      "pose",
+      "pose_revision",
+      "pose_read",
+      "valid_span"
+    ],
+    "ADC_sample_required": [
+      "adc",
+      "pose_reads.adc",
+      "numerical_pose_span"
+    ],
+    "EM_condition": "matching actual supplied candidate/history source_time.em_tick_ms is not None",
+    "EM_required": [
+      "em_pose",
+      "em_root_revision",
+      "em_book_source_sha256",
+      "em_origin_capture_sha256",
+      "original_em_call",
+      "original_em_scope_closed_qpc_ns"
+    ],
+    "EM_links": [
+      "unique original book sample",
+      "unique original native capture",
+      "ADC sample held_em_association.original_em",
+      "original sample pose_reads.em"
+    ],
+    "EM_original_required": [
+      "pose_read",
+      "call",
+      "numerical_pose_span"
+    ],
+    "no_EM": "null permitted, never invented",
+    "source_admissions": "nonempty prefix required; prefix semantics not validated",
+    "selection": "capture identity association, never array position",
+    "scope": "presence/link availability only; downstream exact C36 remains required"
+  }
+}
