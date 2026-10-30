@@ -1,0 +1,125 @@
+{
+  "artifacts": [
+    "handoffs/c/C-DEEPEYE-MOVING-INTERVAL-BOOK-BRIDGE-20261031-36/runtime-v2/ABI.md",
+    "handoffs/c/C-DEEPEYE-MOVING-INTERVAL-BOOK-BRIDGE-20261031-36/runtime-v2/C34-pure-extraction.json",
+    "handoffs/c/C-DEEPEYE-MOVING-INTERVAL-BOOK-BRIDGE-20261031-36/runtime-v2/evidence-index.json",
+    "handoffs/c/C-DEEPEYE-MOVING-INTERVAL-BOOK-BRIDGE-20261031-36/runtime-v2/evidence.zip",
+    "handoffs/c/C-DEEPEYE-MOVING-INTERVAL-BOOK-BRIDGE-20261031-36/runtime-v2/FINDINGS.json",
+    "handoffs/c/C-DEEPEYE-MOVING-INTERVAL-BOOK-BRIDGE-20261031-36/runtime-v2/frozen_source_predicates.py",
+    "handoffs/c/C-DEEPEYE-MOVING-INTERVAL-BOOK-BRIDGE-20261031-36/runtime-v2/host_projection.py",
+    "handoffs/c/C-DEEPEYE-MOVING-INTERVAL-BOOK-BRIDGE-20261031-36/runtime-v2/pins.json",
+    "handoffs/c/C-DEEPEYE-MOVING-INTERVAL-BOOK-BRIDGE-20261031-36/runtime-v2/predicate-extraction.json",
+    "handoffs/c/C-DEEPEYE-MOVING-INTERVAL-BOOK-BRIDGE-20261031-36/runtime-v2/public-view.schema.json",
+    "handoffs/c/C-DEEPEYE-MOVING-INTERVAL-BOOK-BRIDGE-20261031-36/runtime-v2/README.md",
+    "handoffs/c/C-DEEPEYE-MOVING-INTERVAL-BOOK-BRIDGE-20261031-36/runtime-v2/request.schema.json",
+    "handoffs/c/C-DEEPEYE-MOVING-INTERVAL-BOOK-BRIDGE-20261031-36/runtime-v2/REVIEW.md",
+    "handoffs/c/C-DEEPEYE-MOVING-INTERVAL-BOOK-BRIDGE-20261031-36/runtime-v2/verify_delivery.py"
+  ],
+  "files": {
+    "handoffs/c/C-DEEPEYE-MOVING-INTERVAL-BOOK-BRIDGE-20261031-36/runtime-v2/ABI.md": {
+      "sha256": "4af17cd2f17d59e756127ecd7af1074c76193ccbc13373ea60d192dbb95bd061",
+      "size": 5551
+    },
+    "handoffs/c/C-DEEPEYE-MOVING-INTERVAL-BOOK-BRIDGE-20261031-36/runtime-v2/C34-pure-extraction.json": {
+      "sha256": "48430f21fe04e29da49628b909a77a5401aeaca8d00022e937af78dee244bfd3",
+      "size": 699
+    },
+    "handoffs/c/C-DEEPEYE-MOVING-INTERVAL-BOOK-BRIDGE-20261031-36/runtime-v2/FINDINGS.json": {
+      "sha256": "d862cac817fa4a041be157bdbdb1d56ce5d1fd9d2c2b34ac7af7e87a2d9ea979",
+      "size": 503
+    },
+    "handoffs/c/C-DEEPEYE-MOVING-INTERVAL-BOOK-BRIDGE-20261031-36/runtime-v2/README.md": {
+      "sha256": "9a51dd41c08c40fcf452fe69f5e1703f63afc1ed6cf4b24bd5098fbbe6549be7",
+      "size": 6253
+    },
+    "handoffs/c/C-DEEPEYE-MOVING-INTERVAL-BOOK-BRIDGE-20261031-36/runtime-v2/REVIEW.md": {
+      "sha256": "b2791cbc563ddf75174a1a8bfddd3412408f7b01d9d009f0fea0279f239af620",
+      "size": 8753
+    },
+    "handoffs/c/C-DEEPEYE-MOVING-INTERVAL-BOOK-BRIDGE-20261031-36/runtime-v2/evidence-index.json": {
+      "sha256": "9152d7ca24736da61dabdfb525f7ba051e58d6d081aba418f4cda5850d5f19b7",
+      "size": 16077
+    },
+    "handoffs/c/C-DEEPEYE-MOVING-INTERVAL-BOOK-BRIDGE-20261031-36/runtime-v2/evidence.zip": {
+      "sha256": "2ee58d2e5356951b40d3fbb49c376ae856c48c96ce8a69a77039501da2bdb041",
+      "size": 623836
+    },
+    "handoffs/c/C-DEEPEYE-MOVING-INTERVAL-BOOK-BRIDGE-20261031-36/runtime-v2/frozen_source_predicates.py": {
+      "sha256": "7f4eaa649f1669e3f475d6cdbfb92a7ab7dfe1324cfb42719eb34c15f479ccf4",
+      "size": 17536
+    },
+    "handoffs/c/C-DEEPEYE-MOVING-INTERVAL-BOOK-BRIDGE-20261031-36/runtime-v2/host_projection.py": {
+      "sha256": "7defaee9318f9a33a0586628661d054c028b5952584030ebc3b771a479a8982e",
+      "size": 54338
+    },
+    "handoffs/c/C-DEEPEYE-MOVING-INTERVAL-BOOK-BRIDGE-20261031-36/runtime-v2/pins.json": {
+      "sha256": "15c8c17a504f49f7c635a15d7c8c421af81f80938713f5a1b652e6f1571e4d3e",
+      "size": 2094
+    },
+    "handoffs/c/C-DEEPEYE-MOVING-INTERVAL-BOOK-BRIDGE-20261031-36/runtime-v2/predicate-extraction.json": {
+      "sha256": "f5490934d43c44a3cd32611ca15059504aa37d6dbbd533e9943fd0cca7ed1471",
+      "size": 1212
+    },
+    "handoffs/c/C-DEEPEYE-MOVING-INTERVAL-BOOK-BRIDGE-20261031-36/runtime-v2/public-view.schema.json": {
+      "sha256": "046b863c6bc07bbaa5396c5b7dfc55fb1febf7bbd0bda29ef79cbd5119f981ed",
+      "size": 4766
+    },
+    "handoffs/c/C-DEEPEYE-MOVING-INTERVAL-BOOK-BRIDGE-20261031-36/runtime-v2/request.schema.json": {
+      "sha256": "ab1b432e9f337523fd75057fec4647f5eda2569de308e7c777507e05907bdd70",
+      "size": 69906
+    },
+    "handoffs/c/C-DEEPEYE-MOVING-INTERVAL-BOOK-BRIDGE-20261031-36/runtime-v2/verify_delivery.py": {
+      "sha256": "f9701acd8188f2111a2658fa217affe6775a9b079995910113b5eb55d497987c",
+      "size": 1340
+    }
+  },
+  "request": {
+    "code_commit": "5bcc727b4a31ae4aa12255d3afe1354dc94049a4",
+    "expected_result": "Host v2 validates bounded original evidence and projects unchanged child v1 data without C28 calls. R1/R2/R3 repairs and A108 adaptation reviewed. Actual provider, native actor, serial, board, full-chain and formal acceptance remain unverified.",
+    "operation_id": "C-DEEPEYE-MOVING-INTERVAL-BOOK-BRIDGE-20261031-36",
+    "requester": "node-c",
+    "task_id": "DEEPEYE-IMPLEMENTATION-20261014",
+    "task_version": 1,
+    "test_steps": [
+      "Byte/archive verification only: python -I -S -B handoffs/c/C-DEEPEYE-MOVING-INTERVAL-BOOK-BRIDGE-20261031-36/runtime-v2/verify_delivery.py",
+      "Read versioned author and independent review evidence, including original REDs, focused repairs and the final synthetic composition; do not rerun old groups",
+      "A must separately verify original provider proof, owned native handles, source readiness and exact runtime before any actual dispatch"
+    ]
+  },
+  "request_hash": "e38421139b635125b2a6716bfc171920e489fd40e16f492ae7a44acdb3b447ed",
+  "schema_version": 1,
+  "stages": {
+    "final_acceptance": {
+      "status": "not_run"
+    },
+    "full_chain": {
+      "status": "not_run"
+    },
+    "implementation": {
+      "status": "not_run"
+    },
+    "local_function": {
+      "log": "handoffs/c/C-DEEPEYE-MOVING-INTERVAL-BOOK-BRIDGE-20261031-36/runtime-v2/evidence-index.json",
+      "status": "passed"
+    },
+    "model_qualification": {
+      "status": "not_run"
+    },
+    "native_actor": {
+      "status": "not_run"
+    },
+    "physical_board": {
+      "status": "not_run"
+    },
+    "rtl_simulation": {
+      "status": "not_run"
+    },
+    "source_review": {
+      "log": "handoffs/c/C-DEEPEYE-MOVING-INTERVAL-BOOK-BRIDGE-20261031-36/runtime-v2/REVIEW.md",
+      "status": "passed"
+    },
+    "synthesis": {
+      "status": "not_run"
+    }
+  }
+}
