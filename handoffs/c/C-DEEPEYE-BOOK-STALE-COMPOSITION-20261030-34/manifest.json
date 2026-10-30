@@ -1,0 +1,156 @@
+{
+  "artifacts": [
+    "handoffs/c/C-DEEPEYE-BOOK-STALE-COMPOSITION-20261030-34/ABI.md",
+    "handoffs/c/C-DEEPEYE-BOOK-STALE-COMPOSITION-20261030-34/design-freeze-v1.json",
+    "handoffs/c/C-DEEPEYE-BOOK-STALE-COMPOSITION-20261030-34/evidence-archive.json.gz.b64",
+    "handoffs/c/C-DEEPEYE-BOOK-STALE-COMPOSITION-20261030-34/evidence-index.json",
+    "handoffs/c/C-DEEPEYE-BOOK-STALE-COMPOSITION-20261030-34/frozen-C31-to-C34.diff",
+    "handoffs/c/C-DEEPEYE-BOOK-STALE-COMPOSITION-20261030-34/independent-r1-data.json",
+    "handoffs/c/C-DEEPEYE-BOOK-STALE-COMPOSITION-20261030-34/independent_r1_checks.py",
+    "handoffs/c/C-DEEPEYE-BOOK-STALE-COMPOSITION-20261030-34/initial-review.md",
+    "handoffs/c/C-DEEPEYE-BOOK-STALE-COMPOSITION-20261030-34/local-evidence.json",
+    "handoffs/c/C-DEEPEYE-BOOK-STALE-COMPOSITION-20261030-34/R1-CLOSURE-REVIEW.md",
+    "handoffs/c/C-DEEPEYE-BOOK-STALE-COMPOSITION-20261030-34/README.md",
+    "handoffs/c/C-DEEPEYE-BOOK-STALE-COMPOSITION-20261030-34/REPAIR-REPORT.md",
+    "handoffs/c/C-DEEPEYE-BOOK-STALE-COMPOSITION-20261030-34/root_book_stale_composition_v1.py",
+    "handoffs/c/C-DEEPEYE-BOOK-STALE-COMPOSITION-20261030-34/source-review.md",
+    "handoffs/c/C-DEEPEYE-BOOK-STALE-COMPOSITION-20261030-34/task.json",
+    "handoffs/c/C-DEEPEYE-BOOK-STALE-COMPOSITION-20261030-34/test_composition_v1.py",
+    "handoffs/c/C-DEEPEYE-BOOK-STALE-COMPOSITION-20261030-34/verify_evidence_archive.py",
+    "handoffs/c/C-DEEPEYE-CAUSAL-FOUR-CHANNEL-PLANNER-20261029-28/candidate_four_channel_planner_v1.py",
+    "handoffs/c/C-DEEPEYE-PRIVATE-RAW4-TIME-ASSOCIATION-20261030-30/private_raw4_time_association_v1.py",
+    "handoffs/c/C-DEEPEYE-ROOT-BOOK-C30-PROJECTION-20261030-31/root_book_projection_v1.py",
+    "handoffs/c/C-DEEPEYE-C30-STALE-ADMISSION-SEMANTICS-20261030-32/private_raw4_time_association_v2.py"
+  ],
+  "files": {
+    "handoffs/c/C-DEEPEYE-BOOK-STALE-COMPOSITION-20261030-34/ABI.md": {
+      "sha256": "aada52d4acf40758e9ba3bb39f068caa2b424071feb8d94ca3a36aab7915638e",
+      "size": 9854
+    },
+    "handoffs/c/C-DEEPEYE-BOOK-STALE-COMPOSITION-20261030-34/R1-CLOSURE-REVIEW.md": {
+      "sha256": "d98b258cdba6a45ee3bda7f8b338e2d94b86f592c5ec2345371a6d797b2d38ff",
+      "size": 5042
+    },
+    "handoffs/c/C-DEEPEYE-BOOK-STALE-COMPOSITION-20261030-34/README.md": {
+      "sha256": "a6441caf33289ea5e9709fe08dfcb2b6a5a8b814cf06488af39dba457a885ac4",
+      "size": 6931
+    },
+    "handoffs/c/C-DEEPEYE-BOOK-STALE-COMPOSITION-20261030-34/REPAIR-REPORT.md": {
+      "sha256": "fced8ee7b84a22c869e2010215f29ed39666637652dd26e2c697c4ee3535ac02",
+      "size": 3251
+    },
+    "handoffs/c/C-DEEPEYE-BOOK-STALE-COMPOSITION-20261030-34/design-freeze-v1.json": {
+      "sha256": "96aa077d85ecd9c1375d919052a16fc67e68ce75c816fcaa3531eb718d89aac6",
+      "size": 2386
+    },
+    "handoffs/c/C-DEEPEYE-BOOK-STALE-COMPOSITION-20261030-34/evidence-archive.json.gz.b64": {
+      "sha256": "e72f6580af10833325858a539dafe6c08d20196e4fb24ce851378a8be09d6396",
+      "size": 1503512
+    },
+    "handoffs/c/C-DEEPEYE-BOOK-STALE-COMPOSITION-20261030-34/evidence-index.json": {
+      "sha256": "4ac69665f27a17120d1090ac03302cf355ce9d10f2cbecaa734d046bd6b6d56c",
+      "size": 37803
+    },
+    "handoffs/c/C-DEEPEYE-BOOK-STALE-COMPOSITION-20261030-34/frozen-C31-to-C34.diff": {
+      "sha256": "bda2e21c8bb16c6a098bff933aa8827196f5801d6ccc57221c81944c6b1358bd",
+      "size": 65012
+    },
+    "handoffs/c/C-DEEPEYE-BOOK-STALE-COMPOSITION-20261030-34/independent-r1-data.json": {
+      "sha256": "8b55f469fecbd3ff059e1d461c8c24ee7eccc78b9792ba7f3b6f17648f6a5303",
+      "size": 44529
+    },
+    "handoffs/c/C-DEEPEYE-BOOK-STALE-COMPOSITION-20261030-34/independent_r1_checks.py": {
+      "sha256": "c6c3b67ab3d09ab005ba3b6b1fa6109239875a577544883b42debe6caea24800",
+      "size": 6613
+    },
+    "handoffs/c/C-DEEPEYE-BOOK-STALE-COMPOSITION-20261030-34/initial-review.md": {
+      "sha256": "ab6b64c188ef9a2932eebe32d9644ff04a2604a908f00fd1f280b598957e3daa",
+      "size": 9702
+    },
+    "handoffs/c/C-DEEPEYE-BOOK-STALE-COMPOSITION-20261030-34/local-evidence.json": {
+      "sha256": "258a0eddf75399f5e3e2ffd4077130062dad8b08269b92014b46f99c254a61a3",
+      "size": 12260
+    },
+    "handoffs/c/C-DEEPEYE-BOOK-STALE-COMPOSITION-20261030-34/root_book_stale_composition_v1.py": {
+      "sha256": "849d083885875668f2701fedd1c855e88c81174f312c6e0cfb0619706ef5e336",
+      "size": 53582
+    },
+    "handoffs/c/C-DEEPEYE-BOOK-STALE-COMPOSITION-20261030-34/source-review.md": {
+      "sha256": "368806bd91fabd639365b86dd11ca9e282a02b67ff296781bb5c1d8cece7df2f",
+      "size": 5634
+    },
+    "handoffs/c/C-DEEPEYE-BOOK-STALE-COMPOSITION-20261030-34/task.json": {
+      "sha256": "b4ca5f5d301477a51f1be92506ca7d43434139d59c7b86d2ef14df5a426e4967",
+      "size": 1902
+    },
+    "handoffs/c/C-DEEPEYE-BOOK-STALE-COMPOSITION-20261030-34/test_composition_v1.py": {
+      "sha256": "34f75548ce164c3411f91b1f762ead70b652e5610726eba41c083e87139c5cc4",
+      "size": 20978
+    },
+    "handoffs/c/C-DEEPEYE-BOOK-STALE-COMPOSITION-20261030-34/verify_evidence_archive.py": {
+      "sha256": "cac9f4472c065a03e10f1cff0ac32da682a79731529a319e0f1c728ec2473da3",
+      "size": 2176
+    },
+    "handoffs/c/C-DEEPEYE-C30-STALE-ADMISSION-SEMANTICS-20261030-32/private_raw4_time_association_v2.py": {
+      "sha256": "39fe63a3d71308fae9482e3203b4f5120c34d796ccd2b755b99a9de902005a87",
+      "size": 51109
+    },
+    "handoffs/c/C-DEEPEYE-CAUSAL-FOUR-CHANNEL-PLANNER-20261029-28/candidate_four_channel_planner_v1.py": {
+      "sha256": "70b317681fee8c9182c342fe8d2f94eaecc957c62231a74a080d213bb5e0eab4",
+      "size": 17651
+    },
+    "handoffs/c/C-DEEPEYE-PRIVATE-RAW4-TIME-ASSOCIATION-20261030-30/private_raw4_time_association_v1.py": {
+      "sha256": "abaa06d10ab68f0bee721bf1a6d9278fc000446112ac559362079ad63afc686d",
+      "size": 48155
+    },
+    "handoffs/c/C-DEEPEYE-ROOT-BOOK-C30-PROJECTION-20261030-31/root_book_projection_v1.py": {
+      "sha256": "506219cf445001c46f2f4e1ffd411829ea9d184d4260d18af9e45aa3787993ee",
+      "size": 48506
+    }
+  },
+  "request": {
+    "code_commit": "e20805ac8efb67f124e551f39b850eadd38bf7db",
+    "expected_result": "Exact archive verification; final targeted10 PASS; contradictions reject before C32/core; consistent incomplete records remain unavailable; complete diagnostic calls one frozen C32 and sole original C28. No actual root/board/formal acceptance.",
+    "operation_id": "C-DEEPEYE-BOOK-STALE-COMPOSITION-20261030-34",
+    "requester": "node-c",
+    "task_id": "DEEPEYE-IMPLEMENTATION-20261014",
+    "task_version": 1,
+    "test_steps": [
+      "From repository root: python -B handoffs/c/C-DEEPEYE-BOOK-STALE-COMPOSITION-20261030-34/verify_evidence_archive.py handoffs/c/C-DEEPEYE-BOOK-STALE-COMPOSITION-20261030-34 NEW_EXTRACTION_DIR (byte verification only)",
+      "If independently authorized: python -B handoffs/c/C-DEEPEYE-BOOK-STALE-COMPOSITION-20261030-34/independent_r1_checks.py handoffs/c/C-DEEPEYE-BOOK-STALE-COMPOSITION-20261030-34 handoffs/c/C-DEEPEYE-BOOK-STALE-COMPOSITION-20261030-34/independent-r1-data.json NEW_OUTPUT_DIR (final10 narrow controls; do not replay historical suites automatically)"
+    ]
+  },
+  "request_hash": "ae556c591343ed1a0f208b8d4e14c12dbcded38d399f390211fe37a0f248080b",
+  "schema_version": 1,
+  "stages": {
+    "final_acceptance": {
+      "status": "not_run"
+    },
+    "full_chain": {
+      "status": "not_run"
+    },
+    "implementation": {
+      "status": "not_run"
+    },
+    "local_function": {
+      "log": "handoffs/c/C-DEEPEYE-BOOK-STALE-COMPOSITION-20261030-34/local-evidence.json",
+      "status": "passed"
+    },
+    "model_qualification": {
+      "status": "not_run"
+    },
+    "physical_board": {
+      "status": "not_run"
+    },
+    "rtl_simulation": {
+      "status": "not_run"
+    },
+    "source_review": {
+      "log": "handoffs/c/C-DEEPEYE-BOOK-STALE-COMPOSITION-20261030-34/source-review.md",
+      "status": "passed"
+    },
+    "synthesis": {
+      "status": "not_run"
+    }
+  }
+}
