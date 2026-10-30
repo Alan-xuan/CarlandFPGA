@@ -1,0 +1,143 @@
+{
+  "artifacts": [
+    "handoffs/c/C-DEEPEYE-PRIVATE-RAW4-TIME-ASSOCIATION-20261030-30/abi-contract.json",
+    "handoffs/c/C-DEEPEYE-PRIVATE-RAW4-TIME-ASSOCIATION-20261030-30/author-v1-red.stderr.txt",
+    "handoffs/c/C-DEEPEYE-PRIVATE-RAW4-TIME-ASSOCIATION-20261030-30/extra_checks.py",
+    "handoffs/c/C-DEEPEYE-PRIVATE-RAW4-TIME-ASSOCIATION-20261030-30/independent-v1.stdout.json",
+    "handoffs/c/C-DEEPEYE-PRIVATE-RAW4-TIME-ASSOCIATION-20261030-30/independent-v2.stdout.json",
+    "handoffs/c/C-DEEPEYE-PRIVATE-RAW4-TIME-ASSOCIATION-20261030-30/independent_c30_checks.py",
+    "handoffs/c/C-DEEPEYE-PRIVATE-RAW4-TIME-ASSOCIATION-20261030-30/independent_r1_checks.py",
+    "handoffs/c/C-DEEPEYE-PRIVATE-RAW4-TIME-ASSOCIATION-20261030-30/interface-examples.json",
+    "handoffs/c/C-DEEPEYE-PRIVATE-RAW4-TIME-ASSOCIATION-20261030-30/local-evidence.json",
+    "handoffs/c/C-DEEPEYE-PRIVATE-RAW4-TIME-ASSOCIATION-20261030-30/main_critical_probe.py",
+    "handoffs/c/C-DEEPEYE-PRIVATE-RAW4-TIME-ASSOCIATION-20261030-30/original-failed-inputs.json",
+    "handoffs/c/C-DEEPEYE-PRIVATE-RAW4-TIME-ASSOCIATION-20261030-30/private_raw4_time_association_v1.py",
+    "handoffs/c/C-DEEPEYE-PRIVATE-RAW4-TIME-ASSOCIATION-20261030-30/README.md",
+    "handoffs/c/C-DEEPEYE-PRIVATE-RAW4-TIME-ASSOCIATION-20261030-30/source-review.md",
+    "handoffs/c/C-DEEPEYE-PRIVATE-RAW4-TIME-ASSOCIATION-20261030-30/test_private_raw4_time_association_v1.py",
+    "handoffs/c/C-DEEPEYE-PRIVATE-RAW4-TIME-ASSOCIATION-20261030-30/v1-extra-red.stdout.json",
+    "handoffs/c/C-DEEPEYE-PRIVATE-RAW4-TIME-ASSOCIATION-20261030-30/v2-original-regression.stdout.json",
+    "handoffs/c/C-DEEPEYE-CAUSAL-FOUR-CHANNEL-PLANNER-20261029-28/candidate_four_channel_planner_v1.py"
+  ],
+  "files": {
+    "handoffs/c/C-DEEPEYE-CAUSAL-FOUR-CHANNEL-PLANNER-20261029-28/candidate_four_channel_planner_v1.py": {
+      "sha256": "70b317681fee8c9182c342fe8d2f94eaecc957c62231a74a080d213bb5e0eab4",
+      "size": 17651
+    },
+    "handoffs/c/C-DEEPEYE-PRIVATE-RAW4-TIME-ASSOCIATION-20261030-30/README.md": {
+      "sha256": "e708bbaeb50da5edf0f00f7494c541ec9f4510cb0c64f000faea603880084baa",
+      "size": 11827
+    },
+    "handoffs/c/C-DEEPEYE-PRIVATE-RAW4-TIME-ASSOCIATION-20261030-30/abi-contract.json": {
+      "sha256": "2987e0e2e6bc506e662cdf5aeaa252fbb145021470c0768d208f7c60e528edd8",
+      "size": 8435
+    },
+    "handoffs/c/C-DEEPEYE-PRIVATE-RAW4-TIME-ASSOCIATION-20261030-30/author-v1-red.stderr.txt": {
+      "sha256": "dbb113a8f90c7f483d6050ebb7a8845f10ba5b81c59d8cd221409d5d63dffaf2",
+      "size": 2710
+    },
+    "handoffs/c/C-DEEPEYE-PRIVATE-RAW4-TIME-ASSOCIATION-20261030-30/extra_checks.py": {
+      "sha256": "f0adbaa30c1e4b446b33c5dc08aa8f49ca4faa8778042b54f7094acb24ea2729",
+      "size": 4390
+    },
+    "handoffs/c/C-DEEPEYE-PRIVATE-RAW4-TIME-ASSOCIATION-20261030-30/independent-v1.stdout.json": {
+      "sha256": "7f4cad9deff73e3a4034310f78b5a6196940c2202fa1f334c6e06bb6aeda1acd",
+      "size": 30429
+    },
+    "handoffs/c/C-DEEPEYE-PRIVATE-RAW4-TIME-ASSOCIATION-20261030-30/independent-v2.stdout.json": {
+      "sha256": "32a3e560d188fcc8322cafdb5ee284c4a543db9ef725d4596c94c0e1625e26df",
+      "size": 10178
+    },
+    "handoffs/c/C-DEEPEYE-PRIVATE-RAW4-TIME-ASSOCIATION-20261030-30/independent_c30_checks.py": {
+      "sha256": "dcf15843e856498aed23f78dbaac876279f4a884538c4666a3103e5d0d6a9a5a",
+      "size": 21057
+    },
+    "handoffs/c/C-DEEPEYE-PRIVATE-RAW4-TIME-ASSOCIATION-20261030-30/independent_r1_checks.py": {
+      "sha256": "5444d911fc23c823c028390557b26c3d35483a13310e876b4d166ecd1d100bb7",
+      "size": 6533
+    },
+    "handoffs/c/C-DEEPEYE-PRIVATE-RAW4-TIME-ASSOCIATION-20261030-30/interface-examples.json": {
+      "sha256": "a0bd1ca6e1d770698c2d881d2ed280b8ed43d66c453b86d3f99a8bdd002fc7a4",
+      "size": 143589
+    },
+    "handoffs/c/C-DEEPEYE-PRIVATE-RAW4-TIME-ASSOCIATION-20261030-30/local-evidence.json": {
+      "sha256": "442b10640f53904b6265a126dfb1e7f5b30f7874737b58649e54ae321240a88e",
+      "size": 32687
+    },
+    "handoffs/c/C-DEEPEYE-PRIVATE-RAW4-TIME-ASSOCIATION-20261030-30/main_critical_probe.py": {
+      "sha256": "d6443c333937679bc177724a7e4064d961c5ecf89a883e643f0a5c8b75b51a3e",
+      "size": 1908
+    },
+    "handoffs/c/C-DEEPEYE-PRIVATE-RAW4-TIME-ASSOCIATION-20261030-30/original-failed-inputs.json": {
+      "sha256": "cd63391c191627442013fa46838740d546636c37476bbe7fa8f102a0467034e4",
+      "size": 2331
+    },
+    "handoffs/c/C-DEEPEYE-PRIVATE-RAW4-TIME-ASSOCIATION-20261030-30/private_raw4_time_association_v1.py": {
+      "sha256": "abaa06d10ab68f0bee721bf1a6d9278fc000446112ac559362079ad63afc686d",
+      "size": 48155
+    },
+    "handoffs/c/C-DEEPEYE-PRIVATE-RAW4-TIME-ASSOCIATION-20261030-30/source-review.md": {
+      "sha256": "07e67b3da05605c3c93bd5d39427a636b840c2c481873b8d1406bea807253e19",
+      "size": 17087
+    },
+    "handoffs/c/C-DEEPEYE-PRIVATE-RAW4-TIME-ASSOCIATION-20261030-30/test_private_raw4_time_association_v1.py": {
+      "sha256": "1b0931d1280a651670bcbe0962c461cf8ea42ab0f43f27ff38cf3a0ecf0e391c",
+      "size": 24764
+    },
+    "handoffs/c/C-DEEPEYE-PRIVATE-RAW4-TIME-ASSOCIATION-20261030-30/v1-extra-red.stdout.json": {
+      "sha256": "a6df833025a1a85fef70a3aee6f21671db5b9bcc104f76a1cc8be8335cdcd731",
+      "size": 9793
+    },
+    "handoffs/c/C-DEEPEYE-PRIVATE-RAW4-TIME-ASSOCIATION-20261030-30/v2-original-regression.stdout.json": {
+      "sha256": "5489e64633e2e10dd6b1c65695efbc1225b3c217b4149aaea0488496655a148e",
+      "size": 6759
+    }
+  },
+  "request": {
+    "code_commit": "9824b7e3662e711d9dbe52ee1b55b76433b82ac1",
+    "expected_result": "C30 bounded diagnostic time association only: original nominal QPC distinct from actual pose-read/ADC-call brackets and Root proven pose spans; full source prefix bounded1001; frozen C28 core reused; missing associations unavailable, default disabled and authorization none. New focused controls only; no actual Root integration, full-chain, board, model qualification or formal acceptance.",
+    "operation_id": "C-DEEPEYE-PRIVATE-RAW4-TIME-ASSOCIATION-20261030-30",
+    "requester": "node-c",
+    "task_id": "DEEPEYE-IMPLEMENTATION-20261014",
+    "task_version": 1,
+    "test_steps": [
+      "Keep unchanged sibling C28 dependency and verify canonical manifest with handoff.py.",
+      "From C30 directory: python -B independent_r1_checks.py . replay ; python -B independent_r1_checks.py . new ; each under an external30second bound. These are synthetic diagnostic controls only.",
+      "Main JSON-entry check: python -B main_critical_probe.py . ; all four local example payloads must exactly match outputs, no actual Root execution.",
+      "Earlier57 and22 controls are versioned v1 evidence, not rerun on final v2. No old C28/C29 suite, live Root, model or physical execution requested."
+    ]
+  },
+  "request_hash": "58f319555388ba52faa55305357034eea50f4975b074b6c31f136a77473cea12",
+  "schema_version": 1,
+  "stages": {
+    "final_acceptance": {
+      "status": "not_run"
+    },
+    "full_chain": {
+      "status": "not_run"
+    },
+    "implementation": {
+      "status": "not_run"
+    },
+    "local_function": {
+      "log": "handoffs/c/C-DEEPEYE-PRIVATE-RAW4-TIME-ASSOCIATION-20261030-30/independent-v2.stdout.json",
+      "status": "passed"
+    },
+    "model_qualification": {
+      "status": "not_run"
+    },
+    "physical_board": {
+      "status": "not_run"
+    },
+    "rtl_simulation": {
+      "status": "not_run"
+    },
+    "source_review": {
+      "log": "handoffs/c/C-DEEPEYE-PRIVATE-RAW4-TIME-ASSOCIATION-20261030-30/source-review.md",
+      "status": "passed"
+    },
+    "synthesis": {
+      "status": "not_run"
+    }
+  }
+}
