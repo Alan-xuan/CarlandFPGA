@@ -1,0 +1,125 @@
+{
+  "artifacts": [
+    "handoffs/c/C-DEEPEYE-C37-FINITE-LIVE-PROTOCOL-20261031-40/runtime-v2/c37-owned-cpu-package-v2/c37_entry.py",
+    "handoffs/c/C-DEEPEYE-C37-FINITE-LIVE-PROTOCOL-20261031-40/runtime-v2/c37-owned-cpu-package-v2/c37_package.py",
+    "handoffs/c/C-DEEPEYE-C37-FINITE-LIVE-PROTOCOL-20261031-40/runtime-v2/c37-owned-cpu-package-v2/frozen_c28.py",
+    "handoffs/c/C-DEEPEYE-C37-FINITE-LIVE-PROTOCOL-20261031-40/runtime-v2/c37-owned-cpu-package-v2/package-manifest.json",
+    "handoffs/c/C-DEEPEYE-C37-FINITE-LIVE-PROTOCOL-20261031-40/runtime-v2/evidence-index.json",
+    "handoffs/c/C-DEEPEYE-C37-FINITE-LIVE-PROTOCOL-20261031-40/runtime-v2/evidence.zip",
+    "handoffs/c/C-DEEPEYE-C37-FINITE-LIVE-PROTOCOL-20261031-40/runtime-v2/FINDINGS.json",
+    "handoffs/c/C-DEEPEYE-C37-FINITE-LIVE-PROTOCOL-20261031-40/runtime-v2/input-pins-and-dependencies.json",
+    "handoffs/c/C-DEEPEYE-C37-FINITE-LIVE-PROTOCOL-20261031-40/runtime-v2/README.md",
+    "handoffs/c/C-DEEPEYE-C37-FINITE-LIVE-PROTOCOL-20261031-40/runtime-v2/REVIEW.md",
+    "handoffs/c/C-DEEPEYE-C37-FINITE-LIVE-PROTOCOL-20261031-40/runtime-v2/runtime-inventory-v2.json",
+    "handoffs/c/C-DEEPEYE-C37-FINITE-LIVE-PROTOCOL-20261031-40/runtime-v2/stage_package.py",
+    "handoffs/c/C-DEEPEYE-C37-FINITE-LIVE-PROTOCOL-20261031-40/runtime-v2/verify_delivery.py",
+    "handoffs/c/C-DEEPEYE-C37-FINITE-LIVE-PROTOCOL-20261031-40/runtime-v2/pins.json"
+  ],
+  "files": {
+    "handoffs/c/C-DEEPEYE-C37-FINITE-LIVE-PROTOCOL-20261031-40/runtime-v2/FINDINGS.json": {
+      "sha256": "23c631a9fb383c28eeabf21ab4ade58981f22fa0f39f013e51e2dcebb3f1a5fa",
+      "size": 761
+    },
+    "handoffs/c/C-DEEPEYE-C37-FINITE-LIVE-PROTOCOL-20261031-40/runtime-v2/README.md": {
+      "sha256": "dd9d53950c192ca1425950c0bee274754bdb13db964c67c946288d8071124dc4",
+      "size": 8114
+    },
+    "handoffs/c/C-DEEPEYE-C37-FINITE-LIVE-PROTOCOL-20261031-40/runtime-v2/REVIEW.md": {
+      "sha256": "a8d3e610c875f2690a8222a8c70d15cfa0e686b21f7bb2b2dd9eeb70c32ece2d",
+      "size": 7859
+    },
+    "handoffs/c/C-DEEPEYE-C37-FINITE-LIVE-PROTOCOL-20261031-40/runtime-v2/c37-owned-cpu-package-v2/c37_entry.py": {
+      "sha256": "03446c7ae78605a90fe134d961700d377cadfbc8af629a879a317ddb5ca79930",
+      "size": 6841
+    },
+    "handoffs/c/C-DEEPEYE-C37-FINITE-LIVE-PROTOCOL-20261031-40/runtime-v2/c37-owned-cpu-package-v2/c37_package.py": {
+      "sha256": "60e26bc8ae9ee0ba1fba8bcea358b4bfad8be2f3a58ccb360e767b6886d62f16",
+      "size": 13723
+    },
+    "handoffs/c/C-DEEPEYE-C37-FINITE-LIVE-PROTOCOL-20261031-40/runtime-v2/c37-owned-cpu-package-v2/frozen_c28.py": {
+      "sha256": "70b317681fee8c9182c342fe8d2f94eaecc957c62231a74a080d213bb5e0eab4",
+      "size": 17651
+    },
+    "handoffs/c/C-DEEPEYE-C37-FINITE-LIVE-PROTOCOL-20261031-40/runtime-v2/c37-owned-cpu-package-v2/package-manifest.json": {
+      "sha256": "d63dc5d32c7b9d8bb32035edc1d78483a51c6d88e680b7fbd4ef9f304cf005f0",
+      "size": 318
+    },
+    "handoffs/c/C-DEEPEYE-C37-FINITE-LIVE-PROTOCOL-20261031-40/runtime-v2/evidence-index.json": {
+      "sha256": "dd744c5a29f513f4732125e1e54949dc0bf671f30a72ee02e4be520c7a526061",
+      "size": 9358
+    },
+    "handoffs/c/C-DEEPEYE-C37-FINITE-LIVE-PROTOCOL-20261031-40/runtime-v2/evidence.zip": {
+      "sha256": "21edc1f6df32eaed45b8f744182ab5167cba06656cf8d58b3c441120a8f8e88d",
+      "size": 47479
+    },
+    "handoffs/c/C-DEEPEYE-C37-FINITE-LIVE-PROTOCOL-20261031-40/runtime-v2/input-pins-and-dependencies.json": {
+      "sha256": "303735ed94fe382f7097ab4ed3fe77cfeb41049b0165293b4cc56d50fc76e20a",
+      "size": 1944
+    },
+    "handoffs/c/C-DEEPEYE-C37-FINITE-LIVE-PROTOCOL-20261031-40/runtime-v2/pins.json": {
+      "sha256": "7d6be103d471f9b702e8dbbba03031c930a595d8678e5544b8540edeed0e28bc",
+      "size": 2010
+    },
+    "handoffs/c/C-DEEPEYE-C37-FINITE-LIVE-PROTOCOL-20261031-40/runtime-v2/runtime-inventory-v2.json": {
+      "sha256": "952c24859827b94a0862fd81dc6123feedc6a4f4f4985cf388c0f5407675e792",
+      "size": 109557
+    },
+    "handoffs/c/C-DEEPEYE-C37-FINITE-LIVE-PROTOCOL-20261031-40/runtime-v2/stage_package.py": {
+      "sha256": "ff932658db74a5f2330a9acd8db2ee2a44b391ae8062114b4707223b1d938950",
+      "size": 3837
+    },
+    "handoffs/c/C-DEEPEYE-C37-FINITE-LIVE-PROTOCOL-20261031-40/runtime-v2/verify_delivery.py": {
+      "sha256": "f358b7cd9ecc7eaa75d6c62b7792b34552dc9fcbf84dbed86284fd2b1fe1fb4a",
+      "size": 728
+    }
+  },
+  "request": {
+    "code_commit": "9dc7126e4f0a75a9d13656d6a44b817e71ab0c29",
+    "expected_result": "Explicit finite live v2 child protocol uses fixed 16384-byte padded requests, K<=16 and unchanged C28 core. A owns actual provider completion mapping and response-pair transport. Native lifetime/staging/board/full-chain/formal acceptance remain unverified.",
+    "operation_id": "C-DEEPEYE-C37-FINITE-LIVE-PROTOCOL-20261031-40",
+    "requester": "node-c",
+    "task_id": "DEEPEYE-IMPLEMENTATION-20261014",
+    "task_version": 1,
+    "test_steps": [
+      "Byte/archive verification only: python -I -S -B handoffs/c/C-DEEPEYE-C37-FINITE-LIVE-PROTOCOL-20261031-40/runtime-v2/verify_delivery.py",
+      "Read retained new synthetic protocol controls and independent review; no old suite or native execution is requested",
+      "A must separately verify original provider proof, owned native handles, source readiness and exact runtime before any actual dispatch"
+    ]
+  },
+  "request_hash": "23277846e348ad882d35022bff9be6ed7cc48a46b66ec36ce4250da3e6ba984f",
+  "schema_version": 1,
+  "stages": {
+    "final_acceptance": {
+      "status": "not_run"
+    },
+    "full_chain": {
+      "status": "not_run"
+    },
+    "implementation": {
+      "status": "not_run"
+    },
+    "local_function": {
+      "log": "handoffs/c/C-DEEPEYE-C37-FINITE-LIVE-PROTOCOL-20261031-40/runtime-v2/evidence-index.json",
+      "status": "passed"
+    },
+    "model_qualification": {
+      "status": "not_run"
+    },
+    "native_actor": {
+      "status": "not_run"
+    },
+    "physical_board": {
+      "status": "not_run"
+    },
+    "rtl_simulation": {
+      "status": "not_run"
+    },
+    "source_review": {
+      "log": "handoffs/c/C-DEEPEYE-C37-FINITE-LIVE-PROTOCOL-20261031-40/runtime-v2/REVIEW.md",
+      "status": "passed"
+    },
+    "synthesis": {
+      "status": "not_run"
+    }
+  }
+}
