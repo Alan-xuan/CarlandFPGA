@@ -1,0 +1,538 @@
+{
+  "files": [
+    {
+      "path": "implementation-v1/API.json",
+      "bytes": 1773,
+      "sha256": "5db84c2f41bdc79ea25797bbccfe8ba57e19723a2b18c9ccda9abbd61b5bb8f4"
+    },
+    {
+      "path": "implementation-v1/README.md",
+      "bytes": 11921,
+      "sha256": "bb32539fe7326c4342177342bcee6308a1d91717763d776f4144c01080ea5096"
+    },
+    {
+      "path": "implementation-v1/c47-finite-bootstrap.patch",
+      "bytes": 10755,
+      "sha256": "615b2018101b6aa0340d4f107b7bdb0658853685eebcc4ddf117564f472b8430"
+    },
+    {
+      "path": "implementation-v1/fetch01-partial-verified.json",
+      "bytes": 1084,
+      "sha256": "11bb276fae6e4311802a4f37aaf71f1dce1ecc346850c40bfd8721f4cbcedeae"
+    },
+    {
+      "path": "implementation-v1/fetch02.json",
+      "bytes": 1328,
+      "sha256": "f6d41aed436a78bdc9656e0fdcb3d12d87acb8d7bfcbcd0cdfca514b32b66a11"
+    },
+    {
+      "path": "implementation-v1/fetch03.json",
+      "bytes": 1671,
+      "sha256": "f76f7f4c7a104d31e6aa05df6f23d93845f299335bdd9757889e7deaca507952"
+    },
+    {
+      "path": "implementation-v1/freeze_static.py",
+      "bytes": 6047,
+      "sha256": "2f488815061666e7dc48d72e067d17de7f4f8f1d01dc4211c0d82ce5ad939a89"
+    },
+    {
+      "path": "implementation-v1/inputs/competition/deepeye/integration/completion_interval.py",
+      "bytes": 7271,
+      "sha256": "05da98393d47f3eaf4690d8979d2e37d2e4f1e0b00c801177a3fb6a3f84bbe96"
+    },
+    {
+      "path": "implementation-v1/inputs/competition/deepeye/integration/host_clock.py",
+      "bytes": 3704,
+      "sha256": "091accae52c376d259d0057f7b93b23dc5f4143508025beec88394c4b657e376"
+    },
+    {
+      "path": "implementation-v1/inputs/competition/deepeye/integration/host_envelope.py",
+      "bytes": 27153,
+      "sha256": "3f9bcdf9ae88c9fb1007185e061b2954720a06f210282d5fe91f9eab97e764ea"
+    },
+    {
+      "path": "implementation-v1/inputs/competition/deepeye/simulation/authority/actor_composition.py",
+      "bytes": 32576,
+      "sha256": "3318a39ae1f7631d8fa4872e4bc3386c6cf46010857f837fe19f6c9e6bda71ba"
+    },
+    {
+      "path": "implementation-v1/inputs/competition/deepeye/simulation/authority/live_chain_channels.py",
+      "bytes": 13480,
+      "sha256": "084e65624cf576bb43afbeef5b1bfaabf1334e1b4cbcdba180517b5c6a9adf5a"
+    },
+    {
+      "path": "implementation-v1/inputs/competition/deepeye/simulation/authority/pc_direct_runtime.py",
+      "bytes": 24936,
+      "sha256": "1be7129834ea6f4892a1f527b173373e36325f88adabd44f443d95ad3ac1e461"
+    },
+    {
+      "path": "implementation-v1/inputs/competition/deepeye/simulation/authority/source_projection_v1/provider.py",
+      "bytes": 6345,
+      "sha256": "dfaccdde0830c8bb3255557505afe2b0ba915a66aa1002f48c1064d1ba9c44fe"
+    },
+    {
+      "path": "implementation-v1/inputs/competition/deepeye/simulation/authority/source_projection_v1/source_poll.py",
+      "bytes": 2117,
+      "sha256": "88f74b0d06031578d7b0152671485cd81160217aebe2384f7ec5135017239ee5"
+    },
+    {
+      "path": "implementation-v1/inputs/competition/deepeye/simulation/isolation/actor_owner.py",
+      "bytes": 38840,
+      "sha256": "41480311f81d236745abdc008e2ac330557da8aa3812cb5a1ecf21d2ca8b636f"
+    },
+    {
+      "path": "implementation-v1/inputs/competition/deepeye/tools/run_causal_functional_chain.py",
+      "bytes": 26621,
+      "sha256": "1261bb422836193732c79c0720cd9212c1c4d9cd3cacac07a19e071c837e4902"
+    },
+    {
+      "path": "implementation-v1/package/competition/deepeye/tools/finite_actor_bootstrap_v1.py",
+      "bytes": 10433,
+      "sha256": "ff43023110394b8efe7080518f7843634b8458f2837cacdc2a2b9c0b4f58a4dd"
+    },
+    {
+      "path": "implementation-v1/run_control.py",
+      "bytes": 1589,
+      "sha256": "4fda39f29fcf8d562d7b16e0527f2c599af74d02e69493e94be9b6afec731c21"
+    },
+    {
+      "path": "implementation-v1/runs/run01/command.json",
+      "bytes": 827,
+      "sha256": "dfb3439e936ccc47b1d55a09dd1a4b0d681341b58c16f5a7ad0cd40e4a6ee2dc"
+    },
+    {
+      "path": "implementation-v1/runs/run01/exit.json",
+      "bytes": 90,
+      "sha256": "d970d38f169263a16ce3630fe41f7adaaa632adb04c7f1e81a277e9b10fe0870"
+    },
+    {
+      "path": "implementation-v1/runs/run01/source/package/competition/deepeye/tools/finite_actor_bootstrap_v1.py",
+      "bytes": 9630,
+      "sha256": "4fc2553542e984d601402b40876ae6fc945564c0f578a22aa6608032799c8050"
+    },
+    {
+      "path": "implementation-v1/runs/run01/source/run_control.py",
+      "bytes": 1589,
+      "sha256": "4fda39f29fcf8d562d7b16e0527f2c599af74d02e69493e94be9b6afec731c21"
+    },
+    {
+      "path": "implementation-v1/runs/run01/source/test_finite_bootstrap.py",
+      "bytes": 10471,
+      "sha256": "b0d0f845357ce204feab3d7b9813be5277dc442300cde196db79a991a3c2709c"
+    },
+    {
+      "path": "implementation-v1/runs/run01/stderr.txt",
+      "bytes": 1801,
+      "sha256": "f227c66de1ef84360f80b039cd2ca483922cc7db261dc5d4e5d6184c8b98e198"
+    },
+    {
+      "path": "implementation-v1/runs/run01/stdout.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "implementation-v1/runs/run02/command.json",
+      "bytes": 904,
+      "sha256": "09f945eb1e3c3ee55cc35a761b3eca20399d11e4c4e9ec937978ed95a7bd0422"
+    },
+    {
+      "path": "implementation-v1/runs/run02/exit.json",
+      "bytes": 75,
+      "sha256": "8ccd4cdb6db35975254007629b0386c324a93c721e6e70731e649048d15a52fc"
+    },
+    {
+      "path": "implementation-v1/runs/run02/source/package/competition/deepeye/tools/finite_actor_bootstrap_v1.py",
+      "bytes": 9320,
+      "sha256": "f7f9183e0ccf06f80fed6f145d5f71752514f7a1ed9a85076e53ec38274f4fc9"
+    },
+    {
+      "path": "implementation-v1/runs/run02/source/run_control.py",
+      "bytes": 1589,
+      "sha256": "4fda39f29fcf8d562d7b16e0527f2c599af74d02e69493e94be9b6afec731c21"
+    },
+    {
+      "path": "implementation-v1/runs/run02/source/test_finite_bootstrap.py",
+      "bytes": 10471,
+      "sha256": "b0d0f845357ce204feab3d7b9813be5277dc442300cde196db79a991a3c2709c"
+    },
+    {
+      "path": "implementation-v1/runs/run02/stderr.txt",
+      "bytes": 242,
+      "sha256": "48bc04b590a332170a5a3a0ae6daa68995a05c9ae2bd9a4c6886cfa98dbdce0d"
+    },
+    {
+      "path": "implementation-v1/runs/run02/stdout.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "implementation-v1/runs/run03/command.json",
+      "bytes": 894,
+      "sha256": "c0c075d113cc96aefa0a89b040dc88d51079380e062759275f66ae755ec74e25"
+    },
+    {
+      "path": "implementation-v1/runs/run03/exit.json",
+      "bytes": 90,
+      "sha256": "78a42c793cf37002adb7440c0c343a354d1d0341354fcccaa9294732b66efe91"
+    },
+    {
+      "path": "implementation-v1/runs/run03/source/package/competition/deepeye/tools/finite_actor_bootstrap_v1.py",
+      "bytes": 9320,
+      "sha256": "f7f9183e0ccf06f80fed6f145d5f71752514f7a1ed9a85076e53ec38274f4fc9"
+    },
+    {
+      "path": "implementation-v1/runs/run03/source/run_control.py",
+      "bytes": 1589,
+      "sha256": "4fda39f29fcf8d562d7b16e0527f2c599af74d02e69493e94be9b6afec731c21"
+    },
+    {
+      "path": "implementation-v1/runs/run03/source/test_finite_bootstrap.py",
+      "bytes": 11001,
+      "sha256": "4a813dc55b929e65d2d2ab1a27c2350e1a474be599cc8b73b8c5a3f51c029b17"
+    },
+    {
+      "path": "implementation-v1/runs/run03/stderr.txt",
+      "bytes": 913,
+      "sha256": "678d6cff9ba948978e5a871be81518139f2e7795e7ddbb9927adeaabe4d798f6"
+    },
+    {
+      "path": "implementation-v1/runs/run03/stdout.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "implementation-v1/runs/run04/command.json",
+      "bytes": 894,
+      "sha256": "b97724468ac3ced7b209bcd3ac8847ae7aac6d153021a8748066ca693ddf0385"
+    },
+    {
+      "path": "implementation-v1/runs/run04/exit.json",
+      "bytes": 75,
+      "sha256": "8ccd4cdb6db35975254007629b0386c324a93c721e6e70731e649048d15a52fc"
+    },
+    {
+      "path": "implementation-v1/runs/run04/source/package/competition/deepeye/tools/finite_actor_bootstrap_v1.py",
+      "bytes": 9599,
+      "sha256": "b4a3d2bf2f7a8924b0eca5a02f16b2c920c337f0c6ae3388fefd6cf8ea12e332"
+    },
+    {
+      "path": "implementation-v1/runs/run04/source/run_control.py",
+      "bytes": 1589,
+      "sha256": "4fda39f29fcf8d562d7b16e0527f2c599af74d02e69493e94be9b6afec731c21"
+    },
+    {
+      "path": "implementation-v1/runs/run04/source/test_finite_bootstrap.py",
+      "bytes": 11001,
+      "sha256": "4a813dc55b929e65d2d2ab1a27c2350e1a474be599cc8b73b8c5a3f51c029b17"
+    },
+    {
+      "path": "implementation-v1/runs/run04/stderr.txt",
+      "bytes": 222,
+      "sha256": "acd78ae403efa541df2b8ec1b9a52a0c95e861d6be1aebda552ee94af357aa76"
+    },
+    {
+      "path": "implementation-v1/runs/run04/stdout.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "implementation-v1/runs/run05/command.json",
+      "bytes": 916,
+      "sha256": "28f5816cb006f339b889bab303763a4cf5fa15d689295c0528d9eefffae2139c"
+    },
+    {
+      "path": "implementation-v1/runs/run05/exit.json",
+      "bytes": 89,
+      "sha256": "6b81cbb6d7b3eca58f645e6aedf7f1bb15045973fdee3f43bbdc28c0c653e9d3"
+    },
+    {
+      "path": "implementation-v1/runs/run05/source/package/competition/deepeye/tools/finite_actor_bootstrap_v1.py",
+      "bytes": 9599,
+      "sha256": "b4a3d2bf2f7a8924b0eca5a02f16b2c920c337f0c6ae3388fefd6cf8ea12e332"
+    },
+    {
+      "path": "implementation-v1/runs/run05/source/run_control.py",
+      "bytes": 1589,
+      "sha256": "4fda39f29fcf8d562d7b16e0527f2c599af74d02e69493e94be9b6afec731c21"
+    },
+    {
+      "path": "implementation-v1/runs/run05/source/test_finite_bootstrap.py",
+      "bytes": 11855,
+      "sha256": "0972e3b4baea083de65b96515101b46774983535fbcb36c2b1bcfb740672b634"
+    },
+    {
+      "path": "implementation-v1/runs/run05/stderr.txt",
+      "bytes": 1627,
+      "sha256": "cd6737c6d6ecc41331a6028da4459c10872f020edbd23e5ff9d9705bf3ee33a9"
+    },
+    {
+      "path": "implementation-v1/runs/run05/stdout.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "implementation-v1/runs/run06/command.json",
+      "bytes": 993,
+      "sha256": "9e6daf7dccf209f2decdb391a123d025fcbcff6c95a7a2421bdda03688f33ad7"
+    },
+    {
+      "path": "implementation-v1/runs/run06/exit.json",
+      "bytes": 75,
+      "sha256": "8ccd4cdb6db35975254007629b0386c324a93c721e6e70731e649048d15a52fc"
+    },
+    {
+      "path": "implementation-v1/runs/run06/source/package/competition/deepeye/tools/finite_actor_bootstrap_v1.py",
+      "bytes": 9935,
+      "sha256": "ccc7cf4941e280e3714436bc6338de50004a08d7181015166d27e5a505589db6"
+    },
+    {
+      "path": "implementation-v1/runs/run06/source/run_control.py",
+      "bytes": 1589,
+      "sha256": "4fda39f29fcf8d562d7b16e0527f2c599af74d02e69493e94be9b6afec731c21"
+    },
+    {
+      "path": "implementation-v1/runs/run06/source/test_finite_bootstrap.py",
+      "bytes": 11855,
+      "sha256": "0972e3b4baea083de65b96515101b46774983535fbcb36c2b1bcfb740672b634"
+    },
+    {
+      "path": "implementation-v1/runs/run06/stderr.txt",
+      "bytes": 407,
+      "sha256": "ac1e9cc3c07b71291bed7a72a562ddf14c1b9d029e9a8beff79b6cb15d1fc49f"
+    },
+    {
+      "path": "implementation-v1/runs/run06/stdout.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "implementation-v1/runs/run07/command.json",
+      "bytes": 912,
+      "sha256": "1d92358fc69f496ea204aa9293febb7a19ef950750c5b06da74ebf85a3497f46"
+    },
+    {
+      "path": "implementation-v1/runs/run07/exit.json",
+      "bytes": 90,
+      "sha256": "d552a268a5064cabd35f63a4acfd7477c0f2b9972804c222bf12390b350c10d9"
+    },
+    {
+      "path": "implementation-v1/runs/run07/source/package/competition/deepeye/tools/finite_actor_bootstrap_v1.py",
+      "bytes": 9935,
+      "sha256": "ccc7cf4941e280e3714436bc6338de50004a08d7181015166d27e5a505589db6"
+    },
+    {
+      "path": "implementation-v1/runs/run07/source/run_control.py",
+      "bytes": 1589,
+      "sha256": "4fda39f29fcf8d562d7b16e0527f2c599af74d02e69493e94be9b6afec731c21"
+    },
+    {
+      "path": "implementation-v1/runs/run07/source/test_finite_bootstrap.py",
+      "bytes": 12663,
+      "sha256": "771daae2fb7a84e9aa9392181afa0e20788df669dd2f1aad67f3c5a9a2975b49"
+    },
+    {
+      "path": "implementation-v1/runs/run07/stderr.txt",
+      "bytes": 960,
+      "sha256": "fd836e6dd680c8ab64fa25a3778ca178aa80849bb5753e2b0faabf26f9a8062e"
+    },
+    {
+      "path": "implementation-v1/runs/run07/stdout.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "implementation-v1/runs/run08/command.json",
+      "bytes": 912,
+      "sha256": "10dccfc16ef132525f62ac2da03595045bb3503ed6eff5592113c10afd1340de"
+    },
+    {
+      "path": "implementation-v1/runs/run08/exit.json",
+      "bytes": 90,
+      "sha256": "609a65995bbb78f516febc437d16fb49a3e52ca57b4ef86123c8c4bf511e931e"
+    },
+    {
+      "path": "implementation-v1/runs/run08/source/package/competition/deepeye/tools/finite_actor_bootstrap_v1.py",
+      "bytes": 10433,
+      "sha256": "ff43023110394b8efe7080518f7843634b8458f2837cacdc2a2b9c0b4f58a4dd"
+    },
+    {
+      "path": "implementation-v1/runs/run08/source/run_control.py",
+      "bytes": 1589,
+      "sha256": "4fda39f29fcf8d562d7b16e0527f2c599af74d02e69493e94be9b6afec731c21"
+    },
+    {
+      "path": "implementation-v1/runs/run08/source/test_finite_bootstrap.py",
+      "bytes": 12663,
+      "sha256": "771daae2fb7a84e9aa9392181afa0e20788df669dd2f1aad67f3c5a9a2975b49"
+    },
+    {
+      "path": "implementation-v1/runs/run08/stderr.txt",
+      "bytes": 258,
+      "sha256": "80344bb392b8163966cbe80ff5595b669ed6e751e76fe0f8d774f0db24e2c452"
+    },
+    {
+      "path": "implementation-v1/runs/run08/stdout.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "implementation-v1/source-pins.json",
+      "bytes": 3283,
+      "sha256": "d70b3f94a7424237fe657209d135f275c19ab83e6e6d79e6e19c7933fcd7d57d"
+    },
+    {
+      "path": "implementation-v1/static-result.json",
+      "bytes": 634,
+      "sha256": "66f5824b1334d99b05681b9e769c94b9a54739f72b5d104d5151d4a4f099117d"
+    },
+    {
+      "path": "implementation-v1/static-runs/run01/API.json",
+      "bytes": 1773,
+      "sha256": "5db84c2f41bdc79ea25797bbccfe8ba57e19723a2b18c9ccda9abbd61b5bb8f4"
+    },
+    {
+      "path": "implementation-v1/static-runs/run01/c47-finite-bootstrap.patch",
+      "bytes": 10249,
+      "sha256": "ddccb6179ea09f7330da9dbf9399448f45662b8513798aa7548b8743a519d3f2"
+    },
+    {
+      "path": "implementation-v1/static-runs/run01/freeze_static.py",
+      "bytes": 6043,
+      "sha256": "b36dd8f2e742ce9a1d1b386b7b6edcd24b90b236759469f45aeb9f39238fe6bd"
+    },
+    {
+      "path": "implementation-v1/static-runs/run01/source-pins.json",
+      "bytes": 3283,
+      "sha256": "d70b3f94a7424237fe657209d135f275c19ab83e6e6d79e6e19c7933fcd7d57d"
+    },
+    {
+      "path": "implementation-v1/static-runs/run01/static-result.json",
+      "bytes": 618,
+      "sha256": "bbc7bd0b9f2ab40738e1cdd257aa790dbf798d11f8d0d344ed549c46978edeeb"
+    },
+    {
+      "path": "implementation-v1/static-runs/run02/command.json",
+      "bytes": 396,
+      "sha256": "1a61f01314359142b07df2fa8f8e668551ed2b9470947fca1401c9e7aabf1248"
+    },
+    {
+      "path": "implementation-v1/static-runs/run02/exit.json",
+      "bytes": 18,
+      "sha256": "302c5fcf0227d427ee240abdbd2a948557ea7ab09699f9c3bdeb0f98b67375ce"
+    },
+    {
+      "path": "implementation-v1/static-runs/run02/freeze_static.py",
+      "bytes": 6047,
+      "sha256": "2f488815061666e7dc48d72e067d17de7f4f8f1d01dc4211c0d82ce5ad939a89"
+    },
+    {
+      "path": "implementation-v1/static-runs/run02/stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "implementation-v1/static-runs/run02/stdout.txt",
+      "bytes": 634,
+      "sha256": "66f5824b1334d99b05681b9e769c94b9a54739f72b5d104d5151d4a4f099117d"
+    },
+    {
+      "path": "implementation-v1/test_finite_bootstrap.py",
+      "bytes": 12663,
+      "sha256": "771daae2fb7a84e9aa9392181afa0e20788df669dd2f1aad67f3c5a9a2975b49"
+    },
+    {
+      "path": "review-v1/FINDINGS.json",
+      "bytes": 1463,
+      "sha256": "955ac57b3f78c2a0ae006bffd4ac603b144c2d6cb773670fa327bdcbd6ccf519"
+    },
+    {
+      "path": "review-v1/REVIEW.md",
+      "bytes": 8416,
+      "sha256": "caa60bbee9160a7cdfeca025ddb9ddf32f11ec09cb1833c2c87dd40ceb63b0fe"
+    },
+    {
+      "path": "review-v1/independent_lifecycle_check.py",
+      "bytes": 5620,
+      "sha256": "8569972c050c7b0383114a5a760e4e7f605f0a3eb3f7dcfcbe8107744db5dbd7"
+    },
+    {
+      "path": "review-v1/run01.command-exit.json",
+      "bytes": 1517,
+      "sha256": "1ccc59eeae7ecafd97800703be18c2a29e0b47deee0ee7ff742683c9f49ad2b7"
+    },
+    {
+      "path": "review-v1/run01.input-output.json",
+      "bytes": 919,
+      "sha256": "b2c6713872ca59ab50c384beb36aa8037dde2472fe29442b6536b288713caa8f"
+    },
+    {
+      "path": "review-v1/run01.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "review-v1/run01.stdout",
+      "bytes": 714,
+      "sha256": "643cff1ab0db64ce08cf627c2cdaa833402384a8d9cd7e6c75c2718403802bd2"
+    },
+    {
+      "path": "review-v1/run_review.py",
+      "bytes": 3980,
+      "sha256": "23d7637f1ad1ce7d35ebcd65d8274bd2447033476fe73b1113c7088d0b3a1197"
+    },
+    {
+      "path": "review-v1/source-pins-after.json",
+      "bytes": 28085,
+      "sha256": "18b09205e650a25a18aa22c96723f96ffa716bbe1d26b3b6c803678d8ef1d3a5"
+    },
+    {
+      "path": "review-v1/source-pins-before.json",
+      "bytes": 28085,
+      "sha256": "18b09205e650a25a18aa22c96723f96ffa716bbe1d26b3b6c803678d8ef1d3a5"
+    },
+    {
+      "path": "review-v1/static-review.json",
+      "bytes": 14810,
+      "sha256": "73f3d4f643fbd2660cc6233329e5c9c86234b5760096159ec8064ce2c4618b17"
+    }
+  ],
+  "main_approval": {
+    "source_approved": true,
+    "approval_scope": "Partial default-disabled original finite configuration/lifecycle only",
+    "author_FINAL_sha256": "23652dd222d328f41ea87925a3351e5a620ca1a25a57f04508e22084e3ed5904",
+    "independent_FINAL_sha256": "2c4ad384d7a7da4d013b96d773724a9d523427eed52ba8a8aa16654c0ed55059",
+    "runtime_sha256": "ff43023110394b8efe7080518f7843634b8458f2837cacdc2a2b9c0b4f58a4dd",
+    "patch_sha256": "615b2018101b6aa0340d4f107b7bdb0658853685eebcc4ddf117564f472b8430",
+    "independent_new_controls": 1,
+    "independent_exit_codes": [
+      0
+    ],
+    "author_new_controls": 11,
+    "author_phase_exit_codes": [
+      1,
+      0,
+      1,
+      0,
+      1,
+      0,
+      1,
+      0
+    ],
+    "final_full_suite_run": false,
+    "open_findings": [],
+    "resolved_findings": [
+      "C47-M1",
+      "C47-M2"
+    ],
+    "actual_worker_release_verified": true,
+    "production_complete": false,
+    "provider_installed": false,
+    "formal_acceptance": false,
+    "native_actor": "NOT_RUN",
+    "physical_board": "NOT_RUN",
+    "utc": "2026-10-30T22:36:16.447472+00:00"
+  },
+  "all_original_failed_controls_retained": true,
+  "partial_source_implementation": true,
+  "production_functionality": "UNAVAILABLE"
+}

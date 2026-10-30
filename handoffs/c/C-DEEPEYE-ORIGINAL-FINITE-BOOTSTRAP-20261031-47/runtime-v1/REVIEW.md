@@ -1,0 +1,42 @@
+# C47 independent review
+
+The final source is approved as a **partial, default-disabled configuration and lifecycle helper**. No blocking source defect remains in this reviewed scope. It is not the complete operational provider requested by A46: the genuine same-handshake receipt type/producer and fixed production provider remain absent. Original activation continues to refuse before new actor acquisition. Production, enabled-loop, physical-board and H12 acceptance are not granted.
+
+Author FINAL SHA256: `23652dd222d328f41ea87925a3351e5a620ca1a25a57f04508e22084e3ed5904`.
+Final helper: `ff43023110394b8efe7080518f7843634b8458f2837cacdc2a2b9c0b4f58a4dd`.
+Addition patch: `615b2018101b6aa0340d4f107b7bdb0658853685eebcc4ddf117564f472b8430`.
+Pinned A: `0a3cd027b234374519110b67894c94db4cfe9e74`.
+
+## Source and interfaces
+
+I read the complete helper, README/API, original A46/A49/A51 messages, main decisions and both lifecycle findings, the original FunctionalWorld/FunctionalSource startup/close/registry paths, A host canonical import branch, original actor diagnostics entry semantics, and author test/logs. Independent byte verification matched 89 frozen files, 10 exact A input SHA256/Git blobs, retained C46 dependencies and all eight versioned test/source snapshots. The patch is exactly one new file; there are no modifications to frozen C46/C43/C42 or native-owner code.
+
+`prepare_config` uses original dataclass replacement, preserving existing policy/scene/IDs/caps and selecting only explicit interval-v2 plus C46 policy. It calls original ActorPolicy validation and C46 config validation; it synthesizes no receipt, source deadline, manifest or BOOT. Finite call budgets do not extend original deadlines. The helper delegates original activation/BOOT/poll/close rather than duplicating serial actor logic. K/wire/read/response limits and fixed C44 entry/pins remain the C46 responsibility.
+
+Canonical interval identity is consistent by exact import resolution: A `host_envelope.validate_message` package branch imports `.completion_interval` relative to `competition.deepeye.integration`; C46 adapter's level-four `integration` import from `competition.deepeye.simulation.authority.owned_invocation_v1` resolves the same package module. C47 imports that module normally and requires identity with the adapter's reference. The pre-existing foreign convenience alias is not used by the package branch to choose the class. No alias replacement was used in this review and no full native-dependent package import was run. Author's isolated canonical-branch control is version-specific wiring evidence, not schema qualification or an enabled original-chain test.
+
+Original `FunctionalSource.activate_original_authority` (A source lines 302–318) consumes its one-attempt flag before the real factory and retains a partially created composition on failure. Original factory still invokes `_production_channels` before registry acquisition; C47 does not override it. `start()` first requires the returned original composition to be RUNNING_UNBOUND. `accept_boot()` forwards the actual opaque event to the original verifier, requires ACTIVE, then calls the original source.start once. Original source.start (lines 294–300) permits this local sequence from prepared NEW. The availability of a genuine independent handshake producer before sampling starts remains unproven; no fabricated BOOT or rearranged origin is introduced to hide that dependency.
+
+Legacy BootBinding context and C42 proof Context remain distinct. `_RegistryHold.context_attached=False` and its unavailable reason are not changed. No new authority token/dataclass/provider callback is created. A must provide the named same-handshake allocating type, retained source/board/config/QPC relationships and verifier callsite, then supply genuine C46 observation attachments inside original channel admission. B131 source is already delivered/integrating according to A51; it is not mislabeled absent. Qualified physical BOOT/build/STATE8 and both H12 paths remain separate required facts.
+
+## M1/M2 and failure ownership
+
+M1 is closed for this helper: `observe_teardown()` reads only exact ActorOwner `_state` and `_cleanup_attempted`. It calls no owner methods/properties, diagnostics, poll_teardown or close. A foreign actor type or exhausted observation budget propagates without `_failed` or cleanup, and its `finally` clears busy. Returned `retained_fields_only` and `resource_confirmation=False` accurately limit the observation. RETIRED is the wrapper state and never means native CLOSED.
+
+M2 is closed: constructor checks both original world and original source against a private strong-reference close-owner relation before assigning lifecycle responsibility. A successful construction appends the relationship; failure, close and observation do not remove it. A second wrapper using either object cannot steal it. This is local ownership bookkeeping, not authentication. The relation is deliberately not reset or evicted.
+
+Activation/BOOT/poll failure retains the original exception, retires before close, invokes original world.close at most once, and separately retains a cleanup exception. Context-manager body errors remain the propagated exception even if cleanup fails. Reentry/restart fails before another activation. Explicit later close is idempotent at the wrapper level. The original `FunctionalWorld.close` implementation (lines 132–174) has its own unchanged resource handling, including a bounded repeated original world-owner close loop. Thus approval concerns **one helper-to-FunctionalWorld.close call**, not a claim that every underlying native operation executes once. C47 read-only observations never restart that original cleanup.
+
+## NEW independent evidence
+
+Exactly one new combined fault control was run, once, with a 25-second process bound; exit 0 and empty stderr. `independent_lifecycle_check.py` accepts the C47 implementation directory and output path. It compiles the exact helper AST with relative imports replaced by independently constructed synthetic classes. It does not import an author fixture, execute an old group, or run any original provider/native/core/model/PDE code. Its canonical-module sentinel is explicitly a fake identity placeholder and is not an import-identity test.
+
+The combination creates a retained composition during activation, then raises an original activation error; world.close raises a separate uncertainty error. The original exception propagates and both remain retained. A different world aliasing the same source is rejected after this failure, with the first close-owner relation intact. Subsequent observations return RELEASE_UNKNOWN and QUARANTINED without calling actor diagnostics/property/close. Observation-budget exhaustion, an explicit later close and a restart attempt cause no additional acquisition/cleanup. Observed synthetic counts are activation=1, acquisition=1, source_start=0, close=1, actor_method=0. Both observations explicitly deny resource confirmation. Exact input construction, output, raw streams, command and exit are retained.
+
+This single combined control is not counted as several separate tests. It supplements, rather than reruns, the author's eleven distinct versioned controls. Author raw exits remain `[1,0,1,0,1,0,1,0]`: initial teardown polling side effect; body-error replacement by cleanup; effectful diagnostics; duplicate close ownership each had an actual RED followed by a narrow repair/control. The final source matches run08; earlier passing groups were not rerun on the final source. No final full-suite pass is claimed. All old failures/source snapshots are read-only and preserved.
+
+One independent read-only inspection command exited 1 because its requested line range extended beyond the end of the source file (`IndexError`, native tool chunk `42ace8`). No source or test was executed by that command. The original tool output remains in the raw review transcript; this is not a product RED.
+
+## Disposition
+
+M1 and M2 are resolved in source and the new combined control. The source may be delivered with its partial-implementation label and explicit missing producer/provider gate. Main owns publication and acceptance. The immutable contract, H01–H15, original 29 requirements, both H12 chains, final 100MHz/timing/1%/100ms and A-only physical-board authority are unchanged and unaccepted by this review.

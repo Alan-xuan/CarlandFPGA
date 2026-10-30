@@ -1,0 +1,232 @@
+--- /dev/null
++++ b/competition/deepeye/tools/finite_actor_bootstrap_v1.py
+@@ -0,0 +1,229 @@
++"""Finite trusted-root lifecycle join. Configuration is never authority.
++
++Install after C46. No channel/provider callback or authority JSON is accepted.
++The original production factory remains the sole activation gate. At A0a3 it
++refuses before actor acquisition; an already prepared world remains caller-owned
++until FiniteActorBootstrap is constructed, then this object owns its close call.
++"""
++from dataclasses import dataclass, replace
++import threading
++
++from .run_causal_functional_chain import FunctionalWorld, FunctionalSource
++from ..simulation.authority import actor_composition
++from ..simulation.authority.owned_invocation_v1 import adapter
++from ..simulation.isolation.actor_owner import ActorPolicy, ActorOwner
++from ..integration import completion_interval, host_clock
++
++# Lifecycle responsibility only, never an authentication/BOOT token. Strong
++# original refs survive failure/close; no eviction, transfer or reset operation.
++_RETAINED_CLOSE_OWNERS = []
++
++
++def _need(value, message):
++    if not value:
++        raise ValueError(message)
++
++
++@dataclass(frozen=True)
++class FiniteLimits:
++    """Host call budgets only; these fields do not extend any original deadline."""
++    max_polls: int
++    max_teardown_observations: int
++    enabled: bool = False
++
++    def check(self):
++        _need(type(self) is FiniteLimits and type(self.enabled) is bool,
++              'exact finite limits and strict enabled bool required')
++        for value, maximum in ((self.max_polls, 65536),
++                               (self.max_teardown_observations, 256)):
++            _need(type(value) is int and 1 <= value <= maximum,
++                  'finite positive host call budget required')
++        _need(self.enabled, 'finite bootstrap is default disabled')
++
++
++def prepare_config(base, owned_policy, *, clock, limits):
++    """Keep original caps/scene/IDs; select only the explicit C45/C46 modes.
++
++    ActorPolicy and original package hashes must already be supplied by trusted
++    root. No inferred runtime manifest, BOOT, context or source cap is created.
++    This function neither acquires resources nor probes production channels.
++    """
++    _need(type(limits) is FiniteLimits, 'exact finite limits required')
++    limits.check()
++    _need(type(base) is actor_composition.AuthorityConfig,
++          'original AuthorityConfig required')
++    _need(type(base.actor_policy) is ActorPolicy, 'original ActorPolicy required')
++    _need(base.owned_invocation_v1 is None, 'cannot replace a prior owned policy')
++    _need(type(base.enable_completion_interval_v2) is bool,
++          'strict original interval opt-in required')
++    _need(type(owned_policy) is adapter.OwnedInvocationPolicy,
++          'original C46 policy required')
++    _need(type(clock) is host_clock.QpcHostClock, 'original QPC binding required')
++    _need(adapter.completion_interval is completion_interval,
++          'one canonical completion_interval module required')
++    base.actor_policy._validate()
++    result = replace(base, enable_completion_interval_v2=True,
++                     owned_invocation_v1=owned_policy)
++    adapter._validate_config(result, clock)
++    return result
++
++
++class FiniteActorBootstrap:
++    """One trusted-root activation, original event paths, one lifecycle close.
++
++    No automatic BOOT/source/context attachment. accept_boot forwards the actual
++    opaque event to the original verifier. Exact Python types ensure consistency,
++    not provenance; only A's original producer may call this trusted-root API.
++    """
++    def __init__(self, world, config, *, limits):
++        _need(type(limits) is FiniteLimits, 'exact finite limits required')
++        limits.check()
++        _need(type(world) is FunctionalWorld and type(world.source) is FunctionalSource,
++              'original prepared world/source required')
++        _need(type(config) is actor_composition.AuthorityConfig,
++              'original prepared configuration required')
++        _need(type(world.clock) is host_clock.QpcHostClock and
++              world.source.clock is world.clock, 'same original QPC binding required')
++        _need(threading.get_ident() == world._thread == world.source._thread,
++              'original owner thread required')
++        _need(not any(original_world is world or original_source is world.source
++                      for original_world, original_source, _ in _RETAINED_CLOSE_OWNERS),
++              'original world/source already has a bootstrap close owner')
++        _need(not world._close_attempted and not world.source._activation_attempted
++              and not world.source._start_attempted and world.source.composition is None,
++              'fresh prepared original lifecycle required')
++        _need(adapter.completion_interval is completion_interval,
++              'one canonical completion_interval module required')
++        config.actor_policy._validate()
++        adapter._validate_config(config, world.clock)
++        self.world, self.config, self.limits = world, config, limits
++        self._thread = threading.get_ident()
++        self._state = 'PREPARED'
++        self._polls = self._teardown_observations = 0
++        self._close_attempted = self._busy = False
++        self.errors = []  # Original exceptions stay with trusted root only.
++        _RETAINED_CLOSE_OWNERS.append((world, world.source, self))
++
++    def _enter(self, states):
++        _need(threading.get_ident() == self._thread, 'original owner thread required')
++        _need(not self._busy and self._state in states, 'single-use lifecycle entry required')
++        self._busy = True
++
++    def _close_once(self, reason):
++        if self._close_attempted:
++            return
++        self._close_attempted = True
++        self._state = 'RETIRED'  # Never implies original native resources CLOSED.
++        try:
++            self.world.close(reason)
++        except BaseException as error:
++            self.errors.append(error)
++            raise
++
++    def _failed(self, error):
++        self.errors.append(error)
++        try:
++            self._close_once('finite actor lifecycle failure')
++        except BaseException:
++            pass  # Retained separately; preserve the original failing exception.
++
++    def start(self):
++        self._enter(('PREPARED',))
++        self._state = 'ACTIVATING'
++        try:
++            # Original source retains a partially started composition on error.
++            composition = self.world.source.activate_original_authority(self.config)
++            _need(composition is self.world.source.composition and
++                  composition.status().state == 'RUNNING_UNBOUND',
++                  'original unbound actor required')
++            self._state = 'AWAITING_BOOT'
++        except BaseException as error:
++            self._failed(error)
++            raise
++        finally:
++            self._busy = False
++
++    def accept_boot(self, original_event):
++        self._enter(('AWAITING_BOOT',))
++        try:
++            composition = self.world.source.composition
++            composition.accept_boot(original_event)
++            _need(composition.status().state == 'ACTIVE', 'original verified BOOT required')
++            # Source starts once, only after the original authority accepted BOOT.
++            self.world.source.start()
++            self._state = 'ACTIVE'
++        except BaseException as error:
++            self._failed(error)
++            raise
++        finally:
++            self._busy = False
++
++    def poll(self, *, owned_invocation=False):
++        self._enter(('AWAITING_BOOT', 'ACTIVE'))
++        try:
++            _need(type(owned_invocation) is bool, 'strict poll selector required')
++            _need(self._polls < self.limits.max_polls, 'finite host poll budget exhausted')
++            self._polls += 1
++            composition = self.world.source.composition
++            composition.poll()  # Original clock/health/expiry fences stay active.
++            _need(composition.status().state in ('RUNNING_UNBOUND', 'ACTIVE'),
++                  'original composition stopped')
++            if owned_invocation:
++                _need(self._state == 'ACTIVE', 'original BOOT required before inference poll')
++                return composition.poll_owned_invocation()
++            return None
++        except BaseException as error:
++            self._failed(error)
++            raise
++        finally:
++            self._busy = False
++
++    def close(self, reason):
++        self._enter(('PREPARED', 'AWAITING_BOOT', 'ACTIVE', 'RETIRED'))
++        try:
++            _need(type(reason) is str and bool(reason), 'explicit close reason required')
++            self._close_once(reason)
++        finally:
++            self._busy = False
++
++    def observe_teardown(self):
++        """Read retained scalar fields only; no owner method, polling or retry.
++
++        State observations are returned verbatim. QUARANTINED/UNKNOWN is not
++        promoted to CLOSED; original errors and handles remain owner-retained.
++        """
++        self._enter(('RETIRED',))
++        try:
++            _need(self._teardown_observations < self.limits.max_teardown_observations,
++                  'finite teardown observation budget exhausted')
++            self._teardown_observations += 1
++            composition = self.world.source.composition
++            registry = None if composition is None else composition._registry
++            owners = () if registry is None else tuple(registry._owners)
++            result = []
++            for owner in owners:
++                _need(type(owner) is ActorOwner, 'original retained actor required')
++                # Even diagnostics() has @_entry cleanup-on-error effects.
++                # No method or property is invoked on the original actor here.
++                result.append(dict(state=owner._state,
++                                   cleanup_attempted=owner._cleanup_attempted,
++                                   observation='retained_fields_only',
++                                   resource_confirmation=False))
++            return tuple(result)
++        finally:
++            self._busy = False
++
++    def __enter__(self):
++        self.start()
++        return self
++
++    def __exit__(self, exc_type, exc, traceback):
++        if exc is None:
++            self.close('finite actor lifecycle scope ended')
++        else:
++            self.errors.append(exc)
++            try:
++                self.close('finite actor lifecycle scope failed')
++            except BaseException:
++                pass  # close retained its error; preserve the original body error.
++        return False

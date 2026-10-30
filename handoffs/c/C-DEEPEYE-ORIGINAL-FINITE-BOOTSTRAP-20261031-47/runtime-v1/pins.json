@@ -1,0 +1,52 @@
+[
+  {
+    "path": "API.json",
+    "bytes": 1773,
+    "sha256": "5db84c2f41bdc79ea25797bbccfe8ba57e19723a2b18c9ccda9abbd61b5bb8f4"
+  },
+  {
+    "path": "c47-finite-bootstrap.patch",
+    "bytes": 10755,
+    "sha256": "615b2018101b6aa0340d4f107b7bdb0658853685eebcc4ddf117564f472b8430"
+  },
+  {
+    "path": "evidence-index.json",
+    "bytes": 20171,
+    "sha256": "094006d5dc487b62665376861de278e7c2233123db260b442df4624ac3bb94f5"
+  },
+  {
+    "path": "evidence.zip",
+    "bytes": 179501,
+    "sha256": "78b44f093dcfbc60814f7f85f11d8b939500c35be45aa2f02045d69718f53af7"
+  },
+  {
+    "path": "FINDINGS.json",
+    "bytes": 1463,
+    "sha256": "955ac57b3f78c2a0ae006bffd4ac603b144c2d6cb773670fa327bdcbd6ccf519"
+  },
+  {
+    "path": "package/competition/deepeye/tools/finite_actor_bootstrap_v1.py",
+    "bytes": 10433,
+    "sha256": "ff43023110394b8efe7080518f7843634b8458f2837cacdc2a2b9c0b4f58a4dd"
+  },
+  {
+    "path": "README.md",
+    "bytes": 11921,
+    "sha256": "bb32539fe7326c4342177342bcee6308a1d91717763d776f4144c01080ea5096"
+  },
+  {
+    "path": "REVIEW.md",
+    "bytes": 8416,
+    "sha256": "caa60bbee9160a7cdfeca025ddb9ddf32f11ec09cb1833c2c87dd40ceb63b0fe"
+  },
+  {
+    "path": "source-pins.json",
+    "bytes": 3283,
+    "sha256": "d70b3f94a7424237fe657209d135f275c19ab83e6e6d79e6e19c7933fcd7d57d"
+  },
+  {
+    "path": "verify_delivery.py",
+    "bytes": 728,
+    "sha256": "f358b7cd9ecc7eaa75d6c62b7792b34552dc9fcbf84dbed86284fd2b1fe1fb4a"
+  }
+]

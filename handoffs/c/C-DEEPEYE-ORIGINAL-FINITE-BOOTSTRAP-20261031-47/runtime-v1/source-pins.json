@@ -1,0 +1,72 @@
+{
+  "A_commit": "0a3cd027b234374519110b67894c94db4cfe9e74",
+  "A_tree_sha": "0a3cd027b234374519110b67894c94db4cfe9e74",
+  "inputs": [
+    {
+      "path": "competition/deepeye/integration/completion_interval.py",
+      "bytes": 7271,
+      "sha256": "05da98393d47f3eaf4690d8979d2e37d2e4f1e0b00c801177a3fb6a3f84bbe96",
+      "git_blob": "489f8f3895bbbc0a7f3a612d3c71cce69ca5a47e"
+    },
+    {
+      "path": "competition/deepeye/integration/host_clock.py",
+      "bytes": 3704,
+      "sha256": "091accae52c376d259d0057f7b93b23dc5f4143508025beec88394c4b657e376",
+      "git_blob": "bf9822db7cd61fe2ab11240a142fa624933898e3"
+    },
+    {
+      "path": "competition/deepeye/integration/host_envelope.py",
+      "bytes": 27153,
+      "sha256": "3f9bcdf9ae88c9fb1007185e061b2954720a06f210282d5fe91f9eab97e764ea",
+      "git_blob": "3b7dacafcc1f24bb2a9b2c3c2c658b664bbbb83f"
+    },
+    {
+      "path": "competition/deepeye/simulation/authority/actor_composition.py",
+      "bytes": 32576,
+      "sha256": "3318a39ae1f7631d8fa4872e4bc3386c6cf46010857f837fe19f6c9e6bda71ba",
+      "git_blob": "5d26a69fc7d246c6a7636976b17a2d30d892e769"
+    },
+    {
+      "path": "competition/deepeye/simulation/authority/live_chain_channels.py",
+      "bytes": 13480,
+      "sha256": "084e65624cf576bb43afbeef5b1bfaabf1334e1b4cbcdba180517b5c6a9adf5a",
+      "git_blob": "157c779cbaad5cf286bc2842f9a74d1c9c1b29f4"
+    },
+    {
+      "path": "competition/deepeye/simulation/authority/pc_direct_runtime.py",
+      "bytes": 24936,
+      "sha256": "1be7129834ea6f4892a1f527b173373e36325f88adabd44f443d95ad3ac1e461",
+      "git_blob": "af8f39d76f18b547a8eafa4cdd21e8c2626bdc79"
+    },
+    {
+      "path": "competition/deepeye/simulation/authority/source_projection_v1/provider.py",
+      "bytes": 6345,
+      "sha256": "dfaccdde0830c8bb3255557505afe2b0ba915a66aa1002f48c1064d1ba9c44fe",
+      "git_blob": "7d20735aa4052d52055cbf73c8ed16efdc7bd4be"
+    },
+    {
+      "path": "competition/deepeye/simulation/authority/source_projection_v1/source_poll.py",
+      "bytes": 2117,
+      "sha256": "88f74b0d06031578d7b0152671485cd81160217aebe2384f7ec5135017239ee5",
+      "git_blob": "88ac93f09389c098457055b276291c2db984bece"
+    },
+    {
+      "path": "competition/deepeye/simulation/isolation/actor_owner.py",
+      "bytes": 38840,
+      "sha256": "41480311f81d236745abdc008e2ac330557da8aa3812cb5a1ecf21d2ca8b636f",
+      "git_blob": "134b3e498a4c533f80a3e741989fdfb4990ad28c"
+    },
+    {
+      "path": "competition/deepeye/tools/run_causal_functional_chain.py",
+      "bytes": 26621,
+      "sha256": "1261bb422836193732c79c0720cd9212c1c4d9cd3cacac07a19e071c837e4902",
+      "git_blob": "9bc6b070aab8e4691d20c7aada4f3d15a873b5ed"
+    }
+  ],
+  "C46_dependencies": {
+    "patched/competition/deepeye/simulation/authority/actor_composition.py": "3765ba5e68942dc888b0235792c63963e6e29fb5be66a4f14226e0c0ba29203a",
+    "patched/competition/deepeye/simulation/authority/candidate_owner.py": "563c7ad8e1bba496db85357884fa4832e39927333e4ec1a54a11e2d4b352c6a2",
+    "FINAL.json": "c014738445bb187174f05fc0e423c02e0a75a6be0d1fe673b4eb31a54fbdb502"
+  },
+  "contract_requirements_sha256": "c229834bfc2292f5fe4411fc9f12c68487008f9d1adaf31f0144ee7a98173804"
+}

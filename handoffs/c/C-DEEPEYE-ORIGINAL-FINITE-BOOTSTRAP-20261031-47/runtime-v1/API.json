@@ -1,0 +1,33 @@
+{
+  "schema": 1,
+  "status": "PARTIAL_IMPLEMENTATION_PRODUCTION_UNAVAILABLE",
+  "module": "competition.deepeye.tools.finite_actor_bootstrap_v1",
+  "callsites": [
+    "FiniteLimits(max_polls:int[1..65536],max_teardown_observations:int[1..256],enabled:bool=False)",
+    "prepare_config(base:AuthorityConfig,owned_policy:OwnedInvocationPolicy,*,clock:QpcHostClock,limits:FiniteLimits)->AuthorityConfig",
+    "FiniteActorBootstrap(world:FunctionalWorld,config:AuthorityConfig,*,limits:FiniteLimits)",
+    "start()->None",
+    "accept_boot(original_event)->None",
+    "poll(*,owned_invocation:bool=False)->original C46 result or None",
+    "close(reason:str)->None",
+    "observe_teardown()->tuple[retained scalar observation]"
+  ],
+  "grants_authority": false,
+  "installs_provider": false,
+  "changes_original_sources": false,
+  "retained_contexts": [
+    "BootBinding.context_json (legacy)",
+    "C42 proof Context (separate)"
+  ],
+  "missing_original_producer_facts": [
+    "Concrete same-handshake receipt type and allocation, absent at pinned A source",
+    "Original receipt verifier binding legacy BOOT and C42 context without merging them",
+    "Fixed production channel constructor backed by actual original allocations",
+    "Actual BOOT event for newly acquired original ActorOwner instance",
+    "Actual original observation/source/dispatch/previous-action attachments and deadlines"
+  ],
+  "existing_attachment_path": "Original channels.verify_observation inside accept_observation -> C46 _retain_original_association before returning exact VerifiedObservation",
+  "no_new_authority_receipt": true,
+  "actual_provider_factory": "unchanged _production_channels raises ActivationUnavailable",
+  "native_resources_confirmed": false
+}
