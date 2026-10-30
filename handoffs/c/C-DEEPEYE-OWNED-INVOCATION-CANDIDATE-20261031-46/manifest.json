@@ -1,0 +1,170 @@
+{
+  "artifacts": [
+    "handoffs/c/C-DEEPEYE-OWNED-INVOCATION-CANDIDATE-20261031-46/runtime-v1/API.json",
+    "handoffs/c/C-DEEPEYE-OWNED-INVOCATION-CANDIDATE-20261031-46/runtime-v1/c46-owned-invocation.patch",
+    "handoffs/c/C-DEEPEYE-OWNED-INVOCATION-CANDIDATE-20261031-46/runtime-v1/delivery-manifest.json",
+    "handoffs/c/C-DEEPEYE-OWNED-INVOCATION-CANDIDATE-20261031-46/runtime-v1/dependencies.json",
+    "handoffs/c/C-DEEPEYE-OWNED-INVOCATION-CANDIDATE-20261031-46/runtime-v1/evidence-index.json",
+    "handoffs/c/C-DEEPEYE-OWNED-INVOCATION-CANDIDATE-20261031-46/runtime-v1/evidence.zip",
+    "handoffs/c/C-DEEPEYE-OWNED-INVOCATION-CANDIDATE-20261031-46/runtime-v1/FINDINGS.json",
+    "handoffs/c/C-DEEPEYE-OWNED-INVOCATION-CANDIDATE-20261031-46/runtime-v1/package/owned_invocation_v1/__init__.py",
+    "handoffs/c/C-DEEPEYE-OWNED-INVOCATION-CANDIDATE-20261031-46/runtime-v1/package/owned_invocation_v1/adapter.py",
+    "handoffs/c/C-DEEPEYE-OWNED-INVOCATION-CANDIDATE-20261031-46/runtime-v1/package/owned_invocation_v1/fixed/c36/frozen_source_predicates.py",
+    "handoffs/c/C-DEEPEYE-OWNED-INVOCATION-CANDIDATE-20261031-46/runtime-v1/package/owned_invocation_v1/fixed/c36/host_projection.py",
+    "handoffs/c/C-DEEPEYE-OWNED-INVOCATION-CANDIDATE-20261031-46/runtime-v1/package/owned_invocation_v1/fixed/c36/public-view.schema.json",
+    "handoffs/c/C-DEEPEYE-OWNED-INVOCATION-CANDIDATE-20261031-46/runtime-v1/package/owned_invocation_v1/fixed/c36/request.schema.json",
+    "handoffs/c/C-DEEPEYE-OWNED-INVOCATION-CANDIDATE-20261031-46/runtime-v1/package/owned_invocation_v1/fixed/c44_pair_verifier_v1.py",
+    "handoffs/c/C-DEEPEYE-OWNED-INVOCATION-CANDIDATE-20261031-46/runtime-v1/package/owned_invocation_v1/fixed.py",
+    "handoffs/c/C-DEEPEYE-OWNED-INVOCATION-CANDIDATE-20261031-46/runtime-v1/package/owned_invocation_v1/mechanics.py",
+    "handoffs/c/C-DEEPEYE-OWNED-INVOCATION-CANDIDATE-20261031-46/runtime-v1/patched/competition/deepeye/simulation/authority/actor_composition.py",
+    "handoffs/c/C-DEEPEYE-OWNED-INVOCATION-CANDIDATE-20261031-46/runtime-v1/patched/competition/deepeye/simulation/authority/candidate_owner.py",
+    "handoffs/c/C-DEEPEYE-OWNED-INVOCATION-CANDIDATE-20261031-46/runtime-v1/README.md",
+    "handoffs/c/C-DEEPEYE-OWNED-INVOCATION-CANDIDATE-20261031-46/runtime-v1/REVIEW.md",
+    "handoffs/c/C-DEEPEYE-OWNED-INVOCATION-CANDIDATE-20261031-46/runtime-v1/source-pins.json",
+    "handoffs/c/C-DEEPEYE-OWNED-INVOCATION-CANDIDATE-20261031-46/runtime-v1/verify_delivery.py",
+    "handoffs/c/C-DEEPEYE-OWNED-INVOCATION-CANDIDATE-20261031-46/runtime-v1/pins.json"
+  ],
+  "files": {
+    "handoffs/c/C-DEEPEYE-OWNED-INVOCATION-CANDIDATE-20261031-46/runtime-v1/API.json": {
+      "sha256": "d382a472e123ed8c291b0214e379350007aff4fa546eb1bf6a078093ffd5ca56",
+      "size": 3265
+    },
+    "handoffs/c/C-DEEPEYE-OWNED-INVOCATION-CANDIDATE-20261031-46/runtime-v1/FINDINGS.json": {
+      "sha256": "7d51b6f3df7ba65c30cd3d4a8a331c045f95edaf9e19ddadbfdc84c9fa6dced0",
+      "size": 1349
+    },
+    "handoffs/c/C-DEEPEYE-OWNED-INVOCATION-CANDIDATE-20261031-46/runtime-v1/README.md": {
+      "sha256": "9f0ad5964405040009501e54c905215c5174db45ff8299bf665cc824dfc56bff",
+      "size": 11022
+    },
+    "handoffs/c/C-DEEPEYE-OWNED-INVOCATION-CANDIDATE-20261031-46/runtime-v1/REVIEW.md": {
+      "sha256": "47cf1eece05efaef34234c52608cad132986f198b98ed461a7444494106f8723",
+      "size": 8743
+    },
+    "handoffs/c/C-DEEPEYE-OWNED-INVOCATION-CANDIDATE-20261031-46/runtime-v1/c46-owned-invocation.patch": {
+      "sha256": "8e3a8cc354c6ee4691a0fa9c0e6749c5109a375149e6904a2851feb7779d7172",
+      "size": 5566
+    },
+    "handoffs/c/C-DEEPEYE-OWNED-INVOCATION-CANDIDATE-20261031-46/runtime-v1/delivery-manifest.json": {
+      "sha256": "79bf41a61fe6bcbadac1402a29cb26583b311892b848f141137f1b13402d24c6",
+      "size": 2895
+    },
+    "handoffs/c/C-DEEPEYE-OWNED-INVOCATION-CANDIDATE-20261031-46/runtime-v1/dependencies.json": {
+      "sha256": "4c69fda6d1b2d2b1d2ae5fa37406292fea02bbe3302e365741a3a6844c3f553a",
+      "size": 3018
+    },
+    "handoffs/c/C-DEEPEYE-OWNED-INVOCATION-CANDIDATE-20261031-46/runtime-v1/evidence-index.json": {
+      "sha256": "6d68fbfe95ccc874210450ed36b2d94794d5bacbdab2a8a5c9a7504bcad5508f",
+      "size": 42241
+    },
+    "handoffs/c/C-DEEPEYE-OWNED-INVOCATION-CANDIDATE-20261031-46/runtime-v1/evidence.zip": {
+      "sha256": "d1287806d9ce5a098949a205e7841e2bb97ccf053838cdca21eeb2720c36e389",
+      "size": 555644
+    },
+    "handoffs/c/C-DEEPEYE-OWNED-INVOCATION-CANDIDATE-20261031-46/runtime-v1/package/owned_invocation_v1/__init__.py": {
+      "sha256": "298929634d1fafe3644a21e465c2dfdd1509770cd9157ea69ec773c29cfdedc2",
+      "size": 79
+    },
+    "handoffs/c/C-DEEPEYE-OWNED-INVOCATION-CANDIDATE-20261031-46/runtime-v1/package/owned_invocation_v1/adapter.py": {
+      "sha256": "8cdaa41f69e2da5174af03b1c8861158eb9d43d3706b087205d14ae4e84e2b4d",
+      "size": 20421
+    },
+    "handoffs/c/C-DEEPEYE-OWNED-INVOCATION-CANDIDATE-20261031-46/runtime-v1/package/owned_invocation_v1/fixed.py": {
+      "sha256": "cd91c07ebd60af9e828c59c8e52fc1a523552841c4b4f8a909872e43670e7192",
+      "size": 755
+    },
+    "handoffs/c/C-DEEPEYE-OWNED-INVOCATION-CANDIDATE-20261031-46/runtime-v1/package/owned_invocation_v1/fixed/c36/frozen_source_predicates.py": {
+      "sha256": "7f4eaa649f1669e3f475d6cdbfb92a7ab7dfe1324cfb42719eb34c15f479ccf4",
+      "size": 17536
+    },
+    "handoffs/c/C-DEEPEYE-OWNED-INVOCATION-CANDIDATE-20261031-46/runtime-v1/package/owned_invocation_v1/fixed/c36/host_projection.py": {
+      "sha256": "7defaee9318f9a33a0586628661d054c028b5952584030ebc3b771a479a8982e",
+      "size": 54338
+    },
+    "handoffs/c/C-DEEPEYE-OWNED-INVOCATION-CANDIDATE-20261031-46/runtime-v1/package/owned_invocation_v1/fixed/c36/public-view.schema.json": {
+      "sha256": "046b863c6bc07bbaa5396c5b7dfc55fb1febf7bbd0bda29ef79cbd5119f981ed",
+      "size": 4766
+    },
+    "handoffs/c/C-DEEPEYE-OWNED-INVOCATION-CANDIDATE-20261031-46/runtime-v1/package/owned_invocation_v1/fixed/c36/request.schema.json": {
+      "sha256": "ab1b432e9f337523fd75057fec4647f5eda2569de308e7c777507e05907bdd70",
+      "size": 69906
+    },
+    "handoffs/c/C-DEEPEYE-OWNED-INVOCATION-CANDIDATE-20261031-46/runtime-v1/package/owned_invocation_v1/fixed/c44_pair_verifier_v1.py": {
+      "sha256": "af7ea20a3ee80f1266d66062698db4c5b1f8a9835262cc2ccfc7f480f6260ea6",
+      "size": 18734
+    },
+    "handoffs/c/C-DEEPEYE-OWNED-INVOCATION-CANDIDATE-20261031-46/runtime-v1/package/owned_invocation_v1/mechanics.py": {
+      "sha256": "96165d1a08c318807541a77c793658fd17fd28afcbf3632da59cb2f400291e46",
+      "size": 3109
+    },
+    "handoffs/c/C-DEEPEYE-OWNED-INVOCATION-CANDIDATE-20261031-46/runtime-v1/patched/competition/deepeye/simulation/authority/actor_composition.py": {
+      "sha256": "3765ba5e68942dc888b0235792c63963e6e29fb5be66a4f14226e0c0ba29203a",
+      "size": 34190
+    },
+    "handoffs/c/C-DEEPEYE-OWNED-INVOCATION-CANDIDATE-20261031-46/runtime-v1/patched/competition/deepeye/simulation/authority/candidate_owner.py": {
+      "sha256": "563c7ad8e1bba496db85357884fa4832e39927333e4ec1a54a11e2d4b352c6a2",
+      "size": 8711
+    },
+    "handoffs/c/C-DEEPEYE-OWNED-INVOCATION-CANDIDATE-20261031-46/runtime-v1/pins.json": {
+      "sha256": "2008baa5df6a63fb5aa791530228e5b245f1609bdd1ed4d227a980dbaeec891b",
+      "size": 3625
+    },
+    "handoffs/c/C-DEEPEYE-OWNED-INVOCATION-CANDIDATE-20261031-46/runtime-v1/source-pins.json": {
+      "sha256": "57d7f32bb5f2c03409df615dd3283d900dc0eab00fe915dcb410e6ec988a2ac7",
+      "size": 8453
+    },
+    "handoffs/c/C-DEEPEYE-OWNED-INVOCATION-CANDIDATE-20261031-46/runtime-v1/verify_delivery.py": {
+      "sha256": "f358b7cd9ecc7eaa75d6c62b7792b34552dc9fcbf84dbed86284fd2b1fe1fb4a",
+      "size": 728
+    }
+  },
+  "request": {
+    "code_commit": "0d18d5d649bcbf0dabcb1349369b97126b734c7e",
+    "expected_result": "Explicit fixed owned invocation adapter tied to genuine original composition transaction, retained ActorOwner OS operations and raw pair, C36 projection/C44 package/C43-C45 interval semantics. No public JSON/callback/PID adoption or invented scalar/caps; original source/BOOT/private provider and first enabled native/full-chain/board/formal qualification remain A-owned. PC_DIRECT and second H12 typed board-derived output stay distinct.",
+    "operation_id": "C-DEEPEYE-OWNED-INVOCATION-CANDIDATE-20261031-46",
+    "requester": "node-c",
+    "task_id": "DEEPEYE-IMPLEMENTATION-20261014",
+    "task_version": 1,
+    "test_steps": [
+      "Byte/archive verification only: python -I -S -B handoffs/c/C-DEEPEYE-OWNED-INVOCATION-CANDIDATE-20261031-46/runtime-v1/verify_delivery.py",
+      "Read new owned invocation adapter controls and independent review; first enabled native/source/board qualification remains A-owned",
+      "A must separately verify original provider proof, owned native handles, source readiness and exact runtime before any actual dispatch"
+    ]
+  },
+  "request_hash": "9a5e37d2009bedd51b4beed066a884b83af80fac2fb9a95c5611bdc3d088eca3",
+  "schema_version": 1,
+  "stages": {
+    "final_acceptance": {
+      "status": "not_run"
+    },
+    "full_chain": {
+      "status": "not_run"
+    },
+    "implementation": {
+      "status": "not_run"
+    },
+    "local_function": {
+      "log": "handoffs/c/C-DEEPEYE-OWNED-INVOCATION-CANDIDATE-20261031-46/runtime-v1/evidence-index.json",
+      "status": "passed"
+    },
+    "model_qualification": {
+      "status": "not_run"
+    },
+    "native_actor": {
+      "status": "not_run"
+    },
+    "physical_board": {
+      "status": "not_run"
+    },
+    "rtl_simulation": {
+      "status": "not_run"
+    },
+    "source_review": {
+      "log": "handoffs/c/C-DEEPEYE-OWNED-INVOCATION-CANDIDATE-20261031-46/runtime-v1/REVIEW.md",
+      "status": "passed"
+    },
+    "synthesis": {
+      "status": "not_run"
+    }
+  }
+}
