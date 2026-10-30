@@ -1,0 +1,191 @@
+{
+  "schema_version": 1,
+  "abi_id": "private_raw4_time_association_v1",
+  "root_kind": "c30_root_time_association_v1",
+  "default_enabled": false,
+  "diagnostic_only": true,
+  "authorization": "none",
+  "dependency": {
+    "file": "../C-DEEPEYE-CAUSAL-FOUR-CHANNEL-PLANNER-20261029-28/candidate_four_channel_planner_v1.py",
+    "sha256": "70b317681fee8c9182c342fe8d2f94eaecc957c62231a74a080d213bb5e0eab4",
+    "reuse": "exact recommend.__code__; isolated per-call globals replace only _validate; no second numerical planner"
+  },
+  "input_fields": [
+    "schema_version",
+    "abi_id",
+    "diagnostic_only",
+    "evidence_scope",
+    "enabled (optional; false)",
+    "now_qpc_ns",
+    "candidate",
+    "history",
+    "root_receipt"
+  ],
+  "evidence_scopes": [
+    "unassociated_diagnostic",
+    "synthetic_diagnostic_fixture",
+    "root_supplied_diagnostic"
+  ],
+  "candidate": "Original A candidate_four_channel_input exact whitelist, including complete observation_identity, source_time, counts, quality and diagnostic_flags. No renaming of original private context boot_id into protocol BOOT.",
+  "root_fields": {
+    "root_receipt": [
+      "kind",
+      "evidence_scope",
+      "config",
+      "source_admissions",
+      "captures",
+      "current_pose",
+      "action_registry"
+    ],
+    "config": [
+      "receipt_id",
+      "context",
+      "generation",
+      "profile_id",
+      "producer_sha256",
+      "source_policy",
+      "quality_encoding",
+      "source_mode",
+      "transport_source",
+      "source_start_tick_ms",
+      "source_start_monotonic_ns",
+      "goal_m",
+      "baseline_counters",
+      "initial_trigger_id",
+      "pose_book_id",
+      "owner_binding_id"
+    ],
+    "context": [
+      "operation_id",
+      "request_hash",
+      "tested_commit",
+      "build_manifest_sha256",
+      "boot_id",
+      "session_id",
+      "tag",
+      "clock_domain_id"
+    ],
+    "source_admissions[]": [
+      "index",
+      "adc_tick_ms",
+      "em_tick_ms",
+      "channel_counts",
+      "quality",
+      "source_record_sha256",
+      "received_qpc_ns",
+      "new_em_sample"
+    ],
+    "captures[]": [
+      "capture_sha256",
+      "source_record_sha256",
+      "request_raw",
+      "capture_raw",
+      "adc_pose",
+      "em_pose",
+      "em_origin_capture_sha256",
+      "cause_action_id",
+      "adc_call"
+    ],
+    "adc_pose/em_pose": [
+      "receipt_id",
+      "source_admission_index",
+      "nominal_source_qpc_ns",
+      "pose",
+      "pose_revision",
+      "pose_read",
+      "valid_span"
+    ],
+    "current_pose": [
+      "receipt_id",
+      "context",
+      "generation",
+      "at_qpc_ns",
+      "pose",
+      "pose_revision",
+      "pose_read",
+      "valid_span"
+    ],
+    "pose": [
+      "position_m",
+      "orientation_xyzw"
+    ],
+    "pose_read/adc_call": [
+      "begin_qpc_ns",
+      "end_qpc_ns"
+    ],
+    "valid_span": [
+      "receipt_id",
+      "from_qpc_ns",
+      "through_qpc_ns"
+    ],
+    "action_registry": [
+      "receipt_id",
+      "context",
+      "generation",
+      "as_of_qpc_ns",
+      "actions"
+    ],
+    "actions[]": [
+      "receipt_id",
+      "action_id",
+      "state",
+      "observation_capture_sha256",
+      "at_qpc_ns",
+      "from_pose",
+      "to_pose",
+      "from_pose_revision",
+      "to_pose_revision"
+    ]
+  },
+  "missing": "Explicit null for unavailable Root/config/book ID/admissions/capture association/pose receipt/revision/read/span/call/registry/actions/execution receipt. Empty admissions is missing evidence; explicit empty actions only from actual Root registry. Legal missing tail or insufficient proven coverage is INPUT_UNAVAILABLE, STOP, core_ran=false. Never synthesize fields.",
+  "timing": {
+    "integers": "All QPC/revisions uint63 strict int (not bool or float); original absolute QPC retained. No future supplied event, bracket or span.",
+    "nominal": "Original source_start_monotonic_ns + (source tick - source_start_tick_ms)*1000000. Original source clock never reset.",
+    "adc": "nominal <= pose_read.begin <= pose_read.end <= adc_call.begin <= adc_call.end <= admission_received. Closed valid_span must cover nominal, full read and full call.",
+    "native_em": "Native source admission and real ADC==EM nominal required; same original pose/revision. Its own read.end <= original native ADC call.begin. Original span covers nominal, own read, native call.",
+    "held_em": "Exact original native EM receipt/revision/read/span retained; check original native call only, never later held ADC call. Original native capture must remain available.",
+    "current": "at_qpc_ns == now; read.end <= now; closed span covers full read and now.",
+    "revision": "Within full context/generation/book/owner namespace, same revision means same pose. Different revision closed spans cannot overlap; chronologically later spans cannot have smaller revision.",
+    "action": "state executed only. at_qpc_ns is original Root completion/commit point when to_pose_revision became committed; not dispatch, start, ACK or callback receipt. Unknown completion => missing execution receipt/registry, unavailable.",
+    "action_span": "For every supplied action (to R, at T), every supplied revision<R span.through<T; revision>=R span.from>=T. No inferred duration. to>from, ordered execution/revisions; current>=latest to and equal revision has equal pose.",
+    "causality": "Executed action follows actual received original observation; any caused capture nominal ADC follows that executed commit strictly.",
+    "age": "Original integer age <=100000000 ns inclusive before entering core; +1ns unavailable. Only private absolute Fraction(qpc_ns,1000000) computational view; no Fraction escapes output.",
+    "source_c3": "Producer source model ticks and contiguous ten ADC admissions govern C3; initial ticks <90ms cannot have healthy C3. Separate from absolute QPC freshness."
+  },
+  "limits": {
+    "input_utf8_bytes": 1048576,
+    "output_utf8_bytes": 1048576,
+    "nodes": 65536,
+    "depth": 16,
+    "object_fields": 32,
+    "key_chars": 96,
+    "ordinary_string_chars": 192,
+    "ordinary_array_items": 32,
+    "combined_captures_and_actions": 32,
+    "root_receipt.source_admissions": 1001,
+    "source_window_ms": 10000,
+    "source_prefix": "Complete original indices 0..1000; no reset, sliding prefix or interior omission. Missing legal tail unavailable; nonzero start/internal hole rejected. Tick gaps preserve original C3 continuity semantics.",
+    "raw_line_chars_and_bytes": 16384,
+    "raw_line_exception": "Only exact root_receipt/captures/<index>/request_raw or capture_raw. Embedded raw JSON receives ordinary 32-array cap; no nested source_admissions exception.",
+    "combined_captures_and_actions_rule": "Before any missing/disabled return: max(len(history)+1, len(supplied root.captures or [])) + len(supplied actions or []) <=32. Null means zero supplied items for budgeting only, never evidence. Late association bound remains."
+  },
+  "strictness": "Exact fields, strict JSON finite types, duplicate keys rejected, hashes and returned raw identity/count/quality words checked. Malformed/reversed/provided identity or revision conflicts/hidden fields/budget breaches raise Rejected, including disabled paths. Every returned output has bounded strict validation.",
+  "numerical_policy": "Frozen C28: 0.25m pairwise displacement, 15 degree forward-axis support (roll-only retained), 30 degree native EM direction cone, goal-sensitive 3D advice, quality conservative STOP. No new numerical algorithm.",
+  "provenance": {
+    "A_source_commit": "9a2e3f093966230375c35dc65792f6d46f35039c",
+    "pump_sha256": "b21865169cf683f21618aca5b1494dc20fc05a361bfe48caf7a0675ac3bae39d",
+    "actual_Root_pose_book_supplied": false,
+    "actual_ADC_pose_read_supplied": false,
+    "structural_only": true,
+    "authentication": false,
+    "board_full_chain_formal": "NOT_RUN"
+  },
+  "immutables": {
+    "contract_id": "DEEPEYE-HUMAN-LOCK-20261014",
+    "revision": 1,
+    "source": "f5989cd5defce561f9ba98e6b18fc2682945f0a2",
+    "requirements_sha256": "c229834bfc2292f5fe4411fc9f12c68487008f9d1adaf31f0144ee7a98173804",
+    "fixed_design": "1011259415a0916054eb580687612580bc1e5f09",
+    "H01_H15": "unchanged, including both H12 items"
+  }
+}

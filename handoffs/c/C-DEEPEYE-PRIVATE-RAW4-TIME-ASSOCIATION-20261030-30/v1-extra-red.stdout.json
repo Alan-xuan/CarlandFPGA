@@ -1,0 +1,315 @@
+{
+  "scope": "NEW_C30_EXTRA_CONTROLS_SYNTHETIC",
+  "source_sha256": "cbf2077281e3683fe9a9b6d3b5ef36e1da2a54da27daab84b10f7d18cc6f07b7",
+  "total": 22,
+  "passed": false,
+  "cases": [
+    {
+      "name": "combined33_missing_config_True",
+      "expected": "Rejected",
+      "input_sha256": "8f788c63c0f30ea0679c6a236a90c1a580cafca68c41a1da3df57504ad54334e",
+      "input_bytes": 22391,
+      "result": {
+        "input_status": "INPUT_UNAVAILABLE",
+        "status": "STOP",
+        "core_ran": false,
+        "reason": "missing_root_config"
+      },
+      "output_bytes": 22743,
+      "passed": false,
+      "core_calls": 0
+    },
+    {
+      "name": "combined33_missing_config_False",
+      "expected": "Rejected",
+      "input_sha256": "4ea768315eeb9644213d9e2d8d753629d753dd02ba9d76e97ac1dd7b65011f43",
+      "input_bytes": 22392,
+      "result": {
+        "input_status": "DISABLED",
+        "status": "STOP",
+        "core_ran": false,
+        "reason": "disabled"
+      },
+      "output_bytes": 22723,
+      "passed": false,
+      "core_calls": 0
+    },
+    {
+      "name": "combined33_missing_current_pose_True",
+      "expected": "Rejected",
+      "input_sha256": "5658cadc68c5f818096fc045899e4efac9a6b5d80d0849121b315d628731d9a4",
+      "input_bytes": 22622,
+      "result": {
+        "input_status": "INPUT_UNAVAILABLE",
+        "status": "STOP",
+        "core_ran": false,
+        "reason": "missing_current_pose"
+      },
+      "output_bytes": 22975,
+      "passed": false,
+      "core_calls": 0
+    },
+    {
+      "name": "combined33_missing_current_pose_False",
+      "expected": "Rejected",
+      "input_sha256": "e405831a52ca31a0cbd261ba4318a26637c3e0ceb931eb2d08e82a602ab3b928",
+      "input_bytes": 22623,
+      "result": {
+        "input_status": "DISABLED",
+        "status": "STOP",
+        "core_ran": false,
+        "reason": "disabled"
+      },
+      "output_bytes": 22954,
+      "passed": false,
+      "core_calls": 0
+    },
+    {
+      "name": "combined33_missing_source_admissions_True",
+      "expected": "Rejected",
+      "input_sha256": "7bc6ab11a2c5c00c57731e0fa0972a8923b5d4ba28c16f933043425876c15f84",
+      "input_bytes": 20905,
+      "result": {
+        "input_status": "INPUT_UNAVAILABLE",
+        "status": "STOP",
+        "core_ran": false,
+        "reason": "missing_source_admissions"
+      },
+      "output_bytes": 21263,
+      "passed": false,
+      "core_calls": 0
+    },
+    {
+      "name": "combined33_missing_source_admissions_False",
+      "expected": "Rejected",
+      "input_sha256": "11bc96421c25ab5eb50802824d2ad48259613603f984b0dfdd613b7251d45136",
+      "input_bytes": 20906,
+      "result": {
+        "input_status": "DISABLED",
+        "status": "STOP",
+        "core_ran": false,
+        "reason": "disabled"
+      },
+      "output_bytes": 21237,
+      "passed": false,
+      "core_calls": 0
+    },
+    {
+      "name": "combined33_missing_captures_True",
+      "expected": "Rejected",
+      "input_sha256": "b39f42a1cc16c830305afcceb3ac55ce60d3316334a135fe964a720393c667f4",
+      "input_bytes": 19986,
+      "result": {
+        "input_status": "INPUT_UNAVAILABLE",
+        "status": "STOP",
+        "core_ran": false,
+        "reason": "missing_capture_associations"
+      },
+      "output_bytes": 20347,
+      "passed": false,
+      "core_calls": 0
+    },
+    {
+      "name": "combined33_missing_captures_False",
+      "expected": "Rejected",
+      "input_sha256": "3840967d6b9c961ff6db587e3edbb9388f4986c07460d5262d3faefd3f82917c",
+      "input_bytes": 19987,
+      "result": {
+        "input_status": "DISABLED",
+        "status": "STOP",
+        "core_ran": false,
+        "reason": "disabled"
+      },
+      "output_bytes": 20318,
+      "passed": false,
+      "core_calls": 0
+    },
+    {
+      "name": "combined33_missing_pose_book_id_True",
+      "expected": "Rejected",
+      "input_sha256": "acd3f06ac89470cd7295486e7158623cea2fc050764a673cf10fdde0e7838e81",
+      "input_bytes": 23578,
+      "result": {
+        "input_status": "INPUT_UNAVAILABLE",
+        "status": "STOP",
+        "core_ran": false,
+        "reason": "missing_pose_book_id"
+      },
+      "output_bytes": 23931,
+      "passed": false,
+      "core_calls": 0
+    },
+    {
+      "name": "combined33_missing_pose_book_id_False",
+      "expected": "Rejected",
+      "input_sha256": "a9774afa565b2a75eb10353a93100fac0b12731db7c536f6b596f17c98c2f7c8",
+      "input_bytes": 23579,
+      "result": {
+        "input_status": "DISABLED",
+        "status": "STOP",
+        "core_ran": false,
+        "reason": "disabled"
+      },
+      "output_bytes": 23910,
+      "passed": false,
+      "core_calls": 0
+    },
+    {
+      "name": "combined33_missing_adc_call_True",
+      "expected": "Rejected",
+      "input_sha256": "f2c87fd5dba81fe671d03fac001e76d481d85562395b82f30df2da1d3ba7f99d",
+      "input_bytes": 23538,
+      "result": {
+        "input_status": "INPUT_UNAVAILABLE",
+        "status": "STOP",
+        "core_ran": false,
+        "reason": "missing_adc_call"
+      },
+      "output_bytes": 23887,
+      "passed": false,
+      "core_calls": 0
+    },
+    {
+      "name": "combined33_missing_adc_call_False",
+      "expected": "Rejected",
+      "input_sha256": "346e10a22f5481d11e014bfbf7b2c9ce2cf152071a8943c6d7959977720752c8",
+      "input_bytes": 23539,
+      "result": {
+        "input_status": "DISABLED",
+        "status": "STOP",
+        "core_ran": false,
+        "reason": "disabled"
+      },
+      "output_bytes": 23870,
+      "passed": false,
+      "core_calls": 0
+    },
+    {
+      "name": "combined33_complete_other_evidence",
+      "expected": "Rejected",
+      "input_sha256": "1230371639a7c3b4cc1be862d0cfc21225e42a6dbd30ffbea96006a3544fda16",
+      "input_bytes": 23599,
+      "exception": {
+        "type": "Rejected",
+        "message": "combined history/action bound"
+      },
+      "passed": true,
+      "core_calls": 0
+    },
+    {
+      "name": "combined32_missing_execution_receipt",
+      "expected": "INPUT_UNAVAILABLE",
+      "input_sha256": "d122169ab8f3042f7ab742477c620b722a2dcb1e827fd7ecde17942a4487227a",
+      "input_bytes": 23234,
+      "result": {
+        "input_status": "INPUT_UNAVAILABLE",
+        "status": "STOP",
+        "core_ran": false,
+        "reason": "missing_action_execution_receipt"
+      },
+      "output_bytes": 23599,
+      "passed": true,
+      "core_calls": 0
+    },
+    {
+      "name": "duplicate_envelope_key_True",
+      "expected": "Rejected",
+      "input_sha256": "e51d9929ae813eed04563574326d000b13bab05ed0e56c51d06f6b4aa652c1bf",
+      "input_bytes": 11949,
+      "exception": {
+        "type": "Rejected",
+        "message": "invalid strict JSON: duplicate JSON key"
+      },
+      "passed": true,
+      "core_calls": 0
+    },
+    {
+      "name": "duplicate_request_raw_missing_config_True",
+      "expected": "Rejected",
+      "input_sha256": "c22e1f38bc5d9a285c59cebe6c852fce9b8ab60805e8ddc4097212b94e7cd520",
+      "input_bytes": 10735,
+      "exception": {
+        "type": "Rejected",
+        "message": "invalid strict JSON: duplicate JSON key"
+      },
+      "passed": true,
+      "core_calls": 0
+    },
+    {
+      "name": "duplicate_capture_raw_missing_config_True",
+      "expected": "Rejected",
+      "input_sha256": "49bf30a82d382658070c20a84f095760ad22cd92a7d06f43b18189ee1f7b4718",
+      "input_bytes": 10735,
+      "exception": {
+        "type": "Rejected",
+        "message": "invalid strict JSON: duplicate JSON key"
+      },
+      "passed": true,
+      "core_calls": 0
+    },
+    {
+      "name": "duplicate_envelope_key_False",
+      "expected": "Rejected",
+      "input_sha256": "5bb9e33d758e6e465e6ee81158036ee323e3c1fd090d4bf481248c9db3f8cb5b",
+      "input_bytes": 11950,
+      "exception": {
+        "type": "Rejected",
+        "message": "invalid strict JSON: duplicate JSON key"
+      },
+      "passed": true,
+      "core_calls": 0
+    },
+    {
+      "name": "duplicate_request_raw_missing_config_False",
+      "expected": "Rejected",
+      "input_sha256": "8ef828daf1f7aacc195bdd7c6a582b20f195194af7f46e45da8e5e5236bc66a6",
+      "input_bytes": 10736,
+      "exception": {
+        "type": "Rejected",
+        "message": "invalid strict JSON: duplicate JSON key"
+      },
+      "passed": true,
+      "core_calls": 0
+    },
+    {
+      "name": "duplicate_capture_raw_missing_config_False",
+      "expected": "Rejected",
+      "input_sha256": "c5c44d8aea1e9aa0b7349be45315ccd9f5cb861f39c25aa0e3039cab2d03e607",
+      "input_bytes": 10736,
+      "exception": {
+        "type": "Rejected",
+        "message": "invalid strict JSON: duplicate JSON key"
+      },
+      "passed": true,
+      "core_calls": 0
+    },
+    {
+      "name": "public_disabled_output_exceeds_1MiB_with_input_below_limit",
+      "expected": "Rejected",
+      "input_sha256": "0128f1e9749632de2c00e2da104bcc964dd3743d2366c116dc1d76e1249a36b9",
+      "input_bytes": 1048477,
+      "exception": {
+        "type": "Rejected",
+        "message": "output budget"
+      },
+      "passed": true,
+      "core_calls": 0
+    },
+    {
+      "name": "public_disabled_output_4KiB_below_boundary",
+      "expected": "DISABLED",
+      "input_sha256": "a7cc7ccf1befa523d468940eb8f0706e9c16a9fd68e59ffaee57cb8e553bdf28",
+      "input_bytes": 1044381,
+      "result": {
+        "input_status": "DISABLED",
+        "status": "STOP",
+        "core_ran": false,
+        "reason": "disabled"
+      },
+      "output_bytes": 1044712,
+      "passed": true,
+      "core_calls": 0
+    }
+  ],
+  "old_suites_run": false
+}

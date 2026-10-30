@@ -1,0 +1,62 @@
+{
+  "combined33_missing_config_True": {
+    "input_sha256": "8f788c63c0f30ea0679c6a236a90c1a580cafca68c41a1da3df57504ad54334e",
+    "input_bytes": 22391,
+    "expected": "Rejected"
+  },
+  "combined33_missing_config_False": {
+    "input_sha256": "4ea768315eeb9644213d9e2d8d753629d753dd02ba9d76e97ac1dd7b65011f43",
+    "input_bytes": 22392,
+    "expected": "Rejected"
+  },
+  "combined33_missing_current_pose_True": {
+    "input_sha256": "5658cadc68c5f818096fc045899e4efac9a6b5d80d0849121b315d628731d9a4",
+    "input_bytes": 22622,
+    "expected": "Rejected"
+  },
+  "combined33_missing_current_pose_False": {
+    "input_sha256": "e405831a52ca31a0cbd261ba4318a26637c3e0ceb931eb2d08e82a602ab3b928",
+    "input_bytes": 22623,
+    "expected": "Rejected"
+  },
+  "combined33_missing_source_admissions_True": {
+    "input_sha256": "7bc6ab11a2c5c00c57731e0fa0972a8923b5d4ba28c16f933043425876c15f84",
+    "input_bytes": 20905,
+    "expected": "Rejected"
+  },
+  "combined33_missing_source_admissions_False": {
+    "input_sha256": "11bc96421c25ab5eb50802824d2ad48259613603f984b0dfdd613b7251d45136",
+    "input_bytes": 20906,
+    "expected": "Rejected"
+  },
+  "combined33_missing_captures_True": {
+    "input_sha256": "b39f42a1cc16c830305afcceb3ac55ce60d3316334a135fe964a720393c667f4",
+    "input_bytes": 19986,
+    "expected": "Rejected"
+  },
+  "combined33_missing_captures_False": {
+    "input_sha256": "3840967d6b9c961ff6db587e3edbb9388f4986c07460d5262d3faefd3f82917c",
+    "input_bytes": 19987,
+    "expected": "Rejected"
+  },
+  "combined33_missing_pose_book_id_True": {
+    "input_sha256": "acd3f06ac89470cd7295486e7158623cea2fc050764a673cf10fdde0e7838e81",
+    "input_bytes": 23578,
+    "expected": "Rejected"
+  },
+  "combined33_missing_pose_book_id_False": {
+    "input_sha256": "a9774afa565b2a75eb10353a93100fac0b12731db7c536f6b596f17c98c2f7c8",
+    "input_bytes": 23579,
+    "expected": "Rejected"
+  },
+  "combined33_missing_adc_call_True": {
+    "input_sha256": "f2c87fd5dba81fe671d03fac001e76d481d85562395b82f30df2da1d3ba7f99d",
+    "input_bytes": 23538,
+    "expected": "Rejected"
+  },
+  "combined33_missing_adc_call_False": {
+    "input_sha256": "346e10a22f5481d11e014bfbf7b2c9ce2cf152071a8943c6d7959977720752c8",
+    "input_bytes": 23539,
+    "expected": "Rejected"
+  }
+}

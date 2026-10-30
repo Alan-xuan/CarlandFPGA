@@ -1,0 +1,952 @@
+{
+  "scope": "SYNTHETIC_C30_NEW_FOCUSED_ONLY",
+  "source_sha256": "cbf2077281e3683fe9a9b6d3b5ef36e1da2a54da27daab84b10f7d18cc6f07b7",
+  "action_completion_point_semantics_selected": true,
+  "total_checks": 57,
+  "elapsed_seconds": 1.034158499998739,
+  "cases": [
+    {
+      "name": "native_nominal_not_actual_full_coverage",
+      "expected": "ADVISE",
+      "input_sha256": "1f99c8cd9574da8fc744b2f8226dff8018c29c0f072edeeefae978f7ef59f09e",
+      "input_bytes": 11930,
+      "core_calls": 1,
+      "isolated_globals": true,
+      "output": {
+        "input_status": "COMPLETE_DIAGNOSTIC",
+        "status": "ADVISE",
+        "core_ran": true,
+        "reason": "bounded_observation_goal_search",
+        "independent_em_count": 1
+      },
+      "passed": true,
+      "input_unchanged": true,
+      "globals_unchanged": true
+    },
+    {
+      "name": "held_original_em_span_not_required_to_cover_later_call",
+      "expected": "ADVISE",
+      "input_sha256": "63d5da2d71c5f6221b324b01ea7e996815f9763608292207c243bc0f070f26d3",
+      "input_bytes": 18103,
+      "core_calls": 1,
+      "isolated_globals": true,
+      "output": {
+        "input_status": "COMPLETE_DIAGNOSTIC",
+        "status": "ADVISE",
+        "core_ran": true,
+        "reason": "bounded_observation_goal_search",
+        "independent_em_count": 1
+      },
+      "passed": true,
+      "input_unchanged": true,
+      "globals_unchanged": true
+    },
+    {
+      "name": "missing_pose_book_id",
+      "expected": "UNAVAILABLE",
+      "input_sha256": "b11734cc3ecc6bcf728278b94672c25ddfee9b57605fb0f21f6f4d0b95d20058",
+      "input_bytes": 11909,
+      "core_calls": 0,
+      "isolated_globals": true,
+      "output": {
+        "input_status": "INPUT_UNAVAILABLE",
+        "status": "STOP",
+        "core_ran": false,
+        "reason": "missing_pose_book_id",
+        "independent_em_count": 0
+      },
+      "passed": true,
+      "input_unchanged": true,
+      "globals_unchanged": true
+    },
+    {
+      "name": "missing_owner_binding_id",
+      "expected": "UNAVAILABLE",
+      "input_sha256": "b0e40b4de3bfaf8d866c7e6e738e5e9f6eb8e34e91010700d6b0efa1f7edfe03",
+      "input_bytes": 11908,
+      "core_calls": 0,
+      "isolated_globals": true,
+      "output": {
+        "input_status": "INPUT_UNAVAILABLE",
+        "status": "STOP",
+        "core_ran": false,
+        "reason": "missing_owner_binding_id",
+        "independent_em_count": 0
+      },
+      "passed": true,
+      "input_unchanged": true,
+      "globals_unchanged": true
+    },
+    {
+      "name": "missing_adc_pose_pose_read",
+      "expected": "UNAVAILABLE",
+      "input_sha256": "0941ddf27d0a7906eb3958e23641dc34a90d51876a5d2894f0252c3010a0bb37",
+      "input_bytes": 11869,
+      "core_calls": 0,
+      "isolated_globals": true,
+      "output": {
+        "input_status": "INPUT_UNAVAILABLE",
+        "status": "STOP",
+        "core_ran": false,
+        "reason": "missing_adc_pose_read",
+        "independent_em_count": 0
+      },
+      "passed": true,
+      "input_unchanged": true,
+      "globals_unchanged": true
+    },
+    {
+      "name": "missing_adc_pose_valid_span",
+      "expected": "UNAVAILABLE",
+      "input_sha256": "e9199e503ae28191a4134c70295065f59ce74c1f2e47d3f17f60e7dfdeaae2d3",
+      "input_bytes": 11827,
+      "core_calls": 0,
+      "isolated_globals": true,
+      "output": {
+        "input_status": "INPUT_UNAVAILABLE",
+        "status": "STOP",
+        "core_ran": false,
+        "reason": "missing_adc_pose_span",
+        "independent_em_count": 0
+      },
+      "passed": true,
+      "input_unchanged": true,
+      "globals_unchanged": true
+    },
+    {
+      "name": "missing_em_pose_pose_read",
+      "expected": "UNAVAILABLE",
+      "input_sha256": "839ee5f4c1c7927450215da99d7d06961185c8b7a80e85b97fe411f61a7ada9c",
+      "input_bytes": 11869,
+      "core_calls": 0,
+      "isolated_globals": true,
+      "output": {
+        "input_status": "INPUT_UNAVAILABLE",
+        "status": "STOP",
+        "core_ran": false,
+        "reason": "missing_em_pose_read",
+        "independent_em_count": 0
+      },
+      "passed": true,
+      "input_unchanged": true,
+      "globals_unchanged": true
+    },
+    {
+      "name": "missing_em_pose_valid_span",
+      "expected": "UNAVAILABLE",
+      "input_sha256": "31b0c99dc763286605477affcbd392be1bb7b02eda202a54e2a8aca9d37edb05",
+      "input_bytes": 11821,
+      "core_calls": 0,
+      "isolated_globals": true,
+      "output": {
+        "input_status": "INPUT_UNAVAILABLE",
+        "status": "STOP",
+        "core_ran": false,
+        "reason": "missing_em_pose_span",
+        "independent_em_count": 0
+      },
+      "passed": true,
+      "input_unchanged": true,
+      "globals_unchanged": true
+    },
+    {
+      "name": "missing_adc_call",
+      "expected": "UNAVAILABLE",
+      "input_sha256": "bdd657a359bbd04c8d2fb8d9221dcbcfc6dd430b6bb2d7930ab9b517ecbe956c",
+      "input_bytes": 11869,
+      "core_calls": 0,
+      "isolated_globals": true,
+      "output": {
+        "input_status": "INPUT_UNAVAILABLE",
+        "status": "STOP",
+        "core_ran": false,
+        "reason": "missing_adc_call",
+        "independent_em_count": 0
+      },
+      "passed": true,
+      "input_unchanged": true,
+      "globals_unchanged": true
+    },
+    {
+      "name": "missing_current_read",
+      "expected": "UNAVAILABLE",
+      "input_sha256": "1450db3e63b04a5cc846a5fa24ee4ff1b21a62ca6fe9559726d5793368d210c0",
+      "input_bytes": 11869,
+      "core_calls": 0,
+      "isolated_globals": true,
+      "output": {
+        "input_status": "INPUT_UNAVAILABLE",
+        "status": "STOP",
+        "core_ran": false,
+        "reason": "missing_current_pose_read",
+        "independent_em_count": 0
+      },
+      "passed": true,
+      "input_unchanged": true,
+      "globals_unchanged": true
+    },
+    {
+      "name": "missing_actual_action_registry",
+      "expected": "UNAVAILABLE",
+      "input_sha256": "5a22dca77a3bc88cc563ee36d1434abb2609cba4b02154382df83ed0714f2918",
+      "input_bytes": 11203,
+      "core_calls": 0,
+      "isolated_globals": true,
+      "output": {
+        "input_status": "INPUT_UNAVAILABLE",
+        "status": "STOP",
+        "core_ran": false,
+        "reason": "missing_action_registry",
+        "independent_em_count": 0
+      },
+      "passed": true,
+      "input_unchanged": true,
+      "globals_unchanged": true
+    },
+    {
+      "name": "nominal_outside_later_adc_pose_span",
+      "expected": "UNAVAILABLE",
+      "input_sha256": "9e4577739e9a904f0c1f14b9158307cd44b47ccd636981a4061223b6a825b016",
+      "input_bytes": 11930,
+      "core_calls": 0,
+      "isolated_globals": true,
+      "output": {
+        "input_status": "INPUT_UNAVAILABLE",
+        "status": "STOP",
+        "core_ran": false,
+        "reason": "missing_adc_pose_span_does_not_cover_original_times",
+        "independent_em_count": 0
+      },
+      "passed": true,
+      "input_unchanged": true,
+      "globals_unchanged": true
+    },
+    {
+      "name": "native_call_end_outside_adc_pose_span_by_1ns",
+      "expected": "UNAVAILABLE",
+      "input_sha256": "f6a18176c75465a8561f15781ef79af782bc7964ae8f7abca0bfc88c81311e9f",
+      "input_bytes": 11930,
+      "core_calls": 0,
+      "isolated_globals": true,
+      "output": {
+        "input_status": "INPUT_UNAVAILABLE",
+        "status": "STOP",
+        "core_ran": false,
+        "reason": "missing_adc_pose_span_does_not_cover_original_times",
+        "independent_em_count": 0
+      },
+      "passed": true,
+      "input_unchanged": true,
+      "globals_unchanged": true
+    },
+    {
+      "name": "reversed_adc_pose_read",
+      "expected": "REJECTED",
+      "input_sha256": "b2878435213ece44038f388f0b3fb2294bcd7dad2e7ab736e4277b18c9c057c2",
+      "input_bytes": 11930,
+      "core_calls": 0,
+      "isolated_globals": true,
+      "exception": {
+        "type": "Rejected",
+        "message": "reversed or future actual bracket"
+      },
+      "passed": true,
+      "input_unchanged": true,
+      "globals_unchanged": true
+    },
+    {
+      "name": "nominal_outside_later_em_pose_span",
+      "expected": "UNAVAILABLE",
+      "input_sha256": "c9b9958bb1255bc24169fa588d0b29ab4b2285b4760af3e909f1fb7a9e765822",
+      "input_bytes": 11930,
+      "core_calls": 0,
+      "isolated_globals": true,
+      "output": {
+        "input_status": "INPUT_UNAVAILABLE",
+        "status": "STOP",
+        "core_ran": false,
+        "reason": "missing_em_pose_span_does_not_cover_original_times",
+        "independent_em_count": 0
+      },
+      "passed": true,
+      "input_unchanged": true,
+      "globals_unchanged": true
+    },
+    {
+      "name": "native_call_end_outside_em_pose_span_by_1ns",
+      "expected": "UNAVAILABLE",
+      "input_sha256": "ba0450bc68722690381f9629c3429c84fd64e658bc867eae6dda16b63dd23caa",
+      "input_bytes": 11930,
+      "core_calls": 0,
+      "isolated_globals": true,
+      "output": {
+        "input_status": "INPUT_UNAVAILABLE",
+        "status": "STOP",
+        "core_ran": false,
+        "reason": "missing_em_pose_span_does_not_cover_original_times",
+        "independent_em_count": 0
+      },
+      "passed": true,
+      "input_unchanged": true,
+      "globals_unchanged": true
+    },
+    {
+      "name": "reversed_em_pose_read",
+      "expected": "REJECTED",
+      "input_sha256": "bfc9b30afe6648e041fe6900a376e8345ad220131d712aedc8707a3aade729c4",
+      "input_bytes": 11930,
+      "core_calls": 0,
+      "isolated_globals": true,
+      "exception": {
+        "type": "Rejected",
+        "message": "reversed or future actual bracket"
+      },
+      "passed": true,
+      "input_unchanged": true,
+      "globals_unchanged": true
+    },
+    {
+      "name": "reversed_adc_call",
+      "expected": "REJECTED",
+      "input_sha256": "2f9e44c73572f2cc56d12f05c7b8eab09607ba5e754f33d01dbd3eb254fea803",
+      "input_bytes": 11930,
+      "core_calls": 0,
+      "isolated_globals": true,
+      "exception": {
+        "type": "Rejected",
+        "message": "reversed or future actual bracket"
+      },
+      "passed": true,
+      "input_unchanged": true,
+      "globals_unchanged": true
+    },
+    {
+      "name": "adc_pose_read_after_call_begin",
+      "expected": "REJECTED",
+      "input_sha256": "f297b64ae0d65c0ebf70b284644496c5faeb771dcc940bf105afb0b7dd395a5f",
+      "input_bytes": 11930,
+      "core_calls": 0,
+      "isolated_globals": true,
+      "exception": {
+        "type": "Rejected",
+        "message": "pose read follows original ADC call"
+      },
+      "passed": true,
+      "input_unchanged": true,
+      "globals_unchanged": true
+    },
+    {
+      "name": "current_span_missing_now_by_1ns",
+      "expected": "UNAVAILABLE",
+      "input_sha256": "f275672f3e206ee1ad963c379b6b35a21d0255dfa2fcca38743f5663d4b66613",
+      "input_bytes": 11930,
+      "core_calls": 0,
+      "isolated_globals": true,
+      "output": {
+        "input_status": "INPUT_UNAVAILABLE",
+        "status": "STOP",
+        "core_ran": false,
+        "reason": "current_pose_span_does_not_cover_original_times",
+        "independent_em_count": 0
+      },
+      "passed": true,
+      "input_unchanged": true,
+      "globals_unchanged": true
+    },
+    {
+      "name": "future_span_claim",
+      "expected": "REJECTED",
+      "input_sha256": "acf80102a98c2c702c80925a068c116a24b94326a4dbc3cf51b8d7b790116ac1",
+      "input_bytes": 11930,
+      "core_calls": 0,
+      "isolated_globals": true,
+      "exception": {
+        "type": "Rejected",
+        "message": "reversed or future proven span"
+      },
+      "passed": true,
+      "input_unchanged": true,
+      "globals_unchanged": true
+    },
+    {
+      "name": "same_revision_conflicting_pose",
+      "expected": "REJECTED",
+      "input_sha256": "923a7bd780a7ba74896c673ae517047cbb65c423de2f2ea4a5605e90f7949b16",
+      "input_bytes": 11932,
+      "core_calls": 0,
+      "isolated_globals": true,
+      "exception": {
+        "type": "Rejected",
+        "message": "same revision has conflicting pose"
+      },
+      "passed": true,
+      "input_unchanged": true,
+      "globals_unchanged": true
+    },
+    {
+      "name": "different_revision_overlapping_equal_pose_spans",
+      "expected": "REJECTED",
+      "input_sha256": "efda2930e2c89930e573c9f2d7f427668a8bfcbeefdbed7f59959f5620ef89e5",
+      "input_bytes": 11930,
+      "core_calls": 0,
+      "isolated_globals": true,
+      "exception": {
+        "type": "Rejected",
+        "message": "different revisions overlap closed proven spans"
+      },
+      "passed": true,
+      "input_unchanged": true,
+      "globals_unchanged": true
+    },
+    {
+      "name": "disjoint_spans_revision_goes_backwards",
+      "expected": "REJECTED",
+      "input_sha256": "1b67e649d1db0b245d3141018597ff889056d717fa1577d58596e8d06f82f1c1",
+      "input_bytes": 11930,
+      "core_calls": 0,
+      "isolated_globals": true,
+      "exception": {
+        "type": "Rejected",
+        "message": "committed revision goes backwards in time"
+      },
+      "passed": true,
+      "input_unchanged": true,
+      "globals_unchanged": true
+    },
+    {
+      "name": "native_adc_em_revision_disagree",
+      "expected": "REJECTED",
+      "input_sha256": "8f0210932f6581891aaca53138eb775a1cf15b5806ed3f57541d35652ea59227",
+      "input_bytes": 11930,
+      "core_calls": 0,
+      "isolated_globals": true,
+      "exception": {
+        "type": "Rejected",
+        "message": "different revisions overlap closed proven spans"
+      },
+      "passed": true,
+      "input_unchanged": true,
+      "globals_unchanged": true
+    },
+    {
+      "name": "held_original_read_receipt_changed",
+      "expected": "REJECTED",
+      "input_sha256": "57824dba196b939feaa45cd631c302920f03cd6f173fab5df9ff65d9b29b6752",
+      "input_bytes": 18103,
+      "core_calls": 0,
+      "isolated_globals": true,
+      "exception": {
+        "type": "Rejected",
+        "message": "held original read/span/revision changed"
+      },
+      "passed": true,
+      "input_unchanged": true,
+      "globals_unchanged": true
+    },
+    {
+      "name": "held_board_origin_evicted",
+      "expected": "UNAVAILABLE",
+      "input_sha256": "f28436c42f5ea864612e80d0c7ee65add34ffbf2bca5fbf3d6f279b78ba7d075",
+      "input_bytes": 12185,
+      "core_calls": 0,
+      "isolated_globals": true,
+      "output": {
+        "input_status": "INPUT_UNAVAILABLE",
+        "status": "STOP",
+        "core_ran": false,
+        "reason": "missing_retained_native_board_origin",
+        "independent_em_count": 0
+      },
+      "passed": true,
+      "input_unchanged": true,
+      "globals_unchanged": true
+    },
+    {
+      "name": "exact_nominal_age_100000000",
+      "expected": "ADVISE",
+      "input_sha256": "52b1974245cd0c44fbfa533ebfd46f2f2d08a4b4e41bb7d70b317e2674cbc20c",
+      "input_bytes": 11930,
+      "core_calls": 1,
+      "isolated_globals": true,
+      "output": {
+        "input_status": "COMPLETE_DIAGNOSTIC",
+        "status": "ADVISE",
+        "core_ran": true,
+        "reason": "bounded_observation_goal_search",
+        "independent_em_count": 1
+      },
+      "passed": true,
+      "input_unchanged": true,
+      "globals_unchanged": true
+    },
+    {
+      "name": "exact_nominal_age_100000001",
+      "expected": "UNAVAILABLE",
+      "input_sha256": "156d86c9e46710d38a1677e5a1b59c8961eca632678ec1df5a140f3b896735c6",
+      "input_bytes": 11930,
+      "core_calls": 0,
+      "isolated_globals": true,
+      "output": {
+        "input_status": "INPUT_UNAVAILABLE",
+        "status": "STOP",
+        "core_ran": false,
+        "reason": "original_source_expired_now",
+        "independent_em_count": 0
+      },
+      "passed": true,
+      "input_unchanged": true,
+      "globals_unchanged": true
+    },
+    {
+      "name": "uint63_now_overflow",
+      "expected": "REJECTED",
+      "input_sha256": "de8204d85057958f5452660b326647e1d8e66db9f27eb7f9de755ac2e702d0fe",
+      "input_bytes": 11932,
+      "core_calls": 0,
+      "isolated_globals": true,
+      "exception": {
+        "type": "Rejected",
+        "message": "integer: strict unsigned integer"
+      },
+      "passed": true,
+      "input_unchanged": true,
+      "globals_unchanged": true
+    },
+    {
+      "name": "derived_source_qpc_overflow",
+      "expected": "REJECTED",
+      "input_sha256": "e933f406849766cdf6e85e360d01b5fc347c6860a92eec2987f3588293f65959",
+      "input_bytes": 11932,
+      "core_calls": 0,
+      "isolated_globals": true,
+      "exception": {
+        "type": "Rejected",
+        "message": "derived original source QPC: strict unsigned integer"
+      },
+      "passed": true,
+      "input_unchanged": true,
+      "globals_unchanged": true
+    },
+    {
+      "name": "one_ns_original_age_not_rounded",
+      "expected": "REJECTED",
+      "input_sha256": "4dde489e83ec45097669460b321a7aed68f7c1d9c4d524ab068c118dc96596b6",
+      "input_bytes": 11930,
+      "core_calls": 0,
+      "isolated_globals": true,
+      "exception": {
+        "type": "Rejected",
+        "message": "original source age mismatch"
+      },
+      "passed": true,
+      "input_unchanged": true,
+      "globals_unchanged": true
+    },
+    {
+      "name": "complete_original_prefix_1001",
+      "expected": "ADVISE",
+      "input_sha256": "a752dd0daab2660ba44520408eb4aa7c14ee8b2720b2e7e808fa2a0a53f08c51",
+      "input_bytes": 258590,
+      "core_calls": 1,
+      "isolated_globals": true,
+      "output": {
+        "input_status": "COMPLETE_DIAGNOSTIC",
+        "status": "ADVISE",
+        "core_ran": true,
+        "reason": "bounded_observation_goal_search",
+        "independent_em_count": 1
+      },
+      "passed": true,
+      "input_unchanged": true,
+      "globals_unchanged": true
+    },
+    {
+      "name": "prefix_1002_refused",
+      "expected": "REJECTED",
+      "input_sha256": "686e6535b0d042d38fc6d0d946f5d35b0f6d8b050f04511e1341d0344620c983",
+      "input_bytes": 258840,
+      "core_calls": 0,
+      "isolated_globals": true,
+      "exception": {
+        "type": "Rejected",
+        "message": "array budget"
+      },
+      "passed": true,
+      "input_unchanged": true,
+      "globals_unchanged": true
+    },
+    {
+      "name": "missing_prefix_None",
+      "expected": "UNAVAILABLE",
+      "input_sha256": "dfaf0a77604f7441ff3ad32f7d83b3c794b8072d43a4fbcb73d61202213d67bf",
+      "input_bytes": 9236,
+      "core_calls": 0,
+      "isolated_globals": true,
+      "output": {
+        "input_status": "INPUT_UNAVAILABLE",
+        "status": "STOP",
+        "core_ran": false,
+        "reason": "missing_source_admissions",
+        "independent_em_count": 0
+      },
+      "passed": true,
+      "input_unchanged": true,
+      "globals_unchanged": true
+    },
+    {
+      "name": "missing_prefix_0",
+      "expected": "UNAVAILABLE",
+      "input_sha256": "6f474e066a715ad980d9914ba7d69f81d4a6e01a4c6e058384ebad274b0dc4d1",
+      "input_bytes": 9234,
+      "core_calls": 0,
+      "isolated_globals": true,
+      "output": {
+        "input_status": "INPUT_UNAVAILABLE",
+        "status": "STOP",
+        "core_ran": false,
+        "reason": "missing_source_admissions",
+        "independent_em_count": 0
+      },
+      "passed": true,
+      "input_unchanged": true,
+      "globals_unchanged": true
+    },
+    {
+      "name": "missing_prefix_10",
+      "expected": "UNAVAILABLE",
+      "input_sha256": "c893a9a6b45536d341232a71fa228794c502484dd3d192141236e9debf31aa39",
+      "input_bytes": 11686,
+      "core_calls": 0,
+      "isolated_globals": true,
+      "output": {
+        "input_status": "INPUT_UNAVAILABLE",
+        "status": "STOP",
+        "core_ran": false,
+        "reason": "missing_source_admission_index",
+        "independent_em_count": 0
+      },
+      "passed": true,
+      "input_unchanged": true,
+      "globals_unchanged": true
+    },
+    {
+      "name": "no_nonzero_sliding_prefix",
+      "expected": "REJECTED",
+      "input_sha256": "e37c6f9cbb4a9aa8f82f4f2d558d9dfadee0c85db5a335376a5527c3e0f7fd25",
+      "input_bytes": 11689,
+      "core_calls": 0,
+      "isolated_globals": true,
+      "exception": {
+        "type": "Rejected",
+        "message": "original admissions must begin at zero with no omission"
+      },
+      "passed": true,
+      "input_unchanged": true,
+      "globals_unchanged": true
+    },
+    {
+      "name": "history_path_still_32",
+      "expected": "REJECTED",
+      "input_sha256": "91d1b6809357dd9674c2b8a18a4033f5544a6557462245caf5d4abaadceefe96",
+      "input_bytes": 87928,
+      "core_calls": 0,
+      "isolated_globals": true,
+      "exception": {
+        "type": "Rejected",
+        "message": "array budget"
+      },
+      "passed": true,
+      "input_unchanged": true,
+      "globals_unchanged": true
+    },
+    {
+      "name": "capture_path_still_32",
+      "expected": "REJECTED",
+      "input_sha256": "57d74a3c415217ffbb70a34a4aefdc7d78b309148b447941858fb1a43e172014",
+      "input_bytes": 127642,
+      "core_calls": 0,
+      "isolated_globals": true,
+      "exception": {
+        "type": "Rejected",
+        "message": "array budget"
+      },
+      "passed": true,
+      "input_unchanged": true,
+      "globals_unchanged": true
+    },
+    {
+      "name": "same_name_wrong_path_no_1001_exception",
+      "expected": "REJECTED",
+      "input_sha256": "301eb3e9aaa71559c02a94c95b6fa111cbfc88be354d5ebd0f9f5c846f2aa9be",
+      "input_bytes": 13954,
+      "core_calls": 0,
+      "isolated_globals": true,
+      "exception": {
+        "type": "Rejected",
+        "message": "array budget"
+      },
+      "passed": true,
+      "input_unchanged": true,
+      "globals_unchanged": true
+    },
+    {
+      "name": "raw_embedded_same_name_no_1001_exception",
+      "expected": "REJECTED",
+      "input_sha256": "da02dfda2d674e6d7e7d16e8aa68a1396757c8047ea32b087f1a6aa3f06d68c6",
+      "input_bytes": 13956,
+      "core_calls": 0,
+      "isolated_globals": true,
+      "exception": {
+        "type": "Rejected",
+        "message": "array budget"
+      },
+      "passed": true,
+      "input_unchanged": true,
+      "globals_unchanged": true
+    },
+    {
+      "name": "real_source_gap_invalid_c3_remains_quality_stop",
+      "expected": "QUALITY_STOP",
+      "input_sha256": "ddd76fa3ab5fc7fd7cc8c0071569ab27145ebffd99793c433e777516fceaea2c",
+      "input_bytes": 17862,
+      "core_calls": 1,
+      "isolated_globals": true,
+      "output": {
+        "input_status": "COMPLETE_DIAGNOSTIC",
+        "status": "STOP",
+        "core_ran": true,
+        "reason": "invalid_faulted_or_saturated",
+        "independent_em_count": 0
+      },
+      "passed": true,
+      "input_unchanged": true,
+      "globals_unchanged": true
+    },
+    {
+      "name": "actual_executed_revision_current_matches",
+      "expected": "ADVISE",
+      "input_sha256": "c2907fd9f81442377f92d3cb023894f3b944500a1c5e43e545a2dd358316b483",
+      "input_bytes": 12312,
+      "core_calls": 1,
+      "isolated_globals": true,
+      "output": {
+        "input_status": "COMPLETE_DIAGNOSTIC",
+        "status": "ADVISE",
+        "core_ran": true,
+        "reason": "bounded_observation_goal_search",
+        "independent_em_count": 1
+      },
+      "passed": true,
+      "input_unchanged": true,
+      "globals_unchanged": true
+    },
+    {
+      "name": "current_revision_behind_actual_executed_to",
+      "expected": "REJECTED",
+      "input_sha256": "f7872c328170272a4c6aeda800aea681fda874724dc49701aab6b9034a82277f",
+      "input_bytes": 12309,
+      "core_calls": 0,
+      "isolated_globals": true,
+      "exception": {
+        "type": "Rejected",
+        "message": "proven span contradicts executed revision commit time"
+      },
+      "passed": true,
+      "input_unchanged": true,
+      "globals_unchanged": true
+    },
+    {
+      "name": "action_after_nominal_before_actual_read_not_cause",
+      "expected": "REJECTED",
+      "input_sha256": "703152367de6d3e83fff671e8158b5c903b69333b2a75c77e2e09a528a8a0b66",
+      "input_bytes": 18487,
+      "core_calls": 0,
+      "isolated_globals": true,
+      "exception": {
+        "type": "Rejected",
+        "message": "proven span contradicts executed revision commit time"
+      },
+      "passed": true,
+      "input_unchanged": true,
+      "globals_unchanged": true
+    },
+    {
+      "name": "default_disabled_actual_context",
+      "expected": "DISABLED",
+      "input_sha256": "e59c4b76aebd875bad01889225ea993b93b2b989faf3f69bae6dd243c11f0fd4",
+      "input_bytes": 11915,
+      "core_calls": 0,
+      "isolated_globals": true,
+      "output": {
+        "input_status": "DISABLED",
+        "status": "STOP",
+        "core_ran": false,
+        "reason": "disabled",
+        "independent_em_count": 0
+      },
+      "passed": true,
+      "input_unchanged": true,
+      "globals_unchanged": true
+    },
+    {
+      "name": "disabled_missing_call_no_core",
+      "expected": "DISABLED",
+      "input_sha256": "41b9a4fa86aa3be3bcc333a2e71e5b5c9a63c332da977a2f51c0129d4e129b40",
+      "input_bytes": 11870,
+      "core_calls": 0,
+      "isolated_globals": true,
+      "output": {
+        "input_status": "DISABLED",
+        "status": "STOP",
+        "core_ran": false,
+        "reason": "disabled",
+        "independent_em_count": 0
+      },
+      "passed": true,
+      "input_unchanged": true,
+      "globals_unchanged": true
+    },
+    {
+      "name": "disabled_malformed_bracket_still_rejected",
+      "expected": "REJECTED",
+      "input_sha256": "c491e305d0c3476e7dba0a9dcbb019f2fea89982a96495ed8a725c76aa4ad26a",
+      "input_bytes": 11933,
+      "core_calls": 0,
+      "isolated_globals": true,
+      "exception": {
+        "type": "Rejected",
+        "message": "integer: strict unsigned integer"
+      },
+      "passed": true,
+      "input_unchanged": true,
+      "globals_unchanged": true
+    },
+    {
+      "name": "identity_budget_193",
+      "expected": "REJECTED",
+      "input_sha256": "ffadd6a751a153f12b019d3968b004481af23417def26bfd8569c100f1bc7e99",
+      "input_bytes": 12099,
+      "core_calls": 0,
+      "isolated_globals": true,
+      "exception": {
+        "type": "Rejected",
+        "message": "string budget"
+      },
+      "passed": true,
+      "input_unchanged": true,
+      "globals_unchanged": true
+    },
+    {
+      "name": "raw_line_budget_16385",
+      "expected": "REJECTED",
+      "input_sha256": "cf9afc98473aa3f4f29223b455f95daa5b3df72001f8c2d709cfc965350dce84",
+      "input_bytes": 26822,
+      "core_calls": 0,
+      "isolated_globals": true,
+      "exception": {
+        "type": "Rejected",
+        "message": "string budget"
+      },
+      "passed": true,
+      "input_unchanged": true,
+      "globals_unchanged": true
+    },
+    {
+      "name": "tree_depth_budget",
+      "expected": "REJECTED",
+      "input_sha256": "02e2fd9d9f23b770061fe6c8bf30c25387f5c1a67331dc5f095ea267ca8fd680",
+      "input_bytes": 12014,
+      "core_calls": 0,
+      "isolated_globals": true,
+      "exception": {
+        "type": "Rejected",
+        "message": "JSON depth/node budget"
+      },
+      "passed": true,
+      "input_unchanged": true,
+      "globals_unchanged": true
+    },
+    {
+      "name": "tree_node_budget_65536",
+      "expected": "REJECTED",
+      "input_sha256": "5ea944f89b7a44976b78046d6fe92a480e6aeea3d0c85031f2695f865de91808",
+      "input_bytes": 147206,
+      "core_calls": 0,
+      "isolated_globals": true,
+      "exception": {
+        "type": "Rejected",
+        "message": "JSON depth/node budget"
+      },
+      "passed": true,
+      "input_unchanged": true,
+      "globals_unchanged": true
+    },
+    {
+      "name": "encoded_input_budget_1MiB",
+      "expected": "REJECTED",
+      "input_sha256": "51a653e445e2ebc9516f2f0e3d6bde3b84cf6d2cda6347397568d91327e56038",
+      "input_bytes": 1171386,
+      "core_calls": 0,
+      "isolated_globals": true,
+      "exception": {
+        "type": "Rejected",
+        "message": "encoded request budget"
+      },
+      "passed": true,
+      "input_unchanged": true,
+      "globals_unchanged": true
+    },
+    {
+      "name": "old_revision_span_after_completed_action_despite_disjoint_spans",
+      "expected": "REJECTED",
+      "input_sha256": "aa092fbd6d2197e9c028d5527a398c9eda69e5ce9f84b2ced3fc3161edef0b2f",
+      "input_bytes": 12312,
+      "core_calls": 0,
+      "isolated_globals": true,
+      "exception": {
+        "type": "Rejected",
+        "message": "proven span contradicts executed revision commit time"
+      },
+      "passed": true,
+      "input_unchanged": true,
+      "globals_unchanged": true
+    },
+    {
+      "name": "new_revision_span_starts_1ns_before_completed_action",
+      "expected": "REJECTED",
+      "input_sha256": "bad23abeb3b24030c45cce70628d340a3f418a2acea6ba5d454bf08b1c8d462f",
+      "input_bytes": 12312,
+      "core_calls": 0,
+      "isolated_globals": true,
+      "exception": {
+        "type": "Rejected",
+        "message": "proven span contradicts executed revision commit time"
+      },
+      "passed": true,
+      "input_unchanged": true,
+      "globals_unchanged": true
+    },
+    {
+      "name": "closed_action_boundary_old_through_Tminus1_new_from_T",
+      "expected": "ADVISE",
+      "input_sha256": "d9000e110f7aeb8d25b1bfedefccc9ff08f4d4d91db0777d6dafd1bd369615bf",
+      "input_bytes": 12312,
+      "core_calls": 1,
+      "isolated_globals": true,
+      "output": {
+        "input_status": "COMPLETE_DIAGNOSTIC",
+        "status": "ADVISE",
+        "core_ran": true,
+        "reason": "bounded_observation_goal_search",
+        "independent_em_count": 1
+      },
+      "passed": true,
+      "input_unchanged": true,
+      "globals_unchanged": true
+    }
+  ],
+  "formal_acceptance": false,
+  "actual_Root_run": false,
+  "old_suites_run": false,
+  "passed": true
+}

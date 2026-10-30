@@ -1,0 +1,319 @@
+{
+  "scope": "C30_R1_NARROW_INDEPENDENT_CLOSURE",
+  "mode": "new",
+  "source_sha256": "abaa06d10ab68f0bee721bf1a6d9278fc000446112ac559362079ad63afc686d",
+  "total": 18,
+  "passed": true,
+  "elapsed_seconds": 0.736284099999466,
+  "cases": [
+    {
+      "name": "actual_receipts_31_plus1action_True",
+      "expected": "INPUT_UNAVAILABLE",
+      "input_sha256": "818f37fc7954bab18ae3aaa9a98c6a81c4c077d0e02f9d36f59851bc9253312d",
+      "input_bytes": 119565,
+      "core_calls": 0,
+      "isolated_globals": true,
+      "result": {
+        "input_status": "INPUT_UNAVAILABLE",
+        "status": "STOP",
+        "core_ran": false,
+        "reason": "missing_root_config",
+        "independent_em_count": 0
+      },
+      "passed": true,
+      "input_unchanged": true,
+      "globals_unchanged": true
+    },
+    {
+      "name": "actual_receipts_32_plus1action_True",
+      "expected": "Rejected",
+      "input_sha256": "1773b49e836fd25ee4134aad80b9ecbf7c8968a11326b18ed3bcb84bad2dc44f",
+      "input_bytes": 123181,
+      "core_calls": 0,
+      "isolated_globals": true,
+      "exception": {
+        "type": "Rejected",
+        "message": "combined supplied capture/action bound"
+      },
+      "passed": true,
+      "input_unchanged": true,
+      "globals_unchanged": true
+    },
+    {
+      "name": "null_registry_remains_missing_True",
+      "expected": "INPUT_UNAVAILABLE",
+      "input_sha256": "5a22dca77a3bc88cc563ee36d1434abb2609cba4b02154382df83ed0714f2918",
+      "input_bytes": 11203,
+      "core_calls": 0,
+      "isolated_globals": true,
+      "result": {
+        "input_status": "INPUT_UNAVAILABLE",
+        "status": "STOP",
+        "core_ran": false,
+        "reason": "missing_action_registry",
+        "independent_em_count": 0
+      },
+      "passed": true,
+      "input_unchanged": true,
+      "globals_unchanged": true
+    },
+    {
+      "name": "32receipts_null_registry_config_missing_True",
+      "expected": "INPUT_UNAVAILABLE",
+      "input_sha256": "db65b419575696237fc174c3d7290b8650baf47fa42ecc0bc988a3589989b7b2",
+      "input_bytes": 122091,
+      "core_calls": 0,
+      "isolated_globals": true,
+      "result": {
+        "input_status": "INPUT_UNAVAILABLE",
+        "status": "STOP",
+        "core_ran": false,
+        "reason": "missing_root_config",
+        "independent_em_count": 0
+      },
+      "passed": true,
+      "input_unchanged": true,
+      "globals_unchanged": true
+    },
+    {
+      "name": "null_actions_remains_missing_True",
+      "expected": "INPUT_UNAVAILABLE",
+      "input_sha256": "3d053675b629be9a44bbe34f256dcc36d26ec89dfc4b7ebaa8be34ebaed50fbf",
+      "input_bytes": 11932,
+      "core_calls": 0,
+      "isolated_globals": true,
+      "result": {
+        "input_status": "INPUT_UNAVAILABLE",
+        "status": "STOP",
+        "core_ran": false,
+        "reason": "missing_occurred_actions",
+        "independent_em_count": 0
+      },
+      "passed": true,
+      "input_unchanged": true,
+      "globals_unchanged": true
+    },
+    {
+      "name": "32receipts_null_actions_config_missing_True",
+      "expected": "INPUT_UNAVAILABLE",
+      "input_sha256": "2377b0ea937f6162e8d1800b0ba2d788d07fd64801b6a003e9cff552f2f120ba",
+      "input_bytes": 122820,
+      "core_calls": 0,
+      "isolated_globals": true,
+      "result": {
+        "input_status": "INPUT_UNAVAILABLE",
+        "status": "STOP",
+        "core_ran": false,
+        "reason": "missing_root_config",
+        "independent_em_count": 0
+      },
+      "passed": true,
+      "input_unchanged": true,
+      "globals_unchanged": true
+    },
+    {
+      "name": "candidate_count_dominates_missing_receipts_True",
+      "expected": "Rejected",
+      "input_sha256": "b989a13076afa3cc8e811019a0239f457773717211f28f7139e2801c81d4cf4b",
+      "input_bytes": 21923,
+      "core_calls": 0,
+      "isolated_globals": true,
+      "exception": {
+        "type": "Rejected",
+        "message": "combined supplied capture/action bound"
+      },
+      "passed": true,
+      "input_unchanged": true,
+      "globals_unchanged": true
+    },
+    {
+      "name": "33receipt_independent_cap_null_registry_True",
+      "expected": "Rejected",
+      "input_sha256": "a2cb4f8a110c46d6abec08a4d69b18ea1dd984b94acdfaf50f206b49ac318f5f",
+      "input_bytes": 6544,
+      "core_calls": 0,
+      "isolated_globals": true,
+      "exception": {
+        "type": "Rejected",
+        "message": "array budget"
+      },
+      "passed": true,
+      "input_unchanged": true,
+      "globals_unchanged": true
+    },
+    {
+      "name": "actual_receipts_31_plus1action_False",
+      "expected": "DISABLED",
+      "input_sha256": "e923209a972d52bbfe269852d0842e35e6bea134acc6a2399b498f51e5947ffd",
+      "input_bytes": 119566,
+      "core_calls": 0,
+      "isolated_globals": true,
+      "result": {
+        "input_status": "DISABLED",
+        "status": "STOP",
+        "core_ran": false,
+        "reason": "disabled",
+        "independent_em_count": 0
+      },
+      "passed": true,
+      "input_unchanged": true,
+      "globals_unchanged": true
+    },
+    {
+      "name": "actual_receipts_32_plus1action_False",
+      "expected": "Rejected",
+      "input_sha256": "b8da87832026f6d65ea5edfda394226d9b5871eb6a5e57f0949e6d392c995176",
+      "input_bytes": 123182,
+      "core_calls": 0,
+      "isolated_globals": true,
+      "exception": {
+        "type": "Rejected",
+        "message": "combined supplied capture/action bound"
+      },
+      "passed": true,
+      "input_unchanged": true,
+      "globals_unchanged": true
+    },
+    {
+      "name": "null_registry_remains_missing_False",
+      "expected": "DISABLED",
+      "input_sha256": "98c6baf7028315a7c33a804d412b3ca92f1a26e3a53e98dcb878e2be1c865e5e",
+      "input_bytes": 11204,
+      "core_calls": 0,
+      "isolated_globals": true,
+      "result": {
+        "input_status": "DISABLED",
+        "status": "STOP",
+        "core_ran": false,
+        "reason": "disabled",
+        "independent_em_count": 0
+      },
+      "passed": true,
+      "input_unchanged": true,
+      "globals_unchanged": true
+    },
+    {
+      "name": "32receipts_null_registry_config_missing_False",
+      "expected": "DISABLED",
+      "input_sha256": "5ee1330245162f21c9f57929ab32d4d246747764b72bb55120ed1b7f32e091cc",
+      "input_bytes": 122092,
+      "core_calls": 0,
+      "isolated_globals": true,
+      "result": {
+        "input_status": "DISABLED",
+        "status": "STOP",
+        "core_ran": false,
+        "reason": "disabled",
+        "independent_em_count": 0
+      },
+      "passed": true,
+      "input_unchanged": true,
+      "globals_unchanged": true
+    },
+    {
+      "name": "null_actions_remains_missing_False",
+      "expected": "DISABLED",
+      "input_sha256": "b97d256f62f2a919233cc801ddb1a51764b15eaf84f86cf7f07a36ffcbcc10c2",
+      "input_bytes": 11933,
+      "core_calls": 0,
+      "isolated_globals": true,
+      "result": {
+        "input_status": "DISABLED",
+        "status": "STOP",
+        "core_ran": false,
+        "reason": "disabled",
+        "independent_em_count": 0
+      },
+      "passed": true,
+      "input_unchanged": true,
+      "globals_unchanged": true
+    },
+    {
+      "name": "32receipts_null_actions_config_missing_False",
+      "expected": "DISABLED",
+      "input_sha256": "3786fa4e2d196e4445e3e89c50af167b1a6a3cf45ebb6ec343420b6796afe4c0",
+      "input_bytes": 122821,
+      "core_calls": 0,
+      "isolated_globals": true,
+      "result": {
+        "input_status": "DISABLED",
+        "status": "STOP",
+        "core_ran": false,
+        "reason": "disabled",
+        "independent_em_count": 0
+      },
+      "passed": true,
+      "input_unchanged": true,
+      "globals_unchanged": true
+    },
+    {
+      "name": "candidate_count_dominates_missing_receipts_False",
+      "expected": "Rejected",
+      "input_sha256": "9d2293a4f0511e764ce31893e7b82ef7b8ebb59b78d7261279ee1b9b69083800",
+      "input_bytes": 21924,
+      "core_calls": 0,
+      "isolated_globals": true,
+      "exception": {
+        "type": "Rejected",
+        "message": "combined supplied capture/action bound"
+      },
+      "passed": true,
+      "input_unchanged": true,
+      "globals_unchanged": true
+    },
+    {
+      "name": "33receipt_independent_cap_null_registry_False",
+      "expected": "Rejected",
+      "input_sha256": "6e82d17a17af11f21c44b95536ffbb7802146c851d6d24e75a09e01d64bf704d",
+      "input_bytes": 6545,
+      "core_calls": 0,
+      "isolated_globals": true,
+      "exception": {
+        "type": "Rejected",
+        "message": "array budget"
+      },
+      "passed": true,
+      "input_unchanged": true,
+      "globals_unchanged": true
+    },
+    {
+      "name": "nearby_native150_single_core",
+      "expected": "COMPLETE_DIAGNOSTIC",
+      "input_sha256": "a79ed42d5a01a510efa0532cc43da3bab15e8c94adfc00de0bd03a7fab65b9ab",
+      "input_bytes": 13162,
+      "core_calls": 1,
+      "isolated_globals": true,
+      "result": {
+        "input_status": "COMPLETE_DIAGNOSTIC",
+        "status": "ADVISE",
+        "core_ran": true,
+        "reason": "bounded_observation_goal_search",
+        "independent_em_count": 1
+      },
+      "passed": true,
+      "input_unchanged": true,
+      "globals_unchanged": true
+    },
+    {
+      "name": "nearby_held100_120_single_original_em",
+      "expected": "COMPLETE_DIAGNOSTIC",
+      "input_sha256": "7e92b61f291c6ff8b428af257a51325a3bea7fd14fba4c4b1473564f2f5c63da",
+      "input_bytes": 18350,
+      "core_calls": 1,
+      "isolated_globals": true,
+      "result": {
+        "input_status": "COMPLETE_DIAGNOSTIC",
+        "status": "ADVISE",
+        "core_ran": true,
+        "reason": "bounded_observation_goal_search",
+        "independent_em_count": 1
+      },
+      "passed": true,
+      "input_unchanged": true,
+      "globals_unchanged": true
+    }
+  ],
+  "old_suites_run": false,
+  "author_tests_imported": false,
+  "physical_or_actual_Root_run": false
+}

@@ -1,0 +1,28 @@
+test01_separate_actual_brackets_and_nominal (__main__.NewC30FocusedControls.test01_separate_actual_brackets_and_nominal) ... ok
+test02_missing_coverage_and_brackets_never_fill (__main__.NewC30FocusedControls.test02_missing_coverage_and_brackets_never_fill) ... ok
+test03_bracket_order_future_and_closed_endpoint (__main__.NewC30FocusedControls.test03_bracket_order_future_and_closed_endpoint) ... ok
+test04_revision_pose_overlap_and_chronology (__main__.NewC30FocusedControls.test04_revision_pose_overlap_and_chronology) ... ok
+test05_held_retains_original_call_and_revision (__main__.NewC30FocusedControls.test05_held_retains_original_call_and_revision) ... ok
+test06_action_revisions_and_nominal_cause (__main__.NewC30FocusedControls.test06_action_revisions_and_nominal_cause) ... ok
+test07_exact_high_qpc_age_and_read_not_refreshing (__main__.NewC30FocusedControls.test07_exact_high_qpc_age_and_read_not_refreshing) ... ok
+test08_full_prefix1001_and_tail (__main__.NewC30FocusedControls.test08_full_prefix1001_and_tail) ... ERROR
+test09_path_specific_limits_and_hidden_data (__main__.NewC30FocusedControls.test09_path_specific_limits_and_hidden_data) ... ok
+test10_disabled_missing_still_checks_conflicts (__main__.NewC30FocusedControls.test10_disabled_missing_still_checks_conflicts) ... ok
+test11_budget_and_single_core (__main__.NewC30FocusedControls.test11_budget_and_single_core) ... ok
+test12_executed_commit_point_vs_proven_spans (__main__.NewC30FocusedControls.test12_executed_commit_point_vs_proven_spans) ... ok
+
+======================================================================
+ERROR: test08_full_prefix1001_and_tail (__main__.NewC30FocusedControls.test08_full_prefix1001_and_tail)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\deepeye-implementation-c\handoffs\c\C-DEEPEYE-PRIVATE-RAW4-TIME-ASSOCIATION-20261030-30\test_private_raw4_time_association_v1.py", line 262, in test08_full_prefix1001_and_tail
+    req = fixture(10010 if mode == '1002' else 100)
+  File "C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\deepeye-implementation-c\handoffs\c\C-DEEPEYE-PRIVATE-RAW4-TIME-ASSOCIATION-20261030-30\test_private_raw4_time_association_v1.py", line 99, in fixture
+    em_pose=(pose_receipt(tick//10, nominal, 'em') if em == tick else copy.deepcopy(records[0]['em_pose'])),
+                                                                                    ~~~~~~~^^^
+IndexError: list index out of range
+
+----------------------------------------------------------------------
+Ran 12 tests in 0.245s
+
+FAILED (errors=1)
