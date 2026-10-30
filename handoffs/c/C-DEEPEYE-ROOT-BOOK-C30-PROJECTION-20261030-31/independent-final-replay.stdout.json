@@ -1,0 +1,131 @@
+{
+  "mode": "replay",
+  "runtime_sha256": "506219cf445001c46f2f4e1ffd411829ea9d184d4260d18af9e45aa3787993ee",
+  "original_bundle_sha256": "edd9a2d5a08b9da511f31f269bbbd8b2fc81e87236cf2d14c57b0f4505cb3769",
+  "original_eight_verified_before_candidate_import": true,
+  "total": 8,
+  "passed": 8,
+  "failed": 0,
+  "cases": [
+    {
+      "name": "missing_end_future_supplied_begin",
+      "expected": "REJECT",
+      "actual": "REJECT",
+      "passed": true,
+      "calls": {
+        "c30_json": 0,
+        "core": 0
+      },
+      "input_bytes": 61388,
+      "input_sha256": "009d6db8483cfb7a33eafb6c4e983cd4749141cbbc62a0ac48d5d22b17ba714e",
+      "output_bytes": 79,
+      "output_sha256": "25454ad98b968954b6622ffca1d7cf217db9167a39ea623a28a99eae39a0411a",
+      "message": "C31 supplied ADC begin outside nominal/now"
+    },
+    {
+      "name": "missing_end_begin_before_known_read_end",
+      "expected": "REJECT",
+      "actual": "REJECT",
+      "passed": true,
+      "calls": {
+        "c30_json": 0,
+        "core": 0
+      },
+      "input_bytes": 61388,
+      "input_sha256": "71014869c8fc3546eae482f9fedd750de2c1ff49effd7bbd7c5058ec59f4d277",
+      "output_bytes": 66,
+      "output_sha256": "b699532dd8c6ba7f4feba47bb2717ddeeee611b6c136772e5800d409467f6ef5",
+      "message": "C31 read after ADC call begin"
+    },
+    {
+      "name": "partial_current_metadata_does_not_hide_revision_span_conflict",
+      "expected": "REJECT",
+      "actual": "REJECT",
+      "passed": true,
+      "calls": {
+        "c30_json": 0,
+        "core": 0
+      },
+      "input_bytes": 61786,
+      "input_sha256": "a073c65c33c793674213522f1cfef4ae76258f8c0e548439a205c41c2d08fda3",
+      "output_bytes": 89,
+      "output_sha256": "a03f103af50b3a865d4a6c32d8a370fd6a830e9a7f1a91e28b0a43ec66e70dc2",
+      "message": "C31 actual span contradicts executed revision commit"
+    },
+    {
+      "name": "partial_current_does_not_hide_same_revision_pose_conflict",
+      "expected": "REJECT",
+      "actual": "REJECT",
+      "passed": true,
+      "calls": {
+        "c30_json": 0,
+        "core": 0
+      },
+      "input_bytes": 60478,
+      "input_sha256": "c43b7f90472e78611de6e8173d2e2f77669da383cb33bb1892b194e5fae58904",
+      "output_bytes": 82,
+      "output_sha256": "f606f6412a335ab74172194156db118be5f5e3a72a933fea8ed8188e95d27577",
+      "message": "C31 actual same revision has conflicting pose"
+    },
+    {
+      "name": "missing_config_does_not_hide_future_action_cause",
+      "expected": "REJECT",
+      "actual": "REJECT",
+      "passed": true,
+      "calls": {
+        "c30_json": 0,
+        "core": 0
+      },
+      "input_bytes": 60613,
+      "input_sha256": "f1cb913262989c43c5282a9a8e10ef1e271b949c39f3be4898e5459738897abe",
+      "output_bytes": 79,
+      "output_sha256": "2d69fa66e9667242eb468af5e6c3cb646efa8d74b612293956e4b278f7254566",
+      "message": "C31 supplied action cause is future/cyclic"
+    },
+    {
+      "name": "missing_config_does_not_hide_action_before_observation",
+      "expected": "REJECT",
+      "actual": "REJECT",
+      "passed": true,
+      "calls": {
+        "c30_json": 0,
+        "core": 0
+      },
+      "input_bytes": 60597,
+      "input_sha256": "8629b0f2985056ebebb09c74174f20c2e6a66ae8233b7c0444c57df02fd5a43c",
+      "output_bytes": 83,
+      "output_sha256": "503e913d50c86c1e23f065bba7a1ddabb1c6ee89ee1a23d1563ba50bdf9af8bc",
+      "message": "C31 action before supplied observation receipt"
+    },
+    {
+      "name": "missing_candidate_does_not_hide_reversed_action_revisions",
+      "expected": "REJECT",
+      "actual": "REJECT",
+      "passed": true,
+      "calls": {
+        "c30_json": 0,
+        "core": 0
+      },
+      "input_bytes": 59489,
+      "input_sha256": "5a00f422d271daf4b53a8686176980320486140dbc489f05a15d9b18eb451764",
+      "output_bytes": 72,
+      "output_sha256": "21a0cd0fc471039358c5ed6fe5b51ffca09ce416acd0979e13ec067d8b6f53e8",
+      "message": "C31 actual action revision reversal"
+    },
+    {
+      "name": "missing_candidate_does_not_turn_proposal_into_executed",
+      "expected": "REJECT",
+      "actual": "REJECT",
+      "passed": true,
+      "calls": {
+        "c30_json": 0,
+        "core": 0
+      },
+      "input_bytes": 59489,
+      "input_sha256": "d5a77474001d95140ce700512ac9aebb9b9602e39ad7cde272b16e2fcd05c591",
+      "output_bytes": 71,
+      "output_sha256": "bbb12b1b247cc20061f85d046199b14e8e371160997a3a6bac017e113a2be299",
+      "message": "C31 actual action must be executed"
+    }
+  ]
+}

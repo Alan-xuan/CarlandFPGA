@@ -1,0 +1,316 @@
+{
+  "mode": "new",
+  "runtime_sha256": "506219cf445001c46f2f4e1ffd411829ea9d184d4260d18af9e45aa3787993ee",
+  "original_bundle_sha256": "edd9a2d5a08b9da511f31f269bbbd8b2fc81e87236cf2d14c57b0f4505cb3769",
+  "original_eight_verified_before_candidate_import": true,
+  "total": 18,
+  "passed": 18,
+  "failed": 0,
+  "cases": [
+    {
+      "name": "real_missing_end_valid_supplied_begin",
+      "expected": "UNAVAILABLE",
+      "actual": "INPUT_UNAVAILABLE",
+      "passed": true,
+      "calls": {
+        "c30_json": 0,
+        "core": 0
+      },
+      "input_bytes": 61388,
+      "input_sha256": "be2ad618c03215e793bc7d97921dbe39f0fb6045270f40cf9d89e4154ff19655",
+      "output_bytes": 547,
+      "output_sha256": "b437c37fe617382e7fe27da4c6c5da0b5e9cb6c939d71ce31419e41d28c6ad80",
+      "missing_codes": [
+        "missing_adc_call_end"
+      ]
+    },
+    {
+      "name": "missing_end_begin_equals_known_read_end",
+      "expected": "UNAVAILABLE",
+      "actual": "INPUT_UNAVAILABLE",
+      "passed": true,
+      "calls": {
+        "c30_json": 0,
+        "core": 0
+      },
+      "input_bytes": 61388,
+      "input_sha256": "bfbd463c0bdb1d50486dba57017e8d44d437be5ec11ba935c8a78b9298bdfb79",
+      "output_bytes": 547,
+      "output_sha256": "b437c37fe617382e7fe27da4c6c5da0b5e9cb6c939d71ce31419e41d28c6ad80",
+      "missing_codes": [
+        "missing_adc_call_end"
+      ]
+    },
+    {
+      "name": "real_missing_current_receipt_without_contradiction",
+      "expected": "UNAVAILABLE",
+      "actual": "INPUT_UNAVAILABLE",
+      "passed": true,
+      "calls": {
+        "c30_json": 0,
+        "core": 0
+      },
+      "input_bytes": 61388,
+      "input_sha256": "e2c47b37df556f8ffc1e2f80f22f6ac12a839f15d7d62227f85615840d7fd391",
+      "output_bytes": 559,
+      "output_sha256": "af1ff006766e9f5cadf8db41c295d983d025faa5852e01a3334f425a870835e2",
+      "missing_codes": [
+        "missing_current_receipt_metadata"
+      ]
+    },
+    {
+      "name": "real_missing_candidate_retains_actual_raw",
+      "expected": "UNAVAILABLE",
+      "actual": "INPUT_UNAVAILABLE",
+      "passed": true,
+      "calls": {
+        "c30_json": 0,
+        "core": 0
+      },
+      "input_bytes": 59091,
+      "input_sha256": "e9805a47374c68d72fef231abcc404b551784f36d1edf81c479cf556793d8c12",
+      "output_bytes": 544,
+      "output_sha256": "940695bbf198af99d94b8ce8da450910b68134c0cfb347f4302b34691a0ed0ca",
+      "missing_codes": [
+        "missing_candidate"
+      ]
+    },
+    {
+      "name": "real_missing_action_to_revision_with_valid_known_order",
+      "expected": "REJECT",
+      "actual": "REJECT",
+      "passed": true,
+      "calls": {
+        "c30_json": 0,
+        "core": 0
+      },
+      "input_bytes": 61804,
+      "input_sha256": "cbedb0d0bfbb670273ad7f01e1c0cf7f6f3bcc4ece48df71b37ebdef3288c927",
+      "output_bytes": 94,
+      "output_sha256": "30a6020393b5527dd23110ac5ca34ee3a8f1e72aa386cdc8cfc3681ff976a826",
+      "message": "C31 actual span contradicts executed revision lower bound"
+    },
+    {
+      "name": "candidate_absent_duplicate_supplied_action_ids",
+      "expected": "REJECT",
+      "actual": "REJECT",
+      "passed": true,
+      "calls": {
+        "c30_json": 0,
+        "core": 0
+      },
+      "input_bytes": 1972,
+      "input_sha256": "d734f66c6dd7caba63217697900a1cce576ed22b5e8ff701dba08b3ba9747aae",
+      "output_bytes": 73,
+      "output_sha256": "c300311c7e7b00b14774c73cb4aa982cde2ca431db4be7eb696589c0079edf6a",
+      "message": "C31 duplicate actual action identity"
+    },
+    {
+      "name": "candidate_absent_action_time_reversal",
+      "expected": "REJECT",
+      "actual": "REJECT",
+      "passed": true,
+      "calls": {
+        "c30_json": 0,
+        "core": 0
+      },
+      "input_bytes": 1979,
+      "input_sha256": "fb821868ac9ccf1dc9774e5609689045cecfa5d48481be0d6e4868bcac62f4bc",
+      "output_bytes": 68,
+      "output_sha256": "25cc9e9e382cef2c12823952f224041b26b157a8c791b629a626aef04ce49c68",
+      "message": "C31 actual action time reversal"
+    },
+    {
+      "name": "candidate_absent_action_revision_chain_reversal",
+      "expected": "REJECT",
+      "actual": "REJECT",
+      "passed": true,
+      "calls": {
+        "c30_json": 0,
+        "core": 0
+      },
+      "input_bytes": 1967,
+      "input_sha256": "583107202aa8cc7e913179a2dec8733c72baa18c216fc8642d0890a2f5395243",
+      "output_bytes": 72,
+      "output_sha256": "21a0cd0fc471039358c5ed6fe5b51ffca09ce416acd0979e13ec067d8b6f53e8",
+      "message": "C31 actual action revision reversal"
+    },
+    {
+      "name": "candidate_absent_ACK_is_not_executed",
+      "expected": "REJECT",
+      "actual": "REJECT",
+      "passed": true,
+      "calls": {
+        "c30_json": 0,
+        "core": 0
+      },
+      "input_bytes": 1571,
+      "input_sha256": "ebdf6ae12298fcaab062961e8725ffafc9e0faf2433dffb616044986d5783b3b",
+      "output_bytes": 71,
+      "output_sha256": "bbb12b1b247cc20061f85d046199b14e8e371160997a3a6bac017e113a2be299",
+      "message": "C31 actual action must be executed"
+    },
+    {
+      "name": "partial_sample_receipts_do_not_hide_same_revision_read_conflict",
+      "expected": "REJECT",
+      "actual": "REJECT",
+      "passed": true,
+      "calls": {
+        "c30_json": 0,
+        "core": 0
+      },
+      "input_bytes": 59334,
+      "input_sha256": "384e122e2a3fa952a78b1a61d975c1565397f3acbc725e6a5341929718b25d03",
+      "output_bytes": 82,
+      "output_sha256": "f606f6412a335ab74172194156db118be5f5e3a72a933fea8ed8188e95d27577",
+      "message": "C31 actual same revision has conflicting pose"
+    },
+    {
+      "name": "partial_receipts_known_span_starts_1ns_before_commit",
+      "expected": "REJECT",
+      "actual": "REJECT",
+      "passed": true,
+      "calls": {
+        "c30_json": 0,
+        "core": 0
+      },
+      "input_bytes": 60617,
+      "input_sha256": "e1dff2553c8086c1bb2422d60ed54c5f01414ce4ec9de025a20532a85c4eb23b",
+      "output_bytes": 89,
+      "output_sha256": "a03f103af50b3a865d4a6c32d8a370fd6a830e9a7f1a91e28b0a43ec66e70dc2",
+      "message": "C31 actual span contradicts executed revision commit"
+    },
+    {
+      "name": "missing_proof_with_span_start_equal_commit_is_not_contradiction",
+      "expected": "UNAVAILABLE",
+      "actual": "INPUT_UNAVAILABLE",
+      "passed": true,
+      "calls": {
+        "c30_json": 0,
+        "core": 0
+      },
+      "input_bytes": 60617,
+      "input_sha256": "3ce90eab2d3a4451f31d98467db90e194cbf21bd29a2a40a238a48cee8c9d937",
+      "output_bytes": 714,
+      "output_sha256": "1426d5b0a4b260e185c35c634d1543a3a228f19b67ed31bb6071eb4c4da8d41f",
+      "missing_codes": [
+        "missing_action_observation",
+        "missing_actual_action_execution_receipt",
+        "missing_adc_receipt_metadata",
+        "missing_book_current",
+        "missing_current_receipt_metadata",
+        "missing_em_receipt_metadata"
+      ]
+    },
+    {
+      "name": "complete_new_tick350_native_enabled_exact_core",
+      "expected": "COMPLETE",
+      "actual": "COMPLETE_DIAGNOSTIC",
+      "passed": true,
+      "calls": {
+        "c30_json": 1,
+        "core": 1
+      },
+      "input_bytes": 81003,
+      "input_sha256": "7445a0712fc6039ab980fa40c3e8e955e644562f3b8677215ab4227c94a39a3b",
+      "output_bytes": 39130,
+      "output_sha256": "59722d3b3342a286ddc4bebf35343537eaa093989ad59dfb0c8acd992eb7ce39",
+      "missing_codes": []
+    },
+    {
+      "name": "complete_new_tick350_to380_held_default_disabled",
+      "expected": "DISABLED",
+      "actual": "DISABLED",
+      "passed": true,
+      "calls": {
+        "c30_json": 1,
+        "core": 0
+      },
+      "input_bytes": 92271,
+      "input_sha256": "99e10b92e80772cfc2cc62ada4616420a842832a23fcf7f50ced300763a928f6",
+      "output_bytes": 48453,
+      "output_sha256": "5b71e6fcb4f6fb14c03470eee1bc7ca05e04039ba47bf39dc3282f492f6a8d20",
+      "missing_codes": []
+    },
+    {
+      "name": "M2_missing_to_cannot_erase_prior_before_lower_bound",
+      "expected": "REJECT",
+      "actual": "REJECT",
+      "passed": true,
+      "calls": {
+        "c30_json": 0,
+        "core": 0
+      },
+      "input_bytes": 1964,
+      "input_sha256": "c5cb5959ac37687aef7dfe5de3b9e65a755193aedbc085bbf26b78123b439c6a",
+      "output_bytes": 72,
+      "output_sha256": "21a0cd0fc471039358c5ed6fe5b51ffca09ce416acd0979e13ec067d8b6f53e8",
+      "message": "C31 actual action revision reversal"
+    },
+    {
+      "name": "M2_before7_then_before8_missing_to_remains_feasible",
+      "expected": "UNAVAILABLE",
+      "actual": "INPUT_UNAVAILABLE",
+      "passed": true,
+      "calls": {
+        "c30_json": 0,
+        "core": 0
+      },
+      "input_bytes": 1967,
+      "input_sha256": "7132ca823c731d8eefd2d558049cb53c38a7151a995324b218a57450563a24b0",
+      "output_bytes": 800,
+      "output_sha256": "796135af5e1b30d125fd18612ca9d14aa91f0a19de5729c9a93a05309de95b78",
+      "missing_codes": [
+        "missing_action_observation",
+        "missing_actual_action_execution_receipt",
+        "missing_book",
+        "missing_book_current",
+        "missing_candidate",
+        "missing_capture_associations",
+        "missing_config",
+        "missing_current_receipt_metadata",
+        "missing_explicit_numerical_binding",
+        "missing_source_admissions"
+      ]
+    },
+    {
+      "name": "M2_max_uint63_before_has_no_representable_after",
+      "expected": "REJECT",
+      "actual": "REJECT",
+      "passed": true,
+      "calls": {
+        "c30_json": 0,
+        "core": 0
+      },
+      "input_bytes": 1582,
+      "input_sha256": "c0064ffa7c14cdebc1a1f28c82f8563adbdd1a17b0c716d1eb536c178b3427db",
+      "output_bytes": 87,
+      "output_sha256": "0f31177a0a34fb6dacc66efef5683b9a927b136e86577cdd4d21701ec5244118",
+      "message": "C31 actual action revision has no uint63 successor"
+    },
+    {
+      "name": "M2_current8_after_before7_missing_to_remains_feasible",
+      "expected": "UNAVAILABLE",
+      "actual": "INPUT_UNAVAILABLE",
+      "passed": true,
+      "calls": {
+        "c30_json": 0,
+        "core": 0
+      },
+      "input_bytes": 2680,
+      "input_sha256": "725fbb43d08f3f8215e36daf3182c721a3a61385ba0becfc91ce3742b3773dd3",
+      "output_bytes": 742,
+      "output_sha256": "416405198362bc9d51b5164241dbc15d32ee99aa16e4fa3786ae3d7c3d575897",
+      "missing_codes": [
+        "missing_action_observation",
+        "missing_actual_action_execution_receipt",
+        "missing_book",
+        "missing_candidate",
+        "missing_capture_associations",
+        "missing_config",
+        "missing_explicit_numerical_binding",
+        "missing_source_admissions"
+      ]
+    }
+  ]
+}
