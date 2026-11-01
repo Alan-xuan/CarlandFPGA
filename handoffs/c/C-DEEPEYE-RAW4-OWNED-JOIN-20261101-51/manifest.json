@@ -1,0 +1,95 @@
+{
+  "artifacts": [
+    "handoffs/c/C-DEEPEYE-RAW4-OWNED-JOIN-20261101-51/source-v1/c51-repaired-source.zip",
+    "handoffs/c/C-DEEPEYE-RAW4-OWNED-JOIN-20261101-51/source-v1/delivery-files.json",
+    "handoffs/c/C-DEEPEYE-RAW4-OWNED-JOIN-20261101-51/source-v1/execution-index.json",
+    "handoffs/c/C-DEEPEYE-RAW4-OWNED-JOIN-20261101-51/source-v1/independent-review-evidence.zip",
+    "handoffs/c/C-DEEPEYE-RAW4-OWNED-JOIN-20261101-51/source-v1/README.md",
+    "handoffs/c/C-DEEPEYE-RAW4-OWNED-JOIN-20261101-51/source-v1/REVIEW.md",
+    "handoffs/c/C-DEEPEYE-RAW4-OWNED-JOIN-20261101-51/source-v1/source-approval.json",
+    "handoffs/c/C-DEEPEYE-RAW4-OWNED-JOIN-20261101-51/source-v1/verify_delivery.py"
+  ],
+  "files": {
+    "handoffs/c/C-DEEPEYE-RAW4-OWNED-JOIN-20261101-51/source-v1/README.md": {
+      "sha256": "ec47a1e2a75dc75455738389e4877d5bd667d7d923e2ad4bfbdd541409d47760",
+      "size": 2958
+    },
+    "handoffs/c/C-DEEPEYE-RAW4-OWNED-JOIN-20261101-51/source-v1/REVIEW.md": {
+      "sha256": "e6b364d2f5140409ba2b58577cf0b94b4b69f5f0d3c8da3d79a5f35cdbda0f29",
+      "size": 2604
+    },
+    "handoffs/c/C-DEEPEYE-RAW4-OWNED-JOIN-20261101-51/source-v1/c51-repaired-source.zip": {
+      "sha256": "9c5d1e3e86e2bf816541843ff35503c8a64c7b472f4c07efd47e72c4220b9974",
+      "size": 2523887
+    },
+    "handoffs/c/C-DEEPEYE-RAW4-OWNED-JOIN-20261101-51/source-v1/delivery-files.json": {
+      "sha256": "971d2a327fff64c33ef41ede1df8a42828b5a210426ff78c342701c7c08c57b4",
+      "size": 1012
+    },
+    "handoffs/c/C-DEEPEYE-RAW4-OWNED-JOIN-20261101-51/source-v1/execution-index.json": {
+      "sha256": "09cf85eddf3d65d3fb0f4216074449cd6b0694af175eb5e0ee1ff109d3c1a5b0",
+      "size": 638
+    },
+    "handoffs/c/C-DEEPEYE-RAW4-OWNED-JOIN-20261101-51/source-v1/independent-review-evidence.zip": {
+      "sha256": "068b4dee0bf970ac57e9ccd3b0a18997df01d0db790a367e7197606b31d4de15",
+      "size": 106604
+    },
+    "handoffs/c/C-DEEPEYE-RAW4-OWNED-JOIN-20261101-51/source-v1/source-approval.json": {
+      "sha256": "9a564a84ebc854bfd670cf452a48279abfd9b1c4250f05c8bf7969d629c622c7",
+      "size": 3627
+    },
+    "handoffs/c/C-DEEPEYE-RAW4-OWNED-JOIN-20261101-51/source-v1/verify_delivery.py": {
+      "sha256": "cc0fb9bcaafc49d79377d0a70b4f7f605a22e54b4f86917c1fc820abe69ef3f2",
+      "size": 1929
+    }
+  },
+  "request": {
+    "code_commit": "40e5660acb0c5a667d421ade4d4ff525913c5009",
+    "expected_result": "Bounded C-side typed raw4 observation, original active transaction and owned invocation join, including repaired historical original-object checks and retained command/slot path. Original source times, current hold and finite caps remain. A-owned registry and Root broker installation and actual lifecycle are unverified; preallocation refusal remains. No production, native, model, board or H12 acceptance.",
+    "operation_id": "C-DEEPEYE-RAW4-OWNED-JOIN-20261101-51",
+    "requester": "node-c",
+    "task_id": "DEEPEYE-IMPLEMENTATION-20261014",
+    "task_version": 1,
+    "test_steps": [
+      "Byte/archive check only: python -I -S -B handoffs/c/C-DEEPEYE-RAW4-OWNED-JOIN-20261101-51/source-v1/verify_delivery.py",
+      "Read C51 final eight-file diff, original A046 mapping, R1 history repair and independent version-specific evidence",
+      "Keep refusal before actor allocation until A-owned registry and Root broker callsites are installed and real joined lifecycle verified"
+    ]
+  },
+  "request_hash": "1c4d22675eaf3e0e186b073781b5c7fd21e7cd0d0c0680c40ad88455fd3c8797",
+  "schema_version": 1,
+  "stages": {
+    "final_acceptance": {
+      "status": "not_run"
+    },
+    "full_chain": {
+      "status": "not_run"
+    },
+    "implementation": {
+      "status": "not_run"
+    },
+    "local_function": {
+      "log": "handoffs/c/C-DEEPEYE-RAW4-OWNED-JOIN-20261101-51/source-v1/execution-index.json",
+      "status": "passed"
+    },
+    "model_qualification": {
+      "status": "not_run"
+    },
+    "native_actor": {
+      "status": "not_run"
+    },
+    "physical_board": {
+      "status": "not_run"
+    },
+    "rtl_simulation": {
+      "status": "not_run"
+    },
+    "source_review": {
+      "log": "handoffs/c/C-DEEPEYE-RAW4-OWNED-JOIN-20261101-51/source-v1/REVIEW.md",
+      "status": "passed"
+    },
+    "synthesis": {
+      "status": "not_run"
+    }
+  }
+}
