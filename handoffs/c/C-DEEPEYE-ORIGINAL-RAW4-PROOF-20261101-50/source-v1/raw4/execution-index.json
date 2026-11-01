@@ -1,0 +1,43 @@
+{
+  "status": "PENDING_INDEPENDENT_REPAIR_REVIEW",
+  "source_approved": false,
+  "original_author": {
+    "path": "history/original-unapproved-draft.zip!run-index.json",
+    "exits": [
+      1,
+      0,
+      1,
+      0,
+      0,
+      1,
+      0
+    ],
+    "distinct_cases": 20,
+    "executions": 27
+  },
+  "independent_original": {
+    "path": "independent-original/exit.json",
+    "exit_code": 1,
+    "red_cases": 4,
+    "meaning": "known contradictions returned unavailable/STOP; no execution/authorization observed"
+  },
+  "repair": {
+    "path": "repair/runs/run01/result.json",
+    "exit_code": 0,
+    "cases": 10,
+    "meaning": "exact four RED inputs plus affected complete/held/partial and three direct adjacent inputs"
+  },
+  "current": {
+    "projector": {
+      "path": "raw4_proof_v1/projector.py",
+      "bytes": 57185,
+      "sha256": "cfa1611e4f95ca261964a71d2712d4972f7c2be5227ead83494db93c9edb38a1"
+    },
+    "transport": {
+      "path": "raw4_proof_v1/transport.py",
+      "bytes": 11303,
+      "sha256": "613b10bd6b9bdc8da6c63aa9bc762df11742f86e39b4e4248f4adef8407385d6"
+    }
+  },
+  "packaging_product_tests_executed": 0
+}

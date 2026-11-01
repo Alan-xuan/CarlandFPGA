@@ -1,0 +1,49 @@
+{
+  "label": "DERIVED summary; raw execution originals classified in DISCLOSURE",
+  "tests_run_during_packaging": false,
+  "all_execution_fake_only": true,
+  "phases": [
+    {
+      "phase": "run01",
+      "exit": 0,
+      "module_sha256": "91e4bf64fe162f0ae9aafd1e913661ef7b359fcf35afb9819e4af890614e67ce",
+      "source_manifest": "evidence/versions/run01/source-pins.json",
+      "original_stderr_sha256": "ffffffad2a7b7218226b7580f8eeb73bcf35c0f3d73bb816abc313e52116e0a9",
+      "stderr_file": "evidence/versions/run01/stderr.raw"
+    },
+    {
+      "phase": "run02",
+      "exit": 0,
+      "module_sha256": "1805f821f4d06a209e7119ba1a1d80c4ecede4411406918f67c7999f88f13731",
+      "source_manifest": "evidence/versions/run02/source-pins.json",
+      "original_stderr_sha256": "649aaf64d06048d52dc39ea6e8f91866a1e1b7f082f5f81e7d40cf24c5528cbf",
+      "stderr_file": "evidence/versions/run02/stderr.raw"
+    },
+    {
+      "phase": "run03",
+      "exit": 1,
+      "module_sha256": "1805f821f4d06a209e7119ba1a1d80c4ecede4411406918f67c7999f88f13731",
+      "source_manifest": "evidence/versions/run03/source-pins.json",
+      "original_stderr_sha256": "f78efc453c8e995ff4a282d9d24cd9921604e867e3507da0f9df02d422bbeb0a",
+      "stderr_file": "evidence/versions/run03/stderr.DERIVED.txt"
+    },
+    {
+      "phase": "run04",
+      "exit": 0,
+      "module_sha256": "7ebb714fac2e684cd8d4e1f705d6f2608534ac3ce9d045f55bb35f3b6fac3054",
+      "source_manifest": "evidence/versions/run04/source-pins.json",
+      "original_stderr_sha256": "ab6829823ab1b150dec430f83be26ebaca6826e495c081e7e8609809d5f1fbca",
+      "stderr_file": "evidence/versions/run04/stderr.raw"
+    },
+    {
+      "phase": "run05",
+      "exit": 0,
+      "module_sha256": "5dfafb756959cc57af696ffa08c9d30267aaf5fc2bf5ed96421a8a050bb7ef3e",
+      "source_manifest": "evidence/versions/run05/source-pins.json",
+      "original_stderr_sha256": "50f95298b3450776bbdbb006ad69227cbc0b416be2aa65364ff3f92e0f3049ff",
+      "stderr_file": "evidence/versions/run05/stderr.raw"
+    }
+  ],
+  "final_source_test_scope": "only NEW method20 in run05; no final full-suite rerun",
+  "review_status": "PENDING; historical draft if independent review finds a defect"
+}

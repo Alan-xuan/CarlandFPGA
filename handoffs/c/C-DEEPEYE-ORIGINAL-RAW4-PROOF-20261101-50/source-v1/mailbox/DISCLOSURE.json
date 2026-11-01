@@ -1,0 +1,804 @@
+{
+  "label": "Packaging disclosure; no raw original silently rewritten",
+  "original_files": [
+    {
+      "original_label": "implementation/API.md",
+      "original_bytes": 2483,
+      "original_sha256": "5d1f11bcf687cbe3db39d9b573f0966d4175e3c44bd36bd4dd215fd768eebe75",
+      "disposition": "EXACT",
+      "public_file": "implementation/API.md"
+    },
+    {
+      "original_label": "implementation/audit_build.py",
+      "original_bytes": 4593,
+      "original_sha256": "72e60026749729cff51a3630e9cea0bf653120c96b4dfd64164b22aa8d41b5fd",
+      "disposition": "WITHHELD",
+      "reason": "private provenance/build/index/native metadata or redundant original; retained unchanged in sealed private ownership, not needed to execute local fake-only scripts"
+    },
+    {
+      "original_label": "implementation/complete.patch",
+      "original_bytes": 21691,
+      "original_sha256": "8738d3102be76db1281b655fa58acb82826084da506735b4d5e2cd50838ad0d9",
+      "disposition": "EXACT",
+      "public_file": "candidate/complete.patch"
+    },
+    {
+      "original_label": "implementation/contract-and-rules.json",
+      "original_bytes": 1197,
+      "original_sha256": "ee97013fa621f5641be58c7002722cfcdfa812deb2783a2e0edbd133203f7836",
+      "disposition": "EXACT",
+      "public_file": "evidence/static/contract-and-rules.json"
+    },
+    {
+      "original_label": "implementation/dependency-pins.json",
+      "original_bytes": 2406,
+      "original_sha256": "168f0fb8ecda6f90adbab103a263d610b4a9e5135276a4f4aea5289dc16e90ee",
+      "disposition": "WITHHELD",
+      "reason": "private provenance/build/index/native metadata or redundant original; retained unchanged in sealed private ownership, not needed to execute local fake-only scripts"
+    },
+    {
+      "original_label": "implementation/execution-index.json",
+      "original_bytes": 3955,
+      "original_sha256": "7615af5994301b4e2867a0de93bc972e1425ba7ed8dbdaf8017ce59a81afc1d6",
+      "disposition": "WITHHELD",
+      "reason": "private provenance/build/index/native metadata or redundant original; retained unchanged in sealed private ownership, not needed to execute local fake-only scripts"
+    },
+    {
+      "original_label": "implementation/extend_controls.py",
+      "original_bytes": 1961,
+      "original_sha256": "109e5b5a1c33212c4d45226dea2a9905d2dda8537228f7b1781ebe9ff03dc53d",
+      "disposition": "WITHHELD",
+      "reason": "private provenance/build/index/native metadata or redundant original; retained unchanged in sealed private ownership, not needed to execute local fake-only scripts"
+    },
+    {
+      "original_label": "implementation/extend_final_control.py",
+      "original_bytes": 1731,
+      "original_sha256": "ba7e682edb26ee09ec9705f2a708b0a21d5c81d7f9ce60e460b62bced0b59be9",
+      "disposition": "WITHHELD",
+      "reason": "private provenance/build/index/native metadata or redundant original; retained unchanged in sealed private ownership, not needed to execute local fake-only scripts"
+    },
+    {
+      "original_label": "implementation/final-byte-check.json",
+      "original_bytes": 273,
+      "original_sha256": "423e287b1ace7daddffa1b636ce091aaed693a84f9db12ee5b6d6c986eaa2885",
+      "disposition": "WITHHELD",
+      "reason": "private provenance/build/index/native metadata or redundant original; retained unchanged in sealed private ownership, not needed to execute local fake-only scripts"
+    },
+    {
+      "original_label": "implementation/FINAL.json",
+      "original_bytes": 1894,
+      "original_sha256": "d9afdd829c2d3b2168ab0610a93ec469d8c42a4aa632836f6428bf7074fe8aec",
+      "disposition": "WITHHELD",
+      "reason": "private provenance/build/index/native metadata or redundant original; retained unchanged in sealed private ownership, not needed to execute local fake-only scripts"
+    },
+    {
+      "original_label": "implementation/finalize.py",
+      "original_bytes": 3259,
+      "original_sha256": "db7abb4cadde12c7e0cc4faa936599c7a472d6ec6ba0692b6afdc668caf63aa9",
+      "disposition": "WITHHELD",
+      "reason": "private provenance/build/index/native metadata or redundant original; retained unchanged in sealed private ownership, not needed to execute local fake-only scripts"
+    },
+    {
+      "original_label": "implementation/freeze.json",
+      "original_bytes": 12433,
+      "original_sha256": "987df6df524e8a4b4d116a47e6a6941ed46bd2093b1dec18f3372f8b27f04b12",
+      "disposition": "WITHHELD",
+      "reason": "private provenance/build/index/native metadata or redundant original; retained unchanged in sealed private ownership, not needed to execute local fake-only scripts"
+    },
+    {
+      "original_label": "implementation/g05_mailbox_policy_v1.py",
+      "original_bytes": 19800,
+      "original_sha256": "5dfafb756959cc57af696ffa08c9d30267aaf5fc2bf5ed96421a8a050bb7ef3e",
+      "disposition": "EXACT",
+      "public_file": "candidate/g05_mailbox_policy_v1.py"
+    },
+    {
+      "original_label": "implementation/g05p_runtime_v1.patch",
+      "original_bytes": 1406,
+      "original_sha256": "fc075048f47681b686d1edd386fbcec405d2f4b1ef2ea45fd841006846bf383c",
+      "disposition": "EXACT",
+      "public_file": "candidate/g05p_runtime_v1.patch"
+    },
+    {
+      "original_label": "implementation/g05p_runtime_v1.py",
+      "original_bytes": 29566,
+      "original_sha256": "f1204093ee0643d7ebdf50136aa22db063fd45cde70fe6f4e2900af7e791f905",
+      "disposition": "EXACT",
+      "public_file": "candidate/g05p_runtime_v1.py"
+    },
+    {
+      "original_label": "implementation/host-clock-pin.json",
+      "original_bytes": 483,
+      "original_sha256": "31d1ea7f617dece00cd8618338a1bee108db26ed78fe304f1c01a94e32a45f56",
+      "disposition": "WITHHELD",
+      "reason": "private provenance/build/index/native metadata or redundant original; retained unchanged in sealed private ownership, not needed to execute local fake-only scripts"
+    },
+    {
+      "original_label": "implementation/host_clock.source.py",
+      "original_bytes": 3704,
+      "original_sha256": "091accae52c376d259d0057f7b93b23dc5f4143508025beec88394c4b657e376",
+      "disposition": "EXACT",
+      "public_file": "static-mapping/sources/integration/host_clock.py"
+    },
+    {
+      "original_label": "implementation/pin_clock_and_control.py",
+      "original_bytes": 1643,
+      "original_sha256": "6a8d6e8e2134571225ce2a3b2f4e18fa69c9fe7cf07ce35e1efc718d285d1415",
+      "disposition": "WITHHELD",
+      "reason": "private provenance/build/index/native metadata or redundant original; retained unchanged in sealed private ownership, not needed to execute local fake-only scripts"
+    },
+    {
+      "original_label": "implementation/prepare-attempt01.py",
+      "original_bytes": 2298,
+      "original_sha256": "260a694f0eb649db01a46f1460ec6c32473143ca36729c97416629621adeea21",
+      "disposition": "EXACT",
+      "public_file": "evidence/prepare-attempt01.original.py"
+    },
+    {
+      "original_label": "implementation/prepare.py",
+      "original_bytes": 2288,
+      "original_sha256": "b549f2a1700daf0fcf1084700b49ed1a4f23bd7627ad7b89f56c525045a64e66",
+      "disposition": "EXACT",
+      "public_file": "evidence/prepare-corrected.original.py"
+    },
+    {
+      "original_label": "implementation/private-selected-tool-transcript.jsonl",
+      "original_bytes": 0,
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "disposition": "WITHHELD",
+      "reason": "private provenance/build/index/native metadata or redundant original; retained unchanged in sealed private ownership, not needed to execute local fake-only scripts"
+    },
+    {
+      "original_label": "implementation/README.md",
+      "original_bytes": 11437,
+      "original_sha256": "2ddd857f29441c92025ebfe545405a45b6fc42795adec6089d5818c46bae22bc",
+      "disposition": "EXACT",
+      "public_file": "implementation/README.md"
+    },
+    {
+      "original_label": "implementation/REPORT.md",
+      "original_bytes": 3274,
+      "original_sha256": "955ce493ae26785640601aab6dbcffed71b2344996ded38d8b70de062ad5f6ad",
+      "disposition": "EXACT",
+      "public_file": "implementation/REPORT.md"
+    },
+    {
+      "original_label": "implementation/run_controls.py",
+      "original_bytes": 1534,
+      "original_sha256": "2155c976f5e5d8957514090ce84a88db3aa172f52c82e9079025f6d7b5dd6c33",
+      "disposition": "EXACT",
+      "public_file": "evidence/run_controls.original.py"
+    },
+    {
+      "original_label": "implementation/run_static.py",
+      "original_bytes": 683,
+      "original_sha256": "63587929d97f205539ca3e457d9c8e7f7f4a87c2a69698d52bcebf630d368b73",
+      "disposition": "WITHHELD",
+      "reason": "private provenance/build/index/native metadata or redundant original; retained unchanged in sealed private ownership, not needed to execute local fake-only scripts"
+    },
+    {
+      "original_label": "implementation/source-pins.json",
+      "original_bytes": 10200,
+      "original_sha256": "354bda50251e10cd6d290ae8a412c618032f9b1d6b1a14e577fa337404be7097",
+      "disposition": "ORIGINAL_WITHHELD_DERIVED_ALTERNATE",
+      "public_file": "SOURCE-PINS.DERIVED.json",
+      "reason": "private original index contains absolute cache source paths; public repository paths and exact original hashes retained"
+    },
+    {
+      "original_label": "implementation/static-check.json",
+      "original_bytes": 713,
+      "original_sha256": "748af7a35ad6902ff217d0994fd4b765fb452eb9b1dcc05908f2485f96ba97bd",
+      "disposition": "EXACT",
+      "public_file": "evidence/static/static-check.json"
+    },
+    {
+      "original_label": "implementation/static-command.json",
+      "original_bytes": 370,
+      "original_sha256": "77e9aad810a66727cab5dd8aff51baa39bfd0bb3604155d5d0e87420872782d4",
+      "disposition": "WITHHELD",
+      "reason": "private provenance/build/index/native metadata or redundant original; retained unchanged in sealed private ownership, not needed to execute local fake-only scripts"
+    },
+    {
+      "original_label": "implementation/static-exit.json",
+      "original_bytes": 55,
+      "original_sha256": "18af3f9ca1b91788dc70eabce6e55531121b3c490f11b3f9f8b20b8777ac228a",
+      "disposition": "EXACT",
+      "public_file": "evidence/static/static-exit.json"
+    },
+    {
+      "original_label": "implementation/static-stderr.raw",
+      "original_bytes": 0,
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "disposition": "EXACT",
+      "public_file": "evidence/static/static-stderr.raw"
+    },
+    {
+      "original_label": "implementation/static-stdout.raw",
+      "original_bytes": 673,
+      "original_sha256": "2f0610d8cbedbf2b3cc0507377a48d7fc88948d69e0749e9adbc3355c1138c52",
+      "disposition": "EXACT",
+      "public_file": "evidence/static/static-stdout.raw"
+    },
+    {
+      "original_label": "implementation/test_mailbox_policy_v1.py",
+      "original_bytes": 16216,
+      "original_sha256": "d7fd98edaa09b856c06304ce226d82e551da41e7788d945df6cbf8a5c42bdec0",
+      "disposition": "EXACT",
+      "public_file": "candidate/test_mailbox_policy_v1.py"
+    },
+    {
+      "original_label": "implementation/versions/run01/command.json",
+      "original_bytes": 598,
+      "original_sha256": "4c6c30c6d1e21935b20bbcc14d3fecab7771f933bc60d19163b666fbc9ab45c1",
+      "disposition": "ORIGINAL_WITHHELD_DERIVED_ALTERNATE",
+      "public_file": "evidence/versions/run01/command.DERIVED.json",
+      "reason": "original contains private interpreter/workspace paths"
+    },
+    {
+      "original_label": "implementation/versions/run01/exit.json",
+      "original_bytes": 112,
+      "original_sha256": "ebd3f3b3c2c59def284c4e3dd297e9197300570c32f39ccbe84a2ff307178cdd",
+      "disposition": "EXACT",
+      "public_file": "evidence/versions/run01/exit.json"
+    },
+    {
+      "original_label": "implementation/versions/run01/g05_mailbox_policy_v1.py",
+      "original_bytes": 18615,
+      "original_sha256": "91e4bf64fe162f0ae9aafd1e913661ef7b359fcf35afb9819e4af890614e67ce",
+      "disposition": "EXACT",
+      "public_file": "evidence/versions/run01/g05_mailbox_policy_v1.py"
+    },
+    {
+      "original_label": "implementation/versions/run01/g05p_runtime_v1.patch",
+      "original_bytes": 1406,
+      "original_sha256": "fc075048f47681b686d1edd386fbcec405d2f4b1ef2ea45fd841006846bf383c",
+      "disposition": "EXACT",
+      "public_file": "evidence/versions/run01/g05p_runtime_v1.patch"
+    },
+    {
+      "original_label": "implementation/versions/run01/g05p_runtime_v1.py",
+      "original_bytes": 29566,
+      "original_sha256": "f1204093ee0643d7ebdf50136aa22db063fd45cde70fe6f4e2900af7e791f905",
+      "disposition": "EXACT",
+      "public_file": "evidence/versions/run01/g05p_runtime_v1.py"
+    },
+    {
+      "original_label": "implementation/versions/run01/source-pins.json",
+      "original_bytes": 610,
+      "original_sha256": "d4d55a9eed3f75e34b9736b5ba815fe77d4d98891e8656ee1d553060722766a1",
+      "disposition": "EXACT",
+      "public_file": "evidence/versions/run01/source-pins.json"
+    },
+    {
+      "original_label": "implementation/versions/run01/stderr.raw",
+      "original_bytes": 1778,
+      "original_sha256": "ffffffad2a7b7218226b7580f8eeb73bcf35c0f3d73bb816abc313e52116e0a9",
+      "disposition": "EXACT",
+      "public_file": "evidence/versions/run01/stderr.raw"
+    },
+    {
+      "original_label": "implementation/versions/run01/stdout.raw",
+      "original_bytes": 0,
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "disposition": "EXACT",
+      "public_file": "evidence/versions/run01/stdout.raw"
+    },
+    {
+      "original_label": "implementation/versions/run01/test_mailbox_policy_v1.py",
+      "original_bytes": 12569,
+      "original_sha256": "c94e1ac70c38ea1191c89a8c77b086d9b62543c6a1591db4affdb8b1507ca051",
+      "disposition": "EXACT",
+      "public_file": "evidence/versions/run01/test_mailbox_policy_v1.py"
+    },
+    {
+      "original_label": "implementation/versions/run02/command.json",
+      "original_bytes": 793,
+      "original_sha256": "993ac47c839b7cf7702104ad9cd9c8e06b7ce7945004fd7c73a332570d000de5",
+      "disposition": "ORIGINAL_WITHHELD_DERIVED_ALTERNATE",
+      "public_file": "evidence/versions/run02/command.DERIVED.json",
+      "reason": "original contains private interpreter/workspace paths"
+    },
+    {
+      "original_label": "implementation/versions/run02/exit.json",
+      "original_bytes": 113,
+      "original_sha256": "e15f07e71ccff28c65dffca744eb2dcbcd8f17410077fd2314cf5c8c4a1d089b",
+      "disposition": "EXACT",
+      "public_file": "evidence/versions/run02/exit.json"
+    },
+    {
+      "original_label": "implementation/versions/run02/g05_mailbox_policy_v1.py",
+      "original_bytes": 19052,
+      "original_sha256": "1805f821f4d06a209e7119ba1a1d80c4ecede4411406918f67c7999f88f13731",
+      "disposition": "EXACT",
+      "public_file": "evidence/versions/run02/g05_mailbox_policy_v1.py"
+    },
+    {
+      "original_label": "implementation/versions/run02/g05p_runtime_v1.patch",
+      "original_bytes": 1406,
+      "original_sha256": "fc075048f47681b686d1edd386fbcec405d2f4b1ef2ea45fd841006846bf383c",
+      "disposition": "EXACT",
+      "public_file": "evidence/versions/run02/g05p_runtime_v1.patch"
+    },
+    {
+      "original_label": "implementation/versions/run02/g05p_runtime_v1.py",
+      "original_bytes": 29566,
+      "original_sha256": "f1204093ee0643d7ebdf50136aa22db063fd45cde70fe6f4e2900af7e791f905",
+      "disposition": "EXACT",
+      "public_file": "evidence/versions/run02/g05p_runtime_v1.py"
+    },
+    {
+      "original_label": "implementation/versions/run02/source-pins.json",
+      "original_bytes": 610,
+      "original_sha256": "976289a2dfd173eaf69d3527b3a8aa6dacee4e5f3a138d55a18f2c76b378828f",
+      "disposition": "EXACT",
+      "public_file": "evidence/versions/run02/source-pins.json"
+    },
+    {
+      "original_label": "implementation/versions/run02/stderr.raw",
+      "original_bytes": 475,
+      "original_sha256": "649aaf64d06048d52dc39ea6e8f91866a1e1b7f082f5f81e7d40cf24c5528cbf",
+      "disposition": "EXACT",
+      "public_file": "evidence/versions/run02/stderr.raw"
+    },
+    {
+      "original_label": "implementation/versions/run02/stdout.raw",
+      "original_bytes": 0,
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "disposition": "EXACT",
+      "public_file": "evidence/versions/run02/stdout.raw"
+    },
+    {
+      "original_label": "implementation/versions/run02/test_mailbox_policy_v1.py",
+      "original_bytes": 14362,
+      "original_sha256": "34a922d73996389b11f4980ad78740725e50c9d651168dd419e24e562b330d82",
+      "disposition": "EXACT",
+      "public_file": "evidence/versions/run02/test_mailbox_policy_v1.py"
+    },
+    {
+      "original_label": "implementation/versions/run03/command.json",
+      "original_bytes": 660,
+      "original_sha256": "ae2697161c35c7f4a2eb17063a4c79527d6f397157ebc5841f5c78c94b55a49f",
+      "disposition": "ORIGINAL_WITHHELD_DERIVED_ALTERNATE",
+      "public_file": "evidence/versions/run03/command.DERIVED.json",
+      "reason": "original contains private interpreter/workspace paths"
+    },
+    {
+      "original_label": "implementation/versions/run03/exit.json",
+      "original_bytes": 113,
+      "original_sha256": "0a0bf493a3982180910dd9dc2f4b71dc0713a9b58d0a1d048d3d3bb10124686d",
+      "disposition": "EXACT",
+      "public_file": "evidence/versions/run03/exit.json"
+    },
+    {
+      "original_label": "implementation/versions/run03/g05_mailbox_policy_v1.py",
+      "original_bytes": 19052,
+      "original_sha256": "1805f821f4d06a209e7119ba1a1d80c4ecede4411406918f67c7999f88f13731",
+      "disposition": "EXACT",
+      "public_file": "evidence/versions/run03/g05_mailbox_policy_v1.py"
+    },
+    {
+      "original_label": "implementation/versions/run03/g05p_runtime_v1.patch",
+      "original_bytes": 1406,
+      "original_sha256": "fc075048f47681b686d1edd386fbcec405d2f4b1ef2ea45fd841006846bf383c",
+      "disposition": "EXACT",
+      "public_file": "evidence/versions/run03/g05p_runtime_v1.patch"
+    },
+    {
+      "original_label": "implementation/versions/run03/g05p_runtime_v1.py",
+      "original_bytes": 29566,
+      "original_sha256": "f1204093ee0643d7ebdf50136aa22db063fd45cde70fe6f4e2900af7e791f905",
+      "disposition": "EXACT",
+      "public_file": "evidence/versions/run03/g05p_runtime_v1.py"
+    },
+    {
+      "original_label": "implementation/versions/run03/source-pins.json",
+      "original_bytes": 610,
+      "original_sha256": "35c951b1c0244b6bd0ff878d42478e564c5162ca91ff5e02e817198dfa9a29c2",
+      "disposition": "EXACT",
+      "public_file": "evidence/versions/run03/source-pins.json"
+    },
+    {
+      "original_label": "implementation/versions/run03/stderr.raw",
+      "original_bytes": 3471,
+      "original_sha256": "f78efc453c8e995ff4a282d9d24cd9921604e867e3507da0f9df02d422bbeb0a",
+      "disposition": "ORIGINAL_WITHHELD_DERIVED_ALTERNATE",
+      "public_file": "evidence/versions/run03/stderr.DERIVED.txt",
+      "reason": "original traceback contains private user/interpreter/workspace paths"
+    },
+    {
+      "original_label": "implementation/versions/run03/stdout.raw",
+      "original_bytes": 0,
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "disposition": "EXACT",
+      "public_file": "evidence/versions/run03/stdout.raw"
+    },
+    {
+      "original_label": "implementation/versions/run03/test_mailbox_policy_v1.py",
+      "original_bytes": 15027,
+      "original_sha256": "0f644c180b98fb8ad766a761c579f8a9f252e401bf652d5cc91ab949d074232d",
+      "disposition": "EXACT",
+      "public_file": "evidence/versions/run03/test_mailbox_policy_v1.py"
+    },
+    {
+      "original_label": "implementation/versions/run04/command.json",
+      "original_bytes": 660,
+      "original_sha256": "3876344b0db2f48a326c0b66e9daefb80738a4adc9635be9b83e25c3b0c98d12",
+      "disposition": "ORIGINAL_WITHHELD_DERIVED_ALTERNATE",
+      "public_file": "evidence/versions/run04/command.DERIVED.json",
+      "reason": "original contains private interpreter/workspace paths"
+    },
+    {
+      "original_label": "implementation/versions/run04/exit.json",
+      "original_bytes": 113,
+      "original_sha256": "ed6ef1ab624783bc7aeb82087534fb5f42e2a83f4bc7a5a4ea08f64e2920dc3d",
+      "disposition": "EXACT",
+      "public_file": "evidence/versions/run04/exit.json"
+    },
+    {
+      "original_label": "implementation/versions/run04/g05_mailbox_policy_v1.py",
+      "original_bytes": 19060,
+      "original_sha256": "7ebb714fac2e684cd8d4e1f705d6f2608534ac3ce9d045f55bb35f3b6fac3054",
+      "disposition": "EXACT",
+      "public_file": "evidence/versions/run04/g05_mailbox_policy_v1.py"
+    },
+    {
+      "original_label": "implementation/versions/run04/g05p_runtime_v1.patch",
+      "original_bytes": 1406,
+      "original_sha256": "fc075048f47681b686d1edd386fbcec405d2f4b1ef2ea45fd841006846bf383c",
+      "disposition": "EXACT",
+      "public_file": "evidence/versions/run04/g05p_runtime_v1.patch"
+    },
+    {
+      "original_label": "implementation/versions/run04/g05p_runtime_v1.py",
+      "original_bytes": 29566,
+      "original_sha256": "f1204093ee0643d7ebdf50136aa22db063fd45cde70fe6f4e2900af7e791f905",
+      "disposition": "EXACT",
+      "public_file": "evidence/versions/run04/g05p_runtime_v1.py"
+    },
+    {
+      "original_label": "implementation/versions/run04/source-pins.json",
+      "original_bytes": 610,
+      "original_sha256": "acc14d9ecd4e0f7022d59bd52ef5d31e65cc22e31deabf62808b68cdefd8041f",
+      "disposition": "EXACT",
+      "public_file": "evidence/versions/run04/source-pins.json"
+    },
+    {
+      "original_label": "implementation/versions/run04/stderr.raw",
+      "original_bytes": 220,
+      "original_sha256": "ab6829823ab1b150dec430f83be26ebaca6826e495c081e7e8609809d5f1fbca",
+      "disposition": "EXACT",
+      "public_file": "evidence/versions/run04/stderr.raw"
+    },
+    {
+      "original_label": "implementation/versions/run04/stdout.raw",
+      "original_bytes": 0,
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "disposition": "EXACT",
+      "public_file": "evidence/versions/run04/stdout.raw"
+    },
+    {
+      "original_label": "implementation/versions/run04/test_mailbox_policy_v1.py",
+      "original_bytes": 15027,
+      "original_sha256": "0f644c180b98fb8ad766a761c579f8a9f252e401bf652d5cc91ab949d074232d",
+      "disposition": "EXACT",
+      "public_file": "evidence/versions/run04/test_mailbox_policy_v1.py"
+    },
+    {
+      "original_label": "implementation/versions/run05/command.json",
+      "original_bytes": 667,
+      "original_sha256": "b0c68013d9be1d27f936e6ec302d395e79cd8d679169768b0b9f16785f09ed7c",
+      "disposition": "ORIGINAL_WITHHELD_DERIVED_ALTERNATE",
+      "public_file": "evidence/versions/run05/command.DERIVED.json",
+      "reason": "original contains private interpreter/workspace paths"
+    },
+    {
+      "original_label": "implementation/versions/run05/exit.json",
+      "original_bytes": 112,
+      "original_sha256": "6db9d03371013c9735f335f4b5ec115fc1f2acdb8cb8127100e6c7769a674982",
+      "disposition": "EXACT",
+      "public_file": "evidence/versions/run05/exit.json"
+    },
+    {
+      "original_label": "implementation/versions/run05/g05_mailbox_policy_v1.py",
+      "original_bytes": 19800,
+      "original_sha256": "5dfafb756959cc57af696ffa08c9d30267aaf5fc2bf5ed96421a8a050bb7ef3e",
+      "disposition": "EXACT",
+      "public_file": "evidence/versions/run05/g05_mailbox_policy_v1.py"
+    },
+    {
+      "original_label": "implementation/versions/run05/g05p_runtime_v1.patch",
+      "original_bytes": 1406,
+      "original_sha256": "fc075048f47681b686d1edd386fbcec405d2f4b1ef2ea45fd841006846bf383c",
+      "disposition": "EXACT",
+      "public_file": "evidence/versions/run05/g05p_runtime_v1.patch"
+    },
+    {
+      "original_label": "implementation/versions/run05/g05p_runtime_v1.py",
+      "original_bytes": 29566,
+      "original_sha256": "f1204093ee0643d7ebdf50136aa22db063fd45cde70fe6f4e2900af7e791f905",
+      "disposition": "EXACT",
+      "public_file": "evidence/versions/run05/g05p_runtime_v1.py"
+    },
+    {
+      "original_label": "implementation/versions/run05/source-pins.json",
+      "original_bytes": 610,
+      "original_sha256": "b400a10052d202f965030cacb3ff98a822c5c6fc313f402d0bea95988a938e79",
+      "disposition": "EXACT",
+      "public_file": "evidence/versions/run05/source-pins.json"
+    },
+    {
+      "original_label": "implementation/versions/run05/stderr.raw",
+      "original_bytes": 234,
+      "original_sha256": "50f95298b3450776bbdbb006ad69227cbc0b416be2aa65364ff3f92e0f3049ff",
+      "disposition": "EXACT",
+      "public_file": "evidence/versions/run05/stderr.raw"
+    },
+    {
+      "original_label": "implementation/versions/run05/stdout.raw",
+      "original_bytes": 0,
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "disposition": "EXACT",
+      "public_file": "evidence/versions/run05/stdout.raw"
+    },
+    {
+      "original_label": "implementation/versions/run05/test_mailbox_policy_v1.py",
+      "original_bytes": 16216,
+      "original_sha256": "d7fd98edaa09b856c06304ce226d82e551da41e7788d945df6cbf8a5c42bdec0",
+      "disposition": "EXACT",
+      "public_file": "evidence/versions/run05/test_mailbox_policy_v1.py"
+    },
+    {
+      "original_label": "mapping/audit_sources.py",
+      "original_bytes": 4057,
+      "original_sha256": "846cacbd2a7e8b40f84245587740ef569ce1eeb32cf80bfce9b20f89e18a4415",
+      "disposition": "WITHHELD",
+      "reason": "private provenance/build/index/native metadata or redundant original; retained unchanged in sealed private ownership, not needed to execute local fake-only scripts"
+    },
+    {
+      "original_label": "mapping/boot_profile.py.api.json",
+      "original_bytes": 114101,
+      "original_sha256": "a5eae2c52513e5fe10c1a914bab5e38f86e615c73a8bf6f0ea42d0ddcd79367b",
+      "disposition": "WITHHELD",
+      "reason": "private provenance/build/index/native metadata or redundant original; retained unchanged in sealed private ownership, not needed to execute local fake-only scripts"
+    },
+    {
+      "original_label": "mapping/boot_profile.py.get.json",
+      "original_bytes": 318,
+      "original_sha256": "c6352306d20dd2c880108f34e9be709ba2f2111d23a2af166b13345b65d4e3e0",
+      "disposition": "WITHHELD",
+      "reason": "private provenance/build/index/native metadata or redundant original; retained unchanged in sealed private ownership, not needed to execute local fake-only scripts"
+    },
+    {
+      "original_label": "mapping/boot_profile.py.stderr",
+      "original_bytes": 0,
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "disposition": "WITHHELD",
+      "reason": "private provenance/build/index/native metadata or redundant original; retained unchanged in sealed private ownership, not needed to execute local fake-only scripts"
+    },
+    {
+      "original_label": "mapping/boot_profiles.json.api.json",
+      "original_bytes": 29294,
+      "original_sha256": "175193354fde0652949319314a6df436969449155d9467d90f2887268d5661cd",
+      "disposition": "WITHHELD",
+      "reason": "private provenance/build/index/native metadata or redundant original; retained unchanged in sealed private ownership, not needed to execute local fake-only scripts"
+    },
+    {
+      "original_label": "mapping/boot_profiles.json.get.json",
+      "original_bytes": 314,
+      "original_sha256": "2d85229b9ed2f3e28bb628533a80eec09e2acb94e084008906dc9a8fdd3f8e7b",
+      "disposition": "WITHHELD",
+      "reason": "private provenance/build/index/native metadata or redundant original; retained unchanged in sealed private ownership, not needed to execute local fake-only scripts"
+    },
+    {
+      "original_label": "mapping/boot_profiles.json.stderr",
+      "original_bytes": 0,
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "disposition": "WITHHELD",
+      "reason": "private provenance/build/index/native metadata or redundant original; retained unchanged in sealed private ownership, not needed to execute local fake-only scripts"
+    },
+    {
+      "original_label": "mapping/FINAL.json",
+      "original_bytes": 695,
+      "original_sha256": "267ac067fbfff83ee6c39fc60468195fe0e974b67eaddf8aaa1880fdcd19733b",
+      "disposition": "WITHHELD",
+      "reason": "private provenance/build/index/native metadata or redundant original; retained unchanged in sealed private ownership, not needed to execute local fake-only scripts"
+    },
+    {
+      "original_label": "mapping/finalize.py",
+      "original_bytes": 3293,
+      "original_sha256": "bed8314c411308d79bf6ee6ebf775468b0de3f7d59e809b98389d06f56761a4b",
+      "disposition": "WITHHELD",
+      "reason": "private provenance/build/index/native metadata or redundant original; retained unchanged in sealed private ownership, not needed to execute local fake-only scripts"
+    },
+    {
+      "original_label": "mapping/freeze.json",
+      "original_bytes": 6038,
+      "original_sha256": "64b0869b59c0a8793684efd569bd11ddcc6b7989adff85cfef93260e99d1eb82",
+      "disposition": "WITHHELD",
+      "reason": "private provenance/build/index/native metadata or redundant original; retained unchanged in sealed private ownership, not needed to execute local fake-only scripts"
+    },
+    {
+      "original_label": "mapping/MAPPING.md",
+      "original_bytes": 14412,
+      "original_sha256": "a318d3640d0254c4511b07ba5c803daf0737fb16abd8953a2e94a67faa9ad86c",
+      "disposition": "EXACT",
+      "public_file": "static-mapping/MAPPING.original.md"
+    },
+    {
+      "original_label": "mapping/native-source-read-records.jsonl",
+      "original_bytes": 308328,
+      "original_sha256": "915a25145cf8770043cbbe2eee9568202b91c3038d61331c1e06b6af7f219c5b",
+      "disposition": "WITHHELD",
+      "reason": "private provenance/build/index/native metadata or redundant original; retained unchanged in sealed private ownership, not needed to execute local fake-only scripts"
+    },
+    {
+      "original_label": "mapping/REPORT.json",
+      "original_bytes": 1639,
+      "original_sha256": "44d61ad5aace7d5fd6b25a35bb045fc4dea72deba328bceb4035876836bca299",
+      "disposition": "EXACT",
+      "public_file": "static-mapping/REPORT.original.json"
+    },
+    {
+      "original_label": "mapping/source-pins.json",
+      "original_bytes": 9791,
+      "original_sha256": "4f499928f0a73c82e8d47deaf71b995cd1bef273d0e0d119e3d84e847d770e83",
+      "disposition": "WITHHELD",
+      "reason": "private provenance/build/index/native metadata or redundant original; retained unchanged in sealed private ownership, not needed to execute local fake-only scripts"
+    },
+    {
+      "original_label": "mapping/sources/C44-verifier.py",
+      "original_bytes": 18734,
+      "original_sha256": "af7ea20a3ee80f1266d66062698db4c5b1f8a9835262cc2ccfc7f480f6260ea6",
+      "disposition": "EXACT",
+      "public_file": "static-mapping/sources/C44-verifier.py"
+    },
+    {
+      "original_label": "mapping/sources/C45-mailbox.py",
+      "original_bytes": 21960,
+      "original_sha256": "02d9af273d1de99b53a1f613ddb5bd84c132604a037e53db140e405a173e1e97",
+      "disposition": "EXACT",
+      "public_file": "static-mapping/sources/C45-mailbox.py"
+    },
+    {
+      "original_label": "mapping/sources/C46-adapter.py",
+      "original_bytes": 20421,
+      "original_sha256": "8cdaa41f69e2da5174af03b1c8861158eb9d43d3706b087205d14ae4e84e2b4d",
+      "disposition": "EXACT",
+      "public_file": "static-mapping/sources/C46-adapter.py"
+    },
+    {
+      "original_label": "mapping/sources/C49-FORMAT-GAP.md",
+      "original_bytes": 2847,
+      "original_sha256": "00270455d703e35f13f56a2330e052c9ba3e9e72ec5981fb1aafd73a60d3401a",
+      "disposition": "EXACT",
+      "public_file": "static-mapping/sources/C49-FORMAT-GAP.md"
+    },
+    {
+      "original_label": "mapping/sources/C49-g05p_runtime_v1.py",
+      "original_bytes": 29725,
+      "original_sha256": "17e156a6f4297eb56bf0c3221ef2abb6ada7232907685cf70988db270a5ff508",
+      "disposition": "EXACT",
+      "public_file": "static-mapping/sources/C49-g05p_runtime_v1.py"
+    },
+    {
+      "original_label": "mapping/sources/docs/boot_profiles.json",
+      "original_bytes": 20395,
+      "original_sha256": "06588c82bdc803800c5891ca4aa46e184e6391ddd9045a77d99297878973bd74",
+      "disposition": "EXACT",
+      "public_file": "static-mapping/sources/docs/boot_profiles.json"
+    },
+    {
+      "original_label": "mapping/sources/integration/boot_profile.py",
+      "original_bytes": 81935,
+      "original_sha256": "aed3ee2e8185f6ffa348b9a4980c2fd529702cea6db08df430dc0360a11c4f39",
+      "disposition": "EXACT",
+      "public_file": "static-mapping/sources/integration/boot_profile.py"
+    },
+    {
+      "original_label": "mapping/sources/integration/candidate_mailbox.py",
+      "original_bytes": 21960,
+      "original_sha256": "02d9af273d1de99b53a1f613ddb5bd84c132604a037e53db140e405a173e1e97",
+      "disposition": "EXACT",
+      "public_file": "static-mapping/sources/integration/candidate_mailbox.py"
+    },
+    {
+      "original_label": "mapping/sources/integration/host_envelope.py",
+      "original_bytes": 27153,
+      "original_sha256": "3f9bcdf9ae88c9fb1007185e061b2954720a06f210282d5fe91f9eab97e764ea",
+      "disposition": "EXACT",
+      "public_file": "static-mapping/sources/integration/host_envelope.py"
+    },
+    {
+      "original_label": "mapping/sources/simulation/authority/actor_composition.py",
+      "original_bytes": 34190,
+      "original_sha256": "3765ba5e68942dc888b0235792c63963e6e29fb5be66a4f14226e0c0ba29203a",
+      "disposition": "EXACT",
+      "public_file": "static-mapping/sources/simulation/authority/actor_composition.py"
+    },
+    {
+      "original_label": "mapping/sources/simulation/authority/candidate_owner.py",
+      "original_bytes": 8711,
+      "original_sha256": "563c7ad8e1bba496db85357884fa4832e39927333e4ec1a54a11e2d4b352c6a2",
+      "disposition": "EXACT",
+      "public_file": "static-mapping/sources/simulation/authority/candidate_owner.py"
+    },
+    {
+      "original_label": "mapping/sources/simulation/authority/original_world_actor_link.py",
+      "original_bytes": 33494,
+      "original_sha256": "38e731c392f41b0b9d3b1852bea49c081f8398501cab996544ae36adbac108fb",
+      "disposition": "EXACT",
+      "public_file": "static-mapping/sources/simulation/authority/original_world_actor_link.py"
+    },
+    {
+      "original_label": "mapping/sources/simulation/authority/owned_invocation_v1/adapter.py",
+      "original_bytes": 20421,
+      "original_sha256": "8cdaa41f69e2da5174af03b1c8861158eb9d43d3706b087205d14ae4e84e2b4d",
+      "disposition": "EXACT",
+      "public_file": "static-mapping/sources/simulation/authority/owned_invocation_v1/adapter.py"
+    },
+    {
+      "original_label": "mapping/sources/simulation/authority/pc_direct_runtime.py",
+      "original_bytes": 24936,
+      "original_sha256": "1be7129834ea6f4892a1f527b173373e36325f88adabd44f443d95ad3ac1e461",
+      "disposition": "EXACT",
+      "public_file": "static-mapping/sources/simulation/authority/pc_direct_runtime.py"
+    },
+    {
+      "original_label": "mapping/sources/simulation/authority/source_projection_v1/assembler.py",
+      "original_bytes": 26485,
+      "original_sha256": "b49169ac2ab87073e31406d8448d69c7958d5e5775310f94990fe89eee8d3722",
+      "disposition": "EXACT",
+      "public_file": "static-mapping/sources/simulation/authority/source_projection_v1/assembler.py"
+    },
+    {
+      "original_label": "mapping/sources/simulation/authority/source_projection_v1/provider.py",
+      "original_bytes": 6345,
+      "original_sha256": "dfaccdde0830c8bb3255557505afe2b0ba915a66aa1002f48c1064d1ba9c44fe",
+      "disposition": "EXACT",
+      "public_file": "static-mapping/sources/simulation/authority/source_projection_v1/provider.py"
+    },
+    {
+      "original_label": "mapping/sources/simulation/isolation/actor_owner.py",
+      "original_bytes": 38840,
+      "original_sha256": "41480311f81d236745abdc008e2ac330557da8aa3812cb5a1ecf21d2ca8b636f",
+      "disposition": "EXACT",
+      "public_file": "static-mapping/sources/simulation/isolation/actor_owner.py"
+    },
+    {
+      "original_label": "mapping/sources/tools/diagnostic/demo30h_pre_source_coordinator_a.py",
+      "original_bytes": 18879,
+      "original_sha256": "e8288fc1858f03044073e2121e95e22c9e8278500c75322f3d68d668a07896e1",
+      "disposition": "EXACT",
+      "public_file": "static-mapping/sources/tools/diagnostic/demo30h_pre_source_coordinator_a.py"
+    },
+    {
+      "original_label": "mapping/sources/tools/diagnostic/functional50_chain_v2_client_a.py",
+      "original_bytes": 21117,
+      "original_sha256": "a015b3cab0b8323fa636a2e4a8440e82497fbabd3a9b76ff5ddc1921f908b943",
+      "disposition": "EXACT",
+      "public_file": "static-mapping/sources/tools/diagnostic/functional50_chain_v2_client_a.py"
+    },
+    {
+      "original_label": "mapping/sources/tools/diagnostic/functional50_ssh_a.py",
+      "original_bytes": 22017,
+      "original_sha256": "56218a49c6f92c71a57bdbc902bd3471933ea76e1a61d4fd8f8eef45e3d77eef",
+      "disposition": "ORIGINAL_WITHHELD_DERIVED_ALTERNATE",
+      "public_file": "static-mapping/sources/tools/diagnostic/functional50_ssh_a.DERIVED-excerpt.txt",
+      "reason": "A original contains host username/known-host path/endpoint configuration; only necessary non-executable static declarations excerpted"
+    },
+    {
+      "original_label": "mapping/sources/tools/diagnostic/original_chain_receipt_producer_a.py",
+      "original_bytes": 19864,
+      "original_sha256": "9a8bae7afd19a0330bff3bda1f31b57a53b6861cd82ee33ff38cf19d5f0ac2bb",
+      "disposition": "EXACT",
+      "public_file": "static-mapping/sources/tools/diagnostic/original_chain_receipt_producer_a.py"
+    },
+    {
+      "original_label": "mapping/sources/tools/diagnostic/original_g05_operation_binding_a.py",
+      "original_bytes": 10265,
+      "original_sha256": "212e527c888fc469d02103649c9791c6a18965bff57a1d473d313919fce1f70e",
+      "disposition": "EXACT",
+      "public_file": "static-mapping/sources/tools/diagnostic/original_g05_operation_binding_a.py"
+    }
+  ]
+}

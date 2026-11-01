@@ -1,0 +1,235 @@
+{
+  "label": "DERIVED public source index; original private index retained",
+  "source_execution": false,
+  "historical_equalities": {
+    "C45_mailbox_equals_A046": true,
+    "C46_adapter_equals_A046": true
+  },
+  "files": [
+    {
+      "original_sha256": "02d9af273d1de99b53a1f613ddb5bd84c132604a037e53db140e405a173e1e97",
+      "original_bytes": 21960,
+      "package_file": "static-mapping/sources/integration/candidate_mailbox.py",
+      "representation": "EXACT",
+      "repository_path": "competition/deepeye/integration/candidate_mailbox.py",
+      "commit": "0469345fd1eef2884de1417f0f4eb5b67688f84c",
+      "git_blob": "1be26cda5fc6beb51cbcdc0f50e4be3cb7c75f23",
+      "url": "https://github.com/carolwjade/CarlandFPGA/blob/0469345fd1eef2884de1417f0f4eb5b67688f84c/competition/deepeye/integration/candidate_mailbox.py"
+    },
+    {
+      "original_sha256": "3f9bcdf9ae88c9fb1007185e061b2954720a06f210282d5fe91f9eab97e764ea",
+      "original_bytes": 27153,
+      "package_file": "static-mapping/sources/integration/host_envelope.py",
+      "representation": "EXACT",
+      "repository_path": "competition/deepeye/integration/host_envelope.py",
+      "commit": "0469345fd1eef2884de1417f0f4eb5b67688f84c",
+      "git_blob": "3b7dacafcc1f24bb2a9b2c3c2c658b664bbbb83f",
+      "url": "https://github.com/carolwjade/CarlandFPGA/blob/0469345fd1eef2884de1417f0f4eb5b67688f84c/competition/deepeye/integration/host_envelope.py"
+    },
+    {
+      "original_sha256": "563c7ad8e1bba496db85357884fa4832e39927333e4ec1a54a11e2d4b352c6a2",
+      "original_bytes": 8711,
+      "package_file": "static-mapping/sources/simulation/authority/candidate_owner.py",
+      "representation": "EXACT",
+      "repository_path": "competition/deepeye/simulation/authority/candidate_owner.py",
+      "commit": "0469345fd1eef2884de1417f0f4eb5b67688f84c",
+      "git_blob": "2f5b26b7e4bb9596ec73c0f6f64326a186ecb79a",
+      "url": "https://github.com/carolwjade/CarlandFPGA/blob/0469345fd1eef2884de1417f0f4eb5b67688f84c/competition/deepeye/simulation/authority/candidate_owner.py"
+    },
+    {
+      "original_sha256": "3765ba5e68942dc888b0235792c63963e6e29fb5be66a4f14226e0c0ba29203a",
+      "original_bytes": 34190,
+      "package_file": "static-mapping/sources/simulation/authority/actor_composition.py",
+      "representation": "EXACT",
+      "repository_path": "competition/deepeye/simulation/authority/actor_composition.py",
+      "commit": "0469345fd1eef2884de1417f0f4eb5b67688f84c",
+      "git_blob": "2de2653fe9fbcf58c0af66c97979377176b4c783",
+      "url": "https://github.com/carolwjade/CarlandFPGA/blob/0469345fd1eef2884de1417f0f4eb5b67688f84c/competition/deepeye/simulation/authority/actor_composition.py"
+    },
+    {
+      "original_sha256": "1be7129834ea6f4892a1f527b173373e36325f88adabd44f443d95ad3ac1e461",
+      "original_bytes": 24936,
+      "package_file": "static-mapping/sources/simulation/authority/pc_direct_runtime.py",
+      "representation": "EXACT",
+      "repository_path": "competition/deepeye/simulation/authority/pc_direct_runtime.py",
+      "commit": "0469345fd1eef2884de1417f0f4eb5b67688f84c",
+      "git_blob": "af8f39d76f18b547a8eafa4cdd21e8c2626bdc79",
+      "url": "https://github.com/carolwjade/CarlandFPGA/blob/0469345fd1eef2884de1417f0f4eb5b67688f84c/competition/deepeye/simulation/authority/pc_direct_runtime.py"
+    },
+    {
+      "original_sha256": "8cdaa41f69e2da5174af03b1c8861158eb9d43d3706b087205d14ae4e84e2b4d",
+      "original_bytes": 20421,
+      "package_file": "static-mapping/sources/simulation/authority/owned_invocation_v1/adapter.py",
+      "representation": "EXACT",
+      "repository_path": "competition/deepeye/simulation/authority/owned_invocation_v1/adapter.py",
+      "commit": "0469345fd1eef2884de1417f0f4eb5b67688f84c",
+      "git_blob": "0f4f9112e12a6c551c09ec52c1f36b0c114ee97a",
+      "url": "https://github.com/carolwjade/CarlandFPGA/blob/0469345fd1eef2884de1417f0f4eb5b67688f84c/competition/deepeye/simulation/authority/owned_invocation_v1/adapter.py"
+    },
+    {
+      "original_sha256": "41480311f81d236745abdc008e2ac330557da8aa3812cb5a1ecf21d2ca8b636f",
+      "original_bytes": 38840,
+      "package_file": "static-mapping/sources/simulation/isolation/actor_owner.py",
+      "representation": "EXACT",
+      "repository_path": "competition/deepeye/simulation/isolation/actor_owner.py",
+      "commit": "0469345fd1eef2884de1417f0f4eb5b67688f84c",
+      "git_blob": "134b3e498a4c533f80a3e741989fdfb4990ad28c",
+      "url": "https://github.com/carolwjade/CarlandFPGA/blob/0469345fd1eef2884de1417f0f4eb5b67688f84c/competition/deepeye/simulation/isolation/actor_owner.py"
+    },
+    {
+      "original_sha256": "a015b3cab0b8323fa636a2e4a8440e82497fbabd3a9b76ff5ddc1921f908b943",
+      "original_bytes": 21117,
+      "package_file": "static-mapping/sources/tools/diagnostic/functional50_chain_v2_client_a.py",
+      "representation": "EXACT",
+      "repository_path": "competition/deepeye/tools/diagnostic/functional50_chain_v2_client_a.py",
+      "commit": "0469345fd1eef2884de1417f0f4eb5b67688f84c",
+      "git_blob": "0af550f14cbf7b06fc8151c6e161fb5fa6184dc1",
+      "url": "https://github.com/carolwjade/CarlandFPGA/blob/0469345fd1eef2884de1417f0f4eb5b67688f84c/competition/deepeye/tools/diagnostic/functional50_chain_v2_client_a.py"
+    },
+    {
+      "original_sha256": "9a8bae7afd19a0330bff3bda1f31b57a53b6861cd82ee33ff38cf19d5f0ac2bb",
+      "original_bytes": 19864,
+      "package_file": "static-mapping/sources/tools/diagnostic/original_chain_receipt_producer_a.py",
+      "representation": "EXACT",
+      "repository_path": "competition/deepeye/tools/diagnostic/original_chain_receipt_producer_a.py",
+      "commit": "0469345fd1eef2884de1417f0f4eb5b67688f84c",
+      "git_blob": "ae89c77e7ae1ce18ff1e62488be9afebe36427bc",
+      "url": "https://github.com/carolwjade/CarlandFPGA/blob/0469345fd1eef2884de1417f0f4eb5b67688f84c/competition/deepeye/tools/diagnostic/original_chain_receipt_producer_a.py"
+    },
+    {
+      "original_sha256": "212e527c888fc469d02103649c9791c6a18965bff57a1d473d313919fce1f70e",
+      "original_bytes": 10265,
+      "package_file": "static-mapping/sources/tools/diagnostic/original_g05_operation_binding_a.py",
+      "representation": "EXACT",
+      "repository_path": "competition/deepeye/tools/diagnostic/original_g05_operation_binding_a.py",
+      "commit": "0469345fd1eef2884de1417f0f4eb5b67688f84c",
+      "git_blob": "eb44544c00a36ae84c3318628eec3b60242e25d5",
+      "url": "https://github.com/carolwjade/CarlandFPGA/blob/0469345fd1eef2884de1417f0f4eb5b67688f84c/competition/deepeye/tools/diagnostic/original_g05_operation_binding_a.py"
+    },
+    {
+      "original_sha256": "e8288fc1858f03044073e2121e95e22c9e8278500c75322f3d68d668a07896e1",
+      "original_bytes": 18879,
+      "package_file": "static-mapping/sources/tools/diagnostic/demo30h_pre_source_coordinator_a.py",
+      "representation": "EXACT",
+      "repository_path": "competition/deepeye/tools/diagnostic/demo30h_pre_source_coordinator_a.py",
+      "commit": "0469345fd1eef2884de1417f0f4eb5b67688f84c",
+      "git_blob": "fcc66023d96fa52ab1be985225c2d7943c2dbcef",
+      "url": "https://github.com/carolwjade/CarlandFPGA/blob/0469345fd1eef2884de1417f0f4eb5b67688f84c/competition/deepeye/tools/diagnostic/demo30h_pre_source_coordinator_a.py"
+    },
+    {
+      "original_sha256": "56218a49c6f92c71a57bdbc902bd3471933ea76e1a61d4fd8f8eef45e3d77eef",
+      "original_bytes": 22017,
+      "package_file": "static-mapping/sources/tools/diagnostic/functional50_ssh_a.DERIVED-excerpt.txt",
+      "representation": "DERIVED_EXCERPT",
+      "repository_path": "competition/deepeye/tools/diagnostic/functional50_ssh_a.py",
+      "commit": "0469345fd1eef2884de1417f0f4eb5b67688f84c",
+      "git_blob": "1703070ba6adf453f0575636723ac19fa11ba150",
+      "url": "https://github.com/carolwjade/CarlandFPGA/blob/0469345fd1eef2884de1417f0f4eb5b67688f84c/competition/deepeye/tools/diagnostic/functional50_ssh_a.py"
+    },
+    {
+      "original_sha256": "dfaccdde0830c8bb3255557505afe2b0ba915a66aa1002f48c1064d1ba9c44fe",
+      "original_bytes": 6345,
+      "package_file": "static-mapping/sources/simulation/authority/source_projection_v1/provider.py",
+      "representation": "EXACT",
+      "repository_path": "competition/deepeye/simulation/authority/source_projection_v1/provider.py",
+      "commit": "0469345fd1eef2884de1417f0f4eb5b67688f84c",
+      "git_blob": "7d20735aa4052d52055cbf73c8ed16efdc7bd4be",
+      "url": "https://github.com/carolwjade/CarlandFPGA/blob/0469345fd1eef2884de1417f0f4eb5b67688f84c/competition/deepeye/simulation/authority/source_projection_v1/provider.py"
+    },
+    {
+      "original_sha256": "b49169ac2ab87073e31406d8448d69c7958d5e5775310f94990fe89eee8d3722",
+      "original_bytes": 26485,
+      "package_file": "static-mapping/sources/simulation/authority/source_projection_v1/assembler.py",
+      "representation": "EXACT",
+      "repository_path": "competition/deepeye/simulation/authority/source_projection_v1/assembler.py",
+      "commit": "0469345fd1eef2884de1417f0f4eb5b67688f84c",
+      "git_blob": "5c40942adc772e365175b7dd1c6b248828dfa3be",
+      "url": "https://github.com/carolwjade/CarlandFPGA/blob/0469345fd1eef2884de1417f0f4eb5b67688f84c/competition/deepeye/simulation/authority/source_projection_v1/assembler.py"
+    },
+    {
+      "original_sha256": "38e731c392f41b0b9d3b1852bea49c081f8398501cab996544ae36adbac108fb",
+      "original_bytes": 33494,
+      "package_file": "static-mapping/sources/simulation/authority/original_world_actor_link.py",
+      "representation": "EXACT",
+      "repository_path": "competition/deepeye/simulation/authority/original_world_actor_link.py",
+      "commit": "0469345fd1eef2884de1417f0f4eb5b67688f84c",
+      "git_blob": "8df7aff3e646cef3e77cf41216235c67299b5a99",
+      "url": "https://github.com/carolwjade/CarlandFPGA/blob/0469345fd1eef2884de1417f0f4eb5b67688f84c/competition/deepeye/simulation/authority/original_world_actor_link.py"
+    },
+    {
+      "original_sha256": "aed3ee2e8185f6ffa348b9a4980c2fd529702cea6db08df430dc0360a11c4f39",
+      "original_bytes": 81935,
+      "package_file": "static-mapping/sources/integration/boot_profile.py",
+      "representation": "EXACT",
+      "repository_path": "competition/deepeye/integration/boot_profile.py",
+      "commit": "0469345fd1eef2884de1417f0f4eb5b67688f84c",
+      "git_blob": "5646110ef3c40e021e53de93e1731a47f1cafc6e",
+      "url": "https://github.com/carolwjade/CarlandFPGA/blob/0469345fd1eef2884de1417f0f4eb5b67688f84c/competition/deepeye/integration/boot_profile.py"
+    },
+    {
+      "original_sha256": "06588c82bdc803800c5891ca4aa46e184e6391ddd9045a77d99297878973bd74",
+      "original_bytes": 20395,
+      "package_file": "static-mapping/sources/docs/boot_profiles.json",
+      "representation": "EXACT",
+      "repository_path": "competition/deepeye/docs/boot_profiles.json",
+      "commit": "0469345fd1eef2884de1417f0f4eb5b67688f84c",
+      "git_blob": "4c785a94e5d663dd9340d3a4eca0b3a8b553934f",
+      "url": "https://github.com/carolwjade/CarlandFPGA/blob/0469345fd1eef2884de1417f0f4eb5b67688f84c/competition/deepeye/docs/boot_profiles.json"
+    },
+    {
+      "original_sha256": "af7ea20a3ee80f1266d66062698db4c5b1f8a9835262cc2ccfc7f480f6260ea6",
+      "original_bytes": 18734,
+      "package_file": "static-mapping/sources/C44-verifier.py",
+      "representation": "EXACT",
+      "repository_path": null,
+      "sealed_artifact_label": "C44-verifier.py",
+      "note": "historical C snapshot; no unverified A commit equivalence claimed"
+    },
+    {
+      "original_sha256": "02d9af273d1de99b53a1f613ddb5bd84c132604a037e53db140e405a173e1e97",
+      "original_bytes": 21960,
+      "package_file": "static-mapping/sources/C45-mailbox.py",
+      "representation": "EXACT",
+      "repository_path": null,
+      "sealed_artifact_label": "C45-mailbox.py",
+      "note": "historical C snapshot; no unverified A commit equivalence claimed"
+    },
+    {
+      "original_sha256": "8cdaa41f69e2da5174af03b1c8861158eb9d43d3706b087205d14ae4e84e2b4d",
+      "original_bytes": 20421,
+      "package_file": "static-mapping/sources/C46-adapter.py",
+      "representation": "EXACT",
+      "repository_path": null,
+      "sealed_artifact_label": "C46-adapter.py",
+      "note": "historical C snapshot; no unverified A commit equivalence claimed"
+    },
+    {
+      "original_sha256": "17e156a6f4297eb56bf0c3221ef2abb6ada7232907685cf70988db270a5ff508",
+      "original_bytes": 29725,
+      "package_file": "static-mapping/sources/C49-g05p_runtime_v1.py",
+      "representation": "EXACT",
+      "repository_path": null,
+      "sealed_artifact_label": "C49-g05p_runtime_v1.py",
+      "note": "historical C snapshot; no unverified A commit equivalence claimed"
+    },
+    {
+      "original_sha256": "00270455d703e35f13f56a2330e052c9ba3e9e72ec5981fb1aafd73a60d3401a",
+      "original_bytes": 2847,
+      "package_file": "static-mapping/sources/C49-FORMAT-GAP.md",
+      "representation": "EXACT",
+      "repository_path": null,
+      "sealed_artifact_label": "C49-FORMAT-GAP.md",
+      "note": "historical C snapshot; no unverified A commit equivalence claimed"
+    },
+    {
+      "repository_path": "competition/deepeye/integration/host_clock.py",
+      "commit": "0469345fd1eef2884de1417f0f4eb5b67688f84c",
+      "git_blob": "bf9822db7cd61fe2ab11240a142fa624933898e3",
+      "original_sha256": "091accae52c376d259d0057f7b93b23dc5f4143508025beec88394c4b657e376",
+      "original_bytes": 3704,
+      "package_file": "static-mapping/sources/integration/host_clock.py",
+      "representation": "EXACT",
+      "url": "https://github.com/carolwjade/CarlandFPGA/blob/0469345fd1eef2884de1417f0f4eb5b67688f84c/competition/deepeye/integration/host_clock.py"
+    }
+  ]
+}

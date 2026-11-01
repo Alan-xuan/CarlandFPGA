@@ -1,0 +1,36 @@
+{
+  "kind": "C50_REPAIRED_DRAFT_DELIVERY",
+  "status": "PENDING_INDEPENDENT_REPAIR_REVIEW",
+  "files": [
+    {
+      "path": "DISCLOSURE.json",
+      "bytes": 45698,
+      "sha256": "dae2aa645e57457b69da2daf2c8006e7f5f9479415db823b54d8a9143c425888"
+    },
+    {
+      "path": "draft-manifest.json",
+      "bytes": 25568,
+      "sha256": "94c0c9be43448922b631a15584ec6c010c583445ad126ca2d41dd5969e627465"
+    },
+    {
+      "path": "execution-index.json",
+      "bytes": 1146,
+      "sha256": "677492f47fa8302e667460f4ee5b4ebeac3e3796c4ba58e4969975cd0d2d796e"
+    },
+    {
+      "path": "PACKAGE-NOTE.md",
+      "bytes": 1411,
+      "sha256": "ef1ca22f9570bb41ea95ec8c839bd4b099cae1a61c437836bb03c3b5d4abc4c0"
+    },
+    {
+      "path": "raw4-repaired-draft.zip",
+      "bytes": 1687853,
+      "sha256": "612ff76108e9865c92b2bbad8d44c8623f062df935440a8a1ee12c5a85d7f9bc"
+    },
+    {
+      "path": "verify_package.py",
+      "bytes": 2173,
+      "sha256": "28e1745376a6960cbaf8e941d4ce91fbc8ae7adf10228f7c3aebd0dc842dbc8b"
+    }
+  ]
+}

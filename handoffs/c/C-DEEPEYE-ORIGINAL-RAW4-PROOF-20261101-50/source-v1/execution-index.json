@@ -1,0 +1,60 @@
+{
+  "scope": "Version-specific local synthetic controls only. No complete final-source suite claim. Packaging checks never execute product code.",
+  "raw4_original_author": {
+    "distinct_cases": 20,
+    "executions": 27,
+    "run_exits": [
+      1,
+      0,
+      1,
+      0,
+      0,
+      1,
+      0
+    ],
+    "final_original_run": "run07 only"
+  },
+  "raw4_original_independent": {
+    "controls": 7,
+    "exit": 1,
+    "passed": 3,
+    "failed": 4,
+    "findings": [
+      "C50-R1",
+      "C50-R2"
+    ]
+  },
+  "raw4_repair_author": {
+    "targeted_inputs": 10,
+    "exit": 0
+  },
+  "raw4_repair_independent": {
+    "exact_original_failed_inputs": 4,
+    "new_adjacent_controls": 3,
+    "exit": 0,
+    "all_passed": true
+  },
+  "mailbox_author": {
+    "distinct_methods": 20,
+    "executions": 21,
+    "run_exits": [
+      0,
+      0,
+      1,
+      0,
+      0
+    ],
+    "final_source_run": "method20 only",
+    "actual_product_red": "MappingProxy compatibility"
+  },
+  "mailbox_independent": {
+    "distinct_combined_controls": 1,
+    "attempt_exits": [
+      1,
+      0
+    ],
+    "first_failure": "review assertion substring; expected product expiry rejection had occurred",
+    "product_changed_between_attempts": false
+  },
+  "native_model_core_original_A_runtime_board_executed": false
+}

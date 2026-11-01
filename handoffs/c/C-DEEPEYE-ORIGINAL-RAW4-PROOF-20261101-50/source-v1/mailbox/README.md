@@ -1,0 +1,13 @@
+# C50 mailbox public draft — independent review pending
+
+This package is a historical private-candidate handoff draft, not approval, deployment or authority. Main alone may append the independent review and publish. Any later finding supersedes this draft; packaging never fixes source or reruns tests.
+
+`candidate/` contains exact final module, C49 replacement, narrow/full patches and fake-only test source. `implementation/` retains exact original README/API/REPORT. `static-mapping/` contains the original complete mapping report and static source snapshots; SOURCE-PINS.DERIVED.json names exact A046 repository paths, Git blobs, source hashes and historical C labels. The original host-config-bearing SSH file is withheld: only a labelled non-executable static excerpt and source link/pin are included. No modified executable transport source is supplied.
+
+`evidence/versions/run01`..`run05` retain every execution's exact module/runtime/patch/test source, source hashes, original exits and clean raw output. Fixture inputs live inline in each exact test script. run03 is the real MappingProxyType draft failure, exit1; its original private-path traceback is withheld unchanged and its distinctly named DERIVED diagnostic retains the error/line information plus original hash/length. Portable command metadata is DERIVED, not original argv. Other clean logs are copied byte-for-byte. Original private metadata and omissions have exact hashes/lengths/reasons in DISCLOSURE.json.
+
+Run01 executed 15 NEW methods; run02 only NEW16–18; run03 NEW19 failed; run04 only19 passed after its fix; run05 only NEW20 passed on final source. These are isolated synthetic fake-dependency controls, not original A/native/core/model/board execution. Earlier passing phases are not final-version suite results. No test execution occurs during packaging. A reader can replay a specific fake method from its version directory using the labelled portable argv; no dependency source snapshot is imported by those tests.
+
+The unchanged C49 factory refusal remains before allocation. Original raw4→active transaction/provider hookup is still absent and separately requires reviewed real Root custody. Software transfer policy is not measured transport qualification. Both H12 paths and all H01–H15 remain unaccepted here. Full contract requirements hash: c229834bfc2292f5fe4411fc9f12c68487008f9d1adaf31f0144ee7a98173804.
+
+Verify bytes only: `python -I -B verify_package.py package.zip`. The stdlib verifier checks the per-file manifest, nested archives recursively, bounded safe paths, and prohibited private host/session patterns. It never imports or executes packaged source/tests. Its result proves archive integrity/disclosure checks only.
