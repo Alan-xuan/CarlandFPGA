@@ -1,0 +1,190 @@
+{
+  "artifacts": [
+    "handoffs/c/C-DEEPEYE-G05-TYPED-RUNTIME-20261031-49/runtime-v1/API.md",
+    "handoffs/c/C-DEEPEYE-G05-TYPED-RUNTIME-20261031-49/runtime-v1/candidate-pins.json",
+    "handoffs/c/C-DEEPEYE-G05-TYPED-RUNTIME-20261031-49/runtime-v1/candidate.patch",
+    "handoffs/c/C-DEEPEYE-G05-TYPED-RUNTIME-20261031-49/runtime-v1/dependency-pin.json",
+    "handoffs/c/C-DEEPEYE-G05-TYPED-RUNTIME-20261031-49/runtime-v1/evidence-index.json",
+    "handoffs/c/C-DEEPEYE-G05-TYPED-RUNTIME-20261031-49/runtime-v1/evidence.zip",
+    "handoffs/c/C-DEEPEYE-G05-TYPED-RUNTIME-20261031-49/runtime-v1/execution-index.json",
+    "handoffs/c/C-DEEPEYE-G05-TYPED-RUNTIME-20261031-49/runtime-v1/FORMAT-GAP.md",
+    "handoffs/c/C-DEEPEYE-G05-TYPED-RUNTIME-20261031-49/runtime-v1/independent-review/audit.stdout",
+    "handoffs/c/C-DEEPEYE-G05-TYPED-RUNTIME-20261031-49/runtime-v1/independent-review/independent_checks.py",
+    "handoffs/c/C-DEEPEYE-G05-TYPED-RUNTIME-20261031-49/runtime-v1/independent-review/run01-output/results.json",
+    "handoffs/c/C-DEEPEYE-G05-TYPED-RUNTIME-20261031-49/runtime-v1/independent-review/run01.stderr",
+    "handoffs/c/C-DEEPEYE-G05-TYPED-RUNTIME-20261031-49/runtime-v1/independent-review/run01.stdout",
+    "handoffs/c/C-DEEPEYE-G05-TYPED-RUNTIME-20261031-49/runtime-v1/main-approval.json",
+    "handoffs/c/C-DEEPEYE-G05-TYPED-RUNTIME-20261031-49/runtime-v1/PACKAGE-NOTE.md",
+    "handoffs/c/C-DEEPEYE-G05-TYPED-RUNTIME-20261031-49/runtime-v1/privacy-scan.json",
+    "handoffs/c/C-DEEPEYE-G05-TYPED-RUNTIME-20261031-49/runtime-v1/README.md",
+    "handoffs/c/C-DEEPEYE-G05-TYPED-RUNTIME-20261031-49/runtime-v1/REVIEW.md",
+    "handoffs/c/C-DEEPEYE-G05-TYPED-RUNTIME-20261031-49/runtime-v1/sources/competition/deepeye/simulation/authority/actor_composition.py",
+    "handoffs/c/C-DEEPEYE-G05-TYPED-RUNTIME-20261031-49/runtime-v1/sources/competition/deepeye/simulation/authority/g05p_runtime_v1.py",
+    "handoffs/c/C-DEEPEYE-G05-TYPED-RUNTIME-20261031-49/runtime-v1/sources/competition/deepeye/simulation/authority/motion_executor.py",
+    "handoffs/c/C-DEEPEYE-G05-TYPED-RUNTIME-20261031-49/runtime-v1/sources/competition/deepeye/simulation/authority/pc_direct_runtime.py",
+    "handoffs/c/C-DEEPEYE-G05-TYPED-RUNTIME-20261031-49/runtime-v1/sources/competition/deepeye/simulation/isolation/actor_owner.py",
+    "handoffs/c/C-DEEPEYE-G05-TYPED-RUNTIME-20261031-49/runtime-v1/sources/competition/deepeye/tools/run_causal_functional_chain.py",
+    "handoffs/c/C-DEEPEYE-G05-TYPED-RUNTIME-20261031-49/runtime-v1/verify_bytes.py",
+    "handoffs/c/C-DEEPEYE-G05-TYPED-RUNTIME-20261031-49/runtime-v1/verify_delivery.py",
+    "handoffs/c/C-DEEPEYE-G05-TYPED-RUNTIME-20261031-49/runtime-v1/draft-manifest.json"
+  ],
+  "files": {
+    "handoffs/c/C-DEEPEYE-G05-TYPED-RUNTIME-20261031-49/runtime-v1/API.md": {
+      "sha256": "d4c187c79fe80df89d32e386c40f123cabf95969e2071c9a313f7975394af3c6",
+      "size": 4017
+    },
+    "handoffs/c/C-DEEPEYE-G05-TYPED-RUNTIME-20261031-49/runtime-v1/FORMAT-GAP.md": {
+      "sha256": "00270455d703e35f13f56a2330e052c9ba3e9e72ec5981fb1aafd73a60d3401a",
+      "size": 2847
+    },
+    "handoffs/c/C-DEEPEYE-G05-TYPED-RUNTIME-20261031-49/runtime-v1/PACKAGE-NOTE.md": {
+      "sha256": "ecef80080bcd3480b25119d96443bec1c18ffbf34516e244930939640ab8b9c9",
+      "size": 3070
+    },
+    "handoffs/c/C-DEEPEYE-G05-TYPED-RUNTIME-20261031-49/runtime-v1/README.md": {
+      "sha256": "aaf799cbb462698be97718847534a75cbebb9401eda98219234c3bbb58236e1b",
+      "size": 7363
+    },
+    "handoffs/c/C-DEEPEYE-G05-TYPED-RUNTIME-20261031-49/runtime-v1/REVIEW.md": {
+      "sha256": "56d49f623fcce2c102239bffb648ec30cbc5ceea3bd396df22441701fd8010be",
+      "size": 7838
+    },
+    "handoffs/c/C-DEEPEYE-G05-TYPED-RUNTIME-20261031-49/runtime-v1/candidate-pins.json": {
+      "sha256": "57192667e7d3e907c168b87d05ce835b9aaa5765c271a687baa9d8f7f8d42bad",
+      "size": 2188
+    },
+    "handoffs/c/C-DEEPEYE-G05-TYPED-RUNTIME-20261031-49/runtime-v1/candidate.patch": {
+      "sha256": "35516dd711b081eb1bb4929127f31d210b3aeb4eeda584660fc452d2426a1cbe",
+      "size": 45384
+    },
+    "handoffs/c/C-DEEPEYE-G05-TYPED-RUNTIME-20261031-49/runtime-v1/dependency-pin.json": {
+      "sha256": "2468dcac7398a399fd4150071d5f3b9ba03171c7901d0e457909c8bef0d73531",
+      "size": 560
+    },
+    "handoffs/c/C-DEEPEYE-G05-TYPED-RUNTIME-20261031-49/runtime-v1/draft-manifest.json": {
+      "sha256": "ca30daa8c80d3a52e8df74e0a0f3bb5e0642eb4ba000ee5f18c0aa86477b203d",
+      "size": 4555
+    },
+    "handoffs/c/C-DEEPEYE-G05-TYPED-RUNTIME-20261031-49/runtime-v1/evidence-index.json": {
+      "sha256": "fa8725ffe71b31c07ca4548efd24f723f7e02e2dd6ee737b4bd0bf91663b7978",
+      "size": 29315
+    },
+    "handoffs/c/C-DEEPEYE-G05-TYPED-RUNTIME-20261031-49/runtime-v1/evidence.zip": {
+      "sha256": "76706e93533150cc887e425b3ce8a52cb331de898f7a48232be6289b9ef27bd0",
+      "size": 551775
+    },
+    "handoffs/c/C-DEEPEYE-G05-TYPED-RUNTIME-20261031-49/runtime-v1/execution-index.json": {
+      "sha256": "590697797ac150ca4e9bb0e270e2ad9f9216094ddce05dbe5b9a61ca199abdfc",
+      "size": 30717
+    },
+    "handoffs/c/C-DEEPEYE-G05-TYPED-RUNTIME-20261031-49/runtime-v1/independent-review/audit.stdout": {
+      "sha256": "6919e42710ba6c85b129a4b5aa6a44f429459f01bbc106a9ebab93a93d3014d6",
+      "size": 116
+    },
+    "handoffs/c/C-DEEPEYE-G05-TYPED-RUNTIME-20261031-49/runtime-v1/independent-review/independent_checks.py": {
+      "sha256": "75cd1f38fae240042f5d0d5bed4f7ef6dfad1e97c2f8dedd92b6634de8e95c48",
+      "size": 4567
+    },
+    "handoffs/c/C-DEEPEYE-G05-TYPED-RUNTIME-20261031-49/runtime-v1/independent-review/run01-output/results.json": {
+      "sha256": "2751120cca4d355c2f38ca3bb02d872ed9f2c561b124e5a7244a13a08f4a8b3d",
+      "size": 1638
+    },
+    "handoffs/c/C-DEEPEYE-G05-TYPED-RUNTIME-20261031-49/runtime-v1/independent-review/run01.stderr": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0
+    },
+    "handoffs/c/C-DEEPEYE-G05-TYPED-RUNTIME-20261031-49/runtime-v1/independent-review/run01.stdout": {
+      "sha256": "d2f79c2ef4443f4988d9ff7b1fe0029c9c318b37037c987306cf77b278a0305d",
+      "size": 1243
+    },
+    "handoffs/c/C-DEEPEYE-G05-TYPED-RUNTIME-20261031-49/runtime-v1/main-approval.json": {
+      "sha256": "bd75b784ba3792b43c427f13c1f51de469fa2dea303f4b9e3d98332ad19d7edc",
+      "size": 983
+    },
+    "handoffs/c/C-DEEPEYE-G05-TYPED-RUNTIME-20261031-49/runtime-v1/privacy-scan.json": {
+      "sha256": "2de92e850a02f0522c1c1e673bf7c8c0e3bf48853cb00db61de5366a16b9db5d",
+      "size": 454
+    },
+    "handoffs/c/C-DEEPEYE-G05-TYPED-RUNTIME-20261031-49/runtime-v1/sources/competition/deepeye/simulation/authority/actor_composition.py": {
+      "sha256": "e88ae9b0546e11a93e30f42c7c25d8afd4683aa350d27f0246c03254aa1a8d49",
+      "size": 35342
+    },
+    "handoffs/c/C-DEEPEYE-G05-TYPED-RUNTIME-20261031-49/runtime-v1/sources/competition/deepeye/simulation/authority/g05p_runtime_v1.py": {
+      "sha256": "17e156a6f4297eb56bf0c3221ef2abb6ada7232907685cf70988db270a5ff508",
+      "size": 29725
+    },
+    "handoffs/c/C-DEEPEYE-G05-TYPED-RUNTIME-20261031-49/runtime-v1/sources/competition/deepeye/simulation/authority/motion_executor.py": {
+      "sha256": "f3b7b222a2a527873d50a7734479470aea5d2a5cfc209e1f28de71e4f93b837a",
+      "size": 22101
+    },
+    "handoffs/c/C-DEEPEYE-G05-TYPED-RUNTIME-20261031-49/runtime-v1/sources/competition/deepeye/simulation/authority/pc_direct_runtime.py": {
+      "sha256": "b9d6e4022f2089bb359d37af9df80a395adc695d9010ed0c31398fa6a329ea21",
+      "size": 26558
+    },
+    "handoffs/c/C-DEEPEYE-G05-TYPED-RUNTIME-20261031-49/runtime-v1/sources/competition/deepeye/simulation/isolation/actor_owner.py": {
+      "sha256": "37f17825615126b7b22480e347d38dc907caf5b178add212cfe6c238b8b3d7d3",
+      "size": 38864
+    },
+    "handoffs/c/C-DEEPEYE-G05-TYPED-RUNTIME-20261031-49/runtime-v1/sources/competition/deepeye/tools/run_causal_functional_chain.py": {
+      "sha256": "2caa5372c9a7defb9fd8aba8c0cdc9f44196b102dd55b3cc7d505ca7bc5a5d5a",
+      "size": 26645
+    },
+    "handoffs/c/C-DEEPEYE-G05-TYPED-RUNTIME-20261031-49/runtime-v1/verify_bytes.py": {
+      "sha256": "c70d4ae29fe5e9ef36f56c4785e06486664ccadd447333e50bd65fdac455b341",
+      "size": 1225
+    },
+    "handoffs/c/C-DEEPEYE-G05-TYPED-RUNTIME-20261031-49/runtime-v1/verify_delivery.py": {
+      "sha256": "ad83dbe0640c215716febffccc84b8a0cc4bf91304861a80a1767f39e0d38ca5",
+      "size": 126
+    }
+  },
+  "request": {
+    "code_commit": "16c2df60566c8f8ffe29b1a79271e1910cebce5b",
+    "expected_result": "Partial original G05 binding claim, init/status, terminal health and ordered source/raw4 retention. Default legacy refusal remains; selected profile refuses before actor acquisition. No restored production, native inference, board behavior or H12 acceptance.",
+    "operation_id": "C-DEEPEYE-G05-TYPED-RUNTIME-20261031-49",
+    "requester": "node-c",
+    "task_id": "DEEPEYE-IMPLEMENTATION-20261014",
+    "task_version": 1,
+    "test_steps": [
+      "Byte/archive check only: python -I -S -B handoffs/c/C-DEEPEYE-G05-TYPED-RUNTIME-20261031-49/runtime-v1/verify_delivery.py",
+      "Read actual A046 source patch, partial FORMAT-GAP and versioned synthetic controls",
+      "Keep refusal before actor allocation until original raw4 full-proof and mailbox scheduling are integrated"
+    ]
+  },
+  "request_hash": "6e79118d846e36d49a68321a21aab17545e01f2957336f75ff86b92e971c6e18",
+  "schema_version": 1,
+  "stages": {
+    "final_acceptance": {
+      "status": "not_run"
+    },
+    "full_chain": {
+      "status": "not_run"
+    },
+    "implementation": {
+      "status": "not_run"
+    },
+    "local_function": {
+      "log": "handoffs/c/C-DEEPEYE-G05-TYPED-RUNTIME-20261031-49/runtime-v1/execution-index.json",
+      "status": "passed"
+    },
+    "model_qualification": {
+      "status": "not_run"
+    },
+    "native_actor": {
+      "status": "not_run"
+    },
+    "physical_board": {
+      "status": "not_run"
+    },
+    "rtl_simulation": {
+      "status": "not_run"
+    },
+    "source_review": {
+      "log": "handoffs/c/C-DEEPEYE-G05-TYPED-RUNTIME-20261031-49/runtime-v1/REVIEW.md",
+      "status": "passed"
+    },
+    "synthesis": {
+      "status": "not_run"
+    }
+  }
+}
