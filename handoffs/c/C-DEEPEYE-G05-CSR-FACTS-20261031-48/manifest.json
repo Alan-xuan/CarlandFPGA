@@ -1,0 +1,130 @@
+{
+  "artifacts": [
+    "handoffs/c/C-DEEPEYE-G05-CSR-FACTS-20261031-48/validator-v1/API.json",
+    "handoffs/c/C-DEEPEYE-G05-CSR-FACTS-20261031-48/validator-v1/competition/deepeye/simulation/authority/g05_csr_bridge_v1.py",
+    "handoffs/c/C-DEEPEYE-G05-CSR-FACTS-20261031-48/validator-v1/evidence-index.json",
+    "handoffs/c/C-DEEPEYE-G05-CSR-FACTS-20261031-48/validator-v1/evidence.zip",
+    "handoffs/c/C-DEEPEYE-G05-CSR-FACTS-20261031-48/validator-v1/execution-index.json",
+    "handoffs/c/C-DEEPEYE-G05-CSR-FACTS-20261031-48/validator-v1/main-approval.json",
+    "handoffs/c/C-DEEPEYE-G05-CSR-FACTS-20261031-48/validator-v1/PACKAGE-NOTE.md",
+    "handoffs/c/C-DEEPEYE-G05-CSR-FACTS-20261031-48/validator-v1/patch-byte-check.json",
+    "handoffs/c/C-DEEPEYE-G05-CSR-FACTS-20261031-48/validator-v1/product.patch",
+    "handoffs/c/C-DEEPEYE-G05-CSR-FACTS-20261031-48/validator-v1/README.md",
+    "handoffs/c/C-DEEPEYE-G05-CSR-FACTS-20261031-48/validator-v1/repair.diff",
+    "handoffs/c/C-DEEPEYE-G05-CSR-FACTS-20261031-48/validator-v1/REVIEW.md",
+    "handoffs/c/C-DEEPEYE-G05-CSR-FACTS-20261031-48/validator-v1/source-pins.json",
+    "handoffs/c/C-DEEPEYE-G05-CSR-FACTS-20261031-48/validator-v1/verify_delivery.py",
+    "handoffs/c/C-DEEPEYE-G05-CSR-FACTS-20261031-48/validator-v1/pins.json"
+  ],
+  "files": {
+    "handoffs/c/C-DEEPEYE-G05-CSR-FACTS-20261031-48/validator-v1/API.json": {
+      "sha256": "08a840d67db2c22cd35c3366c996aad51bdcbb7e8f7072ad74d2272fe8752646",
+      "size": 2861
+    },
+    "handoffs/c/C-DEEPEYE-G05-CSR-FACTS-20261031-48/validator-v1/PACKAGE-NOTE.md": {
+      "sha256": "9f5d6a25b14698078aa6139e776ebaeec4903b334dda37f09ddb4c3d33da5f05",
+      "size": 530
+    },
+    "handoffs/c/C-DEEPEYE-G05-CSR-FACTS-20261031-48/validator-v1/README.md": {
+      "sha256": "fd5888dada4e1500e15f953a4fef3a720d27c783a257abe16b56c422ebc54f33",
+      "size": 13676
+    },
+    "handoffs/c/C-DEEPEYE-G05-CSR-FACTS-20261031-48/validator-v1/REVIEW.md": {
+      "sha256": "55ee195d6814e1cf66ebcb8a486cbcb46ebacbd2c24b134a3c602d10c2a06d48",
+      "size": 3994
+    },
+    "handoffs/c/C-DEEPEYE-G05-CSR-FACTS-20261031-48/validator-v1/competition/deepeye/simulation/authority/g05_csr_bridge_v1.py": {
+      "sha256": "925ca8ecb9fc4c719e1eb4558cb11346111f77f79b6a6f40a6dc905f5b772ef5",
+      "size": 23874
+    },
+    "handoffs/c/C-DEEPEYE-G05-CSR-FACTS-20261031-48/validator-v1/evidence-index.json": {
+      "sha256": "a3f25c769ebd20832e656c7d84f6cf74a54a03ce0fc4d0857f010943045e8dc2",
+      "size": 11274
+    },
+    "handoffs/c/C-DEEPEYE-G05-CSR-FACTS-20261031-48/validator-v1/evidence.zip": {
+      "sha256": "10c242476886f98cb551cb2eff801a96c8577c8f2ab6152266fa64a52c5d47fa",
+      "size": 442214
+    },
+    "handoffs/c/C-DEEPEYE-G05-CSR-FACTS-20261031-48/validator-v1/execution-index.json": {
+      "sha256": "bfbf1a8664bc8fcb7ed150ac8586f807858d35e34d0388bebecbdc79926b4743",
+      "size": 4129
+    },
+    "handoffs/c/C-DEEPEYE-G05-CSR-FACTS-20261031-48/validator-v1/main-approval.json": {
+      "sha256": "60f49d70d2c3bf77c17d364d92eaea565ecb714c62060bebbac9a521d0ed8848",
+      "size": 1195
+    },
+    "handoffs/c/C-DEEPEYE-G05-CSR-FACTS-20261031-48/validator-v1/patch-byte-check.json": {
+      "sha256": "5ada021c5aa7c006d560fb0d9cc188540fb3e7e493669221024df1e29366ad98",
+      "size": 444
+    },
+    "handoffs/c/C-DEEPEYE-G05-CSR-FACTS-20261031-48/validator-v1/pins.json": {
+      "sha256": "386a9948adf928c4ae5f0e47fcfa6f77c66b86824f1c9ade2af5e9367ffe43d4",
+      "size": 2078
+    },
+    "handoffs/c/C-DEEPEYE-G05-CSR-FACTS-20261031-48/validator-v1/product.patch": {
+      "sha256": "27a0e700d4fb5b6e7d5fd540c6c4fe5a70679d20d88e4c0e42eb5595d048d48d",
+      "size": 24755
+    },
+    "handoffs/c/C-DEEPEYE-G05-CSR-FACTS-20261031-48/validator-v1/repair.diff": {
+      "sha256": "3b949659d10346f04004b5941fffd98dac1ca83576606269b66678fb9434461b",
+      "size": 1490
+    },
+    "handoffs/c/C-DEEPEYE-G05-CSR-FACTS-20261031-48/validator-v1/source-pins.json": {
+      "sha256": "3e759ba18a078aabade036fb9d1d1331687942c76924fc64486fde340b89eed5",
+      "size": 9922
+    },
+    "handoffs/c/C-DEEPEYE-G05-CSR-FACTS-20261031-48/validator-v1/verify_delivery.py": {
+      "sha256": "5983284b14bcd193e5e1b1a20587ab2527bd6a8f38659c3bc5c795363d4b9eff",
+      "size": 932
+    }
+  },
+  "request": {
+    "code_commit": "c38eb2a9eb07c461b02b2eecb61cf33d6812e15a",
+    "expected_result": "Validate bounded original G05 transaction/session result bytes, cumulative IO, identity, commands and layout32. Keep board monotonic, host QPC, global64 cycle ticks and rearm-local32 witnesses separate. Reject missing/torn/reordered/unknown evidence. Pure software consistency slice only; actual production activation, native execution, board behavior and both H12/final acceptance remain incomplete.",
+    "operation_id": "C-DEEPEYE-G05-CSR-FACTS-20261031-48",
+    "requester": "node-c",
+    "task_id": "DEEPEYE-IMPLEMENTATION-20261014",
+    "task_version": 1,
+    "test_steps": [
+      "Byte/archive verification only: python -I -S -B handoffs/c/C-DEEPEYE-G05-CSR-FACTS-20261031-48/validator-v1/verify_delivery.py",
+      "Read actual A207/A216 grammar and RTL layout pins, versioned author controls and independent R1 failure/correction evidence",
+      "Root must separately bind actual original events, request selections, process and clock provenance; this detached parser grants no source or motion authority"
+    ]
+  },
+  "request_hash": "bf46d301d070762a9e830905c1f2f79bde202212247e294147e9d90336af2085",
+  "schema_version": 1,
+  "stages": {
+    "final_acceptance": {
+      "status": "not_run"
+    },
+    "full_chain": {
+      "status": "not_run"
+    },
+    "implementation": {
+      "status": "not_run"
+    },
+    "local_function": {
+      "log": "handoffs/c/C-DEEPEYE-G05-CSR-FACTS-20261031-48/validator-v1/execution-index.json",
+      "status": "passed"
+    },
+    "model_qualification": {
+      "status": "not_run"
+    },
+    "native_actor": {
+      "status": "not_run"
+    },
+    "physical_board": {
+      "status": "not_run"
+    },
+    "rtl_simulation": {
+      "status": "not_run"
+    },
+    "source_review": {
+      "log": "handoffs/c/C-DEEPEYE-G05-CSR-FACTS-20261031-48/validator-v1/REVIEW.md",
+      "status": "passed"
+    },
+    "synthesis": {
+      "status": "not_run"
+    }
+  }
+}
