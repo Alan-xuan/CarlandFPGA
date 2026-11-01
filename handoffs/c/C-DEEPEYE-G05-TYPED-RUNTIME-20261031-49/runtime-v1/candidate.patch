@@ -1,0 +1,815 @@
+--- a/competition/deepeye/simulation/authority/actor_composition.py
++++ b/competition/deepeye/simulation/authority/actor_composition.py
+@@ -13,7 +13,7 @@
+ from .motion_executor import OwnedMotionExecutor
+ from .candidate_owner import _CandidateOwner, _CompletedInference, _InputTransaction
+ from .pc_direct_runtime import (AiLease, AuthorityDependencies, BootBinding, PcDirectRuntime,
+-                                VerifiedEnvelope, VerifiedObservation)
++                                VerifiedEnvelope, VerifiedObservation, _is_binding)
+ from ...integration import host_envelope
+ from ...integration.candidate_mailbox import PcDirectWindowV2, _validate_interval_candidate
+ from ...integration import host_clock as clocks
+@@ -42,6 +42,7 @@
+     pc_direct_window_v2: PcDirectWindowV2 | None = None
+     enable_completion_interval_v2: bool = False
+     owned_invocation_v1: object = None
++    g05p_profile: object = None
+ 
+ 
+ @dataclass(frozen=True)
+@@ -180,7 +181,11 @@
+         return self.bound.deadline_ns
+ 
+ 
+-def _production_channels(config, *, host_clock=None):
++def _production_channels(config, *, host_clock=None, capability=None):
++    if config.g05p_profile is not None:
++        from .g05p_runtime_v1 import production_channels, require_activation_ready
++        require_activation_ready()  # This partial delivery cannot acquire an actor.
++        return production_channels(config, capability, host_clock)
+     # No callable/provider supplied by a caller can bypass this gate.
+     raise ActivationUnavailable('original authenticated AI/channel/package unavailable')
+ 
+@@ -299,6 +304,18 @@
+         return record
+ 
+     def verify_board(self, event, boot):
++        if self._owner._config.g05p_profile is not None:
++            from .g05p_runtime_v1 import G05Health
++            owner = self._owner
++            owner._active()
++            if boot is not owner._boot:
++                raise ValueError('original G05 binding required')
++            epoch = owner._veto
++            record = owner._channels.verify_board(event, boot)
++            owner._checkpoint(epoch); owner._progress_time(); owner._checkpoint(epoch)
++            if type(record) is not G05Health or record.binding is not boot:
++                raise ValueError('original typed G05 health required')
++            return record
+         return self._verify('verify_board', event, boot, VerifiedEnvelope)
+ 
+     def verify_observation(self, event, boot):
+@@ -439,6 +456,8 @@
+     def _retire(self, reason):
+         self._veto += 1
+         self._retired = True  # Gate first, before callbacks or cleanup.
++        if self._config.g05p_profile is not None:
++            self._channels.revoke()  # Local irreversible latch only, no transport IO.
+         if self._owned_invocations is not None:
+             self._owned_invocations.retire()
+         self._input_transaction = None
+@@ -481,7 +500,7 @@
+             self._executor = self._world_action_link.executor
+         self._runtime = PcDirectRuntime(run_id=config.actor_policy.run_id,
+             dependencies=_Dependencies(self), clock=self._clock,
+-            heartbeat_timeout_ns=config.heartbeat_timeout_ns)
++            heartbeat_timeout_ns=config.heartbeat_timeout_ns, g05p_profile=config.g05p_profile)
+         self._checkpoint()
+         launch = (self._registry.launch if config.owned_invocation_v1 is None
+                   else self._registry.launch_overlapped)
+@@ -498,7 +517,7 @@
+         proposed = self._channels.verify_boot(event, run_id=self._config.actor_policy.run_id,
+                                              instance_id=self._actor.instance_id)
+         self._checkpoint(epoch)
+-        if (type(proposed) is not BootBinding or proposed.run_id != self._config.actor_policy.run_id or
++        if (not _is_binding(proposed) or proposed.run_id != self._config.actor_policy.run_id or
+                 proposed.ai_instance != self._actor.instance_id):
+             raise ValueError('original independently verified binding required')
+         self._boot, self._boot_event = proposed, event
+@@ -705,7 +724,7 @@
+     if config.owned_invocation_v1 is not None:
+         from .owned_invocation_v1.adapter import _validate_config
+         _validate_config(config, binding)
+-    channels = _production_channels(config, host_clock=binding)
++    channels = _production_channels(config, host_clock=binding, capability=capability)
+     from .original_world_actor_link import _OriginalWorldActorLink
+     if (type(config) is not AuthorityConfig or type(config.actor_policy) is not ActorPolicy
+             or type(capability) is not _OriginalWorldActorLink):
+--- /dev/null
++++ b/competition/deepeye/simulation/authority/g05p_runtime_v1.py
+@@ -0,0 +1,550 @@
++"""Explicit G05P/layout2/50MHz original-root profile, never legacy BOOT/STATE8.
++
++Private records below are retained verifier results, not credentials. Production
++entry must consume the fixed A-owned original chain/phase/operation allocation;
++the detached C48 parser never authenticates it. Python privacy is not a sandbox.
++"""
++from dataclasses import dataclass
++import json
++import threading
++import hashlib
++
++from ...integration import pc_direct_watchdog as watchdog
++
++PROFILE = 'g05p_layout2_50mhz_session_v2'
++UINT63 = (1 << 63) - 1
++MAX_SESSION_NS = 10_000_000_000
++_BINDINGS = []
++_HEALTH = []
++_KEY = object()
++_ATTACHMENTS = []
++_TRACES = []
++
++
++def need(value, reason):
++    if not value:
++        raise ValueError(reason)
++
++
++def uint(value, label):
++    need(type(value) is int and 0 <= value <= UINT63, label + ': uint63 required')
++    return value
++
++
++@dataclass(frozen=True)
++class G05Profile:
++    """Trusted-root selection only; an original chain is independently checked."""
++    policy_raw: bytes
++    enabled: bool = False
++
++    def check(self):
++        need(type(self) is G05Profile and type(self.enabled) is bool and self.enabled,
++             'explicit default-disabled G05 profile required')
++        need(type(self.policy_raw) is bytes and 0 < len(self.policy_raw) <= 131072,
++             'actual original G05 policy file bytes required')
++
++
++class G05SessionBinding:
++    """Genuine private init binding; never a BootBinding or board BOOT_ACK."""
++    __slots__ = ('run_id', 'generation', 'context_json', 'ai_instance', '_channel')
++
++    def __init__(self, key, channel, run_id, generation, context_json, ai_instance):
++        need(key is _KEY, 'original G05 channel allocation required')
++        for name, value in (('run_id', run_id), ('generation', generation),
++                            ('context_json', context_json), ('ai_instance', ai_instance),
++                            ('_channel', channel)):
++            object.__setattr__(self, name, value)
++        _BINDINGS.append(self)
++
++    def __setattr__(self, name, value):
++        raise AttributeError('original G05 binding is immutable')
++
++
++class G05Health:
++    __slots__ = ('binding', 'receipt', 'lower_qpc_ns', 'upper_qpc_ns', 'sequence')
++
++    def __init__(self, key, binding, receipt, lower, upper, sequence):
++        need(key is _KEY, 'original G05 health allocation required')
++        for name, value in (('binding', binding), ('receipt', receipt),
++                            ('lower_qpc_ns', lower), ('upper_qpc_ns', upper),
++                            ('sequence', sequence)):
++            object.__setattr__(self, name, value)
++        _HEALTH.append(self)
++
++    def __setattr__(self, name, value):
++        raise AttributeError('original G05 health is immutable')
++
++
++def is_original_binding(value, *, executor=None):
++    if type(value) is not G05SessionBinding or not any(item is value for item in _BINDINGS):
++        return False
++    channel = value._channel
++    return (type(channel) is G05Channels and channel._binding is value
++            and not channel._revoked
++            and (executor is None or channel._capability.executor is executor))
++
++
++class G05HealthGate(watchdog.PcDirectWatchdog):
++    """Selected typed status veto; inherits only original command/clock fences.
++
++    The legacy-named decision slots are runtime compatibility fields. No STATE8
++    bytes, heartbeat tick or board/host clock equality is fabricated.
++    """
++    def __init__(self, *, binding, heartbeat_timeout_ns, now_ns):
++        need(is_original_binding(binding), 'original retained G05 session required')
++        need(not binding._channel._health_gate_taken, 'G05 initial health already consumed')
++        binding._channel._health_gate_taken = True
++        self._g05_binding = binding
++        self._g05_last_phase = -1
++        self._g05_command_count = 0
++        context = watchdog._envelope._parse_message(binding.context_json)
++        super().__init__(context=context, heartbeat_timeout_ns=heartbeat_timeout_ns,
++                         now_ns=now_ns)
++        self.ingest_g05(binding._channel._initial_health, now_ns=now_ns)
++
++    def _advance(self, now_ns):
++        super()._advance(now_ns)
++        if not self._latched:
++            try:
++                self._g05_binding._channel.checkpoint(now_ns=now_ns)
++            except BaseException:
++                self._trip('g05_original_session_retired')
++                raise
++
++    def ingest_g05(self, record, *, now_ns):
++        self._advance(now_ns)  # Expired status cannot revive a prior latch.
++        try:
++            need(not self._latched, 'G05 health is irreversibly latched')
++            need(type(record) is G05Health and any(item is record for item in _HEALTH)
++                 and record.binding is self._g05_binding,
++                 'original same-session G05 health required')
++            uint(record.lower_qpc_ns, 'health lower'); uint(record.upper_qpc_ns, 'health upper')
++            uint(record.sequence, 'original phase index')
++            need(record.lower_qpc_ns <= record.upper_qpc_ns <= now_ns,
++                 'actual original enclosing QPC interval required')
++            need(record.sequence > self._g05_last_phase, 'health phase replay forbidden')
++            channel = self._g05_binding._channel
++            need(any(item is record for item in channel._health), 'foreign health allocation')
++            deadline = min(uint(record.lower_qpc_ns + self._heartbeat_timeout_ns,
++                                'typed health deadline'), channel._session_deadline_ns)
++            need(now_ns < deadline, 'typed health already stale')
++            self._g05_last_phase = record.sequence
++            self._heartbeat_deadline_ns = deadline
++            self._heartbeat_sequence = record.sequence
++            self._heartbeat_tick_ms = None
++            self._receipt_lower_ns, self._receipt_upper_ns = record.lower_qpc_ns, record.upper_qpc_ns
++            if self._idle_reason == 'missing_heartbeat':
++                self._idle_reason = 'no_active_command'
++            # No source/AI/command/action deadline changes occur here.
++            return self._decision()
++        except BaseException:
++            self._trip('invalid_g05_health')
++            raise
++
++    def ingest_heartbeat(self, *args, **kwargs):
++        self._trip('legacy_STATE8_not_selected')
++        raise ValueError('typed G05 profile does not consume legacy STATE8')
++
++    def track_authority_command(self, *, command_seq, deadline_ns, now_ns):
++        new = self._last_command_seq is None or command_seq > self._last_command_seq
++        if new and self._g05_command_count >= 2:
++            self._trip('g05_two_command_limit')
++            raise ValueError('finite G05 session command budget exhausted')
++        result = super().track_authority_command(command_seq=command_seq,
++                                               deadline_ns=deadline_ns, now_ns=now_ns)
++        if new:
++            self._g05_command_count += 1
++        return result
++
++    def reset(self, **kwargs):
++        self._trip('g05_session_is_nonrenewing')
++        raise ValueError('G05 session cannot reset or renew')
++
++
++def _raw(value):
++    return json.dumps(value, sort_keys=True, separators=(',', ':'),
++                      ensure_ascii=False, allow_nan=False).encode('utf-8')
++
++
++def _original_types():
++    # Fixed, published A046 types. No configurable class, callback or registry.
++    from ...tools.diagnostic.functional50_chain_v2_client_a import ChainSessionV2, OriginalPhaseReceipt
++    from ...tools.diagnostic.original_g05_operation_binding_a import OriginalG05OperationBinding, OriginalG05FactoryRefs
++    from ...tools.diagnostic.original_chain_receipt_producer_a import OriginalChainReceiptProducer
++    return ChainSessionV2, OriginalPhaseReceipt, OriginalG05OperationBinding, OriginalG05FactoryRefs, OriginalChainReceiptProducer
++
++
++def attach_original_operation(config, operation):
++    """Root-only late attachment, after its real init and before actor allocation.
++
++    This resolves config -> original binding -> config without changing A's
++    immutable allocation. Exact original checks grant provenance; this retained
++    relation only prevents replacement/reuse. It is not an IPC/controller API.
++    """
++    from .actor_composition import AuthorityConfig
++    _, _, Operation, _, _ = _original_types()
++    need(type(config) is AuthorityConfig and type(config.g05p_profile) is G05Profile,
++         'explicit original authority config required')
++    config.g05p_profile.check()
++    need(type(operation) is Operation and operation.config is config,
++         'exact original same-config operation binding required')
++    need(not any(c is config or o is operation for c, o, _ in _ATTACHMENTS),
++         'original operation attachment already consumed')
++    operation._check()
++    _ATTACHMENTS.append([config, operation, False])
++
++
++class G05Channels:
++    """Exact host original-receipt adapter, separate from remote board custody.
++
++    The Root producer owns every operation. This adapter consumes original
++    retained events, checks live custody separately, and never retries or sends
++    apply/status/close. Source pumping is a fixed original method only.
++    """
++    def __init__(self, key, config, capability, operation, clock):
++        need(key is _KEY, 'fixed production entry required')
++        Chain, Phase, Operation, Refs, Producer = _original_types()
++        need(type(operation) is Operation and operation.config is config,
++             'exact original operation/config required')
++        refs = operation.claim_for_factory(config, capability, operation.chain)
++        need(type(refs) is Refs and type(refs.chain) is Chain and type(refs.producer) is Producer,
++             'original claimed factory refs required')
++        need(refs.link is capability and refs.clock is clock and refs.world.source is refs.source,
++             'same original world/link/QPC required')
++        self._config, self._capability, self._operation, self._refs = config, capability, operation, refs
++        self._chain, self._producer, self._clock = refs.chain, refs.producer, clock
++        self._thread = threading.get_ident()
++        self._revoked = False
++        self._binding = self._initial_health = None
++        self._health_gate_taken = False
++        self._health = []; self._events = []; self._source_events = []
++        self._phase_index = 0; self._previous = None; self._session_deadline_ns = None
++        self._last_time = None; self._pump_polls = 0
++        self._init_receipt = refs.init_receipt
++        need(type(self._init_receipt) is Phase, 'actual original init phase required')
++        need(len(self._chain.phase_receipts) == 1 and self._chain.phase_receipts[0] is self._init_receipt,
++             'factory must precede later original board phases')
++        matches = [(event, facts, held) for event, facts, held in self._producer._history
++                   if held.get('phase_receipt') is self._init_receipt]
++        need(len(matches) == 1, 'exact original init event required')
++        self._init_event = matches[0][0]
++        profile = config.g05p_profile; profile.check()
++        ready = operation.origin[4]
++        need(hashlib.sha256(profile.policy_raw).hexdigest() == ready['policy_file_sha256'],
++             'original ready does not bind selected policy file bytes')
++        self._policy_raw = profile.policy_raw
++        self.checkpoint()
++        facts, held = self._consume(self._init_event)
++        self._init_facts = self._phase(facts, held, expected_kind='init')
++        duration = self._init_facts.deadline_board_monotonic_ns - self._init_facts.deadline_selected_lower_board_monotonic_ns
++        request = json.loads(self._init_receipt.request_raw)
++        payload = request['payload']
++        need(type(duration) is int and 0 < duration <= MAX_SESSION_NS
++             and duration == payload['duration_ns'] == self._chain.duration,
++             'one original nonrenewing session duration required')
++        need(type(payload['max_commands']) is int and 1 <= payload['max_commands'] <= 2
++             and type(payload['max_polls']) is int and 4 <= payload['max_polls'] <= 64,
++             'original finite command and polling budget required')
++        self._session_deadline_ns = uint(self._init_receipt.lower_qpc_ns + duration, 'session deadline')
++        self.checkpoint()
++
++    def retain_failure_event(self, event):
++        """Evidence retention after unknown/closed; cannot produce usable health."""
++        self.revoke()
++        return self._consume(event)
++
++    def checkpoint(self, *, now_ns=None):
++        try:
++            need(threading.get_ident() == self._thread, 'original owner thread required')
++            now = self._clock() if now_ns is None else uint(now_ns, 'host now')
++            uint(now, 'host now')
++            need(self._last_time is None or now >= self._last_time, 'original host QPC regressed')
++            self._last_time = now
++            s = self._refs.session
++            need(not self._revoked and not s._unknown and not s._closed
++                 and not self._producer._failed and not self._producer._closed
++                 and not self._chain.sequence.closed,
++                 'original producer/session unknown, closed or retired')
++            need(self._session_deadline_ns is None or now < self._session_deadline_ns,
++                 'nonrenewing original session expired')
++            self._operation._check()
++            s._check()  # Original SSH process exit/stderr failure is also terminal.
++            # _binding_check alone intentionally permits retained failure reads.
++            # The live producer gate is necessary before any health admission.
++            self._producer._check()
++            need(self._operation.config is self._config and self._operation.link is self._capability
++                 and self._operation.clock is self._clock, 'original operation replaced')
++            return now
++        except BaseException:
++            self._revoked = True
++            raise
++
++    def revoke(self):
++        self._revoked = True  # No external cleanup or retry; Root retains custody.
++
++    def _consume(self, event):
++        from ...tools.diagnostic.original_chain_receipt_producer_a import consume_original_receipt
++        # Before the one-use consume, identify this exact original producer.
++        rows = [(e, f, r) for e, f, r in self._producer._history if e is event]
++        need(len(rows) == 1 and not any(e is event for e, _, _ in self._events),
++             'same producer unused original event required')
++        facts, refs = consume_original_receipt(event)
++        self._events.append((event, facts, refs))  # Retain even terminal facts.
++        need(refs['world'] is self._refs.world and refs['functional_source'] is self._refs.source
++             and refs['chain'] is self._chain and refs['session'] is self._refs.session
++             and refs['clock'] is self._clock and refs['book'] is self._refs.book
++             and facts['operation_id'] == self._refs.world.operation_id,
++             'original event custody changed')
++        return facts, refs
++
++    def _phase(self, facts, refs, *, expected_kind=None):
++        from . import g05_csr_bridge_v1 as bridge
++        _, Phase, _, _, _ = _original_types()
++        receipt = refs.get('phase_receipt')
++        need(type(receipt) is Phase and receipt.owner is self._chain,
++             'exact original host phase receipt required')
++        ledger = self._chain.phase_receipts
++        need(receipt.phase_index == self._phase_index + 1
++             and len(ledger) >= receipt.phase_index and ledger[receipt.phase_index-1] is receipt,
++             'original phase gap/replay/replacement')
++        need(expected_kind is None or receipt.kind == expected_kind, 'wrong original phase kind')
++        need(receipt.kind == facts['kind'] and receipt.response_raw is refs['client_result']['raw_response']
++             and receipt.response_raw == facts['raw_response']
++             and (receipt.lower_qpc_ns, receipt.upper_qpc_ns) == (facts['lower_qpc_ns'], facts['upper_qpc_ns']),
++             'original host request/reply retention mismatch')
++        need(receipt.clock is self._clock and receipt.session is self._refs.session
++             and receipt.session_origin is self._operation.origin
++             and receipt.status == 'COMPLETE' and receipt.unknown is False,
++             'original phase failed/unknown/foreign')
++        request = json.loads(receipt.request_raw)
++        response = json.loads(receipt.response_raw)
++        need(request['id'] == response['id'] == receipt.request_id
++             and request['kind'] == response['kind'] == receipt.kind
++             and request['operation_id'] == response['operation_id'] == receipt.operation_id
++             and response == facts['response'], 'original phase wire identity mismatch')
++        self._phase_index = receipt.phase_index  # Never replay after later refusal.
++        if receipt.kind == 'trace_scan':
++            need(facts['correlation']['status'] == 'FOUR_FRAME_CORRELATION_CONSISTENT',
++                 'actual returned four-frame correlation required')
++            return None
++        expected = tuple(request['payload']['command_words']) if receipt.kind == 'apply' else None
++        # Canonical *derived* result bytes, backed by retained original response;
++        # never claim this serialization is the original transport response.
++        result = bridge.validate_session_v2(_raw(response['result']), policy_raw=self._policy_raw,
++            expected_identity=self._chain.identity, expected_command=expected,
++            previous=self._previous, host_qpc_interval=(receipt.lower_qpc_ns, receipt.upper_qpc_ns),
++            host_clock_domain=self._refs.c42_context['clock_domain_id'])
++        need(type(result) is bridge.DetachedFacts and result.authority == 'not_evaluated'
++             and result.kind == receipt.kind and result.operation_id == receipt.operation_id,
++             'detached C48 facts differ from actual phase')
++        self._previous = result.next_state
++        need(result.state == 'ACTIVE' and result.fault == 0,
++             'closed/faulted phase cannot grant health')
++        return result
++
++    def accept_source_events(self, events):
++        """Consume exact ordered original admissions, without creating AI input."""
++        try:
++            self.checkpoint()
++            need(type(events) is tuple, 'original ordered pump event tuple required')
++            for event in events:
++                facts, refs = self._consume(event)
++                need(facts['kind'] == 'source_admission' and len(self._source_events) < 1001,
++                     'incomplete source or source admission budget exhausted')
++                token = refs['token']; sample = refs['draft']
++                need(token._book is self._refs.book and token._draft is sample
++                     and token._ended is True and any(x is sample for x in self._refs.book._samples),
++                     'actual completed original source token required')
++                self._source_events.append((event, facts, refs))
++            self.checkpoint()
++        except BaseException:
++            self.revoke(); raise
++
++    def pump_pending(self):
++        """Same owner thread; the returned tuple is already drained by Root."""
++        self.checkpoint()
++        need(self._pump_polls < 64, 'finite host source pump budget exhausted')
++        self._pump_polls += 1
++        try:
++            self.accept_source_events(self._producer.pump_once())
++            self.accept_source_events(self._producer.take_pending_events())
++        except BaseException:
++            self.revoke(); raise
++
++    def verify_boot(self, event, *, run_id, instance_id):
++        self.checkpoint()
++        need(self._binding is None and event is self._init_event,
++             'one original init event, not receipt or caller dict required')
++        owner = self._capability.composition
++        need(owner is not None and owner._channels is self and owner._actor.instance_id == instance_id
++             and owner._config is self._config and run_id == self._config.actor_policy.run_id,
++             'actual original allocated actor and same config required')
++        self._operation.check_source_config()  # Factory snapshot cannot prove late readiness.
++        need(self._refs.source.source.state == 'RUNNING', 'actual started source required')
++        # This is a new local runtime activation counter, not board generation.
++        generation = uint(self._capability.executor._generation + 1, 'local activation generation')
++        self._binding = G05SessionBinding(_KEY, self, run_id, generation,
++                                         _raw(self._refs.legacy_context), instance_id)
++        p = self._init_receipt
++        self._initial_health = G05Health(_KEY, self._binding, p, p.lower_qpc_ns, p.upper_qpc_ns, p.phase_index)
++        self._health.append(self._initial_health)
++        return self._binding
++
++    def verify_board(self, event, binding):
++        try:
++            need(binding is self._binding and binding is not None, 'same original G05 binding required')
++            _, p = self.retain_status(event)
++            record = G05Health(_KEY, binding, p, p.lower_qpc_ns, p.upper_qpc_ns, p.phase_index)
++            self._health.append(record)
++            return record
++        except BaseException:
++            self.revoke(); raise
++
++    def retain_status(self, event):
++        """Receipt-only validated status, usable before actor allocation.
++
++        Returns detached C48 facts and the original host receipt; this does not
++        allocate a session binding or G05Health or permit any action.
++        """
++        try:
++            self.checkpoint()
++            self.accept_source_events(self._producer.take_pending_events())
++            facts, refs = self._consume(event)
++            need(facts['kind'] in ('status', 'apply'), 'original status/apply event required')
++            result = self._phase(facts, refs)
++            self.checkpoint()
++            return result, refs['phase_receipt']
++        except BaseException:
++            self.revoke(); raise
++
++    def mailbox_activation_for_boot(self, binding):
++        # Explicit remaining boundary: original A046 provides both contexts,
++        # but no original mailbox transfer/schedule observation receipt. Zero
++        # would fabricate a bound. This partial slice cannot activate motion.
++        raise ValueError('original mailbox schedule and transfer evidence unavailable')
++
++    def verify_observation(self, event, binding):
++        need(binding is self._binding and binding is not None, 'same active G05 binding required')
++        return self.retain_trace(event)
++
++    def retain_trace(self, event):
++        """Read original TRACE result as a distinct typed observation.
++
++        This performs no source/C42 encoding and does not call C36/C28. The
++        returned record preserves raw four-frame wire bytes and the original
++        full association. It cannot be passed as legacy VerifiedObservation.
++        """
++        try:
++            self.checkpoint()
++            self._operation.check_source_config()
++            self.accept_source_events(self._producer.take_pending_events())
++            facts, refs = self._consume(event)
++            need(facts['kind'] == 'trace_scan', 'original TRACE event required')
++            self._phase(facts, refs, expected_kind='trace_scan')
++            original = refs['preparation'].original
++            need(refs['request'] is original.request and refs['source_bytes'] is original.source
++                 and refs['companions'] is original.companions,
++                 'original preparation bytes replaced')
++            retained = refs['client_result']['correlation']
++            need(retained['status'] == 'FOUR_FRAME_CORRELATION_CONSISTENT'
++                 and retained['retained']['original'].request == original.request
++                 and retained['retained']['original'].source == original.source
++                 and retained['retained']['companions'] == original.companions,
++                 'original returned wire association mismatch')
++            wire = retained['retained']['wire']
++            need(type(wire) is bytes and 0 < len(wire) <= 252, 'actual bounded four-frame bytes required')
++            frame_rows = retained['frames']
++            need(type(frame_rows) is list and len(frame_rows) == 4
++                 and [x['channel'] for x in frame_rows] == [0,1,2,3], 'four original returned lanes required')
++            source_rows = [(e,f,r) for e,f,r in self._source_events
++                           if r['token'] is refs['token'] and r['draft'] is refs['draft']
++                           and r['admission'] is refs['admission']]
++            need(len(source_rows) == 1, 'selected source was not consumed in original order')
++            payload = source_rows[0][2]['payload']
++            need(payload is refs['payload'] and _raw(payload) == original.source,
++                 'actual original source payload changed')
++            request = json.loads(original.request)
++            context = self._refs.c42_context
++            lineage = request['lineage']
++            need(all(lineage[k] == context[k] for k in ('operation_id','request_hash','tested_commit','boot_id','session_id','tag')),
++                 'actual source request differs from original context8')
++            origin = self._refs.source.source.origin_ns
++            need(request['scan']['origin_qpc_ns'] == origin
++                 and request['scan']['clock_domain_id'] == context['clock_domain_id'],
++                 'original source origin/clock mapping changed')
++            seq = uint(lineage['request_seq'], 'original request sequence')
++            need(0 < seq <= 65535, 'finite original mailbox sequence range required')
++            times = []; counts = []; qualities = []
++            offset = 0
++            for row in frame_rows:
++                size = row['frame_bytes']; frame = wire[offset:offset+size]; offset += size
++                need(type(size) is int and size > 0 and hashlib.sha256(frame).hexdigest() == row['frame_sha256'],
++                     'original returned frame bytes changed')
++                point, lane = row['point'], row['original_lane']
++                need(point['value'] == lane['raw_sample_uint16']
++                     and all(point[k] == lane['mapped_flags'][k] for k in ('valid','held','saturated','source_fault')),
++                     'returned raw lane values or quality mismatch')
++                counts.append(point['value'] if point['valid'] else None)
++                qualities.append(tuple(point[k] for k in ('valid','held','saturated','source_fault')))
++                if point['valid']:
++                    times.append(uint(lane['source_qpc_ns'], 'original nominal source time'))
++            need(offset == len(wire) and times, 'complete returned wire and usable source time required')
++            phase = refs['phase_receipt']; now = self.checkpoint()
++            lower = min(times)
++            need(lower <= phase.upper_qpc_ns <= now, 'actual source/receipt time order required')
++            record = TraceObservation(_KEY, self, self._binding, event, phase, wire,
++                seq, lower, tuple(counts), tuple(qualities), refs, original.request, original.companions)
++            _TRACES.append(record)
++            return record
++        except BaseException:
++            self.revoke(); raise
++
++    def verify_command(self, event, binding):
++        raise ValueError('original G05 command/slot producer not installed')
++
++    def verify_slot(self, event, binding):
++        raise ValueError('original G05 command/slot producer not installed')
++
++
++def production_channels(config, capability, clock):
++    """Root-owned receipt-only preparation; not a complete authority factory.
++
++    ActorComposition calls require_activation_ready before entering here. A may
++    use this preparation to inspect its actual existing receipt stream without
++    acquiring an actor. It consumes the original claim once, so it cannot later
++    be adopted into a second factory attempt.
++    """
++    profile = config.g05p_profile
++    need(type(profile) is G05Profile, 'exact explicit G05 profile required')
++    profile.check()
++    found = [row for row in _ATTACHMENTS if row[0] is config]
++    need(len(found) == 1 and found[0][2] is False, 'one unused original operation attachment required')
++    found[0][2] = True  # A failed claim never becomes a second attempt.
++    return G05Channels(_KEY, config, capability, found[0][1], clock)
++
++
++def require_activation_ready():
++    raise ValueError('C49_PARTIAL: original mailbox transfer/schedule, raw4 full-proof projection, and command/slot integration unavailable; no actor acquisition')
++
++
++class TraceObservation:
++    """Local retained result, not an authority credential or C36 input."""
++    __slots__ = ('_channel','boot','event','phase','raw','observed_seq','sample_lower_ns',
++                 'counts','qualities','refs','request_raw','companions')
++    def __init__(self,key,channel,boot,event,phase,raw,seq,lower,counts,qualities,refs,request,companions):
++        need(key is _KEY, 'original retained TRACE callsite required')
++        for name,value in zip(self.__slots__,(channel,boot,event,phase,raw,seq,lower,counts,qualities,refs,request,companions)):
++            object.__setattr__(self,name,value)
++    def __setattr__(self,name,value):raise AttributeError('retained TRACE observation immutable')
++
++
++def checked_trace(record, binding, *, now_ns):
++    need(type(record) is TraceObservation and any(r is record for r in _TRACES)
++         and record.boot is binding and is_original_binding(binding)
++         and record._channel is binding._channel, 'same original retained typed TRACE required')
++    record._channel.checkpoint(now_ns=now_ns)
++    need(record.sample_lower_ns <= record.phase.upper_qpc_ns <= now_ns,
++         'original TRACE source/receipt time order')
++    return record
++
++
+--- a/competition/deepeye/simulation/authority/motion_executor.py
++++ b/competition/deepeye/simulation/authority/motion_executor.py
+@@ -13,7 +13,7 @@
+ 
+ from ...integration import host_envelope as envelope
+ from ...integration import pc_direct_watchdog as watchdog
+-from .pc_direct_runtime import BootBinding, StepFence, CommitReceipt
++from .pc_direct_runtime import BootBinding, StepFence, CommitReceipt, _is_binding
+ from .motion import certified_path as cp
+ from .motion import passage_phase as p
+ from .motion import workspace_boundaries as w
+@@ -245,7 +245,7 @@
+     @_entry
+     def activate_boot(self,boot):
+         root=self._root
+-        if (self._offboard_owner is not None or type(boot) is not BootBinding or type(boot.run_id) is not str
++        if (self._offboard_owner is not None or not _is_binding(boot, executor=self) or type(boot.run_id) is not str
+                 or boot.run_id!=root.phase.context.run_id or type(boot.context_json) is not bytes
+                 or type(boot.ai_instance) is not str or not boot.ai_instance):
+             raise ValueError('independently verified exact BOOT required')
+@@ -267,7 +267,7 @@
+         the final fence. Structural parsing here cannot establish those facts.
+         """
+         root=self._root
+-        if root.stopped or root.world_invalid or root.trial_failed or type(boot) is not BootBinding or boot is not root.boot:
++        if root.stopped or root.world_invalid or root.trial_failed or not _is_binding(boot, executor=self) or boot is not root.boot:
+             raise ValueError('inactive owner BOOT')
+         if type(command_raw) is not bytes:raise ValueError('immutable original command bytes required')
+         doc=envelope._parse_message(command_raw)
+@@ -303,7 +303,7 @@
+         root=self._root;_integer(expected_pose_revision);_integer(dt_ns,1)
+         if dt_ns>MAX_DT_NS:raise ValueError('canonical duration exceeds 10ms')
+         if (root.stopped or root.trial_failed or root.world_invalid or type(root.command) is not _Command
+-                or type(boot) is not BootBinding or boot is not root.boot or type(command_raw) is not bytes
++                or not _is_binding(boot, executor=self) or boot is not root.boot or type(command_raw) is not bytes
+                 or command_raw!=root.command.raw or expected_pose_revision!=root.pose_revision):
+             raise ValueError('owner/admitted original command/current revision mismatch')
+         return self._prepare_geometry(root,root.command,False,dt_ns)
+@@ -349,7 +349,7 @@
+ 
+     @_entry
+     def commit_step(self,prepared,before_commit):
+-        if type(self._root.command) is not _Command or type(self._root.boot) is not BootBinding:
++        if type(self._root.command) is not _Command or not _is_binding(self._root.boot, executor=self):
+             raise ValueError('production command and boot required')
+         return self._commit_numeric(prepared,before_commit,False,None)
+ 
+--- a/competition/deepeye/simulation/authority/pc_direct_runtime.py
++++ b/competition/deepeye/simulation/authority/pc_direct_runtime.py
+@@ -49,6 +49,13 @@
+     return call
+ 
+ 
++def _is_binding(value, *, executor=None):
++    if type(value) is BootBinding:
++        return True
++    from .g05p_runtime_v1 import is_original_binding
++    return is_original_binding(value, executor=executor)
++
++
+ class _NoActiveCommand(ValueError):
+     """Normal stopped idle/expiry polling, not malformed input or a veto."""
+ 
+@@ -180,12 +187,18 @@
+     Ordinary command expiration clears only that action; a newer command may
+     run against still-fresh evidence. There are no untrusted grant setters.
+     """
+-    def __init__(self, *, run_id, dependencies, clock, heartbeat_timeout_ns):
++    def __init__(self, *, run_id, dependencies, clock, heartbeat_timeout_ns, g05p_profile=None):
+         if type(run_id) is not str or not run_id:
+             raise ValueError('nonempty run_id required')
+         if not isinstance(dependencies, AuthorityDependencies) or not callable(clock):
+             raise ValueError('trusted authority dependencies and monotonic clock required')
+         self._timeout = _integer(heartbeat_timeout_ns, 'heartbeat_timeout_ns', 1)
++        self._g05p_profile = g05p_profile
++        if g05p_profile is not None:
++            from .g05p_runtime_v1 import G05Profile
++            if type(g05p_profile) is not G05Profile:
++                raise ValueError('exact explicit G05 profile required')
++            g05p_profile.check()
+         self._run_id, self._deps, self._clock = run_id, dependencies, clock
+         self._owner = threading.get_ident()
+         self._now = _integer(clock(), 'clock')
+@@ -259,8 +272,15 @@
+             raise ValueError('verified record type or active BOOT/run/generation mismatch')
+         return record
+ 
++    def _allowed_binding(self, value):
++        if self._g05p_profile is None:
++            return type(value) is BootBinding
++        from .g05p_runtime_v1 import is_original_binding
++        return (is_original_binding(value) and
++                value._channel._config.g05p_profile is self._g05p_profile)
++
+     def _same_boot(self, value):
+-        return (type(value) is BootBinding and type(value.run_id) is str
++        return (self._allowed_binding(value) and type(value.run_id) is str
+                 and type(value.generation) is int and type(value.context_json) is bytes
+                 and type(value.ai_instance) is str and value == self._boot)
+ 
+@@ -271,7 +291,7 @@
+         veto_generation = self._veto_generation
+         def activate():
+             proposed = self._deps.verify_boot(event)
+-            if (type(proposed) is not BootBinding or type(proposed.run_id) is not str or proposed.run_id != self._run_id
++            if (not self._allowed_binding(proposed) or type(proposed.run_id) is not str or proposed.run_id != self._run_id
+                     or type(proposed.context_json) is not bytes
+                     or type(proposed.ai_instance) is not str or not proposed.ai_instance):
+                 raise ValueError('invalid independently verified BOOT binding')
+@@ -289,7 +309,11 @@
+             self._used_sessions.add(context['session'])
+             self._generation = proposed.generation
+             now = self._advance()
+-            guard = watchdog.PcDirectWatchdog(context=context, heartbeat_timeout_ns=self._timeout, now_ns=now)
++            if self._g05p_profile is None:
++                guard = watchdog.PcDirectWatchdog(context=context, heartbeat_timeout_ns=self._timeout, now_ns=now)
++            else:
++                from .g05p_runtime_v1 import G05HealthGate
++                guard = G05HealthGate(binding=proposed, heartbeat_timeout_ns=self._timeout, now_ns=now)
+             new_context = guard.context
+             if self._veto_generation != veto_generation:
+                 raise ValueError('BOOT activation invalidated by an intervening veto')
+@@ -308,6 +332,15 @@
+     @_runtime_entry
+     def board(self, event):
+         def receive():
++            if self._g05p_profile is not None:
++                from .g05p_runtime_v1 import G05Health, G05HealthGate
++                record = self._deps.verify_board(event, self._boot)
++                if (type(record) is not G05Health or record.binding is not self._boot
++                        or type(self._guard) is not G05HealthGate):
++                    raise ValueError('original typed G05 health required')
++                now = self._advance(); self._active()
++                self._guard.ingest_g05(record, now_ns=now)
++                return 'g05_typed_health'
+             record = self._record(self._deps.verify_board(event, self._boot), VerifiedEnvelope)
+             now = self._advance(); self._active()
+             parsed = envelope.validate_message(record.raw, producer='hardware_bridge',
+--- a/competition/deepeye/simulation/isolation/actor_owner.py
++++ b/competition/deepeye/simulation/isolation/actor_owner.py
+@@ -466,12 +466,12 @@
+ 
+     @_entry
+     def bind_verified_boot(self, boot, *, runtime, executor):
+-        from ..authority.pc_direct_runtime import BootBinding, PcDirectRuntime
++        from ..authority.pc_direct_runtime import BootBinding, PcDirectRuntime, _is_binding
+         from ..authority.motion_executor import OwnedMotionExecutor
+         from ...integration import host_envelope as envelope, pc_direct_watchdog as watchdog
+         from .actor_lifetime import _sample
+         if self._state != 'RUNNING_UNBOUND': raise ValueError('actor activation is single use')
+-        if (type(boot) is not BootBinding or boot.run_id != self._policy.run_id or
++        if (not _is_binding(boot, executor=executor) or boot.run_id != self._policy.run_id or
+                 boot.ai_instance != self.instance_id or type(boot.context_json) is not bytes):
+             raise ValueError('exact factory instance/run required')
+         generation = _integer(boot.generation, 1)
+--- a/competition/deepeye/tools/run_causal_functional_chain.py
++++ b/competition/deepeye/tools/run_causal_functional_chain.py
+@@ -14,7 +14,7 @@
+ from ..simulation.sensors.owned_world_field import OwnedWorldField
+ from ..simulation.authority import _world_loop, _root_jit_kernel, actor_composition
+ from ..simulation.authority import _owned_godot, _world_values
+-from ..simulation.authority.pc_direct_runtime import BootBinding
++from ..simulation.authority.pc_direct_runtime import BootBinding, _is_binding
+ from ..simulation.isolation.actor_owner import ActorRegistry, ActorOwner
+ from ..simulation.authority.motion import gate_geometry, workspace_boundaries
+ from ..simulation.authority.world_initial_pose import initial_pose_for_layout
+@@ -408,7 +408,7 @@
+         registry, actor, boot, runtime, executor = (comp._registry, comp._actor, comp._boot,
+                                                     comp._runtime, comp._executor)
+         if (type(registry) is not ActorRegistry or type(actor) is not ActorOwner
+-                or type(boot) is not BootBinding or comp._state != 'ACTIVE' or comp._retired
++                or not _is_binding(boot, executor=executor) or comp._state != 'ACTIVE' or comp._retired
+                 or comp._busy or comp._foreign.is_set() or actor._foreign_call.is_set()
+                 or registry._thread != self._thread or registry._clock_binding is not self.clock
+                 or registry._launching is not None or not any(item is actor for item in registry._owners)

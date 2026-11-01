@@ -1,0 +1,25 @@
+{
+  "source_approved": true,
+  "open_findings": [],
+  "scope": "PARTIAL original receipt-only integration; factory refusal must remain",
+  "production_activation": false,
+  "formal_acceptance": false,
+  "module_sha256": "17e156a6f4297eb56bf0c3221ef2abb6ada7232907685cf70988db270a5ff508",
+  "patch_sha256": "35516dd711b081eb1bb4929127f31d210b3aeb4eeda584660fc452d2426a1cbe",
+  "author_FINAL_sha256": "f8d1e10a3218496f743c6aef6851128eadb89af34cf94fcaedca2af091cf3f1e",
+  "independent_FINAL_sha256": "28a8638d0c2653396ac9cb6db71296c3f09f875e00ab90f056a8db40dd1fc92b",
+  "main_review": "Verified130 frozen files; read actual claim/checkpoint/factory and precise raw4-C36 boundary; independent reviewer reconstructed6filepatch and verified exact sources/logs/exitcodes; original completed turns and release audited",
+  "author_exits": [
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    1,
+    0,
+    0
+  ],
+  "independent_new_controls": 2,
+  "independent_exit": 0
+}

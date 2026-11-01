@@ -1,0 +1,10 @@
+{
+  "files_scanned": 161,
+  "archive_members_scanned": 145,
+  "findings": [],
+  "archive_depth_max": 1,
+  "scope": "Known local paths/session IDs, credential patterns, traversal, duplicate members and disallowed artifact names; source-only whitelist. This is not a claim of universal secret detection.",
+  "status": "PASS",
+  "excluded_private_originals": 17,
+  "note": "Private identifiers used by the scanner are not included in this public report."
+}

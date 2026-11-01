@@ -1,0 +1,8 @@
+{
+  "module": "g05_csr_bridge_v1.py",
+  "shipping_sha256": "925ca8ecb9fc4c719e1eb4558cb11346111f77f79b6a6f40a6dc905f5b772ef5",
+  "delivery": "Separate C48 corrected delivery; not bundled as C49 runtime.",
+  "historically_executed_sha256": "814783f3770e1b63706a8e597244dbc30ad0ad0f606747aca6a490979b2f6454",
+  "C49_execution_scope": "init/status only; corrected shipping module not rerun by C49; apply not qualified",
+  "current_C48_review": "Main reports corrected dependency independently approved; C49 original README retains historical at-freeze status."
+}

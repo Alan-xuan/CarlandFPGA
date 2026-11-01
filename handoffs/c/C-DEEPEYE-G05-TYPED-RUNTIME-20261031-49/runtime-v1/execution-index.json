@@ -1,0 +1,613 @@
+{
+  "status": "PARTIAL_SOURCE_APPROVED; production activation remains unavailable",
+  "review_report_sha256": "56d49f623fcce2c102239bffb648ec30cbc5ceea3bd396df22441701fd8010be",
+  "private_review_FINAL_sha256": "28a8638d0c2653396ac9cb6db71296c3f09f875e00ab90f056a8db40dd1fc92b",
+  "private_originals_independently_verified": true,
+  "review_scope": "Original nine raw streams, result and version pins verified by independent reviewer; main audited actual review completion.",
+  "runs": [
+    {
+      "run": "run01",
+      "exit_code": 0,
+      "elapsed_seconds": 0.4379999999946449,
+      "source_sha256": "01a9c37551ed15d7cb0603c5d4bc067aedec7df2732085b676c7b2eff1e5631b",
+      "entry_test": "test_slice_v2.py",
+      "source_context": "Captured runtime and entry test; shared fixture sources unchanged. run07 actor supplement is pre-fix; run08 actor is final candidate.",
+      "streams": {
+        "stdout.bin": {
+          "original": {
+            "bytes": 0,
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "original_logical_name": "run01/stdout.bin",
+          "raw_published": true,
+          "raw_path": "implementation-v1/resume-v2/runs/run01/stdout.bin"
+        },
+        "stderr.bin": {
+          "original": {
+            "bytes": 23065,
+            "sha256": "2ec9edfb7fcaa1f3b855d0c6ea452f059d2fd7ec940c235d4b2fc6f346b9db9f"
+          },
+          "original_logical_name": "run01/stderr.bin",
+          "raw_published": false,
+          "derived_path": "implementation-v1/resume-v2/runs/run01/stderr.derived-portable.txt",
+          "kind": "DERIVED_PORTABLE_EXCERPT_NOT_RAW"
+        }
+      }
+    },
+    {
+      "run": "run02",
+      "exit_code": 1,
+      "elapsed_seconds": 0.3129999999946449,
+      "source_sha256": "01a9c37551ed15d7cb0603c5d4bc067aedec7df2732085b676c7b2eff1e5631b",
+      "entry_test": "test_process_v2.py",
+      "source_context": "Captured runtime and entry test; shared fixture sources unchanged. run07 actor supplement is pre-fix; run08 actor is final candidate.",
+      "streams": {
+        "stdout.bin": {
+          "original": {
+            "bytes": 0,
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "original_logical_name": "run02/stdout.bin",
+          "raw_published": true,
+          "raw_path": "implementation-v1/resume-v2/runs/run02/stdout.bin"
+        },
+        "stderr.bin": {
+          "original": {
+            "bytes": 3534,
+            "sha256": "667e536a39909a13f97389189a99f80ed1b814f4b747e7c49b292972c9d7fbfc"
+          },
+          "original_logical_name": "run02/stderr.bin",
+          "raw_published": false,
+          "derived_path": "implementation-v1/resume-v2/runs/run02/stderr.derived-portable.txt",
+          "kind": "DERIVED_PORTABLE_EXCERPT_NOT_RAW"
+        }
+      }
+    },
+    {
+      "run": "run03",
+      "exit_code": 0,
+      "elapsed_seconds": 0.32800000000861473,
+      "source_sha256": "2ad7e8b06f0d1355b981d10416395ff9e699f368110bac7bd893354578724647",
+      "entry_test": "test_process_v2.py",
+      "source_context": "Captured runtime and entry test; shared fixture sources unchanged. run07 actor supplement is pre-fix; run08 actor is final candidate.",
+      "streams": {
+        "stdout.bin": {
+          "original": {
+            "bytes": 0,
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "original_logical_name": "run03/stdout.bin",
+          "raw_published": true,
+          "raw_path": "implementation-v1/resume-v2/runs/run03/stdout.bin"
+        },
+        "stderr.bin": {
+          "original": {
+            "bytes": 2863,
+            "sha256": "3494fb2103919d2ec0c8d3f343632203ff78b8809d8956b4801a31415474d8b4"
+          },
+          "original_logical_name": "run03/stderr.bin",
+          "raw_published": false,
+          "derived_path": "implementation-v1/resume-v2/runs/run03/stderr.derived-portable.txt",
+          "kind": "DERIVED_PORTABLE_EXCERPT_NOT_RAW"
+        }
+      }
+    },
+    {
+      "run": "run04",
+      "exit_code": 0,
+      "elapsed_seconds": 0.4379999999946449,
+      "source_sha256": "2ad7e8b06f0d1355b981d10416395ff9e699f368110bac7bd893354578724647",
+      "entry_test": "test_c48_path_v2.py",
+      "source_context": "Captured runtime and entry test; shared fixture sources unchanged. run07 actor supplement is pre-fix; run08 actor is final candidate.",
+      "streams": {
+        "stdout.bin": {
+          "original": {
+            "bytes": 0,
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "original_logical_name": "run04/stdout.bin",
+          "raw_published": true,
+          "raw_path": "implementation-v1/resume-v2/runs/run04/stdout.bin"
+        },
+        "stderr.bin": {
+          "original": {
+            "bytes": 5647,
+            "sha256": "3c28e578f89d551dda7a2f9d58483b3a31392386031da14cd94206f90dddcd8a"
+          },
+          "original_logical_name": "run04/stderr.bin",
+          "raw_published": false,
+          "derived_path": "implementation-v1/resume-v2/runs/run04/stderr.derived-portable.txt",
+          "kind": "DERIVED_PORTABLE_EXCERPT_NOT_RAW"
+        }
+      }
+    },
+    {
+      "run": "run05",
+      "exit_code": 0,
+      "elapsed_seconds": 0.39000000001396984,
+      "source_sha256": "4a79b5d8ac20c224020d33a385a49312284e154dbfe9ac980d17fbc761ee793e",
+      "entry_test": "test_health_v2.py",
+      "source_context": "Captured runtime and entry test; shared fixture sources unchanged. run07 actor supplement is pre-fix; run08 actor is final candidate.",
+      "streams": {
+        "stdout.bin": {
+          "original": {
+            "bytes": 0,
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "original_logical_name": "run05/stdout.bin",
+          "raw_published": true,
+          "raw_path": "implementation-v1/resume-v2/runs/run05/stdout.bin"
+        },
+        "stderr.bin": {
+          "original": {
+            "bytes": 5651,
+            "sha256": "5edb97e35658373666b0b8989c7eab77696d9df395e59f33ff99b44f84dfe5e9"
+          },
+          "original_logical_name": "run05/stderr.bin",
+          "raw_published": false,
+          "derived_path": "implementation-v1/resume-v2/runs/run05/stderr.derived-portable.txt",
+          "kind": "DERIVED_PORTABLE_EXCERPT_NOT_RAW"
+        }
+      }
+    },
+    {
+      "run": "run06",
+      "exit_code": 0,
+      "elapsed_seconds": 0.3590000000258442,
+      "source_sha256": "4a79b5d8ac20c224020d33a385a49312284e154dbfe9ac980d17fbc761ee793e",
+      "entry_test": "test_trace_retention_v2.py",
+      "source_context": "Captured runtime and entry test; shared fixture sources unchanged. run07 actor supplement is pre-fix; run08 actor is final candidate.",
+      "streams": {
+        "stdout.bin": {
+          "original": {
+            "bytes": 0,
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "original_logical_name": "run06/stdout.bin",
+          "raw_published": true,
+          "raw_path": "implementation-v1/resume-v2/runs/run06/stdout.bin"
+        },
+        "stderr.bin": {
+          "original": {
+            "bytes": 5651,
+            "sha256": "865dfc1506a71422226afc1d8b4abb71b9e25b585dbdb33521ed31345e692efb"
+          },
+          "original_logical_name": "run06/stderr.bin",
+          "raw_published": false,
+          "derived_path": "implementation-v1/resume-v2/runs/run06/stderr.derived-portable.txt",
+          "kind": "DERIVED_PORTABLE_EXCERPT_NOT_RAW"
+        }
+      }
+    },
+    {
+      "run": "run07",
+      "exit_code": 1,
+      "elapsed_seconds": 0.3120000000053551,
+      "source_sha256": "4a79b5d8ac20c224020d33a385a49312284e154dbfe9ac980d17fbc761ee793e",
+      "entry_test": "test_preflight_v2.py",
+      "source_context": "Captured runtime and entry test; shared fixture sources unchanged. run07 actor supplement is pre-fix; run08 actor is final candidate.",
+      "streams": {
+        "stdout.bin": {
+          "original": {
+            "bytes": 0,
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "original_logical_name": "run07/stdout.bin",
+          "raw_published": true,
+          "raw_path": "implementation-v1/resume-v2/runs/run07/stdout.bin"
+        },
+        "stderr.bin": {
+          "original": {
+            "bytes": 942,
+            "sha256": "f65ea079ca017019bf9c96786fd17bca33c8da292fdddefda04b87a71238c6cf"
+          },
+          "original_logical_name": "run07/stderr.bin",
+          "raw_published": false,
+          "derived_path": "implementation-v1/resume-v2/runs/run07/stderr.derived-portable.txt",
+          "kind": "DERIVED_PORTABLE_EXCERPT_NOT_RAW"
+        }
+      }
+    },
+    {
+      "run": "run08",
+      "exit_code": 0,
+      "elapsed_seconds": 0.29699999999138527,
+      "source_sha256": "1e8e6ae1b732cc4330d4154c67dcedf66daa670d8fa6e14550d5d53528fb0c63",
+      "entry_test": "test_preflight_v2.py",
+      "source_context": "Captured runtime and entry test; shared fixture sources unchanged. run07 actor supplement is pre-fix; run08 actor is final candidate.",
+      "streams": {
+        "stdout.bin": {
+          "original": {
+            "bytes": 0,
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "original_logical_name": "run08/stdout.bin",
+          "raw_published": true,
+          "raw_path": "implementation-v1/resume-v2/runs/run08/stdout.bin"
+        },
+        "stderr.bin": {
+          "original": {
+            "bytes": 219,
+            "sha256": "c64d5b5cd3d69576bc3c3805beaeaa5177ff7e6bf33852ceb1a025967d2155dc"
+          },
+          "original_logical_name": "run08/stderr.bin",
+          "raw_published": true,
+          "raw_path": "implementation-v1/resume-v2/runs/run08/stderr.bin"
+        }
+      }
+    },
+    {
+      "run": "run09",
+      "exit_code": 0,
+      "elapsed_seconds": 0.5469999999913853,
+      "source_sha256": "17e156a6f4297eb56bf0c3221ef2abb6ada7232907685cf70988db270a5ff508",
+      "entry_test": "test_receipt_only_v2.py",
+      "source_context": "Captured runtime and entry test; shared fixture sources unchanged. run07 actor supplement is pre-fix; run08 actor is final candidate.",
+      "streams": {
+        "stdout.bin": {
+          "original": {
+            "bytes": 0,
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "original_logical_name": "run09/stdout.bin",
+          "raw_published": true,
+          "raw_path": "implementation-v1/resume-v2/runs/run09/stdout.bin"
+        },
+        "stderr.bin": {
+          "original": {
+            "bytes": 2871,
+            "sha256": "691e2c1c900401de45761e168f92a53f171c23131ee0a911e15484ab5cbd1cc8"
+          },
+          "original_logical_name": "run09/stderr.bin",
+          "raw_published": false,
+          "derived_path": "implementation-v1/resume-v2/runs/run09/stderr.derived-portable.txt",
+          "kind": "DERIVED_PORTABLE_EXCERPT_NOT_RAW"
+        }
+      }
+    }
+  ],
+  "omissions": [
+    {
+      "logical_original": "run01/command.json",
+      "bytes": 505,
+      "sha256": "61f4405b900d5c1b60c2736f1294c62ec7c80143c887a1262f18c23a8a03679d",
+      "reason": "Private absolute argv/cwd; original retained privately and independently verified.",
+      "public_derived": "implementation-v1/resume-v2/runs/run01/command.derived.json"
+    },
+    {
+      "logical_original": "run01/stderr.bin",
+      "bytes": 23065,
+      "sha256": "2ec9edfb7fcaa1f3b855d0c6ea452f059d2fd7ec940c235d4b2fc6f346b9db9f",
+      "reason": "Private local path or main-session identifier; immutable raw retained privately and independently verified.",
+      "public_derived": "implementation-v1/resume-v2/runs/run01/stderr.derived-portable.txt"
+    },
+    {
+      "logical_original": "run02/command.json",
+      "bytes": 507,
+      "sha256": "0453f745b4c6466972fcb5c9c1287c1a5d35a19a3ff03531c32d0aadabe47ba8",
+      "reason": "Private absolute argv/cwd; original retained privately and independently verified.",
+      "public_derived": "implementation-v1/resume-v2/runs/run02/command.derived.json"
+    },
+    {
+      "logical_original": "run02/stderr.bin",
+      "bytes": 3534,
+      "sha256": "667e536a39909a13f97389189a99f80ed1b814f4b747e7c49b292972c9d7fbfc",
+      "reason": "Private local path or main-session identifier; immutable raw retained privately and independently verified.",
+      "public_derived": "implementation-v1/resume-v2/runs/run02/stderr.derived-portable.txt"
+    },
+    {
+      "logical_original": "run03/command.json",
+      "bytes": 507,
+      "sha256": "0453f745b4c6466972fcb5c9c1287c1a5d35a19a3ff03531c32d0aadabe47ba8",
+      "reason": "Private absolute argv/cwd; original retained privately and independently verified.",
+      "public_derived": "implementation-v1/resume-v2/runs/run03/command.derived.json"
+    },
+    {
+      "logical_original": "run03/stderr.bin",
+      "bytes": 2863,
+      "sha256": "3494fb2103919d2ec0c8d3f343632203ff78b8809d8956b4801a31415474d8b4",
+      "reason": "Private local path or main-session identifier; immutable raw retained privately and independently verified.",
+      "public_derived": "implementation-v1/resume-v2/runs/run03/stderr.derived-portable.txt"
+    },
+    {
+      "logical_original": "run04/command.json",
+      "bytes": 508,
+      "sha256": "720d1cb1b37b15d094a11f6c43bd1f5d78cd627713987a607ccb2a2008a29a38",
+      "reason": "Private absolute argv/cwd; original retained privately and independently verified.",
+      "public_derived": "implementation-v1/resume-v2/runs/run04/command.derived.json"
+    },
+    {
+      "logical_original": "run04/stderr.bin",
+      "bytes": 5647,
+      "sha256": "3c28e578f89d551dda7a2f9d58483b3a31392386031da14cd94206f90dddcd8a",
+      "reason": "Private local path or main-session identifier; immutable raw retained privately and independently verified.",
+      "public_derived": "implementation-v1/resume-v2/runs/run04/stderr.derived-portable.txt"
+    },
+    {
+      "logical_original": "run05/command.json",
+      "bytes": 506,
+      "sha256": "b62f6b5775709ac6daab3da0b9c71638e81ceb8db829ab83a3588238040f9a0a",
+      "reason": "Private absolute argv/cwd; original retained privately and independently verified.",
+      "public_derived": "implementation-v1/resume-v2/runs/run05/command.derived.json"
+    },
+    {
+      "logical_original": "run05/stderr.bin",
+      "bytes": 5651,
+      "sha256": "5edb97e35658373666b0b8989c7eab77696d9df395e59f33ff99b44f84dfe5e9",
+      "reason": "Private local path or main-session identifier; immutable raw retained privately and independently verified.",
+      "public_derived": "implementation-v1/resume-v2/runs/run05/stderr.derived-portable.txt"
+    },
+    {
+      "logical_original": "run06/command.json",
+      "bytes": 515,
+      "sha256": "db5afc1469e83c41f89a73849f285ecb23fb1256150ad2438c42dc7705275574",
+      "reason": "Private absolute argv/cwd; original retained privately and independently verified.",
+      "public_derived": "implementation-v1/resume-v2/runs/run06/command.derived.json"
+    },
+    {
+      "logical_original": "run06/stderr.bin",
+      "bytes": 5651,
+      "sha256": "865dfc1506a71422226afc1d8b4abb71b9e25b585dbdb33521ed31345e692efb",
+      "reason": "Private local path or main-session identifier; immutable raw retained privately and independently verified.",
+      "public_derived": "implementation-v1/resume-v2/runs/run06/stderr.derived-portable.txt"
+    },
+    {
+      "logical_original": "run07/command.json",
+      "bytes": 509,
+      "sha256": "9f893f391762bc5b05cccc9ca3ba1c779e80403062032c969aa2d50688ba62bf",
+      "reason": "Private absolute argv/cwd; original retained privately and independently verified.",
+      "public_derived": "implementation-v1/resume-v2/runs/run07/command.derived.json"
+    },
+    {
+      "logical_original": "run07/stderr.bin",
+      "bytes": 942,
+      "sha256": "f65ea079ca017019bf9c96786fd17bca33c8da292fdddefda04b87a71238c6cf",
+      "reason": "Private local path or main-session identifier; immutable raw retained privately and independently verified.",
+      "public_derived": "implementation-v1/resume-v2/runs/run07/stderr.derived-portable.txt"
+    },
+    {
+      "logical_original": "run08/command.json",
+      "bytes": 509,
+      "sha256": "9f893f391762bc5b05cccc9ca3ba1c779e80403062032c969aa2d50688ba62bf",
+      "reason": "Private absolute argv/cwd; original retained privately and independently verified.",
+      "public_derived": "implementation-v1/resume-v2/runs/run08/command.derived.json"
+    },
+    {
+      "logical_original": "run09/command.json",
+      "bytes": 512,
+      "sha256": "bda0ebfe1cc32654bedf603493c18e91921d1abb753bc7dc52f2331da19d0d3c",
+      "reason": "Private absolute argv/cwd; original retained privately and independently verified.",
+      "public_derived": "implementation-v1/resume-v2/runs/run09/command.derived.json"
+    },
+    {
+      "logical_original": "run09/stderr.bin",
+      "bytes": 2871,
+      "sha256": "691e2c1c900401de45761e168f92a53f171c23131ee0a911e15484ab5cbd1cc8",
+      "reason": "Private local path or main-session identifier; immutable raw retained privately and independently verified.",
+      "public_derived": "implementation-v1/resume-v2/runs/run09/stderr.derived-portable.txt"
+    }
+  ],
+  "historical_archives": [
+    {
+      "label": "pre-quota",
+      "original_private_archive": {
+        "bytes": 418773,
+        "sha256": "c1c7e76c472784a4a5b0955f12c9daa67d0d05e352f2da9314dc083858e296ce"
+      },
+      "historical_only": true,
+      "selected_members": [
+        {
+          "original_member": "implementation-v1/build_patches.py",
+          "public_member": "historical-WIP-NOT-INSTALL/pre-quota/implementation-v1/build_patches.py",
+          "bytes": 7002,
+          "sha256": "07774c8e6ff2154604ec60a3ac9a0a9e67da46bf425b9d1e1654c74c9ace29e3"
+        },
+        {
+          "original_member": "implementation-v1/inputs/competition/deepeye/integration/pc_direct_watchdog.py",
+          "public_member": "historical-WIP-NOT-INSTALL/pre-quota/implementation-v1/inputs/competition/deepeye/integration/pc_direct_watchdog.py",
+          "bytes": 12255,
+          "sha256": "7156d067f2c3629c527c0bd82bfdd9670409479e573c77ff077b3a030ccf98f1"
+        },
+        {
+          "original_member": "implementation-v1/inputs/competition/deepeye/simulation/authority/actor_composition.py",
+          "public_member": "historical-WIP-NOT-INSTALL/pre-quota/implementation-v1/inputs/competition/deepeye/simulation/authority/actor_composition.py",
+          "bytes": 34190,
+          "sha256": "3765ba5e68942dc888b0235792c63963e6e29fb5be66a4f14226e0c0ba29203a"
+        },
+        {
+          "original_member": "implementation-v1/inputs/competition/deepeye/simulation/authority/motion_executor.py",
+          "public_member": "historical-WIP-NOT-INSTALL/pre-quota/implementation-v1/inputs/competition/deepeye/simulation/authority/motion_executor.py",
+          "bytes": 22060,
+          "sha256": "df3a174b054e5034b3d91a16b7ade3bd750b162b9c1036073af65e4d92c06e62"
+        },
+        {
+          "original_member": "implementation-v1/inputs/competition/deepeye/simulation/authority/pc_direct_runtime.py",
+          "public_member": "historical-WIP-NOT-INSTALL/pre-quota/implementation-v1/inputs/competition/deepeye/simulation/authority/pc_direct_runtime.py",
+          "bytes": 24936,
+          "sha256": "1be7129834ea6f4892a1f527b173373e36325f88adabd44f443d95ad3ac1e461"
+        },
+        {
+          "original_member": "implementation-v1/inputs/competition/deepeye/simulation/isolation/actor_owner.py",
+          "public_member": "historical-WIP-NOT-INSTALL/pre-quota/implementation-v1/inputs/competition/deepeye/simulation/isolation/actor_owner.py",
+          "bytes": 38840,
+          "sha256": "41480311f81d236745abdc008e2ac330557da8aa3812cb5a1ecf21d2ca8b636f"
+        },
+        {
+          "original_member": "implementation-v1/inputs/competition/deepeye/tools/diagnostic/functional50_chain_board_a.py",
+          "public_member": "historical-WIP-NOT-INSTALL/pre-quota/implementation-v1/inputs/competition/deepeye/tools/diagnostic/functional50_chain_board_a.py",
+          "bytes": 12901,
+          "sha256": "4d951a1163992e4f1170592d1f5c9466a2f337b78ff19be841037de5ccaa5011"
+        },
+        {
+          "original_member": "implementation-v1/inputs/competition/deepeye/tools/diagnostic/functional50_chain_client_a.py",
+          "public_member": "historical-WIP-NOT-INSTALL/pre-quota/implementation-v1/inputs/competition/deepeye/tools/diagnostic/functional50_chain_client_a.py",
+          "bytes": 8290,
+          "sha256": "32bb846cd618254994f7d3a4362cc54cb1f39aad2aa6be6678f4f88637e6f205"
+        },
+        {
+          "original_member": "implementation-v1/inputs/competition/deepeye/tools/diagnostic/functional50_g05_a.py",
+          "public_member": "historical-WIP-NOT-INSTALL/pre-quota/implementation-v1/inputs/competition/deepeye/tools/diagnostic/functional50_g05_a.py",
+          "bytes": 13207,
+          "sha256": "a25b26f6a4c58bd65dbacea865b3d356fe6a10cc07a51e38794c2f020ebcbe9e"
+        },
+        {
+          "original_member": "implementation-v1/inputs/competition/deepeye/tools/diagnostic/functional50_g05_transaction_a.py",
+          "public_member": "historical-WIP-NOT-INSTALL/pre-quota/implementation-v1/inputs/competition/deepeye/tools/diagnostic/functional50_g05_transaction_a.py",
+          "bytes": 8320,
+          "sha256": "480ef6c485933db9766c2f6fab45df081b1b913a9005561b4f416ec303ebfbcf"
+        },
+        {
+          "original_member": "implementation-v1/inputs/competition/deepeye/tools/run_causal_functional_chain.py",
+          "public_member": "historical-WIP-NOT-INSTALL/pre-quota/implementation-v1/inputs/competition/deepeye/tools/run_causal_functional_chain.py",
+          "bytes": 26621,
+          "sha256": "1261bb422836193732c79c0720cd9212c1c4d9cd3cacac07a19e071c837e4902"
+        },
+        {
+          "original_member": "implementation-v1/patched/competition/deepeye/integration/pc_direct_watchdog.py",
+          "public_member": "historical-WIP-NOT-INSTALL/pre-quota/implementation-v1/patched/competition/deepeye/integration/pc_direct_watchdog.py",
+          "bytes": 12255,
+          "sha256": "7156d067f2c3629c527c0bd82bfdd9670409479e573c77ff077b3a030ccf98f1"
+        },
+        {
+          "original_member": "implementation-v1/patched/competition/deepeye/simulation/authority/actor_composition.py",
+          "public_member": "historical-WIP-NOT-INSTALL/pre-quota/implementation-v1/patched/competition/deepeye/simulation/authority/actor_composition.py",
+          "bytes": 35231,
+          "sha256": "dbed7ebd0a04b1f10b8ccef7a6d2b9c359723b9393dc5a85baf9f729f4aef2ce"
+        },
+        {
+          "original_member": "implementation-v1/patched/competition/deepeye/simulation/authority/g05p_runtime_v1.py",
+          "public_member": "historical-WIP-NOT-INSTALL/pre-quota/implementation-v1/patched/competition/deepeye/simulation/authority/g05p_runtime_v1.py",
+          "bytes": 16980,
+          "sha256": "2ed3d3fedf8fd964896456eae6a949c551471c729e2bbb540b6b41bb7be162d0"
+        },
+        {
+          "original_member": "implementation-v1/patched/competition/deepeye/simulation/authority/motion_executor.py",
+          "public_member": "historical-WIP-NOT-INSTALL/pre-quota/implementation-v1/patched/competition/deepeye/simulation/authority/motion_executor.py",
+          "bytes": 22101,
+          "sha256": "f3b7b222a2a527873d50a7734479470aea5d2a5cfc209e1f28de71e4f93b837a"
+        },
+        {
+          "original_member": "implementation-v1/patched/competition/deepeye/simulation/authority/pc_direct_runtime.py",
+          "public_member": "historical-WIP-NOT-INSTALL/pre-quota/implementation-v1/patched/competition/deepeye/simulation/authority/pc_direct_runtime.py",
+          "bytes": 26558,
+          "sha256": "b9d6e4022f2089bb359d37af9df80a395adc695d9010ed0c31398fa6a329ea21"
+        },
+        {
+          "original_member": "implementation-v1/patched/competition/deepeye/simulation/isolation/actor_owner.py",
+          "public_member": "historical-WIP-NOT-INSTALL/pre-quota/implementation-v1/patched/competition/deepeye/simulation/isolation/actor_owner.py",
+          "bytes": 38864,
+          "sha256": "37f17825615126b7b22480e347d38dc907caf5b178add212cfe6c238b8b3d7d3"
+        },
+        {
+          "original_member": "implementation-v1/patched/competition/deepeye/tools/run_causal_functional_chain.py",
+          "public_member": "historical-WIP-NOT-INSTALL/pre-quota/implementation-v1/patched/competition/deepeye/tools/run_causal_functional_chain.py",
+          "bytes": 26645,
+          "sha256": "2caa5372c9a7defb9fd8aba8c0cdc9f44196b102dd55b3cc7d505ca7bc5a5d5a"
+        },
+        {
+          "original_member": "implementation-v1/source-pins.json",
+          "public_member": "historical-WIP-NOT-INSTALL/pre-quota/implementation-v1/source-pins.json",
+          "bytes": 4365,
+          "sha256": "f037971c5c23437e05d0a26a99841a8329164b8e71f66823c67dc2b26ec4535d"
+        }
+      ],
+      "omitted_members": [
+        {
+          "original_member": "implementation-v1/ownership.json",
+          "bytes": 994,
+          "sha256": "781dba1b2d80e101f2fea64b4ba512f1ca96c12cb75bc9199cb1a1221e4b369d",
+          "reason": "Unneeded full tree or private ownership metadata; original archive retained privately."
+        },
+        {
+          "original_member": "implementation-v1/tree.json",
+          "bytes": 3281855,
+          "sha256": "3179b7cc16ceded4b76327474468e128527b7f454691320c99b1720316aa8939",
+          "reason": "Unneeded full tree or private ownership metadata; original archive retained privately."
+        }
+      ]
+    },
+    {
+      "label": "pre-rewrite",
+      "original_private_archive": {
+        "bytes": 49569,
+        "sha256": "08fdcdc0159d911cb8d35beb7af20ca1111bc6fffb2fbf75ea5935c619b18c5a"
+      },
+      "historical_only": true,
+      "selected_members": [
+        {
+          "original_member": "patched/competition/deepeye/integration/pc_direct_watchdog.py",
+          "public_member": "historical-WIP-NOT-INSTALL/pre-rewrite/patched/competition/deepeye/integration/pc_direct_watchdog.py",
+          "bytes": 12255,
+          "sha256": "7156d067f2c3629c527c0bd82bfdd9670409479e573c77ff077b3a030ccf98f1"
+        },
+        {
+          "original_member": "patched/competition/deepeye/simulation/authority/actor_composition.py",
+          "public_member": "historical-WIP-NOT-INSTALL/pre-rewrite/patched/competition/deepeye/simulation/authority/actor_composition.py",
+          "bytes": 35231,
+          "sha256": "dbed7ebd0a04b1f10b8ccef7a6d2b9c359723b9393dc5a85baf9f729f4aef2ce"
+        },
+        {
+          "original_member": "patched/competition/deepeye/simulation/authority/g05p_runtime_v1.py",
+          "public_member": "historical-WIP-NOT-INSTALL/pre-rewrite/patched/competition/deepeye/simulation/authority/g05p_runtime_v1.py",
+          "bytes": 16980,
+          "sha256": "2ed3d3fedf8fd964896456eae6a949c551471c729e2bbb540b6b41bb7be162d0"
+        },
+        {
+          "original_member": "patched/competition/deepeye/simulation/authority/motion_executor.py",
+          "public_member": "historical-WIP-NOT-INSTALL/pre-rewrite/patched/competition/deepeye/simulation/authority/motion_executor.py",
+          "bytes": 22101,
+          "sha256": "f3b7b222a2a527873d50a7734479470aea5d2a5cfc209e1f28de71e4f93b837a"
+        },
+        {
+          "original_member": "patched/competition/deepeye/simulation/authority/pc_direct_runtime.py",
+          "public_member": "historical-WIP-NOT-INSTALL/pre-rewrite/patched/competition/deepeye/simulation/authority/pc_direct_runtime.py",
+          "bytes": 26558,
+          "sha256": "b9d6e4022f2089bb359d37af9df80a395adc695d9010ed0c31398fa6a329ea21"
+        },
+        {
+          "original_member": "patched/competition/deepeye/simulation/isolation/actor_owner.py",
+          "public_member": "historical-WIP-NOT-INSTALL/pre-rewrite/patched/competition/deepeye/simulation/isolation/actor_owner.py",
+          "bytes": 38864,
+          "sha256": "37f17825615126b7b22480e347d38dc907caf5b178add212cfe6c238b8b3d7d3"
+        },
+        {
+          "original_member": "patched/competition/deepeye/tools/run_causal_functional_chain.py",
+          "public_member": "historical-WIP-NOT-INSTALL/pre-rewrite/patched/competition/deepeye/tools/run_causal_functional_chain.py",
+          "bytes": 26645,
+          "sha256": "2caa5372c9a7defb9fd8aba8c0cdc9f44196b102dd55b3cc7d505ca7bc5a5d5a"
+        },
+        {
+          "original_member": "build_patches.py",
+          "public_member": "historical-WIP-NOT-INSTALL/pre-rewrite/build_patches.py",
+          "bytes": 7002,
+          "sha256": "07774c8e6ff2154604ec60a3ac9a0a9e67da46bf425b9d1e1654c74c9ace29e3"
+        }
+      ],
+      "omitted_members": [
+        {
+          "original_member": "ownership.json",
+          "bytes": 994,
+          "sha256": "781dba1b2d80e101f2fea64b4ba512f1ca96c12cb75bc9199cb1a1221e4b369d",
+          "reason": "Unneeded full tree or private ownership metadata; original archive retained privately."
+        }
+      ]
+    }
+  ],
+  "independent_review": {
+    "derived_not_raw_command_record": true,
+    "record": {
+      "timeout_seconds": 30,
+      "started_utc": "2026-11-01T04:17:04.587771+00:00",
+      "exit_code": 0,
+      "stdout_sha256": "d2f79c2ef4443f4988d9ff7b1fe0029c9c318b37037c987306cf77b278a0305d",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "script_sha256": "75cd1f38fae240042f5d0d5bed4f7ef6dfad1e97c2f8dedd92b6634de8e95c48",
+      "module_sha256": "17e156a6f4297eb56bf0c3221ef2abb6ada7232907685cf70988db270a5ff508"
+    },
+    "original_command_record_sha256": "d2c432f7b3ee9bd83a8b7566c2a5e5dd5d38bb8a021344d8705bbba9129ee047",
+    "exact_public_logs": [
+      "independent-review/run01.stdout",
+      "independent-review/run01.stderr"
+    ]
+  }
+}
