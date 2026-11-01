@@ -1,0 +1,74 @@
+{
+  "task_id": "DEEPEYE-IMPLEMENTATION-20261014",
+  "task_version": 1,
+  "operation_id": "C-DEEPEYE-RAW4-OWNED-JOIN-20261101-51",
+  "contract_id": "DEEPEYE-HUMAN-LOCK-20261014",
+  "contract_revision": 1,
+  "contract_source": "f5989cd5defce561f9ba98e6b18fc2682945f0a2",
+  "requirements_sha256": "c229834bfc2292f5fe4411fc9f12c68487008f9d1adaf31f0144ee7a98173804",
+  "fixed_design": "1011259415a0916054eb580687612580bc1e5f09",
+  "source_A_commit": "0469345fd1eef2884de1417f0f4eb5b67688f84c",
+  "C50_head": "608c7b50d99e87ad5bb420953eecacc6aa97802f",
+  "source_approved": true,
+  "open_findings": [],
+  "R1_closed": true,
+  "approval_scope": "Bounded C-side raw4 owned transaction/invocation join and historical original-object retention source",
+  "shipping_sources": [
+    {
+      "path": "candidate/competition/deepeye/integration/candidate_mailbox.py",
+      "archive_path": "candidate/competition/deepeye/integration/candidate_mailbox.py",
+      "bytes": 24223,
+      "sha256": "7f3ff44f79c283c5ded4c071c3c59ac8c5ce15ad17eb0cdeaa22f1c79a88d631"
+    },
+    {
+      "path": "candidate/competition/deepeye/simulation/authority/actor_composition.py",
+      "archive_path": "candidate/competition/deepeye/simulation/authority/actor_composition.py",
+      "bytes": 36695,
+      "sha256": "d61b3772fed39c9fcdfc097bfc7fa595c5607e8d527d92901490bbba9b9fcda8"
+    },
+    {
+      "path": "candidate/competition/deepeye/simulation/authority/candidate_owner.py",
+      "archive_path": "candidate/competition/deepeye/simulation/authority/candidate_owner.py",
+      "bytes": 9100,
+      "sha256": "2ce7ae519ec7c5e0a590f64f5438407dbd0b0a9e7f78e73f4ae01f2bdd74473f"
+    },
+    {
+      "path": "candidate/competition/deepeye/simulation/authority/g05_mailbox_policy_v1.py",
+      "archive_path": "candidate/competition/deepeye/simulation/authority/g05_mailbox_policy_v1.py",
+      "bytes": 20416,
+      "sha256": "ecf80951a5c8130eeee74f1918f8d3ddb35c1e6b976cdd2881ba1ddab98405aa"
+    },
+    {
+      "path": "candidate/competition/deepeye/simulation/authority/g05p_runtime_v1.py",
+      "archive_path": "candidate/competition/deepeye/simulation/authority/g05p_runtime_v1.py",
+      "bytes": 31706,
+      "sha256": "1faf5f2f31ec4b29ebc956d1e3ab270dce498276a2241b1c86908b29614a03a3"
+    },
+    {
+      "path": "candidate/competition/deepeye/simulation/authority/owned_invocation_v1/adapter.py",
+      "archive_path": "candidate/competition/deepeye/simulation/authority/owned_invocation_v1/adapter.py",
+      "bytes": 21829,
+      "sha256": "09c825baeb053d40a506b603e83b4c7862b69ba70a72cb8937da5456ffa049a5"
+    },
+    {
+      "path": "candidate/competition/deepeye/simulation/authority/pc_direct_runtime.py",
+      "archive_path": "candidate/competition/deepeye/simulation/authority/pc_direct_runtime.py",
+      "bytes": 28679,
+      "sha256": "85e4f81faa5ecede39eca7c9535663b9f245e46eaac4a757fa988016caf16748"
+    },
+    {
+      "path": "candidate/competition/deepeye/simulation/authority/raw4_owned_join_v1.py",
+      "archive_path": "candidate/competition/deepeye/simulation/authority/raw4_owned_join_v1.py",
+      "bytes": 23828,
+      "sha256": "109d246f826d9484e278ae919042c1ce6e86d3eece7ca4f1ecdbbada71b1fd34"
+    }
+  ],
+  "initial_review_FINAL_sha256": "1a33a33a0aea03bcc2c478af2282cfeee4c84d656ec59c7b0413fd8cca1f82aa",
+  "repair_review_FINAL_sha256": "af42a4c58ce3576af47979108a221c6e603a53dbc2cfdbeb9a4cac391895c85a",
+  "repair_review_files_verified": 28,
+  "production_activation_approved": false,
+  "A_installation": "NOT_RUN",
+  "real_joined_lifecycle": "NOT_RUN",
+  "physical_board": "NOT_RUN",
+  "formal_H01_H15_acceptance": false
+}

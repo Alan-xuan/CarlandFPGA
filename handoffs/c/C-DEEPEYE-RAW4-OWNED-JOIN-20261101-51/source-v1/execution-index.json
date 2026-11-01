@@ -1,0 +1,30 @@
+{
+  "scope": "Version-specific synthetic software controls; no whole final-source suite or production claim",
+  "author_v1_exits": [
+    1,
+    1,
+    0,
+    0,
+    1,
+    0,
+    1,
+    0,
+    0
+  ],
+  "independent_v1": {
+    "new_controls": 1,
+    "exit_code": 1,
+    "finding": "C51-R1"
+  },
+  "repair_author_exits": [
+    1,
+    0,
+    0
+  ],
+  "independent_repair": {
+    "exact_original_replay_exit": 0,
+    "new_combined_duplicate_retention_exit": 0
+  },
+  "packaging": "Byte/archive/privacy-only checks; original packaging failures preserved separately, no product execution",
+  "actual_Root_native_core_model_PDE_board_runs": 0
+}
