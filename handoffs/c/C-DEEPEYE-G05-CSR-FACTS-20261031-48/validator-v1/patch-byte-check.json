@@ -1,0 +1,8 @@
+{
+  "predecessor_sha256": "814783f3770e1b63706a8e597244dbc30ad0ad0f606747aca6a490979b2f6454",
+  "expected_sha256": "925ca8ecb9fc4c719e1eb4558cb11346111f77f79b6a6f40a6dc905f5b772ef5",
+  "incremental_applied_sha256": "925ca8ecb9fc4c719e1eb4558cb11346111f77f79b6a6f40a6dc905f5b772ef5",
+  "full_replacement_applied_sha256": "925ca8ecb9fc4c719e1eb4558cb11346111f77f79b6a6f40a6dc905f5b772ef5",
+  "passed": true,
+  "source_execution": false
+}

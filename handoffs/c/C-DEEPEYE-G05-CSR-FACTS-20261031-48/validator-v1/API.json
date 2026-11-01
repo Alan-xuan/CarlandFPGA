@@ -1,0 +1,77 @@
+{
+  "module": "competition/deepeye/simulation/authority/g05_csr_bridge_v1.py",
+  "sha256": "925ca8ecb9fc4c719e1eb4558cb11346111f77f79b6a6f40a6dc905f5b772ef5",
+  "authority": "not_evaluated",
+  "sensor_origin": "not_established_by_csr",
+  "functions": {
+    "validate_transaction_v1": "facts_raw, *, policy_raw, expected_identity, expected_commands, stop_requested, host_qpc_interval, host_clock_domain",
+    "validate_session_v2": "facts_raw, *, policy_raw, expected_identity, expected_command, previous, host_qpc_interval, host_clock_domain"
+  },
+  "immutable_dataclasses": {
+    "IOReceipt": [
+      "index: int",
+      "started_raw: bytes",
+      "returned_raw: bytes"
+    ],
+    "CaptureCycles": [
+      "applied_tick: int",
+      "deadline_tick: int",
+      "result_tick: int",
+      "periods: tuple",
+      "highs: tuple",
+      "starts: tuple",
+      "ends: tuple",
+      "tick_unit: str = '50MHz_cycles'"
+    ],
+    "CaptureFacts": [
+      "status_before_latch: int",
+      "fault_before_latch: int",
+      "words32: tuple",
+      "status_before_snapshot: int",
+      "status_after_snapshot: int",
+      "result_seq: int",
+      "tick_unit: str = '50MHz_cycles'",
+      "cycles: object = None"
+    ],
+    "DetachedSessionState": [
+      "policy_raw: bytes",
+      "expected_identity: tuple",
+      "host_clock_domain: str",
+      "phase_raws: tuple",
+      "expected_commands: tuple",
+      "host_qpc_intervals: tuple"
+    ],
+    "DetachedFacts": [
+      "schema: str",
+      "kind: str",
+      "operation_id: str",
+      "policy_sha256: str",
+      "identity_words: tuple",
+      "accepted_commands: tuple",
+      "captures: tuple",
+      "status: object",
+      "fault: object",
+      "deadline_selected_lower_board_monotonic_ns: int",
+      "deadline_board_monotonic_ns: int",
+      "receipts: tuple",
+      "host_qpc_interval: tuple",
+      "host_clock_domain: str",
+      "state: str",
+      "facts_raw: bytes",
+      "policy_raw: bytes",
+      "phase_io_first: int",
+      "phase_io_last: int",
+      "next_state: object = None",
+      "authority: str = 'not_evaluated'",
+      "sensor_origin: str = 'not_established_by_csr'"
+    ]
+  },
+  "refusal": "Rejected; caller retains original bytes, unknown effects are not recovered",
+  "session_close_stop_intent": "Caller separately binds original request.stop; exact returned IO is validated here.",
+  "capture_clock_domains": {
+    "applied_tick/deadline_tick/result_tick": "original global uint64 50MHz cycles; applied<result<deadline",
+    "starts/ends": "original zero-extended rearm-local uint32; 0<start<end<=UINT32_MAX; end-start=period",
+    "periods/highs": "local durations uint32, 0<high<period",
+    "origin_conversion": "none; never compare local start/end to global timestamps or host/board nanoseconds"
+  }
+}

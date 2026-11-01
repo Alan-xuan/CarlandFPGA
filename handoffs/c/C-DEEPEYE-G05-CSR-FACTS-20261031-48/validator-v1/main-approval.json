@@ -1,0 +1,17 @@
+{
+  "source_approved": true,
+  "open_findings": [],
+  "module_sha256": "925ca8ecb9fc4c719e1eb4558cb11346111f77f79b6a6f40a6dc905f5b772ef5",
+  "author_FINAL_sha256": "e7ba201c641dd736b9f53fffcb5a0d2aa9c839977599cc1ac7b46341cc04a39a",
+  "independent_FINAL_sha256": "d5a76ecf1c3c9c2539843b456213901354c3a85694bdaf8920d77bb6ab5f0051",
+  "scope": "Bounded detached G05 CSR consistency only; no authority/provenance/performance/board qualification",
+  "main_review": "Read exact final module, minimal R1 diff and actual pinned engine domains; verified freeze/source/rawlog hashes and original task completion; independently confirmed R1 source cause",
+  "author_new_repair_controls": 13,
+  "independent_new_repair_controls": 2,
+  "original_R1_RED_preserved": true,
+  "physical_board": "NOT_RUN",
+  "formal_acceptance": false,
+  "full_private_review_sha256": "f411422cb92305e9e15b5191debb5847b7227f2f3d9ec9a3682d9bab651ea3de",
+  "private_audit_tool_error_sha256": "9298958ab0d2611d3ab8577071baf89dc5f1790195725f26ee41dd3ce27a0f0b",
+  "private_audit_error_reason": "CRLF patch-reader error; original private-path stderr retained privately, not altered or presented as product failure"
+}

@@ -1,0 +1,72 @@
+[
+  {
+    "path": "API.json",
+    "bytes": 2861,
+    "sha256": "08a840d67db2c22cd35c3366c996aad51bdcbb7e8f7072ad74d2272fe8752646"
+  },
+  {
+    "path": "competition/deepeye/simulation/authority/g05_csr_bridge_v1.py",
+    "bytes": 23874,
+    "sha256": "925ca8ecb9fc4c719e1eb4558cb11346111f77f79b6a6f40a6dc905f5b772ef5"
+  },
+  {
+    "path": "evidence-index.json",
+    "bytes": 11274,
+    "sha256": "a3f25c769ebd20832e656c7d84f6cf74a54a03ce0fc4d0857f010943045e8dc2"
+  },
+  {
+    "path": "evidence.zip",
+    "bytes": 442214,
+    "sha256": "10c242476886f98cb551cb2eff801a96c8577c8f2ab6152266fa64a52c5d47fa"
+  },
+  {
+    "path": "execution-index.json",
+    "bytes": 4129,
+    "sha256": "bfbf1a8664bc8fcb7ed150ac8586f807858d35e34d0388bebecbdc79926b4743"
+  },
+  {
+    "path": "main-approval.json",
+    "bytes": 1195,
+    "sha256": "60f49d70d2c3bf77c17d364d92eaea565ecb714c62060bebbac9a521d0ed8848"
+  },
+  {
+    "path": "PACKAGE-NOTE.md",
+    "bytes": 530,
+    "sha256": "9f5d6a25b14698078aa6139e776ebaeec4903b334dda37f09ddb4c3d33da5f05"
+  },
+  {
+    "path": "patch-byte-check.json",
+    "bytes": 444,
+    "sha256": "5ada021c5aa7c006d560fb0d9cc188540fb3e7e493669221024df1e29366ad98"
+  },
+  {
+    "path": "product.patch",
+    "bytes": 24755,
+    "sha256": "27a0e700d4fb5b6e7d5fd540c6c4fe5a70679d20d88e4c0e42eb5595d048d48d"
+  },
+  {
+    "path": "README.md",
+    "bytes": 13676,
+    "sha256": "fd5888dada4e1500e15f953a4fef3a720d27c783a257abe16b56c422ebc54f33"
+  },
+  {
+    "path": "repair.diff",
+    "bytes": 1490,
+    "sha256": "3b949659d10346f04004b5941fffd98dac1ca83576606269b66678fb9434461b"
+  },
+  {
+    "path": "REVIEW.md",
+    "bytes": 3994,
+    "sha256": "55ee195d6814e1cf66ebcb8a486cbcb46ebacbd2c24b134a3c602d10c2a06d48"
+  },
+  {
+    "path": "source-pins.json",
+    "bytes": 9922,
+    "sha256": "3e759ba18a078aabade036fb9d1d1331687942c76924fc64486fde340b89eed5"
+  },
+  {
+    "path": "verify_delivery.py",
+    "bytes": 932,
+    "sha256": "5983284b14bcd193e5e1b1a20587ab2527bd6a8f38659c3bc5c795363d4b9eff"
+  }
+]

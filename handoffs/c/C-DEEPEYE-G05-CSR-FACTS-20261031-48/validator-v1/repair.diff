@@ -1,0 +1,25 @@
+--- a/competition/deepeye/simulation/authority/g05_csr_bridge_v1.py
++++ b/competition/deepeye/simulation/authority/g05_csr_bridge_v1.py
+@@ -85,6 +85,10 @@
+ 
+ @dataclass(frozen=True,slots=True)
+ class CaptureCycles:
++    """Global64 applied/deadline/result; separate rearm-local32 starts/ends.
++
++    Both use 50MHz cycles, but their origins are not interchangeable.
++    """
+     applied_tick:int
+     deadline_tick:int
+     result_tick:int
+@@ -230,9 +234,10 @@
+     applied,deadline,result=(u64(i) for i in (6,8,10))
+     periods,highs=words[12:15],words[15:18]
+     starts,ends=tuple(u64(i) for i in (18,20,22)),tuple(u64(i) for i in (24,26,28))
++    _need(all(x<=0xffffffff for x in starts+ends),'local witness must be zero-extended uint32')
+     _need(applied<result<deadline,'nonwrapping capture lifetime cycles')
+     for period,high,start,end in zip(periods,highs,starts,ends):
+-        _need(0<high<period and applied<start<end<=result and end-start==period,'coherent measured cycle fields')
++        _need(0<high<period and 0<start<end and end-start==period,'coherent local measured cycle fields')
+     _need(max(starts)-min(starts)<=1 and max(ends)-min(ends)<=1,'three-channel capture join')
+     cycles=CaptureCycles(applied,deadline,result,periods,highs,starts,ends)
+     return CaptureFacts(value['status_before_latch'],value['fault_before_latch'],words,value['status_before_snapshot'],value['status_after_snapshot'],value['result_seq'],cycles=cycles)

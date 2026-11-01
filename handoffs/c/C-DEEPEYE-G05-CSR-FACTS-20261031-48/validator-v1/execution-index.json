@@ -1,0 +1,91 @@
+{
+  "derived_not_original_raw_commands": true,
+  "predecessor_six_runs": "predecessor-public/execution-index.json inside evidence.zip",
+  "runs": [
+    {
+      "argv": [
+        "python.exe",
+        "-I",
+        "-B",
+        "test_domain_repair.py"
+      ],
+      "timeout_seconds": 25,
+      "source_pins": {
+        "g05_csr_bridge_v1.py": "925ca8ecb9fc4c719e1eb4558cb11346111f77f79b6a6f40a6dc905f5b772ef5",
+        "test_domain_repair.py": "56d91133ce62642fd010308838cc0b4064d2089f3e52ff548de298441c0298ee"
+      },
+      "started_utc": "2026-11-01T04:10:01.025713+00:00",
+      "exit_code": 0,
+      "timed_out": false,
+      "ended_utc": "2026-11-01T04:10:01.542230+00:00",
+      "stdout_sha256": "209f602550e65a4f8b8d8acfa75044a524f073490ae9d65c8578ce11dc457c55",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "scope": "repair",
+      "original_record_sha256": "54febb8f86b1fdc30fce75876e795bb145f9b2eba01fb2ccfbd449e3b82e5cdc",
+      "representation": "DERIVED portable argv; original private record retained unchanged"
+    },
+    {
+      "argv": [
+        "python.exe",
+        "-I",
+        "-B",
+        "finish.py"
+      ],
+      "timeout_seconds": 25,
+      "source_pins": {
+        "g05_csr_bridge_v1.py": "925ca8ecb9fc4c719e1eb4558cb11346111f77f79b6a6f40a6dc905f5b772ef5",
+        "finish.py": "2ba74da988d60a40337816bbf9a11bb6e4c4363ee901f3da4a24ac0d9c811971"
+      },
+      "started_utc": "2026-11-01T04:10:53.195915+00:00",
+      "exit_code": 0,
+      "timed_out": false,
+      "ended_utc": "2026-11-01T04:10:53.504525+00:00",
+      "stdout_sha256": "7d206704ecf6792a506afdd0f689f1dad43398b1a376322a5a0f4438247f7093",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "scope": "repair",
+      "original_record_sha256": "e25f4ad5b8b7240c9cd5b09736f0853b1f804efae42a3682320c43d40b991c17",
+      "representation": "DERIVED portable argv; original private record retained unchanged"
+    },
+    {
+      "argv": [
+        "python.exe",
+        "-I",
+        "-B",
+        "local_witness_check.py",
+        "g05_csr_bridge_v1.py",
+        "run02-inputoutputs"
+      ],
+      "timeout_seconds": 30,
+      "started_utc": "2026-11-01T04:06:41.608498+00:00",
+      "exit_code": 1,
+      "stdout_sha256": "31ccf9d135fddc90f7ff74e3c3f9e0d1fcb5e60925de831f24624c99705d695a",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_sha256": "814783f3770e1b63706a8e597244dbc30ad0ad0f606747aca6a490979b2f6454",
+      "script_sha256": "95a4e476c2295890121af56992824946e7ba8b977942194bd00a4e148b19af39",
+      "fixture_sha256": "5947115515fd5f952235a47e33091d79bd274acc154c92e2b119066f59e62ba2",
+      "scope": "R1-red",
+      "original_record_sha256": "d663f54f9823c55b887bb5d131bcbed784821601402cd873073e766455bbb2e5",
+      "representation": "DERIVED portable argv; original private record retained unchanged"
+    }
+  ],
+  "excluded_executed_static_script": {
+    "path": "repair/versions/repair02/finish.py",
+    "sha256": "2ba74da988d60a40337816bbf9a11bb6e4c4363ee901f3da4a24ac0d9c811971",
+    "reason": "Contains private finalizer identity literals; only its exact hash and raw output are public."
+  },
+  "independent_repair": {
+    "derived_not_raw_command_record": true,
+    "record": {
+      "timeout_seconds": 30,
+      "started_utc": "2026-11-01T04:13:05.882927+00:00",
+      "exit_code": 0,
+      "stdout_sha256": "ae47ba07f795b1be1f73664ee45501d655a048b119e07b1de27713fe98fb9c0b",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "script_sha256": "f57854cb801ddfda6df7f4358aae2b284be3bd1f1c9638826aa8a42b5a2d3af1",
+      "module_sha256": "925ca8ecb9fc4c719e1eb4558cb11346111f77f79b6a6f40a6dc905f5b772ef5"
+    },
+    "original_command_record_sha256": "fb045f25c19377845376fad35d68264b3d7bee9fdf1b2966db318c91b7742d00",
+    "raw_stdout": "independent-repair/run01.stdout",
+    "raw_stderr": "independent-repair/run01.stderr"
+  }
+}

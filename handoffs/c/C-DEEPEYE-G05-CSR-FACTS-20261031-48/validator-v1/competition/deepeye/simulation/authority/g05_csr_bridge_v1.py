@@ -1,0 +1,389 @@
+"""Pure detached G05P CSR consistency checks; never source or motion authority.
+
+No IO, native module, producer import, clock sampling, or authority registration.
+The caller separately retains genuine Root/transport/source/clock provenance.
+"""
+from dataclasses import dataclass
+import hashlib
+import json
+import re
+import uuid
+
+A207_COMMIT='f65f31dfb73dd4a86fcd7b8824dd14dd75f1ee11'
+A207_SHA256='480ef6c485933db9766c2f6fab45df081b1b913a9005561b4f416ec303ebfbcf'
+SESSION_V2_SOURCE='0469345fd1eef2884de1417f0f4eb5b67688f84c'
+SESSION_V2_SHA256='646d0b8e65d6aaf8c527fba83f61a996124a5f448c488d4e2f98bf6a1bc8215d'
+LAYOUT32_SHA256='99cdb09399466966458343351d0d941191f34cc9af6f9808c5fb3cc58086ea5a'
+MAX_FACT_BYTES=1_048_576
+MAX_IO=2048
+MAX_U63=(1<<63)-1
+MAGIC=0x47303550
+_ROM=((0,128234,512938,1154111,2051753,3205865,4616446,6283496,8207015,10387004,12823462,15516389,18465785,21671651,25133986,28852790,32828063,37059806,41548017,46292698,51293849),
+      (0,8,32,73,131,205,295,402,525,664,820,993,1181,1386,1608,1846,2100,2371,2659,2962,3282))
+_LIMITS={'begin':1,'commit':16,'stop':1,'latch':16,'release':16,'total_io':2048}
+
+class Rejected(ValueError):pass
+
+def _need(ok,why):
+    if not ok:raise Rejected(why)
+
+def _uint(value,maximum=MAX_U63,minimum=0):
+    _need(type(value) is int and minimum<=value<=maximum,'strict integer range')
+    return value
+
+def _keys(value,keys):
+    _need(type(value) is dict and set(value)==set(keys),'exact fields required')
+    return value
+
+def _pairs(items):
+    result={}
+    for key,value in items:
+        _need(key not in result,'duplicate JSON key');result[key]=value
+    return result
+
+def _json(raw,limit=MAX_FACT_BYTES):
+    _need(type(raw) is bytes and 0<len(raw)<=limit,'bounded original JSON bytes required')
+    try:
+        value=json.loads(raw.decode('utf-8'),object_pairs_hook=_pairs,
+            parse_constant=lambda _: (_ for _ in ()).throw(Rejected('nonfinite JSON')))
+    except (UnicodeError,ValueError,RecursionError) as exc:
+        raise Rejected('invalid strict JSON') from exc
+    # Fixed schemas below bound depth and node count; no permissive extension map.
+    return value
+
+def _raw(value):return json.dumps(value,sort_keys=True,separators=(',',':'),ensure_ascii=False,allow_nan=False).encode('utf-8')
+
+def _words(value,count,*,sequence_type=tuple):
+    _need(type(value) is sequence_type and len(value)==count,'exact word count/type')
+    return tuple(_uint(x,0xffffffff) for x in value)
+
+def _identity(value,*,sequence_type=tuple):
+    words=_words(value,13,sequence_type=sequence_type)
+    _need(any(words[:8]) and any(words[8:12]) and words[12]!=0,'nonzero run/nonce/numeric session')
+    return words
+
+def _command(value,previous=0,profile=None):
+    words=_words(value,7);y,p,pr,speed,ttl,seq,tag=words
+    _need(y<=65535 and p<=65535 and pr in (1,2) and speed<=20 and 1<=ttl<=(3000 if pr==1 else 12000),'command encoding')
+    y=y if y<32768 else y-65536;p=p if p<32768 else p-65536
+    _need(-15000<=y<=15000 and -15000<=p<=15000 and (speed!=0 or (y==0 and p==0)),'target bounds')
+    _need(y*y+p*p<=_ROM[pr-1][speed] and seq>previous and (profile is None or pr==profile),'command ROM/sequence/profile')
+    return words
+
+def _host(interval,domain,previous=None):
+    _need(type(interval) is tuple and len(interval)==2,'host enclosing interval tuple')
+    lower,upper=(_uint(x) for x in interval);_need(lower<=upper,'reversed host interval')
+    _need(type(domain) is str and 1<=len(domain)<=128 and re.fullmatch('[A-Za-z0-9_.:/-]+',domain),'explicit host clock-domain label')
+    if previous is not None:_need(lower>=previous[1],'host phases out of order')
+    return lower,upper
+
+@dataclass(frozen=True,slots=True)
+class IOReceipt:
+    index:int
+    started_raw:bytes
+    returned_raw:bytes
+
+@dataclass(frozen=True,slots=True)
+class CaptureCycles:
+    """Global64 applied/deadline/result; separate rearm-local32 starts/ends.
+
+    Both use 50MHz cycles, but their origins are not interchangeable.
+    """
+    applied_tick:int
+    deadline_tick:int
+    result_tick:int
+    periods:tuple
+    highs:tuple
+    starts:tuple
+    ends:tuple
+    tick_unit:str='50MHz_cycles'
+
+@dataclass(frozen=True,slots=True)
+class CaptureFacts:
+    status_before_latch:int
+    fault_before_latch:int
+    words32:tuple
+    status_before_snapshot:int
+    status_after_snapshot:int
+    result_seq:int
+    tick_unit:str='50MHz_cycles'
+    cycles:object=None
+
+@dataclass(frozen=True,slots=True)
+class DetachedSessionState:
+    policy_raw:bytes
+    expected_identity:tuple
+    host_clock_domain:str
+    phase_raws:tuple
+    expected_commands:tuple
+    host_qpc_intervals:tuple
+
+@dataclass(frozen=True,slots=True)
+class DetachedFacts:
+    schema:str
+    kind:str
+    operation_id:str
+    policy_sha256:str
+    identity_words:tuple
+    accepted_commands:tuple
+    captures:tuple
+    status:object
+    fault:object
+    deadline_selected_lower_board_monotonic_ns:int
+    deadline_board_monotonic_ns:int
+    receipts:tuple
+    host_qpc_interval:tuple
+    host_clock_domain:str
+    state:str
+    facts_raw:bytes
+    policy_raw:bytes
+    phase_io_first:int
+    phase_io_last:int
+    next_state:object=None
+    authority:str='not_evaluated'
+    sensor_origin:str='not_established_by_csr'
+
+def _policy(raw):
+    p=_keys(_json(raw,131072),('binding','limits','policy_sha256'))
+    b=_keys(p['binding'],('operation_id','request_sha256','boot_id','source_commit','build_id'))
+    for k,v in b.items():_need(type(v) is str and 0<len(v)<=256,'bounded exact policy binding strings')
+    _need(re.fullmatch('[A-Za-z0-9_-]{1,80}',b['operation_id']) is not None,'original operation label')
+    _need(re.fullmatch('[0-9a-f]{32}',b['build_id']) is not None and int(b['build_id'],16)!=0,'original build identity')
+    try:_need(str(uuid.UUID(b['boot_id']))==b['boot_id'],'canonical original board boot UUID')
+    except (ValueError,AttributeError) as exc:raise Rejected('original board boot UUID') from exc
+    _need(re.fullmatch('[0-9a-f]{64}',b['request_sha256']) is not None and re.fullmatch('[0-9a-f]{40}',b['source_commit']) is not None,'full policy source/request digest')
+    limits=_keys(p['limits'],_LIMITS)
+    for k,maxval in _LIMITS.items():_uint(limits[k],maxval,1 if k=='total_io' else 0)
+    _need(type(p['policy_sha256']) is str and hashlib.sha256(_raw(dict(binding=b,limits=limits))).hexdigest()==p['policy_sha256'],'exact original policy digest')
+    return p
+
+def _receipts(items,limit):
+    _need(type(items) is list and 4<=len(items)<=limit,'complete bounded cumulative IO required')
+    receipts=[];parsed=[];pid=None;end=0;seen=set();last_id=None
+    for index,item in enumerate(items,1):
+        _keys(item,('index','started_raw_hex','returned_raw_hex'));_need(type(item['index']) is int and item['index']==index,'contiguous IO index from one')
+        raw=[]
+        for key in ('started_raw_hex','returned_raw_hex'):
+            text=item[key];_need(type(text) is str and 0<len(text)<=8192 and len(text)%2==0 and re.fullmatch('[0-9a-f]+',text) is not None,'exact bounded receipt hex')
+            raw.append(bytes.fromhex(text))
+        s=_keys(_json(raw[0],4096),('request_id','io','kind','offset','value','pid','monotonic_ns'))
+        r=_keys(_json(raw[1],4096),('request_id','io','kind','value','monotonic_ns'))
+        _need(type(s['io']) is int and type(r['io']) is int and s['io']==r['io']==index,'original IO index')
+        rid=s['request_id'];_need(type(rid) is str and re.fullmatch('[A-Za-z0-9_-]{1,64}',rid) is not None and r['request_id']==rid,'original request identity')
+        if rid!=last_id:_need(rid not in seen,'replayed noncontiguous request ID');seen.add(rid);last_id=rid
+        _need(s['kind'] in ('read','write') and r['kind']==s['kind'],'operation kind')
+        _uint(s['offset'],0x37c);_need(s['offset']%4==0,'CSR alignment')
+        if s['kind']=='read':_need(s['value'] is None,'read intent value');_uint(r['value'],0xffffffff)
+        else:_uint(s['value'],0xffffffff);_need(r['value'] is None,'write return must be null')
+        actualpid=_uint(s['pid'],0xffffffff,1)
+        if pid is None:pid=actualpid
+        _need(pid==actualpid,'original PID changed')
+        lower,upper=_uint(s['monotonic_ns']),_uint(r['monotonic_ns'])
+        _need(end<=lower<=upper,'reversed/overlapping original IO time');end=upper
+        receipts.append(IOReceipt(index,*raw));parsed.append((s,r))
+    return tuple(receipts),parsed
+
+class _Cursor:
+    def __init__(self,parsed,*,first=0,last=None,selected=0,deadline=MAX_U63):
+        self.rows=parsed;self.at=first;self.last=len(parsed) if last is None else last
+        self.selected=selected;self.deadline=deadline;self.quotas={k:0 for k in _LIMITS};self.polls=0
+    def group(self,ops):
+        _need(self.at+len(ops)<=self.last,'missing original IO group')
+        rid=self.rows[self.at][0]['request_id'];values=[]
+        if self.at:_need(self.rows[self.at-1][0]['request_id']!=rid,'phase/method splits original request')
+        for kind,offset,expected in ops:
+            s,r=self.rows[self.at];self.at+=1
+            _need(s['request_id']==rid and s['kind']==kind and s['offset']==offset,'exact method IO order')
+            _need(self.selected<=s['monotonic_ns']<self.deadline,'effect intent outside selected board deadline')
+            value=r['value'] if kind=='read' else s['value']
+            if expected is not None:_need(value==expected and type(value) is type(expected),'original word differs from selected/readback word')
+            if kind=='write' and offset==12:
+                name={1:'begin',2:'commit',3:'stop',4:'latch',5:'release'}.get(value)
+                _need(name is not None,'unknown control');self.quotas[name]+=1
+            values.append(value)
+        if self.at<self.last:_need(self.rows[self.at][0]['request_id']!=rid,'unexpected extra IO in method')
+        return values
+    def read(self,offset,expected=None):return self.group([('read',offset,expected)])[0]
+    def done(self):_need(self.at==self.last,'unconsumed/replayed/extra IO')
+
+def _status(status,fault,mode):
+    _uint(status,0x7f);_need(type(fault) is int and fault==0,'original fault')
+    if mode=='new':_need(status==0,'original unbound status')
+    elif mode=='bound':_need(status&1 and not status&2,'original live bound status')
+    elif mode=='latched':_need(status&0x21==0x21 and not status&2,'original live latch status')
+    else:raise Rejected('status mode')
+
+def _factory(c):
+    _need([c.rows[i][0]['request_id'] for i in range(4)]==['factory-magic','factory-layout','factory-status','factory-status'],'exact original factory prefix')
+    c.read(0,MAGIC);c.read(4,2);s,f=c.group([('read',8,None),('read',16,None)]);_status(s,f,'new')
+
+def _init(c,identity):
+    out=c.group([('read',8,None),('read',16,None)]+[('write',0x100+4*i,x) for i,x in enumerate(identity)])
+    _status(out[0],out[1],'new')
+    out=c.group([('read',8,None),('read',16,None),('write',12,1),('read',8,None),('read',16,None)])
+    _status(out[0],out[1],'new');_status(out[3],out[4],'bound')
+    for i,x in enumerate(identity):c.read(0x100+4*i,x)
+    return out[3],out[4]
+
+def _capture(value):
+    _keys(value,('status_before_latch','fault_before_latch','words32','status_before_snapshot','status_after_snapshot','result_seq','tick_unit'))
+    words=_words(value['words32'],32,sequence_type=list)
+    for k in ('status_before_latch','fault_before_latch','status_before_snapshot','status_after_snapshot','result_seq'):_uint(value[k],0xffffffff)
+    _need(value['tick_unit']=='50MHz_cycles','explicit board cycle domain')
+    u64=lambda i:words[i]|(words[i+1]<<32)
+    applied,deadline,result=(u64(i) for i in (6,8,10))
+    periods,highs=words[12:15],words[15:18]
+    starts,ends=tuple(u64(i) for i in (18,20,22)),tuple(u64(i) for i in (24,26,28))
+    _need(all(x<=0xffffffff for x in starts+ends),'local witness must be zero-extended uint32')
+    _need(applied<result<deadline,'nonwrapping capture lifetime cycles')
+    for period,high,start,end in zip(periods,highs,starts,ends):
+        _need(0<high<period and 0<start<end and end-start==period,'coherent local measured cycle fields')
+    _need(max(starts)-min(starts)<=1 and max(ends)-min(ends)<=1,'three-channel capture join')
+    cycles=CaptureCycles(applied,deadline,result,periods,highs,starts,ends)
+    return CaptureFacts(value['status_before_latch'],value['fault_before_latch'],words,value['status_before_snapshot'],value['status_after_snapshot'],value['result_seq'],cycles=cycles)
+
+def _apply(c,cmd,cap,identity,max_polls):
+    out=c.group([('read',8,None),('read',16,None)]+[('write',0x200+4*i,x) for i,x in enumerate(cmd)])
+    _status(out[0],out[1],'bound');_need(not out[0]&0x68,'stage pending/inflight/latch')
+    out=c.group([('read',8,None),('read',16,None),('write',12,2),('read',20,cmd[5]),('read',8,None),('read',16,None)])
+    _status(out[0],out[1],'bound');_need(not out[0]&0x68,'commit pending/inflight/latch');_status(out[4],out[5],'bound')
+    while True:
+        _need(c.polls<max_polls,'global poll budget');c.polls+=1
+        status=c.read(8);fault=c.read(16);_status(status,fault,'bound')
+        if status&0x10:break
+    _need(status==cap.status_before_latch and fault==cap.fault_before_latch,'pre-latch facts mismatch')
+    out=c.group([('read',8,None),('read',16,None),('write',12,4),('read',8,None),('read',16,None)])
+    _status(out[0],out[1],'bound');_need(out[0]&0x10 and not out[0]&0x20,'ineligible original latch');_status(out[3],out[4],'latched')
+    out=c.group([('read',8,None),('read',16,None),('read',28,None)]+[('read',0x300+4*i,x) for i,x in enumerate(cap.words32)]+[('read',28,None),('read',8,None),('read',16,None)])
+    _status(out[0],out[1],'latched');_status(out[36],out[37],'latched')
+    _need(out[0]==cap.status_before_snapshot and out[36]==cap.status_after_snapshot,'snapshot status facts mismatch')
+    w=cap.words32
+    _need(w[0]==out[2]==out[35]==cap.result_seq and w[1]==cmd[5] and w[2]==cmd[6] and w[30]==identity[12] and w[31]==MAGIC,'torn capture/command/tag/session/magic')
+    _need(w[3]==(cmd[3]<<8)|cmd[2] and w[4]==(cmd[1]<<16)|cmd[0] and w[5]==cmd[4],'latched submitted target metadata')
+    out=c.group([('read',8,None),('read',16,None),('write',12,5),('read',8,None),('read',16,None)])
+    _status(out[0],out[1],'latched');_status(out[3],out[4],'bound');_need(not out[3]&0x20,'release unobserved')
+    return out[3],out[4]
+
+def _common(doc,policy,identity,interval,domain):
+    _need(doc['operation_id']==policy['binding']['operation_id'] and doc['policy_sha256']==policy['policy_sha256'] and doc['authority']=='not_evaluated','operation/policy/non-authority binding')
+    _need(_identity(doc['identity_words'],sequence_type=list)==identity,'all thirteen identity words')
+    lower=_uint(doc['deadline_selected_lower_board_monotonic_ns']);deadline=_uint(doc['deadline_board_monotonic_ns'])
+    _need(lower<deadline and deadline-lower<=10_000_000_000,'original finite board deadline')
+    receipts,parsed=_receipts(doc['receipts'],policy['limits']['total_io'])
+    _need(parsed[3][1]['monotonic_ns']<=lower,'factory completed after selected deadline origin')
+    return lower,deadline,receipts,parsed
+
+def validate_transaction_v1(facts_raw,*,policy_raw,expected_identity,expected_commands,stop_requested,host_qpc_interval,host_clock_domain):
+    """Validate exact published A207/A210 result JSON; returned facts are detached."""
+    p=_policy(policy_raw);identity=_identity(expected_identity);_host(host_qpc_interval,host_clock_domain)
+    doc=_keys(_json(facts_raw),('schema','operation_id','policy_sha256','identity_words','captures','deadline_selected_lower_board_monotonic_ns','deadline_board_monotonic_ns','stop_status','stop_fault','receipts','authority'))
+    _need(doc['schema']=='g05_csr_transaction_v1' and type(stop_requested) is bool,'explicit transaction/STOP selection')
+    _need(type(expected_commands) is tuple and 1<=len(expected_commands)<=16,'A207 selected finite commands')
+    last=0;profile=None
+    for cmd in expected_commands:_command(cmd,last,profile);last,profile=cmd[5],cmd[2]
+    _need(type(doc['captures']) is list and len(doc['captures'])==len(expected_commands),'one capture per selected command')
+    caps=tuple(_capture(x) for x in doc['captures'])
+    lower,deadline,receipts,parsed=_common(doc,p,identity,host_qpc_interval,host_clock_domain)
+    c=_Cursor(parsed,last=4);_factory(c);c.done()
+    c=_Cursor(parsed,first=4,selected=lower,deadline=deadline);status,fault=_init(c,identity)
+    last_result=0
+    for cmd,cap in zip(expected_commands,caps):
+        _need(cap.result_seq>last_result,'capture result replay');last_result=cap.result_seq
+        status,fault=_apply(c,cmd,cap,identity,1024)
+    if stop_requested:
+        c.group([('write',12,3)]);status=c.read(8);fault=c.read(16)
+        _need(type(doc['stop_status']) is int and type(doc['stop_fault']) is int and (status,fault)==(doc['stop_status'],doc['stop_fault']),'actual STOP status/fault facts')
+    else:_need(doc['stop_status'] is None and doc['stop_fault'] is None,'unrequested STOP facts')
+    c.done()
+    for k,v in c.quotas.items():_need(v<=p['limits'][k],'policy quota')
+    return DetachedFacts(doc['schema'],'transaction',doc['operation_id'],doc['policy_sha256'],identity,expected_commands,caps,status,fault,lower,deadline,receipts,host_qpc_interval,host_clock_domain,'TRANSACTION_COMPLETE',facts_raw,policy_raw,1,len(receipts))
+
+_SESSION_KEYS=('schema','kind','operation_id','policy_sha256','identity_words','capture',
+    'deadline_selected_lower_board_monotonic_ns','deadline_board_monotonic_ns',
+    'phase_io_first','phase_io_last','status','fault','receipts','unresolved_receipts','state','authority')
+
+def _read_identity(c,identity):
+    for i,word in enumerate(identity):c.read(0x100+4*i,word)
+
+def _live(c):
+    status,fault=c.read(8),c.read(16);_status(status,fault,'bound');return status,fault
+
+def validate_session_v2(facts_raw,*,policy_raw,expected_identity,expected_command,
+                        previous,host_qpc_interval,host_clock_domain):
+    """Exact A216/A218 COMPLETE session facts. Unknown/failed close is refusal.
+
+    Previous state is detached history, not a one-use owner token. Every supplied
+    history phase is revalidated; actual consumption belongs to Root's ledger.
+    """
+    policy=_policy(policy_raw);identity=_identity(expected_identity)
+    _host(host_qpc_interval,host_clock_domain)
+    if previous is None:
+        raws=();commands=();intervals=()
+    else:
+        _need(type(previous) is DetachedSessionState,'exact detached previous state')
+        _need(previous.policy_raw==policy_raw and previous.expected_identity==identity and previous.host_clock_domain==host_clock_domain,'immutable original session selection/domain')
+        raws,commands,intervals=previous.phase_raws,previous.expected_commands,previous.host_qpc_intervals
+        _need(all(type(x) is tuple for x in (raws,commands,intervals)) and len(raws)==len(commands)==len(intervals) and 1<=len(raws)<68,'bounded complete detached history')
+    raws=raws+(facts_raw,);commands=commands+(expected_command,);intervals=intervals+(host_qpc_interval,)
+    _need(sum(len(x) for x in raws if type(x) is bytes)<=68*MAX_FACT_BYTES and all(type(x) is bytes for x in raws),'bounded original history bytes')
+    prefix=();accepted=[];captures=[];deadline_pair=None;closed=False;last_host=None;last_result=0
+    for ordinal,(wire,cmd,host) in enumerate(zip(raws,commands,intervals)):
+        _host(host,host_clock_domain,last_host);last_host=host
+        _need(not closed,'closed session cannot resume')
+        doc=_keys(_json(wire),_SESSION_KEYS)
+        _need(doc['schema']=='g05_csr_session_v2' and doc['kind'] in ('init','apply','status','close'),'exact original session phase')
+        # Unresolved means the original producer cannot establish a completed
+        # effect. Preserve caller bytes in the caller's ledger; never turn this
+        # software CLOSED_AFTER_FAILURE into STOP or usable health.
+        _need(type(doc['unresolved_receipts']) is list,'original unresolved list')
+        _need(doc['state']!='CLOSED_AFTER_FAILURE' and not doc['unresolved_receipts'],'unresolved original effects: terminal refusal')
+        _need(doc['state']==('CLOSED' if doc['kind']=='close' else 'ACTIVE'),'exact session state')
+        lower,deadline,receipts,parsed=_common(doc,policy,identity,host,host_clock_domain)
+        _need(len(receipts)<=450 and all(len(r.started_raw)<=512 and len(r.returned_raw)<=512 for r in receipts),'actual A218 receipt limits')
+        if deadline_pair is None:deadline_pair=(lower,deadline)
+        _need(deadline_pair==(lower,deadline),'session deadline renewal')
+        _need(len(receipts)>=len(prefix) and receipts[:len(prefix)]==prefix,'cumulative original prefix bytes changed')
+        kind=doc['kind'];first,last=doc['phase_io_first'],doc['phase_io_last']
+        if ordinal==0:
+            _need(kind=='init' and cmd is None,'init before any command')
+            f=_Cursor(parsed,last=4);_factory(f);f.done();before=4
+        else:_need(kind!='init','init replay');before=len(prefix)
+        if len(receipts)==before:
+            _need(kind=='close' and first is None and last is None,'only explicit close has zero IO/null bounds')
+        else:
+            _need(type(first) is int and type(last) is int and first==before+1 and last==len(receipts),'exact phase IO bounds')
+        c=_Cursor(parsed,first=before,selected=lower,deadline=deadline)
+        if kind=='init':
+            _need(doc['capture'] is None,'init cannot claim capture');_init(c,identity);status,fault=_live(c)
+        elif kind=='apply':
+            _need(len(accepted)<2 and cmd is not None,'two selected original commands maximum')
+            _command(cmd,accepted[-1][5] if accepted else 0,accepted[-1][2] if accepted else None)
+            cap=_capture(doc['capture']);_need(cap.result_seq>last_result,'result sequence replay')
+            if captures:_need(cap.cycles.applied_tick>captures[-1].cycles.result_tick,'capture cycles moved backwards')
+            _read_identity(c,identity);_apply(c,cmd,cap,identity,64)
+            status,fault=cap.status_before_latch,cap.fault_before_latch
+            accepted.append(cmd);captures.append(cap);last_result=cap.result_seq
+        elif kind=='status':
+            _need(cmd is None and doc['capture'] is None,'status carries no command/capture')
+            _read_identity(c,identity);status,fault=_live(c)
+        else:
+            _need(cmd is None and doc['capture'] is None,'close carries no command/capture')
+            if len(receipts)>before:
+                c.group([('write',12,3)]);status,fault=c.read(8),c.read(16)
+            else:status=fault=None
+            closed=True
+        _need(doc['status']==status and type(doc['status']) is type(status) and doc['fault']==fault and type(doc['fault']) is type(fault),'original phase status/fault differs')
+        c.done()
+        # A216 counts every status read, including hidden high-level reads;
+        # initial factory status is outside the session's 64-read budget.
+        _need(sum(s['kind']=='read' and s['offset']==8 for s,r in parsed[4:])<=64,'global original status-read budget')
+        controls={k:0 for k in _LIMITS}
+        for s,r in parsed[4:]:
+            if s['kind']=='write' and s['offset']==12:
+                key={1:'begin',2:'commit',3:'stop',4:'latch',5:'release'}[s['value']];controls[key]+=1
+        for key,count in controls.items():_need(count<=policy['limits'][key],'cumulative policy quota')
+        prefix=receipts
+    state=DetachedSessionState(policy_raw,identity,host_clock_domain,raws,commands,intervals)
+    return DetachedFacts(doc['schema'],kind,doc['operation_id'],doc['policy_sha256'],identity,
+        tuple(accepted),tuple(captures),status,fault,lower,deadline,receipts,
+        host_qpc_interval,host_clock_domain,doc['state'],facts_raw,policy_raw,first,last,state)
