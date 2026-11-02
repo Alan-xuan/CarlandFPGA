@@ -1,0 +1,269 @@
+{
+  "artifacts": [
+    "handoffs/c/C-A86C-NAVV3-MOUSE-LAYOUT-20261103-v1/source-v1/artifact-index.json",
+    "handoffs/c/C-A86C-NAVV3-MOUSE-LAYOUT-20261103-v1/source-v1/chain/collect-v2.command.json",
+    "handoffs/c/C-A86C-NAVV3-MOUSE-LAYOUT-20261103-v1/source-v1/chain/collect-v2.exit.json",
+    "handoffs/c/C-A86C-NAVV3-MOUSE-LAYOUT-20261103-v1/source-v1/chain/collect-v2.stderr",
+    "handoffs/c/C-A86C-NAVV3-MOUSE-LAYOUT-20261103-v1/source-v1/chain/collect-v2.stdout",
+    "handoffs/c/C-A86C-NAVV3-MOUSE-LAYOUT-20261103-v1/source-v1/chain/collect.command.json",
+    "handoffs/c/C-A86C-NAVV3-MOUSE-LAYOUT-20261103-v1/source-v1/chain/collect.exit.json",
+    "handoffs/c/C-A86C-NAVV3-MOUSE-LAYOUT-20261103-v1/source-v1/chain/collect.stderr",
+    "handoffs/c/C-A86C-NAVV3-MOUSE-LAYOUT-20261103-v1/source-v1/chain/collect.stdout",
+    "handoffs/c/C-A86C-NAVV3-MOUSE-LAYOUT-20261103-v1/source-v1/chain/collect_static.py",
+    "handoffs/c/C-A86C-NAVV3-MOUSE-LAYOUT-20261103-v1/source-v1/chain/collect_static_v2.py",
+    "handoffs/c/C-A86C-NAVV3-MOUSE-LAYOUT-20261103-v1/source-v1/chain/contract-verification.json",
+    "handoffs/c/C-A86C-NAVV3-MOUSE-LAYOUT-20261103-v1/source-v1/chain/logical-and-package-pins.json",
+    "handoffs/c/C-A86C-NAVV3-MOUSE-LAYOUT-20261103-v1/source-v1/chain/NEW-CPU-VECTORS.json",
+    "handoffs/c/C-A86C-NAVV3-MOUSE-LAYOUT-20261103-v1/source-v1/chain/REVIEW.md",
+    "handoffs/c/C-A86C-NAVV3-MOUSE-LAYOUT-20261103-v1/source-v1/chain/source-pins.json",
+    "handoffs/c/C-A86C-NAVV3-MOUSE-LAYOUT-20261103-v1/source-v1/geometry/geometry-results.json",
+    "handoffs/c/C-A86C-NAVV3-MOUSE-LAYOUT-20261103-v1/source-v1/geometry/geometry_fixture.py",
+    "handoffs/c/C-A86C-NAVV3-MOUSE-LAYOUT-20261103-v1/source-v1/geometry/layout-software-fixture.json",
+    "handoffs/c/C-A86C-NAVV3-MOUSE-LAYOUT-20261103-v1/source-v1/geometry/parameters.json",
+    "handoffs/c/C-A86C-NAVV3-MOUSE-LAYOUT-20261103-v1/source-v1/geometry/REVIEW.md",
+    "handoffs/c/C-A86C-NAVV3-MOUSE-LAYOUT-20261103-v1/source-v1/geometry/run01.command.json",
+    "handoffs/c/C-A86C-NAVV3-MOUSE-LAYOUT-20261103-v1/source-v1/geometry/run01.stderr",
+    "handoffs/c/C-A86C-NAVV3-MOUSE-LAYOUT-20261103-v1/source-v1/geometry/run01.stdout",
+    "handoffs/c/C-A86C-NAVV3-MOUSE-LAYOUT-20261103-v1/source-v1/geometry/run_fixture.py",
+    "handoffs/c/C-A86C-NAVV3-MOUSE-LAYOUT-20261103-v1/source-v1/geometry/source-pins.json",
+    "handoffs/c/C-A86C-NAVV3-MOUSE-LAYOUT-20261103-v1/source-v1/independent/FINDINGS.json",
+    "handoffs/c/C-A86C-NAVV3-MOUSE-LAYOUT-20261103-v1/source-v1/independent/geometry-evidence-audit.json",
+    "handoffs/c/C-A86C-NAVV3-MOUSE-LAYOUT-20261103-v1/source-v1/independent/GEOMETRY-REVIEW.md",
+    "handoffs/c/C-A86C-NAVV3-MOUSE-LAYOUT-20261103-v1/source-v1/independent/nav-evidence-audit.json",
+    "handoffs/c/C-A86C-NAVV3-MOUSE-LAYOUT-20261103-v1/source-v1/independent/REVIEW.md",
+    "handoffs/c/C-A86C-NAVV3-MOUSE-LAYOUT-20261103-v1/source-v1/independent/source-pins.json",
+    "handoffs/c/C-A86C-NAVV3-MOUSE-LAYOUT-20261103-v1/source-v1/independent/verification-result.json",
+    "handoffs/c/C-A86C-NAVV3-MOUSE-LAYOUT-20261103-v1/source-v1/main/delivery-review.json",
+    "handoffs/c/C-A86C-NAVV3-MOUSE-LAYOUT-20261103-v1/source-v1/main/source-identities.json",
+    "handoffs/c/C-A86C-NAVV3-MOUSE-LAYOUT-20261103-v1/source-v1/main/ui-availability.json",
+    "handoffs/c/C-A86C-NAVV3-MOUSE-LAYOUT-20261103-v1/source-v1/README.md",
+    "handoffs/c/C-A86C-NAVV3-MOUSE-LAYOUT-20261103-v1/source-v1/verify.command.json",
+    "handoffs/c/C-A86C-NAVV3-MOUSE-LAYOUT-20261103-v1/source-v1/verify.stderr.txt",
+    "handoffs/c/C-A86C-NAVV3-MOUSE-LAYOUT-20261103-v1/source-v1/verify.stdout.txt",
+    "handoffs/c/C-A86C-NAVV3-MOUSE-LAYOUT-20261103-v1/source-v1/verify_delivery.py"
+  ],
+  "files": {
+    "handoffs/c/C-A86C-NAVV3-MOUSE-LAYOUT-20261103-v1/source-v1/README.md": {
+      "sha256": "404d25b6e4b2d6e99ec4d5053e8b71663060d886577e4d2c95dbc9438beebfbe",
+      "size": 7069
+    },
+    "handoffs/c/C-A86C-NAVV3-MOUSE-LAYOUT-20261103-v1/source-v1/artifact-index.json": {
+      "sha256": "c1c71dce9bbe91f6f3bae99cd7cab0f296d9210671e7ec98548b32c6e63ee6b3",
+      "size": 6327
+    },
+    "handoffs/c/C-A86C-NAVV3-MOUSE-LAYOUT-20261103-v1/source-v1/chain/NEW-CPU-VECTORS.json": {
+      "sha256": "59177d0099193a315c5d70ccbb0d13e6d1ee12785a8155212f7ef801f713f1ea",
+      "size": 4567
+    },
+    "handoffs/c/C-A86C-NAVV3-MOUSE-LAYOUT-20261103-v1/source-v1/chain/REVIEW.md": {
+      "sha256": "aac5dba868a0fd1e9c966536602e03010948b57b9a7be17431fb439ac3f71efb",
+      "size": 16706
+    },
+    "handoffs/c/C-A86C-NAVV3-MOUSE-LAYOUT-20261103-v1/source-v1/chain/collect-v2.command.json": {
+      "sha256": "b73046c284296edac9fe39ef0a9ffc649486d668de913cb42118807520fd966d",
+      "size": 380
+    },
+    "handoffs/c/C-A86C-NAVV3-MOUSE-LAYOUT-20261103-v1/source-v1/chain/collect-v2.exit.json": {
+      "sha256": "75876e0e3f497cad271143ba85bd4f36569cd81195509043f860dab14265b716",
+      "size": 24
+    },
+    "handoffs/c/C-A86C-NAVV3-MOUSE-LAYOUT-20261103-v1/source-v1/chain/collect-v2.stderr": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0
+    },
+    "handoffs/c/C-A86C-NAVV3-MOUSE-LAYOUT-20261103-v1/source-v1/chain/collect-v2.stdout": {
+      "sha256": "49abaecc620ab76c07e8e951915b792132716d3f55f0c00b301e3e63bbd83ca9",
+      "size": 317
+    },
+    "handoffs/c/C-A86C-NAVV3-MOUSE-LAYOUT-20261103-v1/source-v1/chain/collect.command.json": {
+      "sha256": "790343dc2f422094374632d17bd188c978c559e1ccff0176c1510f154f22d3bb",
+      "size": 369
+    },
+    "handoffs/c/C-A86C-NAVV3-MOUSE-LAYOUT-20261103-v1/source-v1/chain/collect.exit.json": {
+      "sha256": "50d7caf03dd967e4363a5bc7babbf450452b31dd1ec7fb605b2abc6465759571",
+      "size": 24
+    },
+    "handoffs/c/C-A86C-NAVV3-MOUSE-LAYOUT-20261103-v1/source-v1/chain/collect.stderr": {
+      "sha256": "3c5a95dc43a4d48a72efcab13d3f3dcfb1a7fd4f09a1588b3c1516d4903d6115",
+      "size": 957
+    },
+    "handoffs/c/C-A86C-NAVV3-MOUSE-LAYOUT-20261103-v1/source-v1/chain/collect.stdout": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0
+    },
+    "handoffs/c/C-A86C-NAVV3-MOUSE-LAYOUT-20261103-v1/source-v1/chain/collect_static.py": {
+      "sha256": "d5eda87249453230adeaa5f6fd265b6f6c8db54269e675bccd261f587b0a2899",
+      "size": 5249
+    },
+    "handoffs/c/C-A86C-NAVV3-MOUSE-LAYOUT-20261103-v1/source-v1/chain/collect_static_v2.py": {
+      "sha256": "8b38f4bafeba5c0fa79622a926cc3440ea1841ff9b642f0055173312ad583d9a",
+      "size": 5283
+    },
+    "handoffs/c/C-A86C-NAVV3-MOUSE-LAYOUT-20261103-v1/source-v1/chain/contract-verification.json": {
+      "sha256": "dc6341ca5a63fd05e5b0b908f69b252ca8934bb8cfa4562e16511b52967e18d7",
+      "size": 355
+    },
+    "handoffs/c/C-A86C-NAVV3-MOUSE-LAYOUT-20261103-v1/source-v1/chain/logical-and-package-pins.json": {
+      "sha256": "504e1b75b38421c2917a83f906e823308bcb5ae28fbe0a291e42444a954b3ee9",
+      "size": 1993
+    },
+    "handoffs/c/C-A86C-NAVV3-MOUSE-LAYOUT-20261103-v1/source-v1/chain/source-pins.json": {
+      "sha256": "e6e559015a4785118131da771f5fe75cb8d23c04683ce90e2b4597204620b3ed",
+      "size": 8366
+    },
+    "handoffs/c/C-A86C-NAVV3-MOUSE-LAYOUT-20261103-v1/source-v1/geometry/REVIEW.md": {
+      "sha256": "ef4c7bb7b72cdb41249bdae4e03781b8603a50311862cfebfac6803300e9480d",
+      "size": 14411
+    },
+    "handoffs/c/C-A86C-NAVV3-MOUSE-LAYOUT-20261103-v1/source-v1/geometry/geometry-results.json": {
+      "sha256": "e6430b08a505bff70cbe8558a134fedeb9056aa8e0edd5e6c0a8e75f0ebd936b",
+      "size": 2400
+    },
+    "handoffs/c/C-A86C-NAVV3-MOUSE-LAYOUT-20261103-v1/source-v1/geometry/geometry_fixture.py": {
+      "sha256": "2cee808a4e66b8fc8528328c9ca0994e0696913c950e8c103a84ace0492654b5",
+      "size": 10281
+    },
+    "handoffs/c/C-A86C-NAVV3-MOUSE-LAYOUT-20261103-v1/source-v1/geometry/layout-software-fixture.json": {
+      "sha256": "46857169649885c16a1200c840f8919ceddc1fda4e34ac78b834b4c4a2013813",
+      "size": 1255
+    },
+    "handoffs/c/C-A86C-NAVV3-MOUSE-LAYOUT-20261103-v1/source-v1/geometry/parameters.json": {
+      "sha256": "4ed8fd8a3dd6dceec5aec62274f5482d1a5104c2599aa2db06ac001e00879c6b",
+      "size": 1674
+    },
+    "handoffs/c/C-A86C-NAVV3-MOUSE-LAYOUT-20261103-v1/source-v1/geometry/run01.command.json": {
+      "sha256": "6c0a00ed9e97e762e6bc99861bf5fb3501efabfac62b724e4f642e27bdf455ae",
+      "size": 740
+    },
+    "handoffs/c/C-A86C-NAVV3-MOUSE-LAYOUT-20261103-v1/source-v1/geometry/run01.stderr": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0
+    },
+    "handoffs/c/C-A86C-NAVV3-MOUSE-LAYOUT-20261103-v1/source-v1/geometry/run01.stdout": {
+      "sha256": "e6430b08a505bff70cbe8558a134fedeb9056aa8e0edd5e6c0a8e75f0ebd936b",
+      "size": 2400
+    },
+    "handoffs/c/C-A86C-NAVV3-MOUSE-LAYOUT-20261103-v1/source-v1/geometry/run_fixture.py": {
+      "sha256": "4cc95f4bc0612544a95cb6b9fc8130db5a5cc7977cc978d7537c169484280316",
+      "size": 964
+    },
+    "handoffs/c/C-A86C-NAVV3-MOUSE-LAYOUT-20261103-v1/source-v1/geometry/source-pins.json": {
+      "sha256": "5e3239ec4bdc27b4e059e07e48de7544a4290d7bc245f8f19a9e1bbd5abae249",
+      "size": 7018
+    },
+    "handoffs/c/C-A86C-NAVV3-MOUSE-LAYOUT-20261103-v1/source-v1/independent/FINDINGS.json": {
+      "sha256": "7ff8cce9f5c81930c0cd6a6c1efae620352ea3da82623aeeede8cfd72dd06caa",
+      "size": 945
+    },
+    "handoffs/c/C-A86C-NAVV3-MOUSE-LAYOUT-20261103-v1/source-v1/independent/GEOMETRY-REVIEW.md": {
+      "sha256": "dcb36138fdabbcd9d5043a940f932855936faf9dbaea5e819a075da3001e10f5",
+      "size": 5514
+    },
+    "handoffs/c/C-A86C-NAVV3-MOUSE-LAYOUT-20261103-v1/source-v1/independent/REVIEW.md": {
+      "sha256": "79f5fc48060113e88d667d6d2327754abbd28cd3a6ea06cd13794259f0ff9648",
+      "size": 10785
+    },
+    "handoffs/c/C-A86C-NAVV3-MOUSE-LAYOUT-20261103-v1/source-v1/independent/geometry-evidence-audit.json": {
+      "sha256": "ef2236fc9da03660e0568a3e6a383383cca076a18c64adad4fbb2430b0d1b60a",
+      "size": 6096
+    },
+    "handoffs/c/C-A86C-NAVV3-MOUSE-LAYOUT-20261103-v1/source-v1/independent/nav-evidence-audit.json": {
+      "sha256": "5299e508eaa1e15f2750e072ebbf14c99b10adfec2bb02400a78eb3ba5cdc57c",
+      "size": 512
+    },
+    "handoffs/c/C-A86C-NAVV3-MOUSE-LAYOUT-20261103-v1/source-v1/independent/source-pins.json": {
+      "sha256": "df7a2c536ef048321c31a499ec86cc4317482791364b5868addb5d696e387c3a",
+      "size": 13789
+    },
+    "handoffs/c/C-A86C-NAVV3-MOUSE-LAYOUT-20261103-v1/source-v1/independent/verification-result.json": {
+      "sha256": "a02c5e0a73e7b499774c641868f91eb753a215b85d7512475c2c952db4ee7ab9",
+      "size": 341
+    },
+    "handoffs/c/C-A86C-NAVV3-MOUSE-LAYOUT-20261103-v1/source-v1/main/delivery-review.json": {
+      "sha256": "8eac5ea7ad2d02ce5e59be81dbefe3502d2aa210b165238d744999c88133f5cb",
+      "size": 3366
+    },
+    "handoffs/c/C-A86C-NAVV3-MOUSE-LAYOUT-20261103-v1/source-v1/main/source-identities.json": {
+      "sha256": "60e9e4a305b466f1eb4cb5edb22e61fe06b6b55b3ed2e433a36708714f2d9082",
+      "size": 3797
+    },
+    "handoffs/c/C-A86C-NAVV3-MOUSE-LAYOUT-20261103-v1/source-v1/main/ui-availability.json": {
+      "sha256": "c1eb9995d495f355d21bba3ae96f94982ae45990caed93ab505fdb8e898e7d50",
+      "size": 505
+    },
+    "handoffs/c/C-A86C-NAVV3-MOUSE-LAYOUT-20261103-v1/source-v1/verify.command.json": {
+      "sha256": "c6e6783c30f4d4e91eb3e0c224af50b2a33678ea0d7a10c3461b2e5715088e93",
+      "size": 587
+    },
+    "handoffs/c/C-A86C-NAVV3-MOUSE-LAYOUT-20261103-v1/source-v1/verify.stderr.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0
+    },
+    "handoffs/c/C-A86C-NAVV3-MOUSE-LAYOUT-20261103-v1/source-v1/verify.stdout.txt": {
+      "sha256": "341752d702d5e09b0dc8cab471621bb656511e388c43dbc10518677407be430f",
+      "size": 361
+    },
+    "handoffs/c/C-A86C-NAVV3-MOUSE-LAYOUT-20261103-v1/source-v1/verify_delivery.py": {
+      "sha256": "2452a19d15f52b6564dabf28327995898b45aa6a7f88a5c873464f89ccfa685a",
+      "size": 2450
+    }
+  },
+  "request": {
+    "code_commit": "0e50646d9c9557e879c936c2bcdfb3703ce2d2c3",
+    "expected_result": "Exact not_mouse_authored software fixture parameters and independently reviewed e470 source findings; original18 static geometry checks exit0. No original codec, actor16, model, board, reachable route or whole-red-exit acceptance. F1/F2 remain A-owned source findings, not applied product patches.",
+    "operation_id": "C-A86C-NAVV3-MOUSE-LAYOUT-20261103-v1",
+    "requester": "node-c",
+    "task_id": "DEEPEYE-IMPLEMENTATION-20261014",
+    "task_version": 1,
+    "test_steps": [
+      "Read-only bytes: python -I -S -B handoffs/c/C-A86C-NAVV3-MOUSE-LAYOUT-20261103-v1/source-v1/verify_delivery.py",
+      "Optional exact A source-byte check: add --source-root <e470 checkout>",
+      "Read README corrections, original geometry18 exit0 evidence, chain findings, independent review and unexecuted vector plan; historical fixture scripts are not portable replay commands",
+      "A-only follow-up: original UI mouse/save/snapshot budgets and separately authorized board/AI/whole-drill lifecycle; do not feed obstacle layout to inference"
+    ]
+  },
+  "request_hash": "7819791b311b618b1434ee91d54a3c1376d9a7f55dcd6ba427df524258799e93",
+  "schema_version": 1,
+  "stages": {
+    "byte_verification": {
+      "log": "handoffs/c/C-A86C-NAVV3-MOUSE-LAYOUT-20261103-v1/source-v1/verify.stdout.txt",
+      "status": "passed"
+    },
+    "cpu_geometry_fixture": {
+      "log": "handoffs/c/C-A86C-NAVV3-MOUSE-LAYOUT-20261103-v1/source-v1/geometry/run01.stdout",
+      "status": "passed"
+    },
+    "final_acceptance": {
+      "status": "not_run"
+    },
+    "full_chain": {
+      "status": "not_run"
+    },
+    "implementation": {
+      "status": "not_run"
+    },
+    "model_qualification": {
+      "status": "not_run"
+    },
+    "mouse_layout": {
+      "log": "handoffs/c/C-A86C-NAVV3-MOUSE-LAYOUT-20261103-v1/source-v1/main/ui-availability.json",
+      "status": "blocked"
+    },
+    "native_actor": {
+      "status": "not_run"
+    },
+    "physical_board": {
+      "status": "not_run"
+    },
+    "rtl_simulation": {
+      "status": "not_run"
+    },
+    "source_review_completed": {
+      "log": "handoffs/c/C-A86C-NAVV3-MOUSE-LAYOUT-20261103-v1/source-v1/main/delivery-review.json",
+      "status": "passed"
+    },
+    "synthesis": {
+      "status": "not_run"
+    }
+  }
+}
