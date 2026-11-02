@@ -1,0 +1,17 @@
+{
+  "argv": [
+    "C:\\Users\\Alan\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+    "-I",
+    "-S",
+    "-B",
+    "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\main-20261015-01a14025\\C56-20261103\\main\\runtime-source\\competition\\deepeye\\simulator\\native\\run_viewer.py",
+    "--godot",
+    "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\tools\\godot-4.7.2-stable-c56\\Godot_v4.7.2-stable_win64.exe",
+    "--run-dir",
+    "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\main-20261015-01a14025\\C56-20261103\\main\\ui-run-v1",
+    "--validate-only"
+  ],
+  "exit_code": 0,
+  "started_utc": "2026-11-02T18:22:10.161617+00:00",
+  "ended_utc": "2026-11-02T18:22:10.783945+00:00"
+}

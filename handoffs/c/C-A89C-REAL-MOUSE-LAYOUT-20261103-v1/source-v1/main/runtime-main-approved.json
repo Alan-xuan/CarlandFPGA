@@ -1,0 +1,10 @@
+{
+  "approved_for_local_ui": true,
+  "approval_scope": "Exact explicit C56 packaging v2 local original viewer/Save only",
+  "candidate_manifest_sha256": "c06a2ff583f3dba2c46b5bd1a86ef863298d09b6fbb2cd7b8c40dd2ce2ca1218",
+  "runtime_manifest_sha256": "91772ca86c66866d86fb073ec4e7c6b06c1e904b10d067fa77716df69f123d71",
+  "independent_final_sha256": "902cee18ea4d693875d0d2b0948fef2aba333cd2eb0858f6ce68a8342a65e331",
+  "actual_worker_stopped": true,
+  "original_helper_bundle_geometry_semantics_unchanged": true,
+  "formal_acceptance": false
+}

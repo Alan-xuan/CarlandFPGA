@@ -1,0 +1,12 @@
+{
+  "argv": [
+    "C:/Users/Alan/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe",
+    "-I",
+    "-S",
+    "-B",
+    "-X",
+    "utf8",
+    "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\main-20261015-01a14025\\C56-20261103\\main\\publication\\proposed-public\\verify_delivery.py"
+  ],
+  "exit_code": 0
+}

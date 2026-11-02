@@ -1,0 +1,55 @@
+{
+  "work_id": "C56-A89C-REAL-UI-PACKAGING-20261103-v1",
+  "observed_utc": "2026-11-02T18:33:44.513095+00:00",
+  "runtime_manifest_sha256": "c06a2ff583f3dba2c46b5bd1a86ef863298d09b6fbb2cd7b8c40dd2ce2ca1218",
+  "all_43_runtime_source_bytes_unchanged_after_UI": true,
+  "layout_file_sha256": "6b6caf18d6dfb61df23db1f29fda3a33f6f7f47395803090185f103a0488dbbe",
+  "layout_bytes": 1265,
+  "layout_internal_hash": "d332d8560efb210d7e7866bd2a038a652f4ce5b2beb35d82ce3ace38a76c6d18",
+  "actual_mouse_authored": true,
+  "water_dragged_to": {
+    "x": -3.25,
+    "y": 0.0,
+    "z": 8.5
+  },
+  "hard_rock_dragged_to": {
+    "x": 9.75,
+    "y": 0.0,
+    "z": 1.5
+  },
+  "gates_exact_saved_values": {
+    "entry": {
+      "face": "top",
+      "u": 12.000000000000002,
+      "v": 0.0
+    },
+    "exit": {
+      "face": "right",
+      "u": 0.0,
+      "v": 12.000000000000002
+    }
+  },
+  "save_attempts": 1,
+  "UI_success_hint": "已另存为新文件（仅几何）",
+  "save_success_evidence": "ui/10-save-success.png",
+  "viewer_pid": 22868,
+  "viewer_exit_code": 0,
+  "launcher_pid": 39864,
+  "launcher_exit_code": 0,
+  "raw_helper_ACK_captured": false,
+  "helper_child_OS_terminal_observed": false,
+  "owner_worker_join_record_captured": false,
+  "source_derived_implication": "Unmodified Save path requires bound DLR1 committed/publication_confirmed ACK, child result, and worker reap before success; this is source reasoning, not an independently captured raw ACK/terminal record.",
+  "process_observer": {
+    "started": false,
+    "attempts": 1,
+    "tool_exit_code": 1,
+    "error": "Register-CimIndicationEvent: 调用已取消",
+    "retry": false
+  },
+  "board_execution": false,
+  "model_execution": false,
+  "full_route_reachability_tested": false,
+  "formal_acceptance": false,
+  "note": "JSON bytes are original UI Save output, never rewritten or rounded. Exact 12.000000000000002 values retained."
+}

@@ -1,0 +1,9 @@
+{
+  "corrects": "ui-main-verification-v1.json runtime_manifest_sha256 field label",
+  "original_preserved": true,
+  "candidate_manifest_sha256": "c06a2ff583f3dba2c46b5bd1a86ef863298d09b6fbb2cd7b8c40dd2ce2ca1218",
+  "candidate_manifest_file": "candidate-manifest-v2.json",
+  "runtime_manifest_sha256": "91772ca86c66866d86fb073ec4e7c6b06c1e904b10d067fa77716df69f123d71",
+  "runtime_manifest_file": "runtime-source/competition/deepeye/simulator/native/layout_runtime.json",
+  "meaning": "The original field held the full 43-file candidate manifest hash, not the Python runtime manifest hash. All actual bytes and evidence remain unchanged."
+}

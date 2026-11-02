@@ -1,0 +1,20 @@
+{
+  "status": "PASS_NARROW_V2_STATIC_AUDIT",
+  "source_files": 43,
+  "unchanged_from_original": 40,
+  "changed_files": [
+    "competition/deepeye/simulator/editor/layout_commit_bridge.gd",
+    "competition/deepeye/simulator/native/layout_runtime.json",
+    "competition/deepeye/simulator/native/run_viewer.py"
+  ],
+  "dependencies": 66,
+  "added_dependency": {
+    "origin": "base_prefix",
+    "path": "Lib/encodings/utf_16_le.py",
+    "sha256": "3aedaf3eb49769282daef1eaedfd4fa1c31fe5eebeff67fe2307c89dc2e2fd80"
+  },
+  "original_author_freeze_verified": 61,
+  "product_runtime": "NOT_RUN",
+  "product_imports": 0,
+  "product_exit_code": null
+}
