@@ -1,0 +1,27 @@
+{
+  "source_commit": "e47033f342fe76bd7a9c9284e9a3ff0e2521ff24",
+  "source_approved": false,
+  "geometry_limited_fixture_claims_supported": true,
+  "confirmed": [
+    {
+      "id": "C55-F1",
+      "priority": 2,
+      "status": "CONFIRMED_STATIC_NOT_EXECUTED",
+      "summary": "New broker issue lacks whole-duration revalidation; actual STEP caps remain."
+    },
+    {
+      "id": "C55-F2",
+      "priority": 2,
+      "status": "CONFIRMED_STATIC_NOT_EXECUTED",
+      "summary": "Selected historical mutable candidate lacks retained-byte recheck; use two fresh-native rows for proposed control."
+    }
+  ],
+  "withdrawn": [
+    "C54-F3 natural STEP-same-bin trigger remains blocked by original ceil-grid gate"
+  ],
+  "nonblocking": [
+    "Original geometry illustrative goal last digit corrected by main addendum",
+    "Original fixture private-path provenance, not portable replay"
+  ],
+  "product_exit_code": null
+}

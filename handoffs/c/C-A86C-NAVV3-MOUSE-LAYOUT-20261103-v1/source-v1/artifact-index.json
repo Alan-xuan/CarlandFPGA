@@ -1,0 +1,191 @@
+{
+  "A_source_commit": "e47033f342fe76bd7a9c9284e9a3ff0e2521ff24",
+  "files": [
+    {
+      "path": "chain/collect-v2.command.json",
+      "bytes": 380,
+      "sha256": "b73046c284296edac9fe39ef0a9ffc649486d668de913cb42118807520fd966d"
+    },
+    {
+      "path": "chain/collect-v2.exit.json",
+      "bytes": 24,
+      "sha256": "75876e0e3f497cad271143ba85bd4f36569cd81195509043f860dab14265b716"
+    },
+    {
+      "path": "chain/collect-v2.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "chain/collect-v2.stdout",
+      "bytes": 317,
+      "sha256": "49abaecc620ab76c07e8e951915b792132716d3f55f0c00b301e3e63bbd83ca9"
+    },
+    {
+      "path": "chain/collect.command.json",
+      "bytes": 369,
+      "sha256": "790343dc2f422094374632d17bd188c978c559e1ccff0176c1510f154f22d3bb"
+    },
+    {
+      "path": "chain/collect.exit.json",
+      "bytes": 24,
+      "sha256": "50d7caf03dd967e4363a5bc7babbf450452b31dd1ec7fb605b2abc6465759571"
+    },
+    {
+      "path": "chain/collect.stderr",
+      "bytes": 957,
+      "sha256": "3c5a95dc43a4d48a72efcab13d3f3dcfb1a7fd4f09a1588b3c1516d4903d6115"
+    },
+    {
+      "path": "chain/collect.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "chain/collect_static.py",
+      "bytes": 5249,
+      "sha256": "d5eda87249453230adeaa5f6fd265b6f6c8db54269e675bccd261f587b0a2899"
+    },
+    {
+      "path": "chain/collect_static_v2.py",
+      "bytes": 5283,
+      "sha256": "8b38f4bafeba5c0fa79622a926cc3440ea1841ff9b642f0055173312ad583d9a"
+    },
+    {
+      "path": "chain/contract-verification.json",
+      "bytes": 355,
+      "sha256": "dc6341ca5a63fd05e5b0b908f69b252ca8934bb8cfa4562e16511b52967e18d7"
+    },
+    {
+      "path": "chain/logical-and-package-pins.json",
+      "bytes": 1993,
+      "sha256": "504e1b75b38421c2917a83f906e823308bcb5ae28fbe0a291e42444a954b3ee9"
+    },
+    {
+      "path": "chain/NEW-CPU-VECTORS.json",
+      "bytes": 4567,
+      "sha256": "59177d0099193a315c5d70ccbb0d13e6d1ee12785a8155212f7ef801f713f1ea"
+    },
+    {
+      "path": "chain/REVIEW.md",
+      "bytes": 16706,
+      "sha256": "aac5dba868a0fd1e9c966536602e03010948b57b9a7be17431fb439ac3f71efb"
+    },
+    {
+      "path": "chain/source-pins.json",
+      "bytes": 8366,
+      "sha256": "e6e559015a4785118131da771f5fe75cb8d23c04683ce90e2b4597204620b3ed"
+    },
+    {
+      "path": "geometry/geometry-results.json",
+      "bytes": 2400,
+      "sha256": "e6430b08a505bff70cbe8558a134fedeb9056aa8e0edd5e6c0a8e75f0ebd936b"
+    },
+    {
+      "path": "geometry/geometry_fixture.py",
+      "bytes": 10281,
+      "sha256": "2cee808a4e66b8fc8528328c9ca0994e0696913c950e8c103a84ace0492654b5"
+    },
+    {
+      "path": "geometry/layout-software-fixture.json",
+      "bytes": 1255,
+      "sha256": "46857169649885c16a1200c840f8919ceddc1fda4e34ac78b834b4c4a2013813"
+    },
+    {
+      "path": "geometry/parameters.json",
+      "bytes": 1674,
+      "sha256": "4ed8fd8a3dd6dceec5aec62274f5482d1a5104c2599aa2db06ac001e00879c6b"
+    },
+    {
+      "path": "geometry/REVIEW.md",
+      "bytes": 14411,
+      "sha256": "ef4c7bb7b72cdb41249bdae4e03781b8603a50311862cfebfac6803300e9480d"
+    },
+    {
+      "path": "geometry/run01.command.json",
+      "bytes": 740,
+      "sha256": "6c0a00ed9e97e762e6bc99861bf5fb3501efabfac62b724e4f642e27bdf455ae"
+    },
+    {
+      "path": "geometry/run01.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "geometry/run01.stdout",
+      "bytes": 2400,
+      "sha256": "e6430b08a505bff70cbe8558a134fedeb9056aa8e0edd5e6c0a8e75f0ebd936b"
+    },
+    {
+      "path": "geometry/run_fixture.py",
+      "bytes": 964,
+      "sha256": "4cc95f4bc0612544a95cb6b9fc8130db5a5cc7977cc978d7537c169484280316"
+    },
+    {
+      "path": "geometry/source-pins.json",
+      "bytes": 7018,
+      "sha256": "5e3239ec4bdc27b4e059e07e48de7544a4290d7bc245f8f19a9e1bbd5abae249"
+    },
+    {
+      "path": "independent/FINDINGS.json",
+      "bytes": 945,
+      "sha256": "7ff8cce9f5c81930c0cd6a6c1efae620352ea3da82623aeeede8cfd72dd06caa"
+    },
+    {
+      "path": "independent/geometry-evidence-audit.json",
+      "bytes": 6096,
+      "sha256": "ef2236fc9da03660e0568a3e6a383383cca076a18c64adad4fbb2430b0d1b60a"
+    },
+    {
+      "path": "independent/GEOMETRY-REVIEW.md",
+      "bytes": 5514,
+      "sha256": "dcb36138fdabbcd9d5043a940f932855936faf9dbaea5e819a075da3001e10f5"
+    },
+    {
+      "path": "independent/nav-evidence-audit.json",
+      "bytes": 512,
+      "sha256": "5299e508eaa1e15f2750e072ebbf14c99b10adfec2bb02400a78eb3ba5cdc57c"
+    },
+    {
+      "path": "independent/REVIEW.md",
+      "bytes": 10785,
+      "sha256": "79f5fc48060113e88d667d6d2327754abbd28cd3a6ea06cd13794259f0ff9648"
+    },
+    {
+      "path": "independent/source-pins.json",
+      "bytes": 13789,
+      "sha256": "df7a2c536ef048321c31a499ec86cc4317482791364b5868addb5d696e387c3a"
+    },
+    {
+      "path": "independent/verification-result.json",
+      "bytes": 341,
+      "sha256": "a02c5e0a73e7b499774c641868f91eb753a215b85d7512475c2c952db4ee7ab9"
+    },
+    {
+      "path": "main/delivery-review.json",
+      "bytes": 3366,
+      "sha256": "8eac5ea7ad2d02ce5e59be81dbefe3502d2aa210b165238d744999c88133f5cb"
+    },
+    {
+      "path": "main/source-identities.json",
+      "bytes": 3797,
+      "sha256": "60e9e4a305b466f1eb4cb5edb22e61fe06b6b55b3ed2e433a36708714f2d9082"
+    },
+    {
+      "path": "main/ui-availability.json",
+      "bytes": 505,
+      "sha256": "c1eb9995d495f355d21bba3ae96f94982ae45990caed93ab505fdb8e898e7d50"
+    },
+    {
+      "path": "README.md",
+      "bytes": 7069,
+      "sha256": "404d25b6e4b2d6e99ec4d5053e8b71663060d886577e4d2c95dbc9438beebfbe"
+    },
+    {
+      "path": "verify_delivery.py",
+      "bytes": 2450,
+      "sha256": "2452a19d15f52b6564dabf28327995898b45aa6a7f88a5c873464f89ccfa685a"
+    }
+  ],
+  "scope": "Byte index, not functional acceptance. Index and later verification log bytes are covered by outer canonical manifest."
+}

@@ -1,0 +1,91 @@
+{
+  "software_fixture": true,
+  "not_mouse_authored": true,
+  "engine_codec_run": false,
+  "source_commit": "e47033f342fe76bd7a9c9284e9a3ff0e2521ff24",
+  "layout_sha256": "46857169649885c16a1200c840f8919ceddc1fda4e34ac78b834b4c4a2013813",
+  "layout_hash": "dca69ff201e0f347599faaa445156f0d9c11faf56a3510c058c9fa8dbafdbeb2",
+  "nav_logical_sha256": "5a3679f80be3668aaa1765ecdb157776f38c661ce1bb9d40d5dac8b447967d17",
+  "checks": [
+    {
+      "name": "actual_bytes_exact_fields_and_layout_hash",
+      "passed": true
+    },
+    {
+      "name": "integral_fixture_canonical_roundtrip",
+      "passed": true
+    },
+    {
+      "name": "positive_adjacent_gate_coordinates",
+      "passed": true
+    },
+    {
+      "name": "positive_edge_limit",
+      "passed": true
+    },
+    {
+      "name": "negative_next_float_beyond_edge",
+      "passed": true
+    },
+    {
+      "name": "obstacle_nominal_boxes_inside_workspace",
+      "passed": true
+    },
+    {
+      "name": "water_and_rock_exact_kind_size_priority",
+      "passed": true
+    },
+    {
+      "name": "positive_inner_corridor_AABB_sufficient_separation",
+      "passed": true
+    },
+    {
+      "name": "negative_obstacle_intersecting_blue_inner_corridor",
+      "passed": true
+    },
+    {
+      "name": "positive_initial_full_outside_other_five_inside",
+      "passed": true
+    },
+    {
+      "name": "positive_initial_body_box_obstacle_separation",
+      "passed": true
+    },
+    {
+      "name": "negative_standoff_smaller_than_full_support",
+      "passed": true
+    },
+    {
+      "name": "positive_axis_aligned_gate_section_with_assumed_budget",
+      "passed": true
+    },
+    {
+      "name": "negative_gate_radial_tangency",
+      "passed": true
+    },
+    {
+      "name": "positive_full_support_external_goal",
+      "passed": true
+    },
+    {
+      "name": "negative_red_center_plus_point05_only",
+      "passed": true
+    },
+    {
+      "name": "negative_center_on_red_plane_is_not_full_exit",
+      "passed": true
+    },
+    {
+      "name": "negative_point_target_cannot_establish_aperture_history",
+      "passed": true
+    }
+  ],
+  "passed": 18,
+  "failed": 0,
+  "static_geometry_only": true,
+  "online_reachability": false,
+  "route_generated": false,
+  "actual_actor_decisions": 0,
+  "board_operations": 0,
+  "formal_acceptance": false
+}

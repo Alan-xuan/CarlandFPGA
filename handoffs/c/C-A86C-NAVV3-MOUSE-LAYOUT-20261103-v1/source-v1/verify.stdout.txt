@@ -1,0 +1,1 @@
+{"artifacts": 37, "formal_acceptance": false, "historical_tests_rerun": false, "layout_hash": "dca69ff201e0f347599faaa445156f0d9c11faf56a3510c058c9fa8dbafdbeb2", "not_mouse_authored": true, "product_executed": false, "software_fixture": true, "source_commit": "e47033f342fe76bd7a9c9284e9a3ff0e2521ff24", "source_files_checked": 19, "status": "BYTES_VERIFIED"}

@@ -1,0 +1,141 @@
+{
+  "delivery_approved": true,
+  "independent_review_complete": true,
+  "product_source_approved": false,
+  "unpatched_A_findings": [
+    "C55-F1",
+    "C55-F2"
+  ],
+  "withdrawn": "C54-F3",
+  "reason": "Approve truthful fallback parameter/evidence delivery only; source product remains unapproved with static findings",
+  "main_thread_id": "01a14025-4dfd-7ec3-aebb-57be48daba59",
+  "task_id": "DEEPEYE-IMPLEMENTATION-20261014",
+  "task_version": 1,
+  "work_id": "C55-PUBLIC-FALLBACK-HANDOFF-20261103-v1",
+  "source_commit": "e47033f342fe76bd7a9c9284e9a3ff0e2521ff24",
+  "requirements_sha256": "c229834bfc2292f5fe4411fc9f12c68487008f9d1adaf31f0144ee7a98173804",
+  "main_independent_reads": [
+    "g05_csr_channels_v1 broker and current/previous mapping admission",
+    "g05_csr_projection_v1 original E4 checks and historical export",
+    "candidate_mailbox original slot/deadline",
+    "completion_interval full-duration gate",
+    "pc_direct_runtime command/STEP caps",
+    "source_poll original completed-transition ceilgrid",
+    "geometry_fixture entire18-check source and saved raw output",
+    "workerreports/raw exits/all frozen files"
+  ],
+  "worker_audits": {
+    "geometry": {
+      "raw_sha256": "843676daf86521e7dfefba27ede5d17abc5ffeedf96991485c1873852ee47b10",
+      "closed_calls": 17,
+      "actual_task_complete": [
+        {
+          "line": 5325,
+          "timestamp": "2026-11-02T17:53:04.792Z"
+        }
+      ],
+      "command_exit_codes": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "nav-chain": {
+      "raw_sha256": "53550431b89d3a9f1ab70438cd81bf66f054cddeadc6053f8ef8a129f73a1685",
+      "closed_calls": 36,
+      "actual_task_complete": [
+        {
+          "line": 6325,
+          "timestamp": "2026-11-02T17:59:48.798Z"
+        }
+      ],
+      "command_exit_codes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "independent-review": {
+      "raw_sha256": "e6a1326443bd071801a2a74a0e463cddd96613ee5ccbf1e953af87603e1a0c4b",
+      "closed_calls": 24,
+      "actual_task_complete": [
+        {
+          "line": 5663,
+          "timestamp": "2026-11-02T18:02:55.816Z"
+        }
+      ],
+      "command_exit_codes": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  "independent_public_files": [
+    "REVIEW.md",
+    "GEOMETRY-REVIEW.md",
+    "FINDINGS.json",
+    "source-pins.json",
+    "geometry-evidence-audit.json",
+    "nav-evidence-audit.json",
+    "verification-result.json"
+  ],
+  "geometry_single_run_exit": 0,
+  "geometry_static_checks": 18,
+  "independent_product_tests": 0,
+  "not_mouse_authored": true,
+  "formal_acceptance": false,
+  "created_utc": "2026-11-02T18:03:36.721529+00:00"
+}

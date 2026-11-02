@@ -1,0 +1,54 @@
+{
+  "software_fixture": true,
+  "not_mouse_authored": true,
+  "layout_input_scope": "Simulator/Root private layout only; never controller observations or AI map",
+  "blue_center_m": [
+    12.0,
+    15.0,
+    0.0
+  ],
+  "red_center_m": [
+    15.0,
+    12.0,
+    0.0
+  ],
+  "gate_radius_m": 0.15,
+  "gate_diameter_m": 0.3,
+  "drill_half_segment_m": 0.4,
+  "drill_radius_m": 0.12,
+  "drill_diameter_m": 0.24,
+  "drill_total_envelope_length_m": 1.04,
+  "initial_standoff_m": 0.6,
+  "initial_position_m": [
+    12,
+    15.6,
+    0
+  ],
+  "initial_body_axis": [
+    0,
+    -1,
+    0
+  ],
+  "external_goal_formula": "red_center+outward*(half_segment+radius+ACTUAL_numeric+ACTUAL_asset+0.05), component nextafter outward",
+  "synthetic_budget_example": {
+    "numeric_m": 0.001,
+    "asset_m": 0.001,
+    "obstacle_m": 0.001,
+    "note": "CPU boundary assumptions only, not measured or selected production policy",
+    "external_goal_m": [
+      15.572000000000001,
+      12.0,
+      0.0
+    ]
+  },
+  "required_original_facts": [
+    "Original snapshot-derived numeric/asset/obstacle errors and positive getter cap",
+    "Original full mesh containment, corridor certification and initial passage witness",
+    "Actual original motion/observation/AI/command/CAS/final fences and ordered full-volume passage history"
+  ],
+  "short_scene_note": "3m from shared edge; static scale suggestion, not shortest-route proof",
+  "nav_max_commands": 16,
+  "nav_max_scans": 16,
+  "nav_max_public_items": 24,
+  "required_fresh_decisions": "each must be actual original pipeline decision; profile limit and this fixture do not execute any"
+}

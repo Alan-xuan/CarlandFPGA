@@ -1,0 +1,102 @@
+{
+  "no_product_import_or_execution": true,
+  "nav": {
+    "profile_id": "DEEPEYE-NAV-ADJACENT-180S-V3",
+    "computed_logical_sha256": "5a3679f80be3668aaa1765ecdb157776f38c661ce1bb9d40d5dac8b447967d17",
+    "source_file_sha256": "00f98060f376d8a1133a4f1044c53ab8541d7abc92cb552fa74511f32bd7217b",
+    "values": [
+      "DEEPEYE-NAV-ADJACENT-180S-V3",
+      180000000000,
+      1000000000,
+      1001,
+      2048,
+      16,
+      16,
+      128,
+      293,
+      16,
+      50,
+      4194304,
+      2048,
+      3000,
+      100000000,
+      500000000,
+      32768,
+      2000,
+      24,
+      0.05,
+      [
+        [
+          "root_source_book",
+          "c83f35ad9b6985f8949e899b195898832b88cbd4ff8a314979c08a412b271e4e"
+        ],
+        [
+          "_actor_source_custody",
+          "0cb3438533a7fec25ac4dc7c0072de7c6de7e3acff5a84ecaf7d1636614ed671"
+        ],
+        [
+          "original_world_actor_link",
+          "38e731c392f41b0b9d3b1852bea49c081f8398501cab996544ae36adbac108fb"
+        ],
+        [
+          "_world_loop",
+          "ac9d07ea8941665d8cb1bfb83425941d98215a53bfcfed78c3d6836fc092a763"
+        ]
+      ]
+    ]
+  },
+  "EM3": {
+    "manifest_sha256": "ffb1e4d333405462285c31ca4f6de7369ddfe492d67fd59b3d0045f6b3135b81",
+    "files": {
+      "c37_entry.py": "223360af76ef84479634c71e05a86a7d7ccf61c87a75f394e3a94632504ce300",
+      "c37_package.py": "7933fcc4f8e3690e655bb812d33c52a09e28fc89ef2b8cbb4139a2f8a615480a",
+      "em3_core.py": "9068a7699fd11765d04245460989105fced3983b03e0c0876c54df89f958505d"
+    },
+    "declared_tag_consistency": [
+      {
+        "path": "ai_pc/demo30h_owned_em3_package_v2/em3_core.py",
+        "file_sha256": "9068a7699fd11765d04245460989105fced3983b03e0c0876c54df89f958505d",
+        "declared_engineering_profile": {
+          "profile_id": "DEEPEYE-EM3-NAV-FAST-V1",
+          "sha256": "11ff1d2895c46ab7135e18835e06afa5b4251665341f215eda1ede6e4969e861"
+        }
+      },
+      {
+        "path": "ai_pc/demo30h_owned_em3_package_v2/c37_package.py",
+        "file_sha256": "7933fcc4f8e3690e655bb812d33c52a09e28fc89ef2b8cbb4139a2f8a615480a",
+        "declared_engineering_profile": {
+          "profile_id": "DEEPEYE-EM3-NAV-FAST-V1",
+          "sha256": "11ff1d2895c46ab7135e18835e06afa5b4251665341f215eda1ede6e4969e861"
+        }
+      },
+      {
+        "path": "simulation/authority/demo30h_ai_em3_profile_v2/__init__.py",
+        "file_sha256": "8e970e5ae6fc68a97e4a573ff4175f9c75be3fd28f4057dd74325272cebd7051",
+        "declared_engineering_profile": {
+          "profile_id": "DEEPEYE-EM3-NAV-FAST-V1",
+          "sha256": "11ff1d2895c46ab7135e18835e06afa5b4251665341f215eda1ede6e4969e861"
+        }
+      },
+      {
+        "path": "simulation/authority/demo30h_ai_em3_profile_v2/verifier.py",
+        "file_sha256": "035fd29b3788ab90e417ba69659f06397eda010e6ff921546bd346f30342c281",
+        "declared_engineering_profile": {
+          "profile_id": "DEEPEYE-EM3-NAV-FAST-V1",
+          "sha256": "11ff1d2895c46ab7135e18835e06afa5b4251665341f215eda1ede6e4969e861"
+        }
+      }
+    ],
+    "engineering_tag_is_not_model_file_sha": true
+  },
+  "viewer": {
+    "required_godot_sha256": "ab1824f85bfd8e0e4128182c000c4003a3e042245b2967848d089b2a04b22424",
+    "runtime_sha256": "fbb003ae45c7cebaff351308c85ec4c485247356692d9b03d2f3bd4c53b7550a",
+    "bundle_sha256": "9e9c766ec7ad0268810c0b22ad26144fd481ef6984a6295e68608ec30c04f9de",
+    "running_evidence_python_sha256": "73dbf1f40507275d6fa636b49eb80b4753e313f649f52591abba86b31f1a1bce",
+    "approved_runtime_executables": [
+      "8da03db46eee55bac083e84362a6d75bf2c53ed12848b7400757b5fe53a432f2"
+    ],
+    "local_godot_found": false,
+    "viewer_started": false
+  }
+}

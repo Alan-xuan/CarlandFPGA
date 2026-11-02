@@ -1,0 +1,33 @@
+{
+  "navigation_profile_sha256": "5a3679f80be3668aaa1765ecdb157776f38c661ce1bb9d40d5dac8b447967d17",
+  "navigation_preimage_utf8": "[\"DEEPEYE-TYPED-NAVIGATION-PROFILE-V3\",\"DEEPEYE-NAV-ADJACENT-180S-V3\",180000000000,1000000000,1001,2048,16,16,128,293,16,50,4194304,2048,3000,100000000,500000000,32768,2000,24,0.05,[[\"root_source_book\",\"c83f35ad9b6985f8949e899b195898832b88cbd4ff8a314979c08a412b271e4e\"],[\"_actor_source_custody\",\"0cb3438533a7fec25ac4dc7c0072de7c6de7e3acff5a84ecaf7d1636614ed671\"],[\"original_world_actor_link\",\"38e731c392f41b0b9d3b1852bea49c081f8398501cab996544ae36adbac108fb\"],[\"_world_loop\",\"ac9d07ea8941665d8cb1bfb83425941d98215a53bfcfed78c3d6836fc092a763\"]]]",
+  "source_dependencies": [
+    [
+      "root_source_book",
+      "c83f35ad9b6985f8949e899b195898832b88cbd4ff8a314979c08a412b271e4e"
+    ],
+    [
+      "_actor_source_custody",
+      "0cb3438533a7fec25ac4dc7c0072de7c6de7e3acff5a84ecaf7d1636614ed671"
+    ],
+    [
+      "original_world_actor_link",
+      "38e731c392f41b0b9d3b1852bea49c081f8398501cab996544ae36adbac108fb"
+    ],
+    [
+      "_world_loop",
+      "ac9d07ea8941665d8cb1bfb83425941d98215a53bfcfed78c3d6836fc092a763"
+    ]
+  ],
+  "prospective_io": 1754,
+  "manifest_sha256": "ffb1e4d333405462285c31ca4f6de7369ddfe492d67fd59b3d0045f6b3135b81",
+  "package_files": {
+    "c37_entry.py": "223360af76ef84479634c71e05a86a7d7ccf61c87a75f394e3a94632504ce300",
+    "c37_package.py": "7933fcc4f8e3690e655bb812d33c52a09e28fc89ef2b8cbb4139a2f8a615480a",
+    "em3_core.py": "9068a7699fd11765d04245460989105fced3983b03e0c0876c54df89f958505d"
+  },
+  "AI_logical_profile_id": "DEEPEYE-EM3-NAV-FAST-V1",
+  "AI_logical_declared_sha256": "11ff1d2895c46ab7135e18835e06afa5b4251665341f215eda1ede6e4969e861",
+  "AI_logical_hash_derivation": "declaration repeated in four fixed modules; no canonical preimage definition found in these source modules; not confused with file or package digest",
+  "product_imported": false
+}

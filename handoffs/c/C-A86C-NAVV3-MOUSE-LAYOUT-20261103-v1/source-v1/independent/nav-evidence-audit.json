@@ -1,0 +1,15 @@
+{
+  "status": "PASS_EVIDENCE_AUDIT_ONLY",
+  "frozen_files": 65,
+  "original_evidence_tool_exits": [
+    1,
+    0,
+    0
+  ],
+  "original_product_tests": 0,
+  "independent_product_tests": 0,
+  "package_manifest_sha256": "ffb1e4d333405462285c31ca4f6de7369ddfe492d67fd59b3d0045f6b3135b81",
+  "core_sha256": "9068a7699fd11765d04245460989105fced3983b03e0c0876c54df89f958505d",
+  "nav_logical_sha256": "5a3679f80be3668aaa1765ecdb157776f38c661ce1bb9d40d5dac8b447967d17",
+  "source_dependency_count": 4
+}

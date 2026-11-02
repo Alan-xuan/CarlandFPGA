@@ -1,0 +1,150 @@
+{
+  "status": "PASS_EVIDENCE_AUDIT_ONLY",
+  "source_files": 19,
+  "geometry_frozen_artifacts": 14,
+  "original_geometry_run_exit": 0,
+  "original_geometry_checks": 18,
+  "geometry_tests_reexecuted": 0,
+  "product_imports": 0,
+  "product_runs": 0,
+  "independent_functional_tests": 0,
+  "requirements_sha256": "c229834bfc2292f5fe4411fc9f12c68487008f9d1adaf31f0144ee7a98173804",
+  "layout_sha256": "46857169649885c16a1200c840f8919ceddc1fda4e34ac78b834b4c4a2013813",
+  "layout_hash": "dca69ff201e0f347599faaa445156f0d9c11faf56a3510c058c9fa8dbafdbeb2",
+  "logical_profile_sha256": "5a3679f80be3668aaa1765ecdb157776f38c661ce1bb9d40d5dac8b447967d17",
+  "source_pins": [
+    {
+      "path": "competition/deepeye/simulation/authority/navigation_session_profile.py",
+      "bytes": 4342,
+      "sha256": "00f98060f376d8a1133a4f1044c53ab8541d7abc92cb552fa74511f32bd7217b",
+      "git_blob": "4ac2088464cfcdf55117000259439b08fbec4500",
+      "saved": true
+    },
+    {
+      "path": "competition/deepeye/simulation/authority/g05_csr_projection_v1.py",
+      "bytes": 15840,
+      "sha256": "eecefee5b2e5862a33bd2530cc9d75750dc6ab76de3829fb4ca4ba9cf0c7837e",
+      "git_blob": "2822673ddecf04f21fd72141c3e69341da9bd34a",
+      "saved": true
+    },
+    {
+      "path": "competition/deepeye/simulation/authority/world_initial_pose.py",
+      "bytes": 1778,
+      "sha256": "46added11d1ebbd8e90169c9a0cf094b7af8234e38decf89b4c2e32f12c3938b",
+      "git_blob": "4702486ca001f4218029b1a124c18c8612d6627a",
+      "saved": true
+    },
+    {
+      "path": "competition/deepeye/simulation/authority/_world_values.py",
+      "bytes": 63179,
+      "sha256": "89934a4f067f78bae727d4832e81ffead38257afccfdde83906581c2aaa0a1ea",
+      "git_blob": "e260b665ecf5a4150ecfd43eb8ec8785d7ea1772",
+      "saved": true
+    },
+    {
+      "path": "competition/deepeye/simulation/authority/_owned_godot.py",
+      "bytes": 33160,
+      "sha256": "8ab29d9e35c7ce8c5beec3206871fc6327256dd9abe2d0fc01d413e9a05d899f",
+      "git_blob": "8e8cb1973aa5a94934ea2c14c9fda7e6a1542017",
+      "saved": true
+    },
+    {
+      "path": "competition/deepeye/simulation/authority/motion/gate_geometry.py",
+      "bytes": 15309,
+      "sha256": "5e33a60927334cee4473d5f78afc248f04d3a5ef00db465b2bcdf14c1adc3839",
+      "git_blob": "8645a02c67607e361114a9fb6e90d0deb19321a3",
+      "saved": true
+    },
+    {
+      "path": "competition/deepeye/simulation/authority/motion/gate_clearance.py",
+      "bytes": 11856,
+      "sha256": "035d26e45419208bdcc30d8640df89fd444836d8ce7f0d32e22fc3c0cd6f9977",
+      "git_blob": "0668653c5b25f9644619acf998909e3e08ca9952",
+      "saved": true
+    },
+    {
+      "path": "competition/deepeye/simulation/authority/motion/workspace_boundaries.py",
+      "bytes": 13605,
+      "sha256": "2d42019cce6b4ac360766470b20518dd6ac8e66e94abae0e9772c83705a75b75",
+      "git_blob": "175278d2a0361c875cb52393e5f0da61145c27fa",
+      "saved": true
+    },
+    {
+      "path": "competition/deepeye/simulation/authority/motion/passage_phase.py",
+      "bytes": 15897,
+      "sha256": "9f72c167c7ba1502bb07f6262ed9b537c8d4b849179218d0e5ba1b6841206b68",
+      "git_blob": "80315677eba48b55bce1d3ebb24f0f56d03a7848",
+      "saved": true
+    },
+    {
+      "path": "competition/deepeye/simulation/authority/motion/kinematics.py",
+      "bytes": 11016,
+      "sha256": "5cab98c7100385a4bf290fc74c6e7173f56f328272c278ea6ce8ecb37542e043",
+      "git_blob": "c010fcaeba88d8937ffb4fdef5b3c19debb6f1cf",
+      "saved": true
+    },
+    {
+      "path": "competition/deepeye/simulation/authority/motion/demo_motion_profile.py",
+      "bytes": 2507,
+      "sha256": "175b48f2f87985ac7f05cddf5a75fcd772a67637a55905bbe90ee7c06bbd9102",
+      "git_blob": "07d8d656c9a7bc2a36069cc907fdd3de62f12be2",
+      "saved": true
+    },
+    {
+      "path": "competition/deepeye/integration/motion.py",
+      "bytes": 3935,
+      "sha256": "6f221f8a2c7180d615dfaad4080153a18bcf553417e764407c47dbedccb3df7e",
+      "git_blob": "be9bb5d6a1d005306b25c2fc62ee15ce1598c7dc",
+      "saved": true
+    },
+    {
+      "path": "competition/deepeye/simulator/editor/layout_codec.gd",
+      "bytes": 15440,
+      "sha256": "adb5c7f1c24390ba6aa8456e40e713ac55a1dd80c2a866b9802e3775ee4826ef",
+      "git_blob": "718124acbb9db27d16c9a1f0f16a54729d194702",
+      "saved": true
+    },
+    {
+      "path": "competition/deepeye/simulator/editor/layout_store.gd",
+      "bytes": 4075,
+      "sha256": "284c77086997df7688142af7bf7eb5317520f40ac98d5af1eb5b8c2e4ebf72ba",
+      "git_blob": "91f24263d76f37352a4c56e8daa51fba21b91e30",
+      "saved": true
+    },
+    {
+      "path": "competition/deepeye/simulator/editor/scene_document.gd",
+      "bytes": 34069,
+      "sha256": "407fd928cce69cd250b2705c71931a75e65c38a8d6c10846b118845bbb14f44a",
+      "git_blob": "b637ec781a97aa6e36884f1e587693425bf2a63a",
+      "saved": true
+    },
+    {
+      "path": "competition/deepeye/simulator/viewer/main.gd",
+      "bytes": 59224,
+      "sha256": "95a4c73c90206229a731488f3bd52e56d36e2d29c5dee31189ebd54b6a462537",
+      "git_blob": "f3c6e4b30c513ea285bd47c7ba0e8b2f30c0c798",
+      "saved": true
+    },
+    {
+      "path": "competition/deepeye/simulator/runtime/owned_world_start.gd",
+      "bytes": 4003,
+      "sha256": "5837899de466c595389a89a6c1793f1bbea30f8444e6ffbc298ea7030e4b9f2b",
+      "git_blob": "f272709deb3ab19b685fa37a7de96dc5d049c519",
+      "saved": true
+    },
+    {
+      "path": "competition/deepeye/simulator/runtime/world_motion_bridge.gd",
+      "bytes": 86521,
+      "sha256": "914edcd9c1bfc0e526af3ad7788d88b1f963dc94066bb6116da794d95778d3d3",
+      "git_blob": "fe654f6200b592fcd8c0d05d512a184ed36e46f2",
+      "saved": true
+    },
+    {
+      "path": "competition/deepeye/tools/run_causal_functional_chain.py",
+      "bytes": 27315,
+      "sha256": "0d190543c3d91df870553c82c9d3ee59959e91416456d9244b495dcb05f9fc91",
+      "git_blob": "c60c42dfd0c6ad073dc2249c614bfa05cf5bc7b7",
+      "saved": true
+    }
+  ]
+}

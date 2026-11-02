@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "C:\Users\Alan\Documents\ChatGPT\FPGA\CarlandFPGA-node-c\.local\main-20261015-01a14025\C55-20261103\nav-chain-v1\collect_static.py", line 75, in <module>
+    assert digest((S/path).read_bytes())==sha,path
+                  ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Alan\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\pathlib.py", line 1019, in read_bytes
+    with self.open(mode='rb') as f:
+         ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Alan\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\pathlib.py", line 1013, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\main-20261015-01a14025\\C55-20261103\\main\\A-e470-source\\root_source_book'

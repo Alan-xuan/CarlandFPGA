@@ -1,0 +1,10 @@
+{
+  "argv": [
+    "C:/Users/Alan/Documents/ChatGPT/FPGA/CarlandFPGA-node-c/.local/venv/Scripts/python.exe",
+    "-I",
+    "-B",
+    "C:/Users/Alan/Documents/ChatGPT/FPGA/CarlandFPGA-node-c/.local/main-20261015-01a14025/C55-20261103/nav-chain-v1/collect_static.py"
+  ],
+  "timeout_seconds": 30,
+  "purpose": "Byte/AST/hash evidence only, no product imports"
+}

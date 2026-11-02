@@ -1,0 +1,17 @@
+{
+  "argv": [
+    "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\venv\\Scripts\\python.exe",
+    "-X",
+    "utf8",
+    "-B",
+    "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\main-20261015-01a14025\\C55-20261103\\geometry-v1\\geometry_fixture.py"
+  ],
+  "cwd": "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\main-20261015-01a14025\\C55-20261103\\geometry-v1",
+  "started_utc": "2026-11-02T17:50:07.541801+00:00",
+  "ended_utc": "2026-11-02T17:50:07.984316+00:00",
+  "exit_code": 0,
+  "source_sha256": "2cee808a4e66b8fc8528328c9ca0994e0696913c950e8c103a84ace0492654b5",
+  "source_bytes": 10281,
+  "product_imports": 0,
+  "software_fixture": true
+}

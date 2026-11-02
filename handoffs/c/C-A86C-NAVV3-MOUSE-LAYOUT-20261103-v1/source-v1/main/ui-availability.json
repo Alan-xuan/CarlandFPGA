@@ -1,0 +1,9 @@
+{
+  "checked_utc": "2026-11-02T17:41:22.484749+00:00",
+  "PATH_godot": null,
+  "PATH_godot4": null,
+  "D_matches": [],
+  "D_scan_exit": 2,
+  "D_scan_timeout": false,
+  "notes": "Computer Use list_apps/list_windows returned zero Godot/DeepEye matches. C workspace, Downloads, AppData Local Programs, Program Files and Desktop filename searches returned no Godot executable. WindowsApps directory was access denied; no escalation or setting change. No native/engine/model/board process started."
+}
