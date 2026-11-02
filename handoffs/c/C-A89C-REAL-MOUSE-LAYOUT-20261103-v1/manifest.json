@@ -1,0 +1,305 @@
+{
+  "artifacts": [
+    "handoffs/c/C-A89C-REAL-MOUSE-LAYOUT-20261103-v1/source-v1/artifact-index.json",
+    "handoffs/c/C-A89C-REAL-MOUSE-LAYOUT-20261103-v1/source-v1/candidate-manifest-v2.json",
+    "handoffs/c/C-A89C-REAL-MOUSE-LAYOUT-20261103-v1/source-v1/candidate-source.zip",
+    "handoffs/c/C-A89C-REAL-MOUSE-LAYOUT-20261103-v1/source-v1/candidate-v2.patch",
+    "handoffs/c/C-A89C-REAL-MOUSE-LAYOUT-20261103-v1/source-v1/main/final-main-approved.json",
+    "handoffs/c/C-A89C-REAL-MOUSE-LAYOUT-20261103-v1/source-v1/main/godot-install-verified.json",
+    "handoffs/c/C-A89C-REAL-MOUSE-LAYOUT-20261103-v1/source-v1/main/godot-resource-import-v1.command.json",
+    "handoffs/c/C-A89C-REAL-MOUSE-LAYOUT-20261103-v1/source-v1/main/godot-resource-import-v1.stderr",
+    "handoffs/c/C-A89C-REAL-MOUSE-LAYOUT-20261103-v1/source-v1/main/godot-resource-import-v1.stdout",
+    "handoffs/c/C-A89C-REAL-MOUSE-LAYOUT-20261103-v1/source-v1/main/godot-version.command.json",
+    "handoffs/c/C-A89C-REAL-MOUSE-LAYOUT-20261103-v1/source-v1/main/godot-version.stderr",
+    "handoffs/c/C-A89C-REAL-MOUSE-LAYOUT-20261103-v1/source-v1/main/godot-version.stdout",
+    "handoffs/c/C-A89C-REAL-MOUSE-LAYOUT-20261103-v1/source-v1/main/runtime-main-approved.json",
+    "handoffs/c/C-A89C-REAL-MOUSE-LAYOUT-20261103-v1/source-v1/main/ui-evidence-correction-v1.json",
+    "handoffs/c/C-A89C-REAL-MOUSE-LAYOUT-20261103-v1/source-v1/main/ui-main-verification-v1.json",
+    "handoffs/c/C-A89C-REAL-MOUSE-LAYOUT-20261103-v1/source-v1/main/validate-runtime-v2.command.json",
+    "handoffs/c/C-A89C-REAL-MOUSE-LAYOUT-20261103-v1/source-v1/main/validate-runtime-v2.stderr",
+    "handoffs/c/C-A89C-REAL-MOUSE-LAYOUT-20261103-v1/source-v1/main/validate-runtime-v2.stdout",
+    "handoffs/c/C-A89C-REAL-MOUSE-LAYOUT-20261103-v1/source-v1/main/viewer-exit-v1.json",
+    "handoffs/c/C-A89C-REAL-MOUSE-LAYOUT-20261103-v1/source-v1/main/viewer-launch-v1.json",
+    "handoffs/c/C-A89C-REAL-MOUSE-LAYOUT-20261103-v1/source-v1/main/viewer.stderr",
+    "handoffs/c/C-A89C-REAL-MOUSE-LAYOUT-20261103-v1/source-v1/main/viewer.stdout",
+    "handoffs/c/C-A89C-REAL-MOUSE-LAYOUT-20261103-v1/source-v1/main/watch_save_process.ps1",
+    "handoffs/c/C-A89C-REAL-MOUSE-LAYOUT-20261103-v1/source-v1/README.md",
+    "handoffs/c/C-A89C-REAL-MOUSE-LAYOUT-20261103-v1/source-v1/runtime-review-v1/audit-v2-result.json",
+    "handoffs/c/C-A89C-REAL-MOUSE-LAYOUT-20261103-v1/source-v1/runtime-review-v1/FINAL.json",
+    "handoffs/c/C-A89C-REAL-MOUSE-LAYOUT-20261103-v1/source-v1/runtime-review-v1/REVIEW.md",
+    "handoffs/c/C-A89C-REAL-MOUSE-LAYOUT-20261103-v1/source-v1/ui/01-initial.png",
+    "handoffs/c/C-A89C-REAL-MOUSE-LAYOUT-20261103-v1/source-v1/ui/02-water-added.png",
+    "handoffs/c/C-A89C-REAL-MOUSE-LAYOUT-20261103-v1/source-v1/ui/03-water-first-drag-no-coordinate-change.png",
+    "handoffs/c/C-A89C-REAL-MOUSE-LAYOUT-20261103-v1/source-v1/ui/04-water-dragged.png",
+    "handoffs/c/C-A89C-REAL-MOUSE-LAYOUT-20261103-v1/source-v1/ui/05-rock-added.png",
+    "handoffs/c/C-A89C-REAL-MOUSE-LAYOUT-20261103-v1/source-v1/ui/06-rock-dragged.png",
+    "handoffs/c/C-A89C-REAL-MOUSE-LAYOUT-20261103-v1/source-v1/ui/07-entry-top-u12.png",
+    "handoffs/c/C-A89C-REAL-MOUSE-LAYOUT-20261103-v1/source-v1/ui/08-entry-exit-ready.png",
+    "handoffs/c/C-A89C-REAL-MOUSE-LAYOUT-20261103-v1/source-v1/ui/09-before-save.png",
+    "handoffs/c/C-A89C-REAL-MOUSE-LAYOUT-20261103-v1/source-v1/ui/10-save-success.png",
+    "handoffs/c/C-A89C-REAL-MOUSE-LAYOUT-20261103-v1/source-v1/ui/mouse-layout.json",
+    "handoffs/c/C-A89C-REAL-MOUSE-LAYOUT-20261103-v1/source-v1/ui/save-process-events.jsonl",
+    "handoffs/c/C-A89C-REAL-MOUSE-LAYOUT-20261103-v1/source-v1/ui/ui-actions.jsonl",
+    "handoffs/c/C-A89C-REAL-MOUSE-LAYOUT-20261103-v1/source-v1/ui-evidence-review-v1/checks.json",
+    "handoffs/c/C-A89C-REAL-MOUSE-LAYOUT-20261103-v1/source-v1/ui-evidence-review-v1/FINAL.json",
+    "handoffs/c/C-A89C-REAL-MOUSE-LAYOUT-20261103-v1/source-v1/ui-evidence-review-v1/original-observer-tool-output.txt",
+    "handoffs/c/C-A89C-REAL-MOUSE-LAYOUT-20261103-v1/source-v1/ui-evidence-review-v1/REVIEW.md",
+    "handoffs/c/C-A89C-REAL-MOUSE-LAYOUT-20261103-v1/source-v1/verify.command.json",
+    "handoffs/c/C-A89C-REAL-MOUSE-LAYOUT-20261103-v1/source-v1/verify.stderr.txt",
+    "handoffs/c/C-A89C-REAL-MOUSE-LAYOUT-20261103-v1/source-v1/verify.stdout.txt",
+    "handoffs/c/C-A89C-REAL-MOUSE-LAYOUT-20261103-v1/source-v1/verify_delivery.py"
+  ],
+  "files": {
+    "handoffs/c/C-A89C-REAL-MOUSE-LAYOUT-20261103-v1/source-v1/README.md": {
+      "sha256": "f54db0229a6d205de848b32ec9e87c24920baa13795d0bef226f6d7ac8ecd051",
+      "size": 5952
+    },
+    "handoffs/c/C-A89C-REAL-MOUSE-LAYOUT-20261103-v1/source-v1/artifact-index.json": {
+      "sha256": "feacba234eeff9e21be61d9a7de863f2c8c4ed19efbfc9819801d4cf77d4a8ca",
+      "size": 7447
+    },
+    "handoffs/c/C-A89C-REAL-MOUSE-LAYOUT-20261103-v1/source-v1/candidate-manifest-v2.json": {
+      "sha256": "c06a2ff583f3dba2c46b5bd1a86ef863298d09b6fbb2cd7b8c40dd2ce2ca1218",
+      "size": 17041
+    },
+    "handoffs/c/C-A89C-REAL-MOUSE-LAYOUT-20261103-v1/source-v1/candidate-source.zip": {
+      "sha256": "530691e653f74a86934f602e9cdee006973574ebed223ec3f5242f038d92fd30",
+      "size": 134481
+    },
+    "handoffs/c/C-A89C-REAL-MOUSE-LAYOUT-20261103-v1/source-v1/candidate-v2.patch": {
+      "sha256": "8d78cf6a38e7fb219cfa060d97f8c07772b3817f111064f699aefb4dcb571647",
+      "size": 15708
+    },
+    "handoffs/c/C-A89C-REAL-MOUSE-LAYOUT-20261103-v1/source-v1/main/final-main-approved.json": {
+      "sha256": "9fc6d0c203f5361f1126b40da89f7977565f92adb848682ee47905622a3311af",
+      "size": 2767
+    },
+    "handoffs/c/C-A89C-REAL-MOUSE-LAYOUT-20261103-v1/source-v1/main/godot-install-verified.json": {
+      "sha256": "928eae9d2dd5d205771fb248448ec0b7a9eeea0d427ca522a25edee834d909fd",
+      "size": 1062
+    },
+    "handoffs/c/C-A89C-REAL-MOUSE-LAYOUT-20261103-v1/source-v1/main/godot-resource-import-v1.command.json": {
+      "sha256": "521f37875c131009c5a512a3afdac660e0ef5af2e4c404f3992bb610249d71cf",
+      "size": 542
+    },
+    "handoffs/c/C-A89C-REAL-MOUSE-LAYOUT-20261103-v1/source-v1/main/godot-resource-import-v1.stderr": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0
+    },
+    "handoffs/c/C-A89C-REAL-MOUSE-LAYOUT-20261103-v1/source-v1/main/godot-resource-import-v1.stdout": {
+      "sha256": "9702a2938e366a8bb3edf0bdf14074fd73578ebfdd9a09dc8811e889148589e6",
+      "size": 2596
+    },
+    "handoffs/c/C-A89C-REAL-MOUSE-LAYOUT-20261103-v1/source-v1/main/godot-version.command.json": {
+      "sha256": "eb9a4f5057456798d3a0e7756f539023c0221f25ba2c5b8ea649ac6325d07068",
+      "size": 200
+    },
+    "handoffs/c/C-A89C-REAL-MOUSE-LAYOUT-20261103-v1/source-v1/main/godot-version.stderr": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0
+    },
+    "handoffs/c/C-A89C-REAL-MOUSE-LAYOUT-20261103-v1/source-v1/main/godot-version.stdout": {
+      "sha256": "bf8803022b574250bb04dea65053a46b7c58570725316c1f7fe2aa6735706498",
+      "size": 33
+    },
+    "handoffs/c/C-A89C-REAL-MOUSE-LAYOUT-20261103-v1/source-v1/main/runtime-main-approved.json": {
+      "sha256": "f7c687c26a13300f49c2c36b21130c5cddd6266f24b37571f4b268cbd0a2b9f1",
+      "size": 553
+    },
+    "handoffs/c/C-A89C-REAL-MOUSE-LAYOUT-20261103-v1/source-v1/main/ui-evidence-correction-v1.json": {
+      "sha256": "e88388ea80d7fa5407105a5eac8105af186356b6519ce6e269b7b7fb4fb1eaf0",
+      "size": 640
+    },
+    "handoffs/c/C-A89C-REAL-MOUSE-LAYOUT-20261103-v1/source-v1/main/ui-main-verification-v1.json": {
+      "sha256": "e03fa91465fa3921dffd2775a12de30b00bb7fb068be574a0a436ac29bc16249",
+      "size": 1958
+    },
+    "handoffs/c/C-A89C-REAL-MOUSE-LAYOUT-20261103-v1/source-v1/main/validate-runtime-v2.command.json": {
+      "sha256": "e4d2eb2e0802566263da69d33d15bb02746c4fc5c0261c9e3331dd2fe87813e4",
+      "size": 811
+    },
+    "handoffs/c/C-A89C-REAL-MOUSE-LAYOUT-20261103-v1/source-v1/main/validate-runtime-v2.stderr": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0
+    },
+    "handoffs/c/C-A89C-REAL-MOUSE-LAYOUT-20261103-v1/source-v1/main/validate-runtime-v2.stdout": {
+      "sha256": "36831e2b73bf3e7b8bc49a31efc6ba64eff711d9927fa444c6567a88a19d4b85",
+      "size": 94
+    },
+    "handoffs/c/C-A89C-REAL-MOUSE-LAYOUT-20261103-v1/source-v1/main/viewer-exit-v1.json": {
+      "sha256": "cbc1b047d5439dd27af1c7a936b99d7515d7b22e644b3b447e0bbbe780ec29f9",
+      "size": 102
+    },
+    "handoffs/c/C-A89C-REAL-MOUSE-LAYOUT-20261103-v1/source-v1/main/viewer-launch-v1.json": {
+      "sha256": "85e712d6bb3f7137877c537eb4cf0ea23a80fdbc6754a066dacd6bea4cd7c1ed",
+      "size": 1006
+    },
+    "handoffs/c/C-A89C-REAL-MOUSE-LAYOUT-20261103-v1/source-v1/main/viewer.stderr": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0
+    },
+    "handoffs/c/C-A89C-REAL-MOUSE-LAYOUT-20261103-v1/source-v1/main/viewer.stdout": {
+      "sha256": "793eb93beb82d58930920f61b0fd94708ee70bad967915233a2313c7da428335",
+      "size": 61
+    },
+    "handoffs/c/C-A89C-REAL-MOUSE-LAYOUT-20261103-v1/source-v1/main/watch_save_process.ps1": {
+      "sha256": "84a9502098a26254980e70aed864e143e5a7a46bce9a00d78b2da2ce8ad7ddab",
+      "size": 2287
+    },
+    "handoffs/c/C-A89C-REAL-MOUSE-LAYOUT-20261103-v1/source-v1/runtime-review-v1/FINAL.json": {
+      "sha256": "902cee18ea4d693875d0d2b0948fef2aba333cd2eb0858f6ce68a8342a65e331",
+      "size": 1597
+    },
+    "handoffs/c/C-A89C-REAL-MOUSE-LAYOUT-20261103-v1/source-v1/runtime-review-v1/REVIEW.md": {
+      "sha256": "4376a34be7f8ed3de69b22726b67e7c939cdc7754b43820701af6b7413bb510f",
+      "size": 6724
+    },
+    "handoffs/c/C-A89C-REAL-MOUSE-LAYOUT-20261103-v1/source-v1/runtime-review-v1/audit-v2-result.json": {
+      "sha256": "12ad58e8c6327b059c1d4ea75f60bd7fb107f39eaa40e90ec16102e900f6ab2a",
+      "size": 665
+    },
+    "handoffs/c/C-A89C-REAL-MOUSE-LAYOUT-20261103-v1/source-v1/ui-evidence-review-v1/FINAL.json": {
+      "sha256": "5638a8324594ec08cbee3d9472e008c635d33c9f88d905dd78fe64d0ce5134a9",
+      "size": 1611
+    },
+    "handoffs/c/C-A89C-REAL-MOUSE-LAYOUT-20261103-v1/source-v1/ui-evidence-review-v1/REVIEW.md": {
+      "sha256": "2149a62b357e738e2442ec4ab6d44d73845316f3a4e0a98bea4c2260cefcaf80",
+      "size": 6066
+    },
+    "handoffs/c/C-A89C-REAL-MOUSE-LAYOUT-20261103-v1/source-v1/ui-evidence-review-v1/checks.json": {
+      "sha256": "d6292cfd7229cab1144f439a7113a95b62248d2ef798b2b50e3d650e4df9ecc7",
+      "size": 943
+    },
+    "handoffs/c/C-A89C-REAL-MOUSE-LAYOUT-20261103-v1/source-v1/ui-evidence-review-v1/original-observer-tool-output.txt": {
+      "sha256": "0cb52fcc6d15163508bddebb6b00eba6580668e0ccae3b37a268f05d7aac6a9f",
+      "size": 480
+    },
+    "handoffs/c/C-A89C-REAL-MOUSE-LAYOUT-20261103-v1/source-v1/ui/01-initial.png": {
+      "sha256": "811bf99000b073d31e4db2c887bddb249199dd1f4fdb56fcc4bd08d84ce936ae",
+      "size": 105374
+    },
+    "handoffs/c/C-A89C-REAL-MOUSE-LAYOUT-20261103-v1/source-v1/ui/02-water-added.png": {
+      "sha256": "e95fe50ef12ba85118d1be094bf008c7622b15a1ff5fac6cf0dba79f3d599596",
+      "size": 106267
+    },
+    "handoffs/c/C-A89C-REAL-MOUSE-LAYOUT-20261103-v1/source-v1/ui/03-water-first-drag-no-coordinate-change.png": {
+      "sha256": "8ad067e793d1412a978dcfd53e9379c3371c334f6ec13c957dd39e53962889af",
+      "size": 107086
+    },
+    "handoffs/c/C-A89C-REAL-MOUSE-LAYOUT-20261103-v1/source-v1/ui/04-water-dragged.png": {
+      "sha256": "6fce87873a069c38f41b3925735877ef3d8159ea508ac204dac18e0e62603bf4",
+      "size": 105605
+    },
+    "handoffs/c/C-A89C-REAL-MOUSE-LAYOUT-20261103-v1/source-v1/ui/05-rock-added.png": {
+      "sha256": "f88e280ff7a58efdd149c08a2ef35de8633101ea7e41869a8be2d5dd4b8ba5fe",
+      "size": 105355
+    },
+    "handoffs/c/C-A89C-REAL-MOUSE-LAYOUT-20261103-v1/source-v1/ui/06-rock-dragged.png": {
+      "sha256": "e3499fa82e763b6173f9341f14f73aa28163989a35042ab9de6f96d64d0bc274",
+      "size": 105703
+    },
+    "handoffs/c/C-A89C-REAL-MOUSE-LAYOUT-20261103-v1/source-v1/ui/07-entry-top-u12.png": {
+      "sha256": "d670208b142a2a4f007ea57631e94fe27e9c0b2e412840e58a7ce12b2ca6c4be",
+      "size": 110008
+    },
+    "handoffs/c/C-A89C-REAL-MOUSE-LAYOUT-20261103-v1/source-v1/ui/08-entry-exit-ready.png": {
+      "sha256": "0b5c314faa6be158eb21af20bf5023537b6acfcd8a5a9b4287a34b99b3827e3c",
+      "size": 111720
+    },
+    "handoffs/c/C-A89C-REAL-MOUSE-LAYOUT-20261103-v1/source-v1/ui/09-before-save.png": {
+      "sha256": "7057e1aa35b079bf4847435a5b1b2975f37a1b5a03a9110fc735d6e01b4c2a29",
+      "size": 116296
+    },
+    "handoffs/c/C-A89C-REAL-MOUSE-LAYOUT-20261103-v1/source-v1/ui/10-save-success.png": {
+      "sha256": "96379f4661f4aa64c221645a234eaabc911d4577d25f1ccab71c181e068006b0",
+      "size": 112273
+    },
+    "handoffs/c/C-A89C-REAL-MOUSE-LAYOUT-20261103-v1/source-v1/ui/mouse-layout.json": {
+      "sha256": "6b6caf18d6dfb61df23db1f29fda3a33f6f7f47395803090185f103a0488dbbe",
+      "size": 1265
+    },
+    "handoffs/c/C-A89C-REAL-MOUSE-LAYOUT-20261103-v1/source-v1/ui/save-process-events.jsonl": {
+      "sha256": "d7c6ab1dae9dffad08ae46d8d7cb542276b3ba4eb2a8fde8d842ed340551dbbc",
+      "size": 92
+    },
+    "handoffs/c/C-A89C-REAL-MOUSE-LAYOUT-20261103-v1/source-v1/ui/ui-actions.jsonl": {
+      "sha256": "1f0c8422a15c223dbd74fbab7d3d1c3c493730f138e713984f0afed0b41ee842",
+      "size": 3200
+    },
+    "handoffs/c/C-A89C-REAL-MOUSE-LAYOUT-20261103-v1/source-v1/verify.command.json": {
+      "sha256": "d4b47814fdfd75883027b19b3206a93cfe14344ea066d29486001cc6867a9ad8",
+      "size": 368
+    },
+    "handoffs/c/C-A89C-REAL-MOUSE-LAYOUT-20261103-v1/source-v1/verify.stderr.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0
+    },
+    "handoffs/c/C-A89C-REAL-MOUSE-LAYOUT-20261103-v1/source-v1/verify.stdout.txt": {
+      "sha256": "49283bb32abd44304bc8269a4b90c160b60416696b95b4068d78b22bc56378c4",
+      "size": 182
+    },
+    "handoffs/c/C-A89C-REAL-MOUSE-LAYOUT-20261103-v1/source-v1/verify_delivery.py": {
+      "sha256": "c944c8552fbb8a9501a11cc80a101cbc353675adee674670f17e32271e7818e5",
+      "size": 1457
+    }
+  },
+  "request": {
+    "code_commit": "1b47a237690deb39e777b0ddd5307fcfe47f2e2c",
+    "expected_result": "Actual C original viewer edit and single original Save succeeded, viewer/launcher exit0; exact source/profile and UI file bytes independently reviewed. Source-derived ACK checks are not raw ACK evidence. No model/board/full drill exit/formal acceptance.",
+    "operation_id": "C-A89C-REAL-MOUSE-LAYOUT-20261103-v1",
+    "requester": "node-c",
+    "task_id": "DEEPEYE-IMPLEMENTATION-20261014",
+    "task_version": 1,
+    "test_steps": [
+      "Read-only artifact check: python -I -S -B handoffs/c/C-A89C-REAL-MOUSE-LAYOUT-20261103-v1/source-v1/verify_delivery.py",
+      "Inspect exact candidate-source.zip43 source hashes and three-file diff against A e47033f342fe76bd7a9c9284e9a3ff0e2521ff24; machine-specific C runtime is a new candidate",
+      "Inspect actual mouse screenshots, original1265-byte UI Save JSON, recorded Godot/Python/version/exit logs and independent review",
+      "Raw helper ACK and independent helper/owner terminal trace were not captured: keep missing evidence incomplete. A alone performs board and full-chain intake."
+    ]
+  },
+  "request_hash": "d69307f9f280e69bbbc4235c0dee7e0dc5e0e1f06a9cf9f80d349a1e4a280d0a",
+  "schema_version": 1,
+  "stages": {
+    "actual_UI_edit_save": {
+      "log": "handoffs/c/C-A89C-REAL-MOUSE-LAYOUT-20261103-v1/source-v1/ui-evidence-review-v1/REVIEW.md",
+      "status": "passed"
+    },
+    "byte_verification": {
+      "log": "handoffs/c/C-A89C-REAL-MOUSE-LAYOUT-20261103-v1/source-v1/verify.stdout.txt",
+      "status": "passed"
+    },
+    "final_acceptance": {
+      "status": "not_run"
+    },
+    "full_chain": {
+      "status": "not_run"
+    },
+    "implementation": {
+      "status": "not_run"
+    },
+    "model_qualification": {
+      "status": "not_run"
+    },
+    "physical_board": {
+      "status": "not_run"
+    },
+    "raw_helper_ACK_and_terminal_capture": {
+      "log": "handoffs/c/C-A89C-REAL-MOUSE-LAYOUT-20261103-v1/source-v1/main/ui-main-verification-v1.json",
+      "status": "blocked"
+    },
+    "rtl_simulation": {
+      "status": "not_run"
+    },
+    "runtime_packaging_review": {
+      "log": "handoffs/c/C-A89C-REAL-MOUSE-LAYOUT-20261103-v1/source-v1/runtime-review-v1/REVIEW.md",
+      "status": "passed"
+    },
+    "synthesis": {
+      "status": "not_run"
+    },
+    "viewer_exit": {
+      "log": "handoffs/c/C-A89C-REAL-MOUSE-LAYOUT-20261103-v1/source-v1/main/viewer.stdout",
+      "status": "passed"
+    }
+  }
+}
