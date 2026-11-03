@@ -1,0 +1,155 @@
+{
+  "status": "PASS_SOURCE_PARSE_AND_ISOLATED_COORDINATE_ARITHMETIC_ONLY",
+  "source_commit": "45bbe744c9889ede53169138acdd2013429513b0",
+  "baseline_sha256": "4559bd81501c9f1c843648c95adb331332dd51f1dabbd13a80d41834c1ff6d43",
+  "candidate_sha256": "2e297f1f7c2895d4bff73b029da814095d433bcd8b27389f39b677da4b8c8937",
+  "patch_sha256": "04960ad4d4d69e9d21c21b0126d90b2ae4bd22607f56c169db7acdbef05b55e6",
+  "checks": [
+    {
+      "axis": 0,
+      "face_sign": -1,
+      "stage": "ENTRY",
+      "goal": [
+        1.8230000000000002,
+        -2.5,
+        15.0
+      ],
+      "strict_bound": true
+    },
+    {
+      "axis": 0,
+      "face_sign": -1,
+      "stage": "EXIT",
+      "goal": [
+        0.6769999999999998,
+        -2.5,
+        15.0
+      ],
+      "strict_bound": true
+    },
+    {
+      "axis": 0,
+      "face_sign": 1,
+      "stage": "ENTRY",
+      "goal": [
+        0.6769999999999998,
+        -2.5,
+        15.0
+      ],
+      "strict_bound": true
+    },
+    {
+      "axis": 0,
+      "face_sign": 1,
+      "stage": "EXIT",
+      "goal": [
+        1.8230000000000002,
+        -2.5,
+        15.0
+      ],
+      "strict_bound": true
+    },
+    {
+      "axis": 1,
+      "face_sign": -1,
+      "stage": "ENTRY",
+      "goal": [
+        1.25,
+        -1.9269999999999998,
+        15.0
+      ],
+      "strict_bound": true
+    },
+    {
+      "axis": 1,
+      "face_sign": -1,
+      "stage": "EXIT",
+      "goal": [
+        1.25,
+        -3.0730000000000004,
+        15.0
+      ],
+      "strict_bound": true
+    },
+    {
+      "axis": 1,
+      "face_sign": 1,
+      "stage": "ENTRY",
+      "goal": [
+        1.25,
+        -3.0730000000000004,
+        15.0
+      ],
+      "strict_bound": true
+    },
+    {
+      "axis": 1,
+      "face_sign": 1,
+      "stage": "EXIT",
+      "goal": [
+        1.25,
+        -1.9269999999999998,
+        15.0
+      ],
+      "strict_bound": true
+    },
+    {
+      "axis": 2,
+      "face_sign": -1,
+      "stage": "ENTRY",
+      "goal": [
+        1.25,
+        -2.5,
+        15.573000000000002
+      ],
+      "strict_bound": true
+    },
+    {
+      "axis": 2,
+      "face_sign": -1,
+      "stage": "EXIT",
+      "goal": [
+        1.25,
+        -2.5,
+        14.426999999999998
+      ],
+      "strict_bound": true
+    },
+    {
+      "axis": 2,
+      "face_sign": 1,
+      "stage": "ENTRY",
+      "goal": [
+        1.25,
+        -2.5,
+        14.426999999999998
+      ],
+      "strict_bound": true
+    },
+    {
+      "axis": 2,
+      "face_sign": 1,
+      "stage": "EXIT",
+      "goal": [
+        1.25,
+        -2.5,
+        15.573000000000002
+      ],
+      "strict_bound": true
+    }
+  ],
+  "invalid_nonfinite_cases": 2,
+  "assumed_example_bounds": [
+    0.4,
+    0.12,
+    0.001,
+    0.002,
+    0.05
+  ],
+  "actual_A_bounds_verified": false,
+  "product_module_imported": false,
+  "staging_binding_runtime": "NOT_RUN",
+  "model_execution": false,
+  "physical_board": false,
+  "formal_acceptance": false
+}

@@ -1,0 +1,34 @@
+{
+  "files": [
+    {
+      "path": "candidate-checks.json",
+      "bytes": 3092,
+      "sha256": "e34630e86670bc217d5a4dfcfdd084e532c0df50c8e02432ffb251aeed95b06c"
+    },
+    {
+      "path": "final-main-approved.json",
+      "bytes": 1039,
+      "sha256": "fbf8d81b97a280271e93bdc0ad44b7c8f14c36756beec37603f48fc5ea1520e7"
+    },
+    {
+      "path": "public-portal-goal.patch",
+      "bytes": 2247,
+      "sha256": "04960ad4d4d69e9d21c21b0126d90b2ae4bd22607f56c169db7acdbef05b55e6"
+    },
+    {
+      "path": "README.md",
+      "bytes": 6436,
+      "sha256": "c15cfa41680971d77f61e5d9e3bd13a57b1f4207e6461002461a66d49351be8d"
+    },
+    {
+      "path": "source-pins.json",
+      "bytes": 4052,
+      "sha256": "10a0591f8d53fbb52a8d33296524f09ff425887ace4a6ac2582d0e38b88c155d"
+    },
+    {
+      "path": "verify_delivery.py",
+      "bytes": 432,
+      "sha256": "75aa526815fd731c77c2693559349901bd3d9cd4328a2cf189330dcb52d33b31"
+    }
+  ]
+}

@@ -1,0 +1,90 @@
+{
+  "commit": "45bbe744c9889ede53169138acdd2013429513b0",
+  "files": [
+    {
+      "path": "competition/deepeye/simulation/authority/motion/gate_geometry.py",
+      "commit": "45bbe744c9889ede53169138acdd2013429513b0",
+      "bytes": 15309,
+      "sha256": "5e33a60927334cee4473d5f78afc248f04d3a5ef00db465b2bcdf14c1adc3839",
+      "git_blob": "8645a02c67607e361114a9fb6e90d0deb19321a3"
+    },
+    {
+      "path": "competition/deepeye/simulation/authority/g05_csr_projection_v1.py",
+      "commit": "45bbe744c9889ede53169138acdd2013429513b0",
+      "bytes": 15840,
+      "sha256": "4559bd81501c9f1c843648c95adb331332dd51f1dabbd13a80d41834c1ff6d43",
+      "git_blob": "a60185d8ce5749c389df2f8789d0158529d9ea2e"
+    },
+    {
+      "path": "competition/deepeye/simulation/authority/world_initial_pose.py",
+      "commit": "45bbe744c9889ede53169138acdd2013429513b0",
+      "bytes": 1778,
+      "sha256": "46added11d1ebbd8e90169c9a0cf094b7af8234e38decf89b4c2e32f12c3938b",
+      "git_blob": "4702486ca001f4218029b1a124c18c8612d6627a"
+    },
+    {
+      "path": "competition/deepeye/simulation/authority/root_source_book.py",
+      "commit": "45bbe744c9889ede53169138acdd2013429513b0",
+      "bytes": 35684,
+      "sha256": "c83f35ad9b6985f8949e899b195898832b88cbd4ff8a314979c08a412b271e4e",
+      "git_blob": "663d4f4a9c38d9fe214146a6b7643092bf32397a"
+    },
+    {
+      "path": "competition/deepeye/docs/greybox_drill_envelope.md",
+      "commit": "45bbe744c9889ede53169138acdd2013429513b0",
+      "bytes": 6299,
+      "sha256": "93b42cf3303866c3580b1a02b0e1fc0c113ecbca63f26020a03ad5ed9b82f0f1",
+      "git_blob": "b950ffa333e5a9ae0b5af7b24bc41b37448e344f"
+    },
+    {
+      "path": "competition/deepeye/simulation/authority/motion/gate_clearance.py",
+      "commit": "45bbe744c9889ede53169138acdd2013429513b0",
+      "bytes": 11856,
+      "sha256": "035d26e45419208bdcc30d8640df89fd444836d8ce7f0d32e22fc3c0cd6f9977",
+      "git_blob": "0668653c5b25f9644619acf998909e3e08ca9952"
+    },
+    {
+      "path": "competition/deepeye/simulation/authority/motion_executor.py",
+      "commit": "45bbe744c9889ede53169138acdd2013429513b0",
+      "bytes": 23019,
+      "sha256": "e724cac96762a35a25f8ff96bbc10c6c445d81865b8bb431da299dde467855d0",
+      "git_blob": "041b5ff9e2a0deb2c68707687b0e30897c4b559c"
+    },
+    {
+      "path": "competition/deepeye/simulation/authority/motion/passage_phase.py",
+      "commit": "45bbe744c9889ede53169138acdd2013429513b0",
+      "bytes": 15897,
+      "sha256": "9f72c167c7ba1502bb07f6262ed9b537c8d4b849179218d0e5ba1b6841206b68",
+      "git_blob": "80315677eba48b55bce1d3ebb24f0f56d03a7848"
+    },
+    {
+      "path": "competition/deepeye/simulation/authority/root_world_service.py",
+      "commit": "45bbe744c9889ede53169138acdd2013429513b0",
+      "bytes": 7888,
+      "sha256": "49292b6a2895e7e9e6d447fd6d1a4d6a35a2703c5979d8ebfaedfd05812ecfa7",
+      "git_blob": "748085f45ede1d9af9eab8223f697a9c48bb2b91"
+    },
+    {
+      "path": "competition/deepeye/simulation/authority/motion/workspace_boundaries.py",
+      "commit": "45bbe744c9889ede53169138acdd2013429513b0",
+      "bytes": 13605,
+      "sha256": "2d42019cce6b4ac360766470b20518dd6ac8e66e94abae0e9772c83705a75b75",
+      "git_blob": "175278d2a0361c875cb52393e5f0da61145c27fa"
+    },
+    {
+      "path": "competition/deepeye/simulation/authority/_actor_source_custody.py",
+      "commit": "45bbe744c9889ede53169138acdd2013429513b0",
+      "bytes": 12418,
+      "sha256": "0cb3438533a7fec25ac4dc7c0072de7c6de7e3acff5a84ecaf7d1636614ed671",
+      "git_blob": "bce5ba66d5dc4ae448a6b4513555137d9aba5e2b"
+    },
+    {
+      "path": "competition/deepeye/simulation/authority/navigation_session_profile.py",
+      "commit": "45bbe744c9889ede53169138acdd2013429513b0",
+      "bytes": 4342,
+      "sha256": "52293d31c827f5d46e03da529528c88774f8424f86f971f3b035753b82162b42",
+      "git_blob": "0077e23276ff8ec445ab11d0366c2851c77cd2ca"
+    }
+  ],
+  "actual_hidden_scene_read": false
+}

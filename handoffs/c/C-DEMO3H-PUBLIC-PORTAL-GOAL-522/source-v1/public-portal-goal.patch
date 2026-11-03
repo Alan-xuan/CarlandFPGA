@@ -1,0 +1,32 @@
+--- a/competition/deepeye/simulation/authority/g05_csr_projection_v1.py
++++ b/competition/deepeye/simulation/authority/g05_csr_projection_v1.py
+@@ -210,7 +210,28 @@
+         _need(declared.numeric_m>=declared.policy_guard_m+declared.getter_endpoint_cap_m
+               and declared.asset_m>=declared.policy_guard_m+declared.full_drill_containment_upper_m,
+               'declared public numeric/getter/drill-asset coverage required')
+-        goal=_nav_exit_goal(values.layout.red.center_m,values.layout.red.normal,
++        # Own executed gate history, not a candidate preview or obstacle query.
++        # The current getter/registry hold above must still bind this exact Root.
++        executor=c.refs.link.executor; root=executor._root
++        passage=executor.passage_state()
++        _need(executor._root is root is c.refs.book._root
++              and current['pose_revision']==root.pose_revision
++              and passage.pose_revision==root.pose_revision and passage.pose==root.pose
++              and passage.context.layout==values.layout
++              and passage.context.envelope==values.envelope
++              and not root.world_invalid and not root.trial_failed,
++              'same closed public getter and executed portal history required')
++        _need(type(passage.entered) is bool
++              and passage.entered==any(e.kind=='ENTERED' for e in passage.history)
++              and passage.phase in ('OUTSIDE_ENTRY','ENTRY_CROSSING','INSIDE','EXIT_CROSSING','ARRIVED'),
++              'original executed whole-entry history required')
++        _need((passage.phase in ('INSIDE','EXIT_CROSSING','ARRIVED'))==passage.entered,
++              'executed portal stage mismatch')
++        # Never steer back to blue after its committed ENTERED event, even
++        # for same-face gates or after the bounded public action window rolls.
++        gate=values.layout.red if passage.entered else values.layout.blue
++        normal=gate.normal if passage.entered else tuple(-x for x in gate.normal)
++        goal=_nav_exit_goal(gate.center_m,normal,
+             values.envelope.half_segment_m,values.envelope.radius_m,
+             declared.numeric_m,declared.asset_m,navigation_profile.exit_clearance_margin_m)
+     actions=[]

@@ -1,0 +1,20 @@
+{
+  "work_id": "C59-A102C-PUBLIC-PORTAL-GOAL-20261103-v1",
+  "utc": "2026-11-03T11:09:51.222003+00:00",
+  "delivery_approved": true,
+  "scope": "Reviewable public-goal proposal only; A independent integration review pending",
+  "main_thread_id": "01a14025-4dfd-7ec3-aebb-57be48daba59",
+  "source_files": 12,
+  "patch_sha256": "04960ad4d4d69e9d21c21b0126d90b2ae4bd22607f56c169db7acdbef05b55e6",
+  "arithmetic_exit_code": 0,
+  "independent_patch_reviewer": false,
+  "new_worker_created": false,
+  "product_execution": false,
+  "typed_phase_binding_runtime": "NOT_RUN",
+  "formal_acceptance": false,
+  "contract_id": "DEEPEYE-HUMAN-LOCK-20261014/revision1",
+  "contract_source": "f5989cd5defce561f9ba98e6b18fc2682945f0a2",
+  "requirements_sha256": "c229834bfc2292f5fe4411fc9f12c68487008f9d1adaf31f0144ee7a98173804",
+  "fixed_design": "1011259415a0916054eb580687612580bc1e5f09",
+  "lookup_error": "One rg Windows wildcard-path failure retained in original transcript; corrected explicit directory search, no side effect"
+}
