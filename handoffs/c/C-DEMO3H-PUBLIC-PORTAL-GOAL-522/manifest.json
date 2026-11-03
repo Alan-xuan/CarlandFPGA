@@ -1,0 +1,109 @@
+{
+  "artifacts": [
+    "handoffs/c/C-DEMO3H-PUBLIC-PORTAL-GOAL-522/source-v1/artifact-index.json",
+    "handoffs/c/C-DEMO3H-PUBLIC-PORTAL-GOAL-522/source-v1/candidate-checks.json",
+    "handoffs/c/C-DEMO3H-PUBLIC-PORTAL-GOAL-522/source-v1/final-main-approved.json",
+    "handoffs/c/C-DEMO3H-PUBLIC-PORTAL-GOAL-522/source-v1/public-portal-goal.patch",
+    "handoffs/c/C-DEMO3H-PUBLIC-PORTAL-GOAL-522/source-v1/README.md",
+    "handoffs/c/C-DEMO3H-PUBLIC-PORTAL-GOAL-522/source-v1/source-pins.json",
+    "handoffs/c/C-DEMO3H-PUBLIC-PORTAL-GOAL-522/source-v1/verify.command.json",
+    "handoffs/c/C-DEMO3H-PUBLIC-PORTAL-GOAL-522/source-v1/verify.stderr.txt",
+    "handoffs/c/C-DEMO3H-PUBLIC-PORTAL-GOAL-522/source-v1/verify.stdout.txt",
+    "handoffs/c/C-DEMO3H-PUBLIC-PORTAL-GOAL-522/source-v1/verify_delivery.py"
+  ],
+  "files": {
+    "handoffs/c/C-DEMO3H-PUBLIC-PORTAL-GOAL-522/source-v1/README.md": {
+      "sha256": "c15cfa41680971d77f61e5d9e3bd13a57b1f4207e6461002461a66d49351be8d",
+      "size": 6436
+    },
+    "handoffs/c/C-DEMO3H-PUBLIC-PORTAL-GOAL-522/source-v1/artifact-index.json": {
+      "sha256": "b331e0089f82ea964e907acbb8bd929d07652ba8af708e6e9ffd80273eecc15d",
+      "size": 975
+    },
+    "handoffs/c/C-DEMO3H-PUBLIC-PORTAL-GOAL-522/source-v1/candidate-checks.json": {
+      "sha256": "e34630e86670bc217d5a4dfcfdd084e532c0df50c8e02432ffb251aeed95b06c",
+      "size": 3092
+    },
+    "handoffs/c/C-DEMO3H-PUBLIC-PORTAL-GOAL-522/source-v1/final-main-approved.json": {
+      "sha256": "fbf8d81b97a280271e93bdc0ad44b7c8f14c36756beec37603f48fc5ea1520e7",
+      "size": 1039
+    },
+    "handoffs/c/C-DEMO3H-PUBLIC-PORTAL-GOAL-522/source-v1/public-portal-goal.patch": {
+      "sha256": "04960ad4d4d69e9d21c21b0126d90b2ae4bd22607f56c169db7acdbef05b55e6",
+      "size": 2247
+    },
+    "handoffs/c/C-DEMO3H-PUBLIC-PORTAL-GOAL-522/source-v1/source-pins.json": {
+      "sha256": "10a0591f8d53fbb52a8d33296524f09ff425887ace4a6ac2582d0e38b88c155d",
+      "size": 4052
+    },
+    "handoffs/c/C-DEMO3H-PUBLIC-PORTAL-GOAL-522/source-v1/verify.command.json": {
+      "sha256": "3b66636e2b3d69826fa4e71a7d4882cd26fc7e39da909edbeb7c7bbc46814886",
+      "size": 368
+    },
+    "handoffs/c/C-DEMO3H-PUBLIC-PORTAL-GOAL-522/source-v1/verify.stderr.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0
+    },
+    "handoffs/c/C-DEMO3H-PUBLIC-PORTAL-GOAL-522/source-v1/verify.stdout.txt": {
+      "sha256": "7073f9964d91f067d5fd07926bad75e6bbb1ef57602e66f2daaf0c797a61237e",
+      "size": 99
+    },
+    "handoffs/c/C-DEMO3H-PUBLIC-PORTAL-GOAL-522/source-v1/verify_delivery.py": {
+      "sha256": "75aa526815fd731c77c2693559349901bd3d9cd4328a2cf189330dcb52d33b31",
+      "size": 432
+    }
+  },
+  "request": {
+    "code_commit": "2316a36bb48f7d32318809fa18a66265fcebb0dd",
+    "expected_result": "Public entry goal before actually committed whole-body ENTERED, red outward goal thereafter. No obstacle oracle, preset route or control grant; not deployed or formally accepted.",
+    "operation_id": "C-A102C-PUBLIC-PORTAL-GOAL-20261103-v1",
+    "requester": "node-c",
+    "task_id": "DEEPEYE-IMPLEMENTATION-20261014",
+    "task_version": 1,
+    "test_steps": [
+      "Read README and public-portal-goal.patch against exact A45bbe projection SHA; A must independently review current binding and concurrent B12s changes before adopting",
+      "Run read-only byte verifier: python -I -S -B handoffs/c/C-DEMO3H-PUBLIC-PORTAL-GOAL-522/source-v1/verify_delivery.py",
+      "Review isolated coordinate helper results: six faces times two stages and nonfinite rejection; not runtime/control validation"
+    ]
+  },
+  "request_hash": "fa6d25fef0d22335c5246faae204b289731dfe47e0000723bcfd32d59d2238f2",
+  "schema_version": 1,
+  "stages": {
+    "Godot": {
+      "status": "not_run"
+    },
+    "byte_verification": {
+      "log": "handoffs/c/C-DEMO3H-PUBLIC-PORTAL-GOAL-522/source-v1/verify.stdout.txt",
+      "status": "passed"
+    },
+    "final_acceptance": {
+      "status": "not_run"
+    },
+    "independent_patch_review": {
+      "status": "not_run"
+    },
+    "isolated_coordinate_arithmetic": {
+      "log": "handoffs/c/C-DEMO3H-PUBLIC-PORTAL-GOAL-522/source-v1/candidate-checks.json",
+      "status": "passed"
+    },
+    "model_execution": {
+      "status": "not_run"
+    },
+    "native": {
+      "status": "not_run"
+    },
+    "physical_board": {
+      "status": "not_run"
+    },
+    "source_review": {
+      "log": "handoffs/c/C-DEMO3H-PUBLIC-PORTAL-GOAL-522/source-v1/README.md",
+      "status": "passed"
+    },
+    "typed_phase_binding_runtime": {
+      "status": "not_run"
+    },
+    "whole_crossing": {
+      "status": "not_run"
+    }
+  }
+}
