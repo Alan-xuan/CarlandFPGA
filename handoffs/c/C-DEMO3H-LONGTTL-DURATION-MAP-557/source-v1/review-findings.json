@@ -1,0 +1,214 @@
+{
+  "work_id": "C60-A105C-A107C-DURATION-BOOT-20261103-v1",
+  "operation_id": "C-A107C-LONGTTL-DURATION-BOOT-20261103-v1",
+  "main_thread_id": "01a14025-4dfd-7ec3-aebb-57be48daba59",
+  "source_commit": "43258a867c630ba5c6bd0f80a8aff90929e577ac",
+  "source_files_hashed": 179,
+  "verdict": "NO_REMAINING_STATIC_DURATION_BLOCKER_FOUND_IN_REVIEWED_CONSUMERS",
+  "patch_required": false,
+  "consumer_review": [
+    {
+      "consumer": "Typed navigation",
+      "path": "competition/deepeye/simulation/authority/navigation_session_profile.py",
+      "line": 16,
+      "conclusion": "New exact 12000 ms selector; legacy 3000 ms tuple, 100 ms STEP and finite 180 s/16 commands retained.",
+      "url": "https://github.com/carolwjade/CarlandFPGA/blob/43258a867c630ba5c6bd0f80a8aff90929e577ac/competition/deepeye/simulation/authority/navigation_session_profile.py#L16"
+    },
+    {
+      "consumer": "Package/profile factory",
+      "path": "competition/deepeye/simulation/authority/demo30h_ai_em3_profile_v2/__init__.py",
+      "line": 49,
+      "conclusion": "Exact v7 manifest/core and descriptor; new source cap30s/prospective12s, old5/8/12s and prospective1s/3s retained.",
+      "url": "https://github.com/carolwjade/CarlandFPGA/blob/43258a867c630ba5c6bd0f80a8aff90929e577ac/competition/deepeye/simulation/authority/demo30h_ai_em3_profile_v2/__init__.py#L49"
+    },
+    {
+      "consumer": "Owned invocation pairing",
+      "path": "competition/deepeye/simulation/authority/owned_invocation_v1/adapter.py",
+      "line": 306,
+      "conclusion": "New navigation requires NAV_ENTRY_LONG_TTL_V4 and prospective12s; old navigation requires its old descriptor/3s. No external boolean grants 12s.",
+      "url": "https://github.com/carolwjade/CarlandFPGA/blob/43258a867c630ba5c6bd0f80a8aff90929e577ac/competition/deepeye/simulation/authority/owned_invocation_v1/adapter.py#L306"
+    },
+    {
+      "consumer": "Target mechanics",
+      "path": "competition/deepeye/simulation/authority/owned_invocation_v1/mechanics.py",
+      "line": 30,
+      "conclusion": "Duration bounded by selected typed profile; FAST quantization, speed/yaw/pitch/curvature limits retained.",
+      "url": "https://github.com/carolwjade/CarlandFPGA/blob/43258a867c630ba5c6bd0f80a8aff90929e577ac/competition/deepeye/simulation/authority/owned_invocation_v1/mechanics.py#L30"
+    },
+    {
+      "consumer": "Completion interval",
+      "path": "competition/deepeye/integration/completion_interval.py",
+      "line": 89,
+      "conclusion": "Checked G05 policy supplies source-age bound and exact target selector; producer, schema, context and original observed interval retained.",
+      "url": "https://github.com/carolwjade/CarlandFPGA/blob/43258a867c630ba5c6bd0f80a8aff90929e577ac/competition/deepeye/integration/completion_interval.py#L89"
+    },
+    {
+      "consumer": "Full target validity",
+      "path": "competition/deepeye/integration/completion_interval.py",
+      "line": 138,
+      "conclusion": "Full issue+duration must fit minimum original source/dispatch/age/previous caps. No implicit shortening or deadline renewal.",
+      "url": "https://github.com/carolwjade/CarlandFPGA/blob/43258a867c630ba5c6bd0f80a8aff90929e577ac/competition/deepeye/integration/completion_interval.py#L138"
+    },
+    {
+      "consumer": "Mailbox",
+      "path": "competition/deepeye/integration/candidate_mailbox.py",
+      "line": 66,
+      "conclusion": "Retained exact G05 source supplies policy; unchanged proof, BOOT, source/clock and slot checks. Its <=5s board-output consume window is not command TTL.",
+      "url": "https://github.com/carolwjade/CarlandFPGA/blob/43258a867c630ba5c6bd0f80a8aff90929e577ac/competition/deepeye/integration/candidate_mailbox.py#L66"
+    },
+    {
+      "consumer": "Candidate owner",
+      "path": "competition/deepeye/simulation/authority/candidate_owner.py",
+      "line": 68,
+      "conclusion": "Loads actual boot_profiles.json and forwards exact G05 source age; mailbox/session/generation remain original.",
+      "url": "https://github.com/carolwjade/CarlandFPGA/blob/43258a867c630ba5c6bd0f80a8aff90929e577ac/competition/deepeye/simulation/authority/candidate_owner.py#L68"
+    },
+    {
+      "consumer": "Progress gate",
+      "path": "competition/deepeye/simulation/authority/actor_composition.py",
+      "line": 98,
+      "conclusion": "Original channels propagate typed selector through envelope reparsing. Bound proof deadline and duplicate nonrenewal retained.",
+      "url": "https://github.com/carolwjade/CarlandFPGA/blob/43258a867c630ba5c6bd0f80a8aff90929e577ac/competition/deepeye/simulation/authority/actor_composition.py#L98"
+    },
+    {
+      "consumer": "Host envelope",
+      "path": "competition/deepeye/integration/host_envelope.py",
+      "line": 354,
+      "conclusion": "Only exact NAV_FAST_LONGTTL_180S with FAST gets12000ms. Default FAST3000/STRESS12000, STOP-zero and motion checks retained.",
+      "url": "https://github.com/carolwjade/CarlandFPGA/blob/43258a867c630ba5c6bd0f80a8aff90929e577ac/competition/deepeye/integration/host_envelope.py#L354"
+    },
+    {
+      "consumer": "Runtime",
+      "path": "competition/deepeye/simulation/authority/pc_direct_runtime.py",
+      "line": 412,
+      "conclusion": "Same selector reaches request validation; deadline=min(issue+duration, sampleLower+age), duplicate cannot extend. STEP must fit actual AI lease.",
+      "url": "https://github.com/carolwjade/CarlandFPGA/blob/43258a867c630ba5c6bd0f80a8aff90929e577ac/competition/deepeye/simulation/authority/pc_direct_runtime.py#L412"
+    },
+    {
+      "consumer": "Motion executor",
+      "path": "competition/deepeye/simulation/authority/motion_executor.py",
+      "line": 274,
+      "conclusion": "Propagates selector to envelope; deadline from actual target duration. Existing 100ms STEP/collision/CAS checks are not widened.",
+      "url": "https://github.com/carolwjade/CarlandFPGA/blob/43258a867c630ba5c6bd0f80a8aff90929e577ac/competition/deepeye/simulation/authority/motion_executor.py#L274"
+    },
+    {
+      "consumer": "G05 policy and loaded identity",
+      "path": "competition/deepeye/simulation/authority/g05_csr_channels_v1.py",
+      "line": 304,
+      "conclusion": "New selector must match original source navigation and actual ready build dc4e89ccf3db18c4f9871575efc399ba. origin[3] is original raw ready bytes.",
+      "url": "https://github.com/carolwjade/CarlandFPGA/blob/43258a867c630ba5c6bd0f80a8aff90929e577ac/competition/deepeye/simulation/authority/g05_csr_channels_v1.py#L304"
+    },
+    {
+      "consumer": "Fresh replan bound",
+      "path": "competition/deepeye/simulation/authority/g05_csr_channels_v1.py",
+      "line": 272,
+      "conclusion": "Existing navigation fresh-action branch can drop previous bound only for distinct original completed token/draft/EM with increasing source/time/phase and full quality. Same/held sample retains old deadline; this is not an expiry recovery API.",
+      "url": "https://github.com/carolwjade/CarlandFPGA/blob/43258a867c630ba5c6bd0f80a8aff90929e577ac/competition/deepeye/simulation/authority/g05_csr_channels_v1.py#L272"
+    },
+    {
+      "consumer": "Finite bootstrap",
+      "path": "competition/deepeye/tools/diagnostic/demo30h_pre_source_coordinator_a.py",
+      "line": 126,
+      "conclusion": "Same source/book/owned typed navigation; exact operation/QPC/load-policy identities and prospective I/O limits. Age selection before source start remains bound to original completed init.",
+      "url": "https://github.com/carolwjade/CarlandFPGA/blob/43258a867c630ba5c6bd0f80a8aff90929e577ac/competition/deepeye/tools/diagnostic/demo30h_pre_source_coordinator_a.py#L126"
+    },
+    {
+      "consumer": "Finite wire profile",
+      "path": "competition/deepeye/tools/diagnostic/functional50_demo_four_cycle_profile_a.py",
+      "line": 61,
+      "conclusion": "Navigation is exact16 commands/128 capture polls/180s/prospective I/O<=2048; this is finite budget, not 12s command lease.",
+      "url": "https://github.com/carolwjade/CarlandFPGA/blob/43258a867c630ba5c6bd0f80a8aff90929e577ac/competition/deepeye/tools/diagnostic/functional50_demo_four_cycle_profile_a.py#L61"
+    },
+    {
+      "consumer": "Board command decoder",
+      "path": "competition/deepeye/tools/diagnostic/functional50_g05_a.py",
+      "line": 46,
+      "conclusion": "Structural long-TTL decoding selected by exact typed navigation or new build; actual G05Port remains loader-owned with current boot/PID/thread identity.",
+      "url": "https://github.com/carolwjade/CarlandFPGA/blob/43258a867c630ba5c6bd0f80a8aff90929e577ac/competition/deepeye/tools/diagnostic/functional50_g05_a.py#L46"
+    },
+    {
+      "consumer": "Board phase parser",
+      "path": "competition/deepeye/tools/diagnostic/functional50_chain_v2_board_a.py",
+      "line": 110,
+      "conclusion": "Typed wire parsed structurally; init separately requires plan new build before opening G05. Parsing alone grants no I/O authority.",
+      "url": "https://github.com/carolwjade/CarlandFPGA/blob/43258a867c630ba5c6bd0f80a8aff90929e577ac/competition/deepeye/tools/diagnostic/functional50_chain_v2_board_a.py#L110"
+    },
+    {
+      "consumer": "Board output",
+      "path": "competition/deepeye/simulation/authority/g05_board_output_v1.py",
+      "line": 40,
+      "conclusion": "Uses actual selected build in command decode and retains measured PWM/32-word output checks; <=5s consume window is separate from target TTL.",
+      "url": "https://github.com/carolwjade/CarlandFPGA/blob/43258a867c630ba5c6bd0f80a8aff90929e577ac/competition/deepeye/simulation/authority/g05_board_output_v1.py#L40"
+    },
+    {
+      "consumer": "Legacy stationary wait",
+      "path": "competition/deepeye/simulation/authority/actor_composition.py",
+      "line": 672,
+      "conclusion": "v4 remains excluded from old wait-to-expiry branch. Do not add it: A107 requires preemptive replan; fault2 expiry remains permanent halt.",
+      "url": "https://github.com/carolwjade/CarlandFPGA/blob/43258a867c630ba5c6bd0f80a8aff90929e577ac/competition/deepeye/simulation/authority/actor_composition.py#L672"
+    }
+  ],
+  "cold_boot_mapping": [
+    {
+      "item": "Loader plan",
+      "path": "competition/deepeye/tools/diagnostic/functional50_board_a.py",
+      "line": 304,
+      "conclusion": "A must use current actual OS boot_id, a fresh operation/evidence directory, exact loaded build/source and actual BIT/HWH/mapping bytes. Recompute request_sha256 over the canonical plan body excluding request_sha256; plan_sha256 is the separate file-byte hash. After reboot never reuse a plan pinned to old boot_id.",
+      "url": "https://github.com/carolwjade/CarlandFPGA/blob/43258a867c630ba5c6bd0f80a8aff90929e577ac/competition/deepeye/tools/diagnostic/functional50_board_a.py#L304"
+    },
+    {
+      "item": "C42 and G05 policy",
+      "path": "competition/deepeye/tools/diagnostic/original_g05_operation_binding_a.py",
+      "line": 25,
+      "conclusion": "C42 fields: operation_id, request_hash, tested_commit, build_manifest_sha256, boot_id, session_id, tag, clock_domain_id. Bind these to the actual new operation, load-request hash, tested software, matching build manifest, current boot, fresh session/tag and original QPC domain. G05 binding is exactly operation_id/request_sha256/boot_id/source_commit/build_id; policy file hash must be recalculated after changed bytes.",
+      "url": "https://github.com/carolwjade/CarlandFPGA/blob/43258a867c630ba5c6bd0f80a8aff90929e577ac/competition/deepeye/tools/diagnostic/original_g05_operation_binding_a.py#L25"
+    },
+    {
+      "item": "SSH ready provenance",
+      "path": "competition/deepeye/tools/diagnostic/functional50_ssh_a.py",
+      "line": 316,
+      "conclusion": "Create fresh real session/process/pipes/init. ready attests operation_id, plan_sha256, load_request_hash, build_id, source_commit, policy_file_sha256, manifest_sha256. Origin index3 is raw ready bytes and index4 parsed object. Neither copying dictionaries nor editing old refs re-establishes custody.",
+      "url": "https://github.com/carolwjade/CarlandFPGA/blob/43258a867c630ba5c6bd0f80a8aff90929e577ac/competition/deepeye/tools/diagnostic/functional50_ssh_a.py#L316"
+    },
+    {
+      "item": "Pre-source equality",
+      "path": "competition/deepeye/tools/diagnostic/demo30h_pre_source_coordinator_a.py",
+      "line": 126,
+      "conclusion": "Same-operation G05 binding must match C42 request_hash/boot_id/tested_commit, world.operation_id and actual clock domain; source/book/owned profile identities must agree. Original init COMPLETE required before age/scanner/source start.",
+      "url": "https://github.com/carolwjade/CarlandFPGA/blob/43258a867c630ba5c6bd0f80a8aff90929e577ac/competition/deepeye/tools/diagnostic/demo30h_pre_source_coordinator_a.py#L126"
+    },
+    {
+      "item": "TRACE lineage",
+      "path": "competition/deepeye/tools/diagnostic/original_source_trace_scan_a.py",
+      "line": 44,
+      "conclusion": "Exact fields: operation_id/request_id/request_hash/tested_commit/build_id_hex128/boot_id/session_id/tag/trigger_id/generation/request_seq/capture_seq. Establish them from the fresh real callsite and actual trigger/sequence; do not recycle old capture bytes or fabricate new counters to relabel old evidence.",
+      "url": "https://github.com/carolwjade/CarlandFPGA/blob/43258a867c630ba5c6bd0f80a8aff90929e577ac/competition/deepeye/tools/diagnostic/original_source_trace_scan_a.py#L44"
+    },
+    {
+      "item": "Legacy BOOT digest",
+      "path": "competition/deepeye/integration/candidate_mailbox.py",
+      "line": 183,
+      "conclusion": "legacy boot_sha256 is the canonical boot_profiles document digest, not boot UUID, request hash or hardware file SHA. CandidateOwner loads the current actual document. Re-derive from those bytes; unchanged configuration may correctly yield the same digest after reboot.",
+      "url": "https://github.com/carolwjade/CarlandFPGA/blob/43258a867c630ba5c6bd0f80a8aff90929e577ac/competition/deepeye/integration/candidate_mailbox.py#L183"
+    },
+    {
+      "item": "Legacy activation",
+      "path": "competition/deepeye/integration/candidate_mailbox.py",
+      "line": 230,
+      "conclusion": "Legacy exact fields: session/config_epoch/boot_sha256/transport_profile_id/source_id/topology_id/acquisition_profile_id. Match actual intended configuration, use fresh activation session/generation and actual new owners. Do not change unrelated profile IDs or config_epoch merely to bypass a failure.",
+      "url": "https://github.com/carolwjade/CarlandFPGA/blob/43258a867c630ba5c6bd0f80a8aff90929e577ac/competition/deepeye/integration/candidate_mailbox.py#L230"
+    }
+  ],
+  "limitations": [
+    "Source/hash inspection only, not product execution",
+    "Private A563 driver scheduling not included in the179 published runtime-file closure; real preemptive replan remains A validation",
+    "No board, real STEP, whole-entry, ARRIVED, video or formal acceptance",
+    "A CPU/native/RTL reports remain A evidence, not C tests"
+  ],
+  "contract_id": "DEEPEYE-HUMAN-LOCK-20261014/revision1",
+  "contract_source": "f5989cd5defce561f9ba98e6b18fc2682945f0a2",
+  "requirements_sha256": "c229834bfc2292f5fe4411fc9f12c68487008f9d1adaf31f0144ee7a98173804",
+  "fixed_design": "1011259415a0916054eb580687612580bc1e5f09",
+  "product_execution": false,
+  "formal_acceptance": false
+}

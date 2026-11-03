@@ -1,0 +1,134 @@
+{
+  "base_commit": "45bbe744c9889ede53169138acdd2013429513b0",
+  "current_commit": "43258a867c630ba5c6bd0f80a8aff90929e577ac",
+  "legacy_unchanged_files": [
+    {
+      "path": "competition/deepeye/ai_pc/demo30h_owned_em3_package_v2/c37_entry.py",
+      "old_git_blob": "7b6bbcc22cf3410ec308a994dda6830cdffa99d5",
+      "current_git_blob": "7b6bbcc22cf3410ec308a994dda6830cdffa99d5",
+      "unchanged": true,
+      "sha256": "223360af76ef84479634c71e05a86a7d7ccf61c87a75f394e3a94632504ce300",
+      "baseline_commit": "45bbe744c9889ede53169138acdd2013429513b0"
+    },
+    {
+      "path": "competition/deepeye/ai_pc/demo30h_owned_em3_package_v2/c37_package.py",
+      "old_git_blob": "5907b9d55414bba04eb34cf9c6c08f6fb1ebda49",
+      "current_git_blob": "5907b9d55414bba04eb34cf9c6c08f6fb1ebda49",
+      "unchanged": true,
+      "sha256": "7933fcc4f8e3690e655bb812d33c52a09e28fc89ef2b8cbb4139a2f8a615480a",
+      "baseline_commit": "45bbe744c9889ede53169138acdd2013429513b0"
+    },
+    {
+      "path": "competition/deepeye/ai_pc/demo30h_owned_em3_package_v2/em3_core.py",
+      "old_git_blob": "3812a5059ee85faa06cfb3b6c8b84373821b5221",
+      "current_git_blob": "3812a5059ee85faa06cfb3b6c8b84373821b5221",
+      "unchanged": true,
+      "sha256": "9068a7699fd11765d04245460989105fced3983b03e0c0876c54df89f958505d",
+      "baseline_commit": "45bbe744c9889ede53169138acdd2013429513b0"
+    },
+    {
+      "path": "competition/deepeye/ai_pc/demo30h_owned_em3_package_v2/package-manifest.json",
+      "old_git_blob": "2b44b54dc85d4cee100d71b857e8ea8820afe020",
+      "current_git_blob": "2b44b54dc85d4cee100d71b857e8ea8820afe020",
+      "unchanged": true,
+      "sha256": "ffb1e4d333405462285c31ca4f6de7369ddfe492d67fd59b3d0045f6b3135b81",
+      "baseline_commit": "45bbe744c9889ede53169138acdd2013429513b0"
+    },
+    {
+      "path": "competition/deepeye/ai_pc/demo30h_owned_em3_package_v3/c37_entry.py",
+      "old_git_blob": "7b6bbcc22cf3410ec308a994dda6830cdffa99d5",
+      "current_git_blob": "7b6bbcc22cf3410ec308a994dda6830cdffa99d5",
+      "unchanged": true,
+      "sha256": "223360af76ef84479634c71e05a86a7d7ccf61c87a75f394e3a94632504ce300",
+      "baseline_commit": "45bbe744c9889ede53169138acdd2013429513b0"
+    },
+    {
+      "path": "competition/deepeye/ai_pc/demo30h_owned_em3_package_v3/c37_package.py",
+      "old_git_blob": "339650390a77889e7aa6c5b82e8d316951ebe1e6",
+      "current_git_blob": "339650390a77889e7aa6c5b82e8d316951ebe1e6",
+      "unchanged": true,
+      "sha256": "ff529033fcbf2a64d0d11e665aa9d19addaa8ad41cd019d27659ecb28af8c1f2",
+      "baseline_commit": "45bbe744c9889ede53169138acdd2013429513b0"
+    },
+    {
+      "path": "competition/deepeye/ai_pc/demo30h_owned_em3_package_v3/em3_core.py",
+      "old_git_blob": "cc17e2c31e65b702a44260f590a4b69a25b0a834",
+      "current_git_blob": "cc17e2c31e65b702a44260f590a4b69a25b0a834",
+      "unchanged": true,
+      "sha256": "8746ef416c2416c9dddd6d932f022846298ddf688aaf20f4f981a3697dee1a27",
+      "baseline_commit": "45bbe744c9889ede53169138acdd2013429513b0"
+    },
+    {
+      "path": "competition/deepeye/ai_pc/demo30h_owned_em3_package_v3/package-manifest.json",
+      "old_git_blob": "d6060f0c9212df489d2b32a071ef65c0df2e313f",
+      "current_git_blob": "d6060f0c9212df489d2b32a071ef65c0df2e313f",
+      "unchanged": true,
+      "sha256": "9069bcd1d1cc42388c8447600711eef22cbedb82e471ec3828f027b7b7b0a1e2",
+      "baseline_commit": "45bbe744c9889ede53169138acdd2013429513b0"
+    },
+    {
+      "path": "competition/deepeye/ai_pc/demo30h_owned_em3_package_v5/c37_entry.py",
+      "old_git_blob": "7b6bbcc22cf3410ec308a994dda6830cdffa99d5",
+      "current_git_blob": "7b6bbcc22cf3410ec308a994dda6830cdffa99d5",
+      "unchanged": true,
+      "sha256": "223360af76ef84479634c71e05a86a7d7ccf61c87a75f394e3a94632504ce300",
+      "baseline_commit": "cde27d48201fa698cb475ca81ef61b6a2e0406c9"
+    },
+    {
+      "path": "competition/deepeye/ai_pc/demo30h_owned_em3_package_v5/c37_package.py",
+      "old_git_blob": "d6aa7d331dd89517f5c99016bc3f2e58b15ce90f",
+      "current_git_blob": "d6aa7d331dd89517f5c99016bc3f2e58b15ce90f",
+      "unchanged": true,
+      "sha256": "f9097731a11ab0cb8c6be628580f9a27a001f9171039ad4b5d4b5517cefc0f95",
+      "baseline_commit": "cde27d48201fa698cb475ca81ef61b6a2e0406c9"
+    },
+    {
+      "path": "competition/deepeye/ai_pc/demo30h_owned_em3_package_v5/em3_core.py",
+      "old_git_blob": "763672f7ab0712f127cb893efbe28b8f78e46510",
+      "current_git_blob": "763672f7ab0712f127cb893efbe28b8f78e46510",
+      "unchanged": true,
+      "sha256": "a116e848b04e2d6e511b427b7e507a1943206afd8959792c0155c88bfc265ce8",
+      "baseline_commit": "cde27d48201fa698cb475ca81ef61b6a2e0406c9"
+    },
+    {
+      "path": "competition/deepeye/ai_pc/demo30h_owned_em3_package_v5/package-manifest.json",
+      "old_git_blob": "ce2e50af1c0135b9212d9123b3664988204ba755",
+      "current_git_blob": "ce2e50af1c0135b9212d9123b3664988204ba755",
+      "unchanged": true,
+      "sha256": "7bccae7171fc01cf013715de9e5e945693a1ddbe6417590003391382b0334972",
+      "baseline_commit": "cde27d48201fa698cb475ca81ef61b6a2e0406c9"
+    },
+    {
+      "path": "competition/deepeye/simulation/authority/demo30h_ai_em3_profile_v2/verifier.py",
+      "old_git_blob": "90bc801428c797daaba65a39924b67114ab458c2",
+      "current_git_blob": "90bc801428c797daaba65a39924b67114ab458c2",
+      "unchanged": true,
+      "sha256": "035fd29b3788ab90e417ba69659f06397eda010e6ff921546bd346f30342c281",
+      "baseline_commit": "45bbe744c9889ede53169138acdd2013429513b0"
+    },
+    {
+      "path": "competition/deepeye/simulation/authority/demo30h_ai_em3_profile_v2/verifier_c0_demo_v3.py",
+      "old_git_blob": "93832e097f981aa16dd57378806a85d0da0c6c8f",
+      "current_git_blob": "93832e097f981aa16dd57378806a85d0da0c6c8f",
+      "unchanged": true,
+      "sha256": "5f63561d8a3b431fc30fa9eef06f04fe0b32d6758ef66fc9ff46131a954a5f01",
+      "baseline_commit": "45bbe744c9889ede53169138acdd2013429513b0"
+    },
+    {
+      "path": "competition/deepeye/simulation/authority/demo30h_ai_em3_profile_v2/verifier_c0_demo_v5.py",
+      "old_git_blob": "8d38676c73383d926737cb1fe98a692196428427",
+      "current_git_blob": "8d38676c73383d926737cb1fe98a692196428427",
+      "unchanged": true,
+      "sha256": "250dd18c9cf88d21e2e3ae5950f207f80d7ff3ab38f24ad6d660fd28464f41f8",
+      "baseline_commit": "cde27d48201fa698cb475ca81ef61b6a2e0406c9"
+    }
+  ],
+  "new_v7_manifest_sha256": "2a50f2fb47816fc32c997afdff938a6fb6a64484af4a42870c8c7c5f851185f1",
+  "new_v7_core_sha256": "fad1eda8c0d9e31f35d2f4c98d48dbd0678d49b283cbb0e10051ac003b9cb8fa",
+  "v5_base_commit": "cde27d48201fa698cb475ca81ef61b6a2e0406c9",
+  "all_legacy_packages_unchanged": true,
+  "v7_self_pins_match": true,
+  "verification": "Hash and AST literal inspection only; no imported or executed product code",
+  "product_execution": false,
+  "formal_acceptance": false
+}

@@ -1,0 +1,13 @@
+{
+  "argv": [
+    "python",
+    "-I",
+    "-S",
+    "-B",
+    "-X",
+    "utf8",
+    "verify_delivery.py"
+  ],
+  "exit_code": 0,
+  "purpose": "Public artifact integrity only"
+}

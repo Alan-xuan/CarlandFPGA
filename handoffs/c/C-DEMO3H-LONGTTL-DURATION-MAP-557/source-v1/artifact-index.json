@@ -1,0 +1,34 @@
+{
+  "files": [
+    {
+      "path": "legacy-byte-comparison.json",
+      "bytes": 7025,
+      "sha256": "17855a8eb8e958df80180f3c14faaad0a34e47de313619c55b433caf2ca935a3"
+    },
+    {
+      "path": "README.md",
+      "bytes": 15543,
+      "sha256": "c2197fe52c37c0c1f5ebc60803e4b3d674533f76ed5877193e6c44cf743b179d"
+    },
+    {
+      "path": "review-findings.json",
+      "bytes": 15606,
+      "sha256": "2b2cff79d3bdcf9dab35a1bebb3d61e21ad527324bd0ed043047a5e821bc7efa"
+    },
+    {
+      "path": "source-pins.json",
+      "bytes": 59821,
+      "sha256": "b2c9814085d4a3c3c9982a27d0a0e2d5e5842975b311ae4c4a4ad49644bd2722"
+    },
+    {
+      "path": "v5-to-v7-core.diff",
+      "bytes": 1799,
+      "sha256": "b3185c2b660c31dea83e9d394d513ebefb6115aebdff3c11af4576b6364bc29b"
+    },
+    {
+      "path": "verify_delivery.py",
+      "bytes": 432,
+      "sha256": "75aa526815fd731c77c2693559349901bd3d9cd4328a2cf189330dcb52d33b31"
+    }
+  ]
+}

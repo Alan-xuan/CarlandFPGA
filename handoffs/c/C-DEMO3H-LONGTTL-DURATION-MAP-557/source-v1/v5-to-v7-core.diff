@@ -1,0 +1,26 @@
+--- v5/em3_core.py
++++ v7/em3_core.py
+@@ -22,12 +22,12 @@
+ C3_MISSING_UNCERTAINTY_PENALTY = 0.20
+ C3_MISSING_SPEED_CAP_M_S = 0.10
+ STRICT_ENGINEERING_PROFILE = {'profile_id': 'DEEPEYE-EM3-STRICT-V2', 'sha256': '1f730ddb7739353485db554be39d8cfcb528c97eeb1917b8b0dc1fb18c1d0905'}
+-ENTRY_C0_ENGINEERING_PROFILE = {'profile_id': 'DEEPEYE-EM3-NAV-ENTRY-C0-DEMO12S-V3', 'sha256': 'a69f7a8330ddeb3bc07278be28f6eea9b1f692c4b5076e4ea70c28664d3406dd'}
++ENTRY_C0_ENGINEERING_PROFILE = {'profile_id': 'DEEPEYE-EM3-NAV-ENTRY-LONG-TTL-DEMO30S-V4', 'sha256': '5ee6930f22e29f49bb70fc4239bf58105567d2d899790f61d3d5924fcec93e36'}
+ # Fixed from Root480 actual source.bin [3099,2006,2084,None], quality7.
+ # Temporary engineering baseline, not calibration, source truth or adaptive tracking.
+ ENTRY_C0_BACKGROUND = 2.3
+ DEMO_SOURCE_AGE_MS = 5000
+-ENTRY_C0_DEMO_SOURCE_AGE_MS = 12000  # Explicit temporary demo cap; not quality acceptance.
++ENTRY_C0_DEMO_SOURCE_AGE_MS = 30000  # Explicit temporary demo cap; not quality acceptance.
+ DEMO_AGE_NORMALIZATION_MS = 5000
+ PRODUCER_SHA256 = '6a5f70a6acdaa6de52fc72d678d452956861370e1d143b70219ced107c5a04c9'
+ PROFILE = 'deepeye_forward_profile_candidate_v1'
+@@ -311,7 +311,7 @@
+     obs = request['observation']
+     navigation_fast = _engineering_nav(request)
+     background_c0 = ENTRY_C0_BACKGROUND if navigation_fast else 1.0
+-    result = {'schema_version': 1, 'planner_id': 'candidate_em3_nullable_c3_entry_planner_v5',
++    result = {'schema_version': 1, 'planner_id': 'candidate_em3_nullable_c3_entry_planner_v7',
+               'candidate_only': True, 'authorization': 'none', 'status': 'STOP',
+               'reason': 'disabled', 'risk': 1.0, 'uncertainty': 1.0,
+               'direction_world': [0.0, 0.0, 0.0], 'speed_limit_m_s': 0.0,
