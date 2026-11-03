@@ -1,0 +1,122 @@
+{
+  "artifacts": [
+    "handoffs/c/C-DEMO3H-LONGTTL-DURATION-MAP-557/source-v1/artifact-index.json",
+    "handoffs/c/C-DEMO3H-LONGTTL-DURATION-MAP-557/source-v1/legacy-byte-comparison.json",
+    "handoffs/c/C-DEMO3H-LONGTTL-DURATION-MAP-557/source-v1/README.md",
+    "handoffs/c/C-DEMO3H-LONGTTL-DURATION-MAP-557/source-v1/review-findings.json",
+    "handoffs/c/C-DEMO3H-LONGTTL-DURATION-MAP-557/source-v1/source-pins.json",
+    "handoffs/c/C-DEMO3H-LONGTTL-DURATION-MAP-557/source-v1/v5-to-v7-core.diff",
+    "handoffs/c/C-DEMO3H-LONGTTL-DURATION-MAP-557/source-v1/verify.command.json",
+    "handoffs/c/C-DEMO3H-LONGTTL-DURATION-MAP-557/source-v1/verify.stderr.txt",
+    "handoffs/c/C-DEMO3H-LONGTTL-DURATION-MAP-557/source-v1/verify.stdout.txt",
+    "handoffs/c/C-DEMO3H-LONGTTL-DURATION-MAP-557/source-v1/verify_delivery.py"
+  ],
+  "files": {
+    "handoffs/c/C-DEMO3H-LONGTTL-DURATION-MAP-557/source-v1/README.md": {
+      "sha256": "c2197fe52c37c0c1f5ebc60803e4b3d674533f76ed5877193e6c44cf743b179d",
+      "size": 15543
+    },
+    "handoffs/c/C-DEMO3H-LONGTTL-DURATION-MAP-557/source-v1/artifact-index.json": {
+      "sha256": "e3b0a5906bd873b76b4dced5a03ee3b4c2709ad94889b91f6966ce6e0b00f719",
+      "size": 974
+    },
+    "handoffs/c/C-DEMO3H-LONGTTL-DURATION-MAP-557/source-v1/legacy-byte-comparison.json": {
+      "sha256": "17855a8eb8e958df80180f3c14faaad0a34e47de313619c55b433caf2ca935a3",
+      "size": 7025
+    },
+    "handoffs/c/C-DEMO3H-LONGTTL-DURATION-MAP-557/source-v1/review-findings.json": {
+      "sha256": "2b2cff79d3bdcf9dab35a1bebb3d61e21ad527324bd0ed043047a5e821bc7efa",
+      "size": 15606
+    },
+    "handoffs/c/C-DEMO3H-LONGTTL-DURATION-MAP-557/source-v1/source-pins.json": {
+      "sha256": "b2c9814085d4a3c3c9982a27d0a0e2d5e5842975b311ae4c4a4ad49644bd2722",
+      "size": 59821
+    },
+    "handoffs/c/C-DEMO3H-LONGTTL-DURATION-MAP-557/source-v1/v5-to-v7-core.diff": {
+      "sha256": "b3185c2b660c31dea83e9d394d513ebefb6115aebdff3c11af4576b6364bc29b",
+      "size": 1799
+    },
+    "handoffs/c/C-DEMO3H-LONGTTL-DURATION-MAP-557/source-v1/verify.command.json": {
+      "sha256": "f3b7eba4c2f744944bf1d493c2ca0ce02c4bd7a0c01da5f939365844642655dc",
+      "size": 189
+    },
+    "handoffs/c/C-DEMO3H-LONGTTL-DURATION-MAP-557/source-v1/verify.stderr.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0
+    },
+    "handoffs/c/C-DEMO3H-LONGTTL-DURATION-MAP-557/source-v1/verify.stdout.txt": {
+      "sha256": "7073f9964d91f067d5fd07926bad75e6bbb1ef57602e66f2daaf0c797a61237e",
+      "size": 99
+    },
+    "handoffs/c/C-DEMO3H-LONGTTL-DURATION-MAP-557/source-v1/verify_delivery.py": {
+      "sha256": "75aa526815fd731c77c2693559349901bd3d9cd4328a2cf189330dcb52d33b31",
+      "size": 432
+    }
+  },
+  "request": {
+    "code_commit": "4d1de83d70276e2e8c0e1cc8fbadde6a36086053",
+    "expected_result": "No remaining static duration blocker found in reviewed consumers; exact typed12s/30s pairing and fresh original BOOT mappings retained. A private driver and all actual operation evidence remain unverified. No product patch or board authorization.",
+    "operation_id": "C-A107C-LONGTTL-DURATION-BOOT-20261103-v1",
+    "requester": "node-c",
+    "task_id": "DEEPEYE-IMPLEMENTATION-20261014",
+    "task_version": 1,
+    "test_steps": [
+      "Read source review and exact43258a commit-linked consumer and cold BOOT maps",
+      "Run read-only artifact verifier: python -I -S -B handoffs/c/C-DEMO3H-LONGTTL-DURATION-MAP-557/source-v1/verify_delivery.py",
+      "Independently inspect all179 source SHA identities and15 unchanged legacy blob comparisons; no product suite rerun requested"
+    ]
+  },
+  "request_hash": "de0c96d40f6c55e933b8c2cf35a526138835d946bd18abb984e974b5b2618b01",
+  "schema_version": 1,
+  "stages": {
+    "actual_step": {
+      "status": "not_run"
+    },
+    "artifact_byte_verification": {
+      "log": "handoffs/c/C-DEMO3H-LONGTTL-DURATION-MAP-557/source-v1/verify.stdout.txt",
+      "status": "passed"
+    },
+    "final_acceptance": {
+      "status": "not_run"
+    },
+    "implementation": {
+      "status": "not_run"
+    },
+    "legacy_blob_comparison": {
+      "log": "handoffs/c/C-DEMO3H-LONGTTL-DURATION-MAP-557/source-v1/legacy-byte-comparison.json",
+      "status": "passed"
+    },
+    "model_execution": {
+      "status": "not_run"
+    },
+    "native": {
+      "status": "not_run"
+    },
+    "physical_board": {
+      "status": "not_run"
+    },
+    "product_tests": {
+      "status": "not_run"
+    },
+    "simulation": {
+      "status": "not_run"
+    },
+    "source_identity_review": {
+      "log": "handoffs/c/C-DEMO3H-LONGTTL-DURATION-MAP-557/source-v1/source-pins.json",
+      "status": "passed"
+    },
+    "source_review": {
+      "log": "handoffs/c/C-DEMO3H-LONGTTL-DURATION-MAP-557/source-v1/README.md",
+      "status": "passed"
+    },
+    "synthesis": {
+      "status": "not_run"
+    },
+    "video": {
+      "status": "not_run"
+    },
+    "whole_crossing": {
+      "status": "not_run"
+    }
+  }
+}
