@@ -1,0 +1,31 @@
+{
+  "status": "PASS_BOUNDED_SOURCE_AND_PROCEDURE_REVIEW",
+  "source_approved": true,
+  "source_files": 43,
+  "dependencies_independently_hashed": 66,
+  "changed_binary_pins": 7,
+  "main_original_exits": {
+    "validate-fullscreen": 2,
+    "probe-v2": 0,
+    "validate-fullscreen-v2": 0,
+    "import-new-copy-v2": 0,
+    "engine-help": 0
+  },
+  "viewer_pid": 31956,
+  "viewer_exit": 0,
+  "launcher_pid": 29436,
+  "launcher_exit": 0,
+  "screenshots_reviewed": 6,
+  "clear_solid_drill_observed": true,
+  "gate_closeup_verified": false,
+  "label_overlap_fixed": false,
+  "right_middle_drag_executed": false,
+  "external_video_executed": false,
+  "Save_replayed": false,
+  "reviewer_product_imports": 0,
+  "reviewer_product_runs": 0,
+  "reviewer_product_exit": null,
+  "formal_acceptance": false,
+  "active_jobs": [],
+  "active_subprocesses": []
+}

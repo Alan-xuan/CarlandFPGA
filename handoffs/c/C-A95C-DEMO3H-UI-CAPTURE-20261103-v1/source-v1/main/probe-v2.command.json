@@ -1,0 +1,11 @@
+{
+  "argv": [
+    "C:\\Users\\Alan\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+    "-I",
+    "-S",
+    "-B",
+    "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\main-20261015-01a14025\\C57-20261103\\main\\probe_python_v2.py"
+  ],
+  "exit_code": 0,
+  "source_sha256": "d16d04a21a0347a3098811ac2862a6969a47c4c3d291f8cf10482b8ade60e774"
+}

@@ -1,0 +1,10 @@
+{
+  "delivery_approved": true,
+  "scope": "Limited original UI fullscreen/camera procedure and exact evidence. Known presentation and live-capture gaps remain open.",
+  "review_FINAL_sha256": "b797341527cab7d0ab36250e98a2df287302dcebfff3117de223481a1eb1ec7b",
+  "review_audit_sha256": "18ec33c63cf4922107ad7b4181cfb6c7163925589df18c4b75a3cfb4206042fb",
+  "main_check_sha256": "10f5212220196ebd131e06ae549b6fc557cfdb8a43b64277c03622defa75aa67",
+  "reviewer_actual_stopped": true,
+  "freeze_files_verified": 54,
+  "formal_acceptance": false
+}

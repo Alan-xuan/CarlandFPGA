@@ -1,0 +1,18 @@
+{
+  "status": "PASS_BOUNDED_FULLSCREEN_DIFF_STATIC",
+  "candidate_sha256": "5d737382bf667fe0cb2a96546934d73ca33eed9c3abfb82fa8cbf41b80b81711",
+  "files": 43,
+  "unchanged_from_C56": 42,
+  "changed": [
+    "competition/deepeye/simulator/native/run_viewer.py"
+  ],
+  "changed_ast_functions": [
+    "viewer_command",
+    "main"
+  ],
+  "launcher_sha256": "3adeb9ec5375e7b77351531339ce62db432fa1b738f8f751413dcf644302290b",
+  "source_approved_for_main_local_visibility_check": true,
+  "product_imports": 0,
+  "product_executions": 0,
+  "product_exit_code": null
+}

@@ -1,0 +1,50 @@
+{
+  "task_id": "DEEPEYE-IMPLEMENTATION-20261014",
+  "task_version": 1,
+  "work_id": "C57-UI-CAPTURE-INDEPENDENT-REVIEW-20261103-v1",
+  "operation_id": "C-A95C-DEMO3H-UI-CAPTURE-20261103-v1",
+  "actual_agent_id": "/root/c28_independent_review",
+  "actual_thread_id": "01a18686-39ad-75d3-8bb4-90836d2ac026",
+  "completed_utc": "2026-11-03T07:56:15.318660+00:00",
+  "status": "BOUNDED_SOURCE_PROCEDURE_EVIDENCE_REVIEW_COMPLETE",
+  "source_approved": true,
+  "review_passed": true,
+  "approval_scope": "Exact C57 fullscreen/local runtime candidate and truthful limited procedure/evidence, not full presentation/control acceptance",
+  "blocking_findings": [],
+  "open_presentation_issues": [
+    "Oversized near-front label overlap",
+    "Clear gate closeup not verified"
+  ],
+  "remaining_not_run": [
+    "right/middle drag",
+    "external video",
+    "moving-drill follow framing",
+    "AI/board/traversal/formal acceptance"
+  ],
+  "runtime_sha256": "e5beba8f3ebd63d8eac3118a876ae8dc515ae14c83b68469fe8e50d328db535a",
+  "report_sha256": "d423465b1f01740bacf5ed67f992a958b46894ddac7916ba652c9979327c7329",
+  "checks_sha256": "82623bddcf2c45fa86d5bb9b4d980459b4667192ec0bd098eba13053bfca8d98",
+  "freeze_sha256": "8be8c3ee3b13c0ee328fb05e36d39f3c129206c3802e227fa377660b988fa315",
+  "independent_static_exit_codes": [
+    0,
+    0
+  ],
+  "finalizer_exit_code": 0,
+  "original_main_exits": {
+    "validate-fullscreen": 2,
+    "probe-v2": 0,
+    "validate-fullscreen-v2": 0,
+    "import-new-copy-v2": 0,
+    "engine-help": 0
+  },
+  "original_viewer_exit": 0,
+  "original_launcher_exit": 0,
+  "reviewer_product_runs": 0,
+  "reviewer_product_exit": null,
+  "formal_acceptance": false,
+  "requirements_sha256": "c229834bfc2292f5fe4411fc9f12c68487008f9d1adaf31f0144ee7a98173804",
+  "ownership_released": true,
+  "active_jobs": [],
+  "active_subprocesses": [],
+  "main_actual_completion_audit_required": true
+}

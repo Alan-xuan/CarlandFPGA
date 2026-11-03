@@ -1,0 +1,32 @@
+--- a/competition/deepeye/simulator/native/run_viewer.py
++++ b/competition/deepeye/simulator/native/run_viewer.py
+@@ -59,15 +59,17 @@
+             raise ValueError('Layout helper member mismatch')
+     return native.parent
+ 
+-def viewer_command(godot, project, headless=False):
+-    return [str(godot)]+(['--headless'] if headless else [])+['--path',str(project)]
++def viewer_command(godot, project, headless=False, fullscreen=False):
++    return [str(godot)]+(['--headless'] if headless else [])+(['--fullscreen'] if fullscreen else [])+['--path',str(project)]
+ 
+ def main(argv=None):
+     parser=argparse.ArgumentParser(description='Launch the configured DeepEye source-tree viewer')
+     parser.add_argument('--godot',required=True,type=Path,help='Explicit absolute reviewed Godot executable')
+     parser.add_argument('--run-dir',required=True,type=Path,help='Owned viewer userdata/cache/temp directory')
+     parser.add_argument('--validate-only',action='store_true')
+-    parser.add_argument('--headless',action='store_true',help='Explicitly run without display/GPU UI')
++    display=parser.add_mutually_exclusive_group()
++    display.add_argument('--headless',action='store_true',help='Explicitly run without display/GPU UI')
++    display.add_argument('--fullscreen',action='store_true',help='Request original viewer fullscreen without changing simulation or authority')
+     args=parser.parse_args(argv)
+     try:
+         project=verify_installation(args.godot)
+@@ -75,7 +77,7 @@
+             print('Source-tree engine, helper bundle and existing Python identity verified; no viewer launched.')
+             return 0
+         env=child_environment(args.run_dir)
+-        child=subprocess.Popen(viewer_command(args.godot,project,args.headless),env=env,cwd=project,shell=False)
++        child=subprocess.Popen(viewer_command(args.godot,project,args.headless,args.fullscreen),env=env,cwd=project,shell=False)
+         print('DEEPEYE_VIEWER_CHILD_PID='+str(child.pid),flush=True)
+         code=child.wait()
+         print('DEEPEYE_VIEWER_CHILD_EXIT='+str(code),flush=True)

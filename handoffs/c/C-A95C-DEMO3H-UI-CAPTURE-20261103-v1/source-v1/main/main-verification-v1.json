@@ -1,0 +1,60 @@
+{
+  "candidate_manifest_sha256": "0f374921cea89d01813537dedeafbe1279dacfc97618493712bea6610a9401f0",
+  "candidate_source_verified": 43,
+  "images": [
+    {
+      "path": "ui/01-fullscreen-initial.png",
+      "sha256": "90738915275e75e2d80518b66f457f5aac49f9dd31bd2b5d8cc4d1a996c841ca",
+      "bytes": 143938
+    },
+    {
+      "path": "ui/02-existing-layout-open.png",
+      "sha256": "e3613cd5e0291c0345dac2557ad845d253cceabdb182f9f695c2e54e7b293aaa",
+      "bytes": 154407
+    },
+    {
+      "path": "ui/03-focus-solid-drill.png",
+      "sha256": "d039409528c176dd37773b5a6e566428bb957738e3e078fba0373d645fdb3ebc",
+      "bytes": 146624
+    },
+    {
+      "path": "ui/04-front-camera.png",
+      "sha256": "239aa982728a4c073a5f3c77b157f545a250d8268a01c41406f77375249f40c6",
+      "bytes": 139762
+    },
+    {
+      "path": "ui/05-wheel-out-label-overlap.png",
+      "sha256": "5417f35c1cd35618801d1dca5856757e61cd8758037419fc435d25322ba814bc",
+      "bytes": 149822
+    },
+    {
+      "path": "ui/06-restored-isometric.png",
+      "sha256": "fd1706b7b7ce9145cf3d6d09db20194f7b95fccfde93a458bf42d2748de35d9e",
+      "bytes": 147648
+    }
+  ],
+  "old_layout_unchanged": true,
+  "viewer_exit": 0,
+  "launcher_exit": 0,
+  "old_validate_exit": 2,
+  "review_pending": true,
+  "actual_claims": [
+    "fullscreen_launch",
+    "open_existing_layout",
+    "solid_drill_focus",
+    "front_and_iso_camera",
+    "wheel_zoom",
+    "normal_exit"
+  ],
+  "not_run": [
+    "save",
+    "free_orbit_pan",
+    "video_recording",
+    "board",
+    "moving_drill_follow",
+    "gate_closeup",
+    "formal_acceptance"
+  ],
+  "presentation_issue": "near-view world-space text overlaps top of viewport",
+  "utc": "2026-11-03T07:54:15.310432+00:00"
+}

@@ -1,0 +1,12 @@
+{
+  "argv": [
+    "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\tools\\godot-4.7.2-stable-c56\\Godot_v4.7.2-stable_win64.exe",
+    "--headless",
+    "--editor",
+    "--import",
+    "--path",
+    "C:\\Users\\Alan\\Documents\\ChatGPT\\FPGA\\CarlandFPGA-node-c\\.local\\main-20261015-01a14025\\C57-20261103\\main\\runtime-source-v2\\competition\\deepeye\\simulator",
+    "--quit"
+  ],
+  "exit_code": 0
+}

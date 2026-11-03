@@ -1,0 +1,31 @@
+{
+  "status": "PASS_V2_RUNTIME_IDENTITY_STATIC_REVIEW",
+  "manifest_sha256": "0f374921cea89d01813537dedeafbe1279dacfc97618493712bea6610a9401f0",
+  "runtime_sha256": "e5beba8f3ebd63d8eac3118a876ae8dc515ae14c83b68469fe8e50d328db535a",
+  "exe_sha256": "f8b45d63047da9d9adf09892e4cc4317b859e86a93a478cc9616bc69d3b176e5",
+  "files": 43,
+  "changed": [
+    "competition/deepeye/simulator/editor/layout_commit_bridge.gd",
+    "competition/deepeye/simulator/native/layout_runtime.json",
+    "competition/deepeye/simulator/native/run_viewer.py"
+  ],
+  "dependencies": 66,
+  "changed_binary_paths": [
+    "DLLs/_ctypes.pyd",
+    "DLLs/_hashlib.pyd",
+    "DLLs/libcrypto-3-x64.dll",
+    "DLLs/libffi-8.dll",
+    "python.exe",
+    "python3.dll",
+    "python312.dll"
+  ],
+  "stdlib_bytes_unchanged": true,
+  "code_changes_only_hash_constants": true,
+  "helper_bytes_unchanged": true,
+  "prior_v1_validate_exit": 2,
+  "actual_stdlib_probe_exit": 0,
+  "product_imports": 0,
+  "product_runs": 0,
+  "product_exit": null,
+  "source_approved_for_main_local_visibility_check": true
+}
