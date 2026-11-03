@@ -1,0 +1,38 @@
+{
+  "published_commit": "6c92f9a01bd0c6aed8b66aaef6346171e11210eb",
+  "tested_commit": "2f303122f9635ce874da04a61891036ba7d579d7",
+  "manifest_sha256": "1e0d2510dc829cee04049bb05b42acaf1cbd44502d47b93173fc0a1543fdfd22",
+  "files": [
+    {
+      "path": "01-response.json",
+      "bytes": 23055,
+      "sha256": "4e2611f34323d990f6d553b768d3d7fd2807c3cbfb7d3d350c834b9e8942333d",
+      "git_blob": "000f4b037565425d50e240a056e6e93126164a36"
+    },
+    {
+      "path": "02-response.json",
+      "bytes": 1915,
+      "sha256": "e868ed24723688d0ea1feda2f1151b28aec917cdd2789a6f94c07d2b62b56c9e",
+      "git_blob": "c2b573f303e6bf6ca0e31da2955e9a836e842eaf"
+    },
+    {
+      "path": "03-response.json",
+      "bytes": 31810,
+      "sha256": "228d251e0b73534b28b6f263c27c244b4c51cb1214ff0b2fcc1b573710cebf35",
+      "git_blob": "4743abeac35429ce16f4055621795c29cc3aca78"
+    },
+    {
+      "path": "04-response.json",
+      "bytes": 31815,
+      "sha256": "35466611d3c8d6b69c63f3eb220981e9cbd89ab52f78914e1ec5d2ef3fd5194d",
+      "git_blob": "31473118fd57ad8895106e24e4ad2a5345c0ef93"
+    },
+    {
+      "path": "summary.json",
+      "bytes": 3552,
+      "sha256": "2125dbddd2c39fd53ee26571411a39fbc2fe80f40052bad28b206b86779774eb",
+      "git_blob": "88dc49cdaef188b3498dbcc7de51240627060ff7"
+    }
+  ],
+  "scope": "Remote bytes verification only; board evidence remains A-reported"
+}

@@ -1,0 +1,27 @@
+{
+  "commit": "6c92f9a01bd0c6aed8b66aaef6346171e11210eb",
+  "files": [
+    {
+      "path": "competition/deepeye/simulator/ui/shell.gd",
+      "commit": "6c92f9a01bd0c6aed8b66aaef6346171e11210eb",
+      "sha256": "e25e049ac8f59dd809c35e0d0657de203daa336c45ea7eb7f6bd15547472e8bc",
+      "git_blob": "895751a6b48c05cf77694aa84588fbd845dc8fba",
+      "same_reviewed_d409_bytes": true
+    },
+    {
+      "path": "competition/deepeye/simulator/viewer/main.gd",
+      "commit": "6c92f9a01bd0c6aed8b66aaef6346171e11210eb",
+      "sha256": "95a4c73c90206229a731488f3bd52e56d36e2d29c5dee31189ebd54b6a462537",
+      "git_blob": "f3c6e4b30c513ea285bd47c7ba0e8b2f30c0c798",
+      "same_reviewed_d409_bytes": true
+    },
+    {
+      "path": "competition/deepeye/simulator/editor/scene_document.gd",
+      "commit": "6c92f9a01bd0c6aed8b66aaef6346171e11210eb",
+      "sha256": "407fd928cce69cd250b2705c71931a75e65c38a8d6c10846b118845bbb14f44a",
+      "git_blob": "b637ec781a97aa6e36884f1e587693425bf2a63a",
+      "same_reviewed_d409_bytes": true
+    }
+  ],
+  "partial_manifest_sha256": "1e0d2510dc829cee04049bb05b42acaf1cbd44502d47b93173fc0a1543fdfd22"
+}

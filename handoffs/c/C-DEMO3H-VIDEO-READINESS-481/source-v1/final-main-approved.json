@@ -1,0 +1,46 @@
+{
+  "utc": "2026-11-03T10:54:28.443553+00:00",
+  "task_id": "DEEPEYE-IMPLEMENTATION-20261014",
+  "task_version": 1,
+  "work_id": "C58-A98C-VIDEO-READINESS-20261103-v1",
+  "main_thread_id": "01a14025-4dfd-7ec3-aebb-57be48daba59",
+  "delivery_approved": true,
+  "scope": "Source review, published data identity and display-only candidate; not deployed",
+  "reviewer_thread": "01a1a0f8-170c-71a2-ac26-932c5f733a4d",
+  "readme_sha256": "e85f2799d26a116a223ea158f10fdf38090bbaa164812c76d07b3f2b185adc6d",
+  "patch_sha256": "1206645321d12d5b36f0720e6a774e64f7ab3fc9afcc597ecb30c7621435a8c5",
+  "reviewer_final_sha256": "793ea75de425015f191439fff521a7db8bf086aca332b642d5e59d6ec48762ef",
+  "reviewer_freeze_sha256": "1c2921f4a7cb6ac1d998fb49353adeb35657f36ab50f6d9097d7f84a34f08db9",
+  "original_tools_sha256": "68080aaf47b915e75889242e8fe1250226df3f01353492c707a82c8c291da224",
+  "closed_tool_calls": 17,
+  "completed_commands": 12,
+  "command_exits": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "actual_task_complete": [
+    {
+      "line": 153,
+      "timestamp": "2026-11-03T10:45:36.499Z"
+    }
+  ],
+  "audit_exit_code": 0,
+  "worker_initial_lookup_error": "Retained missing-path PowerShell errors despite aggregate exit0; corrected source lookup independently verified",
+  "product_execution": false,
+  "formal_acceptance": false,
+  "peer_sent": false,
+  "contract_id": "DEEPEYE-HUMAN-LOCK-20261014/revision1",
+  "contract_source": "f5989cd5defce561f9ba98e6b18fc2682945f0a2",
+  "requirements_sha256": "c229834bfc2292f5fe4411fc9f12c68487008f9d1adaf31f0144ee7a98173804",
+  "fixed_design": "1011259415a0916054eb580687612580bc1e5f09"
+}

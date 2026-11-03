@@ -1,0 +1,27 @@
+{
+  "utc": "2026-11-03T10:42:50.357405+00:00",
+  "scope": "Read-only source and retained remote JSON shape checks; no product or decoder execution",
+  "source_files_verified": 3,
+  "source_commits": [
+    "d4095b9abbf27fcfe7bb66a11e4f27da2cf72ee0",
+    "6c92f9a01bd0c6aed8b66aaef6346171e11210eb"
+  ],
+  "wire_characters": 292,
+  "wire_bytes": 146,
+  "truncated_characters_if_passed_verbatim": 132,
+  "frame_count": 4,
+  "source_payload_count": 3,
+  "actual_board_batch_elapsed_ns": 1607450232,
+  "A_reported_false": {
+    "actual_AI": false,
+    "actual_APPLY": false,
+    "actual_motion": false,
+    "whole_blue_red_crossing": false,
+    "successful_video": false
+  },
+  "A_evidence_tested_commit": "2f303122f9635ce874da04a61891036ba7d579d7",
+  "patch_changed_lines": 2,
+  "product_execution": false,
+  "decoder_execution": false,
+  "formal_acceptance": false
+}

@@ -1,0 +1,25 @@
+{
+  "baselines": [
+    "d4095b9abbf27fcfe7bb66a11e4f27da2cf72ee0",
+    "6c92f9a01bd0c6aed8b66aaef6346171e11210eb"
+  ],
+  "files": [
+    {
+      "path": "competition/deepeye/simulator/viewer/main.gd",
+      "original_sha256": "95a4c73c90206229a731488f3bd52e56d36e2d29c5dee31189ebd54b6a462537",
+      "candidate_sha256": "4b90d0c364b8daadde74373521f2a6b030a5cbd96cb096116707aa393e76e0af",
+      "original_bytes": 59224,
+      "candidate_bytes": 59230
+    },
+    {
+      "path": "competition/deepeye/simulator/ui/shell.gd",
+      "original_sha256": "e25e049ac8f59dd809c35e0d0657de203daa336c45ea7eb7f6bd15547472e8bc",
+      "candidate_sha256": "8b15429915ca24e810cf78c9d4439eeba843e44404a4b42a06ef0fba67fd12cd",
+      "original_bytes": 48135,
+      "candidate_bytes": 48143
+    }
+  ],
+  "scope": "Two display-only line changes: neutral camera log and explicit truncation marker. No numeric, data producer, authority, geometry, timing or success-rule change.",
+  "product_execution": "NOT_RUN",
+  "automatic_install": false
+}

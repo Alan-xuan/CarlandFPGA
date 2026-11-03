@@ -1,0 +1,22 @@
+--- a/competition/deepeye/simulator/viewer/main.gd
++++ b/competition/deepeye/simulator/viewer/main.gd
+@@ -409,7 +409,7 @@
+ 	_distance = maxf(.5,1.25*bounds.size.length()*.5/sin(minf(vertical,horizontal)))
+ 	_camera.near = .02
+ 	apply_camera()
+-	document.log_event("操作", "聚焦钻头（实际比例；仅相机，权威未连接）")
++	document.log_event("操作", "聚焦钻头（实际比例；仅相机，连接状态见右栏）")
+ 
+ # ---------------------------------------------------------------------------
+ # Picking (pure math, no physics bodies)
+--- a/competition/deepeye/simulator/ui/shell.gd
++++ b/competition/deepeye/simulator/ui/shell.gd
+@@ -579,7 +579,7 @@
+ 	var result := str(value)
+ 	if result.strip_edges().is_empty():
+ 		return "未知"
+-	return result.substr(0, 160) if result.length() > 160 else result
++	return result.substr(0, 157) + "..." if result.length() > 160 else result
+ 
+ # Snapshot schema is documented in the A290 handoff; missing fields clear.
+ func present_demo30h_status(status: Variant) -> bool:

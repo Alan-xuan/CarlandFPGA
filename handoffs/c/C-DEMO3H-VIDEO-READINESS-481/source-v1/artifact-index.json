@@ -1,0 +1,64 @@
+{
+  "files": [
+    {
+      "path": "A100-partial-verified.json",
+      "bytes": 1418,
+      "sha256": "e2e7028b1a3019e7d442704aca20647b111af148de9d2863c11faca7c1f2919d"
+    },
+    {
+      "path": "A100-source-pins.json",
+      "bytes": 1165,
+      "sha256": "38b61391c25232e60f02b482d8eaf87d9553327212e074662fcbc9e0e3195d2f"
+    },
+    {
+      "path": "display-candidate.json",
+      "bytes": 1044,
+      "sha256": "b5bbd5dfeab1ece63aaed91337610f6525174c6f19f33fa2624bbf8948d67623"
+    },
+    {
+      "path": "display-clarity.patch",
+      "bytes": 1039,
+      "sha256": "1206645321d12d5b36f0720e6a774e64f7ab3fc9afcc597ecb30c7621435a8c5"
+    },
+    {
+      "path": "final-main-approved.json",
+      "bytes": 1725,
+      "sha256": "c5b8e7dffd4c2f83f0ee8ab77f874fd38566ade7be175c94cb82f524d2f9d656"
+    },
+    {
+      "path": "independent-review/checks.json",
+      "bytes": 876,
+      "sha256": "4c265a29bb59da48bbea014cb77f566dba80afbdf8094ebf956b16e760a5a993"
+    },
+    {
+      "path": "independent-review/FINAL.json",
+      "bytes": 1149,
+      "sha256": "793ea75de425015f191439fff521a7db8bf086aca332b642d5e59d6ec48762ef"
+    },
+    {
+      "path": "independent-review/REVIEW.md",
+      "bytes": 6362,
+      "sha256": "8cc95f4cc4d8655c89c295b1f2fcd8246fbf05fb61d6441632538417f99bbc09"
+    },
+    {
+      "path": "readiness-checks.json",
+      "bytes": 888,
+      "sha256": "f5a9855a3c37463093f61a064c44045d59575d5d650d61691c2a56297770c6a0"
+    },
+    {
+      "path": "README.md",
+      "bytes": 8083,
+      "sha256": "e85f2799d26a116a223ea158f10fdf38090bbaa164812c76d07b3f2b185adc6d"
+    },
+    {
+      "path": "source-pins.json",
+      "bytes": 1108,
+      "sha256": "91f487640e710d62d0b1868f775a3b5b6c0fd2ff63d62fa985c1ed3fb7158ce5"
+    },
+    {
+      "path": "verify_delivery.py",
+      "bytes": 627,
+      "sha256": "f402abf5aa8352559c50bcb9a0baeb0e7e8540bedfa07dce39e86d5aafe179fd"
+    }
+  ]
+}

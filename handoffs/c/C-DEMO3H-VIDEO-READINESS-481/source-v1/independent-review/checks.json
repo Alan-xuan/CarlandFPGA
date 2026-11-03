@@ -1,0 +1,22 @@
+{
+  "result": "PASS_BOUNDED_SOURCE_AND_DOCUMENT_REVIEW",
+  "readme_sha256": "e85f2799d26a116a223ea158f10fdf38090bbaa164812c76d07b3f2b185adc6d",
+  "patch_sha256": "1206645321d12d5b36f0720e6a774e64f7ab3fc9afcc597ecb30c7621435a8c5",
+  "partial_manifest_sha256": "1e0d2510dc829cee04049bb05b42acaf1cbd44502d47b93173fc0a1543fdfd22",
+  "source_commit": "6c92f9a01bd0c6aed8b66aaef6346171e11210eb",
+  "actual_tested_commit": "2f303122f9635ce874da04a61891036ba7d579d7",
+  "original_wire_characters": 292,
+  "original_truncation_characters": 132,
+  "patch_changes": 2,
+  "partial_files_verified": 5,
+  "A_reported_false": {
+    "actual_AI": false,
+    "actual_APPLY": false,
+    "actual_motion": false,
+    "whole_blue_red_crossing": false,
+    "successful_video": false
+  },
+  "product_execution": false,
+  "decoder_execution": false,
+  "formal_acceptance": false
+}
